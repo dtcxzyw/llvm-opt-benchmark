@@ -3551,7 +3551,7 @@ define void @"_ZN80_$LT$syn..parse..ParseBuffer$u20$as$u20$syn..parse..discourag
   unreachable
 
 63:                                               ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.fca.0.extract.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.fca.0.extract.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !556
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !556
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %65 = load ptr, ptr %64, align 8, !noundef !11
@@ -4580,7 +4580,7 @@ define void @_ZN3syn5parse11ParseBuffer4fork17h99a05d2f0d2d086fE(ptr noalias nou
   resume { ptr, i32 } %15
 
 "_ZN5alloc2rc11Rc$LT$T$GT$3new17h081041f233ca159cE.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.fca.0.extract.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.fca.0.extract.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !639
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !639
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %5, ptr %18, align 8
@@ -4782,7 +4782,7 @@ _ZN3syn6buffer11TokenBuffer5begin17h35e228bd7d4bfb4cE.exit: ; preds = %10
   resume { ptr, i32 } %21
 
 "_ZN5alloc2rc11Rc$LT$T$GT$3new17h081041f233ca159cE.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.fca.0.extract.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.fca.0.extract.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !661
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !661
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %24, align 8, !alias.scope !664
@@ -4922,7 +4922,7 @@ common.resume:                                    ; preds = %.body, %361, %162, 
   resume { ptr, i32 } %common.resume.op
 
 _ZN3syn5parse11ParseBuffer4fork17h99a05d2f0d2d086fE.exit: ; preds = %.noexc.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.fca.0.extract.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.fca.0.extract.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false), !noalias !673
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25), !noalias !673
   %62 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store i32 %50, ptr %62, align 8, !alias.scope !670
@@ -5246,7 +5246,7 @@ _ZN3syn6buffer6Cursor6create17h6f60e92346255650E.llvm.1271834235494842624.exit.i
   unreachable
 
 _ZN3syn5parse11ParseBuffer4fork17h99a05d2f0d2d086fE.exit.i: ; preds = %.noexc.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.fca.0.extract.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.fca.0.extract.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !748
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !748
   %166 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 %154, ptr %166, align 8, !alias.scope !744, !noalias !728
@@ -6173,7 +6173,7 @@ common.resume:                                    ; preds = %1409, %1259, %103, 
   br label %.critedge826
 
 111:                                              ; preds = %.noexc.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.fca.0.extract.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %22, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.fca.0.extract.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %22, i64 32, i1 false), !noalias !941
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22), !noalias !941
   %112 = getelementptr inbounds nuw i8, ptr %92, i64 24
   store i32 %94, ptr %112, align 8, !alias.scope !938
@@ -10992,7 +10992,7 @@ define hidden void @_ZN3syn2ty7parsing17parse_bare_fn_arg17h702975dc6f16fa18E(pt
   br i1 %.2, label %.body.thread, label %common.resume
 
 49:                                               ; preds = %.noexc.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.fca.0.extract.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.fca.0.extract.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false), !noalias !1626
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19), !noalias !1626
   %50 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store i32 %34, ptr %50, align 8, !alias.scope !1623

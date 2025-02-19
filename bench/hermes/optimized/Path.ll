@@ -4728,7 +4728,6 @@ _ZN4llvhplERKNS_5TwineES2_.exit31:                ; preds = %_ZN4llvhplERKNS_5Tw
   %call.i = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %Storage.i) #29
   %6 = extractvalue { ptr, i64 } %call.i, 0
   %LHSKind.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
-  store i8 1, ptr %LHSKind.i.i, align 8
   %RHSKind.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 17
   store i8 1, ptr %RHSKind.i.i, align 1
   %7 = load i8, ptr %6, align 1

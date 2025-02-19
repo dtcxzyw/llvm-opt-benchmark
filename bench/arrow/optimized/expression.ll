@@ -19131,7 +19131,7 @@ _ZN5arrow5DatumC2EOS0_.exit.i.i:                  ; preds = %.sink.split.i.i.i.i
   %117 = landingpad { ptr, i32 }
           catch ptr null
   %118 = extractvalue { ptr, i32 } %117, 0
-  call void @__clang_call_terminate(ptr %118) #30
+  call void @__clang_call_terminate(ptr %118) #30, !noalias !604
   unreachable
 
 .body.i:                                          ; preds = %_ZN5arrow5DatumC2EOS0_.exit.i.i
@@ -19163,7 +19163,7 @@ _ZN5arrow7compute10ExpressionD2Ev.exit.i:         ; preds = %115
   %126 = landingpad { ptr, i32 }
           catch ptr null
   %127 = extractvalue { ptr, i32 } %126, 0
-  call void @__clang_call_terminate(ptr %127) #30
+  call void @__clang_call_terminate(ptr %127) #30, !noalias !604
   unreachable
 
 _ZN5arrow5DatumD2Ev.exit.i:                       ; preds = %_ZN5arrow7compute10ExpressionD2Ev.exit.i
@@ -19902,7 +19902,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %377, %37
   %404 = landingpad { ptr, i32 }
           catch ptr null
   %405 = extractvalue { ptr, i32 } %404, 0
-  call void @__clang_call_terminate(ptr %405) #30
+  call void @__clang_call_terminate(ptr %405) #30, !noalias !604
   unreachable
 
 _ZN5arrow5DatumaSEOS0_.exit.i:                    ; preds = %401
@@ -19915,7 +19915,7 @@ _ZN5arrow5DatumaSEOS0_.exit.i:                    ; preds = %401
   %407 = landingpad { ptr, i32 }
           catch ptr null
   %408 = extractvalue { ptr, i32 } %407, 0
-  call void @__clang_call_terminate(ptr %408) #30
+  call void @__clang_call_terminate(ptr %408) #30, !noalias !604
   unreachable
 
 _ZN5arrow5DatumD2Ev.exit107.i:                    ; preds = %_ZN5arrow5DatumaSEOS0_.exit.i
@@ -19963,7 +19963,7 @@ _ZN5arrow5DatumC2EOS0_.exit.i113.i:               ; preds = %.sink.split.i.i.i.i
   %421 = landingpad { ptr, i32 }
           catch ptr null
   %422 = extractvalue { ptr, i32 } %421, 0
-  call void @__clang_call_terminate(ptr %422) #30
+  call void @__clang_call_terminate(ptr %422) #30, !noalias !604
   unreachable
 
 .body114.i:                                       ; preds = %_ZN5arrow5DatumC2EOS0_.exit.i113.i
@@ -19997,7 +19997,7 @@ _ZN5arrow7compute10ExpressionD2Ev.exit121.i:      ; preds = %419
   %430 = landingpad { ptr, i32 }
           catch ptr null
   %431 = extractvalue { ptr, i32 } %430, 0
-  call void @__clang_call_terminate(ptr %431) #30
+  call void @__clang_call_terminate(ptr %431) #30, !noalias !604
   unreachable
 
 _ZN5arrow5DatumD2Ev.exit122.i:                    ; preds = %_ZN5arrow7compute10ExpressionD2Ev.exit121.i
@@ -41640,7 +41640,7 @@ _ZNK5arrow7compute10Expression7literalEv.exit.i.i.i: ; preds = %_ZSt6get_ifIN5ar
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #30
+  call void @__clang_call_terminate(ptr %40) #30, !noalias !1009
   unreachable
 
 common.resume.i.i:                                ; preds = %_ZNSt14_Optional_baseISt4pairIN5arrow8FieldRefENS1_5DatumEELb0ELb0EED2Ev.exit.i.i, %.body.i.i.i, %.body.i.i.i.i.i, %36
@@ -41831,7 +41831,7 @@ _ZNK5arrow7compute10Expression9field_refEv.exit27.i.i.i: ; preds = %_ZSt6get_ifI
   %109 = landingpad { ptr, i32 }
           catch ptr null
   %110 = extractvalue { ptr, i32 } %109, 0
-  call void @__clang_call_terminate(ptr %110) #30
+  call void @__clang_call_terminate(ptr %110) #30, !noalias !1009
   unreachable
 
 111:                                              ; preds = %_ZNK5arrow7compute10Expression9field_refEv.exit27.i.i.i
@@ -50987,7 +50987,7 @@ _ZNSt16allocator_traitsISaIN5arrow5DatumEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.e
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #30
+  call void @__clang_call_terminate(ptr %40) #30, !noalias !1217
   unreachable
 
 _ZSt19__relocate_object_aIN5arrow5DatumES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIN5arrow5DatumEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i.i.i
@@ -51036,7 +51036,7 @@ _ZNSt16allocator_traitsISaIN5arrow5DatumEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.e
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #30
+  call void @__clang_call_terminate(ptr %53) #30, !noalias !1224
   unreachable
 
 _ZSt19__relocate_object_aIN5arrow5DatumES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i33: ; preds = %_ZNSt16allocator_traitsISaIN5arrow5DatumEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i.i.i32
@@ -59751,7 +59751,7 @@ _ZNSt16allocator_traitsISaIN5arrow5DatumEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.e
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #30
+  call void @__clang_call_terminate(ptr %33) #30, !noalias !1457
   unreachable
 
 _ZSt19__relocate_object_aIN5arrow5DatumES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIN5arrow5DatumEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i.i.i
@@ -59800,7 +59800,7 @@ _ZNSt16allocator_traitsISaIN5arrow5DatumEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.e
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #30
+  call void @__clang_call_terminate(ptr %46) #30, !noalias !1463
   unreachable
 
 _ZSt19__relocate_object_aIN5arrow5DatumES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i33: ; preds = %_ZNSt16allocator_traitsISaIN5arrow5DatumEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i.i.i32
@@ -59935,7 +59935,7 @@ _ZNSt16allocator_traitsISaIN5arrow5DatumEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.e
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #30
+  call void @__clang_call_terminate(ptr %38) #30, !noalias !1469
   unreachable
 
 _ZSt19__relocate_object_aIN5arrow5DatumES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIN5arrow5DatumEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i.i.i
@@ -59984,7 +59984,7 @@ _ZNSt16allocator_traitsISaIN5arrow5DatumEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.e
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #30
+  call void @__clang_call_terminate(ptr %51) #30, !noalias !1475
   unreachable
 
 _ZSt19__relocate_object_aIN5arrow5DatumES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i33: ; preds = %_ZNSt16allocator_traitsISaIN5arrow5DatumEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i.i.i32
@@ -70137,7 +70137,7 @@ _ZN5arrow7compute22ScalarAggregateOptions8DefaultsEv.exit.i.i: ; preds = %180
   %214 = landingpad { ptr, i32 }
           catch ptr null
   %215 = extractvalue { ptr, i32 } %214, 0
-  call void @__clang_call_terminate(ptr %215) #30
+  call void @__clang_call_terminate(ptr %215) #30, !noalias !1608
   unreachable
 
 _ZN5arrow5DatumD2Ev.exit.i.i:                     ; preds = %212
@@ -70156,7 +70156,7 @@ _ZN5arrow5DatumD2Ev.exit.i.i:                     ; preds = %212
   %220 = landingpad { ptr, i32 }
           catch ptr null
   %221 = extractvalue { ptr, i32 } %220, 0
-  call void @__clang_call_terminate(ptr %221) #30
+  call void @__clang_call_terminate(ptr %221) #30, !noalias !1608
   unreachable
 
 _ZN5arrow6ResultINS_5DatumEE7DestroyEv.exit.i.i.i: ; preds = %218
@@ -70187,7 +70187,7 @@ _ZN5arrow6ResultINS_5DatumEED2Ev.exit.i.i:        ; preds = %226, %_ZN5arrow6Res
   %228 = landingpad { ptr, i32 }
           catch ptr null
   %229 = extractvalue { ptr, i32 } %228, 0
-  call void @__clang_call_terminate(ptr %229) #30
+  call void @__clang_call_terminate(ptr %229) #30, !noalias !1608
   unreachable
 
 _ZN5arrow5DatumD2Ev.exit103.i.i:                  ; preds = %_ZN5arrow6ResultINS_5DatumEED2Ev.exit.i.i
@@ -70207,7 +70207,7 @@ _ZN5arrow5DatumD2Ev.exit103.i.i:                  ; preds = %_ZN5arrow6ResultINS
   %235 = landingpad { ptr, i32 }
           catch ptr null
   %236 = extractvalue { ptr, i32 } %235, 0
-  call void @__clang_call_terminate(ptr %236) #30
+  call void @__clang_call_terminate(ptr %236) #30, !noalias !1608
   unreachable
 
 _ZN5arrow6ResultINS_5DatumEE7DestroyEv.exit.i105.i.i: ; preds = %232
@@ -70382,7 +70382,7 @@ _ZNSt12_Vector_baseIN5arrow5DatumESaIS1_EE11_M_allocateEm.exit.i.i.i.i: ; preds 
   %282 = landingpad { ptr, i32 }
           catch ptr null
   %283 = extractvalue { ptr, i32 } %282, 0
-  call void @__clang_call_terminate(ptr %283) #30
+  call void @__clang_call_terminate(ptr %283) #30, !noalias !1608
   unreachable
 
 _ZN5arrow5DatumD2Ev.exit114.i.i:                  ; preds = %278
@@ -70892,7 +70892,7 @@ _ZN5arrow6ResultINS_7compute10ExpressionEED2Ev.exit.i.i: ; preds = %483, %_ZN5ar
   %487 = landingpad { ptr, i32 }
           catch ptr null
   %488 = extractvalue { ptr, i32 } %487, 0
-  call void @__clang_call_terminate(ptr %488) #30
+  call void @__clang_call_terminate(ptr %488) #30, !noalias !1608
   unreachable
 
 _ZN5arrow5DatumD2Ev.exit141.i.i:                  ; preds = %485
@@ -70923,7 +70923,7 @@ _ZN5arrow5DatumD2Ev.exit141.i.i:                  ; preds = %485
   %496 = landingpad { ptr, i32 }
           catch ptr null
   %497 = extractvalue { ptr, i32 } %496, 0
-  call void @__clang_call_terminate(ptr %497) #30
+  call void @__clang_call_terminate(ptr %497) #30, !noalias !1608
   unreachable
 
 _ZN5arrow6ResultINS_5DatumEE7DestroyEv.exit.i143.i.i: ; preds = %493
@@ -70956,7 +70956,7 @@ _ZN5arrow6ResultINS_5DatumEED2Ev.exit146.i.i:     ; preds = %503, %_ZN5arrow6Res
   %505 = landingpad { ptr, i32 }
           catch ptr null
   %506 = extractvalue { ptr, i32 } %505, 0
-  call void @__clang_call_terminate(ptr %506) #30
+  call void @__clang_call_terminate(ptr %506) #30, !noalias !1608
   unreachable
 
 _ZN5arrow5DatumD2Ev.exit147.i.i:                  ; preds = %_ZN5arrow6ResultINS_5DatumEED2Ev.exit146.i.i
@@ -70988,7 +70988,7 @@ _ZN5arrow5DatumD2Ev.exit147.i.i:                  ; preds = %_ZN5arrow6ResultINS
   %514 = landingpad { ptr, i32 }
           catch ptr null
   %515 = extractvalue { ptr, i32 } %514, 0
-  call void @__clang_call_terminate(ptr %515) #30
+  call void @__clang_call_terminate(ptr %515) #30, !noalias !1608
   unreachable
 
 _ZN5arrow6ResultINS_5DatumEE7DestroyEv.exit.i149.i.i: ; preds = %511
@@ -71027,7 +71027,7 @@ _ZN5arrow6ResultINS_5DatumEED2Ev.exit152.i.i:     ; preds = %521, %_ZN5arrow6Res
   %525 = landingpad { ptr, i32 }
           catch ptr null
   %526 = extractvalue { ptr, i32 } %525, 0
-  call void @__clang_call_terminate(ptr %526) #30
+  call void @__clang_call_terminate(ptr %526) #30, !noalias !1608
   unreachable
 
 _ZSt8_DestroyIN5arrow5DatumEEvPT_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i

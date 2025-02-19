@@ -3184,7 +3184,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds 
 
 ._crit_edge.i:                                    ; preds = %33
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 24
-  %.sroa.0.0.copyload.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
+  %.sroa.0.0.copyload.pre.i = load i32, ptr %.phi.trans.insert.i, align 8, !noalias !27
   br label %67
 
 35:                                               ; preds = %33
@@ -3252,7 +3252,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Sdf_PathNodePrivateAccess3NewINS_24Sdf_PrimPropertyPathNodeENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EEEJNS_7TfTokenEEEENT0_6HandleEPKNS_12Sdf_PathNodeEDpRKT1_.exit.i: ; preds = %61, %56, %.noexc.i
   %66 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 24
-  store i32 %40, ptr %66, align 4
+  store i32 %40, ptr %66, align 4, !noalias !27
   br label %67
 
 67:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Sdf_PathNodePrivateAccess3NewINS_24Sdf_PrimPropertyPathNodeENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EEEJNS_7TfTokenEEEENT0_6HandleEPKNS_12Sdf_PathNodeEDpRKT1_.exit.i, %._crit_edge.i
@@ -4271,7 +4271,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds 
 
 ._crit_edge.i:                                    ; preds = %41
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 24
-  %.sroa.0.0.copyload.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
+  %.sroa.0.0.copyload.pre.i = load i32, ptr %.phi.trans.insert.i, align 8, !noalias !41
   br label %91
 
 43:                                               ; preds = %41
@@ -4363,7 +4363,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__20Sdf_PropPartPathNodeCI2NS_12Sdf_PathNodeE
   %89 = load i32, ptr %9, align 4, !noalias !41
   store i32 %89, ptr %88, align 4, !noalias !41
   %90 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 24
-  store i32 %48, ptr %90, align 4
+  store i32 %48, ptr %90, align 4, !noalias !41
   br label %91
 
 91:                                               ; preds = %87, %._crit_edge.i
@@ -4602,7 +4602,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds 
 
 ._crit_edge.i:                                    ; preds = %35
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 24
-  %.sroa.0.0.copyload.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
+  %.sroa.0.0.copyload.pre.i = load i32, ptr %.phi.trans.insert.i, align 8, !noalias !45
   br label %81
 
 37:                                               ; preds = %35
@@ -4694,7 +4694,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__20Sdf_PropPartPathNodeCI2NS_12Sdf_PathNodeE
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Sdf_PathNodePrivateAccess3NewINS_31Sdf_RelationalAttributePathNodeENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EEEJNS_7TfTokenEEEENT0_6HandleEPKNS_12Sdf_PathNodeEDpRKT1_.exit.i: ; preds = %75, %70, %_ZN32pxrInternal_v0_24__pxrReserved__20Sdf_PropPartPathNodeCI2NS_12Sdf_PathNodeEEPKNS_12Sdf_PathNodeENS1_8NodeTypeE.exit.i.i.i
   %80 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 24
-  store i32 %42, ptr %80, align 4
+  store i32 %42, ptr %80, align 4, !noalias !45
   br label %81
 
 81:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Sdf_PathNodePrivateAccess3NewINS_31Sdf_RelationalAttributePathNodeENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EEEJNS_7TfTokenEEEENT0_6HandleEPKNS_12Sdf_PathNodeEDpRKT1_.exit.i, %._crit_edge.i
@@ -4922,7 +4922,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds 
 
 ._crit_edge.i:                                    ; preds = %41
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 24
-  %.sroa.0.0.copyload.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
+  %.sroa.0.0.copyload.pre.i = load i32, ptr %.phi.trans.insert.i, align 8, !noalias !48
   br label %91
 
 43:                                               ; preds = %41
@@ -5014,7 +5014,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__20Sdf_PropPartPathNodeCI2NS_12Sdf_PathNodeE
   %89 = load i32, ptr %9, align 4, !noalias !48
   store i32 %89, ptr %88, align 4, !noalias !48
   %90 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 24
-  store i32 %48, ptr %90, align 4
+  store i32 %48, ptr %90, align 4, !noalias !48
   br label %91
 
 91:                                               ; preds = %87, %._crit_edge.i
@@ -5253,7 +5253,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds 
 
 ._crit_edge.i:                                    ; preds = %35
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 24
-  %.sroa.0.0.copyload.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
+  %.sroa.0.0.copyload.pre.i = load i32, ptr %.phi.trans.insert.i, align 8, !noalias !51
   br label %81
 
 37:                                               ; preds = %35
@@ -5345,7 +5345,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__20Sdf_PropPartPathNodeCI2NS_12Sdf_PathNodeE
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Sdf_PathNodePrivateAccess3NewINS_21Sdf_MapperArgPathNodeENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EEEJNS_7TfTokenEEEENT0_6HandleEPKNS_12Sdf_PathNodeEDpRKT1_.exit.i: ; preds = %75, %70, %_ZN32pxrInternal_v0_24__pxrReserved__20Sdf_PropPartPathNodeCI2NS_12Sdf_PathNodeEEPKNS_12Sdf_PathNodeENS1_8NodeTypeE.exit.i.i.i
   %80 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 24
-  store i32 %42, ptr %80, align 4
+  store i32 %42, ptr %80, align 4, !noalias !51
   br label %81
 
 81:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Sdf_PathNodePrivateAccess3NewINS_21Sdf_MapperArgPathNodeENS_8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EEEJNS_7TfTokenEEEENT0_6HandleEPKNS_12Sdf_PathNodeEDpRKT1_.exit.i, %._crit_edge.i
@@ -7116,11 +7116,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIPKN32pxrInternal_v0_24__pxrReserved__12Sd
 404:                                              ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeENS3_12_GLOBAL__N_117_PropToTokenTableENS0_2d116tbb_hash_compareIS6_EENS9_13tbb_allocatorISt4pairIKS6_S8_EEEE8accessorD2Ev.exit
   %405 = load i32, ptr %23, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4_EndEiPNS0_11_ThreadDataE(i32 noundef %405, ptr noundef nonnull %403)
-          to label %.noexc.i unwind label %406
-
-.noexc.i:                                         ; preds = %404
-  store ptr null, ptr %7, align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoD2Ev.exit
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoD2Ev.exit unwind label %406
 
 406:                                              ; preds = %404
   %407 = landingpad { ptr, i32 }
@@ -7129,7 +7125,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIPKN32pxrInternal_v0_24__pxrReserved__12Sd
   call void @__clang_call_terminate(ptr %408) #30
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoD2Ev.exit: ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeENS3_12_GLOBAL__N_117_PropToTokenTableENS0_2d116tbb_hash_compareIS6_EENS9_13tbb_allocatorISt4pairIKS6_S8_EEEE8accessorD2Ev.exit, %.noexc.i
+_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoD2Ev.exit: ; preds = %404, %_ZN3tbb6detail2d219concurrent_hash_mapIPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeENS3_12_GLOBAL__N_117_PropToTokenTableENS0_2d116tbb_hash_compareIS6_EENS9_13tbb_allocatorISt4pairIKS6_S8_EEEE8accessorD2Ev.exit
   %409 = load ptr, ptr %6, align 8
   %.not.i.i70 = icmp eq ptr %409, null
   br i1 %.not.i.i70, label %_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoD2Ev.exit72, label %410

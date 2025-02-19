@@ -2677,7 +2677,7 @@ _ZNSt8functionIFvRN3nix6SourceEEEC2ERKS4_.exit.thread.i: ; preds = %2
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #40
+  call void @__clang_call_terminate(ptr %19) #40, !noalias !16
   unreachable
 
 _ZNSt8functionIFvRN3nix6SourceEEEC2ERKS4_.exit.i: ; preds = %10
@@ -2713,7 +2713,7 @@ _ZNSt8functionIFvRN3nix6SourceEEEC2ERKS4_.exit.i: ; preds = %10
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #40
+  call void @__clang_call_terminate(ptr %35) #40, !noalias !16
   unreachable
 
 thread-pre-split.thread.i:                        ; preds = %_ZNSt8functionIFvRN3nix6SourceEEEC2ERKS4_.exit.i, %_ZNSt8functionIFvRN3nix6SourceEEEC2ERKS4_.exit.thread.i
@@ -2743,7 +2743,7 @@ thread-pre-split.i:                               ; preds = %26
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #40
+  call void @__clang_call_terminate(ptr %46) #40, !noalias !16
   unreachable
 
 .body5.i:                                         ; preds = %31, %28
@@ -2759,7 +2759,7 @@ thread-pre-split.i:                               ; preds = %26
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #40
+  call void @__clang_call_terminate(ptr %52) #40, !noalias !16
   unreachable
 
 .body.i:                                          ; preds = %48, %.body5.i, %15, %12
@@ -2816,7 +2816,7 @@ define void @_ZN3nix12sinkToSourceESt8functionIFvRNS_4SinkEEES0_IFvvEE(ptr dead_
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #40
+  call void @__clang_call_terminate(ptr %25) #40, !noalias !19
   unreachable
 
 _ZNSt8functionIFvRN3nix4SinkEEEC2ERKS4_.exit.i:   ; preds = %14, %3
@@ -2857,7 +2857,7 @@ _ZNSt8functionIFvRN3nix4SinkEEEC2ERKS4_.exit.i:   ; preds = %14, %3
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #40
+  call void @__clang_call_terminate(ptr %44) #40, !noalias !19
   unreachable
 
 _ZNSt8functionIFvvEEC2ERKS1_.exit.i:              ; preds = %33, %_ZNSt8functionIFvRN3nix4SinkEEEC2ERKS4_.exit.i
@@ -2898,7 +2898,7 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i:              ; preds = %33, %_ZNSt8function
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #40
+  call void @__clang_call_terminate(ptr %62) #40, !noalias !19
   unreachable
 
 _ZNSt8functionIFvRN3nix4SinkEEEC2ERKS4_.exit.i.i: ; preds = %52, %_ZNSt8functionIFvvEEC2ERKS1_.exit.i
@@ -2936,7 +2936,7 @@ _ZNSt8functionIFvRN3nix4SinkEEEC2ERKS4_.exit.i.i: ; preds = %52, %_ZNSt8function
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #40
+  call void @__clang_call_terminate(ptr %79) #40, !noalias !19
   unreachable
 
 .body7.i.i:                                       ; preds = %75, %72
@@ -2952,7 +2952,7 @@ _ZNSt8functionIFvRN3nix4SinkEEEC2ERKS4_.exit.i.i: ; preds = %52, %_ZNSt8function
   %84 = landingpad { ptr, i32 }
           catch ptr null
   %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #40
+  call void @__clang_call_terminate(ptr %85) #40, !noalias !19
   unreachable
 
 86:                                               ; preds = %69, %_ZNSt8functionIFvRN3nix4SinkEEEC2ERKS4_.exit.i.i
@@ -2984,7 +2984,7 @@ _ZNSt8functionIFvRN3nix4SinkEEEC2ERKS4_.exit.i.i: ; preds = %52, %_ZNSt8function
   %97 = landingpad { ptr, i32 }
           catch ptr null
   %98 = extractvalue { ptr, i32 } %97, 0
-  call void @__clang_call_terminate(ptr %98) #40
+  call void @__clang_call_terminate(ptr %98) #40, !noalias !19
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit.i:                  ; preds = %94, %86
@@ -3000,7 +3000,7 @@ _ZNSt8functionIFvvEED2Ev.exit.i:                  ; preds = %94, %86
   %103 = landingpad { ptr, i32 }
           catch ptr null
   %104 = extractvalue { ptr, i32 } %103, 0
-  call void @__clang_call_terminate(ptr %104) #40
+  call void @__clang_call_terminate(ptr %104) #40, !noalias !19
   unreachable
 
 .body13.i:                                        ; preds = %81, %.body7.i.i, %58, %55
@@ -3017,7 +3017,7 @@ _ZNSt8functionIFvvEED2Ev.exit.i:                  ; preds = %94, %86
   %109 = landingpad { ptr, i32 }
           catch ptr null
   %110 = extractvalue { ptr, i32 } %109, 0
-  call void @__clang_call_terminate(ptr %110) #40
+  call void @__clang_call_terminate(ptr %110) #40, !noalias !19
   unreachable
 
 .body11.i:                                        ; preds = %106, %.body13.i, %40, %37
@@ -3034,7 +3034,7 @@ _ZNSt8functionIFvvEED2Ev.exit.i:                  ; preds = %94, %86
   %115 = landingpad { ptr, i32 }
           catch ptr null
   %116 = extractvalue { ptr, i32 } %115, 0
-  call void @__clang_call_terminate(ptr %116) #40
+  call void @__clang_call_terminate(ptr %116) #40, !noalias !19
   unreachable
 
 .body.i:                                          ; preds = %112, %.body11.i, %21, %18
@@ -16932,7 +16932,7 @@ define internal void @_ZN5boost7context6detail11fiber_entryINS1_12fiber_recordIN
   %7 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %8 = alloca %"class.boost::context::fiber", align 8
   %9 = invoke { ptr, ptr } @jump_fcontext(ptr noundef %0, ptr noundef null)
-          to label %10 unwind label %107
+          to label %10 unwind label %100
 
 10:                                               ; preds = %2
   %11 = extractvalue { ptr, ptr } %9, 0
@@ -16976,7 +16976,7 @@ define internal void @_ZN5boost7context6detail11fiber_entryINS1_12fiber_recordIN
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #40
+  call void @__clang_call_terminate(ptr %29) #40, !noalias !67
   unreachable
 
 _ZN5boost7context5fiberD2Ev.exit.i.i.i.i.i:       ; preds = %25, %21
@@ -17033,7 +17033,7 @@ _ZNKSt8functionIFvRN3nix6SourceEEEclES2_.exit.i.i.i.i.i.i: ; preds = %42
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #40
+  call void @__clang_call_terminate(ptr %51) #40, !noalias !67
   unreachable
 
 _ZNSt8functionIFmPcmEED2Ev.exit9.i.i.i.i.i.i:     ; preds = %42, %41
@@ -17059,14 +17059,14 @@ _ZZZN3nix12sourceToSinkESt8functionIFvRNS_6SourceEEEEN12SourceToSinkclESt17basic
   br label %92
 
 59:                                               ; preds = %_ZNSt8functionIFmPcmEED2Ev.exit9.i.i.i.i.i.i
-  %60 = call ptr @__cxa_begin_catch(ptr %53) #36
+  %60 = call ptr @__cxa_begin_catch(ptr %53) #36, !noalias !67
   invoke void @__cxa_rethrow() #39
           to label %98 unwind label %73, !noalias !67
 
 61:                                               ; preds = %_ZNSt8functionIFmPcmEED2Ev.exit9.i.i.i.i.i.i
   %62 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #36
   %63 = icmp eq i32 %54, %62
-  %64 = call ptr @__cxa_begin_catch(ptr %53) #36
+  %64 = call ptr @__cxa_begin_catch(ptr %53) #36, !noalias !67
   br i1 %63, label %65, label %66
 
 65:                                               ; preds = %61
@@ -17149,18 +17149,18 @@ _ZN5boost11coroutines26detail14pull_coroutineIbED2Ev.exit.i.i.i.i.i: ; preds = %
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i.i: ; preds = %85, %_ZN5boost11coroutines26detail14pull_coroutineIbED2Ev.exit.i.i.i.i.i
   %86 = load ptr, ptr %5, align 8, !noalias !67
   %.not.i1.i.i.i.i.i.i = icmp eq ptr %86, null
-  br i1 %.not.i1.i.i.i.i.i.i, label %99, label %87
+  br i1 %.not.i1.i.i.i.i.i.i, label %_ZN5boost7context6detail12fiber_recordINS0_5fiberEN3nix21VirtualStackAllocatorEZNS_11coroutines26detail14push_coroutineIbE13control_blockC1IS5_ZZNS4_12sourceToSinkESt8functionIFvRNS4_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEEUlRNS7_14pull_coroutineIbEEE_EENS0_12preallocatedEOT_OT0_EUlOS3_E_E3runEPv.exit, label %87
 
 87:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i.i
   store ptr null, ptr %5, align 8, !noalias !67
   %88 = invoke { ptr, ptr } @ontop_fcontext(ptr noundef nonnull %86, ptr noundef null, ptr noundef nonnull @_ZN5boost7context6detail12fiber_unwindENS1_10transfer_tE)
-          to label %99 unwind label %89, !noalias !67
+          to label %_ZN5boost7context6detail12fiber_recordINS0_5fiberEN3nix21VirtualStackAllocatorEZNS_11coroutines26detail14push_coroutineIbE13control_blockC1IS5_ZZNS4_12sourceToSinkESt8functionIFvRNS4_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEEUlRNS7_14pull_coroutineIbEEE_EENS0_12preallocatedEOT_OT0_EUlOS3_E_E3runEPv.exit unwind label %89, !noalias !67
 
 89:                                               ; preds = %87
   %90 = landingpad { ptr, i32 }
           catch ptr null
   %91 = extractvalue { ptr, i32 } %90, 0
-  call void @__clang_call_terminate(ptr %91) #40
+  call void @__clang_call_terminate(ptr %91) #40, !noalias !67
   unreachable
 
 92:                                               ; preds = %73, %71, %57
@@ -17182,74 +17182,57 @@ _ZN5boost11coroutines26detail14pull_coroutineIbED2Ev.exit17.i.i.i.i.i: ; preds =
   %96 = landingpad { ptr, i32 }
           catch ptr null
   %97 = extractvalue { ptr, i32 } %96, 0
-  call void @__clang_call_terminate(ptr %97) #40
+  call void @__clang_call_terminate(ptr %97) #40, !noalias !67
   unreachable
 
 98:                                               ; preds = %65, %59
   unreachable
 
-99:                                               ; preds = %87, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i.i
+_ZN5boost7context6detail12fiber_recordINS0_5fiberEN3nix21VirtualStackAllocatorEZNS_11coroutines26detail14push_coroutineIbE13control_blockC1IS5_ZZNS4_12sourceToSinkESt8functionIFvRNS4_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEEUlRNS7_14pull_coroutineIbEEE_EENS0_12preallocatedEOT_OT0_EUlOS3_E_E3runEPv.exit: ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i.i, %87
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !60
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !60
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !60
-  %100 = load ptr, ptr %8, align 8
-  %.not.i.i = icmp eq ptr %100, null
-  br i1 %.not.i.i, label %_ZN5boost7context6detail12fiber_recordINS0_5fiberEN3nix21VirtualStackAllocatorEZNS_11coroutines26detail14push_coroutineIbE13control_blockC1IS5_ZZNS4_12sourceToSinkESt8functionIFvRNS4_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEEUlRNS7_14pull_coroutineIbEEE_EENS0_12preallocatedEOT_OT0_EUlOS3_E_E3runEPv.exit, label %101
-
-101:                                              ; preds = %99
-  store ptr null, ptr %8, align 8
-  %102 = invoke { ptr, ptr } @ontop_fcontext(ptr noundef nonnull %100, ptr noundef null, ptr noundef nonnull @_ZN5boost7context6detail12fiber_unwindENS1_10transfer_tE)
-          to label %_ZN5boost7context6detail12fiber_recordINS0_5fiberEN3nix21VirtualStackAllocatorEZNS_11coroutines26detail14push_coroutineIbE13control_blockC1IS5_ZZNS4_12sourceToSinkESt8functionIFvRNS4_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEEUlRNS7_14pull_coroutineIbEEE_EENS0_12preallocatedEOT_OT0_EUlOS3_E_E3runEPv.exit unwind label %103
-
-103:                                              ; preds = %101
-  %104 = landingpad { ptr, i32 }
-          catch ptr null
-  %105 = extractvalue { ptr, i32 } %104, 0
-  call void @__clang_call_terminate(ptr %105) #40
-  unreachable
-
-_ZN5boost7context6detail12fiber_recordINS0_5fiberEN3nix21VirtualStackAllocatorEZNS_11coroutines26detail14push_coroutineIbE13control_blockC1IS5_ZZNS4_12sourceToSinkESt8functionIFvRNS4_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEEUlRNS7_14pull_coroutineIbEEE_EENS0_12preallocatedEOT_OT0_EUlOS3_E_E3runEPv.exit: ; preds = %99, %101
-  %106 = extractvalue { ptr, ptr } %80, 0
+  %99 = extractvalue { ptr, ptr } %80, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  br label %116
+  br label %109
 
-107:                                              ; preds = %2
-  %108 = landingpad { ptr, i32 }
+100:                                              ; preds = %2
+  %101 = landingpad { ptr, i32 }
           catch ptr @_ZTIN5boost7context6detail13forced_unwindE
           catch ptr null
   br label %.body
 
-.body:                                            ; preds = %_ZN5boost11coroutines26detail14pull_coroutineIbED2Ev.exit17.i.i.i.i.i, %107
-  %eh.lpad-body = phi { ptr, i32 } [ %108, %107 ], [ %.pn.i.i.i.i.i, %_ZN5boost11coroutines26detail14pull_coroutineIbED2Ev.exit17.i.i.i.i.i ]
-  %109 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %110 = extractvalue { ptr, i32 } %eh.lpad-body, 1
-  %111 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5boost7context6detail13forced_unwindE) #36
-  %112 = icmp eq i32 %110, %111
-  br i1 %112, label %113, label %122
+.body:                                            ; preds = %_ZN5boost11coroutines26detail14pull_coroutineIbED2Ev.exit17.i.i.i.i.i, %100
+  %eh.lpad-body = phi { ptr, i32 } [ %101, %100 ], [ %.pn.i.i.i.i.i, %_ZN5boost11coroutines26detail14pull_coroutineIbED2Ev.exit17.i.i.i.i.i ]
+  %102 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  %103 = extractvalue { ptr, i32 } %eh.lpad-body, 1
+  %104 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5boost7context6detail13forced_unwindE) #36
+  %105 = icmp eq i32 %103, %104
+  br i1 %105, label %106, label %115
 
-113:                                              ; preds = %.body
-  %114 = call ptr @__cxa_begin_catch(ptr %109) #36
-  %115 = load ptr, ptr %114, align 8
+106:                                              ; preds = %.body
+  %107 = call ptr @__cxa_begin_catch(ptr %102) #36
+  %108 = load ptr, ptr %107, align 8
   invoke void @__cxa_end_catch()
-          to label %116 unwind label %119
+          to label %109 unwind label %112
 
-116:                                              ; preds = %_ZN5boost7context6detail12fiber_recordINS0_5fiberEN3nix21VirtualStackAllocatorEZNS_11coroutines26detail14push_coroutineIbE13control_blockC1IS5_ZZNS4_12sourceToSinkESt8functionIFvRNS4_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEEUlRNS7_14pull_coroutineIbEEE_EENS0_12preallocatedEOT_OT0_EUlOS3_E_E3runEPv.exit, %113
-  %.sroa.08.0 = phi ptr [ %115, %113 ], [ %106, %_ZN5boost7context6detail12fiber_recordINS0_5fiberEN3nix21VirtualStackAllocatorEZNS_11coroutines26detail14push_coroutineIbE13control_blockC1IS5_ZZNS4_12sourceToSinkESt8functionIFvRNS4_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEEUlRNS7_14pull_coroutineIbEEE_EENS0_12preallocatedEOT_OT0_EUlOS3_E_E3runEPv.exit ]
-  %117 = invoke { ptr, ptr } @ontop_fcontext(ptr noundef %.sroa.08.0, ptr noundef %1, ptr noundef nonnull @_ZN5boost7context6detail10fiber_exitINS1_12fiber_recordINS0_5fiberEN3nix21VirtualStackAllocatorEZNS_11coroutines26detail14push_coroutineIbE13control_blockC1IS6_ZZNS5_12sourceToSinkESt8functionIFvRNS5_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEEUlRNS8_14pull_coroutineIbEEE_EENS0_12preallocatedEOT_OT0_EUlOS4_E_EEEENS1_10transfer_tESZ_)
-          to label %118 unwind label %119
+109:                                              ; preds = %_ZN5boost7context6detail12fiber_recordINS0_5fiberEN3nix21VirtualStackAllocatorEZNS_11coroutines26detail14push_coroutineIbE13control_blockC1IS5_ZZNS4_12sourceToSinkESt8functionIFvRNS4_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEEUlRNS7_14pull_coroutineIbEEE_EENS0_12preallocatedEOT_OT0_EUlOS3_E_E3runEPv.exit, %106
+  %.sroa.08.0 = phi ptr [ %108, %106 ], [ %99, %_ZN5boost7context6detail12fiber_recordINS0_5fiberEN3nix21VirtualStackAllocatorEZNS_11coroutines26detail14push_coroutineIbE13control_blockC1IS5_ZZNS4_12sourceToSinkESt8functionIFvRNS4_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEEUlRNS7_14pull_coroutineIbEEE_EENS0_12preallocatedEOT_OT0_EUlOS3_E_E3runEPv.exit ]
+  %110 = invoke { ptr, ptr } @ontop_fcontext(ptr noundef %.sroa.08.0, ptr noundef %1, ptr noundef nonnull @_ZN5boost7context6detail10fiber_exitINS1_12fiber_recordINS0_5fiberEN3nix21VirtualStackAllocatorEZNS_11coroutines26detail14push_coroutineIbE13control_blockC1IS6_ZZNS5_12sourceToSinkESt8functionIFvRNS5_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEEUlRNS8_14pull_coroutineIbEEE_EENS0_12preallocatedEOT_OT0_EUlOS4_E_EEEENS1_10transfer_tESZ_)
+          to label %111 unwind label %112
 
-118:                                              ; preds = %116
+111:                                              ; preds = %109
   ret void
 
-119:                                              ; preds = %116, %113
-  %120 = landingpad { ptr, i32 }
+112:                                              ; preds = %109, %106
+  %113 = landingpad { ptr, i32 }
           catch ptr null
-  %121 = extractvalue { ptr, i32 } %120, 0
-  call void @__clang_call_terminate(ptr %121) #40
+  %114 = extractvalue { ptr, i32 } %113, 0
+  call void @__clang_call_terminate(ptr %114) #40
   unreachable
 
-122:                                              ; preds = %.body
-  call void @__clang_call_terminate(ptr %109) #40
+115:                                              ; preds = %.body
+  call void @__clang_call_terminate(ptr %102) #40
   unreachable
 }
 
@@ -18393,7 +18376,7 @@ define internal void @_ZN5boost7context6detail11fiber_entryINS1_12fiber_recordIN
   %7 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %8 = alloca %"class.boost::context::fiber", align 8
   %9 = invoke { ptr, ptr } @jump_fcontext(ptr noundef %0, ptr noundef null)
-          to label %10 unwind label %99
+          to label %10 unwind label %92
 
 10:                                               ; preds = %2
   %11 = extractvalue { ptr, ptr } %9, 0
@@ -18468,7 +18451,7 @@ _ZNKSt8functionIFvRN3nix4SinkEEEclES2_.exit.i.i.i.i.i.i: ; preds = %34
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #40
+  call void @__clang_call_terminate(ptr %43) #40, !noalias !95
   unreachable
 
 _ZNSt8functionIFvSt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit9.i.i.i.i.i.i: ; preds = %34, %33
@@ -18488,14 +18471,14 @@ _ZZZN3nix12sinkToSourceESt8functionIFvRNS_4SinkEEES0_IFvvEEEN12SinkToSource4read
   br label %67
 
 49:                                               ; preds = %_ZNSt8functionIFvSt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit9.i.i.i.i.i.i
-  %50 = call ptr @__cxa_begin_catch(ptr %45) #36
+  %50 = call ptr @__cxa_begin_catch(ptr %45) #36, !noalias !95
   invoke void @__cxa_rethrow() #39
           to label %90 unwind label %65, !noalias !95
 
 51:                                               ; preds = %_ZNSt8functionIFvSt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit9.i.i.i.i.i.i
   %52 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #36
   %53 = icmp eq i32 %46, %52
-  %54 = call ptr @__cxa_begin_catch(ptr %45) #36
+  %54 = call ptr @__cxa_begin_catch(ptr %45) #36, !noalias !95
   br i1 %53, label %55, label %56
 
 55:                                               ; preds = %51
@@ -18584,18 +18567,18 @@ _ZN5boost11coroutines26detail14push_coroutineINSt7__cxx1112basic_stringIcSt11cha
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i.i: ; preds = %77, %_ZN5boost11coroutines26detail14push_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i.i
   %78 = load ptr, ptr %5, align 8, !noalias !95
   %.not.i1.i.i.i.i.i.i = icmp eq ptr %78, null
-  br i1 %.not.i1.i.i.i.i.i.i, label %91, label %79
+  br i1 %.not.i1.i.i.i.i.i.i, label %_ZN5boost7context6detail12fiber_recordINS0_5fiberEN3nix21VirtualStackAllocatorEZNS_11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13control_blockC1IS5_ZZNS4_12sinkToSourceESt8functionIFvRNS4_4SinkEEESI_IFvvEEEN12SinkToSource4readEPcmEUlRNS7_14push_coroutineISE_EEE_EENS0_12preallocatedEOT_OT0_EUlOS3_E_E3runEPv.exit, label %79
 
 79:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i.i
   store ptr null, ptr %5, align 8, !noalias !95
   %80 = invoke { ptr, ptr } @ontop_fcontext(ptr noundef nonnull %78, ptr noundef null, ptr noundef nonnull @_ZN5boost7context6detail12fiber_unwindENS1_10transfer_tE)
-          to label %91 unwind label %81, !noalias !95
+          to label %_ZN5boost7context6detail12fiber_recordINS0_5fiberEN3nix21VirtualStackAllocatorEZNS_11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13control_blockC1IS5_ZZNS4_12sinkToSourceESt8functionIFvRNS4_4SinkEEESI_IFvvEEEN12SinkToSource4readEPcmEUlRNS7_14push_coroutineISE_EEE_EENS0_12preallocatedEOT_OT0_EUlOS3_E_E3runEPv.exit unwind label %81, !noalias !95
 
 81:                                               ; preds = %79
   %82 = landingpad { ptr, i32 }
           catch ptr null
   %83 = extractvalue { ptr, i32 } %82, 0
-  call void @__clang_call_terminate(ptr %83) #40
+  call void @__clang_call_terminate(ptr %83) #40, !noalias !95
   unreachable
 
 84:                                               ; preds = %65, %63, %61
@@ -18617,74 +18600,57 @@ _ZN5boost11coroutines26detail14push_coroutineINSt7__cxx1112basic_stringIcSt11cha
   %88 = landingpad { ptr, i32 }
           catch ptr null
   %89 = extractvalue { ptr, i32 } %88, 0
-  call void @__clang_call_terminate(ptr %89) #40
+  call void @__clang_call_terminate(ptr %89) #40, !noalias !95
   unreachable
 
 90:                                               ; preds = %55, %49
   unreachable
 
-91:                                               ; preds = %79, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i.i
+_ZN5boost7context6detail12fiber_recordINS0_5fiberEN3nix21VirtualStackAllocatorEZNS_11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13control_blockC1IS5_ZZNS4_12sinkToSourceESt8functionIFvRNS4_4SinkEEESI_IFvvEEEN12SinkToSource4readEPcmEUlRNS7_14push_coroutineISE_EEE_EENS0_12preallocatedEOT_OT0_EUlOS3_E_E3runEPv.exit: ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i.i, %79
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !88
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !88
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !88
-  %92 = load ptr, ptr %8, align 8
-  %.not.i.i = icmp eq ptr %92, null
-  br i1 %.not.i.i, label %_ZN5boost7context6detail12fiber_recordINS0_5fiberEN3nix21VirtualStackAllocatorEZNS_11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13control_blockC1IS5_ZZNS4_12sinkToSourceESt8functionIFvRNS4_4SinkEEESI_IFvvEEEN12SinkToSource4readEPcmEUlRNS7_14push_coroutineISE_EEE_EENS0_12preallocatedEOT_OT0_EUlOS3_E_E3runEPv.exit, label %93
-
-93:                                               ; preds = %91
-  store ptr null, ptr %8, align 8
-  %94 = invoke { ptr, ptr } @ontop_fcontext(ptr noundef nonnull %92, ptr noundef null, ptr noundef nonnull @_ZN5boost7context6detail12fiber_unwindENS1_10transfer_tE)
-          to label %_ZN5boost7context6detail12fiber_recordINS0_5fiberEN3nix21VirtualStackAllocatorEZNS_11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13control_blockC1IS5_ZZNS4_12sinkToSourceESt8functionIFvRNS4_4SinkEEESI_IFvvEEEN12SinkToSource4readEPcmEUlRNS7_14push_coroutineISE_EEE_EENS0_12preallocatedEOT_OT0_EUlOS3_E_E3runEPv.exit unwind label %95
-
-95:                                               ; preds = %93
-  %96 = landingpad { ptr, i32 }
-          catch ptr null
-  %97 = extractvalue { ptr, i32 } %96, 0
-  call void @__clang_call_terminate(ptr %97) #40
-  unreachable
-
-_ZN5boost7context6detail12fiber_recordINS0_5fiberEN3nix21VirtualStackAllocatorEZNS_11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13control_blockC1IS5_ZZNS4_12sinkToSourceESt8functionIFvRNS4_4SinkEEESI_IFvvEEEN12SinkToSource4readEPcmEUlRNS7_14push_coroutineISE_EEE_EENS0_12preallocatedEOT_OT0_EUlOS3_E_E3runEPv.exit: ; preds = %91, %93
-  %98 = extractvalue { ptr, ptr } %72, 0
+  %91 = extractvalue { ptr, ptr } %72, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  br label %108
+  br label %101
 
-99:                                               ; preds = %2
-  %100 = landingpad { ptr, i32 }
+92:                                               ; preds = %2
+  %93 = landingpad { ptr, i32 }
           catch ptr @_ZTIN5boost7context6detail13forced_unwindE
           catch ptr null
   br label %.body
 
-.body:                                            ; preds = %_ZN5boost11coroutines26detail14push_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit13.i.i.i.i.i, %99
-  %eh.lpad-body = phi { ptr, i32 } [ %100, %99 ], [ %.pn.i.i.i.i.i, %_ZN5boost11coroutines26detail14push_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit13.i.i.i.i.i ]
-  %101 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %102 = extractvalue { ptr, i32 } %eh.lpad-body, 1
-  %103 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5boost7context6detail13forced_unwindE) #36
-  %104 = icmp eq i32 %102, %103
-  br i1 %104, label %105, label %114
+.body:                                            ; preds = %_ZN5boost11coroutines26detail14push_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit13.i.i.i.i.i, %92
+  %eh.lpad-body = phi { ptr, i32 } [ %93, %92 ], [ %.pn.i.i.i.i.i, %_ZN5boost11coroutines26detail14push_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit13.i.i.i.i.i ]
+  %94 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  %95 = extractvalue { ptr, i32 } %eh.lpad-body, 1
+  %96 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5boost7context6detail13forced_unwindE) #36
+  %97 = icmp eq i32 %95, %96
+  br i1 %97, label %98, label %107
 
-105:                                              ; preds = %.body
-  %106 = call ptr @__cxa_begin_catch(ptr %101) #36
-  %107 = load ptr, ptr %106, align 8
+98:                                               ; preds = %.body
+  %99 = call ptr @__cxa_begin_catch(ptr %94) #36
+  %100 = load ptr, ptr %99, align 8
   invoke void @__cxa_end_catch()
-          to label %108 unwind label %111
+          to label %101 unwind label %104
 
-108:                                              ; preds = %_ZN5boost7context6detail12fiber_recordINS0_5fiberEN3nix21VirtualStackAllocatorEZNS_11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13control_blockC1IS5_ZZNS4_12sinkToSourceESt8functionIFvRNS4_4SinkEEESI_IFvvEEEN12SinkToSource4readEPcmEUlRNS7_14push_coroutineISE_EEE_EENS0_12preallocatedEOT_OT0_EUlOS3_E_E3runEPv.exit, %105
-  %.sroa.08.0 = phi ptr [ %107, %105 ], [ %98, %_ZN5boost7context6detail12fiber_recordINS0_5fiberEN3nix21VirtualStackAllocatorEZNS_11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13control_blockC1IS5_ZZNS4_12sinkToSourceESt8functionIFvRNS4_4SinkEEESI_IFvvEEEN12SinkToSource4readEPcmEUlRNS7_14push_coroutineISE_EEE_EENS0_12preallocatedEOT_OT0_EUlOS3_E_E3runEPv.exit ]
-  %109 = invoke { ptr, ptr } @ontop_fcontext(ptr noundef %.sroa.08.0, ptr noundef %1, ptr noundef nonnull @_ZN5boost7context6detail10fiber_exitINS1_12fiber_recordINS0_5fiberEN3nix21VirtualStackAllocatorEZNS_11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13control_blockC1IS6_ZZNS5_12sinkToSourceESt8functionIFvRNS5_4SinkEEESJ_IFvvEEEN12SinkToSource4readEPcmEUlRNS8_14push_coroutineISF_EEE_EENS0_12preallocatedEOT_OT0_EUlOS4_E_EEEENS1_10transfer_tES14_)
-          to label %110 unwind label %111
+101:                                              ; preds = %_ZN5boost7context6detail12fiber_recordINS0_5fiberEN3nix21VirtualStackAllocatorEZNS_11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13control_blockC1IS5_ZZNS4_12sinkToSourceESt8functionIFvRNS4_4SinkEEESI_IFvvEEEN12SinkToSource4readEPcmEUlRNS7_14push_coroutineISE_EEE_EENS0_12preallocatedEOT_OT0_EUlOS3_E_E3runEPv.exit, %98
+  %.sroa.08.0 = phi ptr [ %100, %98 ], [ %91, %_ZN5boost7context6detail12fiber_recordINS0_5fiberEN3nix21VirtualStackAllocatorEZNS_11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13control_blockC1IS5_ZZNS4_12sinkToSourceESt8functionIFvRNS4_4SinkEEESI_IFvvEEEN12SinkToSource4readEPcmEUlRNS7_14push_coroutineISE_EEE_EENS0_12preallocatedEOT_OT0_EUlOS3_E_E3runEPv.exit ]
+  %102 = invoke { ptr, ptr } @ontop_fcontext(ptr noundef %.sroa.08.0, ptr noundef %1, ptr noundef nonnull @_ZN5boost7context6detail10fiber_exitINS1_12fiber_recordINS0_5fiberEN3nix21VirtualStackAllocatorEZNS_11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13control_blockC1IS6_ZZNS5_12sinkToSourceESt8functionIFvRNS5_4SinkEEESJ_IFvvEEEN12SinkToSource4readEPcmEUlRNS8_14push_coroutineISF_EEE_EENS0_12preallocatedEOT_OT0_EUlOS4_E_EEEENS1_10transfer_tES14_)
+          to label %103 unwind label %104
 
-110:                                              ; preds = %108
+103:                                              ; preds = %101
   ret void
 
-111:                                              ; preds = %108, %105
-  %112 = landingpad { ptr, i32 }
+104:                                              ; preds = %101, %98
+  %105 = landingpad { ptr, i32 }
           catch ptr null
-  %113 = extractvalue { ptr, i32 } %112, 0
-  call void @__clang_call_terminate(ptr %113) #40
+  %106 = extractvalue { ptr, i32 } %105, 0
+  call void @__clang_call_terminate(ptr %106) #40
   unreachable
 
-114:                                              ; preds = %.body
-  call void @__clang_call_terminate(ptr %101) #40
+107:                                              ; preds = %.body
+  call void @__clang_call_terminate(ptr %94) #40
   unreachable
 }
 

@@ -10450,7 +10450,7 @@ define hidden void @_ZN18wasmtime_cranelift3obj17ModuleTextBuilder11append_func1
   %92 = extractvalue { i64, ptr } %90, 1
   %93 = icmp ne ptr %92, null
   call void @llvm.assume(i1 %93)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %92, ptr align 1 %88, i64 %89, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %92, ptr align 1 %88, i64 %89, i1 false), !noalias !2304
   store i64 %91, ptr %65, align 8, !noalias !2296
   store ptr %92, ptr %.sroa.44.0..sroa_idx.i.i, align 8, !noalias !2296
   store i64 %89, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !2296
@@ -10749,7 +10749,7 @@ define hidden void @_ZN18wasmtime_cranelift3obj17ModuleTextBuilder11append_func1
   %92 = extractvalue { i64, ptr } %90, 1
   %93 = icmp ne ptr %92, null
   call void @llvm.assume(i1 %93)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %92, ptr align 1 %88, i64 %89, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %92, ptr align 1 %88, i64 %89, i1 false), !noalias !2360
   store i64 %91, ptr %65, align 8, !noalias !2352
   store ptr %92, ptr %.sroa.44.0..sroa_idx.i.i, align 8, !noalias !2352
   store i64 %89, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !2352
@@ -11104,7 +11104,7 @@ define hidden void @_ZN18wasmtime_cranelift3obj17ModuleTextBuilder11append_func1
   %128 = extractvalue { i64, ptr } %126, 1
   %129 = icmp ne ptr %128, null
   call void @llvm.assume(i1 %129)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %128, ptr align 1 %124, i64 %125, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %128, ptr align 1 %124, i64 %125, i1 false), !noalias !2425
   store i64 %127, ptr %69, align 8, !noalias !2417
   store ptr %128, ptr %.sroa.44.0..sroa_idx.i.i, align 8, !noalias !2417
   store i64 %125, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !2417

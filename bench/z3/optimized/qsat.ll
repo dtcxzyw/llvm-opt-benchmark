@@ -6686,7 +6686,6 @@ invoke.cont98:                                    ; preds = %invoke.cont94
 invoke.cont102:                                   ; preds = %invoke.cont98
   %62 = load ptr, ptr %ref.tmp99, align 8
   store ptr %62, ptr %fml, align 8
-  store ptr %59, ptr %ref.tmp99, align 8
   br i1 %tobool.not.i266, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit297, label %if.then.i.i.i.i281
 
 if.then.i.i.i.i281:                               ; preds = %invoke.cont102
@@ -6711,7 +6710,6 @@ terminate.lpad.i287:                              ; preds = %if.then2.i.i.i.i286
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit297:      ; preds = %if.then2.i.i.i.i286, %if.then.i.i.i.i281, %invoke.cont102
-  store ptr null, ptr %ref.tmp99, align 8
   %67 = load ptr, ptr %this, align 8
   %call2.i298 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %67, i32 noundef 0, i32 noundef 2, ptr noundef %44, ptr noundef %62)
           to label %invoke.cont109 unwind label %lpad12
@@ -9713,7 +9711,6 @@ invoke.cont10:                                    ; preds = %invoke.cont6
   %12 = load ptr, ptr %fml, align 8
   %13 = load ptr, ptr %ref.tmp, align 8
   store ptr %13, ptr %fml, align 8
-  store ptr %12, ptr %ref.tmp, align 8
   %tobool.not.i.i.i8 = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i8, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %if.then.i.i.i.i
 
@@ -12666,7 +12663,6 @@ invoke.cont86:                                    ; preds = %invoke.cont81
   %51 = load ptr, ptr %fml, align 8
   %52 = load ptr, ptr %ref.tmp82, align 8
   store ptr %52, ptr %fml, align 8
-  store ptr %51, ptr %ref.tmp82, align 8
   %tobool.not.i.i.i65 = icmp eq ptr %51, null
   br i1 %tobool.not.i.i.i65, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit82, label %if.then.i.i.i.i66
 
@@ -16504,7 +16500,6 @@ invoke.cont43:                                    ; preds = %invoke.cont38
   %29 = load ptr, ptr %fml, align 8
   %30 = load ptr, ptr %ref.tmp39, align 8
   store ptr %30, ptr %fml, align 8
-  store ptr %29, ptr %ref.tmp39, align 8
   %tobool.not.i.i.i48 = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.i48, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit65, label %if.then.i.i.i.i49
 
@@ -18368,7 +18363,6 @@ invoke.cont63:                                    ; preds = %_ZN7obj_refI4expr11
   %68 = load ptr, ptr %ge, align 8
   %69 = load ptr, ptr %ref.tmp59, align 8
   store ptr %69, ptr %ge, align 8
-  store ptr %68, ptr %ref.tmp59, align 8
   %tobool.not.i.i.i46 = icmp eq ptr %68, null
   br i1 %tobool.not.i.i.i46, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit57, label %if.then.i.i.i.i
 
@@ -19463,7 +19457,6 @@ if.else68:                                        ; preds = %invoke.cont60
 invoke.cont73:                                    ; preds = %if.else68
   %75 = load ptr, ptr %ref.tmp69, align 8
   store ptr %75, ptr %fml, align 8
-  store ptr %39, ptr %ref.tmp69, align 8
   %tobool.not.i.i.i112 = icmp eq ptr %39, null
   br i1 %tobool.not.i.i.i112, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit129, label %if.then.i.i.i.i113
 

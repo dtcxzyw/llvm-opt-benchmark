@@ -9609,7 +9609,7 @@ common.ret:                                       ; preds = %293, %123, %31
   br label %.body113
 
 365:                                              ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %356, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %356, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false), !noalias !3270
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6), !noalias !3268
   %366 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %356, ptr %366, align 8, !alias.scope !3263, !noalias !3271
@@ -10916,7 +10916,7 @@ common.ret:                                       ; preds = %293, %123, %31
   br label %.body113
 
 365:                                              ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %356, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %356, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false), !noalias !3572
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6), !noalias !3570
   %366 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %356, ptr %366, align 8, !alias.scope !3565, !noalias !3573

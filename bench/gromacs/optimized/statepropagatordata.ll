@@ -5050,7 +5050,6 @@ _ZNKSt14default_deleteI7t_stateEclEPS0_.exit.i.i.i.i: ; preds = %8
   br label %_ZNSt10unique_ptrI7t_stateSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrI7t_stateSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteI7t_stateEclEPS0_.exit.i.i.i.i, %8
-  store ptr null, ptr %2, align 8
   %11 = load ptr, ptr %3, align 8
   %.not.i3 = icmp eq ptr %11, null
   br i1 %.not.i3, label %_ZNSt10unique_ptrI7t_stateSt14default_deleteIS0_EED2Ev.exit5, label %_ZNKSt14default_deleteI7t_stateEclEPS0_.exit.i4
@@ -5061,7 +5060,6 @@ _ZNKSt14default_deleteI7t_stateEclEPS0_.exit.i4:  ; preds = %_ZNSt10unique_ptrI7
   br label %_ZNSt10unique_ptrI7t_stateSt14default_deleteIS0_EED2Ev.exit5
 
 _ZNSt10unique_ptrI7t_stateSt14default_deleteIS0_EED2Ev.exit5: ; preds = %_ZNSt10unique_ptrI7t_stateSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteI7t_stateEclEPS0_.exit.i4
-  store ptr null, ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null

@@ -1199,9 +1199,7 @@ _ZN5folly7PromiseINS_4UnitEE13getSemiFutureEv.exit: ; preds = %58
   store ptr %61, ptr %0, align 8, !tbaa !14
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %63 = load ptr, ptr %10, align 8, !tbaa !19
-  store ptr null, ptr %10, align 8, !tbaa !19
   store ptr %63, ptr %62, align 8, !tbaa !19
-  store ptr null, ptr %3, align 8, !tbaa !14
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %59, ptr %64, align 8, !tbaa !30
   invoke void @_ZN5folly10SemiFutureINS_4UnitEE23releaseDeferredExecutorEPNS_7futures6detail4CoreIS1_EE(ptr noundef null)
@@ -3950,7 +3948,6 @@ _ZN5folly8FunctionIFvvEED2Ev.exit:                ; preds = %101, %104
   br i1 %74, label %106, label %.noexc.i.i.i.i.i.i11
 
 106:                                              ; preds = %_ZN5folly8FunctionIFvvEED2Ev.exit
-  store i8 0, ptr %31, align 8, !tbaa !77
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %108 = load ptr, ptr %107, align 8, !tbaa !97
   %.not.i.i.i.i.i.i.i9 = icmp eq ptr %108, null

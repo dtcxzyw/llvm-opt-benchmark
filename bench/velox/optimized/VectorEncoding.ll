@@ -923,7 +923,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i:               ; preds = %while.body.i
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #24
+  call void @__clang_call_terminate(ptr %1) #24, !noalias !15
   unreachable
 
 _ZN5folly6detail20callWithExtractedKeyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8facebook5velox14VectorEncoding6SimpleENS_3f146detail11F14BasicMapINSD_21VectorContainerPolicyIS7_SB_vvvSt17integral_constantIbLb1EEEEE11UsableAsKeyESaISt4pairIKS7_SB_EEZNSJ_7emplaceIJRKSN_EEESL_INSD_23VectorContainerIteratorIPSN_EEbEDpOT_EUlSY_E_SM_SB_EEDaRT2_OT3_RKSL_IT4_T5_E.exit.i.i: ; preds = %while.body.i
@@ -2138,7 +2138,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #24
+  tail call void @__clang_call_terminate(ptr %1) #24, !noalias !45
   unreachable
 
 _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8facebook5velox14VectorEncoding6SimpleEvvvSt17integral_constantIbLb1EEEEE15tryEmplaceValueIS9_JRKSt21piecewise_construct_tSt5tupleIJRKS9_EESM_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbERKT_DpOT0_.exit: ; preds = %entry

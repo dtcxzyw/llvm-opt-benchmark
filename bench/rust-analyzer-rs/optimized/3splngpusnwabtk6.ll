@@ -1313,7 +1313,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %37, %36 ], [ %33, %32 ]
   %38 = extractvalue { ptr, i32 } %eh.lpad-body.i.i, 0
   %39 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %38)
-          to label %42 unwind label %40
+          to label %42 unwind label %40, !noalias !249
 
 40:                                               ; preds = %.body.i.i
   %41 = landingpad { ptr, i32 }

@@ -78380,7 +78380,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_17ElementEE8IsSharedEv.exit.i
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
-  tail call void @__clang_call_terminate(ptr %59) #33
+  tail call void @__clang_call_terminate(ptr %59) #33, !noalias !1895
   unreachable
 
 _ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_17ElementEED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %52, %48, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_17ElementEE8IsSharedEv.exit.i.i.i.i.i.i.i.i.i.i, %_ZNSt20back_insert_iteratorISt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_17ElementEEESaIS7_EEEaSEOS7_.exit.i.i.i.i.i.i.i.i
@@ -78451,7 +78451,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_17ElementEE8IsSharedEv.exit.i
   %82 = landingpad { ptr, i32 }
           catch ptr null
   %83 = extractvalue { ptr, i32 } %82, 0
-  tail call void @__clang_call_terminate(ptr %83) #33
+  tail call void @__clang_call_terminate(ptr %83) #33, !noalias !1895
   unreachable
 
 _ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_17ElementEED2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %76, %72, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_17ElementEE8IsSharedEv.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt20back_insert_iteratorISt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_17ElementEEESaIS7_EEEaSEOS7_.exit.i.i.i.i.i.i.i.i.i
@@ -78522,7 +78522,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_17ElementEE8IsSharedEv.exit.i
   %106 = landingpad { ptr, i32 }
           catch ptr null
   %107 = extractvalue { ptr, i32 } %106, 0
-  tail call void @__clang_call_terminate(ptr %107) #33
+  tail call void @__clang_call_terminate(ptr %107) #33, !noalias !1895
   unreachable
 
 _ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_17ElementEED2Ev.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %100, %96, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_17ElementEE8IsSharedEv.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt20back_insert_iteratorISt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_17ElementEEESaIS7_EEEaSEOS7_.exit.i.i.i.i.i.i.i.i.i.i
@@ -78593,7 +78593,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_17ElementEE8IsSharedEv.exit.i
   %130 = landingpad { ptr, i32 }
           catch ptr null
   %131 = extractvalue { ptr, i32 } %130, 0
-  tail call void @__clang_call_terminate(ptr %131) #33
+  tail call void @__clang_call_terminate(ptr %131) #33, !noalias !1895
   unreachable
 
 _ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_17ElementEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %124, %120, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_17ElementEE8IsSharedEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt20back_insert_iteratorISt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_17ElementEEESaIS7_EEEaSEOS7_.exit.i.i.i.i.i.i.i.i.i.i.i
@@ -78663,7 +78663,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_17ElementEE8IsSharedEv.exit.i
   %153 = landingpad { ptr, i32 }
           catch ptr null
   %154 = extractvalue { ptr, i32 } %153, 0
-  tail call void @__clang_call_terminate(ptr %154) #33
+  tail call void @__clang_call_terminate(ptr %154) #33, !noalias !1895
   unreachable
 
 155:                                              ; preds = %.noexc21.i.i.i.i.i
@@ -78781,7 +78781,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_17ElementEE8IsSharedEv.exit.i
   %194 = landingpad { ptr, i32 }
           catch ptr null
   %195 = extractvalue { ptr, i32 } %194, 0
-  tail call void @__clang_call_terminate(ptr %195) #33
+  tail call void @__clang_call_terminate(ptr %195) #33, !noalias !1895
   unreachable
 
 _ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_17ElementEED2Ev.exit.i.i.i.i.i.i: ; preds = %188, %184, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_17ElementEE8IsSharedEv.exit.i.i.i.i.i.i.i.i, %181

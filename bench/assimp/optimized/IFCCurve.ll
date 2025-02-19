@@ -1293,7 +1293,6 @@ _ZNSt6vectorISt4pairISt10shared_ptrIN6Assimp3IFC12BoundedCurveEEbESaIS6_EE7reser
 
 340:                                              ; preds = %338
   store ptr %339, ptr %10, align 8
-  store ptr null, ptr %322, align 8
   %341 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #32
           to label %358 unwind label %342
 

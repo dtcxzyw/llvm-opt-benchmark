@@ -116,7 +116,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %19 = extractvalue { ptr, i64 } %18, 0
   %20 = extractvalue { ptr, i64 } %18, 1
   invoke void @_ZN3std4path4Path11to_path_buf17hfcbed8e25bb65f6fE(ptr noalias noundef nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 captures(none) dereferenceable(24) %.sroa.0.i.i.i.i, ptr noalias noundef nonnull readonly align 1 %19, i64 noundef %20)
-          to label %21 unwind label %28
+          to label %21 unwind label %28, !noalias !36
 
 21:                                               ; preds = %.noexc21.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !47
@@ -331,7 +331,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %19 = extractvalue { ptr, i64 } %18, 0
   %20 = extractvalue { ptr, i64 } %18, 1
   invoke void @_ZN3std4path4Path11to_path_buf17hfcbed8e25bb65f6fE(ptr noalias noundef nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 captures(none) dereferenceable(24) %.sroa.0.i.i.i, ptr noalias noundef nonnull readonly align 1 %19, i64 noundef %20)
-          to label %21 unwind label %28
+          to label %21 unwind label %28, !noalias !158
 
 21:                                               ; preds = %.noexc21.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !167

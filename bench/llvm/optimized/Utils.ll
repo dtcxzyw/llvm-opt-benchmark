@@ -464,7 +464,6 @@ define dso_local { i32, ptr } @_ZN4llvm5MachO17shouldSkipSymLinkERKNS_5TwineERb(
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #17
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #17
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i8 1, ptr %18, align 8, !tbaa !28
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %19, align 1, !tbaa !25
   %20 = load i8, ptr %14, align 1, !tbaa !18

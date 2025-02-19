@@ -4194,7 +4194,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h482b1f9a2a4fe30cE
   %35 = call { ptr, i64 } @_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.6948074339591148053(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.06.i.i.i), !noalias !1154
   %36 = extractvalue { ptr, i64 } %35, 0
   %37 = extractvalue { ptr, i64 } %35, 1
-  call void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17hdaf3c64ce7294b9eE.llvm.6948074339591148053"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 1 %36, i64 noundef %37)
+  call void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17hdaf3c64ce7294b9eE.llvm.6948074339591148053"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 1 %36, i64 noundef %37), !noalias !1120
   %38 = load i64, ptr %3, align 8, !alias.scope !1155, !noalias !1160, !noundef !4
   %39 = call i64 @llvm.fshl.i64(i64 %38, i64 %38, i64 5)
   %40 = xor i64 %39, 255
@@ -7314,7 +7314,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hb1d89fa914a84364E
   %44 = call { ptr, i64 } @_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.6948074339591148053(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.06.i.i.i), !noalias !2010
   %45 = extractvalue { ptr, i64 } %44, 0
   %46 = extractvalue { ptr, i64 } %44, 1
-  call void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17hdaf3c64ce7294b9eE.llvm.6948074339591148053"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 1 %45, i64 noundef %46)
+  call void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17hdaf3c64ce7294b9eE.llvm.6948074339591148053"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 1 %45, i64 noundef %46), !noalias !1971
   %47 = load i64, ptr %3, align 8, !alias.scope !2011, !noalias !2016, !noundef !4
   %48 = call i64 @llvm.fshl.i64(i64 %47, i64 %47, i64 5)
   %49 = xor i64 %48, 255
@@ -9548,37 +9548,37 @@ _ZN15ide_diagnostics10Diagnostic24new_with_syntax_node_ptr17h3d7b904e99dd305bE.e
   %6 = extractvalue { i64, ptr } %5, 1
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %6, ptr noundef nonnull readonly align 1 dereferenceable(17) @anon.4361391ec597f50d8134813ab7166172.99.llvm.7488194375365782051, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %6, ptr noundef nonnull readonly align 1 dereferenceable(17) @anon.4361391ec597f50d8134813ab7166172.99.llvm.7488194375365782051, i64 17, i1 false), !noalias !2546
   %8 = extractvalue { i64, ptr } %5, 0
-  store i64 %8, ptr %0, align 8, !alias.scope !2546
+  store i64 %8, ptr %0, align 8, !alias.scope !2547
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %6, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !2546
+  store ptr %6, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !2547
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 17, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !2546
+  store i64 17, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !2547
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !2546
+  store i64 -9223372036854775808, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !2547
   %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %.sroa.011.0.copyload, ptr %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx, align 8, !alias.scope !2546
+  store i32 %.sroa.011.0.copyload, ptr %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx, align 8, !alias.scope !2547
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i64 %.sroa.412.sroa.0.0.copyload, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx, align 4, !alias.scope !2546
+  store i64 %.sroa.412.sroa.0.0.copyload, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx, align 4, !alias.scope !2547
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i16 %.sroa.513.0.copyload, ptr %.sroa.8.0..sroa_idx, align 4, !alias.scope !2546
+  store i16 %.sroa.513.0.copyload, ptr %.sroa.8.0..sroa_idx, align 4, !alias.scope !2547
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 62
-  store i16 %.sroa.614.0.copyload, ptr %.sroa.9.0..sroa_idx, align 2, !alias.scope !2546
+  store i16 %.sroa.614.0.copyload, ptr %.sroa.9.0..sroa_idx, align 2, !alias.scope !2547
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i8 0, ptr %.sroa.10.0..sroa_idx, align 8, !alias.scope !2546
+  store i8 0, ptr %.sroa.10.0..sroa_idx, align 8, !alias.scope !2547
   %.sroa.10.sroa.6.0..sroa.10.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr @anon.4361391ec597f50d8134813ab7166172.98.llvm.7488194375365782051, ptr %.sroa.10.sroa.6.0..sroa.10.0..sroa_idx.sroa_idx, align 8, !alias.scope !2546
+  store ptr @anon.4361391ec597f50d8134813ab7166172.98.llvm.7488194375365782051, ptr %.sroa.10.sroa.6.0..sroa.10.0..sroa_idx.sroa_idx, align 8, !alias.scope !2547
   %.sroa.10.sroa.7.0..sroa.10.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 5, ptr %.sroa.10.sroa.7.0..sroa.10.0..sroa_idx.sroa_idx, align 8, !alias.scope !2546
+  store i64 5, ptr %.sroa.10.sroa.7.0..sroa.10.0..sroa_idx.sroa_idx, align 8, !alias.scope !2547
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.11.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.11, i64 12, i1 false), !alias.scope !2546
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.11.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.11, i64 12, i1 false), !alias.scope !2547
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i8 0, ptr %.sroa.12.0..sroa_idx, align 4, !alias.scope !2546
+  store i8 0, ptr %.sroa.12.0..sroa_idx, align 4, !alias.scope !2547
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 101
-  store i8 1, ptr %.sroa.13.0..sroa_idx, align 1, !alias.scope !2546
+  store i8 1, ptr %.sroa.13.0..sroa_idx, align 1, !alias.scope !2547
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 102
-  store i8 0, ptr %.sroa.15.0..sroa_idx, align 2, !alias.scope !2546
+  store i8 0, ptr %.sroa.15.0..sroa_idx, align 2, !alias.scope !2547
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.11)
   ret void
 }
@@ -12669,7 +12669,8 @@ attributes #28 = { cold noreturn nounwind }
 !2543 = distinct !{!2543, !2542, !"_ZN15ide_diagnostics10Diagnostic3new17h267709bb9a38c560E: argument 1"}
 !2544 = distinct !{!2544, !2542, !"_ZN15ide_diagnostics10Diagnostic3new17h267709bb9a38c560E: argument 2"}
 !2545 = distinct !{!2545, !2542, !"_ZN15ide_diagnostics10Diagnostic3new17h267709bb9a38c560E: argument 3"}
-!2546 = !{!2547, !2549}
-!2547 = distinct !{!2547, !2548, !"_ZN15ide_diagnostics10Diagnostic12experimental17h0d4987ac839f0636E: argument 0"}
-!2548 = distinct !{!2548, !"_ZN15ide_diagnostics10Diagnostic12experimental17h0d4987ac839f0636E"}
-!2549 = distinct !{!2549, !2548, !"_ZN15ide_diagnostics10Diagnostic12experimental17h0d4987ac839f0636E: argument 1"}
+!2546 = !{!2535, !2538, !2541, !2543, !2545, !2527, !2529, !2531}
+!2547 = !{!2548, !2550}
+!2548 = distinct !{!2548, !2549, !"_ZN15ide_diagnostics10Diagnostic12experimental17h0d4987ac839f0636E: argument 0"}
+!2549 = distinct !{!2549, !"_ZN15ide_diagnostics10Diagnostic12experimental17h0d4987ac839f0636E"}
+!2550 = distinct !{!2550, !2549, !"_ZN15ide_diagnostics10Diagnostic12experimental17h0d4987ac839f0636E: argument 1"}

@@ -2032,17 +2032,17 @@ invoke.cont46:                                    ; preds = %invoke.cont42
 invoke.cont50:                                    ; preds = %invoke.cont46
   %11 = load ptr, ptr %m_cmd.i, align 8
   store ptr %11, ptr %_redirect, align 8
-  %m_verbose.i = getelementptr inbounds nuw i8, ptr %_redirect, i64 8
   %call.i46 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv()
           to label %call.i.noexc45 unwind label %lpad43
 
 call.i.noexc45:                                   ; preds = %invoke.cont50
+  %m_verbose.i = getelementptr inbounds nuw i8, ptr %_redirect, i64 8
   store ptr %call.i46, ptr %m_verbose.i, align 8
-  %m_warning.i = getelementptr inbounds nuw i8, ptr %_redirect, i64 16
   %call2.i47 = invoke noundef ptr @_Z14warning_streamv()
           to label %call2.i.noexc unwind label %lpad43
 
 call2.i.noexc:                                    ; preds = %call.i.noexc45
+  %m_warning.i = getelementptr inbounds nuw i8, ptr %_redirect, i64 16
   store ptr %call2.i47, ptr %m_warning.i, align 8
   %m_stream.i.i = getelementptr inbounds nuw i8, ptr %11, i64 496
   %12 = load ptr, ptr %m_stream.i.i, align 8
@@ -2227,11 +2227,7 @@ lpad111:                                          ; preds = %invoke.cont110
 
 if.end119:                                        ; preds = %if.then117, %invoke.cont112
   invoke void @__cxa_end_catch()
-          to label %if.end119.cleanup143_crit_edge unwind label %lpad122
-
-if.end119.cleanup143_crit_edge:                   ; preds = %if.end119
-  %.pre = load ptr, ptr %m_verbose.i, align 8
-  br label %cleanup143
+          to label %cleanup143 unwind label %lpad122
 
 do.body126:                                       ; preds = %invoke.cont62
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp130, ptr noundef nonnull align 8 dereferenceable(128) %ous)
@@ -2273,22 +2269,20 @@ lpad132:                                          ; preds = %invoke.cont131
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp130) #14
   br label %ehcleanup144
 
-cleanup143:                                       ; preds = %if.end119.cleanup143_crit_edge, %invoke.cont133, %if.then138, %invoke.cont78, %if.then83
-  %36 = phi ptr [ %call.i46, %if.then83 ], [ %call.i46, %invoke.cont78 ], [ %.pre, %if.end119.cleanup143_crit_edge ], [ %call.i46, %if.then138 ], [ %call.i46, %invoke.cont133 ]
-  %retval.0 = phi ptr [ %call79, %if.then83 ], [ %call79, %invoke.cont78 ], [ %call113, %if.end119.cleanup143_crit_edge ], [ %call134, %if.then138 ], [ %call134, %invoke.cont133 ]
-  invoke void @_Z18set_verbose_streamRSo(ptr noundef nonnull align 8 dereferenceable(8) %36)
+cleanup143:                                       ; preds = %invoke.cont133, %if.then138, %if.end119, %invoke.cont78, %if.then83
+  %retval.0 = phi ptr [ %call79, %if.then83 ], [ %call79, %invoke.cont78 ], [ %call113, %if.end119 ], [ %call134, %if.then138 ], [ %call134, %invoke.cont133 ]
+  invoke void @_Z18set_verbose_streamRSo(ptr noundef nonnull align 8 dereferenceable(8) %call.i46)
           to label %invoke.cont.i55 unwind label %terminate.lpad.i
 
 invoke.cont.i55:                                  ; preds = %cleanup143
-  %37 = load ptr, ptr %m_warning.i, align 8
-  invoke void @_Z18set_warning_streamPSo(ptr noundef %37)
+  invoke void @_Z18set_warning_streamPSo(ptr noundef %call2.i47)
           to label %_ZN11cmd_context15scoped_redirectD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont.i55, %cleanup143
-  %38 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #15
+  %37 = extractvalue { ptr, i32 } %36, 0
+  call void @__clang_call_terminate(ptr %37) #15
   unreachable
 
 _ZN11cmd_context15scoped_redirectD2Ev.exit:       ; preds = %invoke.cont.i55
@@ -2321,13 +2315,13 @@ if.then.i62:                                      ; preds = %ehcleanup150
   br label %_ZN10z3_log_ctxD2Ev.exit63
 
 _ZN10z3_log_ctxD2Ev.exit63:                       ; preds = %ehcleanup150, %if.then.i62
-  %40 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI12z3_exception) #14
-  %matches153 = icmp eq i32 %ehselector.slot.0, %40
+  %38 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI12z3_exception) #14
+  %matches153 = icmp eq i32 %ehselector.slot.0, %38
   br i1 %matches153, label %catch154, label %ehcleanup175
 
 catch154:                                         ; preds = %_ZN10z3_log_ctxD2Ev.exit63
-  %41 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #14
-  invoke void @_ZN3api7context16handle_exceptionER12z3_exception(ptr noundef nonnull align 8 dereferenceable(3048) %c, ptr noundef nonnull align 8 dereferenceable(8) %41)
+  %39 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #14
+  invoke void @_ZN3api7context16handle_exceptionER12z3_exception(ptr noundef nonnull align 8 dereferenceable(3048) %c, ptr noundef nonnull align 8 dereferenceable(8) %39)
           to label %invoke.cont159 unwind label %lpad156
 
 invoke.cont159:                                   ; preds = %catch154
@@ -2344,25 +2338,25 @@ invoke.cont165:                                   ; preds = %invoke.cont163
           to label %cleanup174 unwind label %lpad169
 
 lpad156:                                          ; preds = %invoke.cont159, %catch154
-  %42 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup171
 
 lpad164:                                          ; preds = %invoke.cont163
-  %43 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp162) #14
   br label %ehcleanup171
 
 lpad169:                                          ; preds = %invoke.cont165
-  %44 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  %46 = extractvalue { ptr, i32 } %44, 1
+  %43 = extractvalue { ptr, i32 } %42, 0
+  %44 = extractvalue { ptr, i32 } %42, 1
   br label %ehcleanup175
 
 ehcleanup171:                                     ; preds = %lpad164, %lpad156
-  %.pn35 = phi { ptr, i32 } [ %43, %lpad164 ], [ %42, %lpad156 ]
+  %.pn35 = phi { ptr, i32 } [ %41, %lpad164 ], [ %40, %lpad156 ]
   %exn.slot.7 = extractvalue { ptr, i32 } %.pn35, 0
   %ehselector.slot.7 = extractvalue { ptr, i32 } %.pn35, 1
   invoke void @__cxa_end_catch()
@@ -2374,18 +2368,18 @@ cleanup174:                                       ; preds = %if.then.i59, %_ZN11
   ret ptr %retval.1
 
 ehcleanup175:                                     ; preds = %ehcleanup171, %lpad169, %_ZN10z3_log_ctxD2Ev.exit63
-  %ehselector.slot.6 = phi i32 [ %46, %lpad169 ], [ %ehselector.slot.7, %ehcleanup171 ], [ %ehselector.slot.0, %_ZN10z3_log_ctxD2Ev.exit63 ]
-  %exn.slot.6 = phi ptr [ %45, %lpad169 ], [ %exn.slot.7, %ehcleanup171 ], [ %exn.slot.0, %_ZN10z3_log_ctxD2Ev.exit63 ]
+  %ehselector.slot.6 = phi i32 [ %44, %lpad169 ], [ %ehselector.slot.7, %ehcleanup171 ], [ %ehselector.slot.0, %_ZN10z3_log_ctxD2Ev.exit63 ]
+  %exn.slot.6 = phi ptr [ %43, %lpad169 ], [ %exn.slot.7, %ehcleanup171 ], [ %exn.slot.0, %_ZN10z3_log_ctxD2Ev.exit63 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ous) #14
   %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.6, 0
   %lpad.val178 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.6, 1
   resume { ptr, i32 } %lpad.val178
 
 terminate.lpad:                                   ; preds = %ehcleanup171, %ehcleanup124
-  %47 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           catch ptr null
-  %48 = extractvalue { ptr, i32 } %47, 0
-  call void @__clang_call_terminate(ptr %48) #15
+  %46 = extractvalue { ptr, i32 } %45, 0
+  call void @__clang_call_terminate(ptr %46) #15
   unreachable
 }
 

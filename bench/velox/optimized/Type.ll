@@ -5890,7 +5890,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %_ZNSt10lock_guardIS
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #43
+  tail call void @__clang_call_terminate(ptr %1) #43, !noalias !57
   unreachable
 
 _ZN5folly3f146detail11F14BasicMapINS1_19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEEEvvvEEE11try_emplaceIJEEESt4pairINS1_21NodeContainerIteratorIPSP_IKS9_SL_EEEbERSR_DpOT_.exit.i: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
@@ -23765,7 +23765,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #43
+  tail call void @__clang_call_terminate(ptr %1) #43, !noalias !293
   unreachable
 
 _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjvvvSt17integral_constantIbLb1EEEEE15tryEmplaceValueIS9_JRKSt21piecewise_construct_tSt5tupleIJRKS9_EESI_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbERKT_DpOT0_.exit: ; preds = %entry

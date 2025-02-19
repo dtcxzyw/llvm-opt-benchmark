@@ -41365,7 +41365,6 @@ invoke.cont10:                                    ; preds = %if.then
   %3 = load i32, ptr %m_ref_count.i.i.i, align 4
   %inc.i.i.i = add i32 %3, 1
   store i32 %inc.i.i.i, ptr %m_ref_count.i.i.i, align 4
-  store ptr %2, ptr %atom, align 8
   %m_manager.i.i7 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %4 = load ptr, ptr %m_manager.i.i7, align 8
   %m_ref_count.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -41399,7 +41398,6 @@ if.else:                                          ; preds = %sw.bb4, %sw.bb3, %s
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %if.else
   %8 = load ptr, ptr %ref.tmp15, align 8
-  store ptr %8, ptr %atom, align 8
   store ptr null, ptr %ref.tmp15, align 8
   br label %if.then.i.i.i24
 
@@ -60540,7 +60538,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %.noexc.i.i.i.i.i.i,
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #26
+  tail call void @__clang_call_terminate(ptr %10) #26, !noalias !252
   unreachable
 
 _ZSt19__relocate_object_aIN2lp13implied_boundES1_13std_allocatorIS1_EEvPT_PT0_RT1_.exit: ; preds = %.noexc.i.i.i.i.i.i

@@ -1737,7 +1737,7 @@ define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4int
   %7 = extractvalue { i64, ptr } %5, 1
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !212
   store i64 %6, ptr %0, align 8, !alias.scope !212, !noalias !217
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !212, !noalias !217
@@ -5296,7 +5296,7 @@ default.unreachable:                              ; preds = %"_ZN6wiggle25Unsafe
   %39 = extractvalue { i64, ptr } %37, 1
   %40 = icmp ne ptr %39, null
   tail call void @llvm.assume(i1 %40)
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %39, ptr nonnull align 1 %.sroa.021.0.copyload.i.i, i64 %.sroa.422.0.copyload.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %39, ptr nonnull align 1 %.sroa.021.0.copyload.i.i, i64 %.sroa.422.0.copyload.i.i, i1 false), !noalias !373
   %41 = inttoptr i64 %38 to ptr
   %42 = ptrtoint ptr %39 to i64
   %.sink73.i153 = inttoptr i64 %.sroa.422.0.copyload.i.i to ptr
@@ -6873,7 +6873,7 @@ define noundef nonnull ptr @"_ZN164_$LT$wasi_common..pipe..ReadPipe$LT$std..io..
   resume { ptr, i32 } %10
 
 "_ZN11wasi_common4pipe17ReadPipe$LT$R$GT$3new17h05648c03763c7f95E.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !707
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !707
   call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.5.i.sroa.0)
   ret ptr %6
@@ -6933,7 +6933,7 @@ define noundef nonnull ptr @"_ZN155_$LT$wasi_common..pipe..ReadPipe$LT$std..io..
   resume { ptr, i32 } %15
 
 "_ZN164_$LT$wasi_common..pipe..ReadPipe$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$u20$as$u20$core..convert..From$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$4from17hc317fb099e8e4319E.exit": ; preds = %.noexc.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !710
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !710
   ret ptr %11
 }
@@ -6987,7 +6987,7 @@ define noundef nonnull ptr @"_ZN156_$LT$wasi_common..pipe..ReadPipe$LT$std..io..
   resume { ptr, i32 } %10
 
 "_ZN11wasi_common4pipe17ReadPipe$LT$R$GT$3new17hd01d89b695887108E.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !715
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !715
   call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.5.i.sroa.0)
   ret ptr %6
@@ -7047,7 +7047,7 @@ define noundef nonnull ptr @"_ZN142_$LT$wasi_common..pipe..ReadPipe$LT$std..io..
   resume { ptr, i32 } %15
 
 "_ZN156_$LT$wasi_common..pipe..ReadPipe$LT$std..io..cursor..Cursor$LT$alloc..string..String$GT$$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17h83203cd2a6019babE.exit": ; preds = %.noexc.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !718
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !718
   ret ptr %11
 }
@@ -7098,7 +7098,7 @@ define noundef nonnull ptr @"_ZN11wasi_common4pipe73WritePipe$LT$std..io..cursor
   resume { ptr, i32 } %9
 
 "_ZN11wasi_common4pipe18WritePipe$LT$W$GT$3new17he45f6b55fb1bcb93E.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false), !noalias !723
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1), !noalias !723
   ret ptr %5
 }
@@ -7152,7 +7152,7 @@ define hidden noalias noundef nonnull ptr @_ZN11wasi_common9snapshots9preview_15
   %10 = extractvalue { i64, ptr } %7, 1
   %11 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %11)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !726
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store i64 %9, ptr %5, align 8
@@ -7161,8 +7161,8 @@ define hidden noalias noundef nonnull ptr @_ZN11wasi_common9snapshots9preview_15
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %2, ptr %.sroa.5.0..sroa_idx, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %0, ptr %12, align 8, !noalias !726
-  store i64 3, ptr %4, align 8, !noalias !726
+  store ptr %0, ptr %12, align 8, !noalias !731
+  store i64 3, ptr %4, align 8, !noalias !731
   %13 = call noalias noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17h59be39756985a9b6E.llvm.5331966815222788767"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) @anon.d795119150f63e27fa6f1b4ce1c75725.81.llvm.5331966815222788767, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
@@ -8525,6 +8525,11 @@ attributes #33 = { noreturn }
 !723 = !{!724}
 !724 = distinct !{!724, !725, !"_ZN11wasi_common4pipe18WritePipe$LT$W$GT$3new17he45f6b55fb1bcb93E: argument 0"}
 !725 = distinct !{!725, !"_ZN11wasi_common4pipe18WritePipe$LT$W$GT$3new17he45f6b55fb1bcb93E"}
-!726 = !{!727}
-!727 = distinct !{!727, !728, !"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$7context17hc41d23b66e174ee0E: argument 0"}
-!728 = distinct !{!728, !"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$7context17hc41d23b66e174ee0E"}
+!726 = !{!727, !729}
+!727 = distinct !{!727, !728, !"_ZN76_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h2819a56d10705f4fE.llvm.5331966815222788767: argument 0"}
+!728 = distinct !{!728, !"_ZN76_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h2819a56d10705f4fE.llvm.5331966815222788767"}
+!729 = distinct !{!729, !730, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hac5dd56a0d18fb7dE.llvm.5331966815222788767: argument 0"}
+!730 = distinct !{!730, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hac5dd56a0d18fb7dE.llvm.5331966815222788767"}
+!731 = !{!732}
+!732 = distinct !{!732, !733, !"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$7context17hc41d23b66e174ee0E: argument 0"}
+!733 = distinct !{!733, !"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$7context17hc41d23b66e174ee0E"}

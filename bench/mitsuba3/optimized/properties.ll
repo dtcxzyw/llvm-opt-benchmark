@@ -4547,8 +4547,8 @@ _ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_trait
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #28
   br label %35
 
-common.resume:                                    ; preds = %61, %33
-  %common.resume.op = phi { ptr, i32 } [ %34, %33 ], [ %62, %61 ]
+common.resume:                                    ; preds = %59, %33
+  %common.resume.op = phi { ptr, i32 } [ %34, %33 ], [ %60, %59 ]
   resume { ptr, i32 } %common.resume.op
 
 33:                                               ; preds = %31
@@ -4578,7 +4578,7 @@ _ZNSt3__110shared_ptrIvEC2B8ne190000ERKS1_.exit:  ; preds = %35, %40
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   store ptr %1, ptr %7, align 8
   %44 = invoke { ptr, i8 } @_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE25__emplace_unique_key_argsIS7_JRKNS_21piecewise_construct_tENS_5tupleIJRKS7_EEENSK_IJEEEEEENS_4pairINS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEEbEERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZNSt3__119piecewise_constructE, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %45 unwind label %61
+          to label %45 unwind label %59
 
 45:                                               ; preds = %_ZNSt3__110shared_ptrIvEC2B8ne190000ERKS1_.exit
   %46 = extractvalue { ptr, i8 } %44, 0
@@ -4598,31 +4598,27 @@ _ZNSt3__110shared_ptrIvEC2B8ne190000ERKS1_.exit:  ; preds = %35, %40
 
 54:                                               ; preds = %51
   call void @_ZN7mitsuba6detail14variant_helperIJN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv(ptr noundef %49, ptr noundef nonnull align 32 dereferenceable(264) %47) #28
-  %.pre = load ptr, ptr %10, align 8
-  %.pre24 = load ptr, ptr %37, align 8
   br label %_ZNSt3__110shared_ptrIvED2B8ne190000Ev.exit
 
 _ZNSt3__110shared_ptrIvED2B8ne190000Ev.exit:      ; preds = %54, %51, %45
-  %55 = phi ptr [ %.pre24, %54 ], [ %39, %51 ], [ %39, %45 ]
-  %56 = phi ptr [ %.pre, %54 ], [ %36, %51 ], [ %36, %45 ]
   store ptr @_ZTINSt3__110shared_ptrIvEE, ptr %48, align 32
-  store ptr %56, ptr %47, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %46, i64 72
-  store ptr %55, ptr %57, align 8
-  %.pre26 = load ptr, ptr %0, align 8
+  store ptr %36, ptr %47, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %46, i64 72
+  store ptr %39, ptr %55, align 8
+  %.pre = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   store ptr %1, ptr %5, align 8
-  %58 = call { ptr, i8 } @_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE25__emplace_unique_key_argsIS7_JRKNS_21piecewise_construct_tENS_5tupleIJRKS7_EEENSK_IJEEEEEENS_4pairINS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEEbEERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(24) %.pre26, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZNSt3__119piecewise_constructE, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  %59 = extractvalue { ptr, i8 } %58, 0
+  %56 = call { ptr, i8 } @_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE25__emplace_unique_key_argsIS7_JRKNS_21piecewise_construct_tENS_5tupleIJRKS7_EEENSK_IJEEEEEENS_4pairINS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEEbEERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(24) %.pre, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZNSt3__119piecewise_constructE, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  %57 = extractvalue { ptr, i8 } %56, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 352
-  store i8 0, ptr %60, align 32
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 352
+  store i8 0, ptr %58, align 32
   ret void
 
-61:                                               ; preds = %_ZNSt3__110shared_ptrIvEC2B8ne190000ERKS1_.exit
-  %62 = landingpad { ptr, i32 }
+59:                                               ; preds = %_ZNSt3__110shared_ptrIvEC2B8ne190000ERKS1_.exit
+  %60 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__110shared_ptrIvED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #28
   br label %common.resume

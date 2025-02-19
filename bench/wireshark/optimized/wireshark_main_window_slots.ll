@@ -6319,7 +6319,7 @@ define void @_ZN19WiresharkMainWindow18colorizeWithFilterE10QByteArrayi(ptr noun
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  tail call void @__clang_call_terminate(ptr %42) #30
+  tail call void @__clang_call_terminate(ptr %42) #30, !noalias !110
   unreachable
 
 _ZN7QStringC2ERK10QByteArray.exit:                ; preds = %37
@@ -28187,7 +28187,7 @@ _ZN18ConversationAction6filterEv.exit:            ; preds = %10, %19
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #30
+  call void @__clang_call_terminate(ptr %36) #30, !noalias !618
   unreachable
 
 _ZN7QStringD2Ev.exit.i:                           ; preds = %32

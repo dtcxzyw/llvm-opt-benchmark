@@ -11059,7 +11059,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17h711abb2907813286E.llvm.1
   unreachable
 
 "_ZN8sum_tree16SumTree$LT$T$GT$3new17h68886b3de99ccd3eE.exit.i": ; preds = %.noexc.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4464) %342, ptr noundef nonnull align 8 dereferenceable(4464) %43, i64 4464, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4464) %342, ptr noundef nonnull align 8 dereferenceable(4464) %43, i64 4464, i1 false), !noalias !2979
   call void @llvm.lifetime.end.p0(i64 4464, ptr nonnull %43), !noalias !2983
   call void @llvm.lifetime.end.p0(i64 207, ptr nonnull %.sroa.4.i.i)
   store ptr %342, ptr %48, align 8, !noalias !2979
@@ -32273,7 +32273,7 @@ define hidden void @"_ZN97_$LT$futures_util..future..join_all..JoinAll$LT$F$GT$$
 
 23:                                               ; preds = %17
   %24 = extractvalue { i64, ptr } %18, 1
-  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hdeec176d7b138a84E.llvm.4734057639300609533"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16, i64 noundef 1, ptr %24)
+  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hdeec176d7b138a84E.llvm.4734057639300609533"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16, i64 noundef 1, ptr %24), !noalias !8084
   br label %17
 
 ._crit_edge:                                      ; preds = %"_ZN103_$LT$futures_util..future..maybe_done..MaybeDone$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2d1c5ad46e305094E.exit"
@@ -38704,7 +38704,7 @@ attributes #45 = { noreturn nounwind }
 !3083 = !{!3084, !3077, !3079, !3081}
 !3084 = distinct !{!3084, !3085, !"_ZN99_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$arrayvec..arrayvec_impl..ArrayVecImpl$GT$7set_len17h4c8687c670c01866E.llvm.10608672275479804670: argument 0"}
 !3085 = distinct !{!3085, !"_ZN99_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$arrayvec..arrayvec_impl..ArrayVecImpl$GT$7set_len17h4c8687c670c01866E.llvm.10608672275479804670"}
-!3086 = !{!3087, !3089, !3091}
+!3086 = !{!3087, !3089, !3091, !2980, !2982}
 !3087 = distinct !{!3087, !3088, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb9b42c9cfeb31243E.llvm.6844594870300039520: argument 0"}
 !3088 = distinct !{!3088, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb9b42c9cfeb31243E.llvm.6844594870300039520"}
 !3089 = distinct !{!3089, !3090, !"_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$sum_tree..Node$LT$text..Fragment$GT$$GT$$GT$17h738c4039a808d52aE.llvm.6844594870300039520: argument 0"}

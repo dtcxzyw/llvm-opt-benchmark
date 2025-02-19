@@ -1624,39 +1624,30 @@ catch:                                            ; preds = %lpad
   %9 = extractvalue { ptr, i32 } %6, 0
   %10 = call ptr @__cxa_begin_catch(ptr %9) #21
   invoke void @__cxa_end_catch()
-          to label %catch.cleanup_crit_edge unwind label %lpad2
-
-catch.cleanup_crit_edge:                          ; preds = %catch
-  %.pre = load ptr, ptr %m_model.i, align 8
-  %.pre6 = load i8, ptr %_smc, align 8
-  %11 = trunc i8 %.pre6 to i1
-  br label %cleanup
+          to label %cleanup unwind label %lpad2
 
 lpad2:                                            ; preds = %catch
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
-cleanup:                                          ; preds = %catch.cleanup_crit_edge, %_ZN7obj_refI4expr11ast_managerED2Ev.exit
-  %tobool.i = phi i1 [ %call.i, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ %11, %catch.cleanup_crit_edge ]
-  %13 = phi ptr [ %this, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ %.pre, %catch.cleanup_crit_edge ]
-  %retval.0 = phi i1 [ true, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ false, %catch.cleanup_crit_edge ]
-  %m_mev.i.i = getelementptr inbounds nuw i8, ptr %13, i64 128
-  invoke void @_ZN15model_evaluator20set_model_completionEb(ptr noundef nonnull align 8 dereferenceable(8) %m_mev.i.i, i1 noundef zeroext %tobool.i)
+cleanup:                                          ; preds = %catch, %_ZN7obj_refI4expr11ast_managerED2Ev.exit
+  %retval.0 = phi i1 [ true, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ false, %catch ]
+  invoke void @_ZN15model_evaluator20set_model_completionEb(ptr noundef nonnull align 8 dereferenceable(8) %m_mev.i, i1 noundef zeroext %call.i)
           to label %_ZN5model23scoped_model_completionD2Ev.exit unwind label %terminate.lpad.i5
 
 terminate.lpad.i5:                                ; preds = %cleanup
-  %14 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #22
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #22
   unreachable
 
 _ZN5model23scoped_model_completionD2Ev.exit:      ; preds = %cleanup
   ret i1 %retval.0
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
-  %lpad.val6.merged = phi { ptr, i32 } [ %12, %lpad2 ], [ %6, %lpad ]
+  %lpad.val6.merged = phi { ptr, i32 } [ %11, %lpad2 ], [ %6, %lpad ]
   call void @_ZN5model23scoped_model_completionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %_smc) #21
   resume { ptr, i32 } %lpad.val6.merged
 }

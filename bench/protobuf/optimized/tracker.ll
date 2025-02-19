@@ -1938,7 +1938,7 @@ if.end.i:                                         ; preds = %invoke.cont18.i, %i
   %57 = extractvalue { i64, ptr } %call29.i, 0
   %58 = extractvalue { i64, ptr } %call29.i, 1
   invoke void @_ZN6google8protobuf8compiler3cpp22UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp25.i44, i64 %57, ptr %58, i1 noundef zeroext true)
-          to label %invoke.cont30.i unwind label %lpad17.i
+          to label %invoke.cont30.i unwind label %lpad17.i, !noalias !27
 
 invoke.cont30.i:                                  ; preds = %if.end.i
   %59 = extractvalue { i64, ptr } %call.i15.i, 1

@@ -689,7 +689,7 @@ _ZNKSt13unordered_mapISt5arrayIhLm16EESt10unique_ptrIN4Luau7CodeGen12NativeModul
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #22
+  tail call void @__clang_call_terminate(ptr %17) #22, !noalias !9
   unreachable
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %13, %10, %9
@@ -774,7 +774,7 @@ _ZNKSt13unordered_mapISt5arrayIhLm16EESt10unique_ptrIN4Luau7CodeGen12NativeModul
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #22
+  tail call void @__clang_call_terminate(ptr %24) #22, !noalias !12
   unreachable
 
 _ZN4Luau7CodeGen15NativeModuleRefD2Ev.exit:       ; preds = %19

@@ -2338,7 +2338,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %41 = extractvalue { ptr, i64 } %39, 0
   %42 = extractvalue { ptr, i64 } %39, 1
   invoke void @"_ZN90_$LT$object_store..gcp..builder..GoogleConfigKey$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h69946efc5da2a88bE"(ptr noalias noundef nonnull sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %20, ptr noalias noundef nonnull readonly align 1 %41, i64 noundef %42)
-          to label %43 unwind label %55
+          to label %43 unwind label %55, !noalias !823
 
 43:                                               ; preds = %40
   %44 = load i64, ptr %20, align 8, !range !829, !noalias !823, !noundef !8

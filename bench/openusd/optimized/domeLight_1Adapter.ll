@@ -708,7 +708,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_LazyDomeOffsetDataSourceC2
   %66 = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %66, 0
-  %68 = tail call ptr @__cxa_begin_catch(ptr %67) #21
+  %68 = tail call ptr @__cxa_begin_catch(ptr %67) #21, !noalias !4
   %69 = load ptr, ptr %28, align 8, !noalias !4
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !noalias !4
@@ -726,7 +726,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_LazyDomeOffsetDataSourceC2
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  tail call void @__clang_call_terminate(ptr %76) #24
+  tail call void @__clang_call_terminate(ptr %76) #24, !noalias !4
   unreachable
 
 77:                                               ; preds = %65
@@ -847,7 +847,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PortalsDataSourceC2ERKNS_7
   %129 = landingpad { ptr, i32 }
           catch ptr null
   %130 = extractvalue { ptr, i32 } %129, 0
-  %131 = tail call ptr @__cxa_begin_catch(ptr %130) #21
+  %131 = tail call ptr @__cxa_begin_catch(ptr %130) #21, !noalias !7
   %132 = load ptr, ptr %95, align 8, !noalias !7
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %134 = load ptr, ptr %133, align 8, !noalias !7
@@ -865,7 +865,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PortalsDataSourceC2ERKNS_7
   %138 = landingpad { ptr, i32 }
           catch ptr null
   %139 = extractvalue { ptr, i32 } %138, 0
-  tail call void @__clang_call_terminate(ptr %139) #24
+  tail call void @__clang_call_terminate(ptr %139) #24, !noalias !7
   unreachable
 
 140:                                              ; preds = %128

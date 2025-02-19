@@ -722,7 +722,7 @@ _ZN8uu_split8platform4unix13WithEnvVarSet3new17hd7b6d27b884df56bE.exit.i: ; pred
   %50 = extractvalue { i64, ptr } %46, 1
   %51 = icmp ne ptr %50, null
   tail call void @llvm.assume(i1 %51)
-  store i32 1162627398, ptr %50, align 1
+  store i32 1162627398, ptr %50, align 1, !noalias !115
   %52 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store i64 %49, ptr %52, align 8, !alias.scope !110, !noalias !116
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %28, i64 40
@@ -781,7 +781,7 @@ _ZN3std3env3var17hc6f50664194a00bbE.exit.i:       ; preds = %_ZN8uu_split8platfo
   %64 = extractvalue { i64, ptr } %59, 1
   %65 = icmp ne ptr %64, null
   tail call void @llvm.assume(i1 %65)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %64, ptr noundef nonnull align 1 dereferenceable(7) @anon.58d87c824ed14e5a617dd58fa20d836d.20, i64 7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %64, ptr noundef nonnull align 1 dereferenceable(7) @anon.58d87c824ed14e5a617dd58fa20d836d.20, i64 7, i1 false), !noalias !131
   store i64 %63, ptr %23, align 8, !alias.scope !126, !noalias !133
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %64, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !alias.scope !126, !noalias !133
@@ -1703,7 +1703,7 @@ attributes #16 = { nounwind }
 !149 = distinct !{!149, !"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17haa8e1f56db8bec72E"}
 !150 = !{!122}
 !151 = !{!125, !122, !106, !108, !109}
-!152 = !{!125, !122}
+!152 = !{!125, !122, !106, !108}
 !153 = !{!125, !106, !108}
 !154 = !{!122, !106, !108, !109}
 !155 = !{!156, !158, !160, !162, !125, !122, !106, !108, !109}

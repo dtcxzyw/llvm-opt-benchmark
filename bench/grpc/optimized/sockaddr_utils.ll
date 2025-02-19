@@ -1050,7 +1050,7 @@ if.then.i32:                                      ; preds = %if.end10
   %17 = extractvalue { i64, ptr } %call.i, 0
   %18 = extractvalue { i64, ptr } %call.i, 1
   invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp.i, i64 %17, ptr %18)
-          to label %invoke.cont.i unwind label %lpad.i
+          to label %invoke.cont.i unwind label %lpad.i, !noalias !9
 
 invoke.cont.i:                                    ; preds = %if.then.i32
   %19 = load i64, ptr %ref.tmp.i, align 8, !noalias !9
@@ -1455,7 +1455,7 @@ if.then.i43:                                      ; preds = %if.then17
   %52 = extractvalue { i64, ptr } %call.i51, 0
   %53 = extractvalue { i64, ptr } %call.i51, 1
   invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp.i38, i64 %52, ptr %53)
-          to label %invoke.cont.i54 unwind label %lpad.i52
+          to label %invoke.cont.i54 unwind label %lpad.i52, !noalias !13
 
 invoke.cont.i54:                                  ; preds = %if.then.i43
   %54 = load i64, ptr %ref.tmp.i38, align 8, !noalias !13

@@ -796,9 +796,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node4quic10TLSContextC2EPNS_11EnvironmentENS0_4SideEPNS0_7SessionERKNS1_7OptionsE(ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 16)) %this, ptr noundef %env, i32 noundef %side, ptr noundef %session, ptr noundef nonnull align 8 dereferenceable(272) %options) unnamed_addr #4 align 2 {
 entry:
-  %bio.i52.i = alloca %"class.std::unique_ptr.11", align 8
+  %bio.i54.i = alloca %"class.std::unique_ptr.11", align 8
   %agg.tmp.i.i = alloca %"class.std::shared_ptr.429", align 8
-  %bio.i41.i = alloca %"class.std::unique_ptr.11", align 8
+  %bio.i43.i = alloca %"class.std::unique_ptr.11", align 8
   %bio.i.i = alloca %"class.std::unique_ptr.11", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic10TLSContextE, i64 16), ptr %this, align 8
   %conn_ref_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -832,11 +832,11 @@ sw.bb.i:                                          ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %sw.bb.i
   tail call void @SSL_CTX_free(ptr noundef nonnull %0) #19, !noalias !8
-  %.pre86.i = load ptr, ptr %ctx_.i.i, align 8, !noalias !8
+  %.pre88.i = load ptr, ptr %ctx_.i.i, align 8, !noalias !8
   br label %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit.i
 
 _ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit.i: ; preds = %if.then.i.i.i, %sw.bb.i
-  %1 = phi ptr [ %call3.i, %sw.bb.i ], [ %.pre86.i, %if.then.i.i.i ]
+  %1 = phi ptr [ %call3.i, %sw.bb.i ], [ %.pre88.i, %if.then.i.i.i ]
   %call5.i = tail call i32 @SSL_CTX_set_ex_data(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %call.i) #19, !noalias !8
   %2 = load ptr, ptr %ctx_.i.i, align 8, !noalias !8
   %call7.i = tail call i32 @ngtcp2_crypto_openssl_configure_server_context(ptr noundef %2) #19, !noalias !8
@@ -869,23 +869,23 @@ sw.bb23.i:                                        ; preds = %entry
   %call25.i = tail call ptr @SSL_CTX_new(ptr noundef %call24.i) #19, !noalias !8
   %10 = load ptr, ptr %ctx_.i.i, align 8, !noalias !8
   store ptr %call25.i, ptr %ctx_.i.i, align 8, !noalias !8
-  %tobool.not.i.i34.i = icmp eq ptr %10, null
-  br i1 %tobool.not.i.i34.i, label %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit36.i, label %if.then.i.i35.i
+  %tobool.not.i.i36.i = icmp eq ptr %10, null
+  br i1 %tobool.not.i.i36.i, label %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit38.i, label %if.then.i.i37.i
 
-if.then.i.i35.i:                                  ; preds = %sw.bb23.i
+if.then.i.i37.i:                                  ; preds = %sw.bb23.i
   tail call void @SSL_CTX_free(ptr noundef nonnull %10) #19, !noalias !8
   %.pre.i = load ptr, ptr %ctx_.i.i, align 8, !noalias !8
-  br label %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit36.i
+  br label %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit38.i
 
-_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit36.i: ; preds = %if.then.i.i35.i, %sw.bb23.i
-  %11 = phi ptr [ %call25.i, %sw.bb23.i ], [ %.pre.i, %if.then.i.i35.i ]
+_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit38.i: ; preds = %if.then.i.i37.i, %sw.bb23.i
+  %11 = phi ptr [ %call25.i, %sw.bb23.i ], [ %.pre.i, %if.then.i.i37.i ]
   %call27.i = tail call i32 @SSL_CTX_set_ex_data(ptr noundef %11, i32 noundef 0, ptr noundef nonnull %call.i) #19, !noalias !8
   %12 = load ptr, ptr %ctx_.i.i, align 8, !noalias !8
   %call29.i = tail call i32 @ngtcp2_crypto_openssl_configure_client_context(ptr noundef %12) #19, !noalias !8
   %cmp30.not.i = icmp eq i32 %call29.i, 0
   br i1 %cmp30.not.i, label %if.end32.i, label %_ZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsE.exit.thread.sink.split
 
-if.end32.i:                                       ; preds = %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit36.i
+if.end32.i:                                       ; preds = %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit38.i
   %13 = load ptr, ptr %ctx_.i.i, align 8, !noalias !8
   %call34.i = tail call i64 @SSL_CTX_ctrl(ptr noundef %13, i32 noundef 44, i64 noundef 513, ptr noundef null) #19, !noalias !8
   %14 = load ptr, ptr %ctx_.i.i, align 8, !noalias !8
@@ -935,23 +935,23 @@ if.end52.i:                                       ; preds = %if.end46.i
   br i1 %cmp.i.i.i, label %if.else.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end52.i, %for.inc.i
-  %__begin3.sroa.0.079.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i ], [ %20, %if.end52.i ]
-  %call62.i = call { ptr, i64 } @_ZNK4node4quic5Storecv8uv_buf_tEv(ptr noundef nonnull align 8 dereferenceable(40) %__begin3.sroa.0.079.i) #19, !noalias !8
+  %__begin3.sroa.0.081.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i ], [ %20, %if.end52.i ]
+  %call62.i = call { ptr, i64 } @_ZNK4node4quic5Storecv8uv_buf_tEv(ptr noundef nonnull align 8 dereferenceable(40) %__begin3.sroa.0.081.i) #19, !noalias !8
   %22 = extractvalue { ptr, i64 } %call62.i, 0
   %23 = extractvalue { ptr, i64 } %call62.i, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bio.i.i), !noalias !8
-  call void @_ZN4node6crypto7NodeBIO8NewFixedEPKcmPNS_11EnvironmentE(ptr nonnull sret(%"class.std::unique_ptr.11") align 8 %bio.i.i, ptr noundef %22, i64 noundef %23, ptr noundef null) #19
+  call void @_ZN4node6crypto7NodeBIO8NewFixedEPKcmPNS_11EnvironmentE(ptr nonnull sret(%"class.std::unique_ptr.11") align 8 %bio.i.i, ptr noundef %22, i64 noundef %23, ptr noundef null) #19, !noalias !8
   %24 = load ptr, ptr %bio.i.i, align 8, !noalias !8
-  %cmp.i.i37.not.i = icmp eq ptr %24, null
-  br i1 %cmp.i.i37.not.i, label %if.then64.i, label %cleanup.i.i
+  %cmp.i.i39.not.i = icmp eq ptr %24, null
+  br i1 %cmp.i.i39.not.i, label %if.then64.i, label %cleanup.i.i
 
 cleanup.i.i:                                      ; preds = %for.body.i
   call void @_ZN4node6crypto13SecureContext9SetCACertERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS3_XadL_Z12BIO_free_allEEEEE(ptr noundef nonnull align 8 dereferenceable(128) %call.i, ptr noundef nonnull align 8 dereferenceable(8) %bio.i.i) #19, !noalias !8
   %.pr.i.i = load ptr, ptr %bio.i.i, align 8, !noalias !8
   %cmp.not.i.i.i = icmp eq ptr %.pr.i.i, null
-  br i1 %cmp.not.i.i.i, label %for.inc.i, label %if.then.i.i38.i
+  br i1 %cmp.not.i.i.i, label %for.inc.i, label %if.then.i.i40.i
 
-if.then.i.i38.i:                                  ; preds = %cleanup.i.i
+if.then.i.i40.i:                                  ; preds = %cleanup.i.i
   call void @BIO_free_all(ptr noundef nonnull %.pr.i.i) #19, !noalias !8
   br label %for.inc.i
 
@@ -960,11 +960,11 @@ if.then64.i:                                      ; preds = %for.body.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i.i), !noalias !8
   br label %_ZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsE.exit.thread.sink.split
 
-for.inc.i:                                        ; preds = %if.then.i.i38.i, %cleanup.i.i
+for.inc.i:                                        ; preds = %if.then.i.i40.i, %cleanup.i.i
   store ptr null, ptr %bio.i.i, align 8, !noalias !8
   call void @ERR_clear_error() #19, !noalias !8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i.i), !noalias !8
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.079.i, i64 40
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.081.i, i64 40
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %21
   br i1 %cmp.i.not.i, label %if.end67.i, label %for.body.i
 
@@ -976,79 +976,79 @@ if.else.i:                                        ; preds = %if.end52.i
 if.end67.i:                                       ; preds = %for.inc.i, %if.else.i
   %certs.i = getelementptr inbounds nuw i8, ptr %options, i64 200
   %25 = load ptr, ptr %certs.i, align 8, !noalias !8
-  %_M_finish.i39.i = getelementptr inbounds nuw i8, ptr %options, i64 208
-  %26 = load ptr, ptr %_M_finish.i39.i, align 8, !noalias !8
-  %cmp.i40.not80.i = icmp eq ptr %25, %26
-  br i1 %cmp.i40.not80.i, label %for.end84.i, label %for.body74.i
+  %_M_finish.i41.i = getelementptr inbounds nuw i8, ptr %options, i64 208
+  %26 = load ptr, ptr %_M_finish.i41.i, align 8, !noalias !8
+  %cmp.i42.not82.i = icmp eq ptr %25, %26
+  br i1 %cmp.i42.not82.i, label %for.end84.i, label %for.body74.i
 
 for.body74.i:                                     ; preds = %if.end67.i, %for.inc82.i
-  %__begin2.sroa.0.081.i = phi ptr [ %incdec.ptr.i46.i, %for.inc82.i ], [ %25, %if.end67.i ]
-  %call77.i = call { ptr, i64 } @_ZNK4node4quic5Storecv8uv_buf_tEv(ptr noundef nonnull align 8 dereferenceable(40) %__begin2.sroa.0.081.i) #19, !noalias !8
+  %__begin2.sroa.0.083.i = phi ptr [ %incdec.ptr.i48.i, %for.inc82.i ], [ %25, %if.end67.i ]
+  %call77.i = call { ptr, i64 } @_ZNK4node4quic5Storecv8uv_buf_tEv(ptr noundef nonnull align 8 dereferenceable(40) %__begin2.sroa.0.083.i) #19, !noalias !8
   %27 = extractvalue { ptr, i64 } %call77.i, 0
   %28 = extractvalue { ptr, i64 } %call77.i, 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bio.i41.i), !noalias !8
-  call void @_ZN4node6crypto7NodeBIO8NewFixedEPKcmPNS_11EnvironmentE(ptr nonnull sret(%"class.std::unique_ptr.11") align 8 %bio.i41.i, ptr noundef %27, i64 noundef %28, ptr noundef null) #19
-  %29 = load ptr, ptr %bio.i41.i, align 8, !noalias !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bio.i43.i), !noalias !8
+  call void @_ZN4node6crypto7NodeBIO8NewFixedEPKcmPNS_11EnvironmentE(ptr nonnull sret(%"class.std::unique_ptr.11") align 8 %bio.i43.i, ptr noundef %27, i64 noundef %28, ptr noundef null) #19, !noalias !8
+  %29 = load ptr, ptr %bio.i43.i, align 8, !noalias !8
   %cmp.i.not.i.i = icmp eq ptr %29, null
-  br i1 %cmp.i.not.i.i, label %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_3clE8uv_buf_t.exit.thread.i", label %cleanup.i42.i
+  br i1 %cmp.i.not.i.i, label %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_3clE8uv_buf_t.exit.thread.i", label %cleanup.i44.i
 
 "_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_3clE8uv_buf_t.exit.thread.i": ; preds = %for.body74.i
   call void @ERR_clear_error() #19, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i41.i), !noalias !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i43.i), !noalias !8
   br label %for.inc82.i
 
-cleanup.i42.i:                                    ; preds = %for.body74.i
-  %call3.i.i = call i16 @_ZN4node6crypto13SecureContext7AddCertEPNS_11EnvironmentEOSt10unique_ptrI6bio_stNS_15FunctionDeleterIS5_XadL_Z12BIO_free_allEEEEE(ptr noundef nonnull align 8 dereferenceable(128) %call.i, ptr noundef %env, ptr noundef nonnull align 8 dereferenceable(8) %bio.i41.i) #19, !noalias !8
-  %.pr.i43.i = load ptr, ptr %bio.i41.i, align 8, !noalias !8
-  %cmp.not.i.i44.i = icmp eq ptr %.pr.i43.i, null
-  br i1 %cmp.not.i.i44.i, label %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_3clE8uv_buf_t.exit.i", label %if.then.i.i45.i
+cleanup.i44.i:                                    ; preds = %for.body74.i
+  %call3.i.i = call i16 @_ZN4node6crypto13SecureContext7AddCertEPNS_11EnvironmentEOSt10unique_ptrI6bio_stNS_15FunctionDeleterIS5_XadL_Z12BIO_free_allEEEEE(ptr noundef nonnull align 8 dereferenceable(128) %call.i, ptr noundef %env, ptr noundef nonnull align 8 dereferenceable(8) %bio.i43.i) #19, !noalias !8
+  %.pr.i45.i = load ptr, ptr %bio.i43.i, align 8, !noalias !8
+  %cmp.not.i.i46.i = icmp eq ptr %.pr.i45.i, null
+  br i1 %cmp.not.i.i46.i, label %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_3clE8uv_buf_t.exit.i", label %if.then.i.i47.i
 
-if.then.i.i45.i:                                  ; preds = %cleanup.i42.i
-  call void @BIO_free_all(ptr noundef nonnull %.pr.i43.i) #19, !noalias !8
+if.then.i.i47.i:                                  ; preds = %cleanup.i44.i
+  call void @BIO_free_all(ptr noundef nonnull %.pr.i45.i) #19, !noalias !8
   br label %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_3clE8uv_buf_t.exit.i"
 
-"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_3clE8uv_buf_t.exit.i": ; preds = %if.then.i.i45.i, %cleanup.i42.i
-  store ptr null, ptr %bio.i41.i, align 8, !noalias !8
+"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_3clE8uv_buf_t.exit.i": ; preds = %if.then.i.i47.i, %cleanup.i44.i
+  store ptr null, ptr %bio.i43.i, align 8, !noalias !8
   call void @ERR_clear_error() #19, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i41.i), !noalias !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i43.i), !noalias !8
   %tobool.i133.i = trunc i16 %call3.i.i to i1
   br i1 %tobool.i133.i, label %for.inc82.i, label %_ZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsE.exit.thread.sink.split
 
 for.inc82.i:                                      ; preds = %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_3clE8uv_buf_t.exit.i", %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_3clE8uv_buf_t.exit.thread.i"
-  %incdec.ptr.i46.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.081.i, i64 40
-  %cmp.i40.not.i = icmp eq ptr %incdec.ptr.i46.i, %26
-  br i1 %cmp.i40.not.i, label %for.end84.i, label %for.body74.i
+  %incdec.ptr.i48.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.083.i, i64 40
+  %cmp.i42.not.i = icmp eq ptr %incdec.ptr.i48.i, %26
+  br i1 %cmp.i42.not.i, label %for.end84.i, label %for.body74.i
 
 for.end84.i:                                      ; preds = %for.inc82.i, %if.end67.i
   %keys.i = getelementptr inbounds nuw i8, ptr %options, i64 176
   %30 = load ptr, ptr %keys.i, align 8, !noalias !8
-  %_M_finish.i47.i = getelementptr inbounds nuw i8, ptr %options, i64 184
-  %31 = load ptr, ptr %_M_finish.i47.i, align 8, !noalias !8
-  %cmp.i48.not82.i = icmp eq ptr %30, %31
-  br i1 %cmp.i48.not82.i, label %for.end104.i, label %for.body94.lr.ph.i
+  %_M_finish.i49.i = getelementptr inbounds nuw i8, ptr %options, i64 184
+  %31 = load ptr, ptr %_M_finish.i49.i, align 8, !noalias !8
+  %cmp.i50.not84.i = icmp eq ptr %30, %31
+  br i1 %cmp.i50.not84.i, label %for.end104.i, label %for.body94.lr.ph.i
 
 for.body94.lr.ph.i:                               ; preds = %for.end84.i
   %_M_refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
   br label %for.body94.i
 
 for.cond92.i:                                     ; preds = %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_0clIKSt10shared_ptrINS_6crypto13KeyObjectDataEEEEDaRT_.exit.i"
-  %incdec.ptr.i49.i = getelementptr inbounds nuw i8, ptr %__begin286.sroa.0.083.i, i64 16
-  %cmp.i48.not.i = icmp eq ptr %incdec.ptr.i49.i, %31
-  br i1 %cmp.i48.not.i, label %for.end104.i, label %for.body94.i
+  %incdec.ptr.i51.i = getelementptr inbounds nuw i8, ptr %__begin286.sroa.0.085.i, i64 16
+  %cmp.i50.not.i = icmp eq ptr %incdec.ptr.i51.i, %31
+  br i1 %cmp.i50.not.i, label %for.end104.i, label %for.body94.i
 
 for.body94.i:                                     ; preds = %for.cond92.i, %for.body94.lr.ph.i
-  %__begin286.sroa.0.083.i = phi ptr [ %30, %for.body94.lr.ph.i ], [ %incdec.ptr.i49.i, %for.cond92.i ]
-  %call95.val.i = load ptr, ptr %__begin286.sroa.0.083.i, align 8, !noalias !8
-  %32 = getelementptr i8, ptr %__begin286.sroa.0.083.i, i64 8
-  %call95.val33.i = load ptr, ptr %32, align 8, !noalias !8
+  %__begin286.sroa.0.085.i = phi ptr [ %30, %for.body94.lr.ph.i ], [ %incdec.ptr.i51.i, %for.cond92.i ]
+  %call95.val.i = load ptr, ptr %__begin286.sroa.0.085.i, align 8, !noalias !8
+  %32 = getelementptr i8, ptr %__begin286.sroa.0.085.i, i64 8
+  %call95.val34.i = load ptr, ptr %32, align 8, !noalias !8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i), !noalias !8
   store ptr %call95.val.i, ptr %agg.tmp.i.i, align 8, !noalias !8
-  store ptr %call95.val33.i, ptr %_M_refcount.i.i.i.i, align 8, !noalias !8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %call95.val33.i, null
+  store ptr %call95.val34.i, ptr %_M_refcount.i.i.i.i, align 8, !noalias !8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %call95.val34.i, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body94.i
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call95.val33.i, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call95.val34.i, i64 8
   %33 = load i8, ptr @__libc_single_threaded, align 1, !noalias !8
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %33, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -1146,48 +1146,48 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
 for.end104.i:                                     ; preds = %for.cond92.i, %for.end84.i
   %crl.i = getelementptr inbounds nuw i8, ptr %options, i64 248
   %47 = load ptr, ptr %crl.i, align 8, !noalias !8
-  %_M_finish.i50.i = getelementptr inbounds nuw i8, ptr %options, i64 256
-  %48 = load ptr, ptr %_M_finish.i50.i, align 8, !noalias !8
-  %cmp.i51.not84.i = icmp eq ptr %47, %48
-  br i1 %cmp.i51.not84.i, label %for.end127.i, label %for.body114.i
+  %_M_finish.i52.i = getelementptr inbounds nuw i8, ptr %options, i64 256
+  %48 = load ptr, ptr %_M_finish.i52.i, align 8, !noalias !8
+  %cmp.i53.not86.i = icmp eq ptr %47, %48
+  br i1 %cmp.i53.not86.i, label %for.end127.i, label %for.body114.i
 
 for.body114.i:                                    ; preds = %for.end104.i, %for.inc125.i
-  %__begin2106.sroa.0.085.i = phi ptr [ %incdec.ptr.i60.i, %for.inc125.i ], [ %47, %for.end104.i ]
-  %call119.i = call { ptr, i64 } @_ZNK4node4quic5Storecv8uv_buf_tEv(ptr noundef nonnull align 8 dereferenceable(40) %__begin2106.sroa.0.085.i) #19, !noalias !8
+  %__begin2106.sroa.0.087.i = phi ptr [ %incdec.ptr.i62.i, %for.inc125.i ], [ %47, %for.end104.i ]
+  %call119.i = call { ptr, i64 } @_ZNK4node4quic5Storecv8uv_buf_tEv(ptr noundef nonnull align 8 dereferenceable(40) %__begin2106.sroa.0.087.i) #19, !noalias !8
   %49 = extractvalue { ptr, i64 } %call119.i, 0
   %50 = extractvalue { ptr, i64 } %call119.i, 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bio.i52.i), !noalias !8
-  call void @_ZN4node6crypto7NodeBIO8NewFixedEPKcmPNS_11EnvironmentE(ptr nonnull sret(%"class.std::unique_ptr.11") align 8 %bio.i52.i, ptr noundef %49, i64 noundef %50, ptr noundef null) #19
-  %51 = load ptr, ptr %bio.i52.i, align 8, !noalias !8
-  %cmp.i.not.i53.i = icmp eq ptr %51, null
-  br i1 %cmp.i.not.i53.i, label %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_4clE8uv_buf_t.exit.thread.i", label %cleanup.i54.i
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bio.i54.i), !noalias !8
+  call void @_ZN4node6crypto7NodeBIO8NewFixedEPKcmPNS_11EnvironmentE(ptr nonnull sret(%"class.std::unique_ptr.11") align 8 %bio.i54.i, ptr noundef %49, i64 noundef %50, ptr noundef null) #19, !noalias !8
+  %51 = load ptr, ptr %bio.i54.i, align 8, !noalias !8
+  %cmp.i.not.i55.i = icmp eq ptr %51, null
+  br i1 %cmp.i.not.i55.i, label %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_4clE8uv_buf_t.exit.thread.i", label %cleanup.i56.i
 
 "_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_4clE8uv_buf_t.exit.thread.i": ; preds = %for.body114.i
   call void @ERR_clear_error() #19, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i52.i), !noalias !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i54.i), !noalias !8
   br label %for.inc125.i
 
-cleanup.i54.i:                                    ; preds = %for.body114.i
-  %call3.i55.i = call i16 @_ZN4node6crypto13SecureContext6SetCRLEPNS_11EnvironmentERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS5_XadL_Z12BIO_free_allEEEEE(ptr noundef nonnull align 8 dereferenceable(128) %call.i, ptr noundef %env, ptr noundef nonnull align 8 dereferenceable(8) %bio.i52.i) #19, !noalias !8
-  %.pr.i56.i = load ptr, ptr %bio.i52.i, align 8, !noalias !8
-  %cmp.not.i.i57.i = icmp eq ptr %.pr.i56.i, null
-  br i1 %cmp.not.i.i57.i, label %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_4clE8uv_buf_t.exit.i", label %if.then.i.i58.i
+cleanup.i56.i:                                    ; preds = %for.body114.i
+  %call3.i57.i = call i16 @_ZN4node6crypto13SecureContext6SetCRLEPNS_11EnvironmentERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS5_XadL_Z12BIO_free_allEEEEE(ptr noundef nonnull align 8 dereferenceable(128) %call.i, ptr noundef %env, ptr noundef nonnull align 8 dereferenceable(8) %bio.i54.i) #19, !noalias !8
+  %.pr.i58.i = load ptr, ptr %bio.i54.i, align 8, !noalias !8
+  %cmp.not.i.i59.i = icmp eq ptr %.pr.i58.i, null
+  br i1 %cmp.not.i.i59.i, label %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_4clE8uv_buf_t.exit.i", label %if.then.i.i60.i
 
-if.then.i.i58.i:                                  ; preds = %cleanup.i54.i
-  call void @BIO_free_all(ptr noundef nonnull %.pr.i56.i) #19, !noalias !8
+if.then.i.i60.i:                                  ; preds = %cleanup.i56.i
+  call void @BIO_free_all(ptr noundef nonnull %.pr.i58.i) #19, !noalias !8
   br label %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_4clE8uv_buf_t.exit.i"
 
-"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_4clE8uv_buf_t.exit.i": ; preds = %if.then.i.i58.i, %cleanup.i54.i
-  store ptr null, ptr %bio.i52.i, align 8, !noalias !8
+"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_4clE8uv_buf_t.exit.i": ; preds = %if.then.i.i60.i, %cleanup.i56.i
+  store ptr null, ptr %bio.i54.i, align 8, !noalias !8
   call void @ERR_clear_error() #19, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i52.i), !noalias !8
-  %tobool.i.i = trunc i16 %call3.i55.i to i1
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i54.i), !noalias !8
+  %tobool.i.i = trunc i16 %call3.i57.i to i1
   br i1 %tobool.i.i, label %for.inc125.i, label %_ZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsE.exit.thread.sink.split
 
 for.inc125.i:                                     ; preds = %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_4clE8uv_buf_t.exit.i", %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_4clE8uv_buf_t.exit.thread.i"
-  %incdec.ptr.i60.i = getelementptr inbounds nuw i8, ptr %__begin2106.sroa.0.085.i, i64 40
-  %cmp.i51.not.i = icmp eq ptr %incdec.ptr.i60.i, %48
-  br i1 %cmp.i51.not.i, label %for.end127.i, label %for.body114.i
+  %incdec.ptr.i62.i = getelementptr inbounds nuw i8, ptr %__begin2106.sroa.0.087.i, i64 40
+  %cmp.i53.not.i = icmp eq ptr %incdec.ptr.i62.i, %48
+  br i1 %cmp.i53.not.i, label %for.end127.i, label %for.body114.i
 
 for.end127.i:                                     ; preds = %for.inc125.i, %for.end104.i
   store ptr null, ptr %secure_context_, align 8
@@ -1205,7 +1205,7 @@ do.body6.i:                                       ; preds = %_ZNK4node17BaseObje
   call void @abort() #21
   unreachable
 
-_ZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsE.exit.thread.sink.split: ; preds = %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_3clE8uv_buf_t.exit.i", %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_0clIKSt10shared_ptrINS_6crypto13KeyObjectDataEEEEDaRT_.exit.i", %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_4clE8uv_buf_t.exit.i", %if.end46.i, %if.end40.i, %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit36.i, %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit.i, %if.then64.i
+_ZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsE.exit.thread.sink.split: ; preds = %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_3clE8uv_buf_t.exit.i", %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_0clIKSt10shared_ptrINS_6crypto13KeyObjectDataEEEEDaRT_.exit.i", %"_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_4clE8uv_buf_t.exit.i", %if.end46.i, %if.end40.i, %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit38.i, %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit.i, %if.then64.i
   store ptr null, ptr %secure_context_, align 8, !alias.scope !8
   br label %_ZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsE.exit.thread
 

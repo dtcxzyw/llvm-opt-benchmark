@@ -642,7 +642,7 @@ if.end18.i:                                       ; preds = %invoke.cont10.i
   %call.i.i64 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %cond11.i.i, ptr %cond.i.i) #22, !noalias !12
   %53 = extractvalue { i64, ptr } %call.i.i64, 0
   %54 = extractvalue { i64, ptr } %call.i.i64, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, i64 %53, ptr %54) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, i64 %53, ptr %54) #22, !noalias !12
   %55 = load i64, ptr %agg.tmp.i.i, align 8, !noalias !12
   %56 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
   %57 = load ptr, ptr %56, align 8, !noalias !12

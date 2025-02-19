@@ -45212,7 +45212,7 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %cond.true.i.i.i.i.i
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #32
+  call void @__clang_call_terminate(ptr %64) #32, !noalias !822
   unreachable
 
 _ZN5folly3f146detail11F14BasicMapINS1_20ValueContainerPolicyIfivvN8facebook5velox6memory12StlAllocatorISt4pairIKfiEEEEEE7emplaceIJfRmEEES8_INS1_22ValueContainerIteratorIPSA_EEbEDpOT_.exit: ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIfEET_i.exit, %cond.true.i.i.i.i.i.i.i.i
@@ -47665,7 +47665,7 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %cond.true.i.i.i.i.i
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #32
+  call void @__clang_call_terminate(ptr %64) #32, !noalias !865
   unreachable
 
 _ZN5folly3f146detail11F14BasicMapINS1_20ValueContainerPolicyIdivvN8facebook5velox6memory12StlAllocatorISt4pairIKdiEEEEEE7emplaceIJdRmEEES8_INS1_22ValueContainerIteratorIPSA_EEbEDpOT_.exit: ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIdEET_i.exit, %cond.true.i.i.i.i.i.i.i.i

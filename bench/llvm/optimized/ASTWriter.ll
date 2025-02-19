@@ -93727,7 +93727,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDEZN12_GLOBAL__N_122GetAffectin
 
 .lr.ph85.i:                                       ; preds = %299, %307
   %.05383.i = phi ptr [ %308, %307 ], [ %301, %299 ]
-  %.0.copyload.i.i.i.i.i = load i64, ptr %.05383.i, align 8
+  %.0.copyload.i.i.i.i.i = load i64, ptr %.05383.i, align 8, !noalias !3989
   %304 = and i64 %.0.copyload.i.i.i.i.i, -8
   %.not64.i = icmp eq i64 %304, 0
   br i1 %.not64.i, label %307, label %305

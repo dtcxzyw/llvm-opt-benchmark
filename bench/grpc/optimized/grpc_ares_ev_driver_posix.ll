@@ -1074,23 +1074,22 @@ invoke.cont16:                                    ; preds = %if.then14
   br i1 %cmp.not.i20, label %_ZN4absl12lts_202308026StatusD2Ev.exit37, label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont16, %invoke.cont6, %invoke.cont
-  %.sink = phi i64 [ %1, %invoke.cont ], [ %2, %invoke.cont6 ], [ %3, %invoke.cont16 ]
   %ref.tmp15.sink = phi ptr [ %ref.tmp, %invoke.cont ], [ %ref.tmp5, %invoke.cont6 ], [ %ref.tmp15, %invoke.cont16 ]
-  store i64 %.sink, ptr %err, align 8
+  %4 = phi i64 [ %1, %invoke.cont ], [ %2, %invoke.cont6 ], [ %3, %invoke.cont16 ]
   store i64 54, ptr %ref.tmp15.sink, align 8
-  %and.i.i.i33 = and i64 %.sink, 1
+  %and.i.i.i33 = and i64 %4, 1
   %cmp.i.i.i34 = icmp eq i64 %and.i.i.i33, 0
   br i1 %cmp.i.i.i34, label %_ZN4absl12lts_202308026StatusD2Ev.exit37, label %if.then.i.i35
 
 if.then.i.i35:                                    ; preds = %cleanup
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %.sink)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %4)
           to label %_ZN4absl12lts_202308026StatusD2Ev.exit37 unwind label %terminate.lpad.i36
 
 terminate.lpad.i36:                               ; preds = %if.then.i.i35
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #17
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #17
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit37:         ; preds = %invoke.cont16, %if.end13, %cleanup, %if.then.i.i35
@@ -1098,10 +1097,10 @@ _ZN4absl12lts_202308026StatusD2Ev.exit37:         ; preds = %invoke.cont16, %if.
   ret i32 %retval.045
 
 ehcleanup:                                        ; preds = %entry, %if.end, %if.then14
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %err) #15
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %7
 }
 
 declare void @_Z27grpc_set_socket_nonblockingii(ptr sret(%"class.absl::lts_20230802::Status") align 8, i32 noundef, i32 noundef) local_unnamed_addr #0

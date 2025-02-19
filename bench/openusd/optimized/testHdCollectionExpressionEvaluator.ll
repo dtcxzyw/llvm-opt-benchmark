@@ -23180,7 +23180,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_38HdPrimvarsSchemaTokens
   %332 = landingpad { ptr, i32 }
           catch ptr null
   %333 = extractvalue { ptr, i32 } %332, 0
-  %334 = call ptr @__cxa_begin_catch(ptr %333) #24
+  %334 = call ptr @__cxa_begin_catch(ptr %333) #24, !noalias !59
   %335 = load ptr, ptr %327, align 8, !noalias !59
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 8
   %337 = load ptr, ptr %336, align 8, !noalias !59
@@ -23198,7 +23198,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_38HdPrimvarsSchemaTokens
   %341 = landingpad { ptr, i32 }
           catch ptr null
   %342 = extractvalue { ptr, i32 } %341, 0
-  call void @__clang_call_terminate(ptr %342) #25
+  call void @__clang_call_terminate(ptr %342) #25, !noalias !59
   unreachable
 
 343:                                              ; preds = %331

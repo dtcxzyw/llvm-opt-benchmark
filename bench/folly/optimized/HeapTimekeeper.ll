@@ -508,7 +508,6 @@ _ZNSt10unique_ptrIN5folly14HeapTimekeeper7TimeoutENS2_6DecRefEED2Ev.exit: ; pred
   store i64 %30, ptr %0, align 8, !tbaa !18
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %5, ptr %31, align 8, !tbaa !15
-  store ptr null, ptr %15, align 8, !tbaa !15
   invoke void @_ZN5folly10SemiFutureINS_4UnitEE23releaseDeferredExecutorEPNS_7futures6detail4CoreIS1_EE(ptr noundef null)
           to label %_ZN5folly19SemiPromiseContractINS_4UnitEED2Ev.exit unwind label %32
 

@@ -2194,7 +2194,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit.i.i.i.i.i.i.i.i.
   %590 = landingpad { ptr, i32 }
           catch ptr null
   %591 = extractvalue { ptr, i32 } %590, 0
-  call void @__clang_call_terminate(ptr %591) #25
+  call void @__clang_call_terminate(ptr %591) #25, !noalias !24
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %588, %575, %573
@@ -2238,7 +2238,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i.i.i.i.i.i.i.i.i: ; 
   %615 = landingpad { ptr, i32 }
           catch ptr null
   %616 = extractvalue { ptr, i32 } %615, 0
-  call void @__clang_call_terminate(ptr %616) #25
+  call void @__clang_call_terminate(ptr %616) #25, !noalias !24
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %613, %600, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i.i.i.i.i.i.i.i.i
@@ -2375,7 +2375,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i: 
   %678 = landingpad { ptr, i32 }
           catch ptr null
   %679 = extractvalue { ptr, i32 } %678, 0
-  call void @__clang_call_terminate(ptr %679) #25
+  call void @__clang_call_terminate(ptr %679) #25, !noalias !24
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %676, %663, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i
@@ -2500,7 +2500,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i61.i.i.i.i.i.i.i.i.i: 
   %739 = landingpad { ptr, i32 }
           catch ptr null
   %740 = extractvalue { ptr, i32 } %739, 0
-  call void @__clang_call_terminate(ptr %740) #25
+  call void @__clang_call_terminate(ptr %740) #25, !noalias !24
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i63.i.i.i.i.i.i.i.i.i: ; preds = %737, %724, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i61.i.i.i.i.i.i.i.i.i
@@ -2701,7 +2701,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12UsdAttributeES1_EvT_S3_RSaIT
   %812 = landingpad { ptr, i32 }
           catch ptr null
   %813 = extractvalue { ptr, i32 } %812, 0
-  call void @__clang_call_terminate(ptr %813) #25
+  call void @__clang_call_terminate(ptr %813) #25, !noalias !24
   unreachable
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12UsdAttributeESaIS1_EED2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %806, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12UsdAttributeES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i, %752, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit66.i.i.i.i.i.i.i.i.i
@@ -2894,7 +2894,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15_Task14GetDescriptionB5cxx1
   %906 = landingpad { ptr, i32 }
           catch ptr null
   %907 = extractvalue { ptr, i32 } %906, 0
-  call void @__clang_call_terminate(ptr %907) #25
+  call void @__clang_call_terminate(ptr %907) #25, !noalias !24
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit102.i.i.i.i.i.i.i.i.i: ; preds = %904, %891, %889
@@ -2938,7 +2938,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i104.i.i.i.i.i.i.i.i.i:
   %931 = landingpad { ptr, i32 }
           catch ptr null
   %932 = extractvalue { ptr, i32 } %931, 0
-  call void @__clang_call_terminate(ptr %932) #25
+  call void @__clang_call_terminate(ptr %932) #25, !noalias !24
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i106.i.i.i.i.i.i.i.i.i: ; preds = %929, %916, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i104.i.i.i.i.i.i.i.i.i
@@ -13145,7 +13145,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorC2EPKS0_PKNS_12Usd_P
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #25
+  call void @__clang_call_terminate(ptr %79) #25, !noalias !148
   unreachable
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12UsdPrimRange5beginEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorC2EPKS0_PKNS_12Usd_PrimDataENS_7SdfPathEj.exit.thread.i, %45, %76
@@ -23848,7 +23848,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i: ; pre
   %191 = landingpad { ptr, i32 }
           catch ptr null
   %192 = extractvalue { ptr, i32 } %191, 0
-  call void @__clang_call_terminate(ptr %192) #25
+  call void @__clang_call_terminate(ptr %192) #25, !noalias !200
   unreachable
 
 193:                                              ; preds = %134, %128, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i, %116

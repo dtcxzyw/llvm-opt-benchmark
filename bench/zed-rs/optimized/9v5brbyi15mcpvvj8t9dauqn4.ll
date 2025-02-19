@@ -5185,7 +5185,7 @@ define hidden void @"_ZN15futures_channel4mpsc24UnboundedSender$LT$T$GT$10do_sen
 
 "_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$4push17h596be61b44012112E.exit.i": ; preds = %.noexc.i.i
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false), !noalias !647
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !647
   %29 = atomicrmw xchg ptr %28, ptr %21 acq_rel, align 8, !noalias !647
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
@@ -5457,7 +5457,7 @@ define hidden void @"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$21q
 
 "_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$4push17h596be61b44012112E.exit": ; preds = %.noexc.i
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !665
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !665
   %16 = atomicrmw xchg ptr %15, ptr %7 acq_rel, align 8, !noalias !665
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
@@ -9517,7 +9517,7 @@ define hidden void @_ZN4gpui3app10entity_map9EntityMap6insert17h3a128e178c3d87fa
   br label %.body
 
 "_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$$GT$17h6dddfb9a76213124E.llvm.15582584090086568901.exit": ; preds = %36, %29, %21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   ret void
 
@@ -12309,9 +12309,9 @@ define hidden void @_ZN7postage8channels5watch7channel17h71c5862a75255e80E(ptr d
   resume { ptr, i32 } %10
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h2e0ad24831c90eb3E.llvm.14072874383802587153.exit.i": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(1024) %6, ptr noundef nonnull align 128 dereferenceable(1024) %2, i64 1024, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(1024) %6, ptr noundef nonnull align 128 dereferenceable(1024) %2, i64 1024, i1 false), !noalias !1709
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2), !noalias !1709
-  %14 = atomicrmw add ptr %6, i64 1 monotonic, align 8
+  %14 = atomicrmw add ptr %6, i64 1 monotonic, align 8, !noalias !1709
   %15 = icmp slt i64 %14, 0
   br i1 %15, label %16, label %_ZN7postage4sync6shared17h97d79a9ee6e9f810E.exit
 
@@ -16842,7 +16842,7 @@ attributes #31 = { noreturn }
 !1994 = distinct !{!1994, !"_ZN65_$LT$core..task..wake..Waker$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf9a0118e92c3996E.llvm.15582584090086568901"}
 !1995 = distinct !{!1995, !1996, !"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h7d036d9ae62e2887E.llvm.15582584090086568901: argument 0"}
 !1996 = distinct !{!1996, !"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h7d036d9ae62e2887E.llvm.15582584090086568901"}
-!1997 = !{!1998, !2000}
+!1997 = !{!1998, !2000, !1987, !1990}
 !1998 = distinct !{!1998, !1999, !"_ZN65_$LT$core..task..wake..Waker$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf9a0118e92c3996E.llvm.15582584090086568901: argument 0"}
 !1999 = distinct !{!1999, !"_ZN65_$LT$core..task..wake..Waker$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf9a0118e92c3996E.llvm.15582584090086568901"}
 !2000 = distinct !{!2000, !2001, !"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h7d036d9ae62e2887E.llvm.15582584090086568901: argument 0"}

@@ -3911,7 +3911,7 @@ define linkonce_odr hidden void @_ZNK5boost4urls6detail25authority_template_rule
   %13 = alloca %"class.boost::urls::grammar::implementation_defined::tuple_rule_t.158", align 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %.sroa.034)
   call void @llvm.lifetime.start.p0(i64 49, ptr nonnull %.sroa.936)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.034, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.034, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.sroa.936, i8 0, i64 49, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #22
@@ -3942,7 +3942,7 @@ _ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_1
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #23
+  call void @__clang_call_terminate(ptr %21) #23, !noalias !224
   unreachable
 
 _ZNK5boost4urls7grammar22implementation_defined12tuple_rule_tINS0_6detail24userinfo_template_rule_tEJNS2_14squelch_rule_tINS2_13ch_delim_ruleEEEEE5parseERPKcSB_.exit.i.i: ; preds = %16
@@ -4627,7 +4627,7 @@ define linkonce_odr hidden void @_ZNK5boost4urls6detail20host_template_rule_t5pa
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #23
+  call void @__clang_call_terminate(ptr %30) #23, !noalias !284
   unreachable
 
 _ZNK5boost4urls7grammar22implementation_defined12tuple_rule_tINS2_14squelch_rule_tINS2_13ch_delim_ruleEEEJNS0_6detail29pct_encoded_fmt_string_rule_tINS1_9lut_charsEEES6_EE5parseERPKcSD_.exit.i.i: ; preds = %25

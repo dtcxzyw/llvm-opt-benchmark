@@ -1331,7 +1331,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   %514 = landingpad { ptr, i32 }
           catch ptr null
   %515 = extractvalue { ptr, i32 } %514, 0
-  %516 = call ptr @__cxa_begin_catch(ptr %515) #20
+  %516 = call ptr @__cxa_begin_catch(ptr %515) #20, !noalias !5
   %517 = load ptr, ptr %451, align 8, !noalias !5
   %518 = getelementptr inbounds nuw i8, ptr %517, i64 8
   %519 = load ptr, ptr %518, align 8, !noalias !5
@@ -1349,7 +1349,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   %523 = landingpad { ptr, i32 }
           catch ptr null
   %524 = extractvalue { ptr, i32 } %523, 0
-  call void @__clang_call_terminate(ptr %524) #23
+  call void @__clang_call_terminate(ptr %524) #23, !noalias !5
   unreachable
 
 525:                                              ; preds = %513

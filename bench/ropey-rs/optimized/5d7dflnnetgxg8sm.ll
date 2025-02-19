@@ -2009,7 +2009,7 @@ _ZN8smallvec10infallible17hac02ab9634219958E.exit.i: ; preds = %.noexc16
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit.i": ; preds = %_ZN8smallvec10infallible17hac02ab9634219958E.exit.i
   %70 = load i8, ptr %7, align 8, !range !5, !alias.scope !416, !noalias !421, !noundef !4
   %71 = trunc nuw i8 %70 to i1
-  call void @llvm.assume(i1 %71)
+  call void @llvm.assume(i1 %71), !noalias !390
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %73 = load i64, ptr %72, align 8, !alias.scope !416, !noalias !421, !noundef !4
   %.not.i15 = icmp ugt i64 %.sink7.i12, %73
@@ -2037,7 +2037,7 @@ _ZN8smallvec10infallible17hac02ab9634219958E.exit.i: ; preds = %.noexc16
 80:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105.exit.thread.i"
   %81 = load i8, ptr %7, align 8, !range !5, !alias.scope !429, !noalias !431, !noundef !4
   %82 = icmp eq i8 %81, 0
-  call void @llvm.assume(i1 %82)
+  call void @llvm.assume(i1 %82), !noalias !390
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 1
   br label %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.8018463459433534105.exit.i"
 
@@ -2048,7 +2048,7 @@ _ZN8smallvec10infallible17hac02ab9634219958E.exit.i: ; preds = %.noexc16
   %85 = getelementptr inbounds i8, ptr %84, i64 %54
   %86 = sub nuw i64 %.sink7.i1416.i, %.sink7.i12
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %85, ptr nonnull align 1 %84, i64 %86, i1 false), !noalias !433
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %84, ptr nonnull readonly align 1 %55, i64 %54, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %84, ptr nonnull readonly align 1 %55, i64 %54, i1 false), !noalias !390
   %87 = load i64, ptr %56, align 8, !alias.scope !434, !noalias !437, !noundef !4
   %88 = icmp ugt i64 %87, 984
   %89 = load i8, ptr %7, align 8, !range !5, !alias.scope !434, !noalias !437, !noundef !4
@@ -2056,13 +2056,13 @@ _ZN8smallvec10infallible17hac02ab9634219958E.exit.i: ; preds = %.noexc16
 
 90:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.8018463459433534105.exit.i"
   %91 = trunc nuw i8 %89 to i1
-  call void @llvm.assume(i1 %91)
+  call void @llvm.assume(i1 %91), !noalias !390
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %95
 
 93:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.8018463459433534105.exit.i"
   %94 = icmp eq i8 %89, 0
-  call void @llvm.assume(i1 %94)
+  call void @llvm.assume(i1 %94), !noalias !390
   br label %95
 
 95:                                               ; preds = %93, %90
@@ -4137,23 +4137,23 @@ attributes #19 = { cold noreturn nounwind }
 !418 = distinct !{!418, !"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105"}
 !419 = distinct !{!419, !420, !"_ZN8smallvec17SmallVec$LT$A$GT$17insert_from_slice17h625c22246fefa2baE.llvm.8018463459433534105: argument 0"}
 !420 = distinct !{!420, !"_ZN8smallvec17SmallVec$LT$A$GT$17insert_from_slice17h625c22246fefa2baE.llvm.8018463459433534105"}
-!421 = !{!422, !423}
+!421 = !{!422, !423, !388}
 !422 = distinct !{!422, !418, !"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105: argument 0"}
 !423 = distinct !{!423, !420, !"_ZN8smallvec17SmallVec$LT$A$GT$17insert_from_slice17h625c22246fefa2baE.llvm.8018463459433534105: argument 1"}
 !424 = !{!425, !419}
 !425 = distinct !{!425, !426, !"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.8018463459433534105: argument 1"}
 !426 = distinct !{!426, !"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.8018463459433534105"}
-!427 = !{!428, !423}
+!427 = !{!428, !423, !388}
 !428 = distinct !{!428, !426, !"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.8018463459433534105: argument 0"}
 !429 = !{!430, !419}
 !430 = distinct !{!430, !426, !"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.8018463459433534105: argument 1:thread"}
-!431 = !{!432, !423}
+!431 = !{!432, !423, !388}
 !432 = distinct !{!432, !426, !"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.8018463459433534105: argument 0:thread"}
-!433 = !{!423}
+!433 = !{!423, !388}
 !434 = !{!435, !419}
 !435 = distinct !{!435, !436, !"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.8018463459433534105: argument 1"}
 !436 = distinct !{!436, !"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.8018463459433534105"}
-!437 = !{!438, !423}
+!437 = !{!438, !423, !388}
 !438 = distinct !{!438, !436, !"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.8018463459433534105: argument 0"}
 !439 = !{!419}
 !440 = !{!441, !388}

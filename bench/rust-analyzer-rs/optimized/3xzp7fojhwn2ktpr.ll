@@ -1917,7 +1917,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %61
   %69 = extractvalue { i64, ptr } %67, 1
   %70 = icmp ne ptr %69, null
   call void @llvm.assume(i1 %70)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %69, ptr noundef nonnull align 1 dereferenceable(17) @anon.585b5cbd798993e2d8ebdce45e1754fd.55, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %69, ptr noundef nonnull align 1 dereferenceable(17) @anon.585b5cbd798993e2d8ebdce45e1754fd.55, i64 17, i1 false), !noalias !275
   store i64 %68, ptr %17, align 8, !noalias !275
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %69, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !275
@@ -2266,7 +2266,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %61
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit.i": ; preds = %155
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25), !noalias !275
   invoke void @"_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17h4e3a47f24bad5bddE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %25, ptr noalias noundef nonnull readonly align 1 %140, i64 noundef %146)
-          to label %168 unwind label %.loopexit.i
+          to label %168 unwind label %.loopexit.i, !noalias !275
 
 168:                                              ; preds = %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit.i"
   %169 = load i8, ptr %25, align 8, !range !86, !alias.scope !368, !noalias !371, !noundef !13

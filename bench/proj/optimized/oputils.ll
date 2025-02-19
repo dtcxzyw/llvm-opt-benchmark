@@ -2426,7 +2426,7 @@ define hidden noundef zeroext i1 @_ZN5osgeo4proj9operation23areEquivalentParamet
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #25
+  call void @__clang_call_terminate(ptr %18) #25, !noalias !10
   unreachable
 
 _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i: ; preds = %14
@@ -2682,7 +2682,7 @@ define internal fastcc void @_ZN5osgeo4proj9operationL28buildSetEquivalentParame
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #25
+  call void @__clang_call_terminate(ptr %55) #25, !noalias !14
   unreachable
 
 _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i: ; preds = %51

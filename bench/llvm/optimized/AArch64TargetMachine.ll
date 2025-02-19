@@ -4922,7 +4922,9 @@ _ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14
 
 175:                                              ; preds = %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit
   %176 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %.sroa.068.0, i64 noundef %.sroa.6.0) #23
-  %.pre88 = load ptr, ptr %105, align 8, !tbaa !303
+  %.sroa.0.0.copyload.i28.pre = load ptr, ptr %6, align 8, !tbaa !44
+  %.sroa.2.0.copyload.i30.pre = load i64, ptr %42, align 8, !tbaa !45
+  %.pre90 = load ptr, ptr %105, align 8, !tbaa !303
   br label %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit27
 
 177:                                              ; preds = %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit
@@ -4937,9 +4939,9 @@ _ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14
   br label %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit27
 
 _ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit27: ; preds = %175, %177, %178
-  %181 = phi ptr [ %.pre88, %175 ], [ %169, %177 ], [ %180, %178 ]
-  %.sroa.0.0.copyload.i28 = load ptr, ptr %6, align 8, !tbaa !44
-  %.sroa.2.0.copyload.i30 = load i64, ptr %42, align 8, !tbaa !45
+  %181 = phi ptr [ %.pre90, %175 ], [ %169, %177 ], [ %180, %178 ]
+  %.sroa.2.0.copyload.i30 = phi i64 [ %.sroa.2.0.copyload.i30.pre, %175 ], [ %.sink, %177 ], [ %.sink, %178 ]
+  %.sroa.0.0.copyload.i28 = phi ptr [ %.sroa.0.0.copyload.i28.pre, %175 ], [ %.sink86, %177 ], [ %.sink86, %178 ]
   %182 = load ptr, ptr %103, align 8, !tbaa !302
   %183 = ptrtoint ptr %182 to i64
   %184 = ptrtoint ptr %181 to i64
@@ -4949,7 +4951,7 @@ _ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14
 
 187:                                              ; preds = %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit27
   %188 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %.sroa.0.0.copyload.i28, i64 noundef %.sroa.2.0.copyload.i30) #23
-  %.pre89 = load ptr, ptr %105, align 8, !tbaa !303
+  %.pre91 = load ptr, ptr %105, align 8, !tbaa !303
   br label %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit32
 
 189:                                              ; preds = %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit27
@@ -4964,7 +4966,7 @@ _ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14
   br label %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit32
 
 _ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit32: ; preds = %187, %189, %190
-  %193 = phi ptr [ %.pre89, %187 ], [ %181, %189 ], [ %192, %190 ]
+  %193 = phi ptr [ %.pre91, %187 ], [ %181, %189 ], [ %192, %190 ]
   %194 = load ptr, ptr %103, align 8, !tbaa !302
   %195 = ptrtoint ptr %194 to i64
   %196 = ptrtoint ptr %193 to i64
@@ -5018,11 +5020,11 @@ _ZN4llvmlsINS_19raw_svector_ostreamEA12_cEENSt9enable_ifIXaantsr3stdE14is_refere
 _ZNKSt14default_deleteIN4llvm16AArch64SubtargetEEclEPS1_.exit.i.i.i.i: ; preds = %214
   call void @_ZN4llvm16AArch64SubtargetD2Ev(ptr noundef nonnull align 8 dereferenceable(413888) %222) #23
   call void @_ZdlPvm(ptr noundef nonnull %222, i64 noundef 413888) #24
-  %.pre90 = load ptr, ptr %212, align 8, !tbaa !98
+  %.pre92 = load ptr, ptr %212, align 8, !tbaa !98
   br label %_ZNSt10unique_ptrIN4llvm16AArch64SubtargetESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm16AArch64SubtargetESt14default_deleteIS1_EED2Ev.exit: ; preds = %214, %_ZNKSt14default_deleteIN4llvm16AArch64SubtargetEEclEPS1_.exit.i.i.i.i, %_ZN4llvmlsINS_19raw_svector_ostreamEA12_cEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit
-  %223 = phi ptr [ %217, %214 ], [ %.pre90, %_ZNKSt14default_deleteIN4llvm16AArch64SubtargetEEclEPS1_.exit.i.i.i.i ], [ %213, %_ZN4llvmlsINS_19raw_svector_ostreamEA12_cEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit ]
+  %223 = phi ptr [ %217, %214 ], [ %.pre92, %_ZNKSt14default_deleteIN4llvm16AArch64SubtargetEEclEPS1_.exit.i.i.i.i ], [ %213, %_ZN4llvmlsINS_19raw_svector_ostreamEA12_cEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit ]
   %224 = load ptr, ptr %10, align 8, !tbaa !291
   %225 = icmp eq ptr %224, %95
   br i1 %225, label %_ZN4llvm11SmallVectorIcLj512EED2Ev.exit, label %226
@@ -16635,7 +16637,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm16BasicTTIImplBaseINS_14AArch64T
   %.sroa.1028.0.i = phi ptr [ %12, %2 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #23, !noalias !1014
   %15 = load ptr, ptr %6, align 8, !tbaa !858, !noalias !1014
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.1307") align 8 %3, ptr noundef nonnull align 8 dereferenceable(412423) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #23
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.1307") align 8 %3, ptr noundef nonnull align 8 dereferenceable(412423) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #23, !noalias !1014
   %16 = load i8, ptr %3, align 8, !tbaa !1017, !noalias !1014
   switch i8 %16, label %17 [
     i8 10, label %_ZNK4llvm16BasicTTIImplBaseINS_14AArch64TTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit

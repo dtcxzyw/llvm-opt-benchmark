@@ -4868,7 +4868,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i.i.i: ; preds = %
   %47 = landingpad { ptr, i32 }
           catch ptr null
   %48 = extractvalue { ptr, i32 } %47, 0
-  tail call void @__clang_call_terminate(ptr %48) #52
+  tail call void @__clang_call_terminate(ptr %48) #52, !noalias !17
   unreachable
 
 _ZNK12QWeakPointerI22QCPAbstractPaintBufferE11toStrongRefEv.exit: ; preds = %36, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i.i.i, %45
@@ -5566,7 +5566,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i.i.i: ; preds = %
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  tail call void @__clang_call_terminate(ptr %49) #52
+  tail call void @__clang_call_terminate(ptr %49) #52, !noalias !20
   unreachable
 
 _ZNK12QWeakPointerI22QCPAbstractPaintBufferE11toStrongRefEv.exit: ; preds = %37, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i.i.i, %46
@@ -33402,7 +33402,7 @@ define void @_ZN22QCPLabelPainterPrivate20drawLabelMaybeCachedEP10QCPPainterRK5Q
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #52
+  call void @__clang_call_terminate(ptr %31) #52, !noalias !223
   unreachable
 
 _ZN14QByteArrayViewC2I10QByteArrayTnNSt9enable_ifIXsr3stdE9is_same_vIT_S1_EEbE4typeELb1EEERKS3_.exit.i: ; preds = %26
@@ -33571,7 +33571,7 @@ _ZN22QCPLabelPainterPrivate9LabelDataD2Ev.exit:   ; preds = %_ZN7QStringD2Ev.exi
   %92 = landingpad { ptr, i32 }
           catch ptr null
   %93 = extractvalue { ptr, i32 } %92, 0
-  call void @__clang_call_terminate(ptr %93) #52
+  call void @__clang_call_terminate(ptr %93) #52, !noalias !226
   unreachable
 
 _ZN14QByteArrayViewC2I10QByteArrayTnNSt9enable_ifIXsr3stdE9is_same_vIT_S1_EEbE4typeELb1EEERKS3_.exit.i46: ; preds = %89
@@ -212283,7 +212283,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i.i: ; preds = %33
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  tail call void @__clang_call_terminate(ptr %40) #52
+  tail call void @__clang_call_terminate(ptr %40) #52, !noalias !1336
   unreachable
 
 _Z25qSharedPointerDynamicCastI18QCPAxisTickerFixed13QCPAxisTickerE14QSharedPointerIT_ERKS2_IT0_E.exit: ; preds = %.thread.i, %28, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i.i, %37

@@ -702,7 +702,7 @@ define hidden void @_ZN18MetaConv_Conv_Test8TestBodyEv(ptr nonnull readnone alig
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  tail call void @__clang_call_terminate(ptr %44) #24
+  tail call void @__clang_call_terminate(ptr %44) #24, !noalias !22
   unreachable
 
 _ZN4entt7resolveI5clazzEENS_9meta_typeEv.exit:    ; preds = %1, %40
@@ -2528,7 +2528,7 @@ _ZNK4entt9meta_type4infoEv.exit.i:                ; preds = %59, %57, %54, %_ZN4
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #24
+  call void @__clang_call_terminate(ptr %75) #24, !noalias !114
   unreachable
 
 _ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit.i:     ; preds = %71, %67
@@ -2995,7 +2995,7 @@ _ZNK4entt9meta_type4infoEv.exit.i:                ; preds = %59, %57, %54, %_ZN4
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #24
+  call void @__clang_call_terminate(ptr %75) #24, !noalias !124
   unreachable
 
 _ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit.i:     ; preds = %71, %67
@@ -3462,7 +3462,7 @@ _ZNK4entt9meta_type4infoEv.exit.i:                ; preds = %59, %57, %54, %_ZN4
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #24
+  call void @__clang_call_terminate(ptr %75) #24, !noalias !127
   unreachable
 
 _ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit.i:     ; preds = %71, %67
@@ -5360,13 +5360,13 @@ _ZN4entt12meta_factoryI5clazzEC2Ev.exit:          ; preds = %1, %7
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #24
+  call void @__clang_call_terminate(ptr %21) #24, !noalias !154
   unreachable
 
 _ZN4entt12meta_factoryI5clazzE4typeEj.exit:       ; preds = %_ZN4entt12meta_factoryI5clazzEC2Ev.exit
   %.fca.0.extract.i.i.i = extractvalue { ptr, i8 } %18, 0
   %22 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i, i64 24
-  store i32 -1403792415, ptr %22, align 8, !tbaa !145
+  store i32 -1403792415, ptr %22, align 8, !tbaa !145, !noalias !154
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %23 = load atomic i8, ptr @_ZGVZN4entt7type_idIiEERKNS_9type_infoEvE8instance acquire, align 8, !noalias !160
   %24 = icmp eq i8 %23, 0
@@ -5392,7 +5392,7 @@ _ZN4entt7type_idIiEERKNS_9type_infoEv.exit.i:     ; preds = %27, %25, %_ZN4entt1
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #24
+  call void @__clang_call_terminate(ptr %32) #24, !noalias !160
   unreachable
 
 _ZN4entt12meta_factoryI5clazzE4convIiEES2_v.exit: ; preds = %_ZN4entt7type_idIiEERKNS_9type_infoEv.exit.i
@@ -5421,7 +5421,7 @@ _ZN4entt7type_idIbEERKNS_9type_infoEv.exit.i:     ; preds = %37, %35, %_ZN4entt1
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #24
+  call void @__clang_call_terminate(ptr %42) #24, !noalias !163
   unreachable
 
 _ZN4entt12meta_factoryI5clazzE4convITnDaXadL_ZNKS1_7to_boolEvEEEEDav.exit: ; preds = %_ZN4entt7type_idIbEERKNS_9type_infoEv.exit.i
@@ -5450,7 +5450,7 @@ _ZN4entt7type_idIdEERKNS_9type_infoEv.exit.i:     ; preds = %47, %45, %_ZN4entt1
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #24
+  call void @__clang_call_terminate(ptr %52) #24, !noalias !166
   unreachable
 
 _ZN4entt12meta_factoryI5clazzE4convITnDaXadL_Z14conv_to_doubleRKS1_EEEEDav.exit: ; preds = %_ZN4entt7type_idIdEERKNS_9type_infoEv.exit.i
@@ -10803,7 +10803,7 @@ _ZNK4entt9meta_type4infoEv.exit.i:                ; preds = %14, %12, %9, %2
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #24
+  tail call void @__clang_call_terminate(ptr %30) #24, !noalias !328
   unreachable
 
 _ZNK4entt8meta_any10allow_castERKNS_9meta_typeE.exit: ; preds = %22, %26

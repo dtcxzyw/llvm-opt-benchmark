@@ -1791,7 +1791,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt8functionIFvPKN4Json5ValueEP1
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #23
+  call void @__clang_call_terminate(ptr %23) #23, !noalias !91
   unreachable
 
 common.resume.i.i.i:                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i.i.i, %19, %16
@@ -1895,7 +1895,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #23
+  call void @__clang_call_terminate(ptr %66) #23, !noalias !91
   unreachable
 
 _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Json5ValueEP11cmJSONStateEEC2ERKSD_.exit.i.i.i.i.i.i.i: ; preds = %56, %.noexc9.i.i.i
@@ -1972,7 +1972,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %97 = landingpad { ptr, i32 }
           catch ptr null
   %98 = extractvalue { ptr, i32 } %97, 0
-  call void @__clang_call_terminate(ptr %98) #23
+  call void @__clang_call_terminate(ptr %98) #23, !noalias !91
   unreachable
 
 .body.i.i.i.i:                                    ; preds = %94, %.body.i.i.i.i.i.i.i, %62, %59
@@ -2046,7 +2046,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %122 = landingpad { ptr, i32 }
           catch ptr null
   %123 = extractvalue { ptr, i32 } %122, 0
-  call void @__clang_call_terminate(ptr %123) #23
+  call void @__clang_call_terminate(ptr %123) #23, !noalias !91
   unreachable
 
 124:                                              ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i
@@ -2068,7 +2068,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %130 = landingpad { ptr, i32 }
           catch ptr null
   %131 = extractvalue { ptr, i32 } %130, 0
-  call void @__clang_call_terminate(ptr %131) #23
+  call void @__clang_call_terminate(ptr %131) #23, !noalias !91
   unreachable
 
 132:                                              ; preds = %48

@@ -165,7 +165,7 @@ _ZN10rayon_core8registry12WorkerThread4push17hc3b5b91e42609c5eE.exit: ; preds = 
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
   %53 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %52)
-          to label %60 unwind label %54
+          to label %60 unwind label %54, !noalias !18
 
 54:                                               ; preds = %50
   %55 = landingpad { ptr, i32 }
@@ -549,7 +549,7 @@ _ZN10rayon_core8registry12WorkerThread4push17hc3b5b91e42609c5eE.exit: ; preds = 
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
   %53 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %52)
-          to label %60 unwind label %54
+          to label %60 unwind label %54, !noalias !59
 
 54:                                               ; preds = %50
   %55 = landingpad { ptr, i32 }
@@ -972,7 +972,7 @@ _ZN10rayon_core8registry12WorkerThread4push17hc3b5b91e42609c5eE.exit: ; preds = 
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
   %43 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %42)
-          to label %__rust_try.llvm.12150801376095413471.exit.i unwind label %44
+          to label %__rust_try.llvm.12150801376095413471.exit.i unwind label %44, !noalias !85
 
 44:                                               ; preds = %40
   %45 = landingpad { ptr, i32 }
@@ -1330,7 +1330,7 @@ _ZN10rayon_core8registry12WorkerThread4push17hc3b5b91e42609c5eE.exit: ; preds = 
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
   %44 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %43)
-          to label %__rust_try.llvm.12150801376095413471.exit.i unwind label %45
+          to label %__rust_try.llvm.12150801376095413471.exit.i unwind label %45, !noalias !113
 
 45:                                               ; preds = %41
   %46 = landingpad { ptr, i32 }
@@ -1690,7 +1690,7 @@ _ZN10rayon_core8registry12WorkerThread4push17hc3b5b91e42609c5eE.exit: ; preds = 
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
   %45 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %44)
-          to label %__rust_try.llvm.12150801376095413471.exit.i unwind label %46
+          to label %__rust_try.llvm.12150801376095413471.exit.i unwind label %46, !noalias !135
 
 46:                                               ; preds = %42
   %47 = landingpad { ptr, i32 }
@@ -3961,7 +3961,7 @@ define internal void @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_
           filter [0 x ptr] zeroinitializer
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %18)
-          to label %23 unwind label %20
+          to label %23 unwind label %20, !noalias !487
 
 20:                                               ; preds = %16
   %21 = landingpad { ptr, i32 }
@@ -4047,7 +4047,7 @@ define internal void @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_
           filter [0 x ptr] zeroinitializer
   %20 = extractvalue { ptr, i32 } %19, 0
   %21 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %20)
-          to label %25 unwind label %22
+          to label %25 unwind label %22, !noalias !498
 
 22:                                               ; preds = %18
   %23 = landingpad { ptr, i32 }
@@ -6646,7 +6646,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
   %13 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %12)
-          to label %17 unwind label %14
+          to label %17 unwind label %14, !noalias !777
 
 14:                                               ; preds = %10
   %15 = landingpad { ptr, i32 }
@@ -6778,7 +6778,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
   %12 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %11)
-          to label %15 unwind label %13
+          to label %15 unwind label %13, !noalias !797
 
 13:                                               ; preds = %9
   %14 = landingpad { ptr, i32 }
@@ -6943,7 +6943,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
   %13 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %12)
-          to label %17 unwind label %14
+          to label %17 unwind label %14, !noalias !815
 
 14:                                               ; preds = %10
   %15 = landingpad { ptr, i32 }
@@ -7116,7 +7116,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
   %21 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %20)
-          to label %26 unwind label %22
+          to label %26 unwind label %22, !noalias !857
 
 22:                                               ; preds = %18
   %23 = landingpad { ptr, i32 }
@@ -7351,7 +7351,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
   %12 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %11)
-          to label %15 unwind label %13
+          to label %15 unwind label %13, !noalias !875
 
 13:                                               ; preds = %9
   %14 = landingpad { ptr, i32 }
@@ -7583,7 +7583,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
   %13 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %12)
-          to label %17 unwind label %14
+          to label %17 unwind label %14, !noalias !898
 
 14:                                               ; preds = %10
   %15 = landingpad { ptr, i32 }
@@ -7788,7 +7788,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
   %13 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %12)
-          to label %16 unwind label %14
+          to label %16 unwind label %14, !noalias !932
 
 14:                                               ; preds = %10
   %15 = landingpad { ptr, i32 }
@@ -8010,7 +8010,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
   %14 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %13)
-          to label %17 unwind label %15
+          to label %17 unwind label %15, !noalias !980
 
 15:                                               ; preds = %11
   %16 = landingpad { ptr, i32 }
@@ -8241,7 +8241,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
   %12 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %11)
-          to label %15 unwind label %13
+          to label %15 unwind label %13, !noalias !998
 
 13:                                               ; preds = %9
   %14 = landingpad { ptr, i32 }
@@ -8406,7 +8406,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
   %13 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %12)
-          to label %16 unwind label %14
+          to label %16 unwind label %14, !noalias !1017
 
 14:                                               ; preds = %10
   %15 = landingpad { ptr, i32 }
@@ -8635,7 +8635,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
   %13 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %12)
-          to label %16 unwind label %14
+          to label %16 unwind label %14, !noalias !1050
 
 14:                                               ; preds = %10
   %15 = landingpad { ptr, i32 }
@@ -8871,7 +8871,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
   %13 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %12)
-          to label %17 unwind label %14
+          to label %17 unwind label %14, !noalias !1082
 
 14:                                               ; preds = %10
   %15 = landingpad { ptr, i32 }
@@ -9112,7 +9112,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
   %12 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %11)
-          to label %15 unwind label %13
+          to label %15 unwind label %13, !noalias !1119
 
 13:                                               ; preds = %9
   %14 = landingpad { ptr, i32 }
@@ -9264,7 +9264,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
   %14 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %13)
-          to label %17 unwind label %15
+          to label %17 unwind label %15, !noalias !1137
 
 15:                                               ; preds = %11
   %16 = landingpad { ptr, i32 }
@@ -9492,7 +9492,7 @@ define internal void @"_ZN83_$LT$rayon_core..job..StackJob$LT$L$C$F$C$R$GT$$u20$
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
   %21 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %20)
-          to label %25 unwind label %22
+          to label %25 unwind label %22, !noalias !1179
 
 22:                                               ; preds = %18
   %23 = landingpad { ptr, i32 }

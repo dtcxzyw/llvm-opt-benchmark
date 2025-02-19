@@ -46074,7 +46074,7 @@ _ZN7hir_def4body5scope10ExprScopes7entries17ha945af6e02789596E.exit.i: ; preds =
   %294 = extractvalue { ptr, i64 } %293, 0
   %295 = extractvalue { ptr, i64 } %293, 1
   invoke void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17hdaf3c64ce7294b9eE.llvm.14358968814291841630"(ptr noalias noundef nonnull align 8 dereferenceable(8) %20, ptr noalias noundef nonnull readonly align 1 %294, i64 noundef %295)
-          to label %.noexc1.i.i.i.i.i unwind label %301
+          to label %.noexc1.i.i.i.i.i unwind label %301, !noalias !7313
 
 .noexc1.i.i.i.i.i:                                ; preds = %.noexc.i.i.i.i.i
   %296 = load i64, ptr %20, align 8, !alias.scope !7314, !noalias !7319, !noundef !118
@@ -49385,7 +49385,7 @@ default.unreachable:                              ; preds = %14
   %36 = extractvalue { ptr, i64 } %35, 0
   %37 = extractvalue { ptr, i64 } %35, 1
   invoke void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17hdaf3c64ce7294b9eE.llvm.14358968814291841630"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 1 %36, i64 noundef %37)
-          to label %.noexc1.i unwind label %44
+          to label %.noexc1.i unwind label %44, !noalias !8119
 
 .noexc1.i:                                        ; preds = %.noexc.i
   %38 = load i64, ptr %7, align 8, !alias.scope !8120, !noalias !8125, !noundef !118
@@ -72564,7 +72564,7 @@ attributes #43 = { nounwind }
 !9279 = !{!9280}
 !9280 = distinct !{!9280, !9278, !"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h041822da948a8efaE: argument 0"}
 !9281 = !{!9271, !9273, !9275, !9277}
-!9282 = !{!9283, !9285, !9287, !9289, !9291}
+!9282 = !{!9283, !9285, !9287, !9289, !9291, !9280}
 !9283 = distinct !{!9283, !9284, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.18266587286026290509: argument 0"}
 !9284 = distinct !{!9284, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.18266587286026290509"}
 !9285 = distinct !{!9285, !9286, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h2c85c64c9eac156dE.llvm.18266587286026290509: argument 0"}
@@ -72876,7 +72876,7 @@ attributes #43 = { nounwind }
 !9591 = !{!9592}
 !9592 = distinct !{!9592, !9590, !"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17he33fd54965da149dE: argument 0"}
 !9593 = !{!9583, !9585, !9587, !9589}
-!9594 = !{!9595, !9597, !9599, !9601, !9603}
+!9594 = !{!9595, !9597, !9599, !9601, !9603, !9592}
 !9595 = distinct !{!9595, !9596, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.18266587286026290509: argument 0"}
 !9596 = distinct !{!9596, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.18266587286026290509"}
 !9597 = distinct !{!9597, !9598, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h2c85c64c9eac156dE.llvm.18266587286026290509: argument 0"}

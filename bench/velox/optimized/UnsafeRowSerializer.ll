@@ -1287,7 +1287,6 @@ entry:
   %serializedRows = alloca %"class.std::vector", align 8
   %concatenatedRows = alloca %"class.std::vector.13", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %ref.tmp22.sroa.4 = alloca [7 x i8], align 1
   %ref.tmp27 = alloca %"class.std::shared_ptr.29", align 8
   %ref.tmp33 = alloca %"class.std::shared_ptr", align 8
   %ref.tmp34 = alloca %"class.std::shared_ptr.29", align 8
@@ -1483,8 +1482,6 @@ if.then.i.i18:                                    ; preds = %if.end21
   store ptr %row.sroa.6.0, ptr %ref.tmp22.sroa.0.sroa.3.0..sroa_idx, align 8
   %ref.tmp22.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i8 1, ptr %ref.tmp22.sroa.3.0..sroa_idx, align 8
-  %ref.tmp22.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %ref.tmp22.sroa.4.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %ref.tmp22.sroa.4, i64 7, i1 false)
   %26 = load ptr, ptr %_M_finish.i.i15, align 8
   %incdec.ptr.i.i19 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store ptr %incdec.ptr.i.i19, ptr %_M_finish.i.i15, align 8
@@ -1528,8 +1525,6 @@ call5.i.i.i.i.i.i.noexc:                          ; preds = %_ZNKSt6vectorISt8op
   store ptr %row.sroa.6.0, ptr %ref.tmp22.sroa.0.sroa.3.0.add.ptr.i.i.i.sroa_idx, align 8
   %ref.tmp22.sroa.3.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 16
   store i8 1, ptr %ref.tmp22.sroa.3.0.add.ptr.i.i.i.sroa_idx, align 8
-  %ref.tmp22.sroa.4.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %ref.tmp22.sroa.4.0.add.ptr.i.i.i.sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %ref.tmp22.sroa.4, i64 7, i1 false)
   %cmp.not5.i.i.i.i.i.i = icmp eq ptr %27, %24
   br i1 %cmp.not5.i.i.i.i.i.i, label %_ZNSt6vectorISt8optionalISt17basic_string_viewIcSt11char_traitsIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i.i, label %for.body.i.i.i.i.i.i
 
@@ -2568,7 +2563,7 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %.noexc.i.i.i.i.i.i.
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #39
+  call void @__clang_call_terminate(ptr %36) #39, !noalias !30
   unreachable
 
 _ZSt8_DestroyIN5boost13intrusive_ptrIN8facebook5velox6BufferEEEEvPT_.exit.i.i.i.i.i.i: ; preds = %.noexc.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i21.i.i, %for.body.i.i.i.i.i.i
@@ -2696,7 +2691,7 @@ terminate.lpad.i.i.i206:                          ; preds = %.noexc.i.i.i207, %i
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #39
+  call void @__clang_call_terminate(ptr %55) #39, !noalias !30
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i.i: ; preds = %.noexc.i.i.i207, %if.then.i55.i.i, %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit.i.i
@@ -6321,7 +6316,7 @@ terminate.lpad.i.i.i:                             ; preds = %.noexc.i.i.i, %if.t
   %517 = landingpad { ptr, i32 }
           catch ptr null
   %518 = extractvalue { ptr, i32 } %517, 0
-  tail call void @__clang_call_terminate(ptr %518) #39
+  tail call void @__clang_call_terminate(ptr %518) #39, !noalias !203
   unreachable
 
 _ZN8facebook5velox3row21UnsafeRowDeserializer13populateNullsERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolEm.exit.i: ; preds = %.noexc.i.i.i, %if.then.i8.i.i, %cleanup.thread.i.i
@@ -6930,7 +6925,7 @@ terminate.lpad.i.i:                               ; preds = %.noexc.i.i, %if.the
   %604 = landingpad { ptr, i32 }
           catch ptr null
   %605 = extractvalue { ptr, i32 } %604, 0
-  call void @__clang_call_terminate(ptr %605) #39
+  call void @__clang_call_terminate(ptr %605) #39, !noalias !186
   unreachable
 
 ehcleanup.i80:                                    ; preds = %lpad8.body.i, %lpad.i79

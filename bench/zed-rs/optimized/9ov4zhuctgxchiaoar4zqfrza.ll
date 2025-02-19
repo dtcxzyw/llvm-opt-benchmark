@@ -2262,8 +2262,8 @@ define internal noundef range(i8 0, 5) i8 @"_ZN4core3ops8function6FnOnce40call_o
 
 37:                                               ; preds = %18
   %38 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %39 = load ptr, ptr %38, align 8, !nonnull !5, !noundef !5
-  tail call void %39(ptr noundef %26)
+  %39 = load ptr, ptr %38, align 8, !noalias !338, !nonnull !5, !noundef !5
+  tail call void %39(ptr noundef %26), !noalias !338
   br label %44
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h49e9d3289eb5c970E.exit.i.i.i.i.i": ; preds = %34, %31
@@ -2358,7 +2358,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 _ZN4gpui6window13WindowContext9on_action17h24fa7bcd598c15d3E.exit.i.i: ; preds = %.noexc.i.i.i
   %24 = getelementptr inbounds nuw i8, ptr %.val, i64 1000
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !355
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !355
   invoke void @_ZN4gpui12key_dispatch12DispatchTree9on_action17haf5d5114a01efb66E(ptr noalias noundef nonnull align 8 dereferenceable(176) %24, i64 noundef 1768551705293027659, i64 noundef 3486002161104909577, ptr noundef nonnull %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.385c2114664b509290629c588dfcb891.88.llvm.1869813223630113674)
           to label %"_ZN6editor6Editor15register_action28_$u7b$$u7b$closure$u7d$$u7d$17h76cfa53259fe9b2fE.exit.i" unwind label %26
@@ -2472,7 +2472,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 _ZN4gpui6window13WindowContext9on_action17h97485c57cc9b00fdE.exit.i.i: ; preds = %.noexc.i.i.i
   %24 = getelementptr inbounds nuw i8, ptr %.val, i64 1000
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !391
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !391
   invoke void @_ZN4gpui12key_dispatch12DispatchTree9on_action17haf5d5114a01efb66E(ptr noalias noundef nonnull align 8 dereferenceable(176) %24, i64 noundef 2187857715486612233, i64 noundef 5786528693305833333, ptr noundef nonnull %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.385c2114664b509290629c588dfcb891.91.llvm.1869813223630113674)
           to label %"_ZN6editor6Editor15register_action28_$u7b$$u7b$closure$u7d$$u7d$17h637b2c1bb8eaa1e4E.exit.i" unwind label %26
@@ -2586,7 +2586,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 _ZN4gpui6window13WindowContext9on_action17h19d28faacf932b10E.exit.i.i: ; preds = %.noexc.i.i.i
   %24 = getelementptr inbounds nuw i8, ptr %.val, i64 1000
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !427
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !427
   invoke void @_ZN4gpui12key_dispatch12DispatchTree9on_action17haf5d5114a01efb66E(ptr noalias noundef nonnull align 8 dereferenceable(176) %24, i64 noundef -8250877934158284663, i64 noundef -4262867313208180940, ptr noundef nonnull %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.385c2114664b509290629c588dfcb891.87.llvm.1869813223630113674)
           to label %"_ZN6editor6Editor15register_action28_$u7b$$u7b$closure$u7d$$u7d$17h3288854d2a492779E.exit.i" unwind label %26
@@ -3078,7 +3078,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 _ZN4gpui6window13WindowContext9on_action17hcc0e50d97c2475ebE.exit.i.i: ; preds = %.noexc.i.i.i
   %24 = getelementptr inbounds nuw i8, ptr %.val, i64 1000
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !573
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !573
   invoke void @_ZN4gpui12key_dispatch12DispatchTree9on_action17haf5d5114a01efb66E(ptr noalias noundef nonnull align 8 dereferenceable(176) %24, i64 noundef 785688439411738483, i64 noundef -2032383489795312912, ptr noundef nonnull %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.385c2114664b509290629c588dfcb891.92.llvm.1869813223630113674)
           to label %"_ZN6editor6Editor15register_action28_$u7b$$u7b$closure$u7d$$u7d$17he45147f36cd83a73E.exit.i" unwind label %26
@@ -3192,7 +3192,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 _ZN4gpui6window13WindowContext9on_action17h29eb0891801c2bdaE.exit.i.i: ; preds = %.noexc.i.i.i
   %24 = getelementptr inbounds nuw i8, ptr %.val, i64 1000
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !609
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !609
   invoke void @_ZN4gpui12key_dispatch12DispatchTree9on_action17haf5d5114a01efb66E(ptr noalias noundef nonnull align 8 dereferenceable(176) %24, i64 noundef -5885005345986297629, i64 noundef 4948834664541787477, ptr noundef nonnull %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.385c2114664b509290629c588dfcb891.89.llvm.1869813223630113674)
           to label %"_ZN6editor6Editor15register_action28_$u7b$$u7b$closure$u7d$$u7d$17h81f54358b6c887aeE.exit.i" unwind label %26
@@ -3713,8 +3713,8 @@ define internal noundef range(i8 0, 5) i8 @"_ZN4core3ops8function6FnOnce40call_o
 
 37:                                               ; preds = %18
   %38 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %39 = load ptr, ptr %38, align 8, !nonnull !5, !noundef !5
-  tail call void %39(ptr noundef %26)
+  %39 = load ptr, ptr %38, align 8, !noalias !791, !nonnull !5, !noundef !5
+  tail call void %39(ptr noundef %26), !noalias !791
   br label %44
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h49e9d3289eb5c970E.exit.i.i.i.i.i": ; preds = %34, %31
@@ -3998,7 +3998,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 _ZN4gpui6window13WindowContext9on_action17h9461d75a932fa351E.exit.i.i: ; preds = %.noexc.i.i.i
   %24 = getelementptr inbounds nuw i8, ptr %.val, i64 1000
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !863
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !863
   invoke void @_ZN4gpui12key_dispatch12DispatchTree9on_action17haf5d5114a01efb66E(ptr noalias noundef nonnull align 8 dereferenceable(176) %24, i64 noundef -7665509066219775162, i64 noundef -5245570919495992921, ptr noundef nonnull %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.385c2114664b509290629c588dfcb891.90.llvm.1869813223630113674)
           to label %"_ZN6editor6Editor15register_action28_$u7b$$u7b$closure$u7d$$u7d$17h140bff48161ddbbdE.exit.i" unwind label %26
@@ -33249,9 +33249,9 @@ define internal void @"_ZN6editor6Editor15register_action28_$u7b$$u7b$closure$u7
 
 _ZN4gpui6window13WindowContext9on_action17h9461d75a932fa351E.exit: ; preds = %.noexc.i
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 1000
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !4449
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !4449
-  tail call void @_ZN4gpui12key_dispatch12DispatchTree9on_action17haf5d5114a01efb66E(ptr noalias noundef nonnull align 8 dereferenceable(176) %23, i64 noundef -7665509066219775162, i64 noundef -5245570919495992921, ptr noundef nonnull %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.385c2114664b509290629c588dfcb891.90.llvm.1869813223630113674)
+  tail call void @_ZN4gpui12key_dispatch12DispatchTree9on_action17haf5d5114a01efb66E(ptr noalias noundef nonnull align 8 dereferenceable(176) %23, i64 noundef -7665509066219775162, i64 noundef -5245570919495992921, ptr noundef nonnull %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.385c2114664b509290629c588dfcb891.90.llvm.1869813223630113674), !noalias !4449
   ret void
 
 24:                                               ; preds = %2
@@ -33315,9 +33315,9 @@ define internal void @"_ZN6editor6Editor15register_action28_$u7b$$u7b$closure$u7
 
 _ZN4gpui6window13WindowContext9on_action17h19d28faacf932b10E.exit: ; preds = %.noexc.i
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 1000
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !4461
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !4461
-  tail call void @_ZN4gpui12key_dispatch12DispatchTree9on_action17haf5d5114a01efb66E(ptr noalias noundef nonnull align 8 dereferenceable(176) %23, i64 noundef -8250877934158284663, i64 noundef -4262867313208180940, ptr noundef nonnull %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.385c2114664b509290629c588dfcb891.87.llvm.1869813223630113674)
+  tail call void @_ZN4gpui12key_dispatch12DispatchTree9on_action17haf5d5114a01efb66E(ptr noalias noundef nonnull align 8 dereferenceable(176) %23, i64 noundef -8250877934158284663, i64 noundef -4262867313208180940, ptr noundef nonnull %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.385c2114664b509290629c588dfcb891.87.llvm.1869813223630113674), !noalias !4461
   ret void
 
 24:                                               ; preds = %2
@@ -33381,9 +33381,9 @@ define internal void @"_ZN6editor6Editor15register_action28_$u7b$$u7b$closure$u7
 
 _ZN4gpui6window13WindowContext9on_action17h97485c57cc9b00fdE.exit: ; preds = %.noexc.i
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 1000
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !4473
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !4473
-  tail call void @_ZN4gpui12key_dispatch12DispatchTree9on_action17haf5d5114a01efb66E(ptr noalias noundef nonnull align 8 dereferenceable(176) %23, i64 noundef 2187857715486612233, i64 noundef 5786528693305833333, ptr noundef nonnull %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.385c2114664b509290629c588dfcb891.91.llvm.1869813223630113674)
+  tail call void @_ZN4gpui12key_dispatch12DispatchTree9on_action17haf5d5114a01efb66E(ptr noalias noundef nonnull align 8 dereferenceable(176) %23, i64 noundef 2187857715486612233, i64 noundef 5786528693305833333, ptr noundef nonnull %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.385c2114664b509290629c588dfcb891.91.llvm.1869813223630113674), !noalias !4473
   ret void
 
 24:                                               ; preds = %2
@@ -33447,9 +33447,9 @@ define internal void @"_ZN6editor6Editor15register_action28_$u7b$$u7b$closure$u7
 
 _ZN4gpui6window13WindowContext9on_action17h24fa7bcd598c15d3E.exit: ; preds = %.noexc.i
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 1000
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !4485
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !4485
-  tail call void @_ZN4gpui12key_dispatch12DispatchTree9on_action17haf5d5114a01efb66E(ptr noalias noundef nonnull align 8 dereferenceable(176) %23, i64 noundef 1768551705293027659, i64 noundef 3486002161104909577, ptr noundef nonnull %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.385c2114664b509290629c588dfcb891.88.llvm.1869813223630113674)
+  tail call void @_ZN4gpui12key_dispatch12DispatchTree9on_action17haf5d5114a01efb66E(ptr noalias noundef nonnull align 8 dereferenceable(176) %23, i64 noundef 1768551705293027659, i64 noundef 3486002161104909577, ptr noundef nonnull %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.385c2114664b509290629c588dfcb891.88.llvm.1869813223630113674), !noalias !4485
   ret void
 
 24:                                               ; preds = %2
@@ -33513,9 +33513,9 @@ define internal void @"_ZN6editor6Editor15register_action28_$u7b$$u7b$closure$u7
 
 _ZN4gpui6window13WindowContext9on_action17h29eb0891801c2bdaE.exit: ; preds = %.noexc.i
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 1000
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !4497
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !4497
-  tail call void @_ZN4gpui12key_dispatch12DispatchTree9on_action17haf5d5114a01efb66E(ptr noalias noundef nonnull align 8 dereferenceable(176) %23, i64 noundef -5885005345986297629, i64 noundef 4948834664541787477, ptr noundef nonnull %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.385c2114664b509290629c588dfcb891.89.llvm.1869813223630113674)
+  tail call void @_ZN4gpui12key_dispatch12DispatchTree9on_action17haf5d5114a01efb66E(ptr noalias noundef nonnull align 8 dereferenceable(176) %23, i64 noundef -5885005345986297629, i64 noundef 4948834664541787477, ptr noundef nonnull %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.385c2114664b509290629c588dfcb891.89.llvm.1869813223630113674), !noalias !4497
   ret void
 
 24:                                               ; preds = %2
@@ -33579,9 +33579,9 @@ define internal void @"_ZN6editor6Editor15register_action28_$u7b$$u7b$closure$u7
 
 _ZN4gpui6window13WindowContext9on_action17hcc0e50d97c2475ebE.exit: ; preds = %.noexc.i
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 1000
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !4509
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !4509
-  tail call void @_ZN4gpui12key_dispatch12DispatchTree9on_action17haf5d5114a01efb66E(ptr noalias noundef nonnull align 8 dereferenceable(176) %23, i64 noundef 785688439411738483, i64 noundef -2032383489795312912, ptr noundef nonnull %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.385c2114664b509290629c588dfcb891.92.llvm.1869813223630113674)
+  tail call void @_ZN4gpui12key_dispatch12DispatchTree9on_action17haf5d5114a01efb66E(ptr noalias noundef nonnull align 8 dereferenceable(176) %23, i64 noundef 785688439411738483, i64 noundef -2032383489795312912, ptr noundef nonnull %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.385c2114664b509290629c588dfcb891.92.llvm.1869813223630113674), !noalias !4509
   ret void
 
 24:                                               ; preds = %2
@@ -34661,8 +34661,8 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN92_$LT$futures_channel..oneshot..Re
 
 27:                                               ; preds = %8
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %29 = load ptr, ptr %28, align 8, !nonnull !5, !noundef !5
-  tail call void %29(ptr noundef %16)
+  %29 = load ptr, ptr %28, align 8, !noalias !4655, !nonnull !5, !noundef !5
+  tail call void %29(ptr noundef %16), !noalias !4655
   br label %34
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h49e9d3289eb5c970E.exit.i": ; preds = %24, %21
@@ -35656,8 +35656,8 @@ define internal noundef range(i8 0, 5) i8 @"_ZN9workspace26DelayedDebouncedEditA
 
 37:                                               ; preds = %18
   %38 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %39 = load ptr, ptr %38, align 8, !nonnull !5, !noundef !5
-  tail call void %39(ptr noundef %26)
+  %39 = load ptr, ptr %38, align 8, !noalias !4808, !nonnull !5, !noundef !5
+  tail call void %39(ptr noundef %26), !noalias !4808
   br label %44
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h49e9d3289eb5c970E.exit.i.i.i": ; preds = %34, %31
@@ -35761,8 +35761,8 @@ define internal noundef range(i8 0, 5) i8 @"_ZN9workspace26DelayedDebouncedEditA
 
 37:                                               ; preds = %18
   %38 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %39 = load ptr, ptr %38, align 8, !nonnull !5, !noundef !5
-  tail call void %39(ptr noundef %26)
+  %39 = load ptr, ptr %38, align 8, !noalias !4837, !nonnull !5, !noundef !5
+  tail call void %39(ptr noundef %26), !noalias !4837
   br label %44
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h49e9d3289eb5c970E.exit.i.i.i": ; preds = %34, %31

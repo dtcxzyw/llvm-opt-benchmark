@@ -2159,7 +2159,7 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
 
 106:                                              ; preds = %96, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12val_area_mut17hfcb88c4291431c03E.exit.i38"
   %107 = getelementptr inbounds { [3 x i64] }, ptr %93, i64 %.sroa.527.0
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %107, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %107, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %108 = trunc i64 %76 to i16
   store i16 %108, ptr %73, align 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false)
@@ -2173,7 +2173,7 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
 
 111:                                              ; preds = %40, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12val_area_mut17hfcb88c4291431c03E.exit.i"
   %112 = getelementptr inbounds { [3 x i64] }, ptr %37, i64 %.sroa.6.0.copyload
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %112, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %112, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   store i16 %narrow, ptr %12, align 2
   store ptr null, ptr %0, align 8
   br label %113

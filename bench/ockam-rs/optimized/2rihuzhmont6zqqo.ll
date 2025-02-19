@@ -597,7 +597,7 @@ _ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i48: ; preds = %6
   %96 = extractvalue { ptr, i64 } %94, 1
   %97 = icmp ne ptr %95, null
   tail call void @llvm.assume(i1 %97)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %95, ptr nonnull readonly align 1 %.sroa.013.0, i64 %.sroa.9.0, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %95, ptr nonnull readonly align 1 %.sroa.013.0, i64 %.sroa.9.0, i1 false), !noalias !95
   store i64 1, ptr %0, align 8
   %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 2, ptr %.sroa.47.0..sroa_idx, align 8
@@ -650,7 +650,7 @@ _ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i48: ; preds = %6
   %.sink = phi i64 [ 1, %111 ], [ 0, %103 ]
   store i64 %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  %113 = atomicrmw sub ptr %51, i64 1 release, align 8, !noalias !95
+  %113 = atomicrmw sub ptr %51, i64 1 release, align 8, !noalias !98
   %114 = icmp eq i64 %113, 1
   br i1 %114, label %115, label %.thread91
 
@@ -872,8 +872,11 @@ attributes #14 = { noinline noreturn nounwind }
 !92 = distinct !{!92, !88, !"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h39c9170098d22661E: argument 1"}
 !93 = !{!92}
 !94 = !{!87}
-!95 = !{!96, !98}
-!96 = distinct !{!96, !97, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cd2165d96339a86E: argument 0"}
-!97 = distinct !{!97, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cd2165d96339a86E"}
-!98 = distinct !{!98, !99, !"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$GT$17h54b9d7184040fb61E: argument 0"}
-!99 = distinct !{!99, !"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$GT$17h54b9d7184040fb61E"}
+!95 = !{!96}
+!96 = distinct !{!96, !97, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h41be5e1e4bf03c5bE: argument 0"}
+!97 = distinct !{!97, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h41be5e1e4bf03c5bE"}
+!98 = !{!99, !101}
+!99 = distinct !{!99, !100, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cd2165d96339a86E: argument 0"}
+!100 = distinct !{!100, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cd2165d96339a86E"}
+!101 = distinct !{!101, !102, !"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$GT$17h54b9d7184040fb61E: argument 0"}
+!102 = distinct !{!102, !"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$GT$17h54b9d7184040fb61E"}

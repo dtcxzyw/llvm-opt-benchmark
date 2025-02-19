@@ -11065,7 +11065,6 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit136: ; preds = %_ZSt
   br label %194
 
 .thread156:                                       ; preds = %184, %173, %83, %89, %94
-  store i32 -1, ptr %6, align 4, !tbaa !97
   %190 = invoke i32 @close(i32 noundef %23)
           to label %_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit unwind label %191
 
@@ -16819,7 +16818,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110: ; preds = %_Z
   br label %362
 
 351:                                              ; preds = %63
-  store i32 -1, ptr %8, align 4, !tbaa !97
   %352 = invoke i32 @close(i32 noundef %55)
           to label %_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit unwind label %353
 

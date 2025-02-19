@@ -1503,7 +1503,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then3.i.i.i.i
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #22
+  call void @__clang_call_terminate(ptr %57) #22, !noalias !13
   unreachable
 
 lpad.i:                                           ; preds = %if.then.i.i, %entry

@@ -950,7 +950,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge8Executor8Executor11ProxyHelperIMS1
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #26
+  tail call void @__clang_call_terminate(ptr %32) #26, !noalias !4
   unreachable
 
 33:                                               ; preds = %17, %28
@@ -992,7 +992,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge8Executor8Executor11ProxyHelperIMS1
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #26
+  tail call void @__clang_call_terminate(ptr %18) #26, !noalias !7
   unreachable
 
 19:                                               ; preds = %12
@@ -1045,7 +1045,7 @@ define linkonce_odr hidden noundef i32 @_ZN8WasmEdge8Executor8Executor11ProxyHel
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #26
+  tail call void @__clang_call_terminate(ptr %9) #26, !noalias !13
   unreachable
 
 10:                                               ; preds = %1
@@ -1093,7 +1093,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge8Executor8Executor11ProxyHelperIMS1
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  tail call void @__clang_call_terminate(ptr %29) #26
+  tail call void @__clang_call_terminate(ptr %29) #26, !noalias !16
   unreachable
 
 30:                                               ; preds = %16
@@ -1136,7 +1136,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge8Executor8Executor11ProxyHelperIMS1
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #26
+  tail call void @__clang_call_terminate(ptr %16) #26, !noalias !22
   unreachable
 
 _ZN8WasmEdge8Executor8Executor8dataDropERNS_7Runtime12StackManagerEj.exit: ; preds = %13, %7
@@ -1168,7 +1168,7 @@ define linkonce_odr hidden noundef <2 x i64> @_ZN8WasmEdge8Executor8Executor11Pr
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #26
+  tail call void @__clang_call_terminate(ptr %17) #26, !noalias !25
   unreachable
 
 18:                                               ; preds = %10
@@ -1255,7 +1255,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge8Executor8Executor11ProxyHelperIMS1
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  tail call void @__clang_call_terminate(ptr %33) #26
+  tail call void @__clang_call_terminate(ptr %33) #26, !noalias !31
   unreachable
 
 34:                                               ; preds = %17, %29
@@ -1300,7 +1300,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge8Executor8Executor11ProxyHelperIMS1
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #26
+  tail call void @__clang_call_terminate(ptr %19) #26, !noalias !34
   unreachable
 
 20:                                               ; preds = %13
@@ -1355,7 +1355,7 @@ define linkonce_odr hidden noundef i32 @_ZN8WasmEdge8Executor8Executor11ProxyHel
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #26
+  tail call void @__clang_call_terminate(ptr %9) #26, !noalias !40
   unreachable
 
 10:                                               ; preds = %1
@@ -1404,7 +1404,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge8Executor8Executor11ProxyHelperIMS1
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #26
+  tail call void @__clang_call_terminate(ptr %30) #26, !noalias !43
   unreachable
 
 31:                                               ; preds = %16
@@ -1447,7 +1447,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge8Executor8Executor11ProxyHelperIMS1
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #26
+  tail call void @__clang_call_terminate(ptr %16) #26, !noalias !49
   unreachable
 
 _ZN8WasmEdge8Executor8Executor8elemDropERNS_7Runtime12StackManagerEj.exit: ; preds = %13, %7
@@ -1467,7 +1467,7 @@ define linkonce_odr hidden noundef <2 x i64> @_ZN8WasmEdge8Executor8Executor11Pr
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #26
+  tail call void @__clang_call_terminate(ptr %9) #26, !noalias !52
   unreachable
 
 10:                                               ; preds = %1
@@ -1521,7 +1521,7 @@ define linkonce_odr hidden noundef i32 @_ZN8WasmEdge8Executor8Executor11ProxyHel
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #26
+  tail call void @__clang_call_terminate(ptr %13) #26, !noalias !55
   unreachable
 
 _ZN8WasmEdge8Executor8Executor18memoryAtomicNotifyERNS_7Runtime12StackManagerEjjj.exit: ; preds = %3
@@ -1575,7 +1575,7 @@ define linkonce_odr hidden noundef i32 @_ZN8WasmEdge8Executor8Executor11ProxyHel
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #26
+  tail call void @__clang_call_terminate(ptr %22) #26, !noalias !58
   unreachable
 
 _ZN8WasmEdge8Executor8Executor16memoryAtomicWaitERNS_7Runtime12StackManagerEjjmlj.exit: ; preds = %16, %17
@@ -2055,7 +2055,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i: ; preds = %32
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #26
+  call void @__clang_call_terminate(ptr %49) #26, !noalias !81
   unreachable
 
 _ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i, %44
@@ -2621,7 +2621,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i: ; preds = %36
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #26
+  call void @__clang_call_terminate(ptr %53) #26, !noalias !86
   unreachable
 
 _ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i, %48

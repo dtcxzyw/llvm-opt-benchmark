@@ -12132,7 +12132,6 @@ for.body76:                                       ; preds = %for.body76.lr.ph, %
 invoke.cont80:                                    ; preds = %for.body76
   %61 = load ptr, ptr %ref.tmp77, align 8
   store ptr %61, ptr %e1, align 8
-  store ptr %59, ptr %ref.tmp77, align 8
   %tobool.not.i.i.i100 = icmp eq ptr %59, null
   br i1 %tobool.not.i.i.i100, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit117, label %if.then.i.i.i.i101
 
@@ -12167,7 +12166,6 @@ invoke.cont85:                                    ; preds = %_ZN7obj_refI4expr11
   %67 = load ptr, ptr %e2, align 8
   %68 = load ptr, ptr %ref.tmp82, align 8
   store ptr %68, ptr %e2, align 8
-  store ptr %67, ptr %ref.tmp82, align 8
   %tobool.not.i.i.i119 = icmp eq ptr %67, null
   br i1 %tobool.not.i.i.i119, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit136, label %if.then.i.i.i.i120
 
@@ -12735,7 +12733,6 @@ invoke.cont169:                                   ; preds = %if.then162
   %142 = load ptr, ptr %distinct, align 8
   %143 = load ptr, ptr %ref.tmp163, align 8
   store ptr %143, ptr %distinct, align 8
-  store ptr %142, ptr %ref.tmp163, align 8
   %tobool.not.i.i.i281 = icmp eq ptr %142, null
   br i1 %tobool.not.i.i.i281, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit298, label %if.then.i.i.i.i282
 
@@ -18700,8 +18697,6 @@ if.then2.i.i.i._ZN7obj_refI4expr11ast_managerED2Ev.exitthread-pre-split_crit_edg
 terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %137 = landingpad { ptr, i32 }
           catch ptr null
-  store ptr %spec.select619685705, ptr %q, align 8
-  store ptr %spec.select693704, ptr %b.i235, align 8
   %138 = extractvalue { ptr, i32 } %137, 0
   call void @__clang_call_terminate(ptr %138) #25
   unreachable
@@ -18727,8 +18722,6 @@ if.then2.i.i.i253:                                ; preds = %if.then.i.i.i248
 terminate.lpad.i254:                              ; preds = %if.then2.i.i.i253
   %142 = landingpad { ptr, i32 }
           catch ptr null
-  store ptr %spec.select619685705, ptr %q, align 8
-  store ptr %spec.select693704, ptr %b.i235, align 8
   %143 = extractvalue { ptr, i32 } %142, 0
   call void @__clang_call_terminate(ptr %143) #25
   unreachable

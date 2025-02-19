@@ -886,7 +886,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131_HasDirectAndCollectionBind
   %175 = landingpad { ptr, i32 }
           catch ptr null
   %176 = extractvalue { ptr, i32 } %175, 0
-  %177 = call ptr @__cxa_begin_catch(ptr %176) #19
+  %177 = call ptr @__cxa_begin_catch(ptr %176) #19, !noalias !6
   %178 = load ptr, ptr %168, align 8, !noalias !6
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %180 = load ptr, ptr %179, align 8, !noalias !6
@@ -904,7 +904,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131_HasDirectAndCollectionBind
   %184 = landingpad { ptr, i32 }
           catch ptr null
   %185 = extractvalue { ptr, i32 } %184, 0
-  call void @__clang_call_terminate(ptr %185) #21
+  call void @__clang_call_terminate(ptr %185) #21, !noalias !6
   unreachable
 
 186:                                              ; preds = %174
@@ -960,7 +960,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_142_DirectMaterialBindingsCont
   %202 = landingpad { ptr, i32 }
           catch ptr null
   %203 = extractvalue { ptr, i32 } %202, 0
-  %204 = call ptr @__cxa_begin_catch(ptr %203) #19
+  %204 = call ptr @__cxa_begin_catch(ptr %203) #19, !noalias !9
   %205 = load ptr, ptr %195, align 8, !noalias !9
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 8
   %207 = load ptr, ptr %206, align 8, !noalias !9
@@ -978,7 +978,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_142_DirectMaterialBindingsCont
   %211 = landingpad { ptr, i32 }
           catch ptr null
   %212 = extractvalue { ptr, i32 } %211, 0
-  call void @__clang_call_terminate(ptr %212) #21
+  call void @__clang_call_terminate(ptr %212) #21, !noalias !9
   unreachable
 
 213:                                              ; preds = %201

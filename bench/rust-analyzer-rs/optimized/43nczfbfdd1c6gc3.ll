@@ -141,7 +141,7 @@ define hidden void @"_ZN136_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$
   %15 = extractvalue { ptr, i64 } %14, 0
   %16 = extractvalue { ptr, i64 } %14, 1
   invoke void @"_ZN4core3ptr84drop_in_place$LT$$u5b$$LP$alloc..string..String$C$alloc..string..String$RP$$u5d$$GT$17ha7f165b676bb1870E.llvm.10876350097188915343"(ptr noalias noundef nonnull align 8 %15, i64 noundef %16)
-          to label %.body unwind label %17
+          to label %.body unwind label %17, !noalias !34
 
 17:                                               ; preds = %.noexc5.i, %12
   %18 = landingpad { ptr, i32 }

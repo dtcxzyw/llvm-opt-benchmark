@@ -20263,7 +20263,7 @@ _ZN10serde_json2de12ParserNumber5visit17h46b9335972b5985dE.exit: ; preds = %132,
   %145 = extractvalue { i64, ptr } %144, 1
   %146 = icmp ne ptr %145, null
   tail call void @llvm.assume(i1 %146)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %145, ptr nonnull readonly align 1 %115, i64 %.sroa.4.0.copyload, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %145, ptr nonnull readonly align 1 %115, i64 %.sroa.4.0.copyload, i1 false), !noalias !5
   %.sroa.35.1 = ptrtoint ptr %145 to i64
   %.sroa.21.sroa.20.sroa.0.1.in.in = extractvalue { i64, ptr } %144, 0
   %.sroa.21.sroa.20.sroa.0.1.in = lshr i64 %.sroa.21.sroa.20.sroa.0.1.in.in, 8

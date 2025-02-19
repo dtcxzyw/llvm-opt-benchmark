@@ -704,7 +704,6 @@ define hidden void @_ZN2cv8datasets11OR_mnistImp15loadDatasetPartERKNSt7__cxx111
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %33) #15
   store ptr %32, ptr %6, align 8
-  store ptr null, ptr %26, align 8
   %34 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
           to label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv8datasets11OR_mnistObjEEET_.exit unwind label %35
 

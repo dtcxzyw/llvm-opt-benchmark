@@ -2993,7 +2993,7 @@ if.then.i8.i.i:                                   ; preds = %invoke.cont6.i.i
   %conv.i.i.i.i.i.i.i = and i64 %67, 4294967295
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i) #36, !noalias !26
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef %cond.i.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i)
-          to label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JKN8facebook5velox10StringViewEEEEvRS6_PT_DpOT0_.exit.i.i.i unwind label %lpad.i.i.i.i.i.i
+          to label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JKN8facebook5velox10StringViewEEEEvRS6_PT_DpOT0_.exit.i.i.i unwind label %lpad.i.i.i.i.i.i, !noalias !25
 
 lpad.i.i.i.i.i.i:                                 ; preds = %if.then.i8.i.i
   %72 = landingpad { ptr, i32 }
@@ -48415,7 +48415,7 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %invoke.cont
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #37
+  call void @__clang_call_terminate(ptr %4) #37, !noalias !464
   unreachable
 
 _ZN5folly6detail22callWithConstructedKeyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3f146detail11F14BasicSetINS9_21VectorContainerPolicyIS7_vvvvSt17integral_constantIbLb1EEEEE11UsableAsKeyESaIS7_EZNSF_7emplaceIJRKS7_EEESt4pairINS9_23VectorContainerIteratorIPSJ_EEbEDpOT_EUlSS_E_SK_TnNSt9enable_ifIXoosr3std7is_sameINS_12remove_cvrefIT3_E4typeET_EE5valuesrT0_ISY_E5valueEiE4typeELi0EEEDaRT1_OT2_OSW_.exit.i.i: ; preds = %invoke.cont

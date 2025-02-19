@@ -1295,7 +1295,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type25expression_type_inference12Typ
   br label %.thread13
 
 28:                                               ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.fca.0.extract.i.i, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.fca.0.extract.i.i, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !noalias !275
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8), !noalias !275
   tail call void @llvm.experimental.noalias.scope.decl(metadata !285)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)

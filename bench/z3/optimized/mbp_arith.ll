@@ -20046,7 +20046,6 @@ if.then2.i.i.i117:                                ; preds = %if.then.i.i.i112
           to label %invoke.cont65 unwind label %lpad62
 
 invoke.cont65:                                    ; preds = %if.then.i.i.i112, %if.end.i110, %if.then2.i.i.i117
-  store ptr %call2.i.i105, ptr %t, align 8
   %69 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %69, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp59)
           to label %.noexc.i121 unwind label %terminate.lpad.i120
@@ -20340,7 +20339,6 @@ if.then2.i.i.i240:                                ; preds = %if.then.i.i.i235
           to label %invoke.cont104 unwind label %lpad101
 
 invoke.cont104:                                   ; preds = %if.then.i.i.i235, %if.end.i233, %if.then2.i.i.i240
-  store ptr %call2.i.i227, ptr %t, align 8
   %104 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %104, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp97)
           to label %.noexc.i244 unwind label %terminate.lpad.i243

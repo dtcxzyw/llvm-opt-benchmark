@@ -59979,7 +59979,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit.i: ; preds = %311, %30
   %322 = landingpad { ptr, i32 }
           catch ptr null
   %323 = extractvalue { ptr, i32 } %322, 0
-  call void @__clang_call_terminate(ptr %323) #37
+  call void @__clang_call_terminate(ptr %323) #37, !noalias !416
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i: ; preds = %316, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit.i
@@ -60082,7 +60082,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2ISt3mapIdS0_St4lessIdESaISt4pairI
   %360 = landingpad { ptr, i32 }
           catch ptr null
   %361 = extractvalue { ptr, i32 } %360, 0
-  call void @__clang_call_terminate(ptr %361) #37
+  call void @__clang_call_terminate(ptr %361) #37, !noalias !416
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit71.i: ; preds = %354, %348
@@ -60099,7 +60099,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit71._ZNSt3mapIdN32pxrIntern
   %364 = landingpad { ptr, i32 }
           catch ptr null
   %365 = extractvalue { ptr, i32 } %364, 0
-  call void @__clang_call_terminate(ptr %365) #37
+  call void @__clang_call_terminate(ptr %365) #37, !noalias !416
   unreachable
 
 .body67.i:                                        ; preds = %344, %325, %274, %.loopexit.split-lp.i, %.loopexit.i
@@ -60132,7 +60132,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %368, %_ZNSt3mapIdN3
   %376 = landingpad { ptr, i32 }
           catch ptr null
   %377 = extractvalue { ptr, i32 } %376, 0
-  call void @__clang_call_terminate(ptr %377) #37
+  call void @__clang_call_terminate(ptr %377) #37, !noalias !416
   unreachable
 
 .loopexit.split-lp103.i:                          ; preds = %.body67.i, %.loopexit.split-lp103.loopexit.split-lp.i, %.loopexit.split-lp103.loopexit.i, %.loopexit102.i
@@ -71595,7 +71595,7 @@ _ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EEclES5_
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #37
+  call void @__clang_call_terminate(ptr %37) #37, !noalias !600
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
@@ -71620,7 +71620,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  call void @__clang_call_terminate(ptr %45) #37
+  call void @__clang_call_terminate(ptr %45) #37, !noalias !600
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail6searchISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_110OutputTypeESt4lessISA_ESaISt4pairIKSA_SC_EEESA_TnNSt9enable_ifIXsr8has_findIT_T0_EE5valueENS2_7enablerEE4typeELSN_0EEESF_IbDTclsr3stdE5beginclsr6detailE11smart_dereffp_EEEERKSL_RKSM_.exit.i.i.i.i: ; preds = %40
@@ -73145,7 +73145,7 @@ _ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EEclES5_
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #37
+  call void @__clang_call_terminate(ptr %37) #37, !noalias !646
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
@@ -73170,7 +73170,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  call void @__clang_call_terminate(ptr %45) #37
+  call void @__clang_call_terminate(ptr %45) #37, !noalias !646
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail6searchISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_17SortKeyESt4lessISA_ESaISt4pairIKSA_SC_EEESA_TnNSt9enable_ifIXsr8has_findIT_T0_EE5valueENS2_7enablerEE4typeELSN_0EEESF_IbDTclsr3stdE5beginclsr6detailE11smart_dereffp_EEEERKSL_RKSM_.exit.i.i.i.i: ; preds = %40

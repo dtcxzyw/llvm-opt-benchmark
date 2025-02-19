@@ -113,7 +113,7 @@ define internal fastcc noundef ptr @"_ZN102_$LT$core..iter..adapters..map..Map$L
 
 39:                                               ; preds = %32
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %27)
-          to label %.body.i unwind label %47
+          to label %.body.i unwind label %47, !noalias !14
 
 40:                                               ; preds = %.noexc17.i
   %41 = getelementptr inbounds nuw i8, ptr %31, i64 48
@@ -9257,7 +9257,7 @@ attributes #37 = { nounwind }
 !14 = !{!9, !5}
 !15 = !{i64 1}
 !16 = !{i64 8}
-!17 = !{!18, !20, !22, !24}
+!17 = !{!18, !20, !22, !24, !9, !5}
 !18 = distinct !{!18, !19, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.13580319295917089645: argument 0"}
 !19 = distinct !{!19, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.13580319295917089645"}
 !20 = distinct !{!20, !21, !"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h73f6345230bc3281E.llvm.13580319295917089645: argument 0"}

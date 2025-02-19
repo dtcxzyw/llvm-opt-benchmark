@@ -3391,7 +3391,6 @@ invoke.cont14:                                    ; preds = %invoke.cont12
           to label %invoke.cont20 unwind label %lpad9
 
 invoke.cont20:                                    ; preds = %invoke.cont14
-  store ptr %call19, ptr %rb, align 8
   %4 = load i32, ptr %status, align 4
   %cmp.i14 = icmp slt i32 %4, 1
   br i1 %cmp.i14, label %if.end26, label %cleanup

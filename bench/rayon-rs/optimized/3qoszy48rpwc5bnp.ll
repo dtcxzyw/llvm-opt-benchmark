@@ -423,9 +423,9 @@ define void @_ZN10rayon_core11thread_pool10ThreadPool3new17h1a4a8f2d0eef9704E(pt
   resume { ptr, i32 } %19
 
 _ZN4core3ops8function6FnOnce9call_once17ha69dc50a72a6dd05E.exit.i: ; preds = %.noexc.i.i.i
-  store i64 %6, ptr %.fca.0.extract.i.i.i.i, align 8
+  store i64 %6, ptr %.fca.0.extract.i.i.i.i, align 8, !noalias !17
   %23 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i.i, i64 8
-  store ptr %8, ptr %23, align 8
+  store ptr %8, ptr %23, align 8, !noalias !17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !17
   store ptr %.fca.0.extract.i.i.i.i, ptr %0, align 8, !alias.scope !17
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -938,9 +938,9 @@ define void @_ZN10rayon_core13Configuration5build17hf14be27695a59629E(ptr noalia
   resume { ptr, i32 } %19
 
 _ZN4core3ops8function6FnOnce9call_once17ha69dc50a72a6dd05E.exit.i: ; preds = %.noexc.i.i.i
-  store i64 %6, ptr %.fca.0.extract.i.i.i.i, align 8
+  store i64 %6, ptr %.fca.0.extract.i.i.i.i, align 8, !noalias !34
   %23 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i.i, i64 8
-  store ptr %8, ptr %23, align 8
+  store ptr %8, ptr %23, align 8, !noalias !34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !34
   store ptr %.fca.0.extract.i.i.i.i, ptr %0, align 8, !alias.scope !34
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -1473,7 +1473,7 @@ entry:
   %call.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %reason.coerce0, ptr %reason.coerce1) #16, !noalias !20
   %0 = extractvalue { i64, ptr } %call.i.i.i, 0
   %1 = extractvalue { i64, ptr } %call.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %0, ptr %1) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %0, ptr %1) #16, !noalias !20
   %2 = load i64, ptr %agg.tmp.i.i.i, align 8, !noalias !20
   %3 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   %4 = load ptr, ptr %3, align 8, !noalias !20
@@ -1534,7 +1534,7 @@ entry:
   %call.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %reason.coerce0, ptr %reason.coerce1) #16, !noalias !23
   %0 = extractvalue { i64, ptr } %call.i.i.i, 0
   %1 = extractvalue { i64, ptr } %call.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %0, ptr %1) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %0, ptr %1) #16, !noalias !23
   %2 = load i64, ptr %agg.tmp.i.i.i, align 8, !noalias !23
   %3 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   %4 = load ptr, ptr %3, align 8, !noalias !23
@@ -2363,7 +2363,7 @@ entry:
   %call.i.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 0, ptr nonnull @.str.13) #16, !noalias !29
   %1 = extractvalue { i64, ptr } %call.i.i.i.i, 0
   %2 = extractvalue { i64, ptr } %call.i.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i, i64 %1, ptr %2) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i, i64 %1, ptr %2) #16, !noalias !29
   %3 = load i64, ptr %agg.tmp.i.i.i.i, align 8, !noalias !29
   %4 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i, i64 8
   %5 = load ptr, ptr %4, align 8, !noalias !29
@@ -2384,7 +2384,7 @@ entry:
   %call.i.i.i.i3 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 0, ptr nonnull @.str.13) #16, !noalias !32
   %7 = extractvalue { i64, ptr } %call.i.i.i.i3, 0
   %8 = extractvalue { i64, ptr } %call.i.i.i.i3, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i1, i64 %7, ptr %8) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i1, i64 %7, ptr %8) #16, !noalias !32
   %9 = load i64, ptr %agg.tmp.i.i.i.i1, align 8, !noalias !32
   %10 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i1, i64 8
   %11 = load ptr, ptr %10, align 8, !noalias !32
@@ -2406,7 +2406,7 @@ entry:
   %call.i.i.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 0, ptr nonnull @.str.13) #16, !noalias !41
   %13 = extractvalue { i64, ptr } %call.i.i.i.i.i, 0
   %14 = extractvalue { i64, ptr } %call.i.i.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i.i, i64 %13, ptr %14) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i.i, i64 %13, ptr %14) #16, !noalias !41
   %15 = load i64, ptr %agg.tmp.i.i.i.i.i, align 8, !noalias !41
   %16 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i.i, i64 8
   %17 = load ptr, ptr %16, align 8, !noalias !41
@@ -2428,7 +2428,7 @@ entry:
   %call.i.i.i.i.i8 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 0, ptr nonnull @.str.13) #16, !noalias !48
   %19 = extractvalue { i64, ptr } %call.i.i.i.i.i8, 0
   %20 = extractvalue { i64, ptr } %call.i.i.i.i.i8, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i.i6, i64 %19, ptr %20) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i.i6, i64 %19, ptr %20) #16, !noalias !48
   %21 = load i64, ptr %agg.tmp.i.i.i.i.i6, align 8, !noalias !48
   %22 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i.i6, i64 8
   %23 = load ptr, ptr %22, align 8, !noalias !48
@@ -2449,7 +2449,7 @@ entry:
   %call.i.i.i.i12 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 0, ptr nonnull @.str.13) #16, !noalias !49
   %25 = extractvalue { i64, ptr } %call.i.i.i.i12, 0
   %26 = extractvalue { i64, ptr } %call.i.i.i.i12, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i10, i64 %25, ptr %26) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i10, i64 %25, ptr %26) #16, !noalias !49
   %27 = load i64, ptr %agg.tmp.i.i.i.i10, align 8, !noalias !49
   %28 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i10, i64 8
   %29 = load ptr, ptr %28, align 8, !noalias !49

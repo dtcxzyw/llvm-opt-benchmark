@@ -374,7 +374,7 @@ define hidden void @_ZN5fuzzy7matcher7Matcher16match_candidates17h25320f12130e88
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15), !noalias !50
   %166 = extractvalue { ptr, i64 } %165, 0
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %167, ptr nonnull readonly align 1 %.sroa.068.sroa.0.0.copyload, i64 %.sroa.068.sroa.6.0.copyload, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %167, ptr nonnull readonly align 1 %.sroa.068.sroa.0.0.copyload, i64 %.sroa.068.sroa.6.0.copyload, i1 false), !noalias !56
   %168 = atomicrmw add ptr @_ZN5alloc4sync18STATIC_INNER_SLICE17hcb764f73284c262bE, i64 1 monotonic, align 8, !noalias !56
   %169 = icmp slt i64 %168, 0
   br i1 %169, label %170, label %171

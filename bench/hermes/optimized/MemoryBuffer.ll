@@ -197,7 +197,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %2 = extractvalue { ptr, i64 } %call.i.i, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr readonly align 1 %2, i64 %1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr readonly align 1 %2, i64 %1, i1 false), !noalias !4
   br label %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i
 
 _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i:   ; preds = %if.then.i.i.i, %entry
@@ -253,7 +253,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   %1 = extractvalue { ptr, i64 } %call.i.i, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr readonly align 1 %1, i64 %0, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr readonly align 1 %1, i64 %0, i1 false), !noalias !10
   br label %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i
 
 _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i:   ; preds = %if.then.i.i.i, %if.end.i.i
@@ -708,7 +708,7 @@ if.then18.i:                                      ; preds = %_ZL13shouldUseMmapi
 
 if.then.i.i.i:                                    ; preds = %if.then18.i
   %11 = extractvalue { ptr, i64 } %call.i19.i, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr readonly align 1 %11, i64 %10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr readonly align 1 %11, i64 %10, i1 false), !noalias !29
   br label %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i
 
 _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i:   ; preds = %if.then.i.i.i, %if.then18.i
@@ -797,7 +797,7 @@ if.end.i31.i:                                     ; preds = %if.end25.i
 
 if.then.i.i34.i:                                  ; preds = %if.end.i31.i
   %19 = extractvalue { ptr, i64 } %call.i30.i, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i32.i, ptr readonly align 1 %19, i64 %18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i32.i, ptr readonly align 1 %19, i64 %18, i1 false), !noalias !33
   br label %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i35.i
 
 _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i35.i: ; preds = %if.then.i.i34.i, %if.end.i31.i
@@ -1007,7 +1007,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.end.i
   %1 = extractvalue { ptr, i64 } %call.i, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %1, i64 %0, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %1, i64 %0, i1 false), !noalias !39
   br label %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i
 
 _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i:     ; preds = %if.then.i.i, %if.end.i
@@ -1511,7 +1511,7 @@ if.end.i37:                                       ; preds = %if.end26
 
 if.then.i.i40:                                    ; preds = %if.end.i37
   %20 = extractvalue { ptr, i64 } %call.i36, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i38, ptr readonly align 1 %20, i64 %19, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i38, ptr readonly align 1 %20, i64 %19, i1 false), !noalias !42
   br label %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i41
 
 _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i41:   ; preds = %if.then.i.i40, %if.end.i37
@@ -1720,7 +1720,7 @@ if.end.i.i:                                       ; preds = %do.end
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   %8 = extractvalue { ptr, i64 } %call.i.i, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr readonly align 1 %8, i64 %7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr readonly align 1 %8, i64 %7, i1 false), !noalias !51
   br label %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i
 
 _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i:   ; preds = %if.then.i.i.i, %if.end.i.i

@@ -741,7 +741,6 @@ if.then:                                          ; preds = %invoke.cont34
 invoke.cont37:                                    ; preds = %if.then
   %18 = load ptr, ptr %ref.tmp, align 8
   store ptr %18, ptr %bound, align 8
-  store ptr %call.i13, ptr %ref.tmp, align 8
   br i1 %tobool.not.i14, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont37

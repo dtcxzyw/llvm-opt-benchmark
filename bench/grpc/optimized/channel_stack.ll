@@ -930,7 +930,6 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i2.i
   br label %_ZN9grpc_core8CallArgsD2Ev.exit
 
 _ZN9grpc_core8CallArgsD2Ev.exit:                  ; preds = %_ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i, %if.then.i2.i, %delete.notnull.i.i.i
-  store ptr null, ptr %3, align 8
   %17 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i5 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i5, label %_ZNSt8functionIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEENS0_8CallArgsEEED2Ev.exit, label %if.then.i.i6
@@ -1135,7 +1134,6 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i2.i
   br label %_ZN9grpc_core8CallArgsD2Ev.exit
 
 _ZN9grpc_core8CallArgsD2Ev.exit:                  ; preds = %_ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i, %if.then.i2.i, %delete.notnull.i.i.i
-  store ptr null, ptr %5, align 8
   %19 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i5 = icmp eq ptr %19, null
   br i1 %tobool.not.i.i5, label %_ZNSt8functionIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEENS0_8CallArgsEEED2Ev.exit, label %if.then.i.i6

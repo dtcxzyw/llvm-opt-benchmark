@@ -1799,7 +1799,7 @@ _ZN3std4path9Component9as_os_str17hfcd77d4cc9ae67d6E.exit.i: ; preds = %96, %95,
 .sink.split.i:                                    ; preds = %103
   %.sroa.8.0.i = extractvalue { ptr, i64 } %.pn.i, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !281
-  call void @_ZN3std3sys6os_str5bytes5Slice6to_str17h49f0f197ab13a921E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 1 %.sroa.01.0.i, i64 noundef %.sroa.8.0.i)
+  call void @_ZN3std3sys6os_str5bytes5Slice6to_str17h49f0f197ab13a921E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 1 %.sroa.01.0.i, i64 noundef %.sroa.8.0.i), !noalias !281
   %105 = load i64, ptr %10, align 8, !range !60, !noalias !281, !noundef !13
   %trunc.i = trunc nuw i64 %105 to i1
   %106 = load ptr, ptr %31, align 8, !noalias !281, !nonnull !13, !align !61
@@ -1904,7 +1904,7 @@ _ZN3std4path9Component9as_os_str17hfcd77d4cc9ae67d6E.exit24.i: ; preds = %129, %
 .sink.split39.i:                                  ; preds = %136
   %.sroa.87.0.i = extractvalue { ptr, i64 } %.pn12.i, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !281
-  call void @_ZN3std3sys6os_str5bytes5Slice6to_str17h49f0f197ab13a921E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.05.0.i, i64 noundef %.sroa.87.0.i)
+  call void @_ZN3std3sys6os_str5bytes5Slice6to_str17h49f0f197ab13a921E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.05.0.i, i64 noundef %.sroa.87.0.i), !noalias !281
   %138 = load i64, ptr %9, align 8, !range !60, !noalias !281, !noundef !13
   %trunc14.i = trunc nuw i64 %138 to i1
   %139 = load ptr, ptr %42, align 8, !noalias !281, !nonnull !13, !align !61

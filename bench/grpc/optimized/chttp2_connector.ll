@@ -4104,7 +4104,7 @@ invoke.cont35.i:                                  ; preds = %invoke.cont33.i
   %19 = extractvalue { i64, ptr } %call36.i, 0
   %20 = extractvalue { i64, ptr } %call36.i, 1
   invoke void @_ZN4absl12lts_2023080213InternalErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp29.i, i64 %19, ptr %20)
-          to label %invoke.cont38.i unwind label %lpad37.i
+          to label %invoke.cont38.i unwind label %lpad37.i, !noalias !54
 
 invoke.cont38.i:                                  ; preds = %invoke.cont35.i
   %21 = load i64, ptr %ref.tmp29.i, align 8, !noalias !54
@@ -4203,7 +4203,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i.i.i
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #23
+  call void @__clang_call_terminate(ptr %35) #23, !noalias !54
   unreachable
 
 lpad.i.i58.i:                                     ; preds = %.noexc.i
@@ -4221,7 +4221,7 @@ terminate.lpad.i3.i.i.i:                          ; preds = %lpad.i.i58.i
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #23
+  call void @__clang_call_terminate(ptr %41) #23, !noalias !54
   unreachable
 
 _ZN9grpc_core13RefCountedPtrI31grpc_channel_security_connectorED2Ev.exit.i: ; preds = %invoke.cont.i.i.i

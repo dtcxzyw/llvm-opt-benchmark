@@ -12940,7 +12940,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE5count
   %145 = landingpad { ptr, i32 }
           catch ptr null
   %146 = extractvalue { ptr, i32 } %145, 0
-  call void @__clang_call_terminate(ptr %146) #27
+  call void @__clang_call_terminate(ptr %146) #27, !noalias !95
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i:              ; preds = %143, %136, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_4WireENS0_8hash_opsIS3_EEE5countERKS3_.exit.i
@@ -19485,7 +19485,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i.i256: ; preds 
   %320 = landingpad { ptr, i32 }
           catch ptr null
   %321 = extractvalue { ptr, i32 } %320, 0
-  call void @__clang_call_terminate(ptr %321) #27
+  call void @__clang_call_terminate(ptr %321) #27, !noalias !137
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i:              ; preds = %318, %311, %306
@@ -19514,7 +19514,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i:              ; preds = %318, %311, %306
   %335 = landingpad { ptr, i32 }
           catch ptr null
   %336 = extractvalue { ptr, i32 } %335, 0
-  call void @__clang_call_terminate(ptr %336) #27
+  call void @__clang_call_terminate(ptr %336) #27, !noalias !137
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit27.i:            ; preds = %333, %326, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i
@@ -19730,7 +19730,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit53.i:             ; preds = %384, %_ZSt8_Destroy
   %398 = landingpad { ptr, i32 }
           catch ptr null
   %399 = extractvalue { ptr, i32 } %398, 0
-  call void @__clang_call_terminate(ptr %399) #27
+  call void @__clang_call_terminate(ptr %399) #27, !noalias !137
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit55.i:            ; preds = %396, %389, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit53.i
@@ -21229,7 +21229,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i.i553: ; preds 
   %860 = landingpad { ptr, i32 }
           catch ptr null
   %861 = extractvalue { ptr, i32 } %860, 0
-  call void @__clang_call_terminate(ptr %861) #27
+  call void @__clang_call_terminate(ptr %861) #27, !noalias !144
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i565:           ; preds = %858, %851, %846
@@ -21258,7 +21258,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i565:           ; preds = %858, %851, %846
   %875 = landingpad { ptr, i32 }
           catch ptr null
   %876 = extractvalue { ptr, i32 } %875, 0
-  call void @__clang_call_terminate(ptr %876) #27
+  call void @__clang_call_terminate(ptr %876) #27, !noalias !144
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit27.i567:         ; preds = %873, %866, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i565
@@ -21474,7 +21474,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit53.i610:          ; preds = %924, %_ZSt8_Destroy
   %938 = landingpad { ptr, i32 }
           catch ptr null
   %939 = extractvalue { ptr, i32 } %938, 0
-  call void @__clang_call_terminate(ptr %939) #27
+  call void @__clang_call_terminate(ptr %939) #27, !noalias !144
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit55.i612:         ; preds = %936, %929, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit53.i610

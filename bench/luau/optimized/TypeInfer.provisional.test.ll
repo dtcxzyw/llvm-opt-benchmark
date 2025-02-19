@@ -13469,17 +13469,17 @@ _ZN4Luau9UnionTypeD2Ev.exit.i:                    ; preds = %60, %58
 116:                                              ; preds = %83
   %117 = landingpad { ptr, i32 }
           cleanup
-  br label %265
+  br label %264
 
 118:                                              ; preds = %91
   %119 = landingpad { ptr, i32 }
           cleanup
-  br label %264
+  br label %263
 
 120:                                              ; preds = %154, %123, %122, %95
   %121 = landingpad { ptr, i32 }
           cleanup
-  br label %263
+  br label %262
 
 122:                                              ; preds = %95, %92
   invoke void @_ZN4Luau7Unifier8tryUnifyEPKNS_4TypeES3_bbPKNS_12DenseHashSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashISA_ESt8equal_toISA_EEE(ptr noundef nonnull align 8 dereferenceable(289) %10, ptr noundef %57, ptr noundef %75, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null)
@@ -13525,7 +13525,7 @@ _ZN4Luau9UnionTypeD2Ev.exit.i:                    ; preds = %60, %58
   %136 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #21
-  br label %263
+  br label %262
 
 137:                                              ; preds = %126, %125
   %138 = landingpad { ptr, i32 }
@@ -13565,7 +13565,7 @@ _ZN4Luau9UnionTypeD2Ev.exit.i:                    ; preds = %60, %58
   %150 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %188 unwind label %266
+          to label %188 unwind label %265
 
 151:                                              ; preds = %153, %145, %144
   %152 = landingpad { ptr, i32 }
@@ -13658,18 +13658,18 @@ _ZN4Luau9UnionTypeD2Ev.exit.i:                    ; preds = %60, %58
 188:                                              ; preds = %151, %149
   %.pn33.i = phi { ptr, i32 } [ %152, %151 ], [ %150, %149 ]
   call void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %12) #21
-  br label %263
+  br label %262
 
 189:                                              ; preds = %213, %159
   %190 = landingpad { ptr, i32 }
           cleanup
-  br label %262
+  br label %261
 
 191:                                              ; preds = %179
   %192 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #21
-  br label %262
+  br label %261
 
 193:                                              ; preds = %181, %180
   %194 = landingpad { ptr, i32 }
@@ -13719,7 +13719,7 @@ _ZN4Luau9UnionTypeD2Ev.exit.i:                    ; preds = %60, %58
   %209 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %226 unwind label %266
+          to label %226 unwind label %265
 
 210:                                              ; preds = %212, %204, %203
   %211 = landingpad { ptr, i32 }
@@ -13774,13 +13774,13 @@ _ZN4Luau9UnionTypeD2Ev.exit.i:                    ; preds = %60, %58
 226:                                              ; preds = %210, %208
   %.pn36.i = phi { ptr, i32 } [ %211, %210 ], [ %209, %208 ]
   call void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %18) #21
-  br label %262
+  br label %261
 
 227:                                              ; preds = %217
   %228 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #21
-  br label %262
+  br label %261
 
 229:                                              ; preds = %219, %218
   %230 = landingpad { ptr, i32 }
@@ -13830,12 +13830,12 @@ _ZN4Luau9UnionTypeD2Ev.exit.i:                    ; preds = %60, %58
   %245 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %261 unwind label %266
+          to label %260 unwind label %265
 
 246:                                              ; preds = %248, %240, %239
   %247 = landingpad { ptr, i32 }
           cleanup
-  br label %261
+  br label %260
 
 248:                                              ; preds = %243, %242
   invoke void @_ZNK7doctest6detail13ResultBuilder5reactEv(ptr noundef nonnull align 8 dereferenceable(144) %24)
@@ -13856,11 +13856,11 @@ _ZN4Luau9UnionTypeD2Ev.exit.i:                    ; preds = %60, %58
   %253 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %254 = load ptr, ptr %253, align 8
   %.not.i.i.i.i = icmp eq ptr %254, null
-  br i1 %.not.i.i.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i, label %255
+  br i1 %.not.i.i.i.i, label %268, label %255
 
 255:                                              ; preds = %249
   %256 = invoke noundef zeroext i1 %254(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %7, i32 noundef 3)
-          to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %257
+          to label %268 unwind label %257
 
 257:                                              ; preds = %255
   %258 = landingpad { ptr, i32 }
@@ -13869,44 +13869,34 @@ _ZN4Luau9UnionTypeD2Ev.exit.i:                    ; preds = %60, %58
   call void @__clang_call_terminate(ptr %259) #19
   unreachable
 
-_ZN4Luau21InternalErrorReporterD2Ev.exit.i:       ; preds = %255, %249
-  %260 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp eq ptr %260, null
-  br i1 %.not.i.i, label %269, label %_ZNKSt14default_deleteIN4Luau5ScopeEEclEPS1_.exit.i.i
-
-_ZNKSt14default_deleteIN4Luau5ScopeEEclEPS1_.exit.i.i: ; preds = %_ZN4Luau21InternalErrorReporterD2Ev.exit.i
-  call void @_ZN4Luau5ScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(848) %260) #21
-  call void @_ZdlPvm(ptr noundef nonnull %260, i64 noundef 848) #20
-  br label %269
-
-261:                                              ; preds = %246, %244
+260:                                              ; preds = %246, %244
   %.pn39.i = phi { ptr, i32 } [ %247, %246 ], [ %245, %244 ]
   call void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %24) #21
+  br label %261
+
+261:                                              ; preds = %260, %227, %226, %191, %189
+  %.pn39.pn.i = phi { ptr, i32 } [ %.pn39.i, %260 ], [ %228, %227 ], [ %190, %189 ], [ %.pn36.i, %226 ], [ %192, %191 ]
+  call void @_ZN4Luau15ToStringOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %17) #21
   br label %262
 
-262:                                              ; preds = %261, %227, %226, %191, %189
-  %.pn39.pn.i = phi { ptr, i32 } [ %.pn39.i, %261 ], [ %228, %227 ], [ %190, %189 ], [ %.pn36.i, %226 ], [ %192, %191 ]
-  call void @_ZN4Luau15ToStringOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %17) #21
+262:                                              ; preds = %261, %188, %135, %120
+  %.pn39.pn.pn.i = phi { ptr, i32 } [ %.pn39.pn.i, %261 ], [ %121, %120 ], [ %.pn33.i, %188 ], [ %136, %135 ]
+  call void @_ZN4Luau7UnifierD2Ev(ptr noundef nonnull align 8 dereferenceable(289) %10) #21
   br label %263
 
-263:                                              ; preds = %262, %188, %135, %120
-  %.pn39.pn.pn.i = phi { ptr, i32 } [ %.pn39.pn.i, %262 ], [ %121, %120 ], [ %.pn33.i, %188 ], [ %136, %135 ]
-  call void @_ZN4Luau7UnifierD2Ev(ptr noundef nonnull align 8 dereferenceable(289) %10) #21
+263:                                              ; preds = %262, %118
+  %.pn39.pn.pn.pn.i = phi { ptr, i32 } [ %.pn39.pn.pn.i, %262 ], [ %119, %118 ]
+  call void @_ZN4Luau10NormalizerD2Ev(ptr noundef nonnull align 8 dereferenceable(337) %9) #21
   br label %264
 
-264:                                              ; preds = %263, %118
-  %.pn39.pn.pn.pn.i = phi { ptr, i32 } [ %.pn39.pn.pn.i, %263 ], [ %119, %118 ]
-  call void @_ZN4Luau10NormalizerD2Ev(ptr noundef nonnull align 8 dereferenceable(337) %9) #21
-  br label %265
-
-265:                                              ; preds = %264, %116
-  %.pn39.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn39.pn.pn.pn.i, %264 ], [ %117, %116 ]
+264:                                              ; preds = %263, %116
+  %.pn39.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn39.pn.pn.pn.i, %263 ], [ %117, %116 ]
   call void @_ZN4Luau18UnifierSharedStateD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %8) #21
   call void @_ZN4Luau21InternalErrorReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #21
   br label %.body48.i
 
-.body48.i:                                        ; preds = %265, %111, %108, %103, %100, %98, %69, %51
-  %.pn39.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn39.pn.pn.pn.pn.i, %265 ], [ %99, %98 ], [ %52, %51 ], [ %101, %100 ], [ %101, %103 ], [ %70, %69 ], [ %109, %108 ], [ %109, %111 ]
+.body48.i:                                        ; preds = %264, %111, %108, %103, %100, %98, %69, %51
+  %.pn39.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn39.pn.pn.pn.pn.i, %264 ], [ %99, %98 ], [ %52, %51 ], [ %101, %100 ], [ %101, %103 ], [ %70, %69 ], [ %109, %108 ], [ %109, %111 ]
   call void @_ZNSt10unique_ptrIN4Luau5ScopeESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #21
   br label %.body.i
 
@@ -13917,14 +13907,16 @@ _ZNKSt14default_deleteIN4Luau5ScopeEEclEPS1_.exit.i.i: ; preds = %_ZN4Luau21Inte
   call void @_ZN4Luau7FixtureD2Ev(ptr noundef nonnull align 8 dereferenceable(2232) %30) #21
   resume { ptr, i32 } %.pn39.pn.pn.pn.pn.pn.pn.pn.i
 
-266:                                              ; preds = %244, %208, %149
-  %267 = landingpad { ptr, i32 }
+265:                                              ; preds = %244, %208, %149
+  %266 = landingpad { ptr, i32 }
           catch ptr null
-  %268 = extractvalue { ptr, i32 } %267, 0
-  call void @__clang_call_terminate(ptr %268) #19
+  %267 = extractvalue { ptr, i32 } %266, 0
+  call void @__clang_call_terminate(ptr %267) #19
   unreachable
 
-269:                                              ; preds = %_ZNKSt14default_deleteIN4Luau5ScopeEEclEPS1_.exit.i.i, %_ZN4Luau21InternalErrorReporterD2Ev.exit.i
+268:                                              ; preds = %255, %249
+  call void @_ZN4Luau5ScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(848) %41) #21
+  call void @_ZdlPvm(ptr noundef nonnull %41, i64 noundef 848) #20
   call void @_ZN4Luau14TypedAllocatorINS_11TypePackVarEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %33) #21
   call void @_ZN4Luau14TypedAllocatorINS_4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %1) #21
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %1)
@@ -20908,17 +20900,17 @@ _ZN4Luau9UnionTypeD2Ev.exit.i:                    ; preds = %60, %58
 116:                                              ; preds = %83
   %117 = landingpad { ptr, i32 }
           cleanup
-  br label %265
+  br label %264
 
 118:                                              ; preds = %91
   %119 = landingpad { ptr, i32 }
           cleanup
-  br label %264
+  br label %263
 
 120:                                              ; preds = %154, %123, %122, %95
   %121 = landingpad { ptr, i32 }
           cleanup
-  br label %263
+  br label %262
 
 122:                                              ; preds = %95, %92
   invoke void @_ZN4Luau7Unifier8tryUnifyEPKNS_4TypeES3_bbPKNS_12DenseHashSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashISA_ESt8equal_toISA_EEE(ptr noundef nonnull align 8 dereferenceable(289) %10, ptr noundef %57, ptr noundef %75, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null)
@@ -20964,7 +20956,7 @@ _ZN4Luau9UnionTypeD2Ev.exit.i:                    ; preds = %60, %58
   %136 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #21
-  br label %263
+  br label %262
 
 137:                                              ; preds = %126, %125
   %138 = landingpad { ptr, i32 }
@@ -21004,7 +20996,7 @@ _ZN4Luau9UnionTypeD2Ev.exit.i:                    ; preds = %60, %58
   %150 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %188 unwind label %266
+          to label %188 unwind label %265
 
 151:                                              ; preds = %153, %145, %144
   %152 = landingpad { ptr, i32 }
@@ -21097,18 +21089,18 @@ _ZN4Luau9UnionTypeD2Ev.exit.i:                    ; preds = %60, %58
 188:                                              ; preds = %151, %149
   %.pn33.i = phi { ptr, i32 } [ %152, %151 ], [ %150, %149 ]
   call void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %12) #21
-  br label %263
+  br label %262
 
 189:                                              ; preds = %213, %159
   %190 = landingpad { ptr, i32 }
           cleanup
-  br label %262
+  br label %261
 
 191:                                              ; preds = %179
   %192 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #21
-  br label %262
+  br label %261
 
 193:                                              ; preds = %181, %180
   %194 = landingpad { ptr, i32 }
@@ -21158,7 +21150,7 @@ _ZN4Luau9UnionTypeD2Ev.exit.i:                    ; preds = %60, %58
   %209 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %226 unwind label %266
+          to label %226 unwind label %265
 
 210:                                              ; preds = %212, %204, %203
   %211 = landingpad { ptr, i32 }
@@ -21213,13 +21205,13 @@ _ZN4Luau9UnionTypeD2Ev.exit.i:                    ; preds = %60, %58
 226:                                              ; preds = %210, %208
   %.pn36.i = phi { ptr, i32 } [ %211, %210 ], [ %209, %208 ]
   call void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %18) #21
-  br label %262
+  br label %261
 
 227:                                              ; preds = %217
   %228 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #21
-  br label %262
+  br label %261
 
 229:                                              ; preds = %219, %218
   %230 = landingpad { ptr, i32 }
@@ -21269,12 +21261,12 @@ _ZN4Luau9UnionTypeD2Ev.exit.i:                    ; preds = %60, %58
   %245 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %261 unwind label %266
+          to label %260 unwind label %265
 
 246:                                              ; preds = %248, %240, %239
   %247 = landingpad { ptr, i32 }
           cleanup
-  br label %261
+  br label %260
 
 248:                                              ; preds = %243, %242
   invoke void @_ZNK7doctest6detail13ResultBuilder5reactEv(ptr noundef nonnull align 8 dereferenceable(144) %24)
@@ -21295,11 +21287,11 @@ _ZN4Luau9UnionTypeD2Ev.exit.i:                    ; preds = %60, %58
   %253 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %254 = load ptr, ptr %253, align 8
   %.not.i.i.i.i = icmp eq ptr %254, null
-  br i1 %.not.i.i.i.i, label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i, label %255
+  br i1 %.not.i.i.i.i, label %268, label %255
 
 255:                                              ; preds = %249
   %256 = invoke noundef zeroext i1 %254(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %7, i32 noundef 3)
-          to label %_ZN4Luau21InternalErrorReporterD2Ev.exit.i unwind label %257
+          to label %268 unwind label %257
 
 257:                                              ; preds = %255
   %258 = landingpad { ptr, i32 }
@@ -21308,44 +21300,34 @@ _ZN4Luau9UnionTypeD2Ev.exit.i:                    ; preds = %60, %58
   call void @__clang_call_terminate(ptr %259) #19
   unreachable
 
-_ZN4Luau21InternalErrorReporterD2Ev.exit.i:       ; preds = %255, %249
-  %260 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp eq ptr %260, null
-  br i1 %.not.i.i, label %269, label %_ZNKSt14default_deleteIN4Luau5ScopeEEclEPS1_.exit.i.i
-
-_ZNKSt14default_deleteIN4Luau5ScopeEEclEPS1_.exit.i.i: ; preds = %_ZN4Luau21InternalErrorReporterD2Ev.exit.i
-  call void @_ZN4Luau5ScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(848) %260) #21
-  call void @_ZdlPvm(ptr noundef nonnull %260, i64 noundef 848) #20
-  br label %269
-
-261:                                              ; preds = %246, %244
+260:                                              ; preds = %246, %244
   %.pn39.i = phi { ptr, i32 } [ %247, %246 ], [ %245, %244 ]
   call void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %24) #21
+  br label %261
+
+261:                                              ; preds = %260, %227, %226, %191, %189
+  %.pn39.pn.i = phi { ptr, i32 } [ %.pn39.i, %260 ], [ %228, %227 ], [ %190, %189 ], [ %.pn36.i, %226 ], [ %192, %191 ]
+  call void @_ZN4Luau15ToStringOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %17) #21
   br label %262
 
-262:                                              ; preds = %261, %227, %226, %191, %189
-  %.pn39.pn.i = phi { ptr, i32 } [ %.pn39.i, %261 ], [ %228, %227 ], [ %190, %189 ], [ %.pn36.i, %226 ], [ %192, %191 ]
-  call void @_ZN4Luau15ToStringOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %17) #21
+262:                                              ; preds = %261, %188, %135, %120
+  %.pn39.pn.pn.i = phi { ptr, i32 } [ %.pn39.pn.i, %261 ], [ %121, %120 ], [ %.pn33.i, %188 ], [ %136, %135 ]
+  call void @_ZN4Luau7UnifierD2Ev(ptr noundef nonnull align 8 dereferenceable(289) %10) #21
   br label %263
 
-263:                                              ; preds = %262, %188, %135, %120
-  %.pn39.pn.pn.i = phi { ptr, i32 } [ %.pn39.pn.i, %262 ], [ %121, %120 ], [ %.pn33.i, %188 ], [ %136, %135 ]
-  call void @_ZN4Luau7UnifierD2Ev(ptr noundef nonnull align 8 dereferenceable(289) %10) #21
+263:                                              ; preds = %262, %118
+  %.pn39.pn.pn.pn.i = phi { ptr, i32 } [ %.pn39.pn.pn.i, %262 ], [ %119, %118 ]
+  call void @_ZN4Luau10NormalizerD2Ev(ptr noundef nonnull align 8 dereferenceable(337) %9) #21
   br label %264
 
-264:                                              ; preds = %263, %118
-  %.pn39.pn.pn.pn.i = phi { ptr, i32 } [ %.pn39.pn.pn.i, %263 ], [ %119, %118 ]
-  call void @_ZN4Luau10NormalizerD2Ev(ptr noundef nonnull align 8 dereferenceable(337) %9) #21
-  br label %265
-
-265:                                              ; preds = %264, %116
-  %.pn39.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn39.pn.pn.pn.i, %264 ], [ %117, %116 ]
+264:                                              ; preds = %263, %116
+  %.pn39.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn39.pn.pn.pn.i, %263 ], [ %117, %116 ]
   call void @_ZN4Luau18UnifierSharedStateD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %8) #21
   call void @_ZN4Luau21InternalErrorReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #21
   br label %.body48.i
 
-.body48.i:                                        ; preds = %265, %111, %108, %103, %100, %98, %69, %51
-  %.pn39.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn39.pn.pn.pn.pn.i, %265 ], [ %99, %98 ], [ %52, %51 ], [ %101, %100 ], [ %101, %103 ], [ %70, %69 ], [ %109, %108 ], [ %109, %111 ]
+.body48.i:                                        ; preds = %264, %111, %108, %103, %100, %98, %69, %51
+  %.pn39.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn39.pn.pn.pn.pn.i, %264 ], [ %99, %98 ], [ %52, %51 ], [ %101, %100 ], [ %101, %103 ], [ %70, %69 ], [ %109, %108 ], [ %109, %111 ]
   call void @_ZNSt10unique_ptrIN4Luau5ScopeESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #21
   br label %.body.i
 
@@ -21356,14 +21338,16 @@ _ZNKSt14default_deleteIN4Luau5ScopeEEclEPS1_.exit.i.i: ; preds = %_ZN4Luau21Inte
   call void @_ZN4Luau7FixtureD2Ev(ptr noundef nonnull align 8 dereferenceable(2232) %30) #21
   resume { ptr, i32 } %.pn39.pn.pn.pn.pn.pn.pn.pn.i
 
-266:                                              ; preds = %244, %208, %149
-  %267 = landingpad { ptr, i32 }
+265:                                              ; preds = %244, %208, %149
+  %266 = landingpad { ptr, i32 }
           catch ptr null
-  %268 = extractvalue { ptr, i32 } %267, 0
-  call void @__clang_call_terminate(ptr %268) #19
+  %267 = extractvalue { ptr, i32 } %266, 0
+  call void @__clang_call_terminate(ptr %267) #19
   unreachable
 
-269:                                              ; preds = %_ZNKSt14default_deleteIN4Luau5ScopeEEclEPS1_.exit.i.i, %_ZN4Luau21InternalErrorReporterD2Ev.exit.i
+268:                                              ; preds = %255, %249
+  call void @_ZN4Luau5ScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(848) %41) #21
+  call void @_ZdlPvm(ptr noundef nonnull %41, i64 noundef 848) #20
   call void @_ZN4Luau14TypedAllocatorINS_11TypePackVarEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %33) #21
   call void @_ZN4Luau14TypedAllocatorINS_4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %1) #21
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %1)

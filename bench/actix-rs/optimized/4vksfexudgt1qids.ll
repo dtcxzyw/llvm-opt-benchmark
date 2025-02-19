@@ -1490,9 +1490,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %257 = extractvalue { ptr, ptr } %255, 0
   %258 = extractvalue { ptr, ptr } %255, 1
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 24
-  %260 = load ptr, ptr %259, align 8, !invariant.load !20, !nonnull !20
+  %260 = load ptr, ptr %259, align 8, !invariant.load !20, !noalias !122, !nonnull !20
   %261 = invoke noundef zeroext i1 %260(ptr noundef align 1 %257, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %31)
-          to label %262 unwind label %.loopexit61
+          to label %262 unwind label %.loopexit61, !noalias !122
 
 262:                                              ; preds = %256
   br i1 %261, label %263, label %273
@@ -1552,7 +1552,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store i64 1, ptr %144, align 8, !noalias !122
   store ptr %265, ptr %145, align 8, !noalias !122
   invoke void @_ZN7tracing15__macro_support13__tracing_log17h26d06cc2ffa55b75E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %250, ptr noundef nonnull align 1 %257, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %258, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29)
-          to label %278 unwind label %.loopexit61
+          to label %278 unwind label %.loopexit61, !noalias !123
 
 278:                                              ; preds = %275
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30), !noalias !122
@@ -1636,9 +1636,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %296 = extractvalue { ptr, ptr } %295, 0
   %297 = extractvalue { ptr, ptr } %295, 1
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 24
-  %299 = load ptr, ptr %298, align 8, !invariant.load !20, !nonnull !20
+  %299 = load ptr, ptr %298, align 8, !invariant.load !20, !noalias !123, !nonnull !20
   %300 = invoke noundef zeroext i1 %299(ptr noundef align 1 %296, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %23)
-          to label %.noexc77.i.i.i.i unwind label %.loopexit61
+          to label %.noexc77.i.i.i.i unwind label %.loopexit61, !noalias !123
 
 .noexc77.i.i.i.i:                                 ; preds = %.noexc76.i.i.i.i
   br i1 %300, label %301, label %302
@@ -1647,7 +1647,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22), !noalias !137
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false), !noalias !137
   invoke void @_ZN7tracing15__macro_support13__tracing_log17h26d06cc2ffa55b75E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %290, ptr noundef nonnull align 1 %296, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %297, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37)
-          to label %.noexc78.i.i.i.i unwind label %.loopexit61
+          to label %.noexc78.i.i.i.i unwind label %.loopexit61, !noalias !123
 
 .noexc78.i.i.i.i:                                 ; preds = %301
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22), !noalias !137
@@ -1966,9 +1966,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %395 = extractvalue { ptr, ptr } %393, 0
   %396 = extractvalue { ptr, ptr } %393, 1
   %397 = getelementptr inbounds nuw i8, ptr %396, i64 24
-  %398 = load ptr, ptr %397, align 8, !invariant.load !20, !nonnull !20
+  %398 = load ptr, ptr %397, align 8, !invariant.load !20, !noalias !99, !nonnull !20
   %399 = invoke noundef zeroext i1 %398(ptr noundef align 1 %395, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %51)
-          to label %400 unwind label %.loopexit
+          to label %400 unwind label %.loopexit, !noalias !99
 
 400:                                              ; preds = %394
   br i1 %399, label %401, label %411
@@ -2077,7 +2077,7 @@ default.unreachable:                              ; preds = %452, %413
   store i64 1, ptr %119, align 8, !noalias !99
   store ptr %403, ptr %120, align 8, !noalias !99
   invoke void @_ZN7tracing15__macro_support13__tracing_log17h26d06cc2ffa55b75E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %388, ptr noundef nonnull align 1 %395, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %396, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %49)
-          to label %432 unwind label %429
+          to label %432 unwind label %429, !noalias !99
 
 432:                                              ; preds = %431
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %50), !noalias !99
@@ -8937,7 +8937,7 @@ _ZN10actix_http6header3map9HeaderMap3get17h511f38e682323a37E.exit.i.i: ; preds =
 22:                                               ; preds = %19
   %23 = extractvalue { ptr, i64 } %18, 1
   %24 = invoke noundef i8 @"_ZN108_$LT$actix_http..header..shared..content_encoding..ContentEncoding$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hac31b5c411add04cE"(ptr noalias noundef nonnull readonly align 1 %20, i64 noundef %23)
-          to label %25 unwind label %27, !range !21
+          to label %25 unwind label %27, !range !21, !noalias !1043
 
 25:                                               ; preds = %22
   %26 = icmp eq i8 %24, 5
@@ -9509,7 +9509,7 @@ _ZN10actix_http6header3map9HeaderMap3get17h511f38e682323a37E.exit.i: ; preds = %
 19:                                               ; preds = %16
   %20 = extractvalue { ptr, i64 } %15, 1
   %21 = invoke noundef i8 @"_ZN108_$LT$actix_http..header..shared..content_encoding..ContentEncoding$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hac31b5c411add04cE"(ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %20)
-          to label %22 unwind label %25, !range !21
+          to label %22 unwind label %25, !range !21, !noalias !1096
 
 22:                                               ; preds = %19
   %23 = icmp eq i8 %21, 5

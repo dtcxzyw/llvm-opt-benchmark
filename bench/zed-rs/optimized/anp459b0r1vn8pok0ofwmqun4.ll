@@ -5811,7 +5811,6 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h05514c2edcaf75
   %10 = extractvalue { ptr, i64 } %9, 0
   %11 = extractvalue { ptr, i64 } %9, 1
   tail call void @"_ZN4core3ptr54drop_in_place$LT$$u5b$image..animation..Frame$u5d$$GT$17h00b696efd2e1d675E.llvm.5515369594646907350"(ptr noalias noundef nonnull align 8 %10, i64 noundef %11)
-  %.pre = load ptr, ptr %0, align 8
   br label %"_ZN4core3ptr46drop_in_place$LT$gpui..assets..RenderImage$GT$17he36b038afd3873b8E.exit"
 
 12:                                               ; preds = %1
@@ -5848,22 +5847,21 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h05514c2edcaf75
   br label %"_ZN4core3ptr46drop_in_place$LT$gpui..assets..RenderImage$GT$17he36b038afd3873b8E.exit"
 
 "_ZN4core3ptr46drop_in_place$LT$gpui..assets..RenderImage$GT$17he36b038afd3873b8E.exit": ; preds = %8, %"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$image..animation..Frame$GT$$GT$17h4564dbf02099b511E.llvm.5515369594646907350.exit.i.i.i"
-  %22 = phi ptr [ %.pre, %8 ], [ %3, %"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$image..animation..Frame$GT$$GT$17h4564dbf02099b511E.llvm.5515369594646907350.exit.i.i.i" ]
-  %23 = icmp eq ptr %22, inttoptr (i64 -1 to ptr)
-  br i1 %23, label %"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Weak$LT$gpui..assets..RenderImage$C$$RF$alloc..alloc..Global$GT$$GT$17h8d398378fb5b5200E.exit", label %24
+  %22 = icmp eq ptr %3, inttoptr (i64 -1 to ptr)
+  br i1 %22, label %"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Weak$LT$gpui..assets..RenderImage$C$$RF$alloc..alloc..Global$GT$$GT$17h8d398378fb5b5200E.exit", label %23
 
-24:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$gpui..assets..RenderImage$GT$17he36b038afd3873b8E.exit"
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %26 = atomicrmw sub ptr %25, i64 1 release, align 8, !noalias !988
-  %27 = icmp eq i64 %26, 1
-  br i1 %27, label %28, label %"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Weak$LT$gpui..assets..RenderImage$C$$RF$alloc..alloc..Global$GT$$GT$17h8d398378fb5b5200E.exit"
+23:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$gpui..assets..RenderImage$GT$17he36b038afd3873b8E.exit"
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %25 = atomicrmw sub ptr %24, i64 1 release, align 8, !noalias !988
+  %26 = icmp eq i64 %25, 1
+  br i1 %26, label %27, label %"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Weak$LT$gpui..assets..RenderImage$C$$RF$alloc..alloc..Global$GT$$GT$17h8d398378fb5b5200E.exit"
 
-28:                                               ; preds = %24
+27:                                               ; preds = %23
   fence acquire
-  call void @__rust_dealloc(ptr noundef nonnull %22, i64 noundef 80, i64 noundef 8) #23, !noalias !988
+  call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef 80, i64 noundef 8) #23, !noalias !988
   br label %"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Weak$LT$gpui..assets..RenderImage$C$$RF$alloc..alloc..Global$GT$$GT$17h8d398378fb5b5200E.exit"
 
-"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Weak$LT$gpui..assets..RenderImage$C$$RF$alloc..alloc..Global$GT$$GT$17h8d398378fb5b5200E.exit": ; preds = %"_ZN4core3ptr46drop_in_place$LT$gpui..assets..RenderImage$GT$17he36b038afd3873b8E.exit", %24, %28
+"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Weak$LT$gpui..assets..RenderImage$C$$RF$alloc..alloc..Global$GT$$GT$17h8d398378fb5b5200E.exit": ; preds = %"_ZN4core3ptr46drop_in_place$LT$gpui..assets..RenderImage$GT$17he36b038afd3873b8E.exit", %23, %27
   ret void
 }
 
@@ -10916,7 +10914,7 @@ switch.lookup:                                    ; preds = %52
 _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.3741760397517672727.exit.i.i: ; preds = %.noexc.i45
   %178 = getelementptr inbounds nuw i8, ptr %171, i64 296
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha9c72ba1cc56f558E.llvm.3741760397517672727"(ptr noalias noundef nonnull align 8 dereferenceable(24) %178, ptr noundef nonnull align 1 %175, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.e5de137b7ceed8b5471ed51606bea5eb.33.llvm.3741760397517672727)
-          to label %181 unwind label %172
+          to label %181 unwind label %172, !noalias !2012
 
 179:                                              ; preds = %172
   %180 = landingpad { ptr, i32 }
@@ -13529,7 +13527,7 @@ attributes #33 = { noreturn }
 !1791 = distinct !{!1791, !"_ZN65_$LT$core..task..wake..Waker$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf9a0118e92c3996E.llvm.10657231536288505409"}
 !1792 = distinct !{!1792, !1793, !"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17he99da6caba551a82E.llvm.10657231536288505409: argument 0"}
 !1793 = distinct !{!1793, !"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17he99da6caba551a82E.llvm.10657231536288505409"}
-!1794 = !{!1795, !1797}
+!1794 = !{!1795, !1797, !1787}
 !1795 = distinct !{!1795, !1796, !"_ZN65_$LT$core..task..wake..Waker$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf9a0118e92c3996E.llvm.10657231536288505409: argument 0"}
 !1796 = distinct !{!1796, !"_ZN65_$LT$core..task..wake..Waker$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf9a0118e92c3996E.llvm.10657231536288505409"}
 !1797 = distinct !{!1797, !1798, !"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17he99da6caba551a82E.llvm.10657231536288505409: argument 0"}

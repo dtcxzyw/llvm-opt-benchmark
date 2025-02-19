@@ -3741,7 +3741,6 @@ define linkonce_odr hidden noundef i32 @_ZN2cv4usac28CovarianceEpipolarSolverImp
   %17 = alloca %"class.cv::Mat_", align 8
   %18 = alloca %"class.cv::Mat", align 8
   %19 = alloca %"class.cv::Matx", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %7, i8 0, i64 64, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store double 1.000000e+00, ptr %20, align 16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -5094,7 +5093,6 @@ _ZN2cvngIdLi3EEENS_3VecIT_XT0_EEERKS3_.exit82:    ; preds = %152
   store i32 %spec.select168, ptr %85, align 4
   store i32 %157, ptr %86, align 8
   store i32 %spec.select169, ptr %87, align 4
-  store i32 %spec.select167, ptr %19, align 16
   br label %162
 
 162:                                              ; preds = %161, %162

@@ -14175,11 +14175,9 @@ define internal void @"_ZN5boost4asio6detail12wait_handlerIZ4mainE3$_1NS0_15any_
   %8 = alloca %"class.boost::asio::detail::binder1", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #37
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store ptr %9, ptr %6, align 8, !tbaa !97
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %10, align 8, !tbaa !103
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %1, ptr %11, align 8, !tbaa !107
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #37
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %13 = load ptr, ptr %12, align 8, !tbaa !83
@@ -15001,11 +14999,9 @@ define internal void @"_ZN5boost4asio6detail12wait_handlerIZ4mainE3$_3NS0_15any_
   %8 = alloca %"class.boost::asio::detail::binder1.66", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #37
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store ptr %9, ptr %6, align 8, !tbaa !119
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %10, align 8, !tbaa !121
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %1, ptr %11, align 8, !tbaa !122
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #37
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %13 = load ptr, ptr %12, align 8, !tbaa !83

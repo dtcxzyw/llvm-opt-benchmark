@@ -660,7 +660,6 @@ define internal void @_ZN3gmx12_GLOBAL__N_115InsertMolecules11initOptionsEPNS_17
 29:                                               ; preds = %3
   store ptr %26, ptr %6, align 8
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr null, ptr %30, align 8
   %31 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %45 unwind label %32
 

@@ -1370,7 +1370,7 @@ define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST13CustomSectionE(pt
   %47 = extractvalue { i64, ptr } %45, 1
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %49 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef %47, i64 noundef %46)
-          to label %_ZN8WasmEdge3AST13CustomSection7setNameESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i unwind label %50
+          to label %_ZN8WasmEdge3AST13CustomSection7setNameESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i unwind label %50, !noalias !7
 
 50:                                               ; preds = %44
   %51 = landingpad { ptr, i32 }
@@ -2570,7 +2570,7 @@ _ZSt8_DestroyIPN8WasmEdge3AST12TableSegmentES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i:
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #20
+  call void @__clang_call_terminate(ptr %70) #20, !noalias !80
   unreachable
 
 _ZNSt6vectorIN8WasmEdge3AST12TableSegmentESaIS2_EE6resizeEm.exit.i.i.i.i: ; preds = %_ZSt8_DestroyIPN8WasmEdge3AST12TableSegmentES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i, %65, %63, %61
@@ -2999,7 +2999,7 @@ _ZSt8_DestroyIPN8WasmEdge3AST13GlobalSegmentES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #20
+  call void @__clang_call_terminate(ptr %70) #20, !noalias !116
   unreachable
 
 _ZNSt6vectorIN8WasmEdge3AST13GlobalSegmentESaIS2_EE6resizeEm.exit.i.i.i.i: ; preds = %_ZSt8_DestroyIPN8WasmEdge3AST13GlobalSegmentES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i, %65, %63, %61
@@ -3992,7 +3992,7 @@ _ZSt8_DestroyIPN8WasmEdge3AST11DataSegmentES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i: 
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #20
+  call void @__clang_call_terminate(ptr %70) #20, !noalias !197
   unreachable
 
 _ZNSt6vectorIN8WasmEdge3AST11DataSegmentESaIS2_EE6resizeEm.exit.i.i.i.i: ; preds = %_ZSt8_DestroyIPN8WasmEdge3AST11DataSegmentES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i, %65, %63, %61
@@ -6395,7 +6395,7 @@ _ZSt8_DestroyIPSt7variantIJN8WasmEdge3AST12FunctionTypeENS2_9Component10ModuleTy
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #20
+  call void @__clang_call_terminate(ptr %70) #20, !noalias !303
   unreachable
 
 _ZNSt6vectorISt7variantIJN8WasmEdge3AST12FunctionTypeENS2_9Component10ModuleTypeEEESaIS6_EE6resizeEm.exit.i.i.i.i: ; preds = %_ZSt8_DestroyIPSt7variantIJN8WasmEdge3AST12FunctionTypeENS2_9Component10ModuleTypeEEES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i.i, %65, %63, %61
@@ -6624,7 +6624,7 @@ define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component11TypeSec
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #20
+  call void @__clang_call_terminate(ptr %73) #20, !noalias !321
   unreachable
 
 _ZSt8_DestroyISt7variantIJS0_IJN8WasmEdge3AST9Component11PrimValTypeENS3_6RecordENS3_9VariantTyENS3_4ListENS3_5TupleENS3_5FlagsENS3_4EnumENS3_6OptionENS3_6ResultENS3_3OwnENS3_6BorrowEEENS3_8FuncTypeENS3_13ComponentTypeENS3_12InstanceTypeEEEEvPT_.exit.i.i.i.i.i.i.i.i.i: ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i

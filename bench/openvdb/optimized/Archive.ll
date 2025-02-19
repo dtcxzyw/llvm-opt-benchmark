@@ -6114,7 +6114,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.end.i.i.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #40
+  call void @__clang_call_terminate(ptr %9) #40, !noalias !9
   unreachable
 
 _ZNKSt3any4typeEv.exit.i.i.i:                     ; preds = %invoke.cont.i.i.i.i, %lor.lhs.false.i.i.i
@@ -10151,7 +10151,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %while.body.i.i.i.i.
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #40
+  call void @__clang_call_terminate(ptr %38) #40, !noalias !38
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i
@@ -10176,7 +10176,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %lor.lhs.false.i.i.i
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #40
+  call void @__clang_call_terminate(ptr %40) #40, !noalias !38
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN7openvdb5v11_08MetadataEESt4lessIS5_ESaISt4pairIKS5_SA_EEE4findERSE_.exit.i.i: ; preds = %lor.lhs.false.i.i.i.i
@@ -10425,7 +10425,7 @@ terminate.lpad.i.i.i.i.i.i99.i:                   ; preds = %while.body.i.i.i.i9
   %70 = landingpad { ptr, i32 }
           catch ptr null
   %71 = extractvalue { ptr, i32 } %70, 0
-  call void @__clang_call_terminate(ptr %71) #40
+  call void @__clang_call_terminate(ptr %71) #40, !noalias !42
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i100.i: ; preds = %while.body.i.i.i.i94.i
@@ -10450,7 +10450,7 @@ terminate.lpad.i.i.i.i.i112.i:                    ; preds = %lor.lhs.false.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #40
+  call void @__clang_call_terminate(ptr %73) #40, !noalias !42
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN7openvdb5v11_08MetadataEESt4lessIS5_ESaISt4pairIKS5_SA_EEE4findERSE_.exit.i113.i: ; preds = %lor.lhs.false.i.i.i109.i
@@ -11237,7 +11237,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %while.body.i.i.i.i.
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #40
+  call void @__clang_call_terminate(ptr %38) #40, !noalias !45
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i
@@ -11262,7 +11262,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %lor.lhs.false.i.i.i
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #40
+  call void @__clang_call_terminate(ptr %40) #40, !noalias !45
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN7openvdb5v11_08MetadataEESt4lessIS5_ESaISt4pairIKS5_SA_EEE4findERSE_.exit.i.i: ; preds = %lor.lhs.false.i.i.i.i
@@ -11511,7 +11511,7 @@ terminate.lpad.i.i.i.i.i.i100.i:                  ; preds = %while.body.i.i.i.i9
   %70 = landingpad { ptr, i32 }
           catch ptr null
   %71 = extractvalue { ptr, i32 } %70, 0
-  call void @__clang_call_terminate(ptr %71) #40
+  call void @__clang_call_terminate(ptr %71) #40, !noalias !48
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i101.i: ; preds = %while.body.i.i.i.i95.i
@@ -11536,7 +11536,7 @@ terminate.lpad.i.i.i.i.i113.i:                    ; preds = %lor.lhs.false.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #40
+  call void @__clang_call_terminate(ptr %73) #40, !noalias !48
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN7openvdb5v11_08MetadataEESt4lessIS5_ESaISt4pairIKS5_SA_EEE4findERSE_.exit.i114.i: ; preds = %lor.lhs.false.i.i.i110.i
@@ -12348,7 +12348,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %while.body.i.i.i.i.
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #40
+  call void @__clang_call_terminate(ptr %38) #40, !noalias !51
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i
@@ -12373,7 +12373,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %lor.lhs.false.i.i.i
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #40
+  call void @__clang_call_terminate(ptr %40) #40, !noalias !51
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN7openvdb5v11_08MetadataEESt4lessIS5_ESaISt4pairIKS5_SA_EEE4findERSE_.exit.i.i: ; preds = %lor.lhs.false.i.i.i.i
@@ -12622,7 +12622,7 @@ terminate.lpad.i.i.i.i.i.i100.i:                  ; preds = %while.body.i.i.i.i9
   %70 = landingpad { ptr, i32 }
           catch ptr null
   %71 = extractvalue { ptr, i32 } %70, 0
-  call void @__clang_call_terminate(ptr %71) #40
+  call void @__clang_call_terminate(ptr %71) #40, !noalias !54
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i101.i: ; preds = %while.body.i.i.i.i95.i
@@ -12647,7 +12647,7 @@ terminate.lpad.i.i.i.i.i113.i:                    ; preds = %lor.lhs.false.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #40
+  call void @__clang_call_terminate(ptr %73) #40, !noalias !54
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN7openvdb5v11_08MetadataEESt4lessIS5_ESaISt4pairIKS5_SA_EEE4findERSE_.exit.i114.i: ; preds = %lor.lhs.false.i.i.i110.i

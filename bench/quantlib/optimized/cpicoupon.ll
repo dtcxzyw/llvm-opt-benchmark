@@ -5120,7 +5120,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #32
+  call void @__clang_call_terminate(ptr %12) #32, !noalias !115
   unreachable
 
 _ZNK8QuantLib11CPICashFlow8cpiIndexEv.exit:       ; preds = %_ZN5boost20dynamic_pointer_castIN8QuantLib18ZeroInflationIndexENS1_5IndexEEENS_10shared_ptrIT_EEONS4_IT0_EE.exit.thread.i, %_ZN5boost20dynamic_pointer_castIN8QuantLib18ZeroInflationIndexENS1_5IndexEEENS_10shared_ptrIT_EEONS4_IT0_EE.exit.i, %if.then.i.i.i, %.noexc.i.i.i, %if.then.i.i.i.i.i
@@ -5244,7 +5244,7 @@ terminate.lpad.i.i.i25:                           ; preds = %if.then.i.i.i.i.i29
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #32
+  call void @__clang_call_terminate(ptr %32) #32, !noalias !122
   unreachable
 
 _ZNK8QuantLib11CPICashFlow8cpiIndexEv.exit32:     ; preds = %_ZN5boost20dynamic_pointer_castIN8QuantLib18ZeroInflationIndexENS1_5IndexEEENS_10shared_ptrIT_EEONS4_IT0_EE.exit.thread.i12, %_ZN5boost20dynamic_pointer_castIN8QuantLib18ZeroInflationIndexENS1_5IndexEEENS_10shared_ptrIT_EEONS4_IT0_EE.exit.i15, %if.then.i.i.i19, %.noexc.i.i.i26, %if.then.i.i.i.i.i29

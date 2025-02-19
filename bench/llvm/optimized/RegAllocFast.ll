@@ -9337,12 +9337,11 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i: ; p
   %70 = load ptr, ptr %69, align 8, !tbaa !385
   %71 = load ptr, ptr %.fca.0.extract, align 8, !tbaa !551
   %72 = icmp eq ptr %71, null
-  %.sroa.016.0.copyload = load i32, ptr %10, align 4, !tbaa !300
   %73 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 14
   %74 = load i8, ptr %73, align 2, !tbaa !607, !range !46, !noundef !47
   %75 = trunc nuw i8 %74 to i1
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %77 = and i32 %.sroa.016.0.copyload, 2147483647
+  %77 = and i32 %3, 2147483647
   %78 = zext nneg i32 %77 to i64
   %79 = load ptr, ptr %76, align 8, !tbaa !25
   %80 = getelementptr inbounds nuw i32, ptr %79, i64 %78
@@ -9419,12 +9418,12 @@ _ZN12_GLOBAL__N_116RegAllocFastImpl16getStackSpaceForEN4llvm8RegisterE.exit.i: ;
   %141 = load ptr, ptr %135, align 8, !tbaa !3
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 488
   %143 = load ptr, ptr %142, align 8
-  call void %143(ptr noundef nonnull align 8 dereferenceable(80) %135, ptr noundef nonnull align 8 dereferenceable(288) %137, ptr %70, i32 %138, i1 noundef zeroext %72, i32 noundef %.0.i.i, ptr noundef %133, ptr noundef %140, i32 %.sroa.016.0.copyload, i32 noundef 0) #25
+  call void %143(ptr noundef nonnull align 8 dereferenceable(80) %135, ptr noundef nonnull align 8 dereferenceable(288) %137, ptr %70, i32 %138, i1 noundef zeroext %72, i32 noundef %.0.i.i, ptr noundef %133, ptr noundef %140, i32 %3, i32 noundef 0) #25
   %144 = load ptr, ptr %136, align 8, !tbaa !74
   %145 = call ptr @_ZN4llvm17MachineBasicBlock18getFirstTerminatorEv(ptr noundef nonnull align 8 dereferenceable(288) %144) #25
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 664
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #25
-  store i32 %.sroa.016.0.copyload, ptr %6, align 4, !tbaa !300
+  store i32 %3, ptr %6, align 4, !tbaa !300
   %147 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIPNS_14MachineOperandELj2EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixEOj(ptr noundef nonnull align 1 dereferenceable(1) %146, ptr noundef nonnull align 4 dereferenceable(4) %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #25
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #25

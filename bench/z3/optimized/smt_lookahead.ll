@@ -1173,7 +1173,6 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %lor.lhs.false.i.i, 
   %14 = load i32, ptr %arrayidx10.i.i, align 4
   %inc.i.i = add i32 %14, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
-  store ptr null, ptr %ref.tmp, align 8
   br label %if.end24
 
 lpad:                                             ; preds = %if.then2.i.i.i14, %invoke.cont15, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i, %invoke.cont21, %if.else14

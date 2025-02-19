@@ -683,7 +683,7 @@ common.resume:                                    ; preds = %76, %65, %48, %35
   resume { ptr, i32 } %common.resume.op
 
 _ZN6uucore4mods5error12USimpleError3new17h8ab8503d1d0d3306E.exit: ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !noalias !82
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !82
   br label %82
 
@@ -816,7 +816,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit29:  ; preds = %52, %56
   unreachable
 
 _ZN6uucore4mods5error12USimpleError3new17h8ab8503d1d0d3306E.exit32: ; preds = %.noexc.i30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !119
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !119
   br label %82
 
@@ -853,7 +853,7 @@ _ZN6uucore4mods5error12USimpleError3new17h8ab8503d1d0d3306E.exit32: ; preds = %.
   br label %82
 
 81:                                               ; preds = %.noexc.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !noalias !96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !96
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   br label %82

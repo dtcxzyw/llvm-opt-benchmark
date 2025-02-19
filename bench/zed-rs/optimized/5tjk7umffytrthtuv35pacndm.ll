@@ -2495,7 +2495,7 @@ select.unfold.loopexit61.split.us:                ; preds = %.loopexit.us
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h211ff91deb3380f6E.llvm.2299517138537098547.exit.i": ; preds = %.noexc.i
   %154 = getelementptr inbounds nuw i8, ptr %141, i64 728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %147, ptr noundef nonnull align 8 dereferenceable(64) %12, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %147, ptr noundef nonnull align 8 dereferenceable(64) %12, i64 64, i1 false), !noalias !411
   %155 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %143, ptr %155, align 8, !noalias !416
   %156 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -6115,7 +6115,7 @@ common.resume:                                    ; preds = %213, %.body, %62, %
 
 "_ZN4gpui3app13model_context21ModelContext$LT$T$GT$4emit17hf6bebada3a2d59e9E.exit": ; preds = %.noexc.i
   %142 = getelementptr inbounds nuw i8, ptr %125, i64 728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %135, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %135, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false), !noalias !1221
   %143 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %131, ptr %143, align 8, !noalias !1224
   %144 = getelementptr inbounds nuw i8, ptr %4, i64 28
@@ -8625,7 +8625,7 @@ _ZN12multi_buffer11MultiBuffer11excerpt_ids17h5fae0a3d669d301fE.exit: ; preds = 
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h211ff91deb3380f6E.llvm.2299517138537098547.exit.i": ; preds = %.noexc.i
   %91 = getelementptr inbounds nuw i8, ptr %12, i64 728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %82, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %82, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 64, i1 false), !noalias !1761
   %92 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %78, ptr %92, align 8, !noalias !1764
   %93 = getelementptr inbounds nuw i8, ptr %5, i64 28
@@ -8684,7 +8684,7 @@ _ZN12multi_buffer11MultiBuffer11excerpt_ids17h5fae0a3d669d301fE.exit: ; preds = 
   br label %common.resume
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h211ff91deb3380f6E.llvm.2299517138537098547.exit.i16": ; preds = %.noexc.i15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %101, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %101, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false), !noalias !1775
   %110 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %78, ptr %110, align 8, !noalias !1771
   %111 = getelementptr inbounds nuw i8, ptr %4, i64 28
@@ -9423,7 +9423,7 @@ common.resume:                                    ; preds = %.body.thread, %169,
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h211ff91deb3380f6E.llvm.2299517138537098547.exit.i": ; preds = %.noexc.i
   %46 = getelementptr inbounds nuw i8, ptr %33, i64 728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %39, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %39, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false), !noalias !1978
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i32 %35, ptr %47, align 8, !noalias !1983
   %48 = getelementptr inbounds nuw i8, ptr %16, i64 28
@@ -9478,7 +9478,7 @@ common.resume:                                    ; preds = %.body.thread, %169,
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h211ff91deb3380f6E.llvm.2299517138537098547.exit.i4": ; preds = %.noexc.i3
   %67 = getelementptr inbounds nuw i8, ptr %54, i64 728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %60, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %60, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false), !noalias !1984
   %68 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 %56, ptr %68, align 8, !noalias !1989
   %69 = getelementptr inbounds nuw i8, ptr %15, i64 28
@@ -9533,7 +9533,7 @@ common.resume:                                    ; preds = %.body.thread, %169,
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h211ff91deb3380f6E.llvm.2299517138537098547.exit.i11": ; preds = %.noexc.i10
   %88 = getelementptr inbounds nuw i8, ptr %75, i64 728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %81, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %81, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false), !noalias !1990
   %89 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 %77, ptr %89, align 8, !noalias !1995
   %90 = getelementptr inbounds nuw i8, ptr %14, i64 28
@@ -9588,7 +9588,7 @@ common.resume:                                    ; preds = %.body.thread, %169,
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h211ff91deb3380f6E.llvm.2299517138537098547.exit.i18": ; preds = %.noexc.i17
   %109 = getelementptr inbounds nuw i8, ptr %96, i64 728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %102, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %102, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false), !noalias !1996
   %110 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i32 %98, ptr %110, align 8, !noalias !2001
   %111 = getelementptr inbounds nuw i8, ptr %13, i64 28
@@ -9643,7 +9643,7 @@ common.resume:                                    ; preds = %.body.thread, %169,
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h211ff91deb3380f6E.llvm.2299517138537098547.exit.i25": ; preds = %.noexc.i24
   %130 = getelementptr inbounds nuw i8, ptr %117, i64 728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %123, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %123, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false), !noalias !2002
   %131 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 %119, ptr %131, align 8, !noalias !2007
   %132 = getelementptr inbounds nuw i8, ptr %12, i64 28
@@ -9698,7 +9698,7 @@ common.resume:                                    ; preds = %.body.thread, %169,
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h211ff91deb3380f6E.llvm.2299517138537098547.exit.i32": ; preds = %.noexc.i31
   %151 = getelementptr inbounds nuw i8, ptr %138, i64 728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %144, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %144, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false), !noalias !2008
   %152 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 %140, ptr %152, align 8, !noalias !2013
   %153 = getelementptr inbounds nuw i8, ptr %11, i64 28
@@ -9755,7 +9755,7 @@ common.resume:                                    ; preds = %.body.thread, %169,
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h211ff91deb3380f6E.llvm.2299517138537098547.exit.i39": ; preds = %.noexc.i38
   %173 = getelementptr inbounds nuw i8, ptr %160, i64 728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %166, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %166, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false), !noalias !2014
   %174 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 %162, ptr %174, align 8, !noalias !2019
   %175 = getelementptr inbounds nuw i8, ptr %10, i64 28
@@ -9894,7 +9894,7 @@ common.resume:                                    ; preds = %.body.thread, %169,
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h211ff91deb3380f6E.llvm.2299517138537098547.exit.i58": ; preds = %.noexc.i57
   %230 = getelementptr inbounds nuw i8, ptr %217, i64 728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %223, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %223, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false), !noalias !2036
   %231 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %219, ptr %231, align 8, !noalias !2041
   %232 = getelementptr inbounds nuw i8, ptr %9, i64 28
@@ -9983,7 +9983,7 @@ common.resume:                                    ; preds = %.body.thread, %169,
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h211ff91deb3380f6E.llvm.2299517138537098547.exit.i74": ; preds = %.noexc.i73
   %269 = getelementptr inbounds nuw i8, ptr %256, i64 728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %262, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %262, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false), !noalias !2050
   %270 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %258, ptr %270, align 8, !noalias !2055
   %271 = getelementptr inbounds nuw i8, ptr %8, i64 28
@@ -10038,7 +10038,7 @@ common.resume:                                    ; preds = %.body.thread, %169,
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h211ff91deb3380f6E.llvm.2299517138537098547.exit.i82": ; preds = %.noexc.i81
   %290 = getelementptr inbounds nuw i8, ptr %277, i64 728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %283, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %283, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false), !noalias !2056
   %291 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %279, ptr %291, align 8, !noalias !2061
   %292 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -10160,7 +10160,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h1cf2e90be0009b20E.exit: ; preds = %.no
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h211ff91deb3380f6E.llvm.2299517138537098547.exit.i92": ; preds = %.noexc.i91
   %329 = getelementptr inbounds nuw i8, ptr %315, i64 728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %322, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %322, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false), !noalias !2062
   %330 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %318, ptr %330, align 8, !noalias !2065
   %331 = getelementptr inbounds nuw i8, ptr %6, i64 28
@@ -10237,7 +10237,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h1cf2e90be0009b20E.exit72: ; preds = %.
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h211ff91deb3380f6E.llvm.2299517138537098547.exit.i100": ; preds = %.noexc.i99
   %357 = getelementptr inbounds nuw i8, ptr %238, i64 728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %350, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %350, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false), !noalias !2068
   %358 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %346, ptr %358, align 8, !noalias !2071
   %359 = getelementptr inbounds nuw i8, ptr %5, i64 28
@@ -11520,7 +11520,7 @@ _ZN4text12subscription7publish17h01630923b961b86aE.exit: ; preds = %212, %209
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h211ff91deb3380f6E.llvm.2299517138537098547.exit.i": ; preds = %.noexc.i
   %229 = getelementptr inbounds nuw i8, ptr %25, i64 728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %222, ptr noundef nonnull align 8 dereferenceable(64) %13, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %222, ptr noundef nonnull align 8 dereferenceable(64) %13, i64 64, i1 false), !noalias !2377
   %230 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %218, ptr %230, align 8, !noalias !2380
   %231 = getelementptr inbounds nuw i8, ptr %8, i64 28
@@ -11588,7 +11588,7 @@ _ZN4text12subscription7publish17h01630923b961b86aE.exit: ; preds = %212, %209
   unreachable
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h211ff91deb3380f6E.llvm.2299517138537098547.exit.i42": ; preds = %.noexc.i41
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %244, ptr noundef nonnull align 8 dereferenceable(64) %12, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %244, ptr noundef nonnull align 8 dereferenceable(64) %12, i64 64, i1 false), !noalias !2387
   %251 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %218, ptr %251, align 8, !noalias !2383
   %252 = getelementptr inbounds nuw i8, ptr %7, i64 28

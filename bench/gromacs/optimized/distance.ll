@@ -2207,7 +2207,6 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_18Distance12initAnaly
 83:                                               ; preds = %82
   store ptr %80, ptr %7, align 8
   %84 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr null, ptr %84, align 8
   %85 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
           to label %_ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit unwind label %86
 
@@ -2507,7 +2506,6 @@ _ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEED2Ev.exit: ; preds = %_ZNSt16_S
 211:                                              ; preds = %210
   store ptr %208, ptr %9, align 8
   %212 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr null, ptr %212, align 8
   %213 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
           to label %_ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit63 unwind label %214
 
@@ -2770,7 +2768,6 @@ _ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEED2Ev.exit80: ; preds = %_ZNSt16
 325:                                              ; preds = %324
   store ptr %322, ptr %11, align 8
   %326 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr null, ptr %326, align 8
   %327 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
           to label %_ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit81 unwind label %328
 
@@ -3033,7 +3030,6 @@ _ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEED2Ev.exit98: ; preds = %_ZNSt16
 439:                                              ; preds = %438
   store ptr %436, ptr %13, align 8
   %440 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr null, ptr %440, align 8
   %441 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
           to label %_ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit99 unwind label %442
 
@@ -3332,7 +3328,6 @@ _ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEED2Ev.exit116: ; preds = %_ZNSt1
 568:                                              ; preds = %567
   store ptr %565, ptr %15, align 8
   %569 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr null, ptr %569, align 8
   %570 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
           to label %_ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit117 unwind label %571
 

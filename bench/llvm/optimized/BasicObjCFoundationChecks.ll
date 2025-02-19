@@ -8042,7 +8042,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.thread.i: 
   %55 = load ptr, ptr %54, align 8, !tbaa !722, !noalias !823
   store ptr %22, ptr %10, align 8, !tbaa !630, !noalias !823
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull align 8 dereferenceable(48) %22) #20, !noalias !823
-  call void @_ZN5clang4ento17ConstraintManager10assumeDualEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_11DefinedSValE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.773") align 8 %12, ptr noundef nonnull align 8 dereferenceable(56) %55, ptr noundef nonnull %10, ptr %.fca.0.extract.i.i, i8 %.fca.1.extract.i.i) #20
+  call void @_ZN5clang4ento17ConstraintManager10assumeDualEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_11DefinedSValE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.773") align 8 %12, ptr noundef nonnull align 8 dereferenceable(56) %55, ptr noundef nonnull %10, ptr %.fca.0.extract.i.i, i8 %.fca.1.extract.i.i) #20, !noalias !820
   %56 = load ptr, ptr %10, align 8, !tbaa !630, !noalias !823
   %.not.i.i.i.i.i = icmp eq ptr %56, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_ED2Ev.exit.i.i, label %57
@@ -8228,7 +8228,7 @@ _ZL27isKnownNonNilCollectionTypeN5clang8QualTypeE.exit.i.i: ; preds = %105, %105
   %.sroa.643.050.i.i = phi i8 [ %.fca.1.extract14.i.i, %.thread.i.i ], [ %.fca.1.extract10.i.i, %124 ]
   %.pn.i.i = phi { ptr, i8 } [ %123, %.thread.i.i ], [ %130, %124 ]
   %.sroa.042.049.i.i = extractvalue { ptr, i8 } %.pn.i.i, 0
-  %132 = call { ptr, i8 } @_ZNK5clang4ento12ProgramState7getSValENS0_3LocENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.016.0394559.i, ptr %.sroa.042.049.i.i, i8 %.sroa.643.050.i.i, i64 0) #20
+  %132 = call { ptr, i8 } @_ZNK5clang4ento12ProgramState7getSValENS0_3LocENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.016.0394559.i, ptr %.sroa.042.049.i.i, i8 %.sroa.643.050.i.i, i64 0) #20, !noalias !826
   %.fca.1.extract4.i.i = extractvalue { ptr, i8 } %132, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !832)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !826

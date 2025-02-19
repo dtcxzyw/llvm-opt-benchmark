@@ -3337,7 +3337,6 @@ if.end:                                           ; preds = %for.cond.i, %_ZNK15
   store ptr null, ptr %definition, align 8
   %m_manager.i = getelementptr inbounds nuw i8, ptr %definition, i64 8
   store ptr %3, ptr %m_manager.i, align 8
-  store i8 0, ptr %revert, align 1
   invoke void @_ZNK13macro_manager12get_head_defEP10quantifierP9func_declRP3appR7obj_refI4expr11ast_managerERb(ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef %q, ptr noundef %f, ptr noundef nonnull align 8 dereferenceable(8) %head, ptr noundef nonnull align 8 dereferenceable(16) %definition, ptr noundef nonnull align 1 dereferenceable(1) %revert)
           to label %invoke.cont unwind label %lpad
 

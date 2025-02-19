@@ -5415,7 +5415,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %189, %_ZN32px
   %323 = landingpad { ptr, i32 }
           catch ptr null
   %324 = extractvalue { ptr, i32 } %323, 0
-  call void @__clang_call_terminate(ptr %324) #25
+  call void @__clang_call_terminate(ptr %324) #25, !noalias !12
   unreachable
 
 _ZNSt8functionIFSt8optionalIlEN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeERKlEED2Ev.exit.i: ; preds = %320, %317
@@ -5515,7 +5515,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit.i:                  ; preds = %349, %347
   %363 = landingpad { ptr, i32 }
           catch ptr null
   %364 = extractvalue { ptr, i32 } %363, 0
-  call void @__clang_call_terminate(ptr %364) #25
+  call void @__clang_call_terminate(ptr %364) #25, !noalias !12
   unreachable
 
 365:                                              ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEEvT_S7_.exit.i, %_ZNSt8functionIFSt8optionalIlEN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeERKlEED2Ev.exit.i
@@ -19340,7 +19340,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__9GfRange3dESaIS1_EEC2EmRK
   %468 = landingpad { ptr, i32 }
           catch ptr null
   %469 = extractvalue { ptr, i32 } %468, 0
-  call void @__clang_call_terminate(ptr %469) #25
+  call void @__clang_call_terminate(ptr %469) #25, !noalias !72
   unreachable
 
 470:                                              ; preds = %.noexc11.i, %.noexc.i, %.noexc108

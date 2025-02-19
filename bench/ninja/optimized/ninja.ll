@@ -964,7 +964,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit64.i: 
   br i1 %208, label %209, label %210
 
 209:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit64.i
-  store i8 %43, ptr %11, align 8
   %puts.i67.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   br label %.critedge74.i
 
@@ -1105,7 +1104,6 @@ _ZN12_GLOBAL__N_113WarningEnableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %248, label %249, label %_ZN12_GLOBAL__N_19ReadFlagsEPiPPPcPNS_7OptionsEP11BuildConfig.exit
 
 249:                                              ; preds = %.loopexit88.i
-  store i8 0, ptr %11, align 8
   %250 = invoke noundef i32 @_Z17GetProcessorCountv()
           to label %.noexc.i72.i unwind label %257
 

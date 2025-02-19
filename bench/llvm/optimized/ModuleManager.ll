@@ -660,7 +660,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN5clang13serialization13ModuleMa
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %43 = load i64, ptr %42, align 8, !tbaa !74
   %44 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef 0, i64 noundef %43, ptr noundef nonnull @.str, i64 noundef 23) #16
-  br label %361
+  br label %360
 
 45:                                               ; preds = %13
   %46 = load ptr, ptr %25, align 8, !tbaa !79
@@ -671,7 +671,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN5clang13serialization13ModuleMa
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %49 = load i64, ptr %48, align 8, !tbaa !74
   %50 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef 0, i64 noundef %49, ptr noundef nonnull @.str.1, i64 noundef 21) #16
-  br label %361
+  br label %360
 
 .preheader:                                       ; preds = %45, %.preheader
   %.05.i.i.i = phi ptr [ %54, %.preheader ], [ %46, %45 ]
@@ -796,14 +796,14 @@ _ZL14checkSignatureN5clang16ASTFileSignatureES0_RNSt7__cxx1112basic_stringIcSt11
   %102 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef 0, i64 noundef %100, ptr noundef nonnull %98, i64 noundef %101) #16
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %23)
-  br label %361
+  br label %360
 
 103:                                              ; preds = %97, %"_ZZN5clang13serialization13ModuleManager9addModuleEN4llvm9StringRefENS0_10ModuleKindENS_14SourceLocationEPNS0_10ModuleFileEjllNS_16ASTFileSignatureEPFS8_S3_ERS7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clES4_PKS6_NS_12FileEntryRefE.exit.thread"
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %23)
   store ptr %81, ptr %11, align 8, !tbaa !58
   tail call fastcc void @_ZL19updateModuleImportsRN5clang13serialization10ModuleFileEPS1_NS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(3464) %81, ptr noundef %5, i32 %4)
-  br label %361
+  br label %360
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryEPNS2_13serialization10ModuleFileENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6lookupES5_.exit.thread: ; preds = %.lr.ph.i.i.i, %_ZNK5clang12FileEntryRef7getNameEv.exit.i, %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit, %"_ZZN5clang13serialization13ModuleManager9addModuleEN4llvm9StringRefENS0_10ModuleKindENS_14SourceLocationEPNS0_10ModuleFileEjllNS_16ASTFileSignatureEPFS8_S3_ERS7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clES4_PKS6_NS_12FileEntryRefE.exit", %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryEPNS2_13serialization10ModuleFileENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6lookupES5_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #16
@@ -1162,7 +1162,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; pred
 _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit101.thread167: ; preds = %246
   call void @_ZNK5clang9FileEntry9closeFileEv(ptr noundef nonnull align 8 dereferenceable(96) %250) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #16
-  br label %359
+  br label %357
 
 251:                                              ; preds = %241
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32) #16
@@ -1251,15 +1251,15 @@ _ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i: ; preds = %283
   br label %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit101
 
 _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit101.thread: ; preds = %224, %236
-  %.lcssa172.sink = phi ptr [ %240, %236 ], [ %228, %224 ]
-  call void @_ZNK5clang9FileEntry9closeFileEv(ptr noundef nonnull align 8 dereferenceable(96) %.lcssa172.sink) #16
+  %.lcssa176.sink = phi ptr [ %240, %236 ], [ %228, %224 ]
+  call void @_ZNK5clang9FileEntry9closeFileEv(ptr noundef nonnull align 8 dereferenceable(96) %.lcssa176.sink) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #16
   br label %288
 
 _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit101: ; preds = %283, %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i, %280
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #16
-  br i1 %258, label %359, label %288
+  br i1 %258, label %_ZNKSt14default_deleteIN5clang13serialization10ModuleFileEEclEPS2_.exit.i, label %288
 
 288:                                              ; preds = %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit101.thread, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit101
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -1305,7 +1305,6 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit101: ; p
 _ZL14checkSignatureN5clang16ASTFileSignatureES0_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit109.thread: ; preds = %301, %300
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %16)
-  %.pre = load ptr, ptr %26, align 8, !tbaa !58
   br label %307
 
 _ZL14checkSignatureN5clang16ASTFileSignatureES0_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit109: ; preds = %301
@@ -1321,140 +1320,142 @@ _ZL14checkSignatureN5clang16ASTFileSignatureES0_RNSt7__cxx1112basic_stringIcSt11
   %306 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef 0, i64 noundef %304, ptr noundef nonnull %302, i64 noundef %305) #16
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %16)
-  br label %359
+  br label %_ZNKSt14default_deleteIN5clang13serialization10ModuleFileEEclEPS2_.exit.i
 
 307:                                              ; preds = %_ZL14checkSignatureN5clang16ASTFileSignatureES0_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit109.thread, %288
-  %308 = phi ptr [ %.pre, %_ZL14checkSignatureN5clang16ASTFileSignatureES0_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit109.thread ], [ %168, %288 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #16
-  %309 = load ptr, ptr %25, align 8, !tbaa !79
-  br label %310
+  %308 = load ptr, ptr %25, align 8, !tbaa !79
+  br label %309
 
-310:                                              ; preds = %310, %307
-  %.05.i.i.i110 = phi ptr [ %309, %307 ], [ %314, %310 ]
-  %311 = getelementptr inbounds nuw i8, ptr %.05.i.i.i110, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i111 = load i64, ptr %311, align 8
-  %312 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i111, 4
-  %.not.i.i.i.i.i.i.i112 = icmp eq i64 %312, 0
-  %313 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i111, -8
-  %314 = inttoptr i64 %313 to ptr
-  %.not7.i.i.i113 = icmp eq i64 %313, 0
+309:                                              ; preds = %309, %307
+  %.05.i.i.i110 = phi ptr [ %308, %307 ], [ %313, %309 ]
+  %310 = getelementptr inbounds nuw i8, ptr %.05.i.i.i110, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i111 = load i64, ptr %310, align 8
+  %311 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i111, 4
+  %.not.i.i.i.i.i.i.i112 = icmp eq i64 %311, 0
+  %312 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i111, -8
+  %313 = inttoptr i64 %312 to ptr
+  %.not7.i.i.i113 = icmp eq i64 %312, 0
   %.not.i.i.i114 = or i1 %.not.i.i.i.i.i.i.i112, %.not7.i.i.i113
-  br i1 %.not.i.i.i114, label %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit115, label %310
+  br i1 %.not.i.i.i114, label %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit115, label %309
 
-_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit115: ; preds = %310
-  store ptr %314, ptr %38, align 8, !tbaa !51
-  %315 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryEPNS2_13serialization10ModuleFileENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_EixEOS5_(ptr noundef nonnull align 1 dereferenceable(1) %55, ptr noundef nonnull align 8 dereferenceable(8) %38)
-  store ptr %308, ptr %315, align 8, !tbaa !58
-  store ptr %308, ptr %11, align 8, !tbaa !58
+_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit115: ; preds = %309
+  store ptr %313, ptr %38, align 8, !tbaa !51
+  %314 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryEPNS2_13serialization10ModuleFileENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_EixEOS5_(ptr noundef nonnull align 1 dereferenceable(1) %55, ptr noundef nonnull align 8 dereferenceable(8) %38)
+  store ptr %168, ptr %314, align 8, !tbaa !58
+  store ptr %168, ptr %11, align 8, !tbaa !58
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #16
-  call fastcc void @_ZL19updateModuleImportsRN5clang13serialization10ModuleFileEPS1_NS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(3464) %308, ptr noundef %5, i32 %4)
-  %316 = getelementptr inbounds nuw i8, ptr %308, i64 4
-  %317 = load i32, ptr %316, align 4, !tbaa !170
-  switch i32 %317, label %_ZNK5clang13serialization10ModuleFile8isModuleEv.exit [
+  call fastcc void @_ZL19updateModuleImportsRN5clang13serialization10ModuleFileEPS1_NS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(3464) %168, ptr noundef %5, i32 %4)
+  %315 = load i32, ptr %171, align 4, !tbaa !170
+  switch i32 %315, label %_ZNK5clang13serialization10ModuleFile8isModuleEv.exit [
     i32 0, label %_ZNK5clang13serialization10ModuleFile8isModuleEv.exit.thread
     i32 1, label %_ZNK5clang13serialization10ModuleFile8isModuleEv.exit.thread
     i32 5, label %_ZNK5clang13serialization10ModuleFile8isModuleEv.exit.thread
   ]
 
 _ZNK5clang13serialization10ModuleFile8isModuleEv.exit: ; preds = %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit115
-  %318 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %319 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %320 = load i32, ptr %319, align 8, !tbaa !88
-  %321 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %322 = load i32, ptr %321, align 4, !tbaa !201
-  %.not.i.i.not.i = icmp ult i32 %320, %322
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang13serialization10ModuleFileELb1EE9push_backES4_.exit, label %323, !prof !54
+  %316 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %317 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %318 = load i32, ptr %317, align 8, !tbaa !88
+  %319 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %320 = load i32, ptr %319, align 4, !tbaa !201
+  %.not.i.i.not.i = icmp ult i32 %318, %320
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang13serialization10ModuleFileELb1EE9push_backES4_.exit, label %321, !prof !54
 
-323:                                              ; preds = %_ZNK5clang13serialization10ModuleFile8isModuleEv.exit
-  %324 = zext i32 %320 to i64
-  %325 = add nuw nsw i64 %324, 1
-  %326 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %318, ptr noundef nonnull %326, i64 noundef %325, i64 noundef 8) #16
-  %.pre.i116 = load i32, ptr %319, align 8, !tbaa !88
+321:                                              ; preds = %_ZNK5clang13serialization10ModuleFile8isModuleEv.exit
+  %322 = zext i32 %318 to i64
+  %323 = add nuw nsw i64 %322, 1
+  %324 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %316, ptr noundef nonnull %324, i64 noundef %323, i64 noundef 8) #16
+  %.pre.i116 = load i32, ptr %317, align 8, !tbaa !88
   br label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang13serialization10ModuleFileELb1EE9push_backES4_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPN5clang13serialization10ModuleFileELb1EE9push_backES4_.exit: ; preds = %_ZNK5clang13serialization10ModuleFile8isModuleEv.exit, %323
-  %327 = phi i32 [ %320, %_ZNK5clang13serialization10ModuleFile8isModuleEv.exit ], [ %.pre.i116, %323 ]
-  %328 = load ptr, ptr %318, align 8, !tbaa !202
-  %329 = zext i32 %327 to i64
-  %330 = getelementptr inbounds nuw ptr, ptr %328, i64 %329
-  %331 = ptrtoint ptr %308 to i64
-  store i64 %331, ptr %330, align 1
-  %332 = load i32, ptr %319, align 8, !tbaa !88
-  %333 = add i32 %332, 1
-  store i32 %333, ptr %319, align 8, !tbaa !88
+_ZN4llvm23SmallVectorTemplateBaseIPN5clang13serialization10ModuleFileELb1EE9push_backES4_.exit: ; preds = %_ZNK5clang13serialization10ModuleFile8isModuleEv.exit, %321
+  %325 = phi i32 [ %318, %_ZNK5clang13serialization10ModuleFile8isModuleEv.exit ], [ %.pre.i116, %321 ]
+  %326 = load ptr, ptr %316, align 8, !tbaa !202
+  %327 = zext i32 %325 to i64
+  %328 = getelementptr inbounds nuw ptr, ptr %326, i64 %327
+  %329 = ptrtoint ptr %168 to i64
+  store i64 %329, ptr %328, align 1
+  %330 = load i32, ptr %317, align 8, !tbaa !88
+  %331 = add i32 %330, 1
+  store i32 %331, ptr %317, align 8, !tbaa !88
   br label %_ZNK5clang13serialization10ModuleFile8isModuleEv.exit.thread
 
 _ZNK5clang13serialization10ModuleFile8isModuleEv.exit.thread: ; preds = %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit115, %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit115, %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit115, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang13serialization10ModuleFileELb1EE9push_backES4_.exit
   %.not58 = icmp eq ptr %5, null
-  br i1 %.not58, label %334, label %336
+  br i1 %.not58, label %332, label %334
 
-334:                                              ; preds = %_ZNK5clang13serialization10ModuleFile8isModuleEv.exit.thread
-  %335 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @_ZN4llvm23SmallVectorTemplateBaseIPN5clang13serialization10ModuleFileELb1EE9push_backES4_(ptr noundef nonnull align 8 dereferenceable(16) %335, ptr noundef nonnull %308)
-  br label %336
+332:                                              ; preds = %_ZNK5clang13serialization10ModuleFile8isModuleEv.exit.thread
+  %333 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  call void @_ZN4llvm23SmallVectorTemplateBaseIPN5clang13serialization10ModuleFileELb1EE9push_backES4_(ptr noundef nonnull align 8 dereferenceable(16) %333, ptr noundef nonnull %168)
+  br label %334
 
-336:                                              ; preds = %334, %_ZNK5clang13serialization10ModuleFile8isModuleEv.exit.thread
-  %337 = load i32, ptr %105, align 8, !tbaa !88
-  %338 = zext i32 %337 to i64
-  %339 = add nuw nsw i64 %338, 1
-  %340 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %341 = load i32, ptr %340, align 4, !tbaa !201
-  %.not.i.i.not.i117 = icmp ult i32 %337, %341
+334:                                              ; preds = %332, %_ZNK5clang13serialization10ModuleFile8isModuleEv.exit.thread
+  %335 = load i32, ptr %105, align 8, !tbaa !88
+  %336 = zext i32 %335 to i64
+  %337 = add nuw nsw i64 %336, 1
+  %338 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %339 = load i32, ptr %338, align 4, !tbaa !201
+  %.not.i.i.not.i117 = icmp ult i32 %335, %339
   %.pre3.i = load ptr, ptr %0, align 8, !tbaa !202
-  br i1 %.not.i.i.not.i117, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang13serialization10ModuleFileESt14default_deleteIS4_EELb0EE9push_backEOS7_.exit, label %342, !prof !54
+  br i1 %.not.i.i.not.i117, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang13serialization10ModuleFileESt14default_deleteIS4_EELb0EE9push_backEOS7_.exit, label %340, !prof !54
 
-342:                                              ; preds = %336
-  %343 = getelementptr inbounds nuw %"class.std::unique_ptr.311", ptr %.pre3.i, i64 %338
-  %344 = icmp uge ptr %26, %.pre3.i
-  %345 = icmp ult ptr %26, %343
-  %spec.select.i.i.i.i.i = and i1 %344, %345
-  br i1 %spec.select.i.i.i.i.i, label %347, label %346, !prof !203
+340:                                              ; preds = %334
+  %341 = getelementptr inbounds nuw %"class.std::unique_ptr.311", ptr %.pre3.i, i64 %336
+  %342 = icmp uge ptr %26, %.pre3.i
+  %343 = icmp ult ptr %26, %341
+  %spec.select.i.i.i.i.i = and i1 %342, %343
+  br i1 %spec.select.i.i.i.i.i, label %345, label %344, !prof !203
 
-346:                                              ; preds = %342
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang13serialization10ModuleFileESt14default_deleteIS4_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %339)
+344:                                              ; preds = %340
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang13serialization10ModuleFileESt14default_deleteIS4_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %337)
   %.pre.i118 = load ptr, ptr %0, align 8, !tbaa !202
   br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang13serialization10ModuleFileESt14default_deleteIS4_EELb0EE9push_backEOS7_.exit
 
-347:                                              ; preds = %342
-  %348 = ptrtoint ptr %26 to i64
-  %349 = ptrtoint ptr %.pre3.i to i64
-  %350 = sub i64 %348, %349
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang13serialization10ModuleFileESt14default_deleteIS4_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %339)
-  %351 = load ptr, ptr %0, align 8, !tbaa !202
-  %352 = getelementptr inbounds i8, ptr %351, i64 %350
+345:                                              ; preds = %340
+  %346 = ptrtoint ptr %26 to i64
+  %347 = ptrtoint ptr %.pre3.i to i64
+  %348 = sub i64 %346, %347
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang13serialization10ModuleFileESt14default_deleteIS4_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %337)
+  %349 = load ptr, ptr %0, align 8, !tbaa !202
+  %350 = getelementptr inbounds i8, ptr %349, i64 %348
   br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang13serialization10ModuleFileESt14default_deleteIS4_EELb0EE9push_backEOS7_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang13serialization10ModuleFileESt14default_deleteIS4_EELb0EE9push_backEOS7_.exit: ; preds = %336, %346, %347
-  %353 = phi ptr [ %.pre3.i, %336 ], [ %351, %347 ], [ %.pre.i118, %346 ]
-  %.016.i.i.i = phi ptr [ %26, %336 ], [ %352, %347 ], [ %26, %346 ]
-  %354 = load i32, ptr %105, align 8, !tbaa !88
-  %355 = zext i32 %354 to i64
-  %356 = getelementptr inbounds nuw %"class.std::unique_ptr.311", ptr %353, i64 %355
-  %357 = load i64, ptr %.016.i.i.i, align 8, !tbaa !58
-  store i64 %357, ptr %356, align 8, !tbaa !58
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang13serialization10ModuleFileESt14default_deleteIS4_EELb0EE9push_backEOS7_.exit: ; preds = %334, %344, %345
+  %351 = phi ptr [ %.pre3.i, %334 ], [ %349, %345 ], [ %.pre.i118, %344 ]
+  %.016.i.i.i = phi ptr [ %26, %334 ], [ %350, %345 ], [ %26, %344 ]
+  %352 = load i32, ptr %105, align 8, !tbaa !88
+  %353 = zext i32 %352 to i64
+  %354 = getelementptr inbounds nuw %"class.std::unique_ptr.311", ptr %351, i64 %353
+  %355 = load i64, ptr %.016.i.i.i, align 8, !tbaa !58
+  store i64 %355, ptr %354, align 8, !tbaa !58
   store ptr null, ptr %.016.i.i.i, align 8, !tbaa !58
-  %358 = add i32 %354, 1
-  store i32 %358, ptr %105, align 8, !tbaa !88
-  br label %359
+  %356 = add i32 %352, 1
+  store i32 %356, ptr %105, align 8, !tbaa !88
+  %.pre = load ptr, ptr %26, align 8, !tbaa !58
+  br label %357
 
-359:                                              ; preds = %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit101.thread167, %_ZL14checkSignatureN5clang16ASTFileSignatureES0_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit109, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit101, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang13serialization10ModuleFileESt14default_deleteIS4_EELb0EE9push_backEOS7_.exit
-  %.8 = phi i32 [ 1, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang13serialization10ModuleFileESt14default_deleteIS4_EELb0EE9push_backEOS7_.exit ], [ 2, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit101 ], [ 3, %_ZL14checkSignatureN5clang16ASTFileSignatureES0_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit109 ], [ 3, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit101.thread167 ]
-  %360 = load ptr, ptr %26, align 8, !tbaa !58
-  %.not.i119 = icmp eq ptr %360, null
+357:                                              ; preds = %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit101.thread167, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang13serialization10ModuleFileESt14default_deleteIS4_EELb0EE9push_backEOS7_.exit
+  %358 = phi ptr [ %.pre, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang13serialization10ModuleFileESt14default_deleteIS4_EELb0EE9push_backEOS7_.exit ], [ %168, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit101.thread167 ]
+  %.8 = phi i32 [ 1, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang13serialization10ModuleFileESt14default_deleteIS4_EELb0EE9push_backEOS7_.exit ], [ 3, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit101.thread167 ]
+  %.not.i119 = icmp eq ptr %358, null
   br i1 %.not.i119, label %_ZNSt10unique_ptrIN5clang13serialization10ModuleFileESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5clang13serialization10ModuleFileEEclEPS2_.exit.i
 
-_ZNKSt14default_deleteIN5clang13serialization10ModuleFileEEclEPS2_.exit.i: ; preds = %359
-  call void @_ZN5clang13serialization10ModuleFileD1Ev(ptr noundef nonnull align 8 dereferenceable(3464) %360) #16
-  call void @_ZdlPvm(ptr noundef nonnull %360, i64 noundef 3464) #18
+_ZNKSt14default_deleteIN5clang13serialization10ModuleFileEEclEPS2_.exit.i: ; preds = %_ZL14checkSignatureN5clang16ASTFileSignatureES0_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit109, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit101, %357
+  %.8172 = phi i32 [ %.8, %357 ], [ 3, %_ZL14checkSignatureN5clang16ASTFileSignatureES0_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit109 ], [ 2, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit101 ]
+  %359 = phi ptr [ %358, %357 ], [ %168, %_ZL14checkSignatureN5clang16ASTFileSignatureES0_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit109 ], [ %168, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit101 ]
+  call void @_ZN5clang13serialization10ModuleFileD1Ev(ptr noundef nonnull align 8 dereferenceable(3464) %359) #16
+  call void @_ZdlPvm(ptr noundef nonnull %359, i64 noundef 3464) #18
   br label %_ZNSt10unique_ptrIN5clang13serialization10ModuleFileESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN5clang13serialization10ModuleFileESt14default_deleteIS2_EED2Ev.exit: ; preds = %359, %_ZNKSt14default_deleteIN5clang13serialization10ModuleFileEEclEPS2_.exit.i
+_ZNSt10unique_ptrIN5clang13serialization10ModuleFileESt14default_deleteIS2_EED2Ev.exit: ; preds = %357, %_ZNKSt14default_deleteIN5clang13serialization10ModuleFileEEclEPS2_.exit.i
+  %.8173 = phi i32 [ %.8, %357 ], [ %.8172, %_ZNKSt14default_deleteIN5clang13serialization10ModuleFileEEclEPS2_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #16
-  br label %361
+  br label %360
 
-361:                                              ; preds = %_ZNSt10unique_ptrIN5clang13serialization10ModuleFileESt14default_deleteIS2_EED2Ev.exit, %_ZL14checkSignatureN5clang16ASTFileSignatureES0_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %103, %47, %41
-  %.0 = phi i32 [ 3, %41 ], [ 2, %47 ], [ %.8, %_ZNSt10unique_ptrIN5clang13serialization10ModuleFileESt14default_deleteIS2_EED2Ev.exit ], [ 0, %103 ], [ 3, %_ZL14checkSignatureN5clang16ASTFileSignatureES0_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
+360:                                              ; preds = %_ZNSt10unique_ptrIN5clang13serialization10ModuleFileESt14default_deleteIS2_EED2Ev.exit, %_ZL14checkSignatureN5clang16ASTFileSignatureES0_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %103, %47, %41
+  %.0 = phi i32 [ 3, %41 ], [ 2, %47 ], [ %.8173, %_ZNSt10unique_ptrIN5clang13serialization10ModuleFileESt14default_deleteIS2_EED2Ev.exit ], [ 0, %103 ], [ 3, %_ZL14checkSignatureN5clang16ASTFileSignatureES0_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #16
   ret i32 %.0
 }

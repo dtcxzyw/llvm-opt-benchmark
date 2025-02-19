@@ -286,45 +286,44 @@ define dso_local void @_ZN4llvm11compression10decompressENS_20DebugCompressionTy
   store ptr %.sroa.0.0.i.i, ptr %8, align 8, !tbaa !23, !noalias !14
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %.sroa.5.0.i.i, ptr %23, align 8, !tbaa !23, !noalias !14
-  call void @_ZN4llvm11StringErrorC1ERKNS_5TwineESt10error_code(ptr noundef nonnull align 8 dereferenceable(57) %20, ptr noundef nonnull align 8 dereferenceable(34) %8, i32 %18, ptr %19) #7, !noalias !24
+  call void @_ZN4llvm11StringErrorC1ERKNS_5TwineESt10error_code(ptr noundef nonnull align 8 dereferenceable(57) %20, ptr noundef nonnull align 8 dereferenceable(34) %8, i32 %18, ptr %19) #7, !noalias !14
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #7, !noalias !14
   br label %_ZN4llvm11compression4zlib10decompressENS_8ArrayRefIhEEPhRm.exit
 
 24:                                               ; preds = %6
-  %25 = tail call i64 @ZSTD_decompress(ptr noundef %4, i64 noundef %5, ptr noundef %2, i64 noundef %3) #7, !noalias !25
-  store i64 %25, ptr %9, align 8, !tbaa !3, !noalias !25
-  %26 = tail call i32 @ZSTD_isError(i64 noundef %25) #7, !noalias !25
+  %25 = tail call i64 @ZSTD_decompress(ptr noundef %4, i64 noundef %5, ptr noundef %2, i64 noundef %3) #7, !noalias !24
+  %26 = tail call i32 @ZSTD_isError(i64 noundef %25) #7, !noalias !24
   %.not.i = icmp eq i32 %26, 0
   br i1 %.not.i, label %_ZN4llvm11compression4zlib10decompressENS_8ArrayRefIhEEPhRm.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = tail call ptr @ZSTD_getErrorName(i64 noundef %25) #7, !noalias !25
-  %29 = tail call { i32, ptr } @_ZN4llvm22inconvertibleErrorCodeEv() #7, !noalias !25
+  %28 = tail call ptr @ZSTD_getErrorName(i64 noundef %25) #7, !noalias !24
+  %29 = tail call { i32, ptr } @_ZN4llvm22inconvertibleErrorCodeEv() #7, !noalias !24
   %30 = extractvalue { i32, ptr } %29, 0
   %31 = extractvalue { i32, ptr } %29, 1
-  %32 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #9, !noalias !28
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #7, !noalias !28
+  %32 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #9, !noalias !27
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #7, !noalias !27
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  store i8 1, ptr %33, align 1, !tbaa !22, !noalias !28
-  %34 = load i8, ptr %28, align 1, !tbaa !23, !noalias !28
+  store i8 1, ptr %33, align 1, !tbaa !22, !noalias !27
+  %34 = load i8, ptr %28, align 1, !tbaa !23, !noalias !27
   %.not.i.i.i.i = icmp eq i8 %34, 0
   br i1 %.not.i.i.i.i, label %_ZN4llvm10make_errorINS_11StringErrorEJPKcSt10error_codeEEENS_5ErrorEDpOT0_.exit.i, label %35
 
 35:                                               ; preds = %27
-  store ptr %28, ptr %7, align 8, !tbaa !23, !noalias !28
+  store ptr %28, ptr %7, align 8, !tbaa !23, !noalias !27
   br label %_ZN4llvm10make_errorINS_11StringErrorEJPKcSt10error_codeEEENS_5ErrorEDpOT0_.exit.i
 
 _ZN4llvm10make_errorINS_11StringErrorEJPKcSt10error_codeEEENS_5ErrorEDpOT0_.exit.i: ; preds = %35, %27
   %storemerge.i.i.i.i = phi i8 [ 3, %35 ], [ 1, %27 ]
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i8 %storemerge.i.i.i.i, ptr %36, align 8, !tbaa !19, !noalias !28
-  call void @_ZN4llvm11StringErrorC1ERKNS_5TwineESt10error_code(ptr noundef nonnull align 8 dereferenceable(57) %32, ptr noundef nonnull align 8 dereferenceable(34) %7, i32 %30, ptr %31) #7, !noalias !33
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #7, !noalias !28
+  store i8 %storemerge.i.i.i.i, ptr %36, align 8, !tbaa !19, !noalias !27
+  call void @_ZN4llvm11StringErrorC1ERKNS_5TwineESt10error_code(ptr noundef nonnull align 8 dereferenceable(57) %32, ptr noundef nonnull align 8 dereferenceable(34) %7, i32 %30, ptr %31) #7, !noalias !27
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #7, !noalias !27
   br label %_ZN4llvm11compression4zlib10decompressENS_8ArrayRefIhEEPhRm.exit
 
 _ZN4llvm11compression4zlib10decompressENS_8ArrayRefIhEEPhRm.exit: ; preds = %_ZN4llvm10make_errorINS_11StringErrorEJPKcSt10error_codeEEENS_5ErrorEDpOT0_.exit.i, %24, %16, %10
   %storemerge = phi ptr [ %20, %16 ], [ null, %10 ], [ %32, %_ZN4llvm10make_errorINS_11StringErrorEJPKcSt10error_codeEEENS_5ErrorEDpOT0_.exit.i ], [ null, %24 ]
-  store ptr %storemerge, ptr %0, align 8, !tbaa !34
+  store ptr %storemerge, ptr %0, align 8, !tbaa !32
   ret void
 }
 
@@ -358,22 +357,22 @@ define dso_local void @_ZN4llvm11compression4zlib10decompressENS_8ArrayRefIhEEPh
   %13 = tail call { i32, ptr } @_ZN4llvm22inconvertibleErrorCodeEv() #7
   %14 = extractvalue { i32, ptr } %13, 0
   %15 = extractvalue { i32, ptr } %13, 1
-  %16 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #9, !noalias !37
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #7, !noalias !37
+  %16 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #9, !noalias !35
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #7, !noalias !35
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i8 5, ptr %17, align 8, !tbaa !19, !noalias !37
+  store i8 5, ptr %17, align 8, !tbaa !19, !noalias !35
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 33
-  store i8 1, ptr %18, align 1, !tbaa !22, !noalias !37
-  store ptr %.sroa.0.0.i, ptr %6, align 8, !tbaa !23, !noalias !37
+  store i8 1, ptr %18, align 1, !tbaa !22, !noalias !35
+  store ptr %.sroa.0.0.i, ptr %6, align 8, !tbaa !23, !noalias !35
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sroa.5.0.i, ptr %19, align 8, !tbaa !23, !noalias !37
-  call void @_ZN4llvm11StringErrorC1ERKNS_5TwineESt10error_code(ptr noundef nonnull align 8 dereferenceable(57) %16, ptr noundef nonnull align 8 dereferenceable(34) %6, i32 %14, ptr %15) #7, !noalias !37
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #7, !noalias !37
+  store i64 %.sroa.5.0.i, ptr %19, align 8, !tbaa !23, !noalias !35
+  call void @_ZN4llvm11StringErrorC1ERKNS_5TwineESt10error_code(ptr noundef nonnull align 8 dereferenceable(57) %16, ptr noundef nonnull align 8 dereferenceable(34) %6, i32 %14, ptr %15) #7, !noalias !35
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #7, !noalias !35
   br label %.critedge
 
 .critedge:                                        ; preds = %5, %12
   %storemerge = phi ptr [ %16, %12 ], [ null, %5 ]
-  store ptr %storemerge, ptr %0, align 8, !tbaa !34
+  store ptr %storemerge, ptr %0, align 8, !tbaa !32
   ret void
 }
 
@@ -392,29 +391,29 @@ define dso_local void @_ZN4llvm11compression4zstd10decompressENS_8ArrayRefIhEEPh
   %12 = tail call { i32, ptr } @_ZN4llvm22inconvertibleErrorCodeEv() #7
   %13 = extractvalue { i32, ptr } %12, 0
   %14 = extractvalue { i32, ptr } %12, 1
-  %15 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #9, !noalias !42
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #7, !noalias !42
+  %15 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #9, !noalias !40
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #7, !noalias !40
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 33
-  store i8 1, ptr %16, align 1, !tbaa !22, !noalias !42
-  %17 = load i8, ptr %11, align 1, !tbaa !23, !noalias !42
+  store i8 1, ptr %16, align 1, !tbaa !22, !noalias !40
+  %17 = load i8, ptr %11, align 1, !tbaa !23, !noalias !40
   %.not.i.i.i = icmp eq i8 %17, 0
   br i1 %.not.i.i.i, label %_ZN4llvm10make_errorINS_11StringErrorEJPKcSt10error_codeEEENS_5ErrorEDpOT0_.exit, label %18
 
 18:                                               ; preds = %10
-  store ptr %11, ptr %6, align 8, !tbaa !23, !noalias !42
+  store ptr %11, ptr %6, align 8, !tbaa !23, !noalias !40
   br label %_ZN4llvm10make_errorINS_11StringErrorEJPKcSt10error_codeEEENS_5ErrorEDpOT0_.exit
 
 _ZN4llvm10make_errorINS_11StringErrorEJPKcSt10error_codeEEENS_5ErrorEDpOT0_.exit: ; preds = %10, %18
   %storemerge.i.i.i = phi i8 [ 3, %18 ], [ 1, %10 ]
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i8 %storemerge.i.i.i, ptr %19, align 8, !tbaa !19, !noalias !42
-  call void @_ZN4llvm11StringErrorC1ERKNS_5TwineESt10error_code(ptr noundef nonnull align 8 dereferenceable(57) %15, ptr noundef nonnull align 8 dereferenceable(34) %6, i32 %13, ptr %14) #7, !noalias !42
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #7, !noalias !42
+  store i8 %storemerge.i.i.i, ptr %19, align 8, !tbaa !19, !noalias !40
+  call void @_ZN4llvm11StringErrorC1ERKNS_5TwineESt10error_code(ptr noundef nonnull align 8 dereferenceable(57) %15, ptr noundef nonnull align 8 dereferenceable(34) %6, i32 %13, ptr %14) #7, !noalias !40
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #7, !noalias !40
   br label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %5, %_ZN4llvm10make_errorINS_11StringErrorEJPKcSt10error_codeEEENS_5ErrorEDpOT0_.exit
   %storemerge = phi ptr [ %15, %_ZN4llvm10make_errorINS_11StringErrorEJPKcSt10error_codeEEENS_5ErrorEDpOT0_.exit ], [ null, %5 ]
-  store ptr %storemerge, ptr %0, align 8, !tbaa !34
+  store ptr %storemerge, ptr %0, align 8, !tbaa !32
   ret void
 }
 
@@ -464,8 +463,8 @@ define dso_local void @_ZN4llvm11compression4zlib10decompressENS_8ArrayRefIhEERN
 
 _ZN4llvm15SmallVectorImplIhE20resize_for_overwriteEm.exit: ; preds = %5, %.sink.split.i.i
   %18 = load ptr, ptr %3, align 8, !tbaa !10
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  %19 = call i32 @uncompress(ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1, i64 noundef %2) #7, !noalias !47
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
+  %19 = call i32 @uncompress(ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1, i64 noundef %2) #7, !noalias !45
   switch i32 %19, label %23 [
     i32 0, label %_ZN4llvm11compression4zlib10decompressENS_8ArrayRefIhEEPhRm.exit
     i32 -4, label %24
@@ -489,25 +488,25 @@ _ZN4llvm15SmallVectorImplIhE20resize_for_overwriteEm.exit: ; preds = %5, %.sink.
 24:                                               ; preds = %22, %21, %20, %_ZN4llvm15SmallVectorImplIhE20resize_for_overwriteEm.exit
   %.sroa.5.0.i.i = phi i64 [ 24, %22 ], [ 26, %21 ], [ 23, %20 ], [ 23, %_ZN4llvm15SmallVectorImplIhE20resize_for_overwriteEm.exit ]
   %.sroa.0.0.i.i = phi ptr [ @.str.10, %22 ], [ @.str.9, %21 ], [ @.str.8, %20 ], [ @.str.7, %_ZN4llvm15SmallVectorImplIhE20resize_for_overwriteEm.exit ]
-  %25 = call { i32, ptr } @_ZN4llvm22inconvertibleErrorCodeEv() #7, !noalias !47
+  %25 = call { i32, ptr } @_ZN4llvm22inconvertibleErrorCodeEv() #7, !noalias !45
   %26 = extractvalue { i32, ptr } %25, 0
   %27 = extractvalue { i32, ptr } %25, 1
-  %28 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #9, !noalias !50
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #7, !noalias !50
+  %28 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #9, !noalias !48
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #7, !noalias !48
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i8 5, ptr %29, align 8, !tbaa !19, !noalias !50
+  store i8 5, ptr %29, align 8, !tbaa !19, !noalias !48
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 33
-  store i8 1, ptr %30, align 1, !tbaa !22, !noalias !50
-  store ptr %.sroa.0.0.i.i, ptr %6, align 8, !tbaa !23, !noalias !50
+  store i8 1, ptr %30, align 1, !tbaa !22, !noalias !48
+  store ptr %.sroa.0.0.i.i, ptr %6, align 8, !tbaa !23, !noalias !48
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sroa.5.0.i.i, ptr %31, align 8, !tbaa !23, !noalias !50
-  call void @_ZN4llvm11StringErrorC1ERKNS_5TwineESt10error_code(ptr noundef nonnull align 8 dereferenceable(57) %28, ptr noundef nonnull align 8 dereferenceable(34) %6, i32 %26, ptr %27) #7, !noalias !55
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #7, !noalias !50
+  store i64 %.sroa.5.0.i.i, ptr %31, align 8, !tbaa !23, !noalias !48
+  call void @_ZN4llvm11StringErrorC1ERKNS_5TwineESt10error_code(ptr noundef nonnull align 8 dereferenceable(57) %28, ptr noundef nonnull align 8 dereferenceable(34) %6, i32 %26, ptr %27) #7, !noalias !48
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #7, !noalias !48
   br label %_ZN4llvm11compression4zlib10decompressENS_8ArrayRefIhEEPhRm.exit
 
 _ZN4llvm11compression4zlib10decompressENS_8ArrayRefIhEEPhRm.exit: ; preds = %_ZN4llvm15SmallVectorImplIhE20resize_for_overwriteEm.exit, %24
   %storemerge.i = phi ptr [ %28, %24 ], [ null, %_ZN4llvm15SmallVectorImplIhE20resize_for_overwriteEm.exit ]
-  store ptr %storemerge.i, ptr %0, align 8, !tbaa !34, !alias.scope !47
+  store ptr %storemerge.i, ptr %0, align 8, !tbaa !32, !alias.scope !45
   %32 = load i64, ptr %7, align 8, !tbaa !3
   %33 = load i64, ptr %8, align 8, !tbaa !7
   %34 = icmp ult i64 %32, %33
@@ -548,40 +547,40 @@ define dso_local void @_ZN4llvm11compression4zstd10decompressENS_8ArrayRefIhEERN
 
 _ZN4llvm15SmallVectorImplIhE20resize_for_overwriteEm.exit: ; preds = %5, %.sink.split.i.i
   %17 = load ptr, ptr %3, align 8, !tbaa !10
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
-  %18 = tail call i64 @ZSTD_decompress(ptr noundef %17, i64 noundef %4, ptr noundef %1, i64 noundef %2) #7, !noalias !56
-  %19 = tail call i32 @ZSTD_isError(i64 noundef %18) #7, !noalias !56
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
+  %18 = tail call i64 @ZSTD_decompress(ptr noundef %17, i64 noundef %4, ptr noundef %1, i64 noundef %2) #7, !noalias !53
+  %19 = tail call i32 @ZSTD_isError(i64 noundef %18) #7, !noalias !53
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %_ZN4llvm11compression4zstd10decompressENS_8ArrayRefIhEEPhRm.exit, label %20
 
 20:                                               ; preds = %_ZN4llvm15SmallVectorImplIhE20resize_for_overwriteEm.exit
-  %21 = tail call ptr @ZSTD_getErrorName(i64 noundef %18) #7, !noalias !56
-  %22 = tail call { i32, ptr } @_ZN4llvm22inconvertibleErrorCodeEv() #7, !noalias !56
+  %21 = tail call ptr @ZSTD_getErrorName(i64 noundef %18) #7, !noalias !53
+  %22 = tail call { i32, ptr } @_ZN4llvm22inconvertibleErrorCodeEv() #7, !noalias !53
   %23 = extractvalue { i32, ptr } %22, 0
   %24 = extractvalue { i32, ptr } %22, 1
-  %25 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #9, !noalias !59
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #7, !noalias !59
+  %25 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #9, !noalias !56
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #7, !noalias !56
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 33
-  store i8 1, ptr %26, align 1, !tbaa !22, !noalias !59
-  %27 = load i8, ptr %21, align 1, !tbaa !23, !noalias !59
+  store i8 1, ptr %26, align 1, !tbaa !22, !noalias !56
+  %27 = load i8, ptr %21, align 1, !tbaa !23, !noalias !56
   %.not.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i, label %_ZN4llvm10make_errorINS_11StringErrorEJPKcSt10error_codeEEENS_5ErrorEDpOT0_.exit.i, label %28
 
 28:                                               ; preds = %20
-  store ptr %21, ptr %6, align 8, !tbaa !23, !noalias !59
+  store ptr %21, ptr %6, align 8, !tbaa !23, !noalias !56
   br label %_ZN4llvm10make_errorINS_11StringErrorEJPKcSt10error_codeEEENS_5ErrorEDpOT0_.exit.i
 
 _ZN4llvm10make_errorINS_11StringErrorEJPKcSt10error_codeEEENS_5ErrorEDpOT0_.exit.i: ; preds = %28, %20
   %storemerge.i.i.i.i = phi i8 [ 3, %28 ], [ 1, %20 ]
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i8 %storemerge.i.i.i.i, ptr %29, align 8, !tbaa !19, !noalias !59
-  call void @_ZN4llvm11StringErrorC1ERKNS_5TwineESt10error_code(ptr noundef nonnull align 8 dereferenceable(57) %25, ptr noundef nonnull align 8 dereferenceable(34) %6, i32 %23, ptr %24) #7, !noalias !64
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #7, !noalias !59
+  store i8 %storemerge.i.i.i.i, ptr %29, align 8, !tbaa !19, !noalias !56
+  call void @_ZN4llvm11StringErrorC1ERKNS_5TwineESt10error_code(ptr noundef nonnull align 8 dereferenceable(57) %25, ptr noundef nonnull align 8 dereferenceable(34) %6, i32 %23, ptr %24) #7, !noalias !56
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #7, !noalias !56
   br label %_ZN4llvm11compression4zstd10decompressENS_8ArrayRefIhEEPhRm.exit
 
 _ZN4llvm11compression4zstd10decompressENS_8ArrayRefIhEEPhRm.exit: ; preds = %_ZN4llvm15SmallVectorImplIhE20resize_for_overwriteEm.exit, %_ZN4llvm10make_errorINS_11StringErrorEJPKcSt10error_codeEEENS_5ErrorEDpOT0_.exit.i
   %storemerge.i = phi ptr [ %25, %_ZN4llvm10make_errorINS_11StringErrorEJPKcSt10error_codeEEENS_5ErrorEDpOT0_.exit.i ], [ null, %_ZN4llvm15SmallVectorImplIhE20resize_for_overwriteEm.exit ]
-  store ptr %storemerge.i, ptr %0, align 8, !tbaa !34, !alias.scope !56
+  store ptr %storemerge.i, ptr %0, align 8, !tbaa !32, !alias.scope !53
   %30 = load i64, ptr %7, align 8, !tbaa !7
   %31 = icmp ult i64 %18, %30
   br i1 %31, label %32, label %33
@@ -691,44 +690,40 @@ attributes #9 = { builtin nounwind allocsize(0) }
 !21 = !{!"_ZTSN4llvm5Twine8NodeKindE", !5, i64 0}
 !22 = !{!20, !21, i64 33}
 !23 = !{!5, !5, i64 0}
-!24 = !{!15, !17}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN4llvm11compression4zstd10decompressENS_8ArrayRefIhEEPhRm: argument 0"}
-!27 = distinct !{!27, !"_ZN4llvm11compression4zstd10decompressENS_8ArrayRefIhEEPhRm"}
-!28 = !{!29, !31, !26}
-!29 = distinct !{!29, !30, !"_ZSt11make_uniqueIN4llvm11StringErrorEJPKcSt10error_codeEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!30 = distinct !{!30, !"_ZSt11make_uniqueIN4llvm11StringErrorEJPKcSt10error_codeEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!31 = distinct !{!31, !32, !"_ZN4llvm10make_errorINS_11StringErrorEJPKcSt10error_codeEEENS_5ErrorEDpOT0_: argument 0"}
-!32 = distinct !{!32, !"_ZN4llvm10make_errorINS_11StringErrorEJPKcSt10error_codeEEENS_5ErrorEDpOT0_"}
-!33 = !{!29, !31}
-!34 = !{!35, !36, i64 0}
-!35 = !{!"_ZTSN4llvm5ErrorE", !36, i64 0}
-!36 = !{!"p1 _ZTSN4llvm13ErrorInfoBaseE", !9, i64 0}
-!37 = !{!38, !40}
-!38 = distinct !{!38, !39, !"_ZSt11make_uniqueIN4llvm11StringErrorEJNS0_9StringRefESt10error_codeEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!39 = distinct !{!39, !"_ZSt11make_uniqueIN4llvm11StringErrorEJNS0_9StringRefESt10error_codeEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!40 = distinct !{!40, !41, !"_ZN4llvm10make_errorINS_11StringErrorEJNS_9StringRefESt10error_codeEEENS_5ErrorEDpOT0_: argument 0"}
-!41 = distinct !{!41, !"_ZN4llvm10make_errorINS_11StringErrorEJNS_9StringRefESt10error_codeEEENS_5ErrorEDpOT0_"}
-!42 = !{!43, !45}
-!43 = distinct !{!43, !44, !"_ZSt11make_uniqueIN4llvm11StringErrorEJPKcSt10error_codeEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!44 = distinct !{!44, !"_ZSt11make_uniqueIN4llvm11StringErrorEJPKcSt10error_codeEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!45 = distinct !{!45, !46, !"_ZN4llvm10make_errorINS_11StringErrorEJPKcSt10error_codeEEENS_5ErrorEDpOT0_: argument 0"}
-!46 = distinct !{!46, !"_ZN4llvm10make_errorINS_11StringErrorEJPKcSt10error_codeEEENS_5ErrorEDpOT0_"}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZN4llvm11compression4zlib10decompressENS_8ArrayRefIhEEPhRm: argument 0"}
-!49 = distinct !{!49, !"_ZN4llvm11compression4zlib10decompressENS_8ArrayRefIhEEPhRm"}
-!50 = !{!51, !53, !48}
-!51 = distinct !{!51, !52, !"_ZSt11make_uniqueIN4llvm11StringErrorEJNS0_9StringRefESt10error_codeEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!52 = distinct !{!52, !"_ZSt11make_uniqueIN4llvm11StringErrorEJNS0_9StringRefESt10error_codeEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!53 = distinct !{!53, !54, !"_ZN4llvm10make_errorINS_11StringErrorEJNS_9StringRefESt10error_codeEEENS_5ErrorEDpOT0_: argument 0"}
-!54 = distinct !{!54, !"_ZN4llvm10make_errorINS_11StringErrorEJNS_9StringRefESt10error_codeEEENS_5ErrorEDpOT0_"}
-!55 = !{!51, !53}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZN4llvm11compression4zstd10decompressENS_8ArrayRefIhEEPhRm: argument 0"}
-!58 = distinct !{!58, !"_ZN4llvm11compression4zstd10decompressENS_8ArrayRefIhEEPhRm"}
-!59 = !{!60, !62, !57}
-!60 = distinct !{!60, !61, !"_ZSt11make_uniqueIN4llvm11StringErrorEJPKcSt10error_codeEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!61 = distinct !{!61, !"_ZSt11make_uniqueIN4llvm11StringErrorEJPKcSt10error_codeEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!62 = distinct !{!62, !63, !"_ZN4llvm10make_errorINS_11StringErrorEJPKcSt10error_codeEEENS_5ErrorEDpOT0_: argument 0"}
-!63 = distinct !{!63, !"_ZN4llvm10make_errorINS_11StringErrorEJPKcSt10error_codeEEENS_5ErrorEDpOT0_"}
-!64 = !{!60, !62}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZN4llvm11compression4zstd10decompressENS_8ArrayRefIhEEPhRm: argument 0"}
+!26 = distinct !{!26, !"_ZN4llvm11compression4zstd10decompressENS_8ArrayRefIhEEPhRm"}
+!27 = !{!28, !30, !25}
+!28 = distinct !{!28, !29, !"_ZSt11make_uniqueIN4llvm11StringErrorEJPKcSt10error_codeEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!29 = distinct !{!29, !"_ZSt11make_uniqueIN4llvm11StringErrorEJPKcSt10error_codeEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!30 = distinct !{!30, !31, !"_ZN4llvm10make_errorINS_11StringErrorEJPKcSt10error_codeEEENS_5ErrorEDpOT0_: argument 0"}
+!31 = distinct !{!31, !"_ZN4llvm10make_errorINS_11StringErrorEJPKcSt10error_codeEEENS_5ErrorEDpOT0_"}
+!32 = !{!33, !34, i64 0}
+!33 = !{!"_ZTSN4llvm5ErrorE", !34, i64 0}
+!34 = !{!"p1 _ZTSN4llvm13ErrorInfoBaseE", !9, i64 0}
+!35 = !{!36, !38}
+!36 = distinct !{!36, !37, !"_ZSt11make_uniqueIN4llvm11StringErrorEJNS0_9StringRefESt10error_codeEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!37 = distinct !{!37, !"_ZSt11make_uniqueIN4llvm11StringErrorEJNS0_9StringRefESt10error_codeEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!38 = distinct !{!38, !39, !"_ZN4llvm10make_errorINS_11StringErrorEJNS_9StringRefESt10error_codeEEENS_5ErrorEDpOT0_: argument 0"}
+!39 = distinct !{!39, !"_ZN4llvm10make_errorINS_11StringErrorEJNS_9StringRefESt10error_codeEEENS_5ErrorEDpOT0_"}
+!40 = !{!41, !43}
+!41 = distinct !{!41, !42, !"_ZSt11make_uniqueIN4llvm11StringErrorEJPKcSt10error_codeEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!42 = distinct !{!42, !"_ZSt11make_uniqueIN4llvm11StringErrorEJPKcSt10error_codeEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!43 = distinct !{!43, !44, !"_ZN4llvm10make_errorINS_11StringErrorEJPKcSt10error_codeEEENS_5ErrorEDpOT0_: argument 0"}
+!44 = distinct !{!44, !"_ZN4llvm10make_errorINS_11StringErrorEJPKcSt10error_codeEEENS_5ErrorEDpOT0_"}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZN4llvm11compression4zlib10decompressENS_8ArrayRefIhEEPhRm: argument 0"}
+!47 = distinct !{!47, !"_ZN4llvm11compression4zlib10decompressENS_8ArrayRefIhEEPhRm"}
+!48 = !{!49, !51, !46}
+!49 = distinct !{!49, !50, !"_ZSt11make_uniqueIN4llvm11StringErrorEJNS0_9StringRefESt10error_codeEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!50 = distinct !{!50, !"_ZSt11make_uniqueIN4llvm11StringErrorEJNS0_9StringRefESt10error_codeEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!51 = distinct !{!51, !52, !"_ZN4llvm10make_errorINS_11StringErrorEJNS_9StringRefESt10error_codeEEENS_5ErrorEDpOT0_: argument 0"}
+!52 = distinct !{!52, !"_ZN4llvm10make_errorINS_11StringErrorEJNS_9StringRefESt10error_codeEEENS_5ErrorEDpOT0_"}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"_ZN4llvm11compression4zstd10decompressENS_8ArrayRefIhEEPhRm: argument 0"}
+!55 = distinct !{!55, !"_ZN4llvm11compression4zstd10decompressENS_8ArrayRefIhEEPhRm"}
+!56 = !{!57, !59, !54}
+!57 = distinct !{!57, !58, !"_ZSt11make_uniqueIN4llvm11StringErrorEJPKcSt10error_codeEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!58 = distinct !{!58, !"_ZSt11make_uniqueIN4llvm11StringErrorEJPKcSt10error_codeEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!59 = distinct !{!59, !60, !"_ZN4llvm10make_errorINS_11StringErrorEJPKcSt10error_codeEEENS_5ErrorEDpOT0_: argument 0"}
+!60 = distinct !{!60, !"_ZN4llvm10make_errorINS_11StringErrorEJPKcSt10error_codeEEENS_5ErrorEDpOT0_"}

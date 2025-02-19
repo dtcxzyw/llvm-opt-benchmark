@@ -3136,7 +3136,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i54:    ; preds = %_ZN7QStringD2Ev.exi
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #19
+  call void @__clang_call_terminate(ptr %66) #19, !noalias !29
   unreachable
 
 _ZN7QStringD2Ev.exit.i:                           ; preds = %62
@@ -3586,7 +3586,7 @@ _ZN7QStringD2Ev.exit127:                          ; preds = %191, %_ZN17QArrayDa
   %197 = landingpad { ptr, i32 }
           catch ptr null
   %198 = extractvalue { ptr, i32 } %197, 0
-  call void @__clang_call_terminate(ptr %198) #19
+  call void @__clang_call_terminate(ptr %198) #19, !noalias !32
   unreachable
 
 _ZN7QStringD2Ev.exit.i128:                        ; preds = %193

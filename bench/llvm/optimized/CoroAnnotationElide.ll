@@ -1176,7 +1176,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i: ; preds = %_ZNK4ll
   %597 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %231) #9, !noalias !227
   %598 = extractvalue { ptr, i64 } %597, 0
   %599 = extractvalue { ptr, i64 } %597, 1
-  call void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC1ENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(80) %28, ptr nonnull @.str.5, i64 6, ptr %598, i64 %599) #9
+  call void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC1ENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(80) %28, ptr nonnull @.str.5, i64 6, ptr %598, i64 %599) #9, !noalias !227
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %17)
   store ptr %178, ptr %17, align 8, !tbaa !230, !noalias !227
   %600 = load ptr, ptr %28, align 8, !tbaa !65, !noalias !227
@@ -1295,7 +1295,7 @@ _ZN4llvmlsINS_18OptimizationRemarkEEERT_S3_NSt9enable_ifIXsr3std10is_base_ofINS_
   %638 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %303) #9, !noalias !227
   %639 = extractvalue { ptr, i64 } %638, 0
   %640 = extractvalue { ptr, i64 } %638, 1
-  call void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC1ENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(80) %29, ptr nonnull @.str.7, i64 6, ptr %639, i64 %640) #9
+  call void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC1ENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(80) %29, ptr nonnull @.str.7, i64 6, ptr %639, i64 %640) #9, !noalias !227
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %20)
   store ptr %188, ptr %20, align 8, !tbaa !230, !noalias !227
   %641 = load ptr, ptr %29, align 8, !tbaa !65, !noalias !227
@@ -1715,7 +1715,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i90: ; preds = %_ZNK4
   %779 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %231) #9, !noalias !259
   %780 = extractvalue { ptr, i64 } %779, 0
   %781 = extractvalue { ptr, i64 } %779, 1
-  call void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC1ENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(80) %22, ptr nonnull @.str.5, i64 6, ptr %780, i64 %781) #9
+  call void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC1ENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(80) %22, ptr nonnull @.str.5, i64 6, ptr %780, i64 %781) #9, !noalias !259
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9)
   store ptr %85, ptr %9, align 8, !tbaa !230, !noalias !259
   %782 = load ptr, ptr %22, align 8, !tbaa !65, !noalias !259
@@ -1834,7 +1834,7 @@ _ZN4llvmlsINS_24OptimizationRemarkMissedEEERT_S3_NSt9enable_ifIXsr3std10is_base_
   %820 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %303) #9, !noalias !259
   %821 = extractvalue { ptr, i64 } %820, 0
   %822 = extractvalue { ptr, i64 } %820, 1
-  call void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC1ENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(80) %23, ptr nonnull @.str.7, i64 6, ptr %821, i64 %822) #9
+  call void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC1ENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(80) %23, ptr nonnull @.str.7, i64 6, ptr %821, i64 %822) #9, !noalias !259
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12)
   store ptr %95, ptr %12, align 8, !tbaa !230, !noalias !259
   %823 = load ptr, ptr %23, align 8, !tbaa !65, !noalias !259

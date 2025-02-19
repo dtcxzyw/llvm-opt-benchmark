@@ -21870,7 +21870,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit.i:                  ; preds = %70, %"_ZZN32pxrInte
   %93 = landingpad { ptr, i32 }
           catch ptr null
   %94 = extractvalue { ptr, i32 } %93, 0
-  call void @__clang_call_terminate(ptr %94) #31
+  call void @__clang_call_terminate(ptr %94) #31, !noalias !220
   unreachable
 
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression5FnArgEEvPT_.exit.i.i.i.i.i.i.i.i.i: ; preds = %86, %.lr.ph.i.i.i.i.i.i.i.i.i
@@ -23990,7 +23990,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__9ArchRegexEEC2ERKS2_.exit.i
   %83 = landingpad { ptr, i32 }
           catch ptr null
   %84 = extractvalue { ptr, i32 } %83, 0
-  call void @__clang_call_terminate(ptr %84) #31
+  call void @__clang_call_terminate(ptr %84) #31, !noalias !255
   unreachable
 
 "_ZZZL10TestSimplevENK3$_0clB5cxx11ERKSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression5FnArgESaIS3_EEENUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE_D2Ev.exit.i": ; preds = %80, %.noexc19.i
@@ -30242,7 +30242,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRKN
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #31
+  tail call void @__clang_call_terminate(ptr %15) #31, !noalias !331
   unreachable
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10unique_ptrINS_19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE19_OverloadBinderBaseESt14default_deleteISF_EESaISI_EEENS0_9robin_mapIS9_SK_St4hashIS9_ESt8equal_toIS9_ESaISL_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSV_11ValueSelectESO_SQ_SR_Lb0ESU_E8hash_keyIS9_EEmRKT_.exit.i.i.i.i: ; preds = %2

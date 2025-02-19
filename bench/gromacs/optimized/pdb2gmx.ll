@@ -840,7 +840,7 @@ define void @_ZN3gmx11pdb2gmxInfo6createEv(ptr dead_on_unwind noalias writable w
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #29
+  tail call void @__clang_call_terminate(ptr %20) #29, !noalias !5
   unreachable
 
 _ZNSt10filesystem7__cxx114pathC2Ev.exit.i.i:      ; preds = %1

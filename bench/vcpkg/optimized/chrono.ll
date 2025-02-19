@@ -403,7 +403,7 @@ _ZN5vcpkg11to_utc_timeERKl.exit.i:                ; preds = %13, %3
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #13
+  call void @__clang_call_terminate(ptr %17) #13, !noalias !32
   unreachable
 
 _ZN5vcpkgL15date_plus_hoursEP2tmi.exit:           ; preds = %_ZN5vcpkg11to_utc_timeERKl.exit.i

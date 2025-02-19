@@ -104,7 +104,7 @@ _ZN4llvh9StringRefC2EPKc.exit.i.i:                ; preds = %entry
   %call7.i.i = call { i32, ptr } @_ZNK4llvh7ErrorOrIPvE8getErrorEv(ptr noundef nonnull align 8 dereferenceable(17) %result.i.i), !noalias !4
   %0 = extractvalue { i32, ptr } %call7.i.i, 0
   %1 = extractvalue { i32, ptr } %call7.i.i, 1
-  call void @_ZN6hermes12hermes_fatalEN4llvh9StringRefESt10error_code(ptr nonnull @.str.3, i64 37, i32 %0, ptr %1) #16
+  call void @_ZN6hermes12hermes_fatalEN4llvh9StringRefESt10error_code(ptr nonnull @.str.3, i64 37, i32 %0, ptr %1) #16, !noalias !4
   unreachable
 
 _ZNSt10unique_ptrIN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProviderESt14default_deleteIS3_EED2Ev.exit: ; preds = %entry

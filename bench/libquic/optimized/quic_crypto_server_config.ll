@@ -10257,7 +10257,6 @@ _ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i220: ; preds = 
   br label %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit221
 
 _ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit221: ; preds = %_ZNSt10unique_ptrIN3net33ValidateClientHelloResultCallback6ResultESt14default_deleteIS2_EED2Ev.exit218, %_ZNKSt14default_deleteIN3net11ProofSource7DetailsEEclEPS2_.exit.i220
-  store ptr null, ptr %30, align 8, !tbaa !262
   br i1 %.not.i211, label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit223, label %472
 
 472:                                              ; preds = %_ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit221

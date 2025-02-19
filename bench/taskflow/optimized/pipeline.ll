@@ -1566,7 +1566,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %"_ZN2tf8PipelineIJN
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #36
+  call void @__clang_call_terminate(ptr %35) #36, !noalias !19
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i.i.i: ; preds = %"_ZN2tf8PipelineIJNS_4PipeIZ4mainE3$_0EENS1_IZ4mainE3$_1EENS1_IZ4mainE3$_2EEEE5resetEv.exit.i"
@@ -1760,7 +1760,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %.noexc.i.i.i.i.i
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #36
+  call void @__clang_call_terminate(ptr %62) #36, !noalias !19
   unreachable
 
 if.end.i.i.i.i.i:                                 ; preds = %.noexc.i.i.i.i.i
@@ -1979,7 +1979,7 @@ terminate.lpad.i.i.i.i.i23.i.i:                   ; preds = %for.body.i27.i
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #36
+  call void @__clang_call_terminate(ptr %78) #36, !noalias !23
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i24.i.i: ; preds = %for.body.i27.i
@@ -2165,7 +2165,7 @@ terminate.lpad.i.i.i.i73.i.i:                     ; preds = %.noexc.i.i.i71.i.i
   %103 = landingpad { ptr, i32 }
           catch ptr null
   %104 = extractvalue { ptr, i32 } %103, 0
-  call void @__clang_call_terminate(ptr %104) #36
+  call void @__clang_call_terminate(ptr %104) #36, !noalias !23
   unreachable
 
 if.end.i.i.i74.i.i:                               ; preds = %.noexc.i.i.i71.i.i
@@ -2468,7 +2468,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont16
   %126 = landingpad { ptr, i32 }
           catch ptr null
   %127 = extractvalue { ptr, i32 } %126, 0
-  call void @__clang_call_terminate(ptr %127) #36
+  call void @__clang_call_terminate(ptr %127) #36, !noalias !34
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i: ; preds = %invoke.cont16
@@ -2654,7 +2654,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %.noexc.i.i.i
   %152 = landingpad { ptr, i32 }
           catch ptr null
   %153 = extractvalue { ptr, i32 } %152, 0
-  call void @__clang_call_terminate(ptr %153) #36
+  call void @__clang_call_terminate(ptr %153) #36, !noalias !34
   unreachable
 
 if.end.i.i.i:                                     ; preds = %.noexc.i.i.i
@@ -2835,7 +2835,7 @@ terminate.lpad.i.i.i.i.i58:                       ; preds = %invoke.cont26
   %165 = landingpad { ptr, i32 }
           catch ptr null
   %166 = extractvalue { ptr, i32 } %165, 0
-  call void @__clang_call_terminate(ptr %166) #36
+  call void @__clang_call_terminate(ptr %166) #36, !noalias !38
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i59: ; preds = %invoke.cont26
@@ -3021,7 +3021,7 @@ terminate.lpad.i.i.i.i108:                        ; preds = %.noexc.i.i.i106
   %191 = landingpad { ptr, i32 }
           catch ptr null
   %192 = extractvalue { ptr, i32 } %191, 0
-  call void @__clang_call_terminate(ptr %192) #36
+  call void @__clang_call_terminate(ptr %192) #36, !noalias !38
   unreachable
 
 if.end.i.i.i109:                                  ; preds = %.noexc.i.i.i106
@@ -3198,7 +3198,7 @@ terminate.lpad.i.i.i.i.i226:                      ; preds = %invoke.cont38
   %204 = landingpad { ptr, i32 }
           catch ptr null
   %205 = extractvalue { ptr, i32 } %204, 0
-  call void @__clang_call_terminate(ptr %205) #36
+  call void @__clang_call_terminate(ptr %205) #36, !noalias !42
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i227: ; preds = %invoke.cont38
@@ -3392,7 +3392,7 @@ terminate.lpad.i.i.i.i276:                        ; preds = %.noexc.i.i.i274
   %231 = landingpad { ptr, i32 }
           catch ptr null
   %232 = extractvalue { ptr, i32 } %231, 0
-  call void @__clang_call_terminate(ptr %232) #36
+  call void @__clang_call_terminate(ptr %232) #36, !noalias !42
   unreachable
 
 if.end.i.i.i277:                                  ; preds = %.noexc.i.i.i274

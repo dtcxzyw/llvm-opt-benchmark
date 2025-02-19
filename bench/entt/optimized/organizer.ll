@@ -57009,7 +57009,7 @@ _ZZN4entt15basic_organizerINS_14basic_registryINS_6entityESaIS2_EEEE7emplaceITnD
   %12 = call { ptr, i8 } @_ZN4entt9dense_mapIjNS_9basic_anyILm0ELm8EEENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE20insert_or_do_nothingIRS7_JRKSt15in_place_type_tIdEEEEDaOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %1, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt13in_place_typeIdE), !noalias !552
   %.fca.0.extract.i.i.i.i.i = extractvalue { ptr, i8 } %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i.i.i, i64 16
-  %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %13) #27
+  %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %13) #27, !noalias !552
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3), !noalias !552
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #27, !noalias !552
   ret void
@@ -57797,7 +57797,7 @@ _ZZN4entt15basic_organizerINS_14basic_registryINS_6entityESaIS2_EEEE7emplaceITnD
   %11 = call { ptr, i8 } @_ZN4entt9dense_mapIjNS_9basic_anyILm0ELm8EEENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE20insert_or_do_nothingIRS7_JRKSt15in_place_type_tIdEEEEDaOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt13in_place_typeIdE), !noalias !581
   %.fca.0.extract.i.i.i.i.i = extractvalue { ptr, i8 } %11, 0
   %12 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i.i.i, i64 16
-  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %12) #27
+  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %12) #27, !noalias !581
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2), !noalias !581
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #27, !noalias !581
   ret void
@@ -58634,7 +58634,7 @@ _ZZN4entt15basic_organizerINS_14basic_registryINS_6entityESaIS2_EEEE7emplaceITnD
   %12 = call { ptr, i8 } @_ZN4entt9dense_mapIjNS_9basic_anyILm0ELm8EEENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE20insert_or_do_nothingIRS7_JRKSt15in_place_type_tIdEEEEDaOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %1, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt13in_place_typeIdE), !noalias !622
   %.fca.0.extract.i.i.i.i.i = extractvalue { ptr, i8 } %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i.i.i, i64 16
-  %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %13) #27
+  %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %13) #27, !noalias !622
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3), !noalias !622
   ret void
 }
@@ -58719,7 +58719,7 @@ _ZZN4entt15basic_organizerINS_14basic_registryINS_6entityESaIS2_EEEE7emplaceITnD
   %11 = call { ptr, i8 } @_ZN4entt9dense_mapIjNS_9basic_anyILm0ELm8EEENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE20insert_or_do_nothingIRS7_JRKSt15in_place_type_tIdEEEEDaOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt13in_place_typeIdE), !noalias !625
   %.fca.0.extract.i.i.i.i.i = extractvalue { ptr, i8 } %11, 0
   %12 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i.i.i, i64 16
-  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %12) #27
+  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %12) #27, !noalias !625
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2), !noalias !625
   ret void
 }
@@ -58782,7 +58782,7 @@ _ZZN4entt15basic_organizerINS_14basic_registryINS_6entityESaIS2_EEEE7emplaceITnD
   %12 = call { ptr, i8 } @_ZN4entt9dense_mapIjNS_9basic_anyILm0ELm8EEENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE20insert_or_do_nothingIRS7_JRKSt15in_place_type_tIdEEEEDaOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %1, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt13in_place_typeIdE), !noalias !628
   %.fca.0.extract.i.i.i.i.i = extractvalue { ptr, i8 } %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i.i.i, i64 16
-  %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %13) #27
+  %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %13) #27, !noalias !628
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3), !noalias !628
   ret void
 }
@@ -58879,7 +58879,7 @@ _ZZN4entt15basic_organizerINS_14basic_registryINS_6entityESaIS2_EEEE7emplaceITnD
   %11 = call { ptr, i8 } @_ZN4entt9dense_mapIjNS_9basic_anyILm0ELm8EEENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE20insert_or_do_nothingIRS7_JRKSt15in_place_type_tIdEEEEDaOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt13in_place_typeIdE), !noalias !631
   %.fca.0.extract.i.i.i.i.i = extractvalue { ptr, i8 } %11, 0
   %12 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i.i.i, i64 16
-  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %12) #27
+  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %12) #27, !noalias !631
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2), !noalias !631
   ret void
 }
@@ -61129,7 +61129,7 @@ _ZZN4entt15basic_organizerINS_14basic_registryINS_6entityESaIS2_EEEE7emplaceITnD
   %12 = call { ptr, i8 } @_ZN4entt9dense_mapIjNS_9basic_anyILm0ELm8EEENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE20insert_or_do_nothingIRS7_JRKSt15in_place_type_tIdEEEEDaOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %1, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt13in_place_typeIdE), !noalias !711
   %.fca.0.extract.i.i.i.i.i = extractvalue { ptr, i8 } %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i.i.i, i64 16
-  %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %13) #27
+  %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %13) #27, !noalias !711
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3), !noalias !711
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #27, !noalias !711
   ret void
@@ -61301,7 +61301,7 @@ _ZZN4entt15basic_organizerINS_14basic_registryINS_6entityESaIS2_EEEE7emplaceITnD
   %11 = call { ptr, i8 } @_ZN4entt9dense_mapIjNS_9basic_anyILm0ELm8EEENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE20insert_or_do_nothingIRS7_JRKSt15in_place_type_tIdEEEEDaOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt13in_place_typeIdE), !noalias !714
   %.fca.0.extract.i.i.i.i.i = extractvalue { ptr, i8 } %11, 0
   %12 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i.i.i, i64 16
-  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %12) #27
+  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %12) #27, !noalias !714
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2), !noalias !714
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #27, !noalias !714
   ret void
@@ -61618,7 +61618,7 @@ _ZZN4entt15basic_organizerINS_14basic_registryINS_6entityESaIS2_EEEE7emplaceITnD
   %12 = call { ptr, i8 } @_ZN4entt9dense_mapIjNS_9basic_anyILm0ELm8EEENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE20insert_or_do_nothingIRS7_JRKSt15in_place_type_tIdEEEEDaOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %1, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt13in_place_typeIdE), !noalias !723
   %.fca.0.extract.i.i.i.i.i = extractvalue { ptr, i8 } %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i.i.i, i64 16
-  %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %13) #27
+  %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %13) #27, !noalias !723
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3), !noalias !723
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #27, !noalias !723
   ret void
@@ -61665,7 +61665,7 @@ _ZZN4entt15basic_organizerINS_14basic_registryINS_6entityESaIS2_EEEE7emplaceITnD
   %11 = call { ptr, i8 } @_ZN4entt9dense_mapIjNS_9basic_anyILm0ELm8EEENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE20insert_or_do_nothingIRS7_JRKSt15in_place_type_tIdEEEEDaOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt13in_place_typeIdE), !noalias !726
   %.fca.0.extract.i.i.i.i.i = extractvalue { ptr, i8 } %11, 0
   %12 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i.i.i, i64 16
-  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %12) #27
+  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %12) #27, !noalias !726
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2), !noalias !726
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #27, !noalias !726
   ret void
@@ -63012,7 +63012,7 @@ _ZZN4entt15basic_organizerINS_14basic_registryINS_6entityESaIS2_EEEE7emplaceITnD
   %12 = call { ptr, i8 } @_ZN4entt9dense_mapIjNS_9basic_anyILm0ELm8EEENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE20insert_or_do_nothingIRS7_JRKSt15in_place_type_tIdEEEEDaOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %1, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt13in_place_typeIdE), !noalias !768
   %.fca.0.extract.i.i.i.i.i = extractvalue { ptr, i8 } %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i.i.i, i64 16
-  %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %13) #27
+  %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %13) #27, !noalias !768
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3), !noalias !768
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #27, !noalias !768
   ret void
@@ -63166,7 +63166,7 @@ _ZZN4entt15basic_organizerINS_14basic_registryINS_6entityESaIS2_EEEE7emplaceITnD
   %11 = call { ptr, i8 } @_ZN4entt9dense_mapIjNS_9basic_anyILm0ELm8EEENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE20insert_or_do_nothingIRS7_JRKSt15in_place_type_tIdEEEEDaOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt13in_place_typeIdE), !noalias !771
   %.fca.0.extract.i.i.i.i.i = extractvalue { ptr, i8 } %11, 0
   %12 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i.i.i, i64 16
-  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %12) #27
+  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %12) #27, !noalias !771
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2), !noalias !771
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #27, !noalias !771
   ret void
@@ -63198,7 +63198,7 @@ _ZZN4entt15basic_organizerINS_14basic_registryINS_6entityESaIS2_EEEE7emplaceITnD
   %12 = call { ptr, i8 } @_ZN4entt9dense_mapIjNS_9basic_anyILm0ELm8EEENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE20insert_or_do_nothingIRS7_JRKSt15in_place_type_tIdEEEEDaOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %1, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt13in_place_typeIdE), !noalias !774
   %.fca.0.extract.i.i.i.i.i = extractvalue { ptr, i8 } %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i.i.i, i64 16
-  %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %13) #27
+  %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %13) #27, !noalias !774
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3), !noalias !774
   ret void
 }
@@ -63313,7 +63313,7 @@ _ZZN4entt15basic_organizerINS_14basic_registryINS_6entityESaIS2_EEEE7emplaceITnD
   %11 = call { ptr, i8 } @_ZN4entt9dense_mapIjNS_9basic_anyILm0ELm8EEENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE20insert_or_do_nothingIRS7_JRKSt15in_place_type_tIdEEEEDaOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt13in_place_typeIdE), !noalias !777
   %.fca.0.extract.i.i.i.i.i = extractvalue { ptr, i8 } %11, 0
   %12 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i.i.i, i64 16
-  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %12) #27
+  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %12) #27, !noalias !777
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2), !noalias !777
   ret void
 }
@@ -63344,7 +63344,7 @@ _ZZN4entt15basic_organizerINS_14basic_registryINS_6entityESaIS2_EEEE7emplaceITnD
   %12 = call { ptr, i8 } @_ZN4entt9dense_mapIjNS_9basic_anyILm0ELm8EEENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE20insert_or_do_nothingIRS7_JRKSt15in_place_type_tIdEEEEDaOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %1, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt13in_place_typeIdE), !noalias !780
   %.fca.0.extract.i.i.i.i.i = extractvalue { ptr, i8 } %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i.i.i, i64 16
-  %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %13) #27
+  %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %13) #27, !noalias !780
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3), !noalias !780
   ret void
 }
@@ -63469,7 +63469,7 @@ _ZZN4entt15basic_organizerINS_14basic_registryINS_6entityESaIS2_EEEE7emplaceITnD
   %11 = call { ptr, i8 } @_ZN4entt9dense_mapIjNS_9basic_anyILm0ELm8EEENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE20insert_or_do_nothingIRS7_JRKSt15in_place_type_tIdEEEEDaOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt13in_place_typeIdE), !noalias !783
   %.fca.0.extract.i.i.i.i.i = extractvalue { ptr, i8 } %11, 0
   %12 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i.i.i, i64 16
-  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %12) #27
+  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castIdLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %12) #27, !noalias !783
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2), !noalias !783
   ret void
 }
@@ -65728,7 +65728,7 @@ _ZZN4entt15basic_organizerINS_14basic_registryINS_6entityESaIS2_EEEE7emplaceITnD
   %12 = call { ptr, i8 } @_ZN4entt9dense_mapIjNS_9basic_anyILm0ELm8EEENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE20insert_or_do_nothingIRS7_JRKSt15in_place_type_tImEEEEDaOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %1, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt13in_place_typeImE), !noalias !807
   %.fca.0.extract.i.i.i.i.i = extractvalue { ptr, i8 } %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i.i.i, i64 16
-  %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castImLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %13) #27
+  %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castImLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %13) #27, !noalias !807
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3), !noalias !807
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -66410,7 +66410,7 @@ _ZZN4entt15basic_organizerINS_14basic_registryINS_6entityESaIS2_EEEE7emplaceITnD
   %11 = call { ptr, i8 } @_ZN4entt9dense_mapIjNS_9basic_anyILm0ELm8EEENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEE20insert_or_do_nothingIRS7_JRKSt15in_place_type_tImEEEEDaOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt13in_place_typeImE), !noalias !828
   %.fca.0.extract.i.i.i.i.i = extractvalue { ptr, i8 } %11, 0
   %12 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i.i.i, i64 16
-  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castImLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %12) #27
+  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4entt8any_castImLm0ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE(ptr noundef nonnull align 8 dereferenceable(25) %12) #27, !noalias !828
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2), !noalias !828
   ret void
 }

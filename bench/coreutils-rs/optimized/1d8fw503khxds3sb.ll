@@ -2038,7 +2038,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %120
   unreachable
 
 131:                                              ; preds = %.noexc.i179
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %124, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %124, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 32, i1 false), !noalias !499
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26), !noalias !499
   br label %132
 
@@ -3400,7 +3400,7 @@ split486:                                         ; preds = %"_ZN5alloc3vec16Vec
   unreachable
 
 629:                                              ; preds = %.noexc.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %614, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %614, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !702
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !702
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !707

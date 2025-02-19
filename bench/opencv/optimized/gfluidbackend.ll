@@ -41390,7 +41390,7 @@ define linkonce_odr hidden void @_ZN3ade7details8Metadata3setIN2cv5gimpl9FluidUn
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #34
+  tail call void @__clang_call_terminate(ptr %19) #34, !noalias !697
   unreachable
 
 _ZN2cv4util7variantIJNS0_8optionalINS_4gapi5fluid6BorderEE7nothingES5_EEC2EOS8_.exit.i.i.i.i: ; preds = %.noexc.i
@@ -42615,7 +42615,6 @@ _ZNK2cv11GCompileArg3getINS_24GFluidParallelOutputRoisEEERKT_v.exit: ; preds = %
   %22 = ptrtoint ptr %20 to i64
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %20, %21
   br i1 %.not.i.i.i.i.i.i.i.i, label %.noexc2.i, label %25
 
@@ -42626,49 +42625,48 @@ _ZNK2cv11GCompileArg3getINS_24GFluidParallelOutputRoisEEERKT_v.exit: ; preds = %
 
 .noexc.i.i.i.i.i.i:                               ; preds = %25
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #31
-          to label %.noexc.i unwind label %37
+          to label %.noexc.i unwind label %36
 
 .noexc.i:                                         ; preds = %.noexc.i.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN2cv16GFluidOutputRoisEEE8allocateERS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %25
   %28 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #30
-          to label %.noexc2.i unwind label %37
+          to label %.noexc2.i unwind label %36
 
 .noexc2.i:                                        ; preds = %_ZNSt16allocator_traitsISaIN2cv16GFluidOutputRoisEEE8allocateERS2_m.exit.i.i.i.i.i.i.i.i, %_ZNK2cv11GCompileArg3getINS_24GFluidParallelOutputRoisEEERKT_v.exit
   %29 = phi ptr [ null, %_ZNK2cv11GCompileArg3getINS_24GFluidParallelOutputRoisEEERKT_v.exit ], [ %28, %_ZNSt16allocator_traitsISaIN2cv16GFluidOutputRoisEEE8allocateERS2_m.exit.i.i.i.i.i.i.i.i ]
   store ptr %29, ptr %18, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 %24
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %31, ptr %32, align 8
-  %33 = invoke noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN2cv16GFluidOutputRoisESt6vectorIS3_SaIS3_EEEEPS3_ET0_T_SC_SB_(ptr %21, ptr %20, ptr noundef %29)
-          to label %_ZN2cv4util8optionalINS_24GFluidParallelOutputRoisEEC2ERKS2_.exit unwind label %34
+  %30 = getelementptr inbounds i8, ptr %29, i64 %24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %30, ptr %31, align 8
+  %32 = invoke noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN2cv16GFluidOutputRoisESt6vectorIS3_SaIS3_EEEEPS3_ET0_T_SC_SB_(ptr %21, ptr %20, ptr noundef %29)
+          to label %_ZN2cv4util8optionalINS_24GFluidParallelOutputRoisEEC2ERKS2_.exit unwind label %33
 
-34:                                               ; preds = %.noexc2.i
-  %35 = landingpad { ptr, i32 }
+33:                                               ; preds = %.noexc2.i
+  %34 = landingpad { ptr, i32 }
           catch ptr null
   %.not.i.i.i.i.i.i.i = icmp eq ptr %29, null
-  br i1 %.not.i.i.i.i.i.i.i, label %.body.i, label %36
+  br i1 %.not.i.i.i.i.i.i.i, label %.body.i, label %35
 
-36:                                               ; preds = %34
+35:                                               ; preds = %33
   tail call void @_ZdlPv(ptr noundef nonnull %29) #33
   br label %.body.i
 
-37:                                               ; preds = %_ZNSt16allocator_traitsISaIN2cv16GFluidOutputRoisEEE8allocateERS2_m.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %_ZNSt16allocator_traitsISaIN2cv16GFluidOutputRoisEEE8allocateERS2_m.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i
+  %37 = landingpad { ptr, i32 }
           catch ptr null
   br label %.body.i
 
-.body.i:                                          ; preds = %37, %36, %34
-  %eh.lpad-body.i = phi { ptr, i32 } [ %38, %37 ], [ %35, %36 ], [ %35, %34 ]
-  %39 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
-  tail call void @__clang_call_terminate(ptr %39) #34
+.body.i:                                          ; preds = %36, %35, %33
+  %eh.lpad-body.i = phi { ptr, i32 } [ %37, %36 ], [ %34, %35 ], [ %34, %33 ]
+  %38 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
+  tail call void @__clang_call_terminate(ptr %38) #34
   unreachable
 
 _ZN2cv4util8optionalINS_24GFluidParallelOutputRoisEEC2ERKS2_.exit: ; preds = %.noexc2.i
-  store ptr %33, ptr %30, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %32, ptr %39, align 8
   br label %42
 
 40:                                               ; preds = %.lr.ph

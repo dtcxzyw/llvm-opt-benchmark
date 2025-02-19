@@ -9196,7 +9196,6 @@ entry:
 
 _ZNK3smt6theory12get_num_varsEv.exit.thread:      ; preds = %entry
   store ptr null, ptr %seqs, align 8
-  store ptr null, ptr %dep, align 8
   %m103 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %m103, align 8
   store ptr null, ptr %e1, align 8
@@ -36404,7 +36403,6 @@ invoke.cont49:                                    ; preds = %for.body45
   %37 = load ptr, ptr %fml, align 8
   %38 = load ptr, ptr %ref.tmp46, align 8
   store ptr %38, ptr %fml, align 8
-  store ptr %37, ptr %ref.tmp46, align 8
   %tobool.not.i.i.i = icmp eq ptr %37, null
   br i1 %tobool.not.i.i.i, label %invoke.cont54, label %if.then.i.i.i.i62
 
@@ -38420,7 +38418,7 @@ lor.lhs.false:                                    ; preds = %_ZN7obj_refI4expr11
   %cmp.i96 = icmp eq ptr %40, null
   br i1 %cmp.i96, label %cleanup, label %if.end26
 
-lpad11:                                           ; preds = %invoke.cont305.invoke, %invoke.cont307.invoke, %if.else397.invoke, %_ZN18dependency_managerIN25scoped_dependency_managerIN3smt10theory_seq10assumptionEE6configEE7inc_refEPNS6_10dependencyE.exit17.i.i, %if.end417, %.noexc301, %sw.bb392, %sw.bb369, %sw.bb, %if.end331, %if.end300, %if.end275, %if.end250, %if.end226, %if.end203, %invoke.cont179, %if.end145, %if.end122, %if.end93, %if.end64, %if.then2.i.i.i126, %if.end26, %invoke.cont383, %invoke.cont381, %invoke.cont360, %invoke.cont358, %if.then346, %invoke.cont320, %if.then318, %if.else313, %if.then293, %if.else288, %if.then268, %if.else263, %if.then243, %if.else238, %if.then219, %if.else214, %invoke.cont192, %if.then190, %if.else185, %if.end172, %invoke.cont161, %if.then159, %if.else154, %if.then138, %if.else133, %invoke.cont111, %if.then109, %if.else104, %invoke.cont82, %if.then80, %_ZN7obj_refI4expr11ast_managerED2Ev.exit163, %if.then51, %if.else, %_ZN7obj_refI4expr11ast_managerED2Ev.exit76, %if.then14
+lpad11:                                           ; preds = %invoke.cont305.invoke, %invoke.cont307.invoke, %if.else397.invoke, %_ZN18dependency_managerIN25scoped_dependency_managerIN3smt10theory_seq10assumptionEE6configEE7inc_refEPNS6_10dependencyE.exit17.i.i, %if.end413, %.noexc301, %sw.bb392, %sw.bb369, %sw.bb, %if.end331, %if.end300, %if.end275, %if.end250, %if.end226, %if.end203, %invoke.cont179, %if.end145, %if.end122, %if.end93, %if.end64, %if.then2.i.i.i126, %if.end26, %invoke.cont383, %invoke.cont381, %invoke.cont360, %invoke.cont358, %if.then346, %invoke.cont320, %if.then318, %if.else313, %if.then293, %if.else288, %if.then268, %if.else263, %if.then243, %if.else238, %if.then219, %if.else214, %invoke.cont192, %if.then190, %if.else185, %if.end172, %invoke.cont161, %if.then159, %if.else154, %if.then138, %if.else133, %invoke.cont111, %if.then109, %if.else104, %invoke.cont82, %if.then80, %_ZN7obj_refI4expr11ast_managerED2Ev.exit163, %if.then51, %if.else, %_ZN7obj_refI4expr11ast_managerED2Ev.exit76, %if.then14
   %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arg4) #25
@@ -39255,18 +39253,8 @@ if.else397.invoke:                                ; preds = %land.rhs.i.i.i281, 
 if.end413:                                        ; preds = %invoke.cont307.invoke, %if.else397.invoke, %invoke.cont32, %if.then.i.i.i.i103, %if.then2.i.i.i.i108, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit, %invoke.cont386, %invoke.cont363, %invoke.cont351
   %179 = load ptr, ptr %result, align 8
   %cmp = icmp eq ptr %179, %e0
-  br i1 %cmp, label %if.then416, label %if.end413.if.end417_crit_edge
-
-if.end413.if.end417_crit_edge:                    ; preds = %if.end413
   %.pre355 = load ptr, ptr %deps, align 8
-  br label %if.end417
-
-if.then416:                                       ; preds = %if.end413
-  store ptr null, ptr %deps, align 8
-  br label %if.end417
-
-if.end417:                                        ; preds = %if.end413.if.end417_crit_edge, %if.then416
-  %180 = phi ptr [ %.pre355, %if.end413.if.end417_crit_edge ], [ null, %if.then416 ]
+  %180 = select i1 %cmp, ptr null, ptr %.pre355
   store ptr %e0, ptr %edr, align 8
   %e3.i = getelementptr inbounds nuw i8, ptr %edr, i64 8
   store ptr %179, ptr %e3.i, align 8
@@ -39276,7 +39264,7 @@ if.end417:                                        ; preds = %if.end413.if.end417
   invoke void @_ZN3smt10theory_seq10eval_cache6insertERKNS0_8expr_depE(ptr noundef nonnull align 8 dereferenceable(24) %m_cache.i, ptr noundef nonnull align 8 dereferenceable(24) %edr)
           to label %invoke.cont422 unwind label %lpad11
 
-invoke.cont422:                                   ; preds = %if.end417
+invoke.cont422:                                   ; preds = %if.end413
   %181 = load ptr, ptr %eqs, align 8
   %cmp.i.i304 = icmp eq ptr %181, null
   br i1 %cmp.i.i304, label %invoke.cont424, label %if.else.i.i

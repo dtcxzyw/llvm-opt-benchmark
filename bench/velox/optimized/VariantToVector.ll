@@ -812,7 +812,7 @@ terminate.lpad.i.i:                               ; preds = %.noexc.i.i, %if.the
   %67 = landingpad { ptr, i32 }
           catch ptr null
   %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #24
+  call void @__clang_call_terminate(ptr %68) #24, !noalias !4
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i: ; preds = %.noexc.i.i, %if.then.i66.i, %invoke.cont21.i
@@ -848,7 +848,7 @@ terminate.lpad.i74.i:                             ; preds = %.noexc.i75.i, %if.t
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #24
+  call void @__clang_call_terminate(ptr %75) #24, !noalias !4
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit81.i: ; preds = %.noexc.i75.i, %if.then.i68.i, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i
@@ -1511,7 +1511,7 @@ terminate.lpad.i.i:                               ; preds = %.noexc.i.i, %if.the
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #24
+  call void @__clang_call_terminate(ptr %69) #24, !noalias !38
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i: ; preds = %.noexc.i.i, %if.then.i58.i, %invoke.cont22.i
@@ -1547,7 +1547,7 @@ terminate.lpad.i66.i:                             ; preds = %.noexc.i67.i, %if.t
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #24
+  call void @__clang_call_terminate(ptr %76) #24, !noalias !38
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit73.i: ; preds = %.noexc.i67.i, %if.then.i60.i, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i
@@ -2144,7 +2144,7 @@ terminate.lpad.i.i111:                            ; preds = %.noexc.i.i112, %if.
   %160 = landingpad { ptr, i32 }
           catch ptr null
   %161 = extractvalue { ptr, i32 } %160, 0
-  call void @__clang_call_terminate(ptr %161) #24
+  call void @__clang_call_terminate(ptr %161) #24, !noalias !71
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i86: ; preds = %.noexc.i.i112, %if.then.i66.i, %invoke.cont21.i
@@ -2180,7 +2180,7 @@ terminate.lpad.i74.i:                             ; preds = %.noexc.i75.i, %if.t
   %167 = landingpad { ptr, i32 }
           catch ptr null
   %168 = extractvalue { ptr, i32 } %167, 0
-  call void @__clang_call_terminate(ptr %168) #24
+  call void @__clang_call_terminate(ptr %168) #24, !noalias !71
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit81.i: ; preds = %.noexc.i75.i, %if.then.i68.i, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i86
@@ -2773,7 +2773,7 @@ terminate.lpad.i.i358:                            ; preds = %.noexc.i.i359, %if.
   %252 = landingpad { ptr, i32 }
           catch ptr null
   %253 = extractvalue { ptr, i32 } %252, 0
-  call void @__clang_call_terminate(ptr %253) #24
+  call void @__clang_call_terminate(ptr %253) #24, !noalias !104
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i309: ; preds = %.noexc.i.i359, %if.then.i66.i306, %invoke.cont21.i303
@@ -2809,7 +2809,7 @@ terminate.lpad.i74.i348:                          ; preds = %.noexc.i75.i349, %i
   %259 = landingpad { ptr, i32 }
           catch ptr null
   %260 = extractvalue { ptr, i32 } %259, 0
-  call void @__clang_call_terminate(ptr %260) #24
+  call void @__clang_call_terminate(ptr %260) #24, !noalias !104
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit81.i314: ; preds = %.noexc.i75.i349, %if.then.i68.i311, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i309
@@ -3402,7 +3402,7 @@ terminate.lpad.i.i614:                            ; preds = %.noexc.i.i615, %if.
   %344 = landingpad { ptr, i32 }
           catch ptr null
   %345 = extractvalue { ptr, i32 } %344, 0
-  call void @__clang_call_terminate(ptr %345) #24
+  call void @__clang_call_terminate(ptr %345) #24, !noalias !137
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i565: ; preds = %.noexc.i.i615, %if.then.i66.i562, %invoke.cont21.i559
@@ -3438,7 +3438,7 @@ terminate.lpad.i74.i604:                          ; preds = %.noexc.i75.i605, %i
   %351 = landingpad { ptr, i32 }
           catch ptr null
   %352 = extractvalue { ptr, i32 } %351, 0
-  call void @__clang_call_terminate(ptr %352) #24
+  call void @__clang_call_terminate(ptr %352) #24, !noalias !137
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit81.i570: ; preds = %.noexc.i75.i605, %if.then.i68.i567, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i565
@@ -4031,7 +4031,7 @@ terminate.lpad.i.i870:                            ; preds = %.noexc.i.i871, %if.
   %436 = landingpad { ptr, i32 }
           catch ptr null
   %437 = extractvalue { ptr, i32 } %436, 0
-  call void @__clang_call_terminate(ptr %437) #24
+  call void @__clang_call_terminate(ptr %437) #24, !noalias !170
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i821: ; preds = %.noexc.i.i871, %if.then.i66.i818, %invoke.cont21.i815
@@ -4067,7 +4067,7 @@ terminate.lpad.i74.i860:                          ; preds = %.noexc.i75.i861, %i
   %443 = landingpad { ptr, i32 }
           catch ptr null
   %444 = extractvalue { ptr, i32 } %443, 0
-  call void @__clang_call_terminate(ptr %444) #24
+  call void @__clang_call_terminate(ptr %444) #24, !noalias !170
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit81.i826: ; preds = %.noexc.i75.i861, %if.then.i68.i823, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i821
@@ -4660,7 +4660,7 @@ terminate.lpad.i.i1126:                           ; preds = %.noexc.i.i1127, %if
   %528 = landingpad { ptr, i32 }
           catch ptr null
   %529 = extractvalue { ptr, i32 } %528, 0
-  call void @__clang_call_terminate(ptr %529) #24
+  call void @__clang_call_terminate(ptr %529) #24, !noalias !203
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i1077: ; preds = %.noexc.i.i1127, %if.then.i66.i1074, %invoke.cont21.i1071
@@ -4696,7 +4696,7 @@ terminate.lpad.i74.i1116:                         ; preds = %.noexc.i75.i1117, %
   %535 = landingpad { ptr, i32 }
           catch ptr null
   %536 = extractvalue { ptr, i32 } %535, 0
-  call void @__clang_call_terminate(ptr %536) #24
+  call void @__clang_call_terminate(ptr %536) #24, !noalias !203
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit81.i1082: ; preds = %.noexc.i75.i1117, %if.then.i68.i1079, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i1077
@@ -5289,7 +5289,7 @@ terminate.lpad.i.i1382:                           ; preds = %.noexc.i.i1383, %if
   %620 = landingpad { ptr, i32 }
           catch ptr null
   %621 = extractvalue { ptr, i32 } %620, 0
-  call void @__clang_call_terminate(ptr %621) #24
+  call void @__clang_call_terminate(ptr %621) #24, !noalias !236
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i1333: ; preds = %.noexc.i.i1383, %if.then.i66.i1330, %invoke.cont21.i1327
@@ -5325,7 +5325,7 @@ terminate.lpad.i74.i1372:                         ; preds = %.noexc.i75.i1373, %
   %627 = landingpad { ptr, i32 }
           catch ptr null
   %628 = extractvalue { ptr, i32 } %627, 0
-  call void @__clang_call_terminate(ptr %628) #24
+  call void @__clang_call_terminate(ptr %628) #24, !noalias !236
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit81.i1338: ; preds = %.noexc.i75.i1373, %if.then.i68.i1335, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i1333
@@ -5918,7 +5918,7 @@ terminate.lpad.i.i1638:                           ; preds = %.noexc.i.i1639, %if
   %712 = landingpad { ptr, i32 }
           catch ptr null
   %713 = extractvalue { ptr, i32 } %712, 0
-  call void @__clang_call_terminate(ptr %713) #24
+  call void @__clang_call_terminate(ptr %713) #24, !noalias !269
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i1589: ; preds = %.noexc.i.i1639, %if.then.i66.i1586, %invoke.cont21.i1583
@@ -5954,7 +5954,7 @@ terminate.lpad.i74.i1628:                         ; preds = %.noexc.i75.i1629, %
   %719 = landingpad { ptr, i32 }
           catch ptr null
   %720 = extractvalue { ptr, i32 } %719, 0
-  call void @__clang_call_terminate(ptr %720) #24
+  call void @__clang_call_terminate(ptr %720) #24, !noalias !269
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit81.i1594: ; preds = %.noexc.i75.i1629, %if.then.i68.i1591, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i1589
@@ -6535,7 +6535,7 @@ terminate.lpad.i.i1814:                           ; preds = %.noexc.i.i1815, %if
   %796 = landingpad { ptr, i32 }
           catch ptr null
   %797 = extractvalue { ptr, i32 } %796, 0
-  call void @__clang_call_terminate(ptr %797) #24
+  call void @__clang_call_terminate(ptr %797) #24, !noalias !302
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i1790: ; preds = %.noexc.i.i1815, %if.then.i61.i, %invoke.cont22.i1785
@@ -6571,7 +6571,7 @@ terminate.lpad.i69.i:                             ; preds = %.noexc.i70.i, %if.t
   %803 = landingpad { ptr, i32 }
           catch ptr null
   %804 = extractvalue { ptr, i32 } %803, 0
-  call void @__clang_call_terminate(ptr %804) #24
+  call void @__clang_call_terminate(ptr %804) #24, !noalias !302
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit76.i: ; preds = %.noexc.i70.i, %if.then.i63.i, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i1790
@@ -7153,7 +7153,7 @@ terminate.lpad.i.i2059:                           ; preds = %.noexc.i.i2060, %if
   %880 = landingpad { ptr, i32 }
           catch ptr null
   %881 = extractvalue { ptr, i32 } %880, 0
-  call void @__clang_call_terminate(ptr %881) #24
+  call void @__clang_call_terminate(ptr %881) #24, !noalias !335
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i2010: ; preds = %.noexc.i.i2060, %if.then.i61.i2007, %invoke.cont22.i2004
@@ -7189,7 +7189,7 @@ terminate.lpad.i69.i2049:                         ; preds = %.noexc.i70.i2050, %
   %887 = landingpad { ptr, i32 }
           catch ptr null
   %888 = extractvalue { ptr, i32 } %887, 0
-  call void @__clang_call_terminate(ptr %888) #24
+  call void @__clang_call_terminate(ptr %888) #24, !noalias !335
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit76.i2015: ; preds = %.noexc.i70.i2050, %if.then.i63.i2012, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i2010
@@ -7787,7 +7787,7 @@ terminate.lpad.i.i2315:                           ; preds = %.noexc.i.i2316, %if
   %971 = landingpad { ptr, i32 }
           catch ptr null
   %972 = extractvalue { ptr, i32 } %971, 0
-  call void @__clang_call_terminate(ptr %972) #24
+  call void @__clang_call_terminate(ptr %972) #24, !noalias !368
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i2266: ; preds = %.noexc.i.i2316, %if.then.i66.i2263, %invoke.cont21.i2260
@@ -7823,7 +7823,7 @@ terminate.lpad.i74.i2305:                         ; preds = %.noexc.i75.i2306, %
   %978 = landingpad { ptr, i32 }
           catch ptr null
   %979 = extractvalue { ptr, i32 } %978, 0
-  call void @__clang_call_terminate(ptr %979) #24
+  call void @__clang_call_terminate(ptr %979) #24, !noalias !368
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit81.i2271: ; preds = %.noexc.i75.i2306, %if.then.i68.i2268, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i2266

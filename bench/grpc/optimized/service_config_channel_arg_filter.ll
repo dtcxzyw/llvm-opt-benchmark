@@ -602,7 +602,7 @@ if.then.i.i:                                      ; preds = %invoke.cont3.i.i
   %2 = extractvalue { i64, ptr } %call6.i.i, 0
   %3 = extractvalue { i64, ptr } %call6.i.i, 1
   invoke void @_ZN9grpc_core17ServiceConfigImpl6CreateERKNS_11ChannelArgsESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.154") align 8 %service_config.i.i, ptr noundef nonnull align 8 dereferenceable(8) %channel_args, i64 %2, ptr %3)
-          to label %invoke.cont10.i.i unwind label %lpad7.i.i
+          to label %invoke.cont10.i.i unwind label %lpad7.i.i, !noalias !7
 
 invoke.cont10.i.i:                                ; preds = %if.then.i.i
   %4 = load i64, ptr %service_config.i.i, align 8, !noalias !7
@@ -702,7 +702,7 @@ terminate.lpad.i6.i.i.i.i:                        ; preds = %if.then.i.i5.i.i.i.
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #20
+  call void @__clang_call_terminate(ptr %20) #20, !noalias !7
   unreachable
 
 ehcleanup.i.i:                                    ; preds = %lpad17.i.i, %lpad9.i.i

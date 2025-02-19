@@ -1481,7 +1481,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_40HdsiLegacyDisplayStyleOverrideSce
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  %32 = tail call ptr @__cxa_begin_catch(ptr %31) #20
+  %32 = tail call ptr @__cxa_begin_catch(ptr %31) #20, !noalias !10
   %33 = load ptr, ptr %26, align 8, !noalias !10
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8, !noalias !10
@@ -1503,7 +1503,7 @@ common.resume:                                    ; preds = %36, %102
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  tail call void @__clang_call_terminate(ptr %40) #22
+  tail call void @__clang_call_terminate(ptr %40) #22, !noalias !10
   unreachable
 
 41:                                               ; preds = %29

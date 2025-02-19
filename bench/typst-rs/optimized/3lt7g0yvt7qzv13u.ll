@@ -1655,7 +1655,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
 
 ._crit_edge.i.i.i:                                ; preds = %378, %377
   %.sroa.0.0.in.i.i = phi <4 x i8> [ %.sroa.01.3.vec.insert.i.i, %378 ], [ %.sroa.03.3.vec.insert.i.i, %377 ]
-  store <4 x i8> %.sroa.0.0.in.i.i, ptr %.sroa.16.053.i, align 1
+  store <4 x i8> %.sroa.0.0.in.i.i, ptr %.sroa.16.053.i, align 1, !noalias !329
   %.not.i.i.i = icmp uge i32 %371, %.val.i50
   %413 = zext i1 %.not.i.i.i to i32
   %.sroa.8.1.i = add nuw i32 %.sroa.8.154.i, %413
@@ -3966,7 +3966,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
 1231:                                             ; preds = %1225
   %1232 = extractvalue { ptr, i64 } %1224, 0
   %1233 = getelementptr inbounds nuw [0 x { [4 x i8] }], ptr %1232, i64 0, i64 %1229
-  store i32 %1222, ptr %1233, align 1
+  store i32 %1222, ptr %1233, align 1, !noalias !819
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !819
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !819
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %883

@@ -3457,7 +3457,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184: ; preds = %_Z
   %496 = getelementptr inbounds nuw i8, ptr %16, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %496, i8 0, i64 1024, i1 false)
   %spec.select.i = call i32 @llvm.umin.i32(i32 %495, i32 1023)
-  store i32 %spec.select.i, ptr %16, align 4
   %497 = getelementptr inbounds nuw i8, ptr %494, i64 4
   %498 = zext nneg i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %496, ptr nonnull align 4 %497, i64 %498, i1 false)

@@ -929,7 +929,6 @@ _ZN6Assimp11XGLImporter5clearEv.exit:             ; preds = %4, %_ZN6Assimp10TXm
 _ZN6Assimp8IOSystem4OpenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit: ; preds = %_ZN6Assimp11XGLImporter5clearEv.exit
   store ptr %36, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr null, ptr %37, align 8
   %38 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #33
           to label %55 unwind label %39
 

@@ -78615,7 +78615,6 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %lor.lhs.false.i.i11
   %64 = load i32, ptr %arrayidx10.i.i123, align 4
   %inc.i.i124 = add i32 %64, 1
   store i32 %inc.i.i124, ptr %arrayidx10.i.i123, align 4
-  store ptr null, ptr %sig_is_non_zero, align 8
   br i1 %tobool.not.i84, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit145, label %if.then.i.i.i138
 
 if.then.i.i.i138:                                 ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit

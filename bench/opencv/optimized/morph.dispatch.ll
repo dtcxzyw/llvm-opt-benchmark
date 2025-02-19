@@ -3328,7 +3328,7 @@ define void @_ZN2cv22createMorphologyFilterEiiRKNS_11_InputArrayENS_6Point_IiEEi
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #29
+  call void @__clang_call_terminate(ptr %55) #29, !noalias !161
   unreachable
 
 56:                                               ; preds = %.noexc
@@ -3547,7 +3547,7 @@ _ZN2cv3PtrINS_13BaseRowFilterEED2Ev.exit:         ; preds = %_ZN2cv3PtrINS_13Bas
   %149 = landingpad { ptr, i32 }
           catch ptr null
   %150 = extractvalue { ptr, i32 } %149, 0
-  call void @__clang_call_terminate(ptr %150) #29
+  call void @__clang_call_terminate(ptr %150) #29, !noalias !164
   unreachable
 
 151:                                              ; preds = %.noexc64

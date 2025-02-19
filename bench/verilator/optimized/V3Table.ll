@@ -8215,7 +8215,7 @@ _ZNKSt6vectorI14TableOutputVarSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %4
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  tail call void @__clang_call_terminate(ptr %36) #26
+  tail call void @__clang_call_terminate(ptr %36) #26, !noalias !94
   unreachable
 
 _ZSt19__relocate_object_aI14TableOutputVarS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %33, %.lr.ph.i.i.i
@@ -8249,7 +8249,7 @@ _ZNSt6vectorI14TableOutputVarSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds 
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  tail call void @__clang_call_terminate(ptr %45) #26
+  tail call void @__clang_call_terminate(ptr %45) #26, !noalias !101
   unreachable
 
 _ZSt19__relocate_object_aI14TableOutputVarS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i32: ; preds = %42, %.lr.ph.i.i.i28

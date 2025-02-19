@@ -21345,7 +21345,7 @@ define linkonce_odr void @_ZN7xgboost6common22MakeFixedVecWithMallocINS_6detail2
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #34
+  tail call void @__clang_call_terminate(ptr %17) #34, !noalias !231
   unreachable
 
 common.resume:                                    ; preds = %105, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7xgboost6common14MallocResourceESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i

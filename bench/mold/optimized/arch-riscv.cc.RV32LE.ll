@@ -36806,11 +36806,10 @@ if.end31.i.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %for.cond14.preheade
   %104 = load ptr, ptr %symbols210.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %add.ptr.i191.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %104, i64 %or9.i190.i.i.i.i.i.i.i.i.i.i.i.i
   %105 = load ptr, ptr %add.ptr.i191.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %106 = load i8, ptr %r_type.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %cmp217.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %106, 63
+  %cmp217.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %34, 63
   %aux_idx.i.i192.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %105, i64 40
-  %107 = load i32, ptr %aux_idx.i.i192.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i193.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %107, -1
+  %106 = load i32, ptr %aux_idx.i.i192.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %cmp.i.i193.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %106, -1
   br i1 %cmp217.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then218.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else223.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then218.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %"_ZZN4mold3elfL14shrink_sectionERNS0_7ContextINS0_6RV32LEEEERNS0_12InputSectionIS2_EEbENK3$_1clEv.exit.i.i.i.i.i.i.i.i.i.i.i.i"
@@ -36821,11 +36820,11 @@ _ZNK4mold3elf6SymbolINS0_6RV32LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit199.thre
   br label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNK4mold3elf6SymbolINS0_6RV32LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit199.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then218.i.i.i.i.i.i.i.i.i.i.i.i
-  %conv.i.i196.i.i.i.i.i.i.i.i.i.i.i.i = sext i32 %107 to i64
-  %108 = load ptr, ptr %symbol_aux.i.i203.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %tlsdesc_idx.i.i197.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %108, i64 %conv.i.i196.i.i.i.i.i.i.i.i.i.i.i.i, i32 3
-  %109 = load i32, ptr %tlsdesc_idx.i.i197.i.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %.fr.i.i.i.i.i.i.i.i.i.i.i.i = freeze i32 %109
+  %conv.i.i196.i.i.i.i.i.i.i.i.i.i.i.i = sext i32 %106 to i64
+  %107 = load ptr, ptr %symbol_aux.i.i203.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %tlsdesc_idx.i.i197.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %107, i64 %conv.i.i196.i.i.i.i.i.i.i.i.i.i.i.i, i32 3
+  %108 = load i32, ptr %tlsdesc_idx.i.i197.i.i.i.i.i.i.i.i.i.i.i.i, align 4
+  %.fr.i.i.i.i.i.i.i.i.i.i.i.i = freeze i32 %108
   %.not253.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.fr.i.i.i.i.i.i.i.i.i.i.i.i, -1
   %add221.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %delta.0272.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %spec.select251.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not253.i.i.i.i.i.i.i.i.i.i.i.i, i64 %add221.i.i.i.i.i.i.i.i.i.i.i.i, i64 %delta.0272.i.i.i.i.i.i.i.i.i.i.i.i
@@ -36835,17 +36834,17 @@ if.else223.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %"_ZZN4mold3elfL14sh
   br i1 %cmp.i.i193.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then227.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf6SymbolINS0_6RV32LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit207.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNK4mold3elf6SymbolINS0_6RV32LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit207.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else223.i.i.i.i.i.i.i.i.i.i.i.i
-  %conv.i.i204.i.i.i.i.i.i.i.i.i.i.i.i = sext i32 %107 to i64
-  %110 = load ptr, ptr %symbol_aux.i.i203.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %tlsdesc_idx.i.i205.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %110, i64 %conv.i.i204.i.i.i.i.i.i.i.i.i.i.i.i, i32 3
-  %111 = load i32, ptr %tlsdesc_idx.i.i205.i.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %111, -1
+  %conv.i.i204.i.i.i.i.i.i.i.i.i.i.i.i = sext i32 %106 to i64
+  %109 = load ptr, ptr %symbol_aux.i.i203.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %tlsdesc_idx.i.i205.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %109, i64 %conv.i.i204.i.i.i.i.i.i.i.i.i.i.i.i, i32 3
+  %110 = load i32, ptr %tlsdesc_idx.i.i205.i.i.i.i.i.i.i.i.i.i.i.i, align 4
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %110, -1
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf6SymbolINS0_6RV32LEEE9has_gottpERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNK4mold3elf6SymbolINS0_6RV32LEEE9has_gottpERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK4mold3elf6SymbolINS0_6RV32LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit207.i.i.i.i.i.i.i.i.i.i.i.i
-  %gottp_idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %110, i64 %conv.i.i204.i.i.i.i.i.i.i.i.i.i.i.i, i32 1
-  %112 = load i32, ptr %gottp_idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %.not252.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %112, -1
+  %gottp_idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %109, i64 %conv.i.i204.i.i.i.i.i.i.i.i.i.i.i.i, i32 1
+  %111 = load i32, ptr %gottp_idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
+  %.not252.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %111, -1
   br i1 %.not252.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then227.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then227.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %_ZNK4mold3elf6SymbolINS0_6RV32LEEE9has_gottpERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.else223.i.i.i.i.i.i.i.i.i.i.i.i
@@ -36853,11 +36852,11 @@ if.then227.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %_ZNK4mold3elf6Symbo
   %r_addend230.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i188.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %x.0.copyload.i214.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %r_addend230.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   %conv232.i.i.i.i.i.i.i.i.i.i.i.i = sext i32 %x.0.copyload.i214.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %113 = load i64, ptr %tp_addr234.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %112 = load i64, ptr %tp_addr234.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %add233.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %call229.i.i.i.i.i.i.i.i.i.i.i.i, 2048
   %sub235.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %add233.i.i.i.i.i.i.i.i.i.i.i.i, %conv232.i.i.i.i.i.i.i.i.i.i.i.i
-  %114 = sub i64 %sub235.i.i.i.i.i.i.i.i.i.i.i.i, %113
-  %cmp237.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %114, 4096
+  %113 = sub i64 %sub235.i.i.i.i.i.i.i.i.i.i.i.i, %112
+  %cmp237.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %113, 4096
   %add239.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %delta.0272.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %spec.select96.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp237.i.i.i.i.i.i.i.i.i.i.i.i, i64 %add239.i.i.i.i.i.i.i.i.i.i.i.i, i64 %delta.0272.i.i.i.i.i.i.i.i.i.i.i.i
   br label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
@@ -36872,12 +36871,12 @@ for.inc.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then227.i.i.i.i.
 _ZN4mold3elfL14shrink_sectionERNS0_7ContextINS0_6RV32LEEEERNS0_12InputSectionIS2_EEb.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i.i.i.i.i.i.i.i.i.i.i
   %delta.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.1.i.i.i.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i.i.i ]
   %conv243.i.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %delta.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i to i32
-  %115 = load ptr, ptr %extra.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %add.ptr.i218.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %115, i64 %retval.sroa.3.0.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %114 = load ptr, ptr %extra.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %add.ptr.i218.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %114, i64 %retval.sroa.3.0.i.i.i.i.i.i.i.i.i.i.i.i.i
   store i32 %conv243.i.i.i.i.i.i.i.i.i.i.i.i, ptr %add.ptr.i218.i.i.i.i.i.i.i.i.i.i.i.i, align 4
   %sh_size.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %116 = load i64, ptr %sh_size.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %sub248.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %116, %delta.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i
+  %115 = load i64, ptr %sh_size.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %sub248.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %115, %delta.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i
   store i64 %sub248.i.i.i.i.i.i.i.i.i.i.i.i, ptr %sh_size.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %i.i.i.i.i.i.i.i.i.i.i.i.i)
   br label %for.inc.i.i.i.i.i.i.i.i.i.i.i

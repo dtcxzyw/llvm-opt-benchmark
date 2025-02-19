@@ -30569,7 +30569,7 @@ _ZN3log13__private_api3log17hc5388398a63c86b4E.exit: ; preds = %126
   unreachable
 
 474:                                              ; preds = %.noexc.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5264) %467, ptr noundef nonnull align 8 dereferenceable(5264) %9, i64 5264, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5264) %467, ptr noundef nonnull align 8 dereferenceable(5264) %9, i64 5264, i1 false), !noalias !5855
   call void @llvm.lifetime.end.p0(i64 5264, ptr nonnull %9), !noalias !5893
   store ptr %467, ptr %411, align 8, !noalias !5827
   %475 = getelementptr inbounds nuw i8, ptr %1, i64 272
@@ -30628,7 +30628,7 @@ _ZN3log13__private_api3log17hc5388398a63c86b4E.exit: ; preds = %126
   %498 = getelementptr inbounds nuw i8, ptr %494, i64 24
   %499 = load ptr, ptr %498, align 8, !invariant.load !11, !noalias !5921, !nonnull !11
   invoke void %499(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %19, ptr noundef nonnull align 1 %495, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
-          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h42fc44d1740cfb12E.exit.i" unwind label %500
+          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h42fc44d1740cfb12E.exit.i" unwind label %500, !noalias !5855
 
 500:                                              ; preds = %491
   %501 = landingpad { ptr, i32 }
@@ -30859,7 +30859,7 @@ _ZN3log13__private_api3log17hc5388398a63c86b4E.exit81.i: ; preds = %541
   unreachable
 
 580:                                              ; preds = %.noexc.i84.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5576) %573, ptr noundef nonnull align 8 dereferenceable(5576) %8, i64 5576, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5576) %573, ptr noundef nonnull align 8 dereferenceable(5576) %8, i64 5576, i1 false), !noalias !5953
   call void @llvm.lifetime.end.p0(i64 5576, ptr nonnull %8), !noalias !5947
   store ptr %573, ptr %496, align 8, !noalias !5827
   store ptr @anon.7ab57987de18c81dd60b87306f1b6a7b.457.llvm.6633197745336603733, ptr %497, align 8, !noalias !5827
@@ -30946,7 +30946,7 @@ _ZN3log13__private_api3log17hc5388398a63c86b4E.exit81.i: ; preds = %541
   %620 = getelementptr inbounds nuw i8, ptr %616, i64 24
   %621 = load ptr, ptr %620, align 8, !invariant.load !11, !noalias !5982, !nonnull !11
   invoke void %621(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %12, ptr noundef nonnull align 1 %617, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
-          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hbe27a66f775e1b0eE.exit.i" unwind label %622
+          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hbe27a66f775e1b0eE.exit.i" unwind label %622, !noalias !5855
 
 622:                                              ; preds = %613
   %623 = landingpad { ptr, i32 }
@@ -31274,7 +31274,7 @@ _ZN3log13__private_api3log17hc5388398a63c86b4E.exit81.i: ; preds = %541
   unreachable
 
 738:                                              ; preds = %.noexc.i164
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5448) %731, ptr noundef nonnull align 8 dereferenceable(5448) %7, i64 5448, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5448) %731, ptr noundef nonnull align 8 dereferenceable(5448) %7, i64 5448, i1 false), !noalias !6071
   call void @llvm.lifetime.end.p0(i64 5448, ptr nonnull %7), !noalias !6066
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %40)
   %739 = getelementptr inbounds nuw i8, ptr %1, i64 152

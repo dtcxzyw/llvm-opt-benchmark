@@ -663,7 +663,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35HdLightSchemaTokens_St
   %85 = landingpad { ptr, i32 }
           catch ptr null
   %86 = extractvalue { ptr, i32 } %85, 0
-  %87 = call ptr @__cxa_begin_catch(ptr %86) #19
+  %87 = call ptr @__cxa_begin_catch(ptr %86) #19, !noalias !4
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14UsdLuxLightAPID1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #19, !noalias !4
   call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %65) #19, !noalias !4
   call void @_ZdlPvm(ptr noundef nonnull %65, i64 noundef 48) #20, !noalias !4
@@ -680,7 +680,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35HdLightSchemaTokens_St
   %91 = landingpad { ptr, i32 }
           catch ptr null
   %92 = extractvalue { ptr, i32 } %91, 0
-  call void @__clang_call_terminate(ptr %92) #22
+  call void @__clang_call_terminate(ptr %92) #22, !noalias !4
   unreachable
 
 93:                                               ; preds = %84

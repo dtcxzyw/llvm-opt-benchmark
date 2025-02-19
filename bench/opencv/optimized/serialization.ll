@@ -28277,7 +28277,7 @@ define linkonce_odr hidden void @_ZN3ade7details8Metadata3setIRKN2cv5gimpl4DataE
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #34
+  tail call void @__clang_call_terminate(ptr %30) #34, !noalias !283
   unreachable
 
 31:                                               ; preds = %3

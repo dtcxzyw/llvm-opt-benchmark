@@ -766,6 +766,7 @@ invoke.cont142.i.i:                               ; preds = %invoke.cont141.i.i
           to label %cleanup.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i.i
 
 cleanup.i.i:                                      ; preds = %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEEclERKS8_SB_.exit.i.i.i.i, %if.then.i.i.i.i.i.i, %_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRKS8_.exit.i.i.i.i, %invoke.cont28.i.i, %invoke.cont21.us136.i.i, %invoke.cont28.us.i.i, %for.body.us.i.i.i, %for.body.i.i.i, %invoke.cont142.i.i, %invoke.cont77.i.i, %invoke.cont71.i.i, %for.body.lr.ph.split.us.i.i.i, %invoke.cont3.i.i
+  %startEnd.promoted116 = phi i32 [ 2147483647, %invoke.cont3.i.i ], [ %max.sroa.0.0111.i.i, %invoke.cont142.i.i ], [ 2147483647, %invoke.cont71.i.i ], [ 2147483647, %invoke.cont77.i.i ], [ 2147483647, %for.body.lr.ph.split.us.i.i.i ], [ 2147483647, %for.body.i.i.i ], [ 2147483647, %for.body.us.i.i.i ], [ 2147483647, %invoke.cont28.us.i.i ], [ 2147483647, %invoke.cont21.us136.i.i ], [ 2147483647, %invoke.cont28.i.i ], [ 2147483647, %_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRKS8_.exit.i.i.i.i ], [ 2147483647, %if.then.i.i.i.i.i.i ], [ 2147483647, %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEEclERKS8_SB_.exit.i.i.i.i ]
   %startBegin.sroa.0.1 = phi i32 [ 0, %invoke.cont3.i.i ], [ %storemerge.in.sroa.speculated.i.i, %invoke.cont142.i.i ], [ 0, %invoke.cont71.i.i ], [ 0, %invoke.cont77.i.i ], [ 0, %for.body.lr.ph.split.us.i.i.i ], [ 0, %for.body.i.i.i ], [ 0, %for.body.us.i.i.i ], [ 0, %invoke.cont28.us.i.i ], [ 0, %invoke.cont21.us136.i.i ], [ 0, %invoke.cont28.i.i ], [ 0, %_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRKS8_.exit.i.i.i.i ], [ 0, %if.then.i.i.i.i.i.i ], [ 0, %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEEclERKS8_SB_.exit.i.i.i.i ]
   %52 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %otherV.i.i, ptr noundef %52)
@@ -779,6 +780,7 @@ terminate.lpad.i.i.i27.i:                         ; preds = %cleanup.i.i
   unreachable
 
 invoke.cont3.i:                                   ; preds = %cleanup.i.i, %if.end.i
+  %startEnd.promoted = phi i32 [ 2147483647, %if.end.i ], [ %startEnd.promoted116, %cleanup.i.i ]
   %startBegin.sroa.0.2 = phi i32 [ 0, %if.end.i ], [ %startBegin.sroa.0.1, %cleanup.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %dotV.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %otherV.i.i)
@@ -840,7 +842,6 @@ while.body.preheader.i.i:                         ; preds = %invoke.cont4.i
   %agg.tmp78.sroa.2.0.startDs.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %g, i64 96
   %62 = getelementptr inbounds nuw i8, ptr %t160.i.i, i64 8
   %agg.tmp172.sroa.2.0.start173.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %g, i64 80
-  %startEnd.promoted = load i32, ptr %startEnd, align 4
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit.i.i, %while.body.preheader.i.i
@@ -1158,7 +1159,6 @@ for.end148.i.i:                                   ; preds = %for.inc146.i.i, %in
 terminate.lpad.i.i.i112.i:                        ; preds = %for.end148.i.i
   %85 = landingpad { ptr, i32 }
           catch ptr null
-  store i32 %retval.sroa.0.0.i.i64.i.i, ptr %startEnd, align 4
   %86 = extractvalue { ptr, i32 } %85, 0
   call void @__clang_call_terminate(ptr %86) #20
   unreachable
@@ -1234,7 +1234,6 @@ cleanup.i105.i:                                   ; preds = %for.body.i.i100.i, 
 terminate.lpad.i.i106.i.i:                        ; preds = %cleanup.i105.i
   %91 = landingpad { ptr, i32 }
           catch ptr null
-  store i32 %89, ptr %startEnd, align 4
   %92 = extractvalue { ptr, i32 } %91, 0
   call void @__clang_call_terminate(ptr %92) #20
   unreachable

@@ -76518,7 +76518,7 @@ _ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8I
   %908 = landingpad { ptr, i32 }
           catch ptr null
   %909 = extractvalue { ptr, i32 } %908, 0
-  call void @__clang_call_terminate(ptr %909) #37
+  call void @__clang_call_terminate(ptr %909) #37, !noalias !1959
   unreachable
 
 _ZN7testing3NotINS_7MatcherISt17basic_string_viewIcSt11char_traitsIcEEEEEENS_8internal10NotMatcherIT_EES9_.exit.sink.split.sink.split: ; preds = %889, %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i

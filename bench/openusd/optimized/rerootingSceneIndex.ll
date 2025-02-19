@@ -981,7 +981,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexContain
   %101 = landingpad { ptr, i32 }
           catch ptr null
   %102 = extractvalue { ptr, i32 } %101, 0
-  %103 = call ptr @__cxa_begin_catch(ptr %102) #20
+  %103 = call ptr @__cxa_begin_catch(ptr %102) #20, !noalias !6
   %104 = load ptr, ptr %52, align 8, !noalias !6
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load ptr, ptr %105, align 8, !noalias !6
@@ -999,7 +999,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexContain
   %110 = landingpad { ptr, i32 }
           catch ptr null
   %111 = extractvalue { ptr, i32 } %110, 0
-  call void @__clang_call_terminate(ptr %111) #21
+  call void @__clang_call_terminate(ptr %111) #21, !noalias !6
   unreachable
 
 112:                                              ; preds = %100
@@ -4538,7 +4538,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexContain
   %80 = landingpad { ptr, i32 }
           catch ptr null
   %81 = extractvalue { ptr, i32 } %80, 0
-  %82 = call ptr @__cxa_begin_catch(ptr %81) #20
+  %82 = call ptr @__cxa_begin_catch(ptr %81) #20, !noalias !21
   %83 = load ptr, ptr %33, align 8, !noalias !21
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !noalias !21
@@ -4556,7 +4556,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexContain
   %89 = landingpad { ptr, i32 }
           catch ptr null
   %90 = extractvalue { ptr, i32 } %89, 0
-  call void @__clang_call_terminate(ptr %90) #21
+  call void @__clang_call_terminate(ptr %90) #21, !noalias !21
   unreachable
 
 91:                                               ; preds = %79
@@ -4860,7 +4860,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_RerootingSceneIndexPathDat
   %232 = landingpad { ptr, i32 }
           catch ptr null
   %233 = extractvalue { ptr, i32 } %232, 0
-  %234 = call ptr @__cxa_begin_catch(ptr %233) #20
+  %234 = call ptr @__cxa_begin_catch(ptr %233) #20, !noalias !31
   %235 = load ptr, ptr %185, align 8, !noalias !31
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 8
   %237 = load ptr, ptr %236, align 8, !noalias !31
@@ -4878,7 +4878,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_RerootingSceneIndexPathDat
   %241 = landingpad { ptr, i32 }
           catch ptr null
   %242 = extractvalue { ptr, i32 } %241, 0
-  call void @__clang_call_terminate(ptr %242) #21
+  call void @__clang_call_terminate(ptr %242) #21, !noalias !31
   unreachable
 
 243:                                              ; preds = %231
@@ -5182,7 +5182,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexPathArr
   %384 = landingpad { ptr, i32 }
           catch ptr null
   %385 = extractvalue { ptr, i32 } %384, 0
-  %386 = call ptr @__cxa_begin_catch(ptr %385) #20
+  %386 = call ptr @__cxa_begin_catch(ptr %385) #20, !noalias !41
   %387 = load ptr, ptr %337, align 8, !noalias !41
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 8
   %389 = load ptr, ptr %388, align 8, !noalias !41
@@ -5200,7 +5200,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_RerootingSceneIndexPathArr
   %393 = landingpad { ptr, i32 }
           catch ptr null
   %394 = extractvalue { ptr, i32 } %393, 0
-  call void @__clang_call_terminate(ptr %394) #21
+  call void @__clang_call_terminate(ptr %394) #21, !noalias !41
   unreachable
 
 395:                                              ; preds = %383

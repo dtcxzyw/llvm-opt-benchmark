@@ -272,7 +272,7 @@ _ZN8smallvec10infallible17had635ac09e5b739cE.exit: ; preds = %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !107
   %74 = extractvalue { i32, ptr } %73, 0
   %75 = extractvalue { i32, ptr } %73, 1
-  %76 = tail call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef readonly align 8 dereferenceable(416) %75, i32 noundef %74), !noalias !102
+  %76 = tail call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef readonly align 8 dereferenceable(416) %75, i32 noundef %74), !noalias !92
   tail call void @llvm.experimental.noalias.scope.decl(metadata !113)
   %77 = load i64, ptr %10, align 8, !alias.scope !116, !noalias !119, !noundef !15
   %78 = icmp ugt i64 %77, 4

@@ -1069,7 +1069,7 @@ _ZN4core3str11validations15next_code_point17h111f1ff751556898E.exit.thread.i.i.i
   %240 = extractvalue { i64, ptr } %238, 1
   %241 = icmp ne ptr %240, null
   call void @llvm.assume(i1 %241)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %240, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.i.i, i64 %237, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %240, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.i.i, i64 %237, i1 false), !noalias !183
   store i64 %239, ptr %11, align 8, !alias.scope !183
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %240, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !alias.scope !183

@@ -306,7 +306,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceC2ERKSt10sha
   %88 = landingpad { ptr, i32 }
           catch ptr null
   %89 = extractvalue { ptr, i32 } %88, 0
-  %90 = tail call ptr @__cxa_begin_catch(ptr %89) #17
+  %90 = tail call ptr @__cxa_begin_catch(ptr %89) #17, !noalias !7
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #17, !noalias !7
   tail call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef 56) #15, !noalias !7
   invoke void @__cxa_rethrow() #16
@@ -322,7 +322,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceC2ERKSt10sha
   %94 = landingpad { ptr, i32 }
           catch ptr null
   %95 = extractvalue { ptr, i32 } %94, 0
-  tail call void @__clang_call_terminate(ptr %95) #18
+  tail call void @__clang_call_terminate(ptr %95) #18, !noalias !7
   unreachable
 
 96:                                               ; preds = %87
@@ -1582,7 +1582,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_MaterialBindingsDataSource
   %99 = landingpad { ptr, i32 }
           catch ptr null
   %100 = extractvalue { ptr, i32 } %99, 0
-  %101 = call ptr @__cxa_begin_catch(ptr %100) #17
+  %101 = call ptr @__cxa_begin_catch(ptr %100) #17, !noalias !20
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_MaterialBindingsDataSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %41) #17, !noalias !20
   call void @_ZdlPvm(ptr noundef nonnull %41, i64 noundef 56) #15, !noalias !20
   invoke void @__cxa_rethrow() #16
@@ -1598,7 +1598,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_MaterialBindingsDataSource
   %105 = landingpad { ptr, i32 }
           catch ptr null
   %106 = extractvalue { ptr, i32 } %105, 0
-  call void @__clang_call_terminate(ptr %106) #18
+  call void @__clang_call_terminate(ptr %106) #18, !noalias !20
   unreachable
 
 107:                                              ; preds = %98

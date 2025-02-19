@@ -2928,7 +2928,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__17UsdGeomPointBa
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #23
+  call void @__clang_call_terminate(ptr %52) #23, !noalias !11
   unreachable
 
 53:                                               ; preds = %.noexc11.i.i, %.noexc.i.i, %.noexc.i.i.i.i
@@ -3130,7 +3130,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__17UsdGeomPointBa
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #23
+  call void @__clang_call_terminate(ptr %56) #23, !noalias !21
   unreachable
 
 57:                                               ; preds = %.noexc11.i.i, %.noexc.i.i, %.noexc.i.i.i.i

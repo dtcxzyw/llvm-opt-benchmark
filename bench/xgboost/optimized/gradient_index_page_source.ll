@@ -6110,7 +6110,7 @@ _ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit28: ; preds = %55
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #31
+  call void @__clang_call_terminate(ptr %65) #31, !noalias !43
   unreachable
 
 _ZNKSt3any4typeEv.exit.i.i.i:                     ; preds = %.thread, %61, %59
@@ -6394,7 +6394,7 @@ _ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit45: ; preds = %158
   %167 = landingpad { ptr, i32 }
           catch ptr null
   %168 = extractvalue { ptr, i32 } %167, 0
-  call void @__clang_call_terminate(ptr %168) #31
+  call void @__clang_call_terminate(ptr %168) #31, !noalias !52
   unreachable
 
 _ZNKSt3any4typeEv.exit.i.i.i47:                   ; preds = %.thread106, %164, %162
@@ -6678,7 +6678,7 @@ _ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit72: ; preds = %261
   %270 = landingpad { ptr, i32 }
           catch ptr null
   %271 = extractvalue { ptr, i32 } %270, 0
-  call void @__clang_call_terminate(ptr %271) #31
+  call void @__clang_call_terminate(ptr %271) #31, !noalias !61
   unreachable
 
 _ZNKSt3any4typeEv.exit.i.i.i74:                   ; preds = %.thread111, %267, %265

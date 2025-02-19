@@ -21025,7 +21025,6 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8, !noalias !184
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store ptr %25, ptr %20, align 8, !alias.scope !184
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.01.0.copyload = load ptr, ptr %26, align 8
   %27 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.01.0.copyload) #38

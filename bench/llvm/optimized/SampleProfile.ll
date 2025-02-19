@@ -7526,7 +7526,7 @@ _ZN4llvmL22skipProfileForFunctionERKNS_8FunctionE.exit.i.i.i: ; preds = %.lr.ph.
   %969 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(136) %961) #25, !noalias !604
   %970 = extractvalue { ptr, i64 } %969, 0
   %971 = extractvalue { ptr, i64 } %969, 1
-  %972 = call { ptr, i64 } @_ZN4llvm10sampleprof15FunctionSamples18getCanonicalFnNameENS_9StringRefES2_(ptr %970, i64 %971, ptr %967, i64 %968)
+  %972 = call { ptr, i64 } @_ZN4llvm10sampleprof15FunctionSamples18getCanonicalFnNameENS_9StringRefES2_(ptr %970, i64 %971, ptr %967, i64 %968), !noalias !604
   %973 = extractvalue { ptr, i64 } %972, 0
   %974 = extractvalue { ptr, i64 } %972, 1
   %975 = icmp eq i64 %974, 0
@@ -7538,13 +7538,13 @@ _ZN4llvmL22skipProfileForFunctionERKNS_8FunctionE.exit.i.i.i: ; preds = %.lr.ph.
   br i1 %978, label %979, label %_ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit.i.i.i
 
 979:                                              ; preds = %976
-  %980 = call noundef i64 @_ZN4llvm11GlobalValue7getGUIDENS_9StringRefE(ptr %973, i64 %974) #25
+  %980 = call noundef i64 @_ZN4llvm11GlobalValue7getGUIDENS_9StringRefE(ptr %973, i64 %974) #25, !noalias !604
   br label %_ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit.i.i.i
 
 _ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit.i.i.i: ; preds = %979, %976, %964
   %.sroa.05.0.i.i.i.i = phi ptr [ null, %979 ], [ %973, %976 ], [ %973, %964 ]
   %.sroa.36.0.i.i.i.i = phi i64 [ %980, %979 ], [ %974, %976 ], [ 0, %964 ]
-  call void @_ZN4llvm10sampleprof17ProfiledCallGraph19addProfiledFunctionENS0_10FunctionIdE(ptr noundef nonnull align 8 dereferenceable(112) %958, ptr %.sroa.05.0.i.i.i.i, i64 %.sroa.36.0.i.i.i.i)
+  call void @_ZN4llvm10sampleprof17ProfiledCallGraph19addProfiledFunctionENS0_10FunctionIdE(ptr noundef nonnull align 8 dereferenceable(112) %958, ptr %.sroa.05.0.i.i.i.i, i64 %.sroa.36.0.i.i.i.i), !noalias !604
   br label %_ZN4llvmL22skipProfileForFunctionERKNS_8FunctionE.exit.thread.i.i.i
 
 _ZN4llvmL22skipProfileForFunctionERKNS_8FunctionE.exit.thread.i.i.i: ; preds = %_ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit.i.i.i, %_ZN4llvmL22skipProfileForFunctionERKNS_8FunctionE.exit.i.i.i, %.lr.ph.i.i.i

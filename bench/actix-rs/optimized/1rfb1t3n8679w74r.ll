@@ -6297,7 +6297,7 @@ common.resume:                                    ; preds = %24, %18
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc2rc11Rc$LT$T$GT$3new17h2a9fa61557ac9991E.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %15, ptr noundef nonnull align 8 dereferenceable(128) %3, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %15, ptr noundef nonnull align 8 dereferenceable(128) %3, i64 128, i1 false), !noalias !729
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3), !noalias !729
   ret ptr %15
 
@@ -7168,7 +7168,7 @@ define void @_ZN9actix_web5route5Route3new17h74e7af58f681f9d2E(ptr noalias nound
           to label %20 unwind label %18
 
 15:                                               ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false), !noalias !847
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !847
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8

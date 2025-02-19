@@ -103,28 +103,28 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i:  ; preds = %21, %16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %30 = load i64, ptr %29, align 8, !tbaa !11
   %31 = icmp ult i64 %30, %13
-  br i1 %31, label %32, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i46
+  br i1 %31, label %32, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i49
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull %33, i64 noundef %13, i64 noundef 1) #10
-  %.pre8.pre.i.i50 = load i64, ptr %7, align 8, !tbaa !3
-  br label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i46
+  %.pre8.pre.i.i53 = load i64, ptr %7, align 8, !tbaa !3
+  br label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i49
 
-_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i46: ; preds = %32, %28
-  %.pre8.i.i47 = phi i64 [ %14, %28 ], [ %.pre8.pre.i.i50, %32 ]
-  %.not.i.i.i48 = icmp eq i64 %14, %13
-  br i1 %.not.i.i.i48, label %_ZN4llvm11SmallStringILj4EE6appendENS_9StringRefE.exit51, label %34
+_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i49: ; preds = %32, %28
+  %.pre8.i.i50 = phi i64 [ %14, %28 ], [ %.pre8.pre.i.i53, %32 ]
+  %.not.i.i.i51 = icmp eq i64 %14, %13
+  br i1 %.not.i.i.i51, label %_ZN4llvm11SmallStringILj4EE6appendENS_9StringRefE.exit54, label %34
 
-34:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i46
+34:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i49
   %35 = load ptr, ptr %6, align 8, !tbaa !9
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %.pre8.i.i47
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %.pre8.i.i50
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr align 1 %1, i64 %15, i1 false)
-  %.pre.i.i49 = load i64, ptr %7, align 8, !tbaa !3
-  br label %_ZN4llvm11SmallStringILj4EE6appendENS_9StringRefE.exit51
+  %.pre.i.i52 = load i64, ptr %7, align 8, !tbaa !3
+  br label %_ZN4llvm11SmallStringILj4EE6appendENS_9StringRefE.exit54
 
-_ZN4llvm11SmallStringILj4EE6appendENS_9StringRefE.exit51: ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i46, %34
-  %37 = phi i64 [ %.pre8.i.i47, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i46 ], [ %.pre.i.i49, %34 ]
+_ZN4llvm11SmallStringILj4EE6appendENS_9StringRefE.exit54: ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i49, %34
+  %37 = phi i64 [ %.pre8.i.i50, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i49 ], [ %.pre.i.i52, %34 ]
   %38 = add i64 %37, %15
   store i64 %38, ptr %7, align 8, !tbaa !3
   %39 = load ptr, ptr %6, align 8, !tbaa !9
@@ -132,13 +132,13 @@ _ZN4llvm11SmallStringILj4EE6appendENS_9StringRefE.exit51: ; preds = %_ZN4llvm15S
   %.not.i = icmp eq i32 %40, -1
   br i1 %.not.i, label %44, label %41
 
-41:                                               ; preds = %_ZN4llvm11SmallStringILj4EE6appendENS_9StringRefE.exit51
+41:                                               ; preds = %_ZN4llvm11SmallStringILj4EE6appendENS_9StringRefE.exit54
   %42 = load i32, ptr %4, align 8, !tbaa !12
   %43 = add i32 %42, %40
   store i32 %43, ptr %4, align 8, !tbaa !12
   br label %44
 
-44:                                               ; preds = %41, %_ZN4llvm11SmallStringILj4EE6appendENS_9StringRefE.exit51
+44:                                               ; preds = %41, %_ZN4llvm11SmallStringILj4EE6appendENS_9StringRefE.exit54
   %45 = icmp ugt i64 %38, 1
   br i1 %45, label %56, label %46
 
@@ -146,7 +146,7 @@ _ZN4llvm11SmallStringILj4EE6appendENS_9StringRefE.exit51: ; preds = %_ZN4llvm15S
   %47 = load i8, ptr %39, align 1, !tbaa !10
   switch i8 %47, label %56 [
     i8 10, label %48
-    i8 13, label %.sink.split
+    i8 13, label %.sink.split.i
     i8 9, label %51
   ]
 
@@ -154,21 +154,21 @@ _ZN4llvm11SmallStringILj4EE6appendENS_9StringRefE.exit51: ; preds = %_ZN4llvm15S
   %49 = load i32, ptr %5, align 4, !tbaa !12
   %50 = add i32 %49, 1
   store i32 %50, ptr %5, align 4, !tbaa !12
-  br label %.sink.split
+  br label %.sink.split.i
 
 51:                                               ; preds = %46
   %52 = load i32, ptr %4, align 8, !tbaa !12
   %53 = sub i32 0, %52
   %54 = and i32 %53, 7
   %55 = add i32 %54, %52
-  br label %.sink.split
+  br label %.sink.split.i
 
-.sink.split:                                      ; preds = %46, %48, %51
-  %.sink = phi i32 [ %55, %51 ], [ 0, %48 ], [ 0, %46 ]
-  store i32 %.sink, ptr %4, align 8, !tbaa !12
+.sink.split.i:                                    ; preds = %51, %48, %46
+  %.sink.i = phi i32 [ %55, %51 ], [ 0, %48 ], [ 0, %46 ]
+  store i32 %.sink.i, ptr %4, align 8, !tbaa !12
   br label %56
 
-56:                                               ; preds = %.sink.split, %46, %44
+56:                                               ; preds = %.sink.split.i, %46, %44
   store i64 0, ptr %7, align 8, !tbaa !3
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 %15
   %58 = sub nuw i64 %2, %15
@@ -178,16 +178,16 @@ _ZN4llvm11SmallStringILj4EE6appendENS_9StringRefE.exit51: ; preds = %_ZN4llvm15S
   %.034 = phi i64 [ %58, %56 ], [ %2, %3 ]
   %.0 = phi ptr [ %57, %56 ], [ %1, %3 ]
   %60 = getelementptr inbounds nuw i8, ptr %.0, i64 %.034
-  %.not71 = icmp eq i64 %.034, 0
-  br i1 %.not71, label %.loopexit, label %.lr.ph
+  %.not70 = icmp eq i64 %.034, 0
+  br i1 %.not70, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %59
   %61 = ptrtoint ptr %60 to i64
   br label %62
 
-62:                                               ; preds = %.lr.ph, %"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit53"
-  %.270 = phi ptr [ %.0, %.lr.ph ], [ %100, %"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit53" ]
-  %63 = load i8, ptr %.270, align 1, !tbaa !10
+62:                                               ; preds = %.lr.ph, %"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit58"
+  %.269 = phi ptr [ %.0, %.lr.ph ], [ %100, %"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit58" ]
+  %63 = load i8, ptr %.269, align 1, !tbaa !10
   %64 = add i8 %63, -127
   %or.cond = icmp ult i8 %64, -95
   br i1 %or.cond, label %68, label %65
@@ -195,11 +195,11 @@ _ZN4llvm11SmallStringILj4EE6appendENS_9StringRefE.exit51: ; preds = %_ZN4llvm15S
 65:                                               ; preds = %62
   %66 = load i32, ptr %4, align 8, !tbaa !12
   %67 = add i32 %66, 1
-  br label %"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit53.sink.split"
+  br label %"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit58.sink.split"
 
 68:                                               ; preds = %62
   %69 = tail call noundef i32 @_ZN4llvm18getNumBytesForUTF8Eh(i8 noundef zeroext %63) #10
-  %70 = ptrtoint ptr %.270 to i64
+  %70 = ptrtoint ptr %.269 to i64
   %71 = sub i64 %61, %70
   %72 = trunc i64 %71 to i32
   %73 = icmp ugt i32 %69, %72
@@ -222,16 +222,16 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i.i: ; preds = %74, %_ZN4llvm15S
   %.pre8.i.i4.i.i = phi i64 [ %.pre8.pre.i.i.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread.i.i ], [ 0, %74 ]
   %79 = load ptr, ptr %6, align 8, !tbaa !9
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 %.pre8.i.i4.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr nonnull align 1 %.270, i64 %71, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr nonnull align 1 %.269, i64 %71, i1 false)
   %.pre.i.i.i.i = load i64, ptr %7, align 8, !tbaa !3
   %81 = add i64 %.pre.i.i.i.i, %71
   br label %.loopexit.sink.split
 
 82:                                               ; preds = %68
   %83 = zext i32 %69 to i64
-  %84 = tail call noundef i32 @_ZN4llvm3sys7unicode15columnWidthUTF8ENS_9StringRefE(ptr nonnull %.270, i64 %83) #10
-  %.not.i52 = icmp eq i32 %84, -1
-  br i1 %.not.i52, label %88, label %85
+  %84 = tail call noundef i32 @_ZN4llvm3sys7unicode15columnWidthUTF8ENS_9StringRefE(ptr nonnull %.269, i64 %83) #10
+  %.not.i55 = icmp eq i32 %84, -1
+  br i1 %.not.i55, label %88, label %85
 
 85:                                               ; preds = %82
   %86 = load i32, ptr %4, align 8, !tbaa !12
@@ -241,13 +241,13 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i.i: ; preds = %74, %_ZN4llvm15S
 
 88:                                               ; preds = %85, %82
   %89 = icmp ugt i32 %69, 1
-  br i1 %89, label %"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit53", label %90
+  br i1 %89, label %"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit58", label %90
 
 90:                                               ; preds = %88
-  %91 = load i8, ptr %.270, align 1, !tbaa !10
-  switch i8 %91, label %"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit53" [
+  %91 = load i8, ptr %.269, align 1, !tbaa !10
+  switch i8 %91, label %"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit58" [
     i8 10, label %92
-    i8 13, label %"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit53.sink.split"
+    i8 13, label %"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit58.sink.split"
     i8 9, label %95
   ]
 
@@ -255,33 +255,33 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i.i: ; preds = %74, %_ZN4llvm15S
   %93 = load i32, ptr %5, align 4, !tbaa !12
   %94 = add i32 %93, 1
   store i32 %94, ptr %5, align 4, !tbaa !12
-  br label %"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit53.sink.split"
+  br label %"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit58.sink.split"
 
 95:                                               ; preds = %90
   %96 = load i32, ptr %4, align 8, !tbaa !12
   %97 = sub i32 0, %96
   %98 = and i32 %97, 7
   %99 = add i32 %98, %96
-  br label %"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit53.sink.split"
+  br label %"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit58.sink.split"
 
-"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit53.sink.split": ; preds = %90, %92, %65, %95
-  %.sink74 = phi i32 [ %99, %95 ], [ %67, %65 ], [ 0, %92 ], [ 0, %90 ]
-  %.033.ph = phi i64 [ %83, %95 ], [ 1, %65 ], [ %83, %92 ], [ %83, %90 ]
-  store i32 %.sink74, ptr %4, align 8, !tbaa !12
-  br label %"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit53"
+"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit58.sink.split": ; preds = %90, %92, %95, %65
+  %.sink.i57.sink = phi i32 [ %67, %65 ], [ %99, %95 ], [ 0, %92 ], [ 0, %90 ]
+  %.033.ph = phi i64 [ 1, %65 ], [ %83, %95 ], [ %83, %92 ], [ %83, %90 ]
+  store i32 %.sink.i57.sink, ptr %4, align 8, !tbaa !12
+  br label %"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit58"
 
-"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit53": ; preds = %"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit53.sink.split", %90, %88
-  %.033 = phi i64 [ %83, %88 ], [ %83, %90 ], [ %.033.ph, %"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit53.sink.split" ]
-  %100 = getelementptr inbounds nuw i8, ptr %.270, i64 %.033
+"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit58": ; preds = %"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit58.sink.split", %90, %88
+  %.033 = phi i64 [ %83, %88 ], [ %83, %90 ], [ %.033.ph, %"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit58.sink.split" ]
+  %100 = getelementptr inbounds nuw i8, ptr %.269, i64 %.033
   %101 = icmp ult ptr %100, %60
   br i1 %101, label %62, label %.loopexit, !llvm.loop !14
 
 .loopexit.sink.split:                             ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i.i, %.thread
-  %.sink75 = phi i64 [ %27, %.thread ], [ %81, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i.i ]
-  store i64 %.sink75, ptr %7, align 8, !tbaa !3
+  %.sink = phi i64 [ %27, %.thread ], [ %81, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i.i ]
+  store i64 %.sink, ptr %7, align 8, !tbaa !3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit53", %.loopexit.sink.split, %59
+.loopexit:                                        ; preds = %"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit58", %.loopexit.sink.split, %59
   ret void
 }
 

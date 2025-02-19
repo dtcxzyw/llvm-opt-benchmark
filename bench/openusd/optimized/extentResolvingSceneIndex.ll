@@ -5774,7 +5774,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14HdExtentSchemaD2Ev.exit38: ; preds = %_ZN
   %226 = landingpad { ptr, i32 }
           catch ptr null
   %227 = extractvalue { ptr, i32 } %226, 0
-  %228 = call ptr @__cxa_begin_catch(ptr %227) #24
+  %228 = call ptr @__cxa_begin_catch(ptr %227) #24, !noalias !51
   %229 = load ptr, ptr %221, align 8, !noalias !51
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 8
   %231 = load ptr, ptr %230, align 8, !noalias !51
@@ -5792,7 +5792,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14HdExtentSchemaD2Ev.exit38: ; preds = %_ZN
   %235 = landingpad { ptr, i32 }
           catch ptr null
   %236 = extractvalue { ptr, i32 } %235, 0
-  call void @__clang_call_terminate(ptr %236) #25
+  call void @__clang_call_terminate(ptr %236) #25, !noalias !51
   unreachable
 
 237:                                              ; preds = %225
@@ -5837,7 +5837,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14HdExtentSchemaD2Ev.exit38: ; preds = %_ZN
   %250 = landingpad { ptr, i32 }
           catch ptr null
   %251 = extractvalue { ptr, i32 } %250, 0
-  %252 = call ptr @__cxa_begin_catch(ptr %251) #24
+  %252 = call ptr @__cxa_begin_catch(ptr %251) #24, !noalias !54
   %253 = load ptr, ptr %245, align 8, !noalias !54
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %255 = load ptr, ptr %254, align 8, !noalias !54
@@ -5855,7 +5855,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14HdExtentSchemaD2Ev.exit38: ; preds = %_ZN
   %259 = landingpad { ptr, i32 }
           catch ptr null
   %260 = extractvalue { ptr, i32 } %259, 0
-  call void @__clang_call_terminate(ptr %260) #25
+  call void @__clang_call_terminate(ptr %260) #25, !noalias !54
   unreachable
 
 261:                                              ; preds = %249

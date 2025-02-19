@@ -512,7 +512,7 @@ lpad.i.i.i.i.i:                                   ; preds = %invoke.cont
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  %7 = call ptr @__cxa_begin_catch(ptr %6) #19
+  %7 = call ptr @__cxa_begin_catch(ptr %6) #19, !noalias !7
   invoke void @_ZN3ue221aligned_free_internalEPv(ptr noundef %2)
           to label %invoke.cont8.i.i.i.i.i unwind label %lpad7.i.i.i.i.i, !noalias !7
 
@@ -530,7 +530,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %lpad7.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #17
+  call void @__clang_call_terminate(ptr %10) #17, !noalias !7
   unreachable
 
 unreachable.i.i.i.i.i:                            ; preds = %invoke.cont8.i.i.i.i.i
@@ -567,7 +567,7 @@ lpad.i.i.i.i.i15:                                 ; preds = %invoke.cont16
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  %15 = call ptr @__cxa_begin_catch(ptr %14) #19
+  %15 = call ptr @__cxa_begin_catch(ptr %14) #19, !noalias !10
   invoke void @_ZN3ue221aligned_free_internalEPv(ptr noundef %11)
           to label %invoke.cont8.i.i.i.i.i19 unwind label %lpad7.i.i.i.i.i16, !noalias !10
 
@@ -585,7 +585,7 @@ terminate.lpad.i.i.i.i.i17:                       ; preds = %lpad7.i.i.i.i.i16
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #17
+  call void @__clang_call_terminate(ptr %18) #17, !noalias !10
   unreachable
 
 unreachable.i.i.i.i.i20:                          ; preds = %invoke.cont8.i.i.i.i.i19

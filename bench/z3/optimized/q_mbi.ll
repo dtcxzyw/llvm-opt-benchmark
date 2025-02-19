@@ -10073,7 +10073,6 @@ invoke.cont37:                                    ; preds = %invoke.cont32
   %23 = load ptr, ptr %value, align 8
   %24 = load ptr, ptr %ref.tmp33, align 8
   store ptr %24, ptr %value, align 8
-  store ptr %23, ptr %ref.tmp33, align 8
   %tobool.not.i.i.i = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %if.then.i.i.i.i
 

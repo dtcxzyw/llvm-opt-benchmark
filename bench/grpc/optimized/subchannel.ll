@@ -2356,9 +2356,6 @@ if.then.i.i6:                                     ; preds = %invoke.cont12
 terminate.lpad.i.i:                               ; preds = %if.then.i.i6
   %14 = landingpad { ptr, i32 }
           catch ptr null
-  store i32 %state, ptr %1, align 8
-  store i64 %6, ptr %2, align 8
-  store ptr null, ptr %ref.tmp, align 8
   %15 = extractvalue { ptr, i32 } %14, 0
   call void @__clang_call_terminate(ptr %15) #28
   unreachable
@@ -2373,9 +2370,6 @@ if.then.i.i.i:                                    ; preds = %_ZNSt8functionIFvvE
 terminate.lpad.i.i7:                              ; preds = %if.then.i.i.i
   %16 = landingpad { ptr, i32 }
           catch ptr null
-  store i32 %state, ptr %1, align 8
-  store i64 %6, ptr %2, align 8
-  store ptr null, ptr %ref.tmp, align 8
   %17 = extractvalue { ptr, i32 } %16, 0
   call void @__clang_call_terminate(ptr %17) #28
   unreachable
@@ -7948,7 +7942,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.end9.i.i.i.i
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #28
+  call void @__clang_call_terminate(ptr %12) #28, !noalias !95
   unreachable
 
 _ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit.i.thread.i.i.i: ; preds = %if.end9.i.i.i.i

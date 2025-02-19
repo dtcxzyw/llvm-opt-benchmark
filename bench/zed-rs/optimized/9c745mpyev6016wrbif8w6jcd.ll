@@ -8242,9 +8242,9 @@ _ZN4gpui3app10entity_map9EntityMap4read17h1539c83579b769daE.exit: ; preds = %"_Z
   unreachable
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h2e0ad24831c90eb3E.llvm.14072874383802587153.exit.i.i": ; preds = %.noexc.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(1024) %150, ptr noundef nonnull align 128 dereferenceable(1024) %11, i64 1024, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(1024) %150, ptr noundef nonnull align 128 dereferenceable(1024) %11, i64 1024, i1 false), !noalias !1421
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %11), !noalias !1421
-  %157 = atomicrmw add ptr %150, i64 1 monotonic, align 8
+  %157 = atomicrmw add ptr %150, i64 1 monotonic, align 8, !noalias !1421
   %158 = icmp slt i64 %157, 0
   br i1 %158, label %159, label %_ZN7postage8channels5watch7channel17h71c5862a75255e80E.exit
 

@@ -7614,7 +7614,7 @@ define hidden void @_ZN10tokenizers14pre_tokenizers5split5Split3new17hc83d8030d4
   br label %65
 
 53:                                               ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !1310
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11), !noalias !1306
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %36, ptr %54, align 8
@@ -7780,7 +7780,7 @@ define hidden void @_ZN10tokenizers14pre_tokenizers5split5Split3new17hc83d8030d4
   br label %66
 
 114:                                              ; preds = %.noexc.i23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !1357
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !1353
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %106, ptr %115, align 8

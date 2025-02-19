@@ -2321,7 +2321,7 @@ terminate.lpad.i.i:                               ; preds = %lpad4.i
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #19
+  call void @__clang_call_terminate(ptr %12) #19, !noalias !16
   unreachable
 
 if.end.i:                                         ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit.i, %invoke.cont9.i

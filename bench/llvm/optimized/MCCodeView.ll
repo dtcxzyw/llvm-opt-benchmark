@@ -162,7 +162,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15CodeViewContext7addFileERNS_10MCS
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !58
   %.fca.0.extract.i = extractvalue { ptr, i8 } %17, 0
   %.fca.1.extract.i = extractvalue { ptr, i8 } %17, 1
-  %18 = load ptr, ptr %.fca.0.extract.i, align 8, !tbaa !61
+  %18 = load ptr, ptr %.fca.0.extract.i, align 8, !tbaa !61, !noalias !58
   %.ptr.i = getelementptr inbounds nuw i8, ptr %18, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !63, !noalias !58
   %20 = trunc nuw i8 %.fca.1.extract.i to i1
@@ -269,7 +269,7 @@ _ZN4llvm15SmallVectorImplINS_15CodeViewContext8FileInfoEE6resizeEm.exit: ; preds
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !66
   %.fca.0.extract.i19 = extractvalue { ptr, i8 } %65, 0
   %.fca.1.extract.i20 = extractvalue { ptr, i8 } %65, 1
-  %66 = load ptr, ptr %.fca.0.extract.i19, align 8, !tbaa !61
+  %66 = load ptr, ptr %.fca.0.extract.i19, align 8, !tbaa !61, !noalias !66
   %.ptr.i21 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i32, ptr %67, align 4, !tbaa !69, !noalias !70

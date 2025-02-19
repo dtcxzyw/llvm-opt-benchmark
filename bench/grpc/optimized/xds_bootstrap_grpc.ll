@@ -1224,7 +1224,7 @@ _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit: ; preds = %entry
   %3 = extractvalue { i64, ptr } %call.i, 1
   store ptr %errors, ptr %error_field.i, align 8, !noalias !7
   invoke void @_ZN9grpc_core16ValidationErrors9PushFieldESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 %2, ptr %3)
-          to label %invoke.cont.i unwind label %lpad.i
+          to label %invoke.cont.i unwind label %lpad.i, !noalias !7
 
 invoke.cont.i:                                    ; preds = %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #24, !noalias !7
@@ -1307,7 +1307,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %for.body.i.i.i.i.i
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #26
+  call void @__clang_call_terminate(ptr %16) #26, !noalias !7
   unreachable
 
 _ZSt8_DestroyIN9grpc_core12_GLOBAL__N_112ChannelCredsEEvPT_.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i
@@ -1342,7 +1342,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #26
+  call void @__clang_call_terminate(ptr %19) #26, !noalias !7
   unreachable
 
 ehcleanup.i:                                      ; preds = %lpad9.i, %lpad5.i
@@ -1388,6 +1388,7 @@ invoke.cont10.lr.ph:                              ; preds = %for.cond.preheader
   br label %invoke.cont10
 
 invoke.cont10:                                    ; preds = %invoke.cont10.lr.ph, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit119
+  %call4.val253 = phi ptr [ %call4.val245, %invoke.cont10.lr.ph ], [ %call4.val, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit119 ]
   %i.0252 = phi i64 [ 0, %invoke.cont10.lr.ph ], [ %inc, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit119 ]
   store i64 1, ptr %ref.tmp8, align 8
   store ptr @.str.10, ptr %22, align 8
@@ -1414,8 +1415,7 @@ invoke.cont15:                                    ; preds = %invoke.cont14
 
 invoke.cont18:                                    ; preds = %invoke.cont15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
-  %call19.val = load ptr, ptr %channel_creds_list, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ChannelCreds", ptr %call19.val, i64 %i.0252
+  %add.ptr.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ChannelCreds", ptr %call4.val253, i64 %i.0252
   %26 = load atomic i64, ptr @_ZN9grpc_core17CoreConfiguration7config_E acquire, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %26 to ptr
   %cmp.not.i = icmp eq i64 %26, 0
@@ -1967,16 +1967,16 @@ invoke.cont95:                                    ; preds = %if.then85
   %70 = load ptr, ptr %second, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i, i64 72
   %71 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i185.not253 = icmp eq ptr %70, %71
-  br i1 %cmp.i185.not253, label %if.end124, label %for.body103.lr.ph
+  %cmp.i185.not254 = icmp eq ptr %70, %71
+  br i1 %cmp.i185.not254, label %if.end124, label %for.body103.lr.ph
 
 for.body103.lr.ph:                                ; preds = %invoke.cont95
   %server_features_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   br label %for.body103
 
 for.body103:                                      ; preds = %for.body103.lr.ph, %for.inc120
-  %__begin4.sroa.0.0254 = phi ptr [ %70, %for.body103.lr.ph ], [ %incdec.ptr.i, %for.inc120 ]
-  %_M_index.i.i.i.i186 = getelementptr inbounds nuw i8, ptr %__begin4.sroa.0.0254, i64 48
+  %__begin4.sroa.0.0255 = phi ptr [ %70, %for.body103.lr.ph ], [ %incdec.ptr.i, %for.inc120 ]
+  %_M_index.i.i.i.i186 = getelementptr inbounds nuw i8, ptr %__begin4.sroa.0.0255, i64 48
   %72 = load i8, ptr %_M_index.i.i.i.i186, align 8
   switch i8 %72, label %sw.default.i.i.i196 [
     i8 -1, label %if.then.i.i193
@@ -1999,7 +1999,7 @@ sw.default.i.i.i196:                              ; preds = %for.body103
   unreachable
 
 invoke.cont109:                                   ; preds = %for.body103
-  %call111 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin4.sroa.0.0254) #24
+  %call111 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin4.sroa.0.0255) #24
   %73 = extractvalue { i64, ptr } %call111, 0
   %cmp.i208 = icmp eq i64 %73, 24
   br i1 %cmp.i208, label %land.rhs.i, label %for.inc120
@@ -2032,11 +2032,11 @@ if.else.i.i.i.i217:                               ; preds = %if.then.i.i.i213
   br label %if.then.i.i.i.i139.invoke
 
 invoke.cont115:                                   ; preds = %if.then114
-  %call.i222223 = invoke { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %server_features_, ptr noundef nonnull align 8 dereferenceable(32) %__begin4.sroa.0.0254)
+  %call.i222223 = invoke { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %server_features_, ptr noundef nonnull align 8 dereferenceable(32) %__begin4.sroa.0.0255)
           to label %for.inc120 unwind label %lpad67.loopexit
 
 for.inc120:                                       ; preds = %invoke.cont115, %land.rhs.i, %invoke.cont109, %for.body103, %for.body103, %for.body103, %for.body103, %for.body103
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin4.sroa.0.0254, i64 56
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin4.sroa.0.0255, i64 56
   %cmp.i185.not = icmp eq ptr %incdec.ptr.i, %71
   br i1 %cmp.i185.not, label %if.end124, label %for.body103
 

@@ -1638,7 +1638,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %78 = load ptr, ptr %23, align 8, !noalias !53
   %79 = load i64, ptr %51, align 8, !noalias !53
   %80 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings34case_insensitive_ascii_starts_withENS_10StringViewES1_(ptr %76, i64 %77, ptr %78, i64 %79)
-          to label %81 unwind label %.loopexit.i.i
+          to label %81 unwind label %.loopexit.i.i, !noalias !50
 
 81:                                               ; preds = %75
   br i1 %80, label %82, label %95

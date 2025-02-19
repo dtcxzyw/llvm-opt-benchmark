@@ -2081,7 +2081,7 @@ _ZN5vcpkg3msg5printERKNS_15LocalizedStringE.exit313: ; preds = %232
   %243 = landingpad { ptr, i32 }
           catch ptr null
   %244 = extractvalue { ptr, i32 } %243, 0
-  call void @__clang_call_terminate(ptr %244) #23
+  call void @__clang_call_terminate(ptr %244) #23, !noalias !93
   unreachable
 
 _ZN5vcpkg4Json5Value6stringINS_10StringViewETnNSt9enable_ifIXsr3stdE18is_constructible_vIS3_RKT_EEiE4typeELi0EEES1_S7_.exit: ; preds = %.loopexit351

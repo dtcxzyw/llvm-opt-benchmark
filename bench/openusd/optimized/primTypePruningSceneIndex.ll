@@ -3098,7 +3098,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceC2ERKSt10sha
   %96 = landingpad { ptr, i32 }
           catch ptr null
   %97 = extractvalue { ptr, i32 } %96, 0
-  %98 = call ptr @__cxa_begin_catch(ptr %97) #21
+  %98 = call ptr @__cxa_begin_catch(ptr %97) #21, !noalias !21
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %82) #21, !noalias !21
   call void @_ZdlPvm(ptr noundef nonnull %82, i64 noundef 32) #19, !noalias !21
   invoke void @__cxa_rethrow() #23
@@ -3114,7 +3114,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceC2ERKSt10sha
   %102 = landingpad { ptr, i32 }
           catch ptr null
   %103 = extractvalue { ptr, i32 } %102, 0
-  call void @__clang_call_terminate(ptr %103) #22
+  call void @__clang_call_terminate(ptr %103) #22, !noalias !21
   unreachable
 
 104:                                              ; preds = %95

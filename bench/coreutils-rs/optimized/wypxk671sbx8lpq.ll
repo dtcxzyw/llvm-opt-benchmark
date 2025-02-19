@@ -1312,7 +1312,7 @@ _ZN10fundu_core5parse6Parser14parse_multiple17hc4b9ab3e29304af8E.exit.i.i.i: ; p
   %153 = extractvalue { i64, ptr } %144, 1
   %154 = icmp ne ptr %153, null
   call void @llvm.assume(i1 %154)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %153, ptr noundef nonnull align 1 dereferenceable(15) @anon.f4eead60594d9c7accfe52d4aae47f88.51, i64 15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %153, ptr noundef nonnull align 1 dereferenceable(15) @anon.f4eead60594d9c7accfe52d4aae47f88.51, i64 15, i1 false), !noalias !216
   store i64 %152, ptr %32, align 8, !noalias !212
   store ptr %153, ptr %.sroa.431.0..sroa_idx.i.i.i, align 8, !noalias !212
   store i64 15, ptr %.sroa.532.0..sroa_idx.i.i.i, align 8, !noalias !212
@@ -1331,7 +1331,7 @@ _ZN10fundu_core5parse6Parser14parse_multiple17hc4b9ab3e29304af8E.exit.i.i.i: ; p
   %159 = extractvalue { i64, ptr } %146, 1
   %160 = icmp ne ptr %159, null
   call void @llvm.assume(i1 %160)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(30) %159, ptr noundef nonnull align 1 dereferenceable(30) @anon.f4eead60594d9c7accfe52d4aae47f88.52, i64 30, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(30) %159, ptr noundef nonnull align 1 dereferenceable(30) @anon.f4eead60594d9c7accfe52d4aae47f88.52, i64 30, i1 false), !noalias !216
   store i64 %158, ptr %32, align 8, !noalias !212
   store ptr %159, ptr %.sroa.431.0..sroa_idx.i.i.i, align 8, !noalias !212
   store i64 30, ptr %.sroa.532.0..sroa_idx.i.i.i, align 8, !noalias !212
@@ -1401,7 +1401,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i: ; preds = %163
   %174 = extractvalue { i64, ptr } %140, 1
   %175 = icmp ne ptr %174, null
   call void @llvm.assume(i1 %175)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %174, ptr noundef nonnull align 1 dereferenceable(26) @anon.f4eead60594d9c7accfe52d4aae47f88.55, i64 26, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %174, ptr noundef nonnull align 1 dereferenceable(26) @anon.f4eead60594d9c7accfe52d4aae47f88.55, i64 26, i1 false), !noalias !216
   store i64 %173, ptr %32, align 8, !noalias !212
   store ptr %174, ptr %.sroa.431.0..sroa_idx.i.i.i, align 8, !noalias !212
   store i64 26, ptr %.sroa.532.0..sroa_idx.i.i.i, align 8, !noalias !212
@@ -1412,7 +1412,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i: ; preds = %163
   %178 = extractvalue { i64, ptr } %142, 1
   %179 = icmp ne ptr %178, null
   call void @llvm.assume(i1 %179)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %178, ptr noundef nonnull align 1 dereferenceable(19) @anon.f4eead60594d9c7accfe52d4aae47f88.56, i64 19, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %178, ptr noundef nonnull align 1 dereferenceable(19) @anon.f4eead60594d9c7accfe52d4aae47f88.56, i64 19, i1 false), !noalias !216
   store i64 %177, ptr %32, align 8, !noalias !212
   store ptr %178, ptr %.sroa.431.0..sroa_idx.i.i.i, align 8, !noalias !212
   store i64 19, ptr %.sroa.532.0..sroa_idx.i.i.i, align 8, !noalias !212
@@ -1665,7 +1665,7 @@ _ZN4core4time8Duration3new17h2b271a0fd6558ad7E.exit.i.i.i.i: ; preds = %216
   unreachable
 
 _ZN6uucore4mods5error11UUsageError3new17h097654545f0f282eE.exit: ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %239, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %239, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !292
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !292
   br label %246
 

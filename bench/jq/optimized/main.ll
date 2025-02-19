@@ -120,7 +120,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 18:                                               ; preds = %15
   tail call void @perror(ptr noundef nonnull @.str.1) #20
-  br label %724
+  br label %714
 
 19:                                               ; preds = %15
   store i32 513, ptr %5, align 4, !tbaa !13
@@ -865,7 +865,7 @@ isoption.exit748:                                 ; preds = %324, %322
   %368 = tail call ptr @jv_string_value(i64 %362, ptr %363) #19
   %369 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %364, ptr noundef nonnull @.str.38, ptr noundef %365, ptr noundef nonnull %326, ptr noundef %366, ptr noundef %367, ptr noundef %368) #22
   tail call void @jv_free(i64 %362, ptr %363) #19
-  br label %724
+  br label %714
 
 370:                                              ; preds = %324
   %371 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.08461354, ptr noundef nonnull dereferenceable(18) @.str.39) #23
@@ -906,7 +906,7 @@ isoption.exit775:                                 ; preds = %84, %378
 
 isoption.exit782:                                 ; preds = %84, %380
   %382 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef nonnull @.str.45)
-  br label %724
+  br label %714
 
 383:                                              ; preds = %380
   %384 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.08461354, ptr noundef nonnull dereferenceable(20) @.str.46) #23
@@ -915,7 +915,7 @@ isoption.exit782:                                 ; preds = %84, %380
 
 isoption.exit787:                                 ; preds = %383
   %putchar = tail call i32 @putchar(i32 10)
-  br label %724
+  br label %714
 
 385:                                              ; preds = %383
   %386 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.08461354, ptr noundef nonnull dereferenceable(10) @.str.48) #23
@@ -934,7 +934,7 @@ isoption.exit792:                                 ; preds = %385
   %395 = sext i32 %387 to i64
   %396 = getelementptr inbounds ptr, ptr %1, i64 %395
   %397 = tail call i32 @jq_testsuite(i64 %.sroa.0297.01372, ptr %.sroa.11.01373, i32 noundef %393, i32 noundef %394, ptr noundef %396) #19
-  br label %724
+  br label %714
 
 398:                                              ; preds = %84
   %399 = load ptr, ptr @stderr, align 8, !tbaa !20
@@ -1263,7 +1263,7 @@ isoption.exit691:                                 ; preds = %198, %isoption.exit
   %576 = tail call ptr @jv_string_value(i64 %572, ptr %573) #19
   %577 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %574, ptr noundef nonnull @.str.64, ptr noundef %575, ptr noundef %576) #22
   tail call void @jv_free(i64 %572, ptr %573) #19
-  br label %724
+  br label %714
 
 .thread:                                          ; preds = %497, %495, %500
   %.247010791585 = phi ptr [ %.0468.lcssa, %500 ], [ @.str.62, %495 ], [ @.str.62, %497 ]
@@ -1342,7 +1342,7 @@ isoption.exit691:                                 ; preds = %198, %isoption.exit
   %.sroa.13.4 = phi ptr [ %604, %631 ], [ %538, %.thread1081 ]
   %.1448 = phi i32 [ %635, %631 ], [ %569, %.thread1081 ]
   %.not566 = icmp eq i32 %.1448, 0
-  br i1 %.not566, label %724, label %637
+  br i1 %.not566, label %714, label %637
 
 637:                                              ; preds = %636
   %638 = and i32 %.1463.lcssa, 32768
@@ -1383,148 +1383,138 @@ isoption.exit691:                                 ; preds = %198, %isoption.exit
 649:                                              ; preds = %648, %646
   %650 = and i32 %.1463.lcssa, 4
   %.not573 = icmp eq i32 %650, 0
-  br i1 %.not573, label %.preheader, label %677
+  br i1 %.not573, label %.preheader, label %672
 
 .preheader:                                       ; preds = %649
   br i1 %.not569, label %.outer.us.preheader, label %.outer
 
 .outer.us.preheader:                              ; preds = %.preheader
-  %651 = load ptr, ptr %4, align 8, !tbaa !4
-  %652 = call i32 @jq_util_input_errors(ptr noundef %651) #19
-  %653 = icmp eq i32 %652, 0
-  br i1 %653, label %.lr.ph1396.us, label %.critedge
+  %651 = call i32 @jq_util_input_errors(ptr noundef %20) #19
+  %652 = icmp eq i32 %651, 0
+  br i1 %652, label %.lr.ph1396.us, label %.critedge
 
 .outer.us:                                        ; preds = %.split.us.us
-  %654 = load ptr, ptr %4, align 8, !tbaa !4
-  %655 = call i32 @jq_util_input_errors(ptr noundef %654) #19
-  %656 = icmp eq i32 %655, 0
-  br i1 %656, label %.lr.ph1396.us, label %.critedge, !llvm.loop !25
+  %653 = call i32 @jq_util_input_errors(ptr noundef %20) #19
+  %654 = icmp eq i32 %653, 0
+  br i1 %654, label %.lr.ph1396.us, label %.critedge, !llvm.loop !25
 
 .lr.ph1396.us:                                    ; preds = %.outer.us.preheader, %.outer.us
-  %657 = phi ptr [ %654, %.outer.us ], [ %651, %.outer.us.preheader ]
-  %.13.ph.us1970 = phi i32 [ %670, %.outer.us ], [ -4, %.outer.us.preheader ]
+  %.13.ph.us1970 = phi i32 [ %666, %.outer.us ], [ -4, %.outer.us.preheader ]
   %.2459.ph.us1969 = phi i32 [ %.4461.us, %.outer.us ], [ -1, %.outer.us.preheader ]
-  %658 = call { i64, ptr } @jq_util_input_next_input(ptr noundef %657) #19
-  %659 = extractvalue { i64, ptr } %658, 0
-  %660 = extractvalue { i64, ptr } %658, 1
-  %661 = call i32 @jv_get_kind(i64 %659, ptr %660) #19
-  %.not1095.us.us = icmp eq i32 %661, 0
-  br i1 %.not1095.us.us, label %662, label %.critedge7.us.us
+  %655 = call { i64, ptr } @jq_util_input_next_input(ptr noundef %20) #19
+  %656 = extractvalue { i64, ptr } %655, 0
+  %657 = extractvalue { i64, ptr } %655, 1
+  %658 = call i32 @jv_get_kind(i64 %656, ptr %657) #19
+  %.not1095.us.us = icmp eq i32 %658, 0
+  br i1 %.not1095.us.us, label %659, label %.critedge7.us.us
 
-662:                                              ; preds = %.lr.ph1396.us
-  %663 = call { i64, ptr } @jv_copy(i64 %659, ptr %660) #19
-  %664 = extractvalue { i64, ptr } %663, 0
-  %665 = extractvalue { i64, ptr } %663, 1
-  %666 = call i32 @jv_invalid_has_msg(i64 %664, ptr %665) #19
-  %.not575.us.us = icmp eq i32 %666, 0
+659:                                              ; preds = %.lr.ph1396.us
+  %660 = call { i64, ptr } @jv_copy(i64 %656, ptr %657) #19
+  %661 = extractvalue { i64, ptr } %660, 0
+  %662 = extractvalue { i64, ptr } %660, 1
+  %663 = call i32 @jv_invalid_has_msg(i64 %661, ptr %662) #19
+  %.not575.us.us = icmp eq i32 %663, 0
   br i1 %.not575.us.us, label %.critedge, label %.critedge7.us.us
 
-.critedge7.us.us:                                 ; preds = %662, %.lr.ph1396.us
-  %667 = call i32 @jv_get_kind(i64 %659, ptr %660) #19
-  %.not1096.us.us = icmp eq i32 %667, 0
+.critedge7.us.us:                                 ; preds = %659, %.lr.ph1396.us
+  %664 = call i32 @jv_get_kind(i64 %656, ptr %657) #19
+  %.not1096.us.us = icmp eq i32 %664, 0
   br i1 %.not1096.us.us, label %.split1427.us, label %.split.us.us
 
 .split.us.us:                                     ; preds = %.critedge7.us.us
-  %668 = load ptr, ptr %3, align 8, !tbaa !11
-  %669 = load i32, ptr %5, align 4, !tbaa !13
-  %670 = call fastcc i32 @process(ptr noundef %668, i64 %659, ptr %660, i32 noundef %.0481.lcssa, i32 noundef %669, i32 noundef %.1463.lcssa)
-  %671 = icmp slt i32 %670, 1
-  %672 = icmp ne i32 %670, -4
-  %or.cond9.us = and i1 %671, %672
-  %673 = icmp ne i32 %670, -1
-  %674 = zext i1 %673 to i32
-  %.4461.us = select i1 %or.cond9.us, i32 %674, i32 %.2459.ph.us1969
-  %675 = load ptr, ptr %3, align 8, !tbaa !11
-  %676 = call i32 @jq_halted(ptr noundef %675) #19
-  %.not577.us = icmp eq i32 %676, 0
+  %665 = load i32, ptr %5, align 4, !tbaa !13
+  %666 = call fastcc i32 @process(ptr noundef nonnull %16, i64 %656, ptr %657, i32 noundef %.0481.lcssa, i32 noundef %665, i32 noundef %.1463.lcssa)
+  %667 = icmp slt i32 %666, 1
+  %668 = icmp ne i32 %666, -4
+  %or.cond9.us = and i1 %667, %668
+  %669 = icmp ne i32 %666, -1
+  %670 = zext i1 %669 to i32
+  %.4461.us = select i1 %or.cond9.us, i32 %670, i32 %.2459.ph.us1969
+  %671 = call i32 @jq_halted(ptr noundef nonnull %16) #19
+  %.not577.us = icmp eq i32 %671, 0
   br i1 %.not577.us, label %.outer.us, label %.critedge, !llvm.loop !25
 
-677:                                              ; preds = %649
-  %678 = call { i64, ptr } @jv_null() #19
-  %679 = extractvalue { i64, ptr } %678, 0
-  %680 = extractvalue { i64, ptr } %678, 1
-  %681 = load i32, ptr %5, align 4, !tbaa !13
-  %682 = call fastcc i32 @process(ptr noundef nonnull %16, i64 %679, ptr %680, i32 noundef %.0481.lcssa, i32 noundef %681, i32 noundef %.1463.lcssa)
+672:                                              ; preds = %649
+  %673 = call { i64, ptr } @jv_null() #19
+  %674 = extractvalue { i64, ptr } %673, 0
+  %675 = extractvalue { i64, ptr } %673, 1
+  %676 = load i32, ptr %5, align 4, !tbaa !13
+  %677 = call fastcc i32 @process(ptr noundef nonnull %16, i64 %674, ptr %675, i32 noundef %.0481.lcssa, i32 noundef %676, i32 noundef %.1463.lcssa)
   br label %.critedge
 
-.lr.ph1396:                                       ; preds = %.outer, %712
-  %683 = phi ptr [ %719, %712 ], [ %703, %.outer ]
-  %684 = call { i64, ptr } @jq_util_input_next_input(ptr noundef %683) #19
-  %685 = extractvalue { i64, ptr } %684, 0
-  %686 = extractvalue { i64, ptr } %684, 1
-  %687 = call i32 @jv_get_kind(i64 %685, ptr %686) #19
-  %.not1095 = icmp eq i32 %687, 0
-  br i1 %.not1095, label %688, label %.critedge7
+.lr.ph1396:                                       ; preds = %.outer, %704
+  %678 = call { i64, ptr } @jq_util_input_next_input(ptr noundef %20) #19
+  %679 = extractvalue { i64, ptr } %678, 0
+  %680 = extractvalue { i64, ptr } %678, 1
+  %681 = call i32 @jv_get_kind(i64 %679, ptr %680) #19
+  %.not1095 = icmp eq i32 %681, 0
+  br i1 %.not1095, label %682, label %.critedge7
 
-688:                                              ; preds = %.lr.ph1396
-  %689 = call { i64, ptr } @jv_copy(i64 %685, ptr %686) #19
-  %690 = extractvalue { i64, ptr } %689, 0
-  %691 = extractvalue { i64, ptr } %689, 1
-  %692 = call i32 @jv_invalid_has_msg(i64 %690, ptr %691) #19
-  %.not575 = icmp eq i32 %692, 0
+682:                                              ; preds = %.lr.ph1396
+  %683 = call { i64, ptr } @jv_copy(i64 %679, ptr %680) #19
+  %684 = extractvalue { i64, ptr } %683, 0
+  %685 = extractvalue { i64, ptr } %683, 1
+  %686 = call i32 @jv_invalid_has_msg(i64 %684, ptr %685) #19
+  %.not575 = icmp eq i32 %686, 0
   br i1 %.not575, label %.critedge, label %.critedge7
 
-.critedge7:                                       ; preds = %.lr.ph1396, %688
-  %693 = call i32 @jv_get_kind(i64 %685, ptr %686) #19
-  %.not1096 = icmp eq i32 %693, 0
-  br i1 %.not1096, label %712, label %.split
+.critedge7:                                       ; preds = %.lr.ph1396, %682
+  %687 = call i32 @jv_get_kind(i64 %679, ptr %680) #19
+  %.not1096 = icmp eq i32 %687, 0
+  br i1 %.not1096, label %704, label %.split
 
 .split:                                           ; preds = %.critedge7
-  %694 = load ptr, ptr %3, align 8, !tbaa !11
-  %695 = load i32, ptr %5, align 4, !tbaa !13
-  %696 = call fastcc i32 @process(ptr noundef %694, i64 %685, ptr %686, i32 noundef %.0481.lcssa, i32 noundef %695, i32 noundef %.1463.lcssa)
-  %697 = icmp slt i32 %696, 1
-  %698 = icmp ne i32 %696, -4
-  %or.cond9 = and i1 %697, %698
-  %699 = icmp ne i32 %696, -1
-  %700 = zext i1 %699 to i32
-  %.4461 = select i1 %or.cond9, i32 %700, i32 %.2459.ph
-  %701 = load ptr, ptr %3, align 8, !tbaa !11
-  %702 = call i32 @jq_halted(ptr noundef %701) #19
-  %.not577 = icmp eq i32 %702, 0
+  %688 = load ptr, ptr %3, align 8, !tbaa !11
+  %689 = load i32, ptr %5, align 4, !tbaa !13
+  %690 = call fastcc i32 @process(ptr noundef %688, i64 %679, ptr %680, i32 noundef %.0481.lcssa, i32 noundef %689, i32 noundef %.1463.lcssa)
+  %691 = icmp slt i32 %690, 1
+  %692 = icmp ne i32 %690, -4
+  %or.cond9 = and i1 %691, %692
+  %693 = icmp ne i32 %690, -1
+  %694 = zext i1 %693 to i32
+  %.4461 = select i1 %or.cond9, i32 %694, i32 %.2459.ph
+  %695 = call i32 @jq_halted(ptr noundef %688) #19
+  %.not577 = icmp eq i32 %695, 0
   br i1 %.not577, label %.outer, label %.critedge, !llvm.loop !25
 
 .outer:                                           ; preds = %.preheader, %.split
   %.2459.ph = phi i32 [ %.4461, %.split ], [ -1, %.preheader ]
-  %.13.ph = phi i32 [ %696, %.split ], [ -4, %.preheader ]
-  %703 = load ptr, ptr %4, align 8, !tbaa !4
-  %704 = call i32 @jq_util_input_errors(ptr noundef %703) #19
-  %705 = icmp eq i32 %704, 0
-  br i1 %705, label %.lr.ph1396, label %.critedge
+  %.13.ph = phi i32 [ %690, %.split ], [ -4, %.preheader ]
+  %696 = call i32 @jq_util_input_errors(ptr noundef %20) #19
+  %697 = icmp eq i32 %696, 0
+  br i1 %697, label %.lr.ph1396, label %.critedge
 
 .split1427.us:                                    ; preds = %.critedge7.us.us
-  %706 = call { i64, ptr } @jv_invalid_get_msg(i64 %659, ptr %660) #19
-  %707 = extractvalue { i64, ptr } %706, 0
-  %708 = extractvalue { i64, ptr } %706, 1
-  %709 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %710 = call ptr @jv_string_value(i64 %707, ptr %708) #19
-  %711 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %709, ptr noundef nonnull @.str.72, ptr noundef %710) #22
-  call void @jv_free(i64 %707, ptr %708) #19
+  %698 = call { i64, ptr } @jv_invalid_get_msg(i64 %656, ptr %657) #19
+  %699 = extractvalue { i64, ptr } %698, 0
+  %700 = extractvalue { i64, ptr } %698, 1
+  %701 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %702 = call ptr @jv_string_value(i64 %699, ptr %700) #19
+  %703 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %701, ptr noundef nonnull @.str.72, ptr noundef %702) #22
+  call void @jv_free(i64 %699, ptr %700) #19
   br label %.critedge
 
-712:                                              ; preds = %.critedge7
-  %713 = call { i64, ptr } @jv_invalid_get_msg(i64 %685, ptr %686) #19
-  %714 = extractvalue { i64, ptr } %713, 0
-  %715 = extractvalue { i64, ptr } %713, 1
-  %716 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %717 = call ptr @jv_string_value(i64 %714, ptr %715) #19
-  %718 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %716, ptr noundef nonnull @.str.73, ptr noundef %717) #22
-  call void @jv_free(i64 %714, ptr %715) #19
-  %719 = load ptr, ptr %4, align 8, !tbaa !4
-  %720 = call i32 @jq_util_input_errors(ptr noundef %719) #19
-  %721 = icmp eq i32 %720, 0
-  br i1 %721, label %.lr.ph1396, label %.critedge
+704:                                              ; preds = %.critedge7
+  %705 = call { i64, ptr } @jv_invalid_get_msg(i64 %679, ptr %680) #19
+  %706 = extractvalue { i64, ptr } %705, 0
+  %707 = extractvalue { i64, ptr } %705, 1
+  %708 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %709 = call ptr @jv_string_value(i64 %706, ptr %707) #19
+  %710 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %708, ptr noundef nonnull @.str.73, ptr noundef %709) #22
+  call void @jv_free(i64 %706, ptr %707) #19
+  %711 = call i32 @jq_util_input_errors(ptr noundef %20) #19
+  %712 = icmp eq i32 %711, 0
+  br i1 %712, label %.lr.ph1396, label %.critedge
 
-.critedge:                                        ; preds = %.outer, %.split, %712, %688, %.split.us.us, %.outer.us, %662, %.outer.us.preheader, %.split1427.us, %677
-  %.1458 = phi i32 [ -1, %677 ], [ %.2459.ph.us1969, %.split1427.us ], [ -1, %.outer.us.preheader ], [ %.2459.ph.us1969, %662 ], [ %.4461.us, %.outer.us ], [ %.4461.us, %.split.us.us ], [ %.2459.ph, %688 ], [ %.2459.ph, %712 ], [ %.2459.ph, %.outer ], [ %.4461, %.split ]
-  %.12 = phi i32 [ %682, %677 ], [ 5, %.split1427.us ], [ -4, %.outer.us.preheader ], [ %.13.ph.us1970, %662 ], [ %670, %.outer.us ], [ %670, %.split.us.us ], [ %.13.ph, %688 ], [ %.13.ph, %712 ], [ %.13.ph, %.outer ], [ %696, %.split ]
-  %722 = load ptr, ptr %4, align 8, !tbaa !4
-  %723 = call i32 @jq_util_input_errors(ptr noundef %722) #19
-  %.not578 = icmp eq i32 %723, 0
+.critedge:                                        ; preds = %.outer, %.split, %704, %682, %.split.us.us, %.outer.us, %659, %.outer.us.preheader, %.split1427.us, %672
+  %.1458 = phi i32 [ -1, %672 ], [ %.2459.ph.us1969, %.split1427.us ], [ -1, %.outer.us.preheader ], [ %.2459.ph.us1969, %659 ], [ %.4461.us, %.outer.us ], [ %.4461.us, %.split.us.us ], [ %.2459.ph, %682 ], [ %.2459.ph, %704 ], [ %.2459.ph, %.outer ], [ %.4461, %.split ]
+  %.12 = phi i32 [ %677, %672 ], [ 5, %.split1427.us ], [ -4, %.outer.us.preheader ], [ %.13.ph.us1970, %659 ], [ %666, %.outer.us ], [ %666, %.split.us.us ], [ %.13.ph, %682 ], [ %.13.ph, %704 ], [ %.13.ph, %.outer ], [ %690, %.split ]
+  %713 = call i32 @jq_util_input_errors(ptr noundef %20) #19
+  %.not578 = icmp eq i32 %713, 0
   %spec.select597 = select i1 %.not578, i32 %.12, i32 2
-  br label %724
+  br label %714
 
-724:                                              ; preds = %isoption.exit792, %isoption.exit787, %isoption.exit782, %359, %570, %.critedge, %636, %18
+714:                                              ; preds = %isoption.exit792, %isoption.exit787, %isoption.exit782, %359, %570, %.critedge, %636, %18
   %.sroa.0322.0 = phi i64 [ %11, %18 ], [ %.sroa.0322.1.lcssa, %570 ], [ %.sroa.0322.14, %636 ], [ %.sroa.0322.14, %.critedge ], [ %.sroa.0322.11379, %359 ], [ %.sroa.0322.11379, %isoption.exit782 ], [ %.sroa.0322.11379, %isoption.exit787 ], [ %.sroa.0322.11379, %isoption.exit792 ]
   %.sroa.26.0 = phi ptr [ %12, %18 ], [ %.sroa.26.1.lcssa, %570 ], [ %.sroa.26.14, %636 ], [ %.sroa.26.14, %.critedge ], [ %.sroa.26.11380, %359 ], [ %.sroa.26.11380, %isoption.exit782 ], [ %.sroa.26.11380, %isoption.exit787 ], [ %.sroa.26.11380, %isoption.exit792 ]
   %.sroa.0355.0 = phi i64 [ %8, %18 ], [ %.sroa.0355.1.lcssa, %570 ], [ %.sroa.0355.4, %636 ], [ %.sroa.0355.4, %.critedge ], [ %.sroa.0355.11381, %359 ], [ %.sroa.0355.11381, %isoption.exit782 ], [ %.sroa.0355.11381, %isoption.exit787 ], [ %.sroa.0355.11381, %isoption.exit792 ]
@@ -1532,61 +1522,61 @@ isoption.exit691:                                 ; preds = %198, %isoption.exit
   %.0462 = phi i32 [ 0, %18 ], [ %.1463.lcssa, %570 ], [ %.1463.lcssa, %636 ], [ %.1463.lcssa, %.critedge ], [ %.34651363, %359 ], [ %.34651363, %isoption.exit782 ], [ %.34651363, %isoption.exit787 ], [ %.34651363, %isoption.exit792 ]
   %.0457 = phi i32 [ -1, %18 ], [ -1, %570 ], [ -1, %636 ], [ %.1458, %.critedge ], [ -1, %359 ], [ -1, %isoption.exit782 ], [ -1, %isoption.exit787 ], [ -1, %isoption.exit792 ]
   %.0 = phi i32 [ 2, %18 ], [ 2, %570 ], [ 3, %636 ], [ %spec.select597, %.critedge ], [ 2, %359 ], [ 0, %isoption.exit782 ], [ 0, %isoption.exit787 ], [ %397, %isoption.exit792 ]
-  %725 = load ptr, ptr @stdout, align 8, !tbaa !20
-  %726 = call i32 @ferror(ptr noundef %725) #19
-  %727 = call i32 @fclose(ptr noundef %725)
-  %728 = or i32 %727, %726
-  %or.cond11.not = icmp eq i32 %728, 0
-  br i1 %or.cond11.not, label %735, label %729
+  %715 = load ptr, ptr @stdout, align 8, !tbaa !20
+  %716 = call i32 @ferror(ptr noundef %715) #19
+  %717 = call i32 @fclose(ptr noundef %715)
+  %718 = or i32 %717, %716
+  %or.cond11.not = icmp eq i32 %718, 0
+  br i1 %or.cond11.not, label %725, label %719
 
-729:                                              ; preds = %724
-  %730 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %731 = tail call ptr @__errno_location() #21
-  %732 = load i32, ptr %731, align 4, !tbaa !13
-  %733 = call ptr @strerror(i32 noundef %732) #19
-  %734 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %730, ptr noundef nonnull @.str.74, ptr noundef %733) #22
-  br label %735
+719:                                              ; preds = %714
+  %720 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %721 = tail call ptr @__errno_location() #21
+  %722 = load i32, ptr %721, align 4, !tbaa !13
+  %723 = call ptr @strerror(i32 noundef %722) #19
+  %724 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %720, ptr noundef nonnull @.str.74, ptr noundef %723) #22
+  br label %725
 
-735:                                              ; preds = %724, %729
-  %.16 = phi i32 [ 2, %729 ], [ %.0, %724 ]
+725:                                              ; preds = %714, %719
+  %.16 = phi i32 [ 2, %719 ], [ %.0, %714 ]
   call void @jv_free(i64 %.sroa.0355.0, ptr %.sroa.13.0) #19
   call void @jv_free(i64 %.sroa.0322.0, ptr %.sroa.26.0) #19
   call void @jq_util_input_free(ptr noundef nonnull %4) #19
   call void @jq_teardown(ptr noundef nonnull %3) #19
-  %736 = and i32 %.0462, 4096
-  %.not591 = icmp eq i32 %736, 0
-  br i1 %.not591, label %744, label %737
+  %726 = and i32 %.0462, 4096
+  %.not591 = icmp eq i32 %726, 0
+  br i1 %.not591, label %734, label %727
 
-737:                                              ; preds = %735
+727:                                              ; preds = %725
   %.not592 = icmp eq i32 %.16, -4
-  br i1 %.not592, label %740, label %738
+  br i1 %.not592, label %730, label %728
 
-738:                                              ; preds = %737
-  %739 = call i32 @llvm.abs.i32(i32 %.16, i1 true)
-  call void @exit(i32 noundef %739) #25
+728:                                              ; preds = %727
+  %729 = call i32 @llvm.abs.i32(i32 %.16, i1 true)
+  call void @exit(i32 noundef %729) #25
   unreachable
 
-740:                                              ; preds = %737
-  switch i32 %.0457, label %743 [
-    i32 -1, label %741
-    i32 0, label %742
+730:                                              ; preds = %727
+  switch i32 %.0457, label %733 [
+    i32 -1, label %731
+    i32 0, label %732
   ]
 
-741:                                              ; preds = %740
+731:                                              ; preds = %730
   call void @exit(i32 noundef 4) #24
   unreachable
 
-742:                                              ; preds = %740
+732:                                              ; preds = %730
   call void @exit(i32 noundef 1) #24
   unreachable
 
-743:                                              ; preds = %740
+733:                                              ; preds = %730
   call void @exit(i32 noundef 0) #25
   unreachable
 
-744:                                              ; preds = %735
-  %745 = call i32 @llvm.smax.i32(i32 %.16, i32 0)
-  call void @exit(i32 noundef %745) #25
+734:                                              ; preds = %725
+  %735 = call i32 @llvm.smax.i32(i32 %.16, i32 0)
+  call void @exit(i32 noundef %735) #25
   unreachable
 }
 

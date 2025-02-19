@@ -3299,8 +3299,7 @@ _ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit: ; preds = %if.end, %m
   store ptr %first_arena_.i, ptr %last_serial_arena.i.i, align 16
   %last_lifecycle_id_seen.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %id.0.i.i, ptr %last_lifecycle_id_seen.i.i, align 8
-  %12 = load i64, ptr %space_allocated, align 8
-  ret i64 %12
+  ret i64 %add
 }
 
 ; Function Attrs: mustprogress uwtable

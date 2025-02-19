@@ -441,7 +441,6 @@ define hidden void @_ZN6Assimp11DXFImporter14InternReadFileERKNSt7__cxx1112basic
 _ZN6Assimp8IOSystem4OpenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit: ; preds = %._crit_edge.i.i
   store ptr %18, ptr %4, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %19, align 8
   %20 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
           to label %37 unwind label %21
 

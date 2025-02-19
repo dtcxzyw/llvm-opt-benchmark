@@ -21,21 +21,20 @@ define void @_ZN8WasmEdge4MMapC2ERKNSt10filesystem7__cxx114pathE(ptr noundef non
 .noexc:                                           ; preds = %2
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3), !noalias !4
   store ptr inttoptr (i64 -1 to ptr), ptr %4, align 8, !noalias !4
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 -1, ptr %5, align 8, !noalias !4
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 0, ptr %6, align 8, !noalias !4
-  %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #13, !noalias !4
-  %8 = invoke i32 (ptr, i32, ...) @open(ptr noundef %7, i32 noundef 0)
-          to label %9 unwind label %14, !noalias !4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 0, ptr %5, align 8, !noalias !4
+  %6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #13, !noalias !4
+  %7 = invoke i32 (ptr, i32, ...) @open(ptr noundef %6, i32 noundef 0)
+          to label %8 unwind label %14, !noalias !4
 
-9:                                                ; preds = %.noexc
-  store i32 %8, ptr %5, align 8, !noalias !4
-  %10 = icmp slt i32 %8, 0
+8:                                                ; preds = %.noexc
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 %7, ptr %9, align 8, !noalias !4
+  %10 = icmp slt i32 %7, 0
   br i1 %10, label %21, label %11
 
-11:                                               ; preds = %9
-  %12 = call i32 @fstat(i32 noundef %8, ptr noundef nonnull %3) #13, !noalias !4
+11:                                               ; preds = %8
+  %12 = call i32 @fstat(i32 noundef %7, ptr noundef nonnull %3) #13, !noalias !4
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %.thread8, label %thread-pre-split
 
@@ -47,14 +46,14 @@ define void @_ZN8WasmEdge4MMapC2ERKNSt10filesystem7__cxx114pathE(ptr noundef non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #14
+  tail call void @__clang_call_terminate(ptr %16) #14, !noalias !4
   unreachable
 
 thread-pre-split:                                 ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %18 = load i64, ptr %17, align 8, !noalias !4
-  store i64 %18, ptr %6, align 8, !noalias !4
-  %19 = tail call ptr @mmap(ptr noundef null, i64 noundef %18, i32 noundef 1, i32 noundef 1, i32 noundef %8, i64 noundef 0) #13, !noalias !4
+  store i64 %18, ptr %5, align 8, !noalias !4
+  %19 = tail call ptr @mmap(ptr noundef null, i64 noundef %18, i32 noundef 1, i32 noundef 1, i32 noundef %7, i64 noundef 0) #13, !noalias !4
   store ptr %19, ptr %4, align 8, !noalias !4
   %20 = icmp eq ptr %19, inttoptr (i64 -1 to ptr)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3), !noalias !4
@@ -64,12 +63,12 @@ thread-pre-split:                                 ; preds = %11
   store ptr %4, ptr %0, align 8
   br label %_ZNSt10unique_ptrIN8WasmEdge12_GLOBAL__N_19ImplementESt14default_deleteIS2_EED2Ev.exit
 
-21:                                               ; preds = %9
+21:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3), !noalias !4
   br label %_ZNKSt14default_deleteIN8WasmEdge12_GLOBAL__N_19ImplementEEclEPS2_.exit.i
 
 .thread7:                                         ; preds = %thread-pre-split, %.thread8
-  %22 = invoke i32 @close(i32 noundef %8)
+  %22 = invoke i32 @close(i32 noundef %7)
           to label %_ZNKSt14default_deleteIN8WasmEdge12_GLOBAL__N_19ImplementEEclEPS2_.exit.i unwind label %23
 
 23:                                               ; preds = %.thread7

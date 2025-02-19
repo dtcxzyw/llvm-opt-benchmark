@@ -2405,7 +2405,7 @@ _ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m
   %169 = landingpad { ptr, i32 }
           catch ptr null
   %170 = extractvalue { ptr, i32 } %169, 0
-  call void @__clang_call_terminate(ptr %170) #27
+  call void @__clang_call_terminate(ptr %170) #27, !noalias !66
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.i: ; preds = %167, %161, %157
@@ -2440,7 +2440,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.i: ; preds = %167, %161, %157
   %184 = landingpad { ptr, i32 }
           catch ptr null
   %185 = extractvalue { ptr, i32 } %184, 0
-  call void @__clang_call_terminate(ptr %185) #27
+  call void @__clang_call_terminate(ptr %185) #27, !noalias !66
   unreachable
 
 _ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i.i: ; preds = %182, %176, %.lr.ph.i.i.i.i.i
@@ -2474,7 +2474,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit.i: ; preds = 
   %194 = landingpad { ptr, i32 }
           catch ptr null
   %195 = extractvalue { ptr, i32 } %194, 0
-  call void @__clang_call_terminate(ptr %195) #27
+  call void @__clang_call_terminate(ptr %195) #27, !noalias !66
   unreachable
 
 _ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit32.i: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit.i
@@ -2534,7 +2534,7 @@ _ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit32.i: ; preds = %_ZNSt6vectorIN4c
   %208 = landingpad { ptr, i32 }
           catch ptr null
   %209 = extractvalue { ptr, i32 } %208, 0
-  call void @__clang_call_terminate(ptr %209) #27
+  call void @__clang_call_terminate(ptr %209) #27, !noalias !66
   unreachable
 
 _ZN4cvc58internal19RealAlgebraicNumberD2Ev.exit33.i: ; preds = %.body.i, %197

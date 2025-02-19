@@ -228,7 +228,7 @@ _ZN5folly6detail12_GLOBAL__N_112scope_guard_ISt5_BindIFPDoFvPvES4_EEED2Ev.exit2.
           catch ptr null
   tail call void @__cxa_free_exception(ptr noundef nonnull %7) #22, !noalias !42
   %15 = extractvalue { ptr, i32 } %14, 0
-  %16 = tail call ptr @__cxa_begin_catch(ptr %15) #22
+  %16 = tail call ptr @__cxa_begin_catch(ptr %15) #22, !noalias !35
   tail call void @_ZN5folly17current_exceptionEv(ptr dead_on_unwind writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %0) #22
   invoke void @__cxa_end_catch()
           to label %"_ZN5folly6detail24catch_current_exception_IZNS0_24make_exception_ptr_with_ERKNS0_28make_exception_ptr_with_arg_EPvE3$_0EENSt15__exception_ptr13exception_ptrEOT_.exit" unwind label %17

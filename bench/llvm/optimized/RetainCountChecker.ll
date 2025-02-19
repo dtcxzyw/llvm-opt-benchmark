@@ -4932,7 +4932,7 @@ _ZNK5clang4Type12isScalarTypeEv.exit.thread.i:    ; preds = %_ZNK5clang4Type12is
   %505 = load ptr, ptr %504, align 8, !tbaa !660, !noalias !776
   store ptr %.sroa.0300.6, ptr %15, align 8, !tbaa !3, !noalias !776
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0300.6) #21, !noalias !776
-  call void @_ZN5clang4ento17ConstraintManager6assumeEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_11DefinedSValEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %19, ptr noundef nonnull align 8 dereferenceable(56) %505, ptr noundef nonnull %15, ptr %.fca.0.extract29.i, i8 %.fca.1.extract30.i, i1 noundef zeroext true) #21
+  call void @_ZN5clang4ento17ConstraintManager6assumeEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_11DefinedSValEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %19, ptr noundef nonnull align 8 dereferenceable(56) %505, ptr noundef nonnull %15, ptr %.fca.0.extract29.i, i8 %.fca.1.extract30.i, i1 noundef zeroext true) #21, !noalias !753
   %506 = load ptr, ptr %15, align 8, !tbaa !3, !noalias !776
   %.not.i.i.i70.i = icmp eq ptr %506, null
   br i1 %.not.i.i.i70.i, label %510, label %507
@@ -4965,7 +4965,7 @@ _ZNK5clang4Type12isScalarTypeEv.exit.thread.i:    ; preds = %_ZNK5clang4Type12is
   %514 = load ptr, ptr %513, align 8, !tbaa !660, !noalias !780
   store ptr %.sroa.0300.6, ptr %14, align 8, !tbaa !3, !noalias !780
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0300.6) #21, !noalias !780
-  call void @_ZN5clang4ento17ConstraintManager6assumeEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_11DefinedSValEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %20, ptr noundef nonnull align 8 dereferenceable(56) %514, ptr noundef nonnull %14, ptr %.fca.0.extract29.i, i8 %.fca.1.extract30.i, i1 noundef zeroext false) #21
+  call void @_ZN5clang4ento17ConstraintManager6assumeEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_11DefinedSValEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %20, ptr noundef nonnull align 8 dereferenceable(56) %514, ptr noundef nonnull %14, ptr %.fca.0.extract29.i, i8 %.fca.1.extract30.i, i1 noundef zeroext false) #21, !noalias !753
   %515 = load ptr, ptr %14, align 8, !tbaa !3, !noalias !780
   %.not.i.i.i73.i = icmp eq ptr %515, null
   br i1 %.not.i.i.i73.i, label %517, label %516

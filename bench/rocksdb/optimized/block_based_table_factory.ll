@@ -2619,7 +2619,7 @@ invoke.cont35:                                    ; preds = %.noexc109
   store i32 32, ptr %ref.tmp34, align 8, !alias.scope !15
   %parse_func_.i.i112 = getelementptr inbounds nuw i8, ptr %ref.tmp34, i64 8
   %type_.i.i113 = getelementptr inbounds nuw i8, ptr %ref.tmp34, i64 168
-  %7 = getelementptr inbounds nuw i8, ptr %ref.tmp34, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %ref.tmp34, i64 72
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp34, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false), !alias.scope !15
   store i32 19, ptr %type_.i.i113, align 8, !alias.scope !15
@@ -2634,15 +2634,15 @@ invoke.cont35:                                    ; preds = %.noexc109
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo4EnumINS0_22BlockBasedTableOptions9IndexTypeEEESF_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SK_EEENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E10_M_managerERSt9_Any_dataRKSY_St18_Manager_operation, ptr %_M_manager3.i.i.i.i116, align 8, !alias.scope !15
   %_M_invoker4.i2.i.i.i117 = getelementptr inbounds nuw i8, ptr %ref.tmp34, i64 32
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo4EnumINS0_22BlockBasedTableOptions9IndexTypeEEESF_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SK_EEENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_, ptr %_M_invoker4.i2.i.i.i117, align 8, !alias.scope !15
-  store i64 ptrtoint (ptr @_ZN7rocksdbL38block_base_table_index_type_string_mapB5cxx11E to i64), ptr %7, align 8, !alias.scope !15
+  %serialize_func_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp34, i64 40
+  store i64 ptrtoint (ptr @_ZN7rocksdbL38block_base_table_index_type_string_mapB5cxx11E to i64), ptr %serialize_func_.i.i, align 8, !alias.scope !15
   %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %ref.tmp34, i64 48
   store i64 0, ptr %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i, align 8, !alias.scope !15
   %_M_manager3.i.i.i23.i = getelementptr inbounds nuw i8, ptr %ref.tmp34, i64 56
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo4EnumINS0_22BlockBasedTableOptions9IndexTypeEEESH_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SM_EEENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation, ptr %_M_manager3.i.i.i23.i, align 8, !alias.scope !15
   %_M_invoker4.i2.i.i24.i = getelementptr inbounds nuw i8, ptr %ref.tmp34, i64 64
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo4EnumINS0_22BlockBasedTableOptions9IndexTypeEEESH_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SM_EEENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E9_M_invokeERKSt9_Any_dataS4_SC_OSE_OSF_, ptr %_M_invoker4.i2.i.i24.i, align 8, !alias.scope !15
-  %equals_func_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp34, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %equals_func_.i.i, i8 0, i64 16, i1 false), !alias.scope !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !alias.scope !15
   %_M_manager3.i.i.i53.i = getelementptr inbounds nuw i8, ptr %ref.tmp34, i64 88
   store ptr @_ZNSt17_Function_handlerIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EZNS0_14OptionTypeInfo4EnumINS0_22BlockBasedTableOptions9IndexTypeEEESG_iPKSt13unordered_mapIS9_T_St4hashIS9_ESt8equal_toIS9_ESaISt4pairISA_SL_EEENS0_15OptionTypeFlagsEEUlS3_SB_SD_SD_SE_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation, ptr %_M_manager3.i.i.i53.i, align 8, !alias.scope !15
   %_M_invoker4.i2.i.i54.i = getelementptr inbounds nuw i8, ptr %ref.tmp34, i64 96
@@ -2697,7 +2697,7 @@ invoke.cont50:                                    ; preds = %.noexc132
   store i32 33, ptr %ref.tmp49, align 8, !alias.scope !18
   %parse_func_.i.i135 = getelementptr inbounds nuw i8, ptr %ref.tmp49, i64 8
   %type_.i.i136 = getelementptr inbounds nuw i8, ptr %ref.tmp49, i64 168
-  %11 = getelementptr inbounds nuw i8, ptr %ref.tmp49, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %ref.tmp49, i64 72
   %12 = getelementptr inbounds nuw i8, ptr %ref.tmp49, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, i8 0, i64 64, i1 false), !alias.scope !18
   store i32 19, ptr %type_.i.i136, align 8, !alias.scope !18
@@ -2712,15 +2712,15 @@ invoke.cont50:                                    ; preds = %.noexc132
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo4EnumINS0_22BlockBasedTableOptions18DataBlockIndexTypeEEESF_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SK_EEENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E10_M_managerERSt9_Any_dataRKSY_St18_Manager_operation, ptr %_M_manager3.i.i.i.i140, align 8, !alias.scope !18
   %_M_invoker4.i2.i.i.i141 = getelementptr inbounds nuw i8, ptr %ref.tmp49, i64 32
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo4EnumINS0_22BlockBasedTableOptions18DataBlockIndexTypeEEESF_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SK_EEENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_, ptr %_M_invoker4.i2.i.i.i141, align 8, !alias.scope !18
-  store i64 ptrtoint (ptr @_ZN7rocksdbL49block_base_table_data_block_index_type_string_mapB5cxx11E to i64), ptr %11, align 8, !alias.scope !18
-  %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i142 = getelementptr inbounds nuw i8, ptr %ref.tmp49, i64 48
-  store i64 0, ptr %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i142, align 8, !alias.scope !18
-  %_M_manager3.i.i.i23.i143 = getelementptr inbounds nuw i8, ptr %ref.tmp49, i64 56
-  store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo4EnumINS0_22BlockBasedTableOptions18DataBlockIndexTypeEEESH_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SM_EEENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation, ptr %_M_manager3.i.i.i23.i143, align 8, !alias.scope !18
-  %_M_invoker4.i2.i.i24.i144 = getelementptr inbounds nuw i8, ptr %ref.tmp49, i64 64
-  store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo4EnumINS0_22BlockBasedTableOptions18DataBlockIndexTypeEEESH_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SM_EEENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E9_M_invokeERKSt9_Any_dataS4_SC_OSE_OSF_, ptr %_M_invoker4.i2.i.i24.i144, align 8, !alias.scope !18
-  %equals_func_.i.i145 = getelementptr inbounds nuw i8, ptr %ref.tmp49, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %equals_func_.i.i145, i8 0, i64 16, i1 false), !alias.scope !18
+  %serialize_func_.i.i142 = getelementptr inbounds nuw i8, ptr %ref.tmp49, i64 40
+  store i64 ptrtoint (ptr @_ZN7rocksdbL49block_base_table_data_block_index_type_string_mapB5cxx11E to i64), ptr %serialize_func_.i.i142, align 8, !alias.scope !18
+  %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i143 = getelementptr inbounds nuw i8, ptr %ref.tmp49, i64 48
+  store i64 0, ptr %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i143, align 8, !alias.scope !18
+  %_M_manager3.i.i.i23.i144 = getelementptr inbounds nuw i8, ptr %ref.tmp49, i64 56
+  store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo4EnumINS0_22BlockBasedTableOptions18DataBlockIndexTypeEEESH_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SM_EEENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation, ptr %_M_manager3.i.i.i23.i144, align 8, !alias.scope !18
+  %_M_invoker4.i2.i.i24.i145 = getelementptr inbounds nuw i8, ptr %ref.tmp49, i64 64
+  store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo4EnumINS0_22BlockBasedTableOptions18DataBlockIndexTypeEEESH_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SM_EEENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E9_M_invokeERKSt9_Any_dataS4_SC_OSE_OSF_, ptr %_M_invoker4.i2.i.i24.i145, align 8, !alias.scope !18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false), !alias.scope !18
   %_M_manager3.i.i.i53.i146 = getelementptr inbounds nuw i8, ptr %ref.tmp49, i64 88
   store ptr @_ZNSt17_Function_handlerIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EZNS0_14OptionTypeInfo4EnumINS0_22BlockBasedTableOptions18DataBlockIndexTypeEEESG_iPKSt13unordered_mapIS9_T_St4hashIS9_ESt8equal_toIS9_ESaISt4pairISA_SL_EEENS0_15OptionTypeFlagsEEUlS3_SB_SD_SD_SE_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation, ptr %_M_manager3.i.i.i53.i146, align 8, !alias.scope !18
   %_M_invoker4.i2.i.i54.i147 = getelementptr inbounds nuw i8, ptr %ref.tmp49, i64 96
@@ -2733,7 +2733,7 @@ invoke.cont55:                                    ; preds = %invoke.cont50
   store i32 214, ptr %ref.tmp54, align 8, !alias.scope !21
   %parse_func_.i.i148 = getelementptr inbounds nuw i8, ptr %ref.tmp54, i64 8
   %type_.i.i149 = getelementptr inbounds nuw i8, ptr %ref.tmp54, i64 168
-  %13 = getelementptr inbounds nuw i8, ptr %ref.tmp54, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %ref.tmp54, i64 72
   %14 = getelementptr inbounds nuw i8, ptr %ref.tmp54, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, i8 0, i64 64, i1 false), !alias.scope !21
   store i32 19, ptr %type_.i.i149, align 8, !alias.scope !21
@@ -2748,15 +2748,15 @@ invoke.cont55:                                    ; preds = %invoke.cont50
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo4EnumINS0_22BlockBasedTableOptions19IndexShorteningModeEEESF_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SK_EEENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E10_M_managerERSt9_Any_dataRKSY_St18_Manager_operation, ptr %_M_manager3.i.i.i.i153, align 8, !alias.scope !21
   %_M_invoker4.i2.i.i.i154 = getelementptr inbounds nuw i8, ptr %ref.tmp54, i64 32
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo4EnumINS0_22BlockBasedTableOptions19IndexShorteningModeEEESF_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SK_EEENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_, ptr %_M_invoker4.i2.i.i.i154, align 8, !alias.scope !21
-  store i64 ptrtoint (ptr @_ZN7rocksdbL49block_base_table_index_shortening_mode_string_mapB5cxx11E to i64), ptr %13, align 8, !alias.scope !21
-  %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i155 = getelementptr inbounds nuw i8, ptr %ref.tmp54, i64 48
-  store i64 0, ptr %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i155, align 8, !alias.scope !21
-  %_M_manager3.i.i.i23.i156 = getelementptr inbounds nuw i8, ptr %ref.tmp54, i64 56
-  store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo4EnumINS0_22BlockBasedTableOptions19IndexShorteningModeEEESH_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SM_EEENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation, ptr %_M_manager3.i.i.i23.i156, align 8, !alias.scope !21
-  %_M_invoker4.i2.i.i24.i157 = getelementptr inbounds nuw i8, ptr %ref.tmp54, i64 64
-  store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo4EnumINS0_22BlockBasedTableOptions19IndexShorteningModeEEESH_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SM_EEENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E9_M_invokeERKSt9_Any_dataS4_SC_OSE_OSF_, ptr %_M_invoker4.i2.i.i24.i157, align 8, !alias.scope !21
-  %equals_func_.i.i158 = getelementptr inbounds nuw i8, ptr %ref.tmp54, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %equals_func_.i.i158, i8 0, i64 16, i1 false), !alias.scope !21
+  %serialize_func_.i.i155 = getelementptr inbounds nuw i8, ptr %ref.tmp54, i64 40
+  store i64 ptrtoint (ptr @_ZN7rocksdbL49block_base_table_index_shortening_mode_string_mapB5cxx11E to i64), ptr %serialize_func_.i.i155, align 8, !alias.scope !21
+  %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i156 = getelementptr inbounds nuw i8, ptr %ref.tmp54, i64 48
+  store i64 0, ptr %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i156, align 8, !alias.scope !21
+  %_M_manager3.i.i.i23.i157 = getelementptr inbounds nuw i8, ptr %ref.tmp54, i64 56
+  store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo4EnumINS0_22BlockBasedTableOptions19IndexShorteningModeEEESH_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SM_EEENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation, ptr %_M_manager3.i.i.i23.i157, align 8, !alias.scope !21
+  %_M_invoker4.i2.i.i24.i158 = getelementptr inbounds nuw i8, ptr %ref.tmp54, i64 64
+  store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo4EnumINS0_22BlockBasedTableOptions19IndexShorteningModeEEESH_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SM_EEENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E9_M_invokeERKSt9_Any_dataS4_SC_OSE_OSF_, ptr %_M_invoker4.i2.i.i24.i158, align 8, !alias.scope !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false), !alias.scope !21
   %_M_manager3.i.i.i53.i159 = getelementptr inbounds nuw i8, ptr %ref.tmp54, i64 88
   store ptr @_ZNSt17_Function_handlerIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EZNS0_14OptionTypeInfo4EnumINS0_22BlockBasedTableOptions19IndexShorteningModeEEESG_iPKSt13unordered_mapIS9_T_St4hashIS9_ESt8equal_toIS9_ESaISt4pairISA_SL_EEENS0_15OptionTypeFlagsEEUlS3_SB_SD_SD_SE_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation, ptr %_M_manager3.i.i.i53.i159, align 8, !alias.scope !21
   %_M_invoker4.i2.i.i54.i160 = getelementptr inbounds nuw i8, ptr %ref.tmp54, i64 96
@@ -3854,10 +3854,10 @@ if.then.i.i.i549:                                 ; preds = %.noexc553
   br label %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEEC2EOSF_.exit.i.i
 
 _ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEEC2EOSF_.exit.i.i: ; preds = %if.then.i.i.i549, %.noexc553
-  %serialize_func_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 6768
+  %serialize_func_.i.i551 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 6768
   %_M_invoker.i7.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 6792
   %_M_invoker2.i8.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp286, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %serialize_func_.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %serialize_func_.i.i551, i8 0, i64 24, i1 false)
   %73 = load ptr, ptr %_M_invoker2.i8.i.i, align 8
   store ptr %73, ptr %_M_invoker.i7.i.i, align 8
   %_M_manager.i.i.i9.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp286, i64 56
@@ -3868,16 +3868,16 @@ _ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stri
 if.then.i11.i.i:                                  ; preds = %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEEC2EOSF_.exit.i.i
   %serialize_func_4.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp286, i64 40
   %_M_manager.i.i12.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 6784
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %serialize_func_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %serialize_func_4.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %serialize_func_.i.i551, ptr noundef nonnull align 8 dereferenceable(32) %serialize_func_4.i.i, i64 16, i1 false)
   store ptr %74, ptr %_M_manager.i.i12.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i9.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EEC2EOSH_.exit.i.i
 
 _ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EEC2EOSH_.exit.i.i: ; preds = %if.then.i11.i.i, %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEEC2EOSF_.exit.i.i
-  %equals_func_.i.i551 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 6800
+  %equals_func_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 6800
   %_M_invoker.i13.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 6824
   %_M_invoker2.i14.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp286, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %equals_func_.i.i551, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %equals_func_.i.i, i8 0, i64 24, i1 false)
   %75 = load ptr, ptr %_M_invoker2.i14.i.i, align 8
   store ptr %75, ptr %_M_invoker.i13.i.i, align 8
   %_M_manager.i.i.i15.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp286, i64 88
@@ -3888,7 +3888,7 @@ _ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stri
 if.then.i17.i.i:                                  ; preds = %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EEC2EOSH_.exit.i.i
   %equals_func_5.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp286, i64 72
   %_M_manager.i.i18.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 6816
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %equals_func_.i.i551, ptr noundef nonnull align 8 dereferenceable(32) %equals_func_5.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %equals_func_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %equals_func_5.i.i, i64 16, i1 false)
   store ptr %76, ptr %_M_manager.i.i18.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i15.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EEC2EOSG_.exit.i.i
@@ -4105,7 +4105,7 @@ invoke.cont328:                                   ; preds = %.noexc621
   store i32 224, ptr %ref.tmp327, align 8, !alias.scope !27
   %parse_func_.i.i624 = getelementptr inbounds nuw i8, ptr %ref.tmp327, i64 8
   %type_.i.i625 = getelementptr inbounds nuw i8, ptr %ref.tmp327, i64 168
-  %89 = getelementptr inbounds nuw i8, ptr %ref.tmp327, i64 40
+  %89 = getelementptr inbounds nuw i8, ptr %ref.tmp327, i64 72
   %90 = getelementptr inbounds nuw i8, ptr %ref.tmp327, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %90, i8 0, i64 64, i1 false), !alias.scope !27
   store i32 19, ptr %type_.i.i625, align 8, !alias.scope !27
@@ -4120,15 +4120,15 @@ invoke.cont328:                                   ; preds = %.noexc621
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo4EnumINS0_22BlockBasedTableOptions21PrepopulateBlockCacheEEESF_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SK_EEENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E10_M_managerERSt9_Any_dataRKSY_St18_Manager_operation, ptr %_M_manager3.i.i.i.i629, align 8, !alias.scope !27
   %_M_invoker4.i2.i.i.i630 = getelementptr inbounds nuw i8, ptr %ref.tmp327, i64 32
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo4EnumINS0_22BlockBasedTableOptions21PrepopulateBlockCacheEEESF_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SK_EEENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_, ptr %_M_invoker4.i2.i.i.i630, align 8, !alias.scope !27
-  store i64 ptrtoint (ptr @_ZN7rocksdbL51block_base_table_prepopulate_block_cache_string_mapB5cxx11E to i64), ptr %89, align 8, !alias.scope !27
-  %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i631 = getelementptr inbounds nuw i8, ptr %ref.tmp327, i64 48
-  store i64 0, ptr %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i631, align 8, !alias.scope !27
-  %_M_manager3.i.i.i23.i632 = getelementptr inbounds nuw i8, ptr %ref.tmp327, i64 56
-  store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo4EnumINS0_22BlockBasedTableOptions21PrepopulateBlockCacheEEESH_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SM_EEENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation, ptr %_M_manager3.i.i.i23.i632, align 8, !alias.scope !27
-  %_M_invoker4.i2.i.i24.i633 = getelementptr inbounds nuw i8, ptr %ref.tmp327, i64 64
-  store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo4EnumINS0_22BlockBasedTableOptions21PrepopulateBlockCacheEEESH_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SM_EEENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E9_M_invokeERKSt9_Any_dataS4_SC_OSE_OSF_, ptr %_M_invoker4.i2.i.i24.i633, align 8, !alias.scope !27
-  %equals_func_.i.i634 = getelementptr inbounds nuw i8, ptr %ref.tmp327, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %equals_func_.i.i634, i8 0, i64 16, i1 false), !alias.scope !27
+  %serialize_func_.i.i631 = getelementptr inbounds nuw i8, ptr %ref.tmp327, i64 40
+  store i64 ptrtoint (ptr @_ZN7rocksdbL51block_base_table_prepopulate_block_cache_string_mapB5cxx11E to i64), ptr %serialize_func_.i.i631, align 8, !alias.scope !27
+  %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i632 = getelementptr inbounds nuw i8, ptr %ref.tmp327, i64 48
+  store i64 0, ptr %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i632, align 8, !alias.scope !27
+  %_M_manager3.i.i.i23.i633 = getelementptr inbounds nuw i8, ptr %ref.tmp327, i64 56
+  store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo4EnumINS0_22BlockBasedTableOptions21PrepopulateBlockCacheEEESH_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SM_EEENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation, ptr %_M_manager3.i.i.i23.i633, align 8, !alias.scope !27
+  %_M_invoker4.i2.i.i24.i634 = getelementptr inbounds nuw i8, ptr %ref.tmp327, i64 64
+  store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo4EnumINS0_22BlockBasedTableOptions21PrepopulateBlockCacheEEESH_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SM_EEENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E9_M_invokeERKSt9_Any_dataS4_SC_OSE_OSF_, ptr %_M_invoker4.i2.i.i24.i634, align 8, !alias.scope !27
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, i8 0, i64 16, i1 false), !alias.scope !27
   %_M_manager3.i.i.i53.i635 = getelementptr inbounds nuw i8, ptr %ref.tmp327, i64 88
   store ptr @_ZNSt17_Function_handlerIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EZNS0_14OptionTypeInfo4EnumINS0_22BlockBasedTableOptions21PrepopulateBlockCacheEEESG_iPKSt13unordered_mapIS9_T_St4hashIS9_ESt8equal_toIS9_ESaISt4pairISA_SL_EEENS0_15OptionTypeFlagsEEUlS3_SB_SD_SD_SE_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation, ptr %_M_manager3.i.i.i53.i635, align 8, !alias.scope !27
   %_M_invoker4.i2.i.i54.i636 = getelementptr inbounds nuw i8, ptr %ref.tmp327, i64 96
@@ -5897,9 +5897,9 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb14OptionTypeInfo6StructERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKSt13unordered_mapIS6_S0_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIS7_S0_EEEiNS_22OptionVerificationTypeENS_15OptionTypeFlagsE(ptr noalias sret(%"class.rocksdb::OptionTypeInfo") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %struct_name, ptr noundef %struct_map, i32 noundef %offset, i32 noundef %verification, i32 noundef %flags) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i.i74.sroa.5 = alloca [24 x i8], align 8
-  %ref.tmp.i.i33.sroa.5 = alloca [24 x i8], align 8
-  %ref.tmp.i.i.sroa.5 = alloca [24 x i8], align 8
+  %ref.tmp.i.i74.sroa.4 = alloca [24 x i8], align 8
+  %ref.tmp.i.i33.sroa.4 = alloca [24 x i8], align 8
+  %ref.tmp.i.i.sroa.4 = alloca [24 x i8], align 8
   %ref.tmp = alloca %"class.std::function", align 8
   %ref.tmp1 = alloca %class.anon.319, align 8
   %ref.tmp6 = alloca %"class.std::function.96", align 8
@@ -5957,8 +5957,8 @@ if.then.i.i.i:                                    ; preds = %call.i.i2.i.noexc
   store ptr %call.i.i2.i11, ptr %ref.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo6StructESC_PKSt13unordered_mapISA_SF_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SF_EEEiNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo6StructESC_PKSt13unordered_mapISA_SF_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SF_EEEiNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.5, i8 0, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.4, i8 0, i64 24, i1 false)
   %call.i.i.i.i123124 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
           to label %call.i.i.i.i123.noexc unwind label %lpad4.body.thread
 
@@ -5978,14 +5978,14 @@ invoke.cont5:                                     ; preds = %call.i.i.i.i123.noe
   %9 = load ptr, ptr %_M_invoker.i, align 8
   %10 = load ptr, ptr %_M_manager.i.i, align 8
   store ptr %call.i.i.i.i123124, ptr %parse_func_.i, align 8
-  %ref.tmp.i.i.sroa.5.0.parse_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  %11 = load i64, ptr %ref.tmp.i.i.sroa.5, align 8
-  store i64 %11, ptr %ref.tmp.i.i.sroa.5.0.parse_func_.i.sroa_idx, align 8
+  %ref.tmp.i.i.sroa.4.0.parse_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %11 = load i64, ptr %ref.tmp.i.i.sroa.4, align 8
+  store i64 %11, ptr %ref.tmp.i.i.sroa.4.0.parse_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %10, ptr %_M_manager3.i.i.i, align 8
   %_M_invoker4.i2.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %9, ptr %_M_invoker4.i2.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.5)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.4)
   %tobool.not.i.i15 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i15, label %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEED2Ev.exit, label %if.then.i.i16
 
@@ -6044,8 +6044,8 @@ if.then.i.i.i38:                                  ; preds = %call.i.i2.i.noexc29
   store ptr %call.i.i2.i30, ptr %ref.tmp6, align 8
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo6StructESC_PKSt13unordered_mapISA_SH_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SH_EEEiNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E9_M_invokeERKSt9_Any_dataS4_SC_OSE_OSF_, ptr %_M_invoker.i28, align 8
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo6StructESC_PKSt13unordered_mapISA_SH_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SH_EEEiNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation, ptr %_M_manager.i.i20, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i33.sroa.5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i33.sroa.5, i8 0, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i33.sroa.4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i33.sroa.4, i8 0, i64 24, i1 false)
   %call.i.i.i.i125127 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
           to label %call.i.i.i.i125.noexc unwind label %lpad11.body.thread
 
@@ -6066,14 +6066,14 @@ invoke.cont12:                                    ; preds = %call.i.i.i.i125.noe
   %23 = load ptr, ptr %_M_invoker.i28, align 8
   %24 = load ptr, ptr %_M_manager.i.i20, align 8
   store ptr %call.i.i.i.i125127, ptr %serialize_func_.i, align 8
-  %ref.tmp.i.i33.sroa.5.0.serialize_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
-  %25 = load i64, ptr %ref.tmp.i.i33.sroa.5, align 8
-  store i64 %25, ptr %ref.tmp.i.i33.sroa.5.0.serialize_func_.i.sroa_idx, align 8
+  %ref.tmp.i.i33.sroa.4.0.serialize_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
+  %25 = load i64, ptr %ref.tmp.i.i33.sroa.4, align 8
+  store i64 %25, ptr %ref.tmp.i.i33.sroa.4.0.serialize_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i48 = getelementptr inbounds nuw i8, ptr %agg.result, i64 56
   store ptr %24, ptr %_M_manager3.i.i.i48, align 8
   %_M_invoker4.i2.i.i49 = getelementptr inbounds nuw i8, ptr %agg.result, i64 64
   store ptr %23, ptr %_M_invoker4.i2.i.i49, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i33.sroa.5)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i33.sroa.4)
   %tobool.not.i.i56 = icmp eq ptr %24, null
   br i1 %tobool.not.i.i56, label %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EED2Ev.exit, label %if.then.i.i57
 
@@ -6132,8 +6132,8 @@ if.then.i.i.i79:                                  ; preds = %call.i.i2.i.noexc70
   store ptr %call.i.i2.i71, ptr %ref.tmp16, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EZNS0_14OptionTypeInfo6StructESB_PKSt13unordered_mapIS9_SG_St4hashIS9_ESt8equal_toIS9_ESaISt4pairISA_SG_EEEiNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsEEUlS3_SB_SD_SD_SE_E_E9_M_invokeERKSt9_Any_dataS3_SB_OSD_SZ_OSE_, ptr %_M_invoker.i69, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EZNS0_14OptionTypeInfo6StructESB_PKSt13unordered_mapIS9_SG_St4hashIS9_ESt8equal_toIS9_ESaISt4pairISA_SG_EEEiNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsEEUlS3_SB_SD_SD_SE_E_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation, ptr %_M_manager.i.i61, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i74.sroa.5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i74.sroa.5, i8 0, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i74.sroa.4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i74.sroa.4, i8 0, i64 24, i1 false)
   %call.i.i.i.i129131 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
           to label %call.i.i.i.i129.noexc unwind label %lpad21.body.thread
 
@@ -6154,14 +6154,14 @@ invoke.cont22:                                    ; preds = %call.i.i.i.i129.noe
   %37 = load ptr, ptr %_M_invoker.i69, align 8
   %38 = load ptr, ptr %_M_manager.i.i61, align 8
   store ptr %call.i.i.i.i129131, ptr %equals_func_.i, align 8
-  %ref.tmp.i.i74.sroa.5.0.equals_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 80
-  %39 = load i64, ptr %ref.tmp.i.i74.sroa.5, align 8
-  store i64 %39, ptr %ref.tmp.i.i74.sroa.5.0.equals_func_.i.sroa_idx, align 8
+  %ref.tmp.i.i74.sroa.4.0.equals_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 80
+  %39 = load i64, ptr %ref.tmp.i.i74.sroa.4, align 8
+  store i64 %39, ptr %ref.tmp.i.i74.sroa.4.0.equals_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i89 = getelementptr inbounds nuw i8, ptr %agg.result, i64 88
   store ptr %38, ptr %_M_manager3.i.i.i89, align 8
   %_M_invoker4.i2.i.i90 = getelementptr inbounds nuw i8, ptr %agg.result, i64 96
   store ptr %37, ptr %_M_invoker4.i2.i.i90, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i74.sroa.5)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i74.sroa.4)
   %tobool.not.i.i97 = icmp eq ptr %38, null
   br i1 %tobool.not.i.i97, label %_ZNSt8functionIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EED2Ev.exit, label %if.then.i.i98
 
@@ -20679,7 +20679,7 @@ __cxx_global_var_init.15.exit:                    ; preds = %arraydestroy.body13
   store i32 0, ptr %ref.tmp1.i68, align 8, !alias.scope !232
   %parse_func_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1.i68, i64 8
   %type_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1.i68, i64 168
-  %16 = getelementptr inbounds nuw i8, ptr %ref.tmp1.i68, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %ref.tmp1.i68, i64 72
   %17 = getelementptr inbounds nuw i8, ptr %ref.tmp1.i68, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, i8 0, i64 64, i1 false), !alias.scope !232
   store i32 19, ptr %type_.i.i.i, align 8, !alias.scope !232
@@ -20694,15 +20694,15 @@ __cxx_global_var_init.15.exit:                    ; preds = %arraydestroy.body13
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo4EnumINS0_11PinningTierEEESF_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SJ_EEENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation, ptr %_M_manager3.i.i.i.i.i, align 8, !alias.scope !232
   %_M_invoker4.i2.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1.i68, i64 32
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo4EnumINS0_11PinningTierEEESF_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SJ_EEENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_, ptr %_M_invoker4.i2.i.i.i.i, align 8, !alias.scope !232
-  store i64 ptrtoint (ptr @_ZN7rocksdbL28pinning_tier_type_string_mapB5cxx11E to i64), ptr %16, align 8, !alias.scope !232
+  %serialize_func_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1.i68, i64 40
+  store i64 ptrtoint (ptr @_ZN7rocksdbL28pinning_tier_type_string_mapB5cxx11E to i64), ptr %serialize_func_.i.i.i, align 8, !alias.scope !232
   %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1.i68, i64 48
   store i64 0, ptr %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i.i, align 8, !alias.scope !232
   %_M_manager3.i.i.i23.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1.i68, i64 56
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo4EnumINS0_11PinningTierEEESH_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SL_EEENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation, ptr %_M_manager3.i.i.i23.i.i, align 8, !alias.scope !232
   %_M_invoker4.i2.i.i24.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1.i68, i64 64
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo4EnumINS0_11PinningTierEEESH_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SL_EEENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E9_M_invokeERKSt9_Any_dataS4_SC_OSE_OSF_, ptr %_M_invoker4.i2.i.i24.i.i, align 8, !alias.scope !232
-  %equals_func_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1.i68, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %equals_func_.i.i.i, i8 0, i64 16, i1 false), !alias.scope !232
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false), !alias.scope !232
   %_M_manager3.i.i.i53.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1.i68, i64 88
   store ptr @_ZNSt17_Function_handlerIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EZNS0_14OptionTypeInfo4EnumINS0_11PinningTierEEESG_iPKSt13unordered_mapIS9_T_St4hashIS9_ESt8equal_toIS9_ESaISt4pairISA_SK_EEENS0_15OptionTypeFlagsEEUlS3_SB_SD_SD_SE_E_E10_M_managerERSt9_Any_dataRKSY_St18_Manager_operation, ptr %_M_manager3.i.i.i53.i.i, align 8, !alias.scope !232
   %_M_invoker4.i2.i.i54.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1.i68, i64 96
@@ -20715,7 +20715,7 @@ invoke.cont5.i:                                   ; preds = %__cxx_global_var_in
   store i32 4, ptr %ref.tmp4.i, align 8, !alias.scope !235
   %parse_func_.i.i5.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 8
   %type_.i.i6.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 168
-  %18 = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 72
   %19 = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, i8 0, i64 64, i1 false), !alias.scope !235
   store i32 19, ptr %type_.i.i6.i, align 8, !alias.scope !235
@@ -20730,15 +20730,15 @@ invoke.cont5.i:                                   ; preds = %__cxx_global_var_in
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo4EnumINS0_11PinningTierEEESF_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SJ_EEENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation, ptr %_M_manager3.i.i.i.i10.i, align 8, !alias.scope !235
   %_M_invoker4.i2.i.i.i11.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 32
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo4EnumINS0_11PinningTierEEESF_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SJ_EEENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_, ptr %_M_invoker4.i2.i.i.i11.i, align 8, !alias.scope !235
-  store i64 ptrtoint (ptr @_ZN7rocksdbL28pinning_tier_type_string_mapB5cxx11E to i64), ptr %18, align 8, !alias.scope !235
-  %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i12.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 48
-  store i64 0, ptr %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i12.i, align 8, !alias.scope !235
-  %_M_manager3.i.i.i23.i13.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 56
-  store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo4EnumINS0_11PinningTierEEESH_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SL_EEENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation, ptr %_M_manager3.i.i.i23.i13.i, align 8, !alias.scope !235
-  %_M_invoker4.i2.i.i24.i14.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 64
-  store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo4EnumINS0_11PinningTierEEESH_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SL_EEENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E9_M_invokeERKSt9_Any_dataS4_SC_OSE_OSF_, ptr %_M_invoker4.i2.i.i24.i14.i, align 8, !alias.scope !235
-  %equals_func_.i.i15.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %equals_func_.i.i15.i, i8 0, i64 16, i1 false), !alias.scope !235
+  %serialize_func_.i.i12.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 40
+  store i64 ptrtoint (ptr @_ZN7rocksdbL28pinning_tier_type_string_mapB5cxx11E to i64), ptr %serialize_func_.i.i12.i, align 8, !alias.scope !235
+  %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i13.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 48
+  store i64 0, ptr %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i13.i, align 8, !alias.scope !235
+  %_M_manager3.i.i.i23.i14.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 56
+  store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo4EnumINS0_11PinningTierEEESH_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SL_EEENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation, ptr %_M_manager3.i.i.i23.i14.i, align 8, !alias.scope !235
+  %_M_invoker4.i2.i.i24.i15.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 64
+  store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo4EnumINS0_11PinningTierEEESH_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SL_EEENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E9_M_invokeERKSt9_Any_dataS4_SC_OSE_OSF_, ptr %_M_invoker4.i2.i.i24.i15.i, align 8, !alias.scope !235
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false), !alias.scope !235
   %_M_manager3.i.i.i53.i16.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 88
   store ptr @_ZNSt17_Function_handlerIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EZNS0_14OptionTypeInfo4EnumINS0_11PinningTierEEESG_iPKSt13unordered_mapIS9_T_St4hashIS9_ESt8equal_toIS9_ESaISt4pairISA_SK_EEENS0_15OptionTypeFlagsEEUlS3_SB_SD_SD_SE_E_E10_M_managerERSt9_Any_dataRKSY_St18_Manager_operation, ptr %_M_manager3.i.i.i53.i16.i, align 8, !alias.scope !235
   %_M_invoker4.i2.i.i54.i17.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 96
@@ -20751,7 +20751,7 @@ invoke.cont10.i:                                  ; preds = %invoke.cont5.i
   store i32 8, ptr %ref.tmp9.i69, align 8, !alias.scope !238
   %parse_func_.i.i18.i = getelementptr inbounds nuw i8, ptr %ref.tmp9.i69, i64 8
   %type_.i.i19.i = getelementptr inbounds nuw i8, ptr %ref.tmp9.i69, i64 168
-  %20 = getelementptr inbounds nuw i8, ptr %ref.tmp9.i69, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %ref.tmp9.i69, i64 72
   %21 = getelementptr inbounds nuw i8, ptr %ref.tmp9.i69, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %21, i8 0, i64 64, i1 false), !alias.scope !238
   store i32 19, ptr %type_.i.i19.i, align 8, !alias.scope !238
@@ -20766,15 +20766,15 @@ invoke.cont10.i:                                  ; preds = %invoke.cont5.i
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo4EnumINS0_11PinningTierEEESF_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SJ_EEENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation, ptr %_M_manager3.i.i.i.i23.i, align 8, !alias.scope !238
   %_M_invoker4.i2.i.i.i24.i = getelementptr inbounds nuw i8, ptr %ref.tmp9.i69, i64 32
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo4EnumINS0_11PinningTierEEESF_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SJ_EEENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_, ptr %_M_invoker4.i2.i.i.i24.i, align 8, !alias.scope !238
-  store i64 ptrtoint (ptr @_ZN7rocksdbL28pinning_tier_type_string_mapB5cxx11E to i64), ptr %20, align 8, !alias.scope !238
-  %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i25.i = getelementptr inbounds nuw i8, ptr %ref.tmp9.i69, i64 48
-  store i64 0, ptr %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i25.i, align 8, !alias.scope !238
-  %_M_manager3.i.i.i23.i26.i = getelementptr inbounds nuw i8, ptr %ref.tmp9.i69, i64 56
-  store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo4EnumINS0_11PinningTierEEESH_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SL_EEENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation, ptr %_M_manager3.i.i.i23.i26.i, align 8, !alias.scope !238
-  %_M_invoker4.i2.i.i24.i27.i = getelementptr inbounds nuw i8, ptr %ref.tmp9.i69, i64 64
-  store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo4EnumINS0_11PinningTierEEESH_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SL_EEENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E9_M_invokeERKSt9_Any_dataS4_SC_OSE_OSF_, ptr %_M_invoker4.i2.i.i24.i27.i, align 8, !alias.scope !238
-  %equals_func_.i.i28.i = getelementptr inbounds nuw i8, ptr %ref.tmp9.i69, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %equals_func_.i.i28.i, i8 0, i64 16, i1 false), !alias.scope !238
+  %serialize_func_.i.i25.i = getelementptr inbounds nuw i8, ptr %ref.tmp9.i69, i64 40
+  store i64 ptrtoint (ptr @_ZN7rocksdbL28pinning_tier_type_string_mapB5cxx11E to i64), ptr %serialize_func_.i.i25.i, align 8, !alias.scope !238
+  %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i26.i = getelementptr inbounds nuw i8, ptr %ref.tmp9.i69, i64 48
+  store i64 0, ptr %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i26.i, align 8, !alias.scope !238
+  %_M_manager3.i.i.i23.i27.i = getelementptr inbounds nuw i8, ptr %ref.tmp9.i69, i64 56
+  store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo4EnumINS0_11PinningTierEEESH_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SL_EEENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation, ptr %_M_manager3.i.i.i23.i27.i, align 8, !alias.scope !238
+  %_M_invoker4.i2.i.i24.i28.i = getelementptr inbounds nuw i8, ptr %ref.tmp9.i69, i64 64
+  store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo4EnumINS0_11PinningTierEEESH_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SL_EEENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E9_M_invokeERKSt9_Any_dataS4_SC_OSE_OSF_, ptr %_M_invoker4.i2.i.i24.i28.i, align 8, !alias.scope !238
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false), !alias.scope !238
   %_M_manager3.i.i.i53.i29.i = getelementptr inbounds nuw i8, ptr %ref.tmp9.i69, i64 88
   store ptr @_ZNSt17_Function_handlerIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EZNS0_14OptionTypeInfo4EnumINS0_11PinningTierEEESG_iPKSt13unordered_mapIS9_T_St4hashIS9_ESt8equal_toIS9_ESaISt4pairISA_SK_EEENS0_15OptionTypeFlagsEEUlS3_SB_SD_SD_SE_E_E10_M_managerERSt9_Any_dataRKSY_St18_Manager_operation, ptr %_M_manager3.i.i.i53.i29.i, align 8, !alias.scope !238
   %_M_invoker4.i2.i.i54.i30.i = getelementptr inbounds nuw i8, ptr %ref.tmp9.i69, i64 96

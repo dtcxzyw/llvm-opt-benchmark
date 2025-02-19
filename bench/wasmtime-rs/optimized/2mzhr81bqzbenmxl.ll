@@ -66,7 +66,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %18 = extractvalue { ptr, i64 } %14, 0
   %19 = extractvalue { ptr, i64 } %14, 1
   invoke void @_ZN3std3sys6os_str5bytes5Slice8to_owned17had945b6c4cd6e040E(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %4, ptr align 1 %18, i64 %19)
-          to label %20 unwind label %15
+          to label %20 unwind label %15, !noalias !3
 
 20:                                               ; preds = %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)

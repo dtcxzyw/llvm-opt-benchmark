@@ -869,7 +869,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit: ; p
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  %35 = tail call ptr @__cxa_begin_catch(ptr %34) #21
+  %35 = tail call ptr @__cxa_begin_catch(ptr %34) #21, !noalias !5
   %36 = load ptr, ptr %28, align 8, !noalias !5
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8, !noalias !5
@@ -891,7 +891,7 @@ common.resume:                                    ; preds = %39, %124
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #23
+  tail call void @__clang_call_terminate(ptr %43) #23, !noalias !5
   unreachable
 
 44:                                               ; preds = %32

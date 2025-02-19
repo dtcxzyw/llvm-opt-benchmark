@@ -4446,14 +4446,14 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #22
+  call void @__clang_call_terminate(ptr %19) #22, !noalias !24
   unreachable
 
 terminate.lpad.i.i.i:                             ; preds = %if.then2.i.i.i.i.i.i.i
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #22
+  call void @__clang_call_terminate(ptr %21) #22, !noalias !24
   unreachable
 
 if.end.i:                                         ; preds = %if.then.i.i.i.i.i.i, %invoke.cont8.i.i.i, %if.then.i, %if.end

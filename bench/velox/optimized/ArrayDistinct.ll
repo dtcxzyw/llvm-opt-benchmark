@@ -31023,7 +31023,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %cond.true.i.i.i.i.i
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #34
+  call void @__clang_call_terminate(ptr %41) #34, !noalias !491
   unreachable
 
 _ZN5folly3f146detail11F14BasicSetINS1_20ValueContainerPolicyIfvvvvEEE6insertERKf.exit: ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIfEET_i.exit, %cond.true.i.i.i.i.i.i.i
@@ -34259,7 +34259,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %cond.true.i.i.i.i.i
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #34
+  call void @__clang_call_terminate(ptr %41) #34, !noalias !558
   unreachable
 
 _ZN5folly3f146detail11F14BasicSetINS1_20ValueContainerPolicyIdvvvvEEE6insertERKd.exit: ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIdEET_i.exit, %cond.true.i.i.i.i.i.i.i

@@ -8521,7 +8521,7 @@ _ZN10actix_http6header3map9HeaderMap3get17h2ef6c533f0a1f6e1E.exit.thread: ; pred
   %15 = extractvalue { i64, ptr } %14, 1
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull readonly align 1 %11, i64 %13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull readonly align 1 %11, i64 %13, i1 false), !noalias !985
   %17 = getelementptr inbounds i8, ptr %15, i64 %13
   %18 = icmp eq i64 %13, 0
   br i1 %18, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hecbc8d546df21621E.exit.i", label %.lr.ph.i.i.i
@@ -8529,12 +8529,12 @@ _ZN10actix_http6header3map9HeaderMap3get17h2ef6c533f0a1f6e1E.exit.thread: ; pred
 .lr.ph.i.i.i:                                     ; preds = %12, %.lr.ph.i.i.i
   %.sroa.0.06.i.i.i = phi ptr [ %19, %.lr.ph.i.i.i ], [ %15, %12 ]
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i.i, i64 1
-  %20 = load i8, ptr %.sroa.0.06.i.i.i, align 1, !alias.scope !990, !noundef !4
+  %20 = load i8, ptr %.sroa.0.06.i.i.i, align 1, !alias.scope !990, !noalias !988, !noundef !4
   %21 = add i8 %20, -65
   %22 = icmp ult i8 %21, 26
   %.0.i.i.i = select i1 %22, i8 32, i8 0
   %23 = or i8 %.0.i.i.i, %20
-  store i8 %23, ptr %.sroa.0.06.i.i.i, align 1, !alias.scope !990
+  store i8 %23, ptr %.sroa.0.06.i.i.i, align 1, !alias.scope !990, !noalias !988
   %24 = icmp eq ptr %19, %17
   br i1 %24, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hecbc8d546df21621E.exit.i", label %.lr.ph.i.i.i
 
@@ -9307,7 +9307,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h9920aae85baec861E.exit.i": ; preds = %55
-  %.val.i7183.i211 = load i32, ptr %59, align 1, !alias.scope !1098
+  %.val.i7183.i211 = load i32, ptr %59, align 1, !alias.scope !1098, !noalias !1087
   %.pre = load i64, ptr %26, align 8
   br label %_ZN10actix_http2ws5frame6Parser14parse_metadata17h16736d0ba8ff7318E.exit
 
@@ -9967,7 +9967,7 @@ _ZN10actix_http6header3map9HeaderMap3get17h2ef6c533f0a1f6e1E.exit.thread: ; pred
   %22 = extractvalue { i64, ptr } %21, 1
   %23 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %23)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull readonly align 1 %18, i64 %20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull readonly align 1 %18, i64 %20, i1 false), !noalias !1148
   %24 = getelementptr inbounds i8, ptr %22, i64 %20
   %25 = icmp eq i64 %20, 0
   br i1 %25, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hecbc8d546df21621E.exit", label %.lr.ph.i.i
@@ -9975,12 +9975,12 @@ _ZN10actix_http6header3map9HeaderMap3get17h2ef6c533f0a1f6e1E.exit.thread: ; pred
 .lr.ph.i.i:                                       ; preds = %19, %.lr.ph.i.i
   %.sroa.0.06.i.i = phi ptr [ %26, %.lr.ph.i.i ], [ %22, %19 ]
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i, i64 1
-  %27 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1153, !noundef !4
+  %27 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1153, !noalias !1151, !noundef !4
   %28 = add i8 %27, -65
   %29 = icmp ult i8 %28, 26
   %.0.i.i = select i1 %29, i8 32, i8 0
   %30 = or i8 %.0.i.i, %27
-  store i8 %30, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1153
+  store i8 %30, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1153, !noalias !1151
   %31 = icmp eq ptr %26, %24
   br i1 %31, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hecbc8d546df21621E.exit", label %.lr.ph.i.i
 

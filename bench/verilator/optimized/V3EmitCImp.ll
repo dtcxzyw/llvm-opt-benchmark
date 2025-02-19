@@ -7977,7 +7977,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #35
+  call void @__clang_call_terminate(ptr %15) #35, !noalias !97
   unreachable
 
 "_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEE6_M_runEvENKUlvE_clEv.exit.i.i.i": ; preds = %.noexc.i.i.i
@@ -7997,7 +7997,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   %21 = extractvalue { ptr, i32 } %19, 1
   %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #31
   %23 = icmp eq i32 %21, %22
-  %24 = call ptr @__cxa_begin_catch(ptr %20) #31
+  %24 = call ptr @__cxa_begin_catch(ptr %20) #31, !noalias !97
   br i1 %23, label %25, label %26
 
 25:                                               ; preds = %18
@@ -8050,7 +8050,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i: ; preds = %32, %_ZNSt15__e
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #35
+  call void @__clang_call_terminate(ptr %38) #35, !noalias !97
   unreachable
 
 39:                                               ; preds = %25
@@ -53804,7 +53804,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #35
+  call void @__clang_call_terminate(ptr %15) #35, !noalias !460
   unreachable
 
 "_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEENKUlvE_clEv.exit.i.i.i": ; preds = %.noexc.i.i.i
@@ -53824,7 +53824,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   %21 = extractvalue { ptr, i32 } %19, 1
   %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #31
   %23 = icmp eq i32 %21, %22
-  %24 = call ptr @__cxa_begin_catch(ptr %20) #31
+  %24 = call ptr @__cxa_begin_catch(ptr %20) #31, !noalias !460
   br i1 %23, label %25, label %26
 
 25:                                               ; preds = %18
@@ -53877,7 +53877,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i: ; preds = %32, %_ZNSt15__e
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #35
+  call void @__clang_call_terminate(ptr %38) #35, !noalias !460
   unreachable
 
 39:                                               ; preds = %25
@@ -54878,7 +54878,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #35
+  call void @__clang_call_terminate(ptr %15) #35, !noalias !482
   unreachable
 
 "_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEE6_M_runEvENKUlvE_clEv.exit.i.i.i": ; preds = %.noexc.i.i.i
@@ -54898,7 +54898,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   %21 = extractvalue { ptr, i32 } %19, 1
   %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #31
   %23 = icmp eq i32 %21, %22
-  %24 = call ptr @__cxa_begin_catch(ptr %20) #31
+  %24 = call ptr @__cxa_begin_catch(ptr %20) #31, !noalias !482
   br i1 %23, label %25, label %26
 
 25:                                               ; preds = %18
@@ -54951,7 +54951,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i: ; preds = %32, %_ZNSt15__e
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #35
+  call void @__clang_call_terminate(ptr %38) #35, !noalias !482
   unreachable
 
 39:                                               ; preds = %25
@@ -55020,7 +55020,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #35
+  call void @__clang_call_terminate(ptr %15) #35, !noalias !491
   unreachable
 
 "_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEENKUlvE_clEv.exit.i.i.i": ; preds = %.noexc.i.i.i
@@ -55040,7 +55040,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   %21 = extractvalue { ptr, i32 } %19, 1
   %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #31
   %23 = icmp eq i32 %21, %22
-  %24 = call ptr @__cxa_begin_catch(ptr %20) #31
+  %24 = call ptr @__cxa_begin_catch(ptr %20) #31, !noalias !491
   br i1 %23, label %25, label %26
 
 25:                                               ; preds = %18
@@ -55093,7 +55093,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i: ; preds = %32, %_ZNSt15__e
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #35
+  call void @__clang_call_terminate(ptr %38) #35, !noalias !491
   unreachable
 
 39:                                               ; preds = %25
@@ -55608,7 +55608,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   %15 = extractvalue { ptr, i32 } %13, 1
   %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #31
   %17 = icmp eq i32 %15, %16
-  %18 = call ptr @__cxa_begin_catch(ptr %14) #31
+  %18 = call ptr @__cxa_begin_catch(ptr %14) #31, !noalias !507
   br i1 %17, label %19, label %20
 
 19:                                               ; preds = %12
@@ -55661,7 +55661,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i: ; preds = %26, %_ZNSt15__e
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #35
+  call void @__clang_call_terminate(ptr %32) #35, !noalias !507
   unreachable
 
 33:                                               ; preds = %19
@@ -63053,7 +63053,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   %15 = extractvalue { ptr, i32 } %13, 1
   %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #31
   %17 = icmp eq i32 %15, %16
-  %18 = call ptr @__cxa_begin_catch(ptr %14) #31
+  %18 = call ptr @__cxa_begin_catch(ptr %14) #31, !noalias !637
   br i1 %17, label %19, label %20
 
 19:                                               ; preds = %12
@@ -63106,7 +63106,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i: ; preds = %26, %_ZNSt15__e
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #35
+  call void @__clang_call_terminate(ptr %32) #35, !noalias !637
   unreachable
 
 33:                                               ; preds = %19
@@ -63621,7 +63621,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   %15 = extractvalue { ptr, i32 } %13, 1
   %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #31
   %17 = icmp eq i32 %15, %16
-  %18 = call ptr @__cxa_begin_catch(ptr %14) #31
+  %18 = call ptr @__cxa_begin_catch(ptr %14) #31, !noalias !653
   br i1 %17, label %19, label %20
 
 19:                                               ; preds = %12
@@ -63674,7 +63674,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i: ; preds = %26, %_ZNSt15__e
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #35
+  call void @__clang_call_terminate(ptr %32) #35, !noalias !653
   unreachable
 
 33:                                               ; preds = %19
@@ -63746,7 +63746,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   %15 = extractvalue { ptr, i32 } %13, 1
   %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #31
   %17 = icmp eq i32 %15, %16
-  %18 = call ptr @__cxa_begin_catch(ptr %14) #31
+  %18 = call ptr @__cxa_begin_catch(ptr %14) #31, !noalias !662
   br i1 %17, label %19, label %20
 
 19:                                               ; preds = %12
@@ -63799,7 +63799,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i: ; preds = %26, %_ZNSt15__e
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #35
+  call void @__clang_call_terminate(ptr %32) #35, !noalias !662
   unreachable
 
 33:                                               ; preds = %19

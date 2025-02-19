@@ -3261,7 +3261,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEE5countERKS3_.exit
   %852 = landingpad { ptr, i32 }
           catch ptr null
   %853 = extractvalue { ptr, i32 } %852, 0
-  call void @__clang_call_terminate(ptr %853) #24
+  call void @__clang_call_terminate(ptr %853) #24, !noalias !15
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i.i.i:          ; preds = %850, %844, %835
@@ -4289,7 +4289,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.e
   %1324 = landingpad { ptr, i32 }
           catch ptr null
   %1325 = extractvalue { ptr, i32 } %1324, 0
-  call void @__clang_call_terminate(ptr %1325) #24
+  call void @__clang_call_terminate(ptr %1325) #24, !noalias !15
   unreachable
 
 .loopexit.split-lp.i.i.i:                         ; preds = %.loopexit.split-lp.i.loopexit.i.loopexit.i.loopexit, %.loopexit.split-lp.i.loopexit.i.loopexit.i.loopexit.split-lp, %1160, %1164, %1309, %961, %957, %876, %.loopexit.split-lp.i.loopexit.split-lp.i.i, %.loopexit.split-lp.i.loopexit.i.loopexit.split-lp.i, %.loopexit.i.i.loopexit.split-lp.i, %.loopexit.i.i.loopexit.i

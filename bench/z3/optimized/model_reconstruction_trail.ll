@@ -1346,7 +1346,7 @@ terminate.lpad.i.i271:                            ; preds = %if.then6.i.i.i.i.i
   %172 = landingpad { ptr, i32 }
           catch ptr null
   %173 = extractvalue { ptr, i32 } %172, 0
-  call void @__clang_call_terminate(ptr %173) #16
+  call void @__clang_call_terminate(ptr %173) #16, !noalias !17
   unreachable
 
 _ZN7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES1_ED2Ev.exit.i: ; preds = %if.then6.i.i.i.i.i, %if.then.i.i.i.i.i267, %invoke.cont8.i, %_ZN7obj_refI4expr11ast_managerEC2ERKS2_.exit.i.i
@@ -1371,7 +1371,7 @@ terminate.lpad.i7.i:                              ; preds = %if.then2.i.i.i.i
   %177 = landingpad { ptr, i32 }
           catch ptr null
   %178 = extractvalue { ptr, i32 } %177, 0
-  call void @__clang_call_terminate(ptr %178) #16
+  call void @__clang_call_terminate(ptr %178) #16, !noalias !17
   unreachable
 
 lpad.i:                                           ; preds = %call.i.noexc

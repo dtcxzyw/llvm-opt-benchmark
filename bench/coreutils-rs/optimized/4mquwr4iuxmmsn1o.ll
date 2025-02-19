@@ -112,7 +112,7 @@ define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4int
   %7 = extractvalue { i64, ptr } %5, 1
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !9
   store i64 %6, ptr %0, align 8, !alias.scope !9, !noalias !14
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !9, !noalias !14
@@ -232,7 +232,7 @@ define hidden { ptr, ptr } @_ZN6uucore4mods5error12USimpleError3new17h662ce6101a
   %7 = extractvalue { i64, ptr } %5, 1
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !22
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %0, ptr %9, align 8
   store i64 %6, ptr %4, align 8
@@ -240,8 +240,8 @@ define hidden { ptr, ptr } @_ZN6uucore4mods5error12USimpleError3new17h662ce6101a
   store ptr %7, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %2, ptr %.sroa.5.0..sroa_idx, align 8
-  %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !22
-  %11 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #16, !noalias !22
+  %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !23
+  %11 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #16, !noalias !23
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h66ed3564912354fbE.llvm.11389445161417936973.exit"
 
@@ -282,8 +282,8 @@ define hidden { ptr, ptr } @_ZN6uucore4mods5error12USimpleError3new17he428ce85d7
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %0, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !25
-  %6 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #16, !noalias !25
+  %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !26
+  %6 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #16, !noalias !26
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h66ed3564912354fbE.llvm.11389445161417936973.exit"
 
@@ -462,9 +462,10 @@ attributes #19 = { cold noreturn nounwind }
 !19 = distinct !{!19, !20, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hbe8c53594f3d8e93E.llvm.11389445161417936973: argument 0"}
 !20 = distinct !{!20, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hbe8c53594f3d8e93E.llvm.11389445161417936973"}
 !21 = distinct !{!21, !20, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hbe8c53594f3d8e93E.llvm.11389445161417936973: argument 1"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h66ed3564912354fbE.llvm.11389445161417936973: argument 0"}
-!24 = distinct !{!24, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h66ed3564912354fbE.llvm.11389445161417936973"}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h66ed3564912354fbE.llvm.11389445161417936973: argument 0"}
-!27 = distinct !{!27, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h66ed3564912354fbE.llvm.11389445161417936973"}
+!22 = !{!16, !19}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h66ed3564912354fbE.llvm.11389445161417936973: argument 0"}
+!25 = distinct !{!25, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h66ed3564912354fbE.llvm.11389445161417936973"}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h66ed3564912354fbE.llvm.11389445161417936973: argument 0"}
+!28 = distinct !{!28, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h66ed3564912354fbE.llvm.11389445161417936973"}

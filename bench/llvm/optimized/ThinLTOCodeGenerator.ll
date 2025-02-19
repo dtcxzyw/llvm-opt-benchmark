@@ -12273,7 +12273,7 @@ define internal void @"_ZNSt17_Function_handlerIFN4llvm8ExpectedISt10unique_ptrI
   %6 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.val, i64 %.val2) #28, !noalias !740
   %7 = tail call { ptr, i8 } @_ZN4llvm9StringMapIPNS_3lto9InputFileENS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %.val, i64 %.val2, i32 noundef %6), !noalias !740
   %.fca.0.extract.i.i.i.i = extractvalue { ptr, i8 } %7, 0
-  %8 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !231
+  %8 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !231, !noalias !740
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !66, !noalias !740
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8

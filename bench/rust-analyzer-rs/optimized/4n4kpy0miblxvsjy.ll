@@ -11212,7 +11212,7 @@ define hidden void @_ZN17crossbeam_channel7channel9unbounded17h381c0274f08c57b6E
   resume { ptr, i32 } %11
 
 _ZN17crossbeam_channel7counter3new17h1f899366deb16eafE.exit: ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %7, ptr noundef nonnull align 128 dereferenceable(512) %2, i64 512, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %7, ptr noundef nonnull align 128 dereferenceable(512) %2, i64 512, i1 false), !noalias !990
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2), !noalias !990
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %.sroa.0)
   store i64 1, ptr %0, align 8
@@ -11288,7 +11288,7 @@ define hidden void @_ZN17crossbeam_channel7channel9unbounded17h451ee0db660f738fE
   resume { ptr, i32 } %11
 
 _ZN17crossbeam_channel7counter3new17hf65b2c3f6a324486E.exit: ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %7, ptr noundef nonnull align 128 dereferenceable(512) %2, i64 512, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %7, ptr noundef nonnull align 128 dereferenceable(512) %2, i64 512, i1 false), !noalias !996
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2), !noalias !996
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %.sroa.0)
   store i64 1, ptr %0, align 8
@@ -11364,7 +11364,7 @@ define hidden void @_ZN17crossbeam_channel7channel9unbounded17h55638522b380ecb6E
   resume { ptr, i32 } %11
 
 _ZN17crossbeam_channel7counter3new17h5ecacb09d3c77e4eE.exit: ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %7, ptr noundef nonnull align 128 dereferenceable(512) %2, i64 512, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %7, ptr noundef nonnull align 128 dereferenceable(512) %2, i64 512, i1 false), !noalias !1002
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2), !noalias !1002
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %.sroa.0)
   store i64 1, ptr %0, align 8
@@ -11440,7 +11440,7 @@ define hidden void @_ZN17crossbeam_channel7channel9unbounded17hd3e3815135f733d9E
   resume { ptr, i32 } %11
 
 _ZN17crossbeam_channel7counter3new17h5a2a6dcfc0b9b0c3E.exit: ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %7, ptr noundef nonnull align 128 dereferenceable(512) %2, i64 512, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %7, ptr noundef nonnull align 128 dereferenceable(512) %2, i64 512, i1 false), !noalias !1008
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2), !noalias !1008
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %.sroa.0)
   store i64 1, ptr %0, align 8
@@ -11516,7 +11516,7 @@ define hidden void @_ZN17crossbeam_channel7channel9unbounded17hed3c5d109b68fd32E
   resume { ptr, i32 } %11
 
 _ZN17crossbeam_channel7counter3new17ha0de28cd361dd1aaE.exit: ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %7, ptr noundef nonnull align 128 dereferenceable(512) %2, i64 512, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %7, ptr noundef nonnull align 128 dereferenceable(512) %2, i64 512, i1 false), !noalias !1014
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2), !noalias !1014
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %.sroa.0)
   store i64 1, ptr %0, align 8
@@ -43527,7 +43527,7 @@ define hidden void @_ZN13rust_analyzer3lsp5utils22apply_document_changes17h605a9
   %131 = shl nsw i64 %114, 2
   %132 = icmp ne ptr %113, null
   call void @llvm.assume(i1 %132)
-  call void @__rust_dealloc(ptr noundef nonnull %113, i64 noundef %131, i64 noundef 4) #26
+  call void @__rust_dealloc(ptr noundef nonnull %113, i64 noundef %131, i64 noundef 4) #26, !noalias !3449
   br label %.thread117
 
 "_ZN60_$LT$line_index..LineIndex$u20$as$u20$core..clone..Clone$GT$5clone17hdebe6866c276173eE.exit.i": ; preds = %"_ZN87_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$hashbrown..raw..RawTableClone$GT$15clone_from_spec17ha3d8949307dffce1E.llvm.9266542439947230232.exit.i.i.i.i", %119

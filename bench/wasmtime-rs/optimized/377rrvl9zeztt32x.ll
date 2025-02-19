@@ -827,7 +827,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
 
 _ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i.i.i: ; preds = %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit2.i.i.i.i.i.i.i.i"
   %48 = extractvalue { ptr, i64 } %.merged.i1.i.i.i.i.i.i.i.i, 0
-  %bcmp.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %34, ptr nonnull readonly align 1 %48, i64 %35), !alias.scope !313
+  %bcmp.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %34, ptr nonnull readonly align 1 %48, i64 %35), !alias.scope !313, !noalias !312
   %.not10.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %.not10.i.i.i.i.i.i, label %.preheader.split.i.i.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17hc499b0c710ba0a0bE.exit
 
@@ -11029,7 +11029,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17ha736
 
 _ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i.i: ; preds = %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit2.i.i.i.i.i.i.i"
   %62 = extractvalue { ptr, i64 } %.merged.i1.i.i.i.i.i.i.i, 0
-  %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %48, ptr nonnull readonly align 1 %62, i64 %49), !alias.scope !3008, !noalias !2974
+  %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %48, ptr nonnull readonly align 1 %62, i64 %49), !alias.scope !3008, !noalias !3007
   %.not10.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
   br i1 %.not10.i.i.i.i.i, label %.preheader.split.i.i.i.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6a3a576c92fa785cE.llvm.10165051650595261532.exit"
 
@@ -12382,7 +12382,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
 
 _ZN4core3cmp9PartialEq2ne17h38a8f75683358ccfE.llvm.12426178672938875897.exit.i.i.i.i: ; preds = %"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h47b5cc5607caf349E.exit2.i.i.i.i.i.i"
   %48 = extractvalue { ptr, i64 } %.merged.i1.i.i.i.i.i.i, 0
-  %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %34, ptr nonnull readonly align 1 %48, i64 %35), !alias.scope !3256
+  %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %34, ptr nonnull readonly align 1 %48, i64 %35), !alias.scope !3256, !noalias !3255
   %.not10.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   br i1 %.not10.i.i.i.i, label %.preheader.split.i.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h093bf08d1f6c3576E.exit"
 

@@ -18083,7 +18083,7 @@ _ZNSt4pairIPKN5Yosys5RTLIL6ModuleENS1_8IdStringEEC2ERKS6_.exit.i.i: ; preds = %3
   %3558 = landingpad { ptr, i32 }
           catch ptr null
   %3559 = extractvalue { ptr, i32 } %3558, 0
-  call void @__clang_call_terminate(ptr %3559) #35
+  call void @__clang_call_terminate(ptr %3559) #35, !noalias !143
   unreachable
 
 _ZNK5Yosys7hashlib4poolISt4pairIPKNS_5RTLIL6ModuleENS3_8IdStringEENS0_8hash_opsIS8_EEE7do_hashERKS8_.exit.i: ; preds = %.thread4051, %3556, %3549, %3535, %3512

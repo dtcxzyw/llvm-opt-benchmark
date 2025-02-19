@@ -979,7 +979,7 @@ lpad2.i.i.i.i.i:                                  ; preds = %invoke.cont3.i.i.i.
   %61 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %lpad.i144.body unwind label %terminate.lpad.i.i.i.i.i
+          to label %if.then.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %lpad2.i.i.i.i.i
   %62 = landingpad { ptr, i32 }
@@ -996,13 +996,8 @@ lpad.i144.body.thread:                            ; preds = %invoke.cont173
           cleanup
   br label %ehcleanup182
 
-lpad.i144.body:                                   ; preds = %lpad2.i.i.i.i.i
-  %.pr = load ptr, ptr %ref.tmp168, align 8
-  %tobool.not.i.i.i = icmp eq ptr %.pr, null
-  br i1 %tobool.not.i.i.i, label %ehcleanup182, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %lpad.i144.body
-  call void @_ZdlPv(ptr noundef nonnull %.pr) #36
+if.then.i.i.i:                                    ; preds = %lpad2.i.i.i.i.i
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i325) #36
   br label %ehcleanup182
 
 call.i.i.i.i.noexc:                               ; preds = %for.inc.i.i.i.i.i
@@ -3337,8 +3332,8 @@ lpad178:                                          ; preds = %call.i.i.i.i.noexc,
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp168) #32
   br label %ehcleanup182
 
-ehcleanup182:                                     ; preds = %lpad.i144.body.thread, %if.then.i.i.i, %lpad.i144.body, %lpad178
-  %.pn = phi { ptr, i32 } [ %254, %lpad178 ], [ %61, %if.then.i.i.i ], [ %61, %lpad.i144.body ], [ %64, %lpad.i144.body.thread ]
+ehcleanup182:                                     ; preds = %lpad.i144.body.thread, %if.then.i.i.i, %lpad178
+  %.pn = phi { ptr, i32 } [ %254, %lpad178 ], [ %61, %if.then.i.i.i ], [ %64, %lpad.i144.body.thread ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp170) #32
   br label %ehcleanup191
 

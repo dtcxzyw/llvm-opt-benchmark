@@ -43043,7 +43043,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
   %30 = extractvalue { ptr, i8 } %29, 0
   %31 = and i64 %2, -2
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %33 = load ptr, ptr %32, align 8
+  %33 = load ptr, ptr %32, align 8, !noalias !268
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %53
 
@@ -43076,7 +43076,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
   %47 = extractvalue { ptr, i8 } %46, 0
   %48 = and i64 %2, -2
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  %50 = load ptr, ptr %49, align 8
+  %50 = load ptr, ptr %49, align 8, !noalias !274
   store ptr %50, ptr %0, align 8, !alias.scope !274
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %51, align 8, !alias.scope !274

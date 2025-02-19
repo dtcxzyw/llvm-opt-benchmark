@@ -2210,7 +2210,7 @@ _ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.e
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #28
+  tail call void @__clang_call_terminate(ptr %35) #28, !noalias !105
   unreachable
 
 36:                                               ; preds = %.noexc
@@ -2246,7 +2246,7 @@ _ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.e
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  tail call void @__clang_call_terminate(ptr %45) #28
+  tail call void @__clang_call_terminate(ptr %45) #28, !noalias !111
   unreachable
 
 46:                                               ; preds = %.noexc102
@@ -3173,7 +3173,7 @@ define internal fastcc noundef range(i64 0, -5) i64 @_ZL17GetClientHelloLenm(i64
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #28
+  call void @__clang_call_terminate(ptr %41) #28, !noalias !117
   unreachable
 
 _ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev.exit.i: ; preds = %38, %33, %25, %13

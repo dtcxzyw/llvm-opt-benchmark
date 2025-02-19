@@ -1739,7 +1739,6 @@ _ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15analyseTopologyERKN
 279:                                              ; preds = %278
   store ptr %276, ptr %13, align 8
   %280 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr null, ptr %280, align 8
   %281 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
           to label %_ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit unwind label %282
 

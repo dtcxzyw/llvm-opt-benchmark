@@ -14713,7 +14713,7 @@ _ZN4llvm5TwineC2EPKc.exit.i:                      ; preds = %544, %538
   br i1 %555, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %554
-  %bcmp.i.i206 = call i32 @bcmp(ptr %549, ptr %552, i64 %550)
+  %bcmp.i.i206 = call i32 @bcmp(ptr %549, ptr %552, i64 %550), !noalias !581
   %556 = icmp eq i32 %bcmp.i.i206, 0
   br i1 %556, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, label %_ZNSt8optionalIN4llvm6TripleEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit.i
 
@@ -15833,7 +15833,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %1003, %1008
   %1015 = call { ptr, i64 } @_ZNK4llvm6Triple9getOSNameEv(ptr noundef nonnull align 8 dereferenceable(56) %34) #23, !noalias !651
   %1016 = extractvalue { ptr, i64 } %1015, 0
   %1017 = extractvalue { ptr, i64 } %1015, 1
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %36, ptr %1016, i64 %1017)
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %36, ptr %1016, i64 %1017), !noalias !651
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %37) #23, !noalias !651
   call void @_ZNK4llvm3opt3Arg11getAsStringB5cxx11ERKNS0_7ArgListE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %37, ptr noundef nonnull align 8 dereferenceable(88) %1000, ptr noundef nonnull align 8 dereferenceable(328) %1) #23, !noalias !651
   %1018 = load ptr, ptr %37, align 8, !tbaa !87, !noalias !651
@@ -17279,52 +17279,52 @@ _ZN5clang13DarwinSDKInfoaSEOS0_.exit.i:           ; preds = %_ZN4llvm12DenseMapB
   ]
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i379:           ; preds = %.thread685
-  %bcmp.i.i380 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1623, ptr noundef nonnull dereferenceable(5) @.str.23, i64 5)
+  %bcmp.i.i380 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1623, ptr noundef nonnull dereferenceable(5) @.str.23, i64 5), !noalias !713
   %1625 = icmp eq i32 %bcmp.i.i380, 0
   br i1 %1625, label %_ZN12_GLOBAL__N_114DarwinPlatform17getPlatformFromOSEN4llvm6Triple6OSTypeE.exit.i.i369, label %_ZN4llvmeqENS_9StringRefES0_.exit42.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit38.i:            ; preds = %.thread685
-  %bcmp.i37.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1623, ptr noundef nonnull dereferenceable(6) @.str.24, i64 6)
+  %bcmp.i37.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1623, ptr noundef nonnull dereferenceable(6) @.str.24, i64 6), !noalias !713
   %1626 = icmp eq i32 %bcmp.i37.i, 0
   br i1 %1626, label %_ZN12_GLOBAL__N_114DarwinPlatform17getPlatformFromOSEN4llvm6Triple6OSTypeE.exit.i.i369, label %_ZN4llvmeqENS_9StringRefES0_.exit46.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit42.i:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i379
-  %bcmp.i41.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1623, ptr noundef nonnull dereferenceable(5) @.str.17, i64 5)
+  %bcmp.i41.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1623, ptr noundef nonnull dereferenceable(5) @.str.17, i64 5), !noalias !713
   %1627 = icmp eq i32 %bcmp.i41.i, 0
   br i1 %1627, label %_ZN4llvmeqENS_9StringRefES0_.exit42.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit50.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit46.i:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit38.i
-  %bcmp.i45.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1623, ptr noundef nonnull dereferenceable(6) @.str.21, i64 6)
+  %bcmp.i45.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1623, ptr noundef nonnull dereferenceable(6) @.str.21, i64 6), !noalias !713
   %1628 = icmp eq i32 %bcmp.i45.i, 0
   br i1 %1628, label %_ZN4llvmeqENS_9StringRefES0_.exit42.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit54.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit50.i:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit42.i
-  %bcmp.i49.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1623, ptr noundef nonnull dereferenceable(5) @.str.15, i64 5)
+  %bcmp.i49.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1623, ptr noundef nonnull dereferenceable(5) @.str.15, i64 5), !noalias !713
   %1629 = icmp eq i32 %bcmp.i49.i, 0
   br i1 %1629, label %_ZN4llvmeqENS_9StringRefES0_.exit42.thread.i, label %_ZN12_GLOBAL__N_114DarwinPlatform17getPlatformFromOSEN4llvm6Triple6OSTypeE.exit.i.i369
 
 _ZN4llvmeqENS_9StringRefES0_.exit54.i:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit46.i
-  %bcmp.i53.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1623, ptr noundef nonnull dereferenceable(6) @.str.19, i64 6)
+  %bcmp.i53.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1623, ptr noundef nonnull dereferenceable(6) @.str.19, i64 6), !noalias !713
   %1630 = icmp eq i32 %bcmp.i53.i, 0
   br i1 %1630, label %_ZN4llvmeqENS_9StringRefES0_.exit54.thread.i, label %_ZN4llvmneENS_9StringRefES0_.exit.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit58.i:            ; preds = %.thread685
-  %bcmp.i57.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %1623, ptr noundef nonnull dereferenceable(8) @.str.25, i64 8)
+  %bcmp.i57.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %1623, ptr noundef nonnull dereferenceable(8) @.str.25, i64 8), !noalias !713
   %1631 = icmp eq i32 %bcmp.i57.i, 0
   br i1 %1631, label %_ZN4llvmeqENS_9StringRefES0_.exit54.thread.i, label %_ZN12_GLOBAL__N_114DarwinPlatform17getPlatformFromOSEN4llvm6Triple6OSTypeE.exit.i.i369
 
 _ZN4llvmneENS_9StringRefES0_.exit.i:              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit54.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1623, ptr noundef nonnull dereferenceable(6) @.str.16, i64 6)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1623, ptr noundef nonnull dereferenceable(6) @.str.16, i64 6), !noalias !713
   %.not.i378 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %.not.i378, label %.thread134.i, label %_ZN4llvmneENS_9StringRefES0_.exit62.i
 
 _ZN4llvmneENS_9StringRefES0_.exit62.i:            ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.i
-  %bcmp.i.i61.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1623, ptr noundef nonnull dereferenceable(6) @.str.20, i64 6)
+  %bcmp.i.i61.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1623, ptr noundef nonnull dereferenceable(6) @.str.20, i64 6), !noalias !713
   %.not149.i = icmp eq i32 %bcmp.i.i61.i, 0
   br i1 %.not149.i, label %.thread134.i, label %_ZN12_GLOBAL__N_114DarwinPlatform17getPlatformFromOSEN4llvm6Triple6OSTypeE.exit.i.i369
 
 _ZN4llvmneENS_9StringRefES0_.exit66.i:            ; preds = %.thread685
-  %bcmp.i.i65.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %1623, ptr noundef nonnull dereferenceable(7) @.str.18, i64 7)
+  %bcmp.i.i65.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %1623, ptr noundef nonnull dereferenceable(7) @.str.18, i64 7), !noalias !713
   %bcmp.i.i65.fr.i = freeze i32 %bcmp.i.i65.i
   %.not150.i = icmp eq i32 %bcmp.i.i65.fr.i, 0
   br i1 %.not150.i, label %.thread134.i, label %_ZN12_GLOBAL__N_114DarwinPlatform17getPlatformFromOSEN4llvm6Triple6OSTypeE.exit.i.i369

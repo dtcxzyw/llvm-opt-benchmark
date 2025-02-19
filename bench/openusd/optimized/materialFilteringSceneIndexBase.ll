@@ -301,7 +301,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceC2EPKNS_33Hd
   %70 = landingpad { ptr, i32 }
           catch ptr null
   %71 = extractvalue { ptr, i32 } %70, 0
-  %72 = tail call ptr @__cxa_begin_catch(ptr %71) #19
+  %72 = tail call ptr @__cxa_begin_catch(ptr %71) #19, !noalias !4
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %40) #19, !noalias !4
   tail call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef 40) #18, !noalias !4
   invoke void @__cxa_rethrow() #16
@@ -317,7 +317,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceC2EPKNS_33Hd
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  tail call void @__clang_call_terminate(ptr %77) #20
+  tail call void @__clang_call_terminate(ptr %77) #20, !noalias !4
   unreachable
 
 78:                                               ; preds = %69
@@ -1145,7 +1145,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %83, %
   %114 = landingpad { ptr, i32 }
           catch ptr null
   %115 = extractvalue { ptr, i32 } %114, 0
-  call void @__clang_call_terminate(ptr %115) #20
+  call void @__clang_call_terminate(ptr %115) #20, !noalias !17
   unreachable
 
 .body.i.i:                                        ; preds = %111, %108
@@ -1165,7 +1165,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_MaterialDataSourceC2ERKSt1
   %119 = landingpad { ptr, i32 }
           catch ptr null
   %120 = extractvalue { ptr, i32 } %119, 0
-  %121 = call ptr @__cxa_begin_catch(ptr %120) #19
+  %121 = call ptr @__cxa_begin_catch(ptr %120) #19, !noalias !17
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_MaterialDataSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %57) #19, !noalias !17
   call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef 80) #18, !noalias !17
   invoke void @__cxa_rethrow() #16
@@ -1181,7 +1181,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_MaterialDataSourceC2ERKSt1
   %125 = landingpad { ptr, i32 }
           catch ptr null
   %126 = extractvalue { ptr, i32 } %125, 0
-  call void @__clang_call_terminate(ptr %126) #20
+  call void @__clang_call_terminate(ptr %126) #20, !noalias !17
   unreachable
 
 127:                                              ; preds = %118

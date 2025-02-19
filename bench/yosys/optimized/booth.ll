@@ -11518,7 +11518,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i55.i: ; preds = %2519, %2507
   %2591 = landingpad { ptr, i32 }
           catch ptr null
   %2592 = extractvalue { ptr, i32 } %2591, 0
-  call void @__clang_call_terminate(ptr %2592) #24
+  call void @__clang_call_terminate(ptr %2592) #24, !noalias !47
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i378:           ; preds = %2589, %2582, %2577
@@ -11574,7 +11574,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i378:           ; preds = %2589, %2582, %2577
   %2613 = landingpad { ptr, i32 }
           catch ptr null
   %2614 = extractvalue { ptr, i32 } %2613, 0
-  call void @__clang_call_terminate(ptr %2614) #24
+  call void @__clang_call_terminate(ptr %2614) #24, !noalias !47
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit60.i:            ; preds = %2611, %2604, %2599
@@ -11673,7 +11673,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i.i:            ; preds = %2618
   %2652 = landingpad { ptr, i32 }
           catch ptr null
   %2653 = extractvalue { ptr, i32 } %2652, 0
-  call void @__clang_call_terminate(ptr %2653) #24
+  call void @__clang_call_terminate(ptr %2653) #24, !noalias !47
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit62.i:            ; preds = %2650, %2643, %2638
@@ -11804,7 +11804,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i.
 2702:                                             ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.i
   %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   %2703 = extractvalue { ptr, i32 } %lpad.phi.i.i, 0
-  %2704 = call ptr @__cxa_begin_catch(ptr %2703) #22
+  %2704 = call ptr @__cxa_begin_catch(ptr %2703) #22, !noalias !47
   %.not4.i.i.i.i = icmp eq ptr %2667, %.017.i.i
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkEEvT_S4_.exit.i.i, label %.lr.ph.i.i.i.i
 
@@ -11838,7 +11838,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkEEvT_S4_.exit.i.i: ; preds = %_ZSt8_Destroy
   %2712 = landingpad { ptr, i32 }
           catch ptr null
   %2713 = extractvalue { ptr, i32 } %2712, 0
-  call void @__clang_call_terminate(ptr %2713) #24
+  call void @__clang_call_terminate(ptr %2713) #24, !noalias !47
   unreachable
 
 2714:                                             ; preds = %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkEEvT_S4_.exit.i.i

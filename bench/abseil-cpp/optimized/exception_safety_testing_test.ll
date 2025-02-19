@@ -29358,7 +29358,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit42.i: ; preds = %_ZNKSt7__cxx1112ba
   %189 = landingpad { ptr, i32 }
           catch ptr null
   %190 = extractvalue { ptr, i32 } %189, 0
-  call void @__clang_call_terminate(ptr %190) #31
+  call void @__clang_call_terminate(ptr %190) #31, !noalias !243
   unreachable
 
 _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit.i.i.i.i: ; preds = %.preheader.i.i.i.i
@@ -29583,7 +29583,7 @@ _ZN7testing7MessageD2Ev.exit21.i.i:               ; preds = %_ZNKSt14default_del
   %257 = landingpad { ptr, i32 }
           catch ptr null
   %258 = extractvalue { ptr, i32 } %257, 0
-  call void @__clang_call_terminate(ptr %258) #31
+  call void @__clang_call_terminate(ptr %258) #31, !noalias !248
   unreachable
 
 _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit.i.i.i: ; preds = %.preheader.i.i.i
@@ -44640,7 +44640,7 @@ _ZN7testing15AssertionResultD2Ev.exit62:          ; preds = %126, %_ZNKSt14defau
   %155 = landingpad { ptr, i32 }
           catch ptr null
   %156 = extractvalue { ptr, i32 } %155, 0
-  call void @__clang_call_terminate(ptr %156) #31
+  call void @__clang_call_terminate(ptr %156) #31, !noalias !406
   unreachable
 
 157:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit62
@@ -44658,7 +44658,7 @@ _ZN7testing15AssertionResultD2Ev.exit62:          ; preds = %126, %_ZNKSt14defau
   %163 = landingpad { ptr, i32 }
           catch ptr null
   %164 = extractvalue { ptr, i32 } %163, 0
-  call void @__clang_call_terminate(ptr %164) #31
+  call void @__clang_call_terminate(ptr %164) #31, !noalias !406
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %160, %157
@@ -44675,7 +44675,7 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %160, %157
   %169 = landingpad { ptr, i32 }
           catch ptr null
   %170 = extractvalue { ptr, i32 } %169, 0
-  call void @__clang_call_terminate(ptr %170) #31
+  call void @__clang_call_terminate(ptr %170) #31, !noalias !406
   unreachable
 
 .body.i.i.i.i:                                    ; preds = %166, %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i
@@ -44691,7 +44691,7 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %160, %157
   %175 = landingpad { ptr, i32 }
           catch ptr null
   %176 = extractvalue { ptr, i32 } %175, 0
-  call void @__clang_call_terminate(ptr %176) #31
+  call void @__clang_call_terminate(ptr %176) #31, !noalias !406
   unreachable
 
 177:                                              ; preds = %152, %150
@@ -45069,7 +45069,7 @@ _ZN7testing15AssertionResultD2Ev.exit79:          ; preds = %274, %_ZNKSt14defau
   %303 = landingpad { ptr, i32 }
           catch ptr null
   %304 = extractvalue { ptr, i32 } %303, 0
-  call void @__clang_call_terminate(ptr %304) #31
+  call void @__clang_call_terminate(ptr %304) #31, !noalias !430
   unreachable
 
 305:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit79
@@ -45087,7 +45087,7 @@ _ZN7testing15AssertionResultD2Ev.exit79:          ; preds = %274, %_ZNKSt14defau
   %311 = landingpad { ptr, i32 }
           catch ptr null
   %312 = extractvalue { ptr, i32 } %311, 0
-  call void @__clang_call_terminate(ptr %312) #31
+  call void @__clang_call_terminate(ptr %312) #31, !noalias !430
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i81:       ; preds = %308, %305
@@ -45104,7 +45104,7 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i81:       ; preds = %308, %305
   %317 = landingpad { ptr, i32 }
           catch ptr null
   %318 = extractvalue { ptr, i32 } %317, 0
-  call void @__clang_call_terminate(ptr %318) #31
+  call void @__clang_call_terminate(ptr %318) #31, !noalias !430
   unreachable
 
 .body.i.i.i.i83:                                  ; preds = %314, %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i81
@@ -45120,7 +45120,7 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i81:       ; preds = %308, %305
   %323 = landingpad { ptr, i32 }
           catch ptr null
   %324 = extractvalue { ptr, i32 } %323, 0
-  call void @__clang_call_terminate(ptr %324) #31
+  call void @__clang_call_terminate(ptr %324) #31, !noalias !430
   unreachable
 
 325:                                              ; preds = %300, %298
@@ -45543,7 +45543,7 @@ _ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEEC2IRPS4_vEEOT_.exit.i
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #31
+  call void @__clang_call_terminate(ptr %32) #31, !noalias !445
   unreachable
 
 _ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EEvEEC2ERKS8_.exit.i.i.i: ; preds = %21, %_ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEEC2IRPS4_vEEOT_.exit.i.i
@@ -45583,7 +45583,7 @@ _ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14defaul
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #31
+  call void @__clang_call_terminate(ptr %50) #31, !noalias !445
   unreachable
 
 _ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEEC2ERKS5_.exit.i.i.i: ; preds = %39, %_ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EEvEEC2ERKS8_.exit.i.i.i
@@ -45614,7 +45614,7 @@ _ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEEC2ERKS5_.exit.i.i.i: 
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #31
+  call void @__clang_call_terminate(ptr %62) #31, !noalias !445
   unreachable
 
 63:                                               ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEEC2ERKS5_.exit.i.i.i
@@ -45632,7 +45632,7 @@ _ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEEC2ERKS5_.exit.i.i.i: 
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #31
+  call void @__clang_call_terminate(ptr %70) #31, !noalias !445
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit13.i.i.i:           ; preds = %66, %63
@@ -45649,7 +45649,7 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i:           ; preds = %66, %63
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #31
+  call void @__clang_call_terminate(ptr %76) #31, !noalias !445
   unreachable
 
 .body.i.i.i:                                      ; preds = %72, %_ZNSt14_Function_baseD2Ev.exit13.i.i.i, %46, %43
@@ -45666,7 +45666,7 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i:           ; preds = %66, %63
   %81 = landingpad { ptr, i32 }
           catch ptr null
   %82 = extractvalue { ptr, i32 } %81, 0
-  call void @__clang_call_terminate(ptr %82) #31
+  call void @__clang_call_terminate(ptr %82) #31, !noalias !445
   unreachable
 
 83:                                               ; preds = %58, %56
@@ -46767,7 +46767,7 @@ define internal void @_ZN7testing12_GLOBAL__N_145ExceptionCheckTest_BasicGuarant
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #31
+  call void @__clang_call_terminate(ptr %31) #31, !noalias !497
   unreachable
 
 32:                                               ; preds = %1
@@ -46785,7 +46785,7 @@ define internal void @_ZN7testing12_GLOBAL__N_145ExceptionCheckTest_BasicGuarant
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #31
+  call void @__clang_call_terminate(ptr %39) #31, !noalias !497
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %35, %32
@@ -46802,7 +46802,7 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %35, %32
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  call void @__clang_call_terminate(ptr %45) #31
+  call void @__clang_call_terminate(ptr %45) #31, !noalias !497
   unreachable
 
 .body.i.i.i.i:                                    ; preds = %41, %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i
@@ -46818,7 +46818,7 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %35, %32
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #31
+  call void @__clang_call_terminate(ptr %51) #31, !noalias !497
   unreachable
 
 52:                                               ; preds = %27, %25
@@ -47928,7 +47928,7 @@ define internal void @_ZN7testing12_GLOBAL__N_138ExceptionCheckTest_BasicGuarant
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #31
+  call void @__clang_call_terminate(ptr %30) #31, !noalias !547
   unreachable
 
 31:                                               ; preds = %1
@@ -47946,7 +47946,7 @@ define internal void @_ZN7testing12_GLOBAL__N_138ExceptionCheckTest_BasicGuarant
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #31
+  call void @__clang_call_terminate(ptr %38) #31, !noalias !547
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %34, %31
@@ -47963,7 +47963,7 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %34, %31
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #31
+  call void @__clang_call_terminate(ptr %44) #31, !noalias !547
   unreachable
 
 .body.i.i.i.i:                                    ; preds = %40, %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i
@@ -47979,7 +47979,7 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %34, %31
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #31
+  call void @__clang_call_terminate(ptr %50) #31, !noalias !547
   unreachable
 
 51:                                               ; preds = %26, %24
@@ -49068,7 +49068,7 @@ define internal void @_ZN7testing12_GLOBAL__N_146ExceptionCheckTest_StrongGuaran
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #31
+  call void @__clang_call_terminate(ptr %50) #31, !noalias !597
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i.i.i.i:           ; preds = %46, %41
@@ -49097,7 +49097,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i.i:           ; preds = %46, %41
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #31
+  call void @__clang_call_terminate(ptr %64) #31, !noalias !597
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %60, %55
@@ -49118,7 +49118,7 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %60, %55
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  call void @__clang_call_terminate(ptr %72) #31
+  call void @__clang_call_terminate(ptr %72) #31, !noalias !597
   unreachable
 
 .body.i.i.i.i:                                    ; preds = %68, %66
@@ -49134,7 +49134,7 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %60, %55
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #31
+  call void @__clang_call_terminate(ptr %78) #31, !noalias !597
   unreachable
 
 79:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit.i.i.i.i
@@ -49572,7 +49572,7 @@ _ZN7testing15AssertionResultD2Ev.exit36:          ; preds = %190, %_ZNKSt14defau
   %231 = landingpad { ptr, i32 }
           catch ptr null
   %232 = extractvalue { ptr, i32 } %231, 0
-  call void @__clang_call_terminate(ptr %232) #31
+  call void @__clang_call_terminate(ptr %232) #31, !noalias !612
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i.i.i.i49:         ; preds = %228, %223
@@ -49601,7 +49601,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i.i49:         ; preds = %228, %223
   %245 = landingpad { ptr, i32 }
           catch ptr null
   %246 = extractvalue { ptr, i32 } %245, 0
-  call void @__clang_call_terminate(ptr %246) #31
+  call void @__clang_call_terminate(ptr %246) #31, !noalias !612
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i38:       ; preds = %242, %237
@@ -49622,7 +49622,7 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i38:       ; preds = %242, %237
   %253 = landingpad { ptr, i32 }
           catch ptr null
   %254 = extractvalue { ptr, i32 } %253, 0
-  call void @__clang_call_terminate(ptr %254) #31
+  call void @__clang_call_terminate(ptr %254) #31, !noalias !612
   unreachable
 
 .body.i.i.i.i40:                                  ; preds = %250, %248
@@ -49638,7 +49638,7 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i38:       ; preds = %242, %237
   %259 = landingpad { ptr, i32 }
           catch ptr null
   %260 = extractvalue { ptr, i32 } %259, 0
-  call void @__clang_call_terminate(ptr %260) #31
+  call void @__clang_call_terminate(ptr %260) #31, !noalias !612
   unreachable
 
 261:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i.i.i.i49
@@ -50236,7 +50236,7 @@ define internal void @_ZN7testing12_GLOBAL__N_156ExceptionCheckTest_BasicGuarant
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #31
+  call void @__clang_call_terminate(ptr %38) #31, !noalias !658
   unreachable
 
 39:                                               ; preds = %1
@@ -50254,7 +50254,7 @@ define internal void @_ZN7testing12_GLOBAL__N_156ExceptionCheckTest_BasicGuarant
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #31
+  call void @__clang_call_terminate(ptr %46) #31, !noalias !658
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %42, %39
@@ -50271,7 +50271,7 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %42, %39
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #31
+  call void @__clang_call_terminate(ptr %52) #31, !noalias !658
   unreachable
 
 .body.i.i.i.i:                                    ; preds = %48, %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i
@@ -50287,7 +50287,7 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %42, %39
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #31
+  call void @__clang_call_terminate(ptr %58) #31, !noalias !658
   unreachable
 
 59:                                               ; preds = %34, %32
@@ -50679,7 +50679,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %156, %_ZNKSt14defau
   %194 = landingpad { ptr, i32 }
           catch ptr null
   %195 = extractvalue { ptr, i32 } %194, 0
-  call void @__clang_call_terminate(ptr %195) #31
+  call void @__clang_call_terminate(ptr %195) #31, !noalias !680
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i.i.i.i33:         ; preds = %191, %186
@@ -50708,7 +50708,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i.i33:         ; preds = %191, %186
   %208 = landingpad { ptr, i32 }
           catch ptr null
   %209 = extractvalue { ptr, i32 } %208, 0
-  call void @__clang_call_terminate(ptr %209) #31
+  call void @__clang_call_terminate(ptr %209) #31, !noalias !680
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit14.i.i.i.i:         ; preds = %205, %200
@@ -50729,7 +50729,7 @@ _ZNSt14_Function_baseD2Ev.exit14.i.i.i.i:         ; preds = %205, %200
   %216 = landingpad { ptr, i32 }
           catch ptr null
   %217 = extractvalue { ptr, i32 } %216, 0
-  call void @__clang_call_terminate(ptr %217) #31
+  call void @__clang_call_terminate(ptr %217) #31, !noalias !680
   unreachable
 
 .body.i.i.i.i29:                                  ; preds = %213, %211
@@ -50745,7 +50745,7 @@ _ZNSt14_Function_baseD2Ev.exit14.i.i.i.i:         ; preds = %205, %200
   %222 = landingpad { ptr, i32 }
           catch ptr null
   %223 = extractvalue { ptr, i32 } %222, 0
-  call void @__clang_call_terminate(ptr %223) #31
+  call void @__clang_call_terminate(ptr %223) #31, !noalias !680
   unreachable
 
 224:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i.i.i.i33
@@ -52092,7 +52092,7 @@ define internal void @_ZN7testing12_GLOBAL__N_139ExceptionCheckTest_StrongGuaran
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #31
+  call void @__clang_call_terminate(ptr %38) #31, !noalias !730
   unreachable
 
 39:                                               ; preds = %1
@@ -52110,7 +52110,7 @@ define internal void @_ZN7testing12_GLOBAL__N_139ExceptionCheckTest_StrongGuaran
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #31
+  call void @__clang_call_terminate(ptr %46) #31, !noalias !730
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %42, %39
@@ -52127,7 +52127,7 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %42, %39
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #31
+  call void @__clang_call_terminate(ptr %52) #31, !noalias !730
   unreachable
 
 .body.i.i.i.i:                                    ; preds = %48, %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i
@@ -52143,7 +52143,7 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %42, %39
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #31
+  call void @__clang_call_terminate(ptr %58) #31, !noalias !730
   unreachable
 
 59:                                               ; preds = %34, %32
@@ -52540,7 +52540,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %156, %_ZNKSt14defau
   %197 = landingpad { ptr, i32 }
           catch ptr null
   %198 = extractvalue { ptr, i32 } %197, 0
-  call void @__clang_call_terminate(ptr %198) #31
+  call void @__clang_call_terminate(ptr %198) #31, !noalias !752
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i.i.i.i36:         ; preds = %194, %189
@@ -52569,7 +52569,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i.i36:         ; preds = %194, %189
   %211 = landingpad { ptr, i32 }
           catch ptr null
   %212 = extractvalue { ptr, i32 } %211, 0
-  call void @__clang_call_terminate(ptr %212) #31
+  call void @__clang_call_terminate(ptr %212) #31, !noalias !752
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i29:       ; preds = %208, %203
@@ -52590,7 +52590,7 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i29:       ; preds = %208, %203
   %219 = landingpad { ptr, i32 }
           catch ptr null
   %220 = extractvalue { ptr, i32 } %219, 0
-  call void @__clang_call_terminate(ptr %220) #31
+  call void @__clang_call_terminate(ptr %220) #31, !noalias !752
   unreachable
 
 .body.i.i.i.i31:                                  ; preds = %216, %214
@@ -52606,7 +52606,7 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i29:       ; preds = %208, %203
   %225 = landingpad { ptr, i32 }
           catch ptr null
   %226 = extractvalue { ptr, i32 } %225, 0
-  call void @__clang_call_terminate(ptr %226) #31
+  call void @__clang_call_terminate(ptr %226) #31, !noalias !752
   unreachable
 
 227:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i.i.i.i36
@@ -53764,7 +53764,7 @@ define internal void @_ZN7testing12_GLOBAL__N_140ExceptionCheckTest_ModifyingChe
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #31
+  call void @__clang_call_terminate(ptr %65) #31, !noalias !810
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i.i.i.i:           ; preds = %61, %56
@@ -53793,7 +53793,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i.i:           ; preds = %61, %56
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #31
+  call void @__clang_call_terminate(ptr %79) #31, !noalias !810
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit15.i.i.i.i:         ; preds = %75, %70
@@ -53814,7 +53814,7 @@ _ZNSt14_Function_baseD2Ev.exit15.i.i.i.i:         ; preds = %75, %70
   %86 = landingpad { ptr, i32 }
           catch ptr null
   %87 = extractvalue { ptr, i32 } %86, 0
-  call void @__clang_call_terminate(ptr %87) #31
+  call void @__clang_call_terminate(ptr %87) #31, !noalias !810
   unreachable
 
 .body.i.i.i.i:                                    ; preds = %83, %81
@@ -53830,7 +53830,7 @@ _ZNSt14_Function_baseD2Ev.exit15.i.i.i.i:         ; preds = %75, %70
   %92 = landingpad { ptr, i32 }
           catch ptr null
   %93 = extractvalue { ptr, i32 } %92, 0
-  call void @__clang_call_terminate(ptr %93) #31
+  call void @__clang_call_terminate(ptr %93) #31, !noalias !810
   unreachable
 
 94:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit.i.i.i.i
@@ -54273,7 +54273,7 @@ _ZN7testing15AssertionResultD2Ev.exit49:          ; preds = %205, %_ZNKSt14defau
   %249 = landingpad { ptr, i32 }
           catch ptr null
   %250 = extractvalue { ptr, i32 } %249, 0
-  call void @__clang_call_terminate(ptr %250) #31
+  call void @__clang_call_terminate(ptr %250) #31, !noalias !826
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i.i.i.i58:         ; preds = %246, %241
@@ -54302,7 +54302,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i.i58:         ; preds = %246, %241
   %263 = landingpad { ptr, i32 }
           catch ptr null
   %264 = extractvalue { ptr, i32 } %263, 0
-  call void @__clang_call_terminate(ptr %264) #31
+  call void @__clang_call_terminate(ptr %264) #31, !noalias !826
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit14.i.i.i.i:         ; preds = %260, %255
@@ -54323,7 +54323,7 @@ _ZNSt14_Function_baseD2Ev.exit14.i.i.i.i:         ; preds = %260, %255
   %271 = landingpad { ptr, i32 }
           catch ptr null
   %272 = extractvalue { ptr, i32 } %271, 0
-  call void @__clang_call_terminate(ptr %272) #31
+  call void @__clang_call_terminate(ptr %272) #31, !noalias !826
   unreachable
 
 .body.i.i.i.i50:                                  ; preds = %268, %266
@@ -54339,7 +54339,7 @@ _ZNSt14_Function_baseD2Ev.exit14.i.i.i.i:         ; preds = %260, %255
   %277 = landingpad { ptr, i32 }
           catch ptr null
   %278 = extractvalue { ptr, i32 } %277, 0
-  call void @__clang_call_terminate(ptr %278) #31
+  call void @__clang_call_terminate(ptr %278) #31, !noalias !826
   unreachable
 
 279:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i.i.i.i58
@@ -56243,7 +56243,7 @@ define internal fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafety
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #31
+  call void @__clang_call_terminate(ptr %14) #31, !noalias !920
   unreachable
 
 common.resume.i.i:                                ; preds = %_ZNSt14_Function_baseD2Ev.exit14.i.i, %10, %.body.i.i.i
@@ -56291,7 +56291,7 @@ common.resume.i.i:                                ; preds = %_ZNSt14_Function_ba
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #31
+  call void @__clang_call_terminate(ptr %27) #31, !noalias !920
   unreachable
 
 _ZNSt8functionIFSt10unique_ptrIN7testing13ThrowingValueILNS1_8TypeSpecE0EEESt14default_deleteIS4_EEvEEC2ERKS9_.exit.i.i.i: ; preds = %.noexc.i.i
@@ -56335,7 +56335,7 @@ _ZNSt8functionIFSt10unique_ptrIN7testing13ThrowingValueILNS1_8TypeSpecE0EEESt14d
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  call void @__clang_call_terminate(ptr %47) #31
+  call void @__clang_call_terminate(ptr %47) #31, !noalias !920
   unreachable
 
 _ZNSt8functionIFvPN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEEC2ERKS6_.exit.i.i.i: ; preds = %37, %_ZNSt8functionIFSt10unique_ptrIN7testing13ThrowingValueILNS1_8TypeSpecE0EEESt14default_deleteIS4_EEvEEC2ERKS9_.exit.i.i.i
@@ -56390,7 +56390,7 @@ _ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_13ThrowingValue
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  call void @__clang_call_terminate(ptr %72) #31
+  call void @__clang_call_terminate(ptr %72) #31, !noalias !920
   unreachable
 
 .body11.i.i.i:                                    ; preds = %59, %56
@@ -56406,7 +56406,7 @@ _ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_13ThrowingValue
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #31
+  call void @__clang_call_terminate(ptr %78) #31, !noalias !920
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit14.i.i.i:           ; preds = %74, %.body11.i.i.i
@@ -56423,7 +56423,7 @@ _ZNSt14_Function_baseD2Ev.exit14.i.i.i:           ; preds = %74, %.body11.i.i.i
   %83 = landingpad { ptr, i32 }
           catch ptr null
   %84 = extractvalue { ptr, i32 } %83, 0
-  call void @__clang_call_terminate(ptr %84) #31
+  call void @__clang_call_terminate(ptr %84) #31, !noalias !920
   unreachable
 
 .body.i4.i.i:                                     ; preds = %80, %_ZNSt14_Function_baseD2Ev.exit14.i.i.i, %43, %40
@@ -56440,7 +56440,7 @@ _ZNSt14_Function_baseD2Ev.exit14.i.i.i:           ; preds = %74, %.body11.i.i.i
   %89 = landingpad { ptr, i32 }
           catch ptr null
   %90 = extractvalue { ptr, i32 } %89, 0
-  call void @__clang_call_terminate(ptr %90) #31
+  call void @__clang_call_terminate(ptr %90) #31, !noalias !920
   unreachable
 
 91:                                               ; preds = %68, %65
@@ -57372,7 +57372,7 @@ define internal void @_ZN7testing12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #31
+  call void @__clang_call_terminate(ptr %38) #31, !noalias !964
   unreachable
 
 39:                                               ; preds = %1
@@ -57390,7 +57390,7 @@ define internal void @_ZN7testing12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #31
+  call void @__clang_call_terminate(ptr %46) #31, !noalias !964
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %42, %39
@@ -57407,7 +57407,7 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %42, %39
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #31
+  call void @__clang_call_terminate(ptr %52) #31, !noalias !964
   unreachable
 
 .body.i.i.i.i:                                    ; preds = %48, %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i
@@ -57423,7 +57423,7 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %42, %39
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #31
+  call void @__clang_call_terminate(ptr %58) #31, !noalias !964
   unreachable
 
 59:                                               ; preds = %34, %32
@@ -57820,7 +57820,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %156, %_ZNKSt14defau
   %197 = landingpad { ptr, i32 }
           catch ptr null
   %198 = extractvalue { ptr, i32 } %197, 0
-  call void @__clang_call_terminate(ptr %198) #31
+  call void @__clang_call_terminate(ptr %198) #31, !noalias !986
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i.i.i.i32:         ; preds = %194, %189
@@ -57849,7 +57849,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i.i32:         ; preds = %194, %189
   %211 = landingpad { ptr, i32 }
           catch ptr null
   %212 = extractvalue { ptr, i32 } %211, 0
-  call void @__clang_call_terminate(ptr %212) #31
+  call void @__clang_call_terminate(ptr %212) #31, !noalias !986
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i25:       ; preds = %208, %203
@@ -57870,7 +57870,7 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i25:       ; preds = %208, %203
   %219 = landingpad { ptr, i32 }
           catch ptr null
   %220 = extractvalue { ptr, i32 } %219, 0
-  call void @__clang_call_terminate(ptr %220) #31
+  call void @__clang_call_terminate(ptr %220) #31, !noalias !986
   unreachable
 
 .body.i.i.i.i27:                                  ; preds = %216, %214
@@ -57886,7 +57886,7 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i25:       ; preds = %208, %203
   %225 = landingpad { ptr, i32 }
           catch ptr null
   %226 = extractvalue { ptr, i32 } %225, 0
-  call void @__clang_call_terminate(ptr %226) #31
+  call void @__clang_call_terminate(ptr %226) #31, !noalias !986
   unreachable
 
 227:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i.i.i.i32

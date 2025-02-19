@@ -9711,7 +9711,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i.i.i: ; preds = 
   %79 = landingpad { ptr, i32 }
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
-  tail call void @__clang_call_terminate(ptr %80) #23
+  tail call void @__clang_call_terminate(ptr %80) #23, !noalias !76
   unreachable
 
 _ZSt19__relocate_object_aISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %77, %64, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i.i.i
@@ -9789,7 +9789,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i.i.i21: ; preds 
   %120 = landingpad { ptr, i32 }
           catch ptr null
   %121 = extractvalue { ptr, i32 } %120, 0
-  tail call void @__clang_call_terminate(ptr %121) #23
+  tail call void @__clang_call_terminate(ptr %121) #23, !noalias !83
   unreachable
 
 _ZSt19__relocate_object_aISt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i22: ; preds = %118, %105, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i.i.i21

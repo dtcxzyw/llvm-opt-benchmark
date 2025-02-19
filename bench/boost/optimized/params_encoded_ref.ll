@@ -480,7 +480,7 @@ define noundef i64 @_ZN5boost4urls18params_encoded_ref5eraseENS0_15pct_string_vi
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #13
+  call void @__clang_call_terminate(ptr %38) #13, !noalias !49
   unreachable
 
 39:                                               ; preds = %34
@@ -514,7 +514,7 @@ define noundef i64 @_ZN5boost4urls18params_encoded_ref5eraseENS0_15pct_string_vi
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #13
+  call void @__clang_call_terminate(ptr %44) #13, !noalias !58
   unreachable
 
 _ZN5boost4urls18params_encoded_ref5eraseENS0_19params_encoded_base8iteratorE.exit11: ; preds = %40
@@ -559,7 +559,7 @@ define void @_ZN5boost4urls18params_encoded_ref5eraseENS0_19params_encoded_base8
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #13
+  call void @__clang_call_terminate(ptr %12) #13, !noalias !64
   unreachable
 
 _ZN5boost4urls18params_encoded_ref5eraseENS0_19params_encoded_base8iteratorES3_.exit: ; preds = %.preheader.i.i.i
@@ -923,7 +923,7 @@ _ZN5boost4urls18params_encoded_ref3setENS0_19params_encoded_base8iteratorENS0_15
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #13
+  call void @__clang_call_terminate(ptr %57) #13, !noalias !106
   unreachable
 
 _ZN5boost4urls18params_encoded_ref5eraseENS0_19params_encoded_base8iteratorE.exit: ; preds = %.lr.ph

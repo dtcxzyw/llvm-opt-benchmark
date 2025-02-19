@@ -11652,7 +11652,7 @@ define internal void @_ZNSt17_Function_handlerIFSt8optionalIN32pxrInternal_v0_24
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #25, !noalias !216
+  call void @__clang_call_terminate(ptr %36) #25, !noalias !220
   unreachable
 
 37:                                               ; preds = %.noexc15.i.i.i
@@ -11765,7 +11765,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   %79 = landingpad { ptr, i32 }
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #25
+  call void @__clang_call_terminate(ptr %80) #25, !noalias !220
   unreachable
 
 _ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7VtValueESt4lessIvESaISt4pairIKS6_S8_EEEEclEPSF_.exit.i.i.i.i.i: ; preds = %75
@@ -15179,7 +15179,7 @@ define internal void @_ZNSt17_Function_handlerIFSt8optionalIN32pxrInternal_v0_24
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #25, !noalias !255
+  call void @__clang_call_terminate(ptr %35) #25, !noalias !259
   unreachable
 
 36:                                               ; preds = %.noexc15.i.i.i

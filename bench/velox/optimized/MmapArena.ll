@@ -1083,18 +1083,14 @@ if.then65:                                        ; preds = %if.end63
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i48)
   %33 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
   %cmp.not5.i.i.i.i51 = icmp eq ptr %33, null
-  br i1 %cmp.not5.i.i.i.i51, label %if.then.i71, label %while.body.lr.ph.i.i.i.i52
+  br i1 %cmp.not5.i.i.i.i51, label %if.then.i71, label %while.body.i.i.i.i53
 
-while.body.lr.ph.i.i.i.i52:                       ; preds = %if.then65
-  %34 = load i64, ptr %newFreeSize66, align 8
-  br label %while.body.i.i.i.i53
-
-while.body.i.i.i.i53:                             ; preds = %while.body.i.i.i.i53, %while.body.lr.ph.i.i.i.i52
-  %__x.addr.07.i.i.i.i54 = phi ptr [ %33, %while.body.lr.ph.i.i.i.i52 ], [ %__x.addr.1.i.i.i.i61, %while.body.i.i.i.i53 ]
-  %__y.addr.06.i.i.i.i55 = phi ptr [ %add.ptr.i.i.i.i.i, %while.body.lr.ph.i.i.i.i52 ], [ %__y.addr.1.i.i.i.i58, %while.body.i.i.i.i53 ]
+while.body.i.i.i.i53:                             ; preds = %if.then65, %while.body.i.i.i.i53
+  %__x.addr.07.i.i.i.i54 = phi ptr [ %__x.addr.1.i.i.i.i61, %while.body.i.i.i.i53 ], [ %33, %if.then65 ]
+  %__y.addr.06.i.i.i.i55 = phi ptr [ %__y.addr.1.i.i.i.i58, %while.body.i.i.i.i53 ], [ %add.ptr.i.i.i.i.i, %if.then65 ]
   %_M_storage.i.i.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i.i54, i64 32
-  %35 = load i64, ptr %_M_storage.i.i.i.i.i.i56, align 8
-  %cmp.i.i.i.i.i57 = icmp ult i64 %35, %34
+  %34 = load i64, ptr %_M_storage.i.i.i.i.i.i56, align 8
+  %cmp.i.i.i.i.i57 = icmp ult i64 %34, %add68
   %__y.addr.1.i.i.i.i58 = select i1 %cmp.i.i.i.i.i57, ptr %__y.addr.06.i.i.i.i55, ptr %__x.addr.07.i.i.i.i54
   %__x.addr.1.in.v.i.i.i.i59 = select i1 %cmp.i.i.i.i.i57, i64 24, i64 16
   %__x.addr.1.in.i.i.i.i60 = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i.i54, i64 %__x.addr.1.in.v.i.i.i.i59
@@ -1108,8 +1104,8 @@ _ZNSt3mapImSt13unordered_setImSt4hashImESt8equal_toImESaImEESt4lessImESaISt4pair
 
 lor.rhs.i65:                                      ; preds = %_ZNSt3mapImSt13unordered_setImSt4hashImESt8equal_toImESaImEESt4lessImESaISt4pairIKmS6_EEE11lower_boundERSA_.exit.i63
   %_M_storage.i.i.i66 = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i.i58, i64 32
-  %36 = load i64, ptr %_M_storage.i.i.i66, align 8
-  %cmp.i3.i67 = icmp ult i64 %34, %36
+  %35 = load i64, ptr %_M_storage.i.i.i66, align 8
+  %cmp.i3.i67 = icmp ult i64 %add68, %35
   br i1 %cmp.i3.i67, label %if.then.i71, label %_ZNSt3mapImSt13unordered_setImSt4hashImESt8equal_toImESaImEESt4lessImESaISt4pairIKmS6_EEEixERSA_.exit74
 
 if.then.i71:                                      ; preds = %lor.rhs.i65, %_ZNSt3mapImSt13unordered_setImSt4hashImESt8equal_toImESaImEESt4lessImESaISt4pairIKmS6_EEE11lower_boundERSA_.exit.i63, %if.then65

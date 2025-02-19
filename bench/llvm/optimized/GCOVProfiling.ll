@@ -3722,7 +3722,7 @@ _ZL15getFunctionNamePKN4llvm12DISubprogramE.exit.i.i: ; preds = %_ZNK4llvm6DINod
   br i1 %743, label %744, label %746
 
 744:                                              ; preds = %_ZL15getFunctionNamePKN4llvm12DISubprogramE.exit.i.i
-  %745 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %73, ptr noundef %736, i64 noundef %737) #27
+  %745 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %73, ptr noundef %736, i64 noundef %737) #27, !noalias !417
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i
 
 746:                                              ; preds = %_ZL15getFunctionNamePKN4llvm12DISubprogramE.exit.i.i
@@ -3730,7 +3730,7 @@ _ZL15getFunctionNamePKN4llvm12DISubprogramE.exit.i.i: ; preds = %_ZNK4llvm6DINod
   br i1 %.not.i.i.i261, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i, label %747
 
 747:                                              ; preds = %746
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %739, ptr align 1 %736, i64 %737, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %739, ptr align 1 %736, i64 %737, i1 false), !noalias !417
   %748 = load ptr, ptr %190, align 8, !tbaa !455, !noalias !417
   %749 = getelementptr inbounds nuw i8, ptr %748, i64 %737
   store ptr %749, ptr %190, align 8, !tbaa !455, !noalias !417

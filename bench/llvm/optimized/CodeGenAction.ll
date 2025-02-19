@@ -3085,7 +3085,7 @@ define dso_local noundef zeroext i1 @_ZN5clang15BackendConsumer20StackSizeDiagHa
   %10 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(136) %9) #25, !noalias !730
   %11 = extractvalue { ptr, i64 } %10, 0
   %12 = extractvalue { ptr, i64 } %10, 1
-  %13 = tail call i64 @_ZN4llvm10hash_valueENS_9StringRefE(ptr %11, i64 %12) #25
+  %13 = tail call i64 @_ZN4llvm10hash_valueENS_9StringRefE(ptr %11, i64 %12) #25, !noalias !730
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %15 = load ptr, ptr %14, align 8, !tbaa !733, !noalias !730
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 368
@@ -3382,7 +3382,7 @@ define dso_local noundef zeroext i1 @_ZN5clang15BackendConsumer24ResourceLimitDi
   %7 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(136) %6) #25, !noalias !740
   %8 = extractvalue { ptr, i64 } %7, 0
   %9 = extractvalue { ptr, i64 } %7, 1
-  %10 = tail call i64 @_ZN4llvm10hash_valueENS_9StringRefE(ptr %8, i64 %9) #25
+  %10 = tail call i64 @_ZN4llvm10hash_valueENS_9StringRefE(ptr %8, i64 %9) #25, !noalias !740
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %12 = load ptr, ptr %11, align 8, !tbaa !733, !noalias !740
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 368
@@ -3868,7 +3868,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %93 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(136) %92) #25, !noalias !826
   %94 = extractvalue { ptr, i64 } %93, 0
   %95 = extractvalue { ptr, i64 } %93, 1
-  %96 = call i64 @_ZN4llvm10hash_valueENS_9StringRefE(ptr %94, i64 %95) #25
+  %96 = call i64 @_ZN4llvm10hash_valueENS_9StringRefE(ptr %94, i64 %95) #25, !noalias !826
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %98 = load ptr, ptr %97, align 8, !tbaa !733, !noalias !826
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 368

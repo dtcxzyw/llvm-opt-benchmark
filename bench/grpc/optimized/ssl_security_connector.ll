@@ -236,7 +236,7 @@ invoke.cont8.i.i:                                 ; preds = %invoke.cont5.i.i
   %call.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %agg.tmp3.sroa.0.0.copyload.i.i.i, ptr %agg.tmp3.sroa.2.0.copyload.i.i.i) #18, !noalias !4
   %9 = extractvalue { i64, ptr } %call.i.i.i, 0
   %10 = extractvalue { i64, ptr } %call.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %9, ptr %10) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %9, ptr %10) #18, !noalias !4
   %11 = load i64, ptr %agg.tmp.i.i.i, align 8, !noalias !4
   %12 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   %13 = load ptr, ptr %12, align 8, !noalias !4

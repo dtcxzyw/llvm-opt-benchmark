@@ -14933,7 +14933,6 @@ land.lhs.true.i:                                  ; preds = %_ZNK8seq_util3rex8i
 if.then5:                                         ; preds = %land.lhs.true.i
   %m_args.i.i = getelementptr inbounds nuw i8, ptr %re, i64 32
   %12 = load ptr, ptr %m_args.i.i, align 8
-  store ptr %12, ptr %sub1, align 8
   %str = getelementptr inbounds nuw i8, ptr %this, i64 128
   %m_fid.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %13 = load i32, ptr %m_fid.i, align 8
@@ -24357,7 +24356,6 @@ land.lhs.true.i:                                  ; preds = %_ZNK8seq_util3rex8i
 if.then:                                          ; preds = %land.lhs.true.i
   %m_args.i.i = getelementptr inbounds nuw i8, ptr %re, i64 32
   %7 = load ptr, ptr %m_args.i.i, align 8
-  store ptr %7, ptr %sub1, align 8
   %m_initial_buffer.i.i = getelementptr inbounds nuw i8, ptr %str, i64 16
   store ptr %m_initial_buffer.i.i, ptr %str, align 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %str, i64 8

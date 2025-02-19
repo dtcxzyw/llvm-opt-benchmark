@@ -3392,7 +3392,7 @@ _ZNSt12_Vector_baseIN5vcpkg17CacheAvailabilityESaIS1_EE11_M_allocateEm.exit.i.i:
   %297 = landingpad { ptr, i32 }
           catch ptr null
   %298 = extractvalue { ptr, i32 } %297, 0
-  call void @__clang_call_terminate(ptr %298) #29
+  call void @__clang_call_terminate(ptr %298) #29, !noalias !28
   unreachable
 
 "_ZZN5vcpkg19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEEENK3$_1clEPNS_11CacheStatusE.exit.i": ; preds = %288, %282, %282
@@ -27982,7 +27982,7 @@ _ZNSt6vectorIN5vcpkg14NugetReferenceESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exi
   %107 = extractvalue { ptr, i64 } %106, 0
   %108 = extractvalue { ptr, i64 } %106, 1
   %109 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg7Command10string_argENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %104, ptr %107, i64 %108)
-          to label %110 unwind label %126
+          to label %110 unwind label %126, !noalias !627
 
 110:                                              ; preds = %105
   %111 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg7Command10string_argENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr nonnull @.str.157, i64 15)
@@ -28707,7 +28707,7 @@ _ZNO5vcpkg9ExpectedTIiNS_15LocalizedStringEE4thenIZNK12_GLOBAL__N_19NuGetTool21r
   %64 = load ptr, ptr %2, align 8, !noalias !678
   %65 = load ptr, ptr %64, align 8, !noalias !678
   invoke void %65(ptr noundef nonnull align 8 dereferenceable(8) %2, i8 noundef signext 51, ptr %62, i64 %63)
-          to label %_ZN5vcpkg11MessageSink7printlnIJNS_3msg8vendor_tEEJNS_10StringViewEEEEvNS_5ColorENS2_8MessageTIJDpT_EEEDpNS2_6TagArgINS_8identityIS7_E4typeET0_EE.exit.i.i.i.i.i unwind label %66
+          to label %_ZN5vcpkg11MessageSink7printlnIJNS_3msg8vendor_tEEJNS_10StringViewEEEEvNS_5ColorENS2_8MessageTIJDpT_EEEDpNS2_6TagArgINS_8identityIS7_E4typeET0_EE.exit.i.i.i.i.i unwind label %66, !noalias !678
 
 common.resume.i.i.i.i.i:                          ; preds = %102, %100, %66
   %.sink.i.i.i.i.i = phi ptr [ %7, %66 ], [ %9, %102 ], [ %9, %100 ]
@@ -29321,7 +29321,7 @@ _ZN5vcpkg11MessageSink7printlnIJNS_3msg8vendor_tEEJNS_10StringViewEEEEvNS_5Color
   %99 = extractvalue { ptr, i64 } %98, 0
   %100 = extractvalue { ptr, i64 } %98, 1
   %101 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg7Command10string_argENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr %99, i64 %100)
-          to label %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit.i.i unwind label %108
+          to label %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit.i.i unwind label %108, !noalias !727
 
 _ZNO5vcpkg7Command10string_argENS_10StringViewE.exit.i.i: ; preds = %.noexc71
   %102 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg7Command10string_argENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr nonnull @.str.156, i64 16)
@@ -29332,7 +29332,7 @@ _ZNO5vcpkg7Command10string_argENS_10StringViewE.exit6.i.i: ; preds = %_ZNO5vcpkg
   %104 = extractvalue { ptr, i64 } %103, 0
   %105 = extractvalue { ptr, i64 } %103, 1
   %106 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg7Command10string_argENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr %104, i64 %105)
-          to label %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit7.i.i unwind label %108
+          to label %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit7.i.i unwind label %108, !noalias !727
 
 _ZNO5vcpkg7Command10string_argENS_10StringViewE.exit7.i.i: ; preds = %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit6.i.i
   %107 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg7Command10string_argENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %106, ptr nonnull @.str.173, i64 18)
@@ -29835,7 +29835,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_19NuGetTool4pushERN5vcpkg11Message
   %11 = extractvalue { ptr, i64 } %10, 0
   %12 = extractvalue { ptr, i64 } %10, 1
   %13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg7Command10string_argENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr %11, i64 %12)
-          to label %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit.i unwind label %26
+          to label %_ZNO5vcpkg7Command10string_argENS_10StringViewE.exit.i unwind label %26, !noalias !757
 
 _ZNO5vcpkg7Command10string_argENS_10StringViewE.exit.i: ; preds = %5
   %14 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg7Command10string_argENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr nonnull @.str.175, i64 8)

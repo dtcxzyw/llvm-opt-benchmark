@@ -15248,7 +15248,7 @@ _ZN5Eigen7NoAliasINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterSt
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16) #35
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15) #35
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #35
-  %149 = add nsw i64 %.sroa.speculated156, %storemerge187
+  %149 = add nsw i64 %storemerge187, %.sroa.speculated156
   %150 = icmp slt i64 %149, %.sroa.speculated161
   br i1 %150, label %57, label %.loopexit, !llvm.loop !836
 

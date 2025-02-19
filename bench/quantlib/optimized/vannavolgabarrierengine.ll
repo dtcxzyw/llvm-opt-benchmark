@@ -5839,7 +5839,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   %162 = landingpad { ptr, i32 }
           catch ptr null
   %163 = extractvalue { ptr, i32 } %162, 0
-  call void @__clang_call_terminate(ptr %163) #29
+  call void @__clang_call_terminate(ptr %163) #29, !noalias !135
   unreachable
 
 invoke.cont313:                                   ; preds = %if.then.i.i.i.i.i.i582, %.noexc.i.i.i.i, %if.then.i.i.i3.i, %_ZN8QuantLib13InterpolationC2ERKS0_.exit.i, %.noexc583

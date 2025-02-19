@@ -22471,7 +22471,7 @@ _ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit.thread: ; preds = %_ZNK4l
   %149 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder12buildExtractERKNS_5DstOpERKNS_5SrcOpEm(ptr noundef nonnull align 8 dereferenceable(88) %29, ptr noundef nonnull align 8 dereferenceable(20) %23, ptr noundef nonnull align 8 dereferenceable(20) %24, i64 noundef 64) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #21
-  br label %207
+  br label %206
 
 150:                                              ; preds = %4
   br i1 %switch, label %151, label %153
@@ -22565,53 +22565,52 @@ _ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit109.thread: ; preds = %_ZN
   %197 = getelementptr inbounds nuw i8, ptr %26, i64 88
   store i32 0, ptr %197, align 8, !tbaa !395
   %198 = getelementptr inbounds nuw i8, ptr %26, i64 96
-  %199 = load ptr, ptr %193, align 8, !tbaa !391
-  %200 = getelementptr inbounds nuw i8, ptr %199, i64 36
-  %201 = load i32, ptr %200, align 4, !tbaa !28
-  store i32 %201, ptr %198, align 8
-  %202 = getelementptr inbounds nuw i8, ptr %26, i64 112
-  store i32 0, ptr %202, align 8, !tbaa !395
-  %203 = load ptr, ptr %29, align 8, !tbaa !3
-  %204 = getelementptr inbounds nuw i8, ptr %203, i64 32
-  %205 = load ptr, ptr %204, align 8
-  %206 = call { ptr, ptr } %205(ptr noundef nonnull align 8 dereferenceable(88) %29, i32 noundef %.0102, ptr nonnull %25, i64 3, ptr nonnull %26, i64 5, i64 0) #21
+  %199 = getelementptr inbounds nuw i8, ptr %194, i64 36
+  %200 = load i32, ptr %199, align 4, !tbaa !28
+  store i32 %200, ptr %198, align 8
+  %201 = getelementptr inbounds nuw i8, ptr %26, i64 112
+  store i32 0, ptr %201, align 8, !tbaa !395
+  %202 = load ptr, ptr %29, align 8, !tbaa !3
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 32
+  %204 = load ptr, ptr %203, align 8
+  %205 = call { ptr, ptr } %204(ptr noundef nonnull align 8 dereferenceable(88) %29, i32 noundef %.0102, ptr nonnull %25, i64 3, ptr nonnull %26, i64 5, i64 0) #21
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %26) #21
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %25) #21
-  br label %207
+  br label %206
 
-207:                                              ; preds = %_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit109.thread, %_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit.thread
-  %.pn = phi { ptr, ptr } [ %143, %_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit.thread ], [ %206, %_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit109.thread ]
+206:                                              ; preds = %_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit109.thread, %_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit.thread
+  %.pn = phi { ptr, ptr } [ %143, %_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit.thread ], [ %205, %_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit109.thread ]
   %.sroa.0160.0 = extractvalue { ptr, ptr } %.pn, 0
   %.sroa.6.0 = extractvalue { ptr, ptr } %.pn, 1
   call void @_ZN4llvm12MachineInstr12cloneMemRefsERNS_15MachineFunctionERKS0_(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.6.0, ptr noundef nonnull align 8 dereferenceable(1065) %.sroa.0160.0, ptr noundef nonnull align 8 dereferenceable(70) %1) #21
-  %208 = load ptr, ptr %49, align 8, !tbaa !22
-  %209 = getelementptr inbounds nuw i8, ptr %208, i64 896
-  %210 = load ptr, ptr %2, align 8, !tbaa !425
-  %211 = getelementptr inbounds nuw i8, ptr %210, i64 16
-  %212 = load ptr, ptr %211, align 8, !tbaa !485
-  %213 = load ptr, ptr %212, align 8, !tbaa !3
-  %214 = getelementptr inbounds nuw i8, ptr %213, i64 200
-  %215 = load ptr, ptr %214, align 8
-  %216 = call noundef ptr %215(ptr noundef nonnull align 8 dereferenceable(304) %212) #21
-  %217 = load ptr, ptr %49, align 8, !tbaa !22
-  %218 = call noundef ptr @_ZNK4llvm16AArch64Subtarget14getRegBankInfoEv(ptr noundef nonnull align 8 dereferenceable(413888) %217) #21
-  %219 = call noundef zeroext i1 @_ZN4llvm32constrainSelectedInstRegOperandsERNS_12MachineInstrERKNS_15TargetInstrInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.6.0, ptr noundef nonnull align 8 dereferenceable(80) %209, ptr noundef nonnull align 8 dereferenceable(308) %216, ptr noundef nonnull align 8 dereferenceable(160) %218) #21
+  %207 = load ptr, ptr %49, align 8, !tbaa !22
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 896
+  %209 = load ptr, ptr %2, align 8, !tbaa !425
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 16
+  %211 = load ptr, ptr %210, align 8, !tbaa !485
+  %212 = load ptr, ptr %211, align 8, !tbaa !3
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 200
+  %214 = load ptr, ptr %213, align 8
+  %215 = call noundef ptr %214(ptr noundef nonnull align 8 dereferenceable(304) %211) #21
+  %216 = load ptr, ptr %49, align 8, !tbaa !22
+  %217 = call noundef ptr @_ZNK4llvm16AArch64Subtarget14getRegBankInfoEv(ptr noundef nonnull align 8 dereferenceable(413888) %216) #21
+  %218 = call noundef zeroext i1 @_ZN4llvm32constrainSelectedInstRegOperandsERNS_12MachineInstrERKNS_15TargetInstrInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.6.0, ptr noundef nonnull align 8 dereferenceable(80) %208, ptr noundef nonnull align 8 dereferenceable(308) %215, ptr noundef nonnull align 8 dereferenceable(160) %217) #21
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27) #21
-  %220 = load ptr, ptr %30, align 8, !tbaa !391
-  %221 = getelementptr inbounds nuw i8, ptr %220, i64 4
-  %222 = load i32, ptr %221, align 4, !tbaa !28
-  store i32 %222, ptr %27, align 8
-  %223 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store i32 1, ptr %223, align 8, !tbaa !392
+  %219 = load ptr, ptr %30, align 8, !tbaa !391
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 4
+  %221 = load i32, ptr %220, align 4, !tbaa !28
+  store i32 %221, ptr %27, align 8
+  %222 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  store i32 1, ptr %222, align 8, !tbaa !392
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %28) #21
   store i32 %47, ptr %28, align 8, !tbaa !189
-  %224 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store i32 0, ptr %224, align 8, !tbaa !395
-  %225 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  store i32 %48, ptr %225, align 8, !tbaa !189
-  %226 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  store i32 0, ptr %226, align 8, !tbaa !395
-  %227 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder19buildMergeLikeInstrERKNS_5DstOpESt16initializer_listINS_5SrcOpEE(ptr noundef nonnull align 8 dereferenceable(88) %29, ptr noundef nonnull align 8 dereferenceable(20) %27, ptr nonnull %28, i64 2) #21
+  %223 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  store i32 0, ptr %223, align 8, !tbaa !395
+  %224 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  store i32 %48, ptr %224, align 8, !tbaa !189
+  %225 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  store i32 0, ptr %225, align 8, !tbaa !395
+  %226 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder19buildMergeLikeInstrERKNS_5DstOpESt16initializer_listINS_5SrcOpEE(ptr noundef nonnull align 8 dereferenceable(88) %29, ptr noundef nonnull align 8 dereferenceable(20) %27, ptr nonnull %28, i64 2) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %28) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27) #21
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #21

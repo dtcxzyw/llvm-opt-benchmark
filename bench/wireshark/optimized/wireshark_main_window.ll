@@ -7324,7 +7324,7 @@ _ZNO10QByteArray7toUpperEv.exit:                  ; preds = %138
   %141 = landingpad { ptr, i32 }
           catch ptr null
   %142 = extractvalue { ptr, i32 } %141, 0
-  call void @__clang_call_terminate(ptr %142) #37
+  call void @__clang_call_terminate(ptr %142) #37, !noalias !268
   unreachable
 
 _ZN7QStringD2Ev.exit.i:                           ; preds = %_ZNO10QByteArray7toUpperEv.exit
@@ -51084,7 +51084,7 @@ _ZN9QtPrivate16QGenericArrayOpsI4QUrlE10destroyAllEv.exit.i.i.i: ; preds = %.lr.
   %107 = landingpad { ptr, i32 }
           catch ptr null
   %108 = extractvalue { ptr, i32 } %107, 0
-  call void @__clang_call_terminate(ptr %108) #37
+  call void @__clang_call_terminate(ptr %108) #37, !noalias !430
   unreachable
 
 _ZN7QStringD2Ev.exit.i:                           ; preds = %102

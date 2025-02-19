@@ -1445,7 +1445,7 @@ common.resume:                                    ; preds = %111, %237, %241, %.
   %122 = landingpad { ptr, i32 }
           catch ptr null
   %123 = extractvalue { ptr, i32 } %122, 0
-  call void @__clang_call_terminate(ptr %123) #27
+  call void @__clang_call_terminate(ptr %123) #27, !noalias !47
   unreachable
 
 _ZN3nix17SingleDerivedPathD2Ev.exit.i.i.i.i.i.i:  ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %117

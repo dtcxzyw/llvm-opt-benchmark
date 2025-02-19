@@ -3414,7 +3414,7 @@ define internal fastcc void @"_ZN4llvm15handleErrorImplIZNS_15getLazyIRModuleESt
   %26 = load ptr, ptr %5, align 8, !tbaa !63, !noalias !180
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !66, !noalias !180
-  call void @_ZN4llvm12SMDiagnosticC2ENS_9StringRefENS_9SourceMgr8DiagKindES1_(ptr noundef nonnull align 8 dereferenceable(360) %4, ptr %21, i64 %22, i32 noundef 0, ptr %26, i64 %28)
+  call void @_ZN4llvm12SMDiagnosticC2ENS_9StringRefENS_9SourceMgr8DiagKindES1_(ptr noundef nonnull align 8 dereferenceable(360) %4, ptr %21, i64 %22, i32 noundef 0, ptr %26, i64 %28), !noalias !180
   %29 = load ptr, ptr %2, align 8, !tbaa !185, !noalias !180
   %30 = call noundef nonnull align 8 dereferenceable(360) ptr @_ZN4llvm12SMDiagnosticaSEOS0_(ptr noundef nonnull align 8 dereferenceable(360) %29, ptr noundef nonnull align 8 dereferenceable(360) %4), !noalias !180
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 152

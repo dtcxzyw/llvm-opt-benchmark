@@ -645,7 +645,7 @@ invoke.cont9.i.i.i.i.i.i:                         ; preds = %invoke.cont5.i.i.i.
   %5 = extractvalue { i64, ptr } %call10.i.i.i.i.i.i, 0
   %6 = extractvalue { i64, ptr } %call10.i.i.i.i.i.i, 1
   invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp.i.i.i.i.i.i, i64 %5, ptr %6)
-          to label %invoke.cont12.i.i.i.i.i.i unwind label %lpad11.i.i.i.i.i.i
+          to label %invoke.cont12.i.i.i.i.i.i unwind label %lpad11.i.i.i.i.i.i, !noalias !4
 
 invoke.cont12.i.i.i.i.i.i:                        ; preds = %invoke.cont9.i.i.i.i.i.i
   %7 = load i64, ptr %ref.tmp.i.i.i.i.i.i, align 8, !noalias !4
@@ -723,7 +723,7 @@ invoke.cont24.i.i.i.i.i.i:                        ; preds = %invoke.cont23.i.i.i
   %13 = extractvalue { i64, ptr } %call25.i.i.i.i.i.i, 0
   %14 = extractvalue { i64, ptr } %call25.i.i.i.i.i.i, 1
   invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp19.i.i.i.i.i.i, i64 %13, ptr %14)
-          to label %invoke.cont27.i.i.i.i.i.i unwind label %lpad26.i.i.i.i.i.i
+          to label %invoke.cont27.i.i.i.i.i.i unwind label %lpad26.i.i.i.i.i.i, !noalias !4
 
 invoke.cont27.i.i.i.i.i.i:                        ; preds = %invoke.cont24.i.i.i.i.i.i
   %15 = load i64, ptr %ref.tmp19.i.i.i.i.i.i, align 8, !noalias !4
@@ -780,7 +780,7 @@ if.end32.i.i.i.i.i.i:                             ; preds = %if.then16.i.i.i.i.i
   %call.i.i.i.i.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i, ptr %agg.tmp3.sroa.2.0.copyload.i.i.i.i.i) #18, !noalias !4
   %20 = extractvalue { i64, ptr } %call.i.i.i.i.i.i.i, 0
   %21 = extractvalue { i64, ptr } %call.i.i.i.i.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i.i.i.i, i64 %20, ptr %21) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i.i.i.i, i64 %20, ptr %21) #18, !noalias !4
   %22 = load i64, ptr %agg.tmp.i.i.i.i.i.i.i, align 8, !noalias !4
   %23 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i.i.i.i, i64 8
   %24 = load ptr, ptr %23, align 8, !noalias !4
@@ -857,7 +857,7 @@ invoke.cont66.i.i.i.i.i.i:                        ; preds = %invoke.cont63.i.i.i
   %28 = extractvalue { i64, ptr } %call67.i.i.i.i.i.i, 0
   %29 = extractvalue { i64, ptr } %call67.i.i.i.i.i.i, 1
   invoke void @_ZN4absl12lts_2023080212UnknownErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp59.i.i.i.i.i.i, i64 %28, ptr %29)
-          to label %invoke.cont69.i.i.i.i.i.i unwind label %lpad68.i.i.i.i.i.i
+          to label %invoke.cont69.i.i.i.i.i.i unwind label %lpad68.i.i.i.i.i.i, !noalias !4
 
 invoke.cont69.i.i.i.i.i.i:                        ; preds = %invoke.cont66.i.i.i.i.i.i
   %30 = load i64, ptr %ref.tmp59.i.i.i.i.i.i, align 8, !noalias !4

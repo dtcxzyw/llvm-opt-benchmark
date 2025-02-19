@@ -6359,8 +6359,6 @@ if.end.i.i.i.i.i.i233:                            ; preds = %_ZN6hermes2vm13Muta
   br label %_ZN6hermes2vm13MutableHandleINS0_8SymbolIDEEC2ERNS0_15HandleRootOwnerES2_.exit
 
 _ZN6hermes2vm13MutableHandleINS0_8SymbolIDEEC2ERNS0_15HandleRootOwnerES2_.exit: ; preds = %if.then.i.i.i.i.i.i236, %if.end.i.i.i.i.i.i233
-  %retval.0.i.i.i.i.i.i235 = phi ptr [ %70, %if.then.i.i.i.i.i.i236 ], [ %call7.i.i.i.i.i.i234, %if.end.i.i.i.i.i.i233 ]
-  store ptr %retval.0.i.i.i.i.i.i235, ptr %tmpSymbolStorage, align 8
   %retval.sroa.0.0.copyload.i238 = load i64, ptr %selfHandle.coerce, align 8
   %72 = load i64, ptr %receiver.coerce, align 8
   %cmp223.not = icmp eq i64 %retval.sroa.0.0.copyload.i238, %72

@@ -1468,7 +1468,7 @@ _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %210
   %221 = landingpad { ptr, i32 }
           catch ptr null
   %222 = extractvalue { ptr, i32 } %221, 0
-  call void @__clang_call_terminate(ptr %222) #32
+  call void @__clang_call_terminate(ptr %222) #32, !noalias !96
   unreachable
 
 _ZnwmRKSt9nothrow_t.exit.i.i.i.i.i.i.i.i.i.i:     ; preds = %219, %217
@@ -1675,7 +1675,7 @@ _ZNSt10unique_ptrI8_IO_FILESt14default_deleteIS0_EED2Ev.exit39.i.i: ; preds = %2
   %290 = landingpad { ptr, i32 }
           catch ptr null
   %291 = extractvalue { ptr, i32 } %290, 0
-  call void @__clang_call_terminate(ptr %291) #32
+  call void @__clang_call_terminate(ptr %291) #32, !noalias !87
   unreachable
 
 _ZN6googleL21GetCapturedTestStderrB5cxx11Ev.exit: ; preds = %_ZNSt10unique_ptrI8_IO_FILESt14default_deleteIS0_EED2Ev.exit.i.i, %_ZNKSt14default_deleteIN6google14CapturedStreamEEclEPS1_.exit.i.i.i42

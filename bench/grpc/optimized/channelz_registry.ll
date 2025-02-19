@@ -4018,7 +4018,7 @@ terminate.lpad.i1.i:                              ; preds = %cleanup.i
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #24
+  tail call void @__clang_call_terminate(ptr %15) #24, !noalias !75
   unreachable
 
 _ZN9grpc_core8channelz16ChannelzRegistry11InternalGetEl.exit: ; preds = %cleanup.i

@@ -14259,34 +14259,28 @@ for.end326:                                       ; preds = %for.inc324, %if.the
 if.then.i359:                                     ; preds = %for.end326
   %156 = load i8, ptr %ref.tmp327, align 8
   store i8 %156, ptr %agg.result, align 8
-  store i8 0, ptr %ref.tmp327, align 8
   %subcode_.i360 = getelementptr inbounds nuw i8, ptr %ref.tmp327, i64 1
   %157 = load i8, ptr %subcode_.i360, align 1
   %subcode_4.i361 = getelementptr inbounds nuw i8, ptr %agg.result, i64 1
   store i8 %157, ptr %subcode_4.i361, align 1
-  store i8 0, ptr %subcode_.i360, align 1
   %sev_.i362 = getelementptr inbounds nuw i8, ptr %ref.tmp327, i64 2
   %158 = load i8, ptr %sev_.i362, align 2
   %sev_6.i363 = getelementptr inbounds nuw i8, ptr %agg.result, i64 2
   store i8 %158, ptr %sev_6.i363, align 2
-  store i8 0, ptr %sev_.i362, align 2
   %retryable_.i364 = getelementptr inbounds nuw i8, ptr %ref.tmp327, i64 3
   %159 = load i8, ptr %retryable_.i364, align 1
   %retryable_8.i365 = getelementptr inbounds nuw i8, ptr %agg.result, i64 3
   %frombool.i366 = and i8 %159, 1
   store i8 %frombool.i366, ptr %retryable_8.i365, align 1
-  store i8 0, ptr %retryable_.i364, align 1
   %data_loss_.i367 = getelementptr inbounds nuw i8, ptr %ref.tmp327, i64 4
   %160 = load i8, ptr %data_loss_.i367, align 4
   %data_loss_11.i368 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   %frombool12.i369 = and i8 %160, 1
   store i8 %frombool12.i369, ptr %data_loss_11.i368, align 4
-  store i8 0, ptr %data_loss_.i367, align 4
   %scope_.i370 = getelementptr inbounds nuw i8, ptr %ref.tmp327, i64 5
   %161 = load i8, ptr %scope_.i370, align 1
   %scope_14.i371 = getelementptr inbounds nuw i8, ptr %agg.result, i64 5
   store i8 %161, ptr %scope_14.i371, align 1
-  store i8 0, ptr %scope_.i370, align 1
   %state_.i372 = getelementptr inbounds nuw i8, ptr %ref.tmp327, i64 8
   %162 = load ptr, ptr %state_.i372, align 8
   %163 = load ptr, ptr %state_.i, align 8
@@ -14299,7 +14293,6 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit381
 
 _ZN7rocksdb6StatusD2Ev.exit381:                   ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i375, %if.then.i359
-  store ptr null, ptr %state_.i372, align 8
   invoke void @_ZN7rocksdb17InstrumentedMutex4LockEv(ptr noundef nonnull align 8 dereferenceable(60) %mutex_134)
           to label %invoke.cont336 unwind label %lpad322.loopexit.split-lp
 
@@ -15737,34 +15730,28 @@ for.end310:                                       ; preds = %for.inc309, %if.the
 if.then.i299:                                     ; preds = %for.end310
   %134 = load i8, ptr %ref.tmp311, align 8
   store i8 %134, ptr %agg.result, align 8
-  store i8 0, ptr %ref.tmp311, align 8
   %subcode_.i300 = getelementptr inbounds nuw i8, ptr %ref.tmp311, i64 1
   %135 = load i8, ptr %subcode_.i300, align 1
   %subcode_4.i301 = getelementptr inbounds nuw i8, ptr %agg.result, i64 1
   store i8 %135, ptr %subcode_4.i301, align 1
-  store i8 0, ptr %subcode_.i300, align 1
   %sev_.i302 = getelementptr inbounds nuw i8, ptr %ref.tmp311, i64 2
   %136 = load i8, ptr %sev_.i302, align 2
   %sev_6.i303 = getelementptr inbounds nuw i8, ptr %agg.result, i64 2
   store i8 %136, ptr %sev_6.i303, align 2
-  store i8 0, ptr %sev_.i302, align 2
   %retryable_.i304 = getelementptr inbounds nuw i8, ptr %ref.tmp311, i64 3
   %137 = load i8, ptr %retryable_.i304, align 1
   %retryable_8.i305 = getelementptr inbounds nuw i8, ptr %agg.result, i64 3
   %frombool.i306 = and i8 %137, 1
   store i8 %frombool.i306, ptr %retryable_8.i305, align 1
-  store i8 0, ptr %retryable_.i304, align 1
   %data_loss_.i307 = getelementptr inbounds nuw i8, ptr %ref.tmp311, i64 4
   %138 = load i8, ptr %data_loss_.i307, align 4
   %data_loss_11.i308 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   %frombool12.i309 = and i8 %138, 1
   store i8 %frombool12.i309, ptr %data_loss_11.i308, align 4
-  store i8 0, ptr %data_loss_.i307, align 4
   %scope_.i310 = getelementptr inbounds nuw i8, ptr %ref.tmp311, i64 5
   %139 = load i8, ptr %scope_.i310, align 1
   %scope_14.i311 = getelementptr inbounds nuw i8, ptr %agg.result, i64 5
   store i8 %139, ptr %scope_14.i311, align 1
-  store i8 0, ptr %scope_.i310, align 1
   %state_.i312 = getelementptr inbounds nuw i8, ptr %ref.tmp311, i64 8
   %140 = load ptr, ptr %state_.i312, align 8
   %141 = load ptr, ptr %state_.i, align 8
@@ -15777,7 +15764,6 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit321
 
 _ZN7rocksdb6StatusD2Ev.exit321:                   ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i315, %if.then.i299
-  store ptr null, ptr %state_.i312, align 8
   invoke void @_ZN7rocksdb17InstrumentedMutex4LockEv(ptr noundef nonnull align 8 dereferenceable(60) %mutex_)
           to label %invoke.cont318 unwind label %lpad290.loopexit.split-lp
 

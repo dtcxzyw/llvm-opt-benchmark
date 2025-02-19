@@ -73562,7 +73562,6 @@ if.end29.i:                                       ; preds = %while.cond21.i, %_Z
   %ref.tmp30.sroa.3.0.ref.tmp.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   %ref.tmp30.sroa.3.0.copyload.i = load i64, ptr %ref.tmp30.sroa.3.0.ref.tmp.i.sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  store i64 %ref.tmp30.sroa.3.0.copyload.i, ptr %bucket_index_.i, align 8
   %8 = load ptr, ptr %table_.i, align 8
   %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %8, i64 %ref.tmp30.sroa.3.0.copyload.i
   %9 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
@@ -74838,7 +74837,7 @@ if.then37:                                        ; preds = %_ZN6google8protobuf
 
 if.then.i.i.i:                                    ; preds = %if.then37
   store ptr %6, ptr %__an.i.i.i, align 8, !noalias !896
-  %call5.i.i.i = call ptr @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef %7, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i)
+  %call5.i.i.i = call ptr @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef %7, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i), !noalias !896
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit: ; preds = %if.then37, %if.then.i.i.i
@@ -74846,7 +74845,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22p
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i.i.i), !noalias !896
   %and.i = and i64 %b, -2
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i.i, i64 32
-  %9 = load ptr, ptr %_M_storage.i.i.i.i, align 8
+  %9 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !noalias !896
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i)
   br label %if.end62
 
@@ -74882,7 +74881,7 @@ if.else60:                                        ; preds = %_ZNK6google8protobu
 
 if.then.i.i.i33:                                  ; preds = %if.else60
   store ptr %12, ptr %__an.i.i.i26, align 8, !noalias !902
-  %call5.i.i.i34 = call ptr @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef %13, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.i27, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i26)
+  %call5.i.i.i34 = call ptr @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef %13, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.i27, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i26), !noalias !902
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit40
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit40: ; preds = %if.else60, %if.then.i.i.i33
@@ -74890,7 +74889,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22p
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i.i.i26), !noalias !902
   %and.i36 = and i64 %b, -2
   %_M_storage.i.i.i.i37 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i.i35, i64 32
-  %15 = load ptr, ptr %_M_storage.i.i.i.i37, align 8
+  %15 = load ptr, ptr %_M_storage.i.i.i.i37, align 8, !noalias !902
   store ptr %15, ptr %agg.result, align 8, !alias.scope !902
   %m_.i.i38 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %this, ptr %m_.i.i38, align 8, !alias.scope !902
@@ -75151,21 +75150,21 @@ if.then.i.i.i.i16:                                ; preds = %_ZNK6google8protobu
 
 lor.rhs.i44:                                      ; preds = %if.then.i.i.i.i16
   %_M_storage.i.i.i.i45 = getelementptr inbounds nuw i8, ptr %retval.sroa.4.0.i116.ph, i64 32
-  %37 = load ptr, ptr %_M_storage.i.i.i.i45, align 8
-  %38 = load ptr, ptr %node.0.i, align 8
-  %39 = load ptr, ptr %37, align 8
+  %37 = load ptr, ptr %_M_storage.i.i.i.i45, align 8, !noalias !911
+  %38 = load ptr, ptr %node.0.i, align 8, !noalias !911
+  %39 = load ptr, ptr %37, align 8, !noalias !911
   %_M_string_length.i.i.i.i.i.i46 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load i64, ptr %_M_string_length.i.i.i.i.i.i46, align 8
+  %40 = load i64, ptr %_M_string_length.i.i.i.i.i.i46, align 8, !noalias !911
   %_M_string_length.i3.i.i.i.i.i47 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load i64, ptr %_M_string_length.i3.i.i.i.i.i47, align 8
+  %41 = load i64, ptr %_M_string_length.i3.i.i.i.i.i47, align 8, !noalias !911
   %.sroa.speculated.i.i.i.i.i48 = tail call i64 @llvm.umin.i64(i64 %41, i64 %40)
   %cmp.i4.i.i.i.i.i49 = icmp eq i64 %.sroa.speculated.i.i.i.i.i48, 0
   br i1 %cmp.i4.i.i.i.i.i49, label %if.then.i.i.i.i.i70, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i50
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i50: ; preds = %lor.rhs.i44
-  %42 = load ptr, ptr %39, align 8
-  %43 = load ptr, ptr %38, align 8
-  %call.i.i.i.i.i.i51 = tail call i32 @memcmp(ptr noundef %43, ptr noundef %42, i64 noundef %.sroa.speculated.i.i.i.i.i48) #28
+  %42 = load ptr, ptr %39, align 8, !noalias !911
+  %43 = load ptr, ptr %38, align 8, !noalias !911
+  %call.i.i.i.i.i.i51 = tail call i32 @memcmp(ptr noundef %43, ptr noundef %42, i64 noundef %.sroa.speculated.i.i.i.i.i48) #28, !noalias !911
   %tobool.not.i.i.i.i.i52 = icmp eq i32 %call.i.i.i.i.i.i51, 0
   br i1 %tobool.not.i.i.i.i.i52, label %if.then.i.i.i.i.i70, label %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i53
 
@@ -75183,37 +75182,37 @@ _ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stri
 
 lor.end.i56:                                      ; preds = %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i53, %if.then.i.i.i.i16
   %44 = phi i1 [ true, %if.then.i.i.i.i16 ], [ %cmp.i.i.i.i55, %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i53 ]
-  %45 = load ptr, ptr %22, align 8
+  %45 = load ptr, ptr %22, align 8, !noalias !911
   %cmp.i.i.i.i.i.i57 = icmp eq ptr %45, null
   br i1 %cmp.i.i.i.i.i.i57, label %if.then.i.i.i.i.i.i68, label %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i58
 
 if.then.i.i.i.i.i.i68:                            ; preds = %lor.end.i56
-  %call.i.i.i.i.i5.i69 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34
+  %call.i.i.i.i.i5.i69 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34, !noalias !911
   br label %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit75
 
 _ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i58: ; preds = %lor.end.i56
   %hooks_cookie_.i.i.i.i.i.i.i59 = getelementptr inbounds nuw i8, ptr %45, i64 112
-  %46 = load ptr, ptr %hooks_cookie_.i.i.i.i.i.i.i59, align 8
+  %46 = load ptr, ptr %hooks_cookie_.i.i.i.i.i.i.i59, align 8, !noalias !911
   %cmp.not.i.i.i.i.i.i.i60 = icmp eq ptr %46, null
   br i1 %cmp.not.i.i.i.i.i.i.i60, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i62, label %if.then.i.i.i.i.i.i.i61
 
 if.then.i.i.i.i.i.i.i61:                          ; preds = %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i58
-  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr noundef nonnull @_ZTIh, i64 noundef 40)
+  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr noundef nonnull @_ZTIh, i64 noundef 40), !noalias !911
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i62
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i62: ; preds = %if.then.i.i.i.i.i.i.i61, %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i58
-  %call11.i23.i.i.i.i.i.i63 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %45, i64 noundef 40)
+  %call11.i23.i.i.i.i.i.i63 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %45, i64 noundef 40), !noalias !911
   br label %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit75
 
 _ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit75: ; preds = %if.then.i.i.i.i.i.i68, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i62
   %retval.0.i.i.i.i.i.i64 = phi ptr [ %call.i.i.i.i.i5.i69, %if.then.i.i.i.i.i.i68 ], [ %call11.i23.i.i.i.i.i.i63, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i62 ]
   %_M_storage.i.i.i.i.i65 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i64, i64 32
-  store ptr %node.0.i, ptr %_M_storage.i.i.i.i.i65, align 8
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %44, ptr noundef %retval.0.i.i.i.i.i.i64, ptr noundef nonnull %retval.sroa.4.0.i116.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i77) #28
+  store ptr %node.0.i, ptr %_M_storage.i.i.i.i.i65, align 8, !noalias !911
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %44, ptr noundef %retval.0.i.i.i.i.i.i64, ptr noundef nonnull %retval.sroa.4.0.i116.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i77) #28, !noalias !911
   %_M_node_count.i66 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  %47 = load i64, ptr %_M_node_count.i66, align 8
+  %47 = load i64, ptr %_M_node_count.i66, align 8, !noalias !911
   %inc.i67 = add i64 %47, 1
-  store i64 %inc.i67, ptr %_M_node_count.i66, align 8
+  store i64 %inc.i67, ptr %_M_node_count.i66, align 8, !noalias !911
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit.i
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit.i: ; preds = %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit18.i110, %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit75
@@ -75334,20 +75333,20 @@ if.then.i.i.i33.i:                                ; preds = %_ZNK6google8protobu
 
 lor.rhs.i:                                        ; preds = %if.then.i.i.i33.i
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.4.0.i.ph, i64 32
-  %63 = load ptr, ptr %_M_storage.i.i.i.i, align 8
-  %64 = load ptr, ptr %63, align 8
+  %63 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !noalias !918
+  %64 = load ptr, ptr %63, align 8, !noalias !918
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %65 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8
+  %65 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !noalias !918
   %_M_string_length.i3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %66 = load i64, ptr %_M_string_length.i3.i.i.i.i.i, align 8
+  %66 = load i64, ptr %_M_string_length.i3.i.i.i.i.i, align 8, !noalias !918
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %66, i64 %65)
   %cmp.i4.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
   br i1 %cmp.i4.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %lor.rhs.i
-  %67 = load ptr, ptr %64, align 8
-  %68 = load ptr, ptr %9, align 8
-  %call.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %68, ptr noundef %67, i64 noundef %.sroa.speculated.i.i.i.i.i) #28
+  %67 = load ptr, ptr %64, align 8, !noalias !918
+  %68 = load ptr, ptr %9, align 8, !noalias !918
+  %call.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %68, ptr noundef %67, i64 noundef %.sroa.speculated.i.i.i.i.i) #28, !noalias !918
   %tobool.not.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i
 
@@ -75365,37 +75364,37 @@ _ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stri
 
 lor.end.i:                                        ; preds = %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i, %if.then.i.i.i33.i
   %69 = phi i1 [ true, %if.then.i.i.i33.i ], [ %cmp.i.i.i.i, %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i ]
-  %70 = load ptr, ptr %50, align 8
+  %70 = load ptr, ptr %50, align 8, !noalias !918
   %cmp.i.i.i.i.i.i = icmp eq ptr %70, null
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %lor.end.i
-  %call.i.i.i.i.i5.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34
+  %call.i.i.i.i.i5.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34, !noalias !918
   br label %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit
 
 _ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i: ; preds = %lor.end.i
   %hooks_cookie_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %70, i64 112
-  %71 = load ptr, ptr %hooks_cookie_.i.i.i.i.i.i.i, align 8
+  %71 = load ptr, ptr %hooks_cookie_.i.i.i.i.i.i.i, align 8, !noalias !918
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %71, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i
-  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %70, ptr noundef nonnull @_ZTIh, i64 noundef 40)
+  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %70, ptr noundef nonnull @_ZTIh, i64 noundef 40), !noalias !918
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i
-  %call11.i23.i.i.i.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %70, i64 noundef 40)
+  %call11.i23.i.i.i.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %70, i64 noundef 40), !noalias !918
   br label %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit
 
 _ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit: ; preds = %if.then.i.i.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i5.i, %if.then.i.i.i.i.i.i ], [ %call11.i23.i.i.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i ]
   %_M_storage.i.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i, i64 32
-  store ptr %node.0.i, ptr %_M_storage.i.i.i.i.i19, align 8
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %69, ptr noundef %retval.0.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i20) #28
+  store ptr %node.0.i, ptr %_M_storage.i.i.i.i.i19, align 8, !noalias !918
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %69, ptr noundef %retval.0.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i20) #28, !noalias !918
   %_M_node_count.i = getelementptr inbounds nuw i8, ptr %50, i64 48
-  %72 = load i64, ptr %_M_node_count.i, align 8
+  %72 = load i64, ptr %_M_node_count.i, align 8, !noalias !918
   %inc.i = add i64 %72, 1
-  store i64 %inc.i, ptr %_M_node_count.i, align 8
+  store i64 %inc.i, ptr %_M_node_count.i, align 8, !noalias !918
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE8InnerMap12InsertUniqueEmPNSC_4NodeE.exit
 
 if.end62.i:                                       ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit.i, %if.then.i
@@ -77557,7 +77556,6 @@ if.end29.i:                                       ; preds = %while.cond21.i, %_Z
   %ref.tmp30.sroa.3.0.ref.tmp.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   %ref.tmp30.sroa.3.0.copyload.i = load i64, ptr %ref.tmp30.sroa.3.0.ref.tmp.i.sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  store i64 %ref.tmp30.sroa.3.0.copyload.i, ptr %bucket_index_.i, align 8
   %8 = load ptr, ptr %table_.i, align 8
   %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %8, i64 %ref.tmp30.sroa.3.0.copyload.i
   %9 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
@@ -78351,7 +78349,7 @@ if.then37:                                        ; preds = %_ZN6google8protobuf
 
 if.then.i.i.i:                                    ; preds = %if.then37
   store ptr %6, ptr %__an.i.i.i, align 8, !noalias !1023
-  %call5.i.i.i = call ptr @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef %7, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i)
+  %call5.i.i.i = call ptr @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef %7, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i), !noalias !1023
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit: ; preds = %if.then37, %if.then.i.i.i
@@ -78359,7 +78357,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22p
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i.i.i), !noalias !1023
   %and.i = and i64 %b, -2
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i.i, i64 32
-  %9 = load ptr, ptr %_M_storage.i.i.i.i, align 8
+  %9 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !noalias !1023
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i)
   br label %if.end62
 
@@ -78395,7 +78393,7 @@ if.else60:                                        ; preds = %_ZNK6google8protobu
 
 if.then.i.i.i33:                                  ; preds = %if.else60
   store ptr %12, ptr %__an.i.i.i26, align 8, !noalias !1029
-  %call5.i.i.i34 = call ptr @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef %13, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.i27, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i26)
+  %call5.i.i.i34 = call ptr @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef %13, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.i27, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i26), !noalias !1029
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit40
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit40: ; preds = %if.else60, %if.then.i.i.i33
@@ -78403,7 +78401,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22p
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i.i.i26), !noalias !1029
   %and.i36 = and i64 %b, -2
   %_M_storage.i.i.i.i37 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i.i35, i64 32
-  %15 = load ptr, ptr %_M_storage.i.i.i.i37, align 8
+  %15 = load ptr, ptr %_M_storage.i.i.i.i37, align 8, !noalias !1029
   store ptr %15, ptr %agg.result, align 8, !alias.scope !1029
   %m_.i.i38 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %this, ptr %m_.i.i38, align 8, !alias.scope !1029
@@ -78664,21 +78662,21 @@ if.then.i.i.i.i16:                                ; preds = %_ZNK6google8protobu
 
 lor.rhs.i44:                                      ; preds = %if.then.i.i.i.i16
   %_M_storage.i.i.i.i45 = getelementptr inbounds nuw i8, ptr %retval.sroa.4.0.i116.ph, i64 32
-  %37 = load ptr, ptr %_M_storage.i.i.i.i45, align 8
-  %38 = load ptr, ptr %node.0.i, align 8
-  %39 = load ptr, ptr %37, align 8
+  %37 = load ptr, ptr %_M_storage.i.i.i.i45, align 8, !noalias !1038
+  %38 = load ptr, ptr %node.0.i, align 8, !noalias !1038
+  %39 = load ptr, ptr %37, align 8, !noalias !1038
   %_M_string_length.i.i.i.i.i.i46 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load i64, ptr %_M_string_length.i.i.i.i.i.i46, align 8
+  %40 = load i64, ptr %_M_string_length.i.i.i.i.i.i46, align 8, !noalias !1038
   %_M_string_length.i3.i.i.i.i.i47 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load i64, ptr %_M_string_length.i3.i.i.i.i.i47, align 8
+  %41 = load i64, ptr %_M_string_length.i3.i.i.i.i.i47, align 8, !noalias !1038
   %.sroa.speculated.i.i.i.i.i48 = tail call i64 @llvm.umin.i64(i64 %41, i64 %40)
   %cmp.i4.i.i.i.i.i49 = icmp eq i64 %.sroa.speculated.i.i.i.i.i48, 0
   br i1 %cmp.i4.i.i.i.i.i49, label %if.then.i.i.i.i.i70, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i50
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i50: ; preds = %lor.rhs.i44
-  %42 = load ptr, ptr %39, align 8
-  %43 = load ptr, ptr %38, align 8
-  %call.i.i.i.i.i.i51 = tail call i32 @memcmp(ptr noundef %43, ptr noundef %42, i64 noundef %.sroa.speculated.i.i.i.i.i48) #28
+  %42 = load ptr, ptr %39, align 8, !noalias !1038
+  %43 = load ptr, ptr %38, align 8, !noalias !1038
+  %call.i.i.i.i.i.i51 = tail call i32 @memcmp(ptr noundef %43, ptr noundef %42, i64 noundef %.sroa.speculated.i.i.i.i.i48) #28, !noalias !1038
   %tobool.not.i.i.i.i.i52 = icmp eq i32 %call.i.i.i.i.i.i51, 0
   br i1 %tobool.not.i.i.i.i.i52, label %if.then.i.i.i.i.i70, label %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i53
 
@@ -78696,37 +78694,37 @@ _ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stri
 
 lor.end.i56:                                      ; preds = %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i53, %if.then.i.i.i.i16
   %44 = phi i1 [ true, %if.then.i.i.i.i16 ], [ %cmp.i.i.i.i55, %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i53 ]
-  %45 = load ptr, ptr %22, align 8
+  %45 = load ptr, ptr %22, align 8, !noalias !1038
   %cmp.i.i.i.i.i.i57 = icmp eq ptr %45, null
   br i1 %cmp.i.i.i.i.i.i57, label %if.then.i.i.i.i.i.i68, label %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i58
 
 if.then.i.i.i.i.i.i68:                            ; preds = %lor.end.i56
-  %call.i.i.i.i.i5.i69 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34
+  %call.i.i.i.i.i5.i69 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34, !noalias !1038
   br label %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit75
 
 _ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i58: ; preds = %lor.end.i56
   %hooks_cookie_.i.i.i.i.i.i.i59 = getelementptr inbounds nuw i8, ptr %45, i64 112
-  %46 = load ptr, ptr %hooks_cookie_.i.i.i.i.i.i.i59, align 8
+  %46 = load ptr, ptr %hooks_cookie_.i.i.i.i.i.i.i59, align 8, !noalias !1038
   %cmp.not.i.i.i.i.i.i.i60 = icmp eq ptr %46, null
   br i1 %cmp.not.i.i.i.i.i.i.i60, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i62, label %if.then.i.i.i.i.i.i.i61
 
 if.then.i.i.i.i.i.i.i61:                          ; preds = %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i58
-  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr noundef nonnull @_ZTIh, i64 noundef 40)
+  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr noundef nonnull @_ZTIh, i64 noundef 40), !noalias !1038
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i62
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i62: ; preds = %if.then.i.i.i.i.i.i.i61, %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i58
-  %call11.i23.i.i.i.i.i.i63 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %45, i64 noundef 40)
+  %call11.i23.i.i.i.i.i.i63 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %45, i64 noundef 40), !noalias !1038
   br label %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit75
 
 _ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit75: ; preds = %if.then.i.i.i.i.i.i68, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i62
   %retval.0.i.i.i.i.i.i64 = phi ptr [ %call.i.i.i.i.i5.i69, %if.then.i.i.i.i.i.i68 ], [ %call11.i23.i.i.i.i.i.i63, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i62 ]
   %_M_storage.i.i.i.i.i65 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i64, i64 32
-  store ptr %node.0.i, ptr %_M_storage.i.i.i.i.i65, align 8
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %44, ptr noundef %retval.0.i.i.i.i.i.i64, ptr noundef nonnull %retval.sroa.4.0.i116.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i77) #28
+  store ptr %node.0.i, ptr %_M_storage.i.i.i.i.i65, align 8, !noalias !1038
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %44, ptr noundef %retval.0.i.i.i.i.i.i64, ptr noundef nonnull %retval.sroa.4.0.i116.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i77) #28, !noalias !1038
   %_M_node_count.i66 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  %47 = load i64, ptr %_M_node_count.i66, align 8
+  %47 = load i64, ptr %_M_node_count.i66, align 8, !noalias !1038
   %inc.i67 = add i64 %47, 1
-  store i64 %inc.i67, ptr %_M_node_count.i66, align 8
+  store i64 %inc.i67, ptr %_M_node_count.i66, align 8, !noalias !1038
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit.i
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit.i: ; preds = %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit18.i110, %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit75
@@ -78847,20 +78845,20 @@ if.then.i.i.i33.i:                                ; preds = %_ZNK6google8protobu
 
 lor.rhs.i:                                        ; preds = %if.then.i.i.i33.i
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.4.0.i.ph, i64 32
-  %63 = load ptr, ptr %_M_storage.i.i.i.i, align 8
-  %64 = load ptr, ptr %63, align 8
+  %63 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !noalias !1044
+  %64 = load ptr, ptr %63, align 8, !noalias !1044
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %65 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8
+  %65 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !noalias !1044
   %_M_string_length.i3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %66 = load i64, ptr %_M_string_length.i3.i.i.i.i.i, align 8
+  %66 = load i64, ptr %_M_string_length.i3.i.i.i.i.i, align 8, !noalias !1044
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %66, i64 %65)
   %cmp.i4.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
   br i1 %cmp.i4.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %lor.rhs.i
-  %67 = load ptr, ptr %64, align 8
-  %68 = load ptr, ptr %9, align 8
-  %call.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %68, ptr noundef %67, i64 noundef %.sroa.speculated.i.i.i.i.i) #28
+  %67 = load ptr, ptr %64, align 8, !noalias !1044
+  %68 = load ptr, ptr %9, align 8, !noalias !1044
+  %call.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %68, ptr noundef %67, i64 noundef %.sroa.speculated.i.i.i.i.i) #28, !noalias !1044
   %tobool.not.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i
 
@@ -78878,37 +78876,37 @@ _ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stri
 
 lor.end.i:                                        ; preds = %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i, %if.then.i.i.i33.i
   %69 = phi i1 [ true, %if.then.i.i.i33.i ], [ %cmp.i.i.i.i, %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i ]
-  %70 = load ptr, ptr %50, align 8
+  %70 = load ptr, ptr %50, align 8, !noalias !1044
   %cmp.i.i.i.i.i.i = icmp eq ptr %70, null
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %lor.end.i
-  %call.i.i.i.i.i5.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34
+  %call.i.i.i.i.i5.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34, !noalias !1044
   br label %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit
 
 _ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i: ; preds = %lor.end.i
   %hooks_cookie_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %70, i64 112
-  %71 = load ptr, ptr %hooks_cookie_.i.i.i.i.i.i.i, align 8
+  %71 = load ptr, ptr %hooks_cookie_.i.i.i.i.i.i.i, align 8, !noalias !1044
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %71, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i
-  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %70, ptr noundef nonnull @_ZTIh, i64 noundef 40)
+  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %70, ptr noundef nonnull @_ZTIh, i64 noundef 40), !noalias !1044
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i
-  %call11.i23.i.i.i.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %70, i64 noundef 40)
+  %call11.i23.i.i.i.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %70, i64 noundef 40), !noalias !1044
   br label %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit
 
 _ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit: ; preds = %if.then.i.i.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i5.i, %if.then.i.i.i.i.i.i ], [ %call11.i23.i.i.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i ]
   %_M_storage.i.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i, i64 32
-  store ptr %node.0.i, ptr %_M_storage.i.i.i.i.i19, align 8
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %69, ptr noundef %retval.0.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i20) #28
+  store ptr %node.0.i, ptr %_M_storage.i.i.i.i.i19, align 8, !noalias !1044
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %69, ptr noundef %retval.0.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i20) #28, !noalias !1044
   %_M_node_count.i = getelementptr inbounds nuw i8, ptr %50, i64 48
-  %72 = load i64, ptr %_M_node_count.i, align 8
+  %72 = load i64, ptr %_M_node_count.i, align 8, !noalias !1044
   %inc.i = add i64 %72, 1
-  store i64 %inc.i, ptr %_M_node_count.i, align 8
+  store i64 %inc.i, ptr %_M_node_count.i, align 8, !noalias !1044
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE8InnerMap12InsertUniqueEmPNSC_4NodeE.exit
 
 if.end62.i:                                       ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit.i, %if.then.i
@@ -80777,7 +80775,6 @@ if.end29.i:                                       ; preds = %while.cond21.i, %_Z
   %ref.tmp30.sroa.3.0.ref.tmp.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   %ref.tmp30.sroa.3.0.copyload.i = load i64, ptr %ref.tmp30.sroa.3.0.ref.tmp.i.sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  store i64 %ref.tmp30.sroa.3.0.copyload.i, ptr %bucket_index_.i, align 8
   %8 = load ptr, ptr %table_.i, align 8
   %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %8, i64 %ref.tmp30.sroa.3.0.copyload.i
   %9 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
@@ -81692,7 +81689,7 @@ if.then37:                                        ; preds = %_ZN6google8protobuf
 
 if.then.i.i.i:                                    ; preds = %if.then37
   store ptr %6, ptr %__an.i.i.i, align 8, !noalias !1151
-  %call5.i.i.i = call ptr @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef %7, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i)
+  %call5.i.i.i = call ptr @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef %7, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i), !noalias !1151
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit: ; preds = %if.then37, %if.then.i.i.i
@@ -81700,7 +81697,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22p
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i.i.i), !noalias !1151
   %and.i = and i64 %b, -2
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i.i, i64 32
-  %9 = load ptr, ptr %_M_storage.i.i.i.i, align 8
+  %9 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !noalias !1151
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i)
   br label %if.end62
 
@@ -81736,7 +81733,7 @@ if.else60:                                        ; preds = %_ZNK6google8protobu
 
 if.then.i.i.i33:                                  ; preds = %if.else60
   store ptr %12, ptr %__an.i.i.i26, align 8, !noalias !1157
-  %call5.i.i.i34 = call ptr @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef %13, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.i27, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i26)
+  %call5.i.i.i34 = call ptr @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef %13, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.i27, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i26), !noalias !1157
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit40
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit40: ; preds = %if.else60, %if.then.i.i.i33
@@ -81744,7 +81741,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22p
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i.i.i26), !noalias !1157
   %and.i36 = and i64 %b, -2
   %_M_storage.i.i.i.i37 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i.i35, i64 32
-  %15 = load ptr, ptr %_M_storage.i.i.i.i37, align 8
+  %15 = load ptr, ptr %_M_storage.i.i.i.i37, align 8, !noalias !1157
   store ptr %15, ptr %agg.result, align 8, !alias.scope !1157
   %m_.i.i38 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %this, ptr %m_.i.i38, align 8, !alias.scope !1157
@@ -82005,21 +82002,21 @@ if.then.i.i.i.i16:                                ; preds = %_ZNK6google8protobu
 
 lor.rhs.i44:                                      ; preds = %if.then.i.i.i.i16
   %_M_storage.i.i.i.i45 = getelementptr inbounds nuw i8, ptr %retval.sroa.4.0.i116.ph, i64 32
-  %37 = load ptr, ptr %_M_storage.i.i.i.i45, align 8
-  %38 = load ptr, ptr %node.0.i, align 8
-  %39 = load ptr, ptr %37, align 8
+  %37 = load ptr, ptr %_M_storage.i.i.i.i45, align 8, !noalias !1166
+  %38 = load ptr, ptr %node.0.i, align 8, !noalias !1166
+  %39 = load ptr, ptr %37, align 8, !noalias !1166
   %_M_string_length.i.i.i.i.i.i46 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load i64, ptr %_M_string_length.i.i.i.i.i.i46, align 8
+  %40 = load i64, ptr %_M_string_length.i.i.i.i.i.i46, align 8, !noalias !1166
   %_M_string_length.i3.i.i.i.i.i47 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load i64, ptr %_M_string_length.i3.i.i.i.i.i47, align 8
+  %41 = load i64, ptr %_M_string_length.i3.i.i.i.i.i47, align 8, !noalias !1166
   %.sroa.speculated.i.i.i.i.i48 = tail call i64 @llvm.umin.i64(i64 %41, i64 %40)
   %cmp.i4.i.i.i.i.i49 = icmp eq i64 %.sroa.speculated.i.i.i.i.i48, 0
   br i1 %cmp.i4.i.i.i.i.i49, label %if.then.i.i.i.i.i70, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i50
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i50: ; preds = %lor.rhs.i44
-  %42 = load ptr, ptr %39, align 8
-  %43 = load ptr, ptr %38, align 8
-  %call.i.i.i.i.i.i51 = tail call i32 @memcmp(ptr noundef %43, ptr noundef %42, i64 noundef %.sroa.speculated.i.i.i.i.i48) #28
+  %42 = load ptr, ptr %39, align 8, !noalias !1166
+  %43 = load ptr, ptr %38, align 8, !noalias !1166
+  %call.i.i.i.i.i.i51 = tail call i32 @memcmp(ptr noundef %43, ptr noundef %42, i64 noundef %.sroa.speculated.i.i.i.i.i48) #28, !noalias !1166
   %tobool.not.i.i.i.i.i52 = icmp eq i32 %call.i.i.i.i.i.i51, 0
   br i1 %tobool.not.i.i.i.i.i52, label %if.then.i.i.i.i.i70, label %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i53
 
@@ -82037,37 +82034,37 @@ _ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stri
 
 lor.end.i56:                                      ; preds = %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i53, %if.then.i.i.i.i16
   %44 = phi i1 [ true, %if.then.i.i.i.i16 ], [ %cmp.i.i.i.i55, %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i53 ]
-  %45 = load ptr, ptr %22, align 8
+  %45 = load ptr, ptr %22, align 8, !noalias !1166
   %cmp.i.i.i.i.i.i57 = icmp eq ptr %45, null
   br i1 %cmp.i.i.i.i.i.i57, label %if.then.i.i.i.i.i.i68, label %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i58
 
 if.then.i.i.i.i.i.i68:                            ; preds = %lor.end.i56
-  %call.i.i.i.i.i5.i69 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34
+  %call.i.i.i.i.i5.i69 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34, !noalias !1166
   br label %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit75
 
 _ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i58: ; preds = %lor.end.i56
   %hooks_cookie_.i.i.i.i.i.i.i59 = getelementptr inbounds nuw i8, ptr %45, i64 112
-  %46 = load ptr, ptr %hooks_cookie_.i.i.i.i.i.i.i59, align 8
+  %46 = load ptr, ptr %hooks_cookie_.i.i.i.i.i.i.i59, align 8, !noalias !1166
   %cmp.not.i.i.i.i.i.i.i60 = icmp eq ptr %46, null
   br i1 %cmp.not.i.i.i.i.i.i.i60, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i62, label %if.then.i.i.i.i.i.i.i61
 
 if.then.i.i.i.i.i.i.i61:                          ; preds = %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i58
-  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr noundef nonnull @_ZTIh, i64 noundef 40)
+  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr noundef nonnull @_ZTIh, i64 noundef 40), !noalias !1166
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i62
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i62: ; preds = %if.then.i.i.i.i.i.i.i61, %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i58
-  %call11.i23.i.i.i.i.i.i63 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %45, i64 noundef 40)
+  %call11.i23.i.i.i.i.i.i63 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %45, i64 noundef 40), !noalias !1166
   br label %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit75
 
 _ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit75: ; preds = %if.then.i.i.i.i.i.i68, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i62
   %retval.0.i.i.i.i.i.i64 = phi ptr [ %call.i.i.i.i.i5.i69, %if.then.i.i.i.i.i.i68 ], [ %call11.i23.i.i.i.i.i.i63, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i62 ]
   %_M_storage.i.i.i.i.i65 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i64, i64 32
-  store ptr %node.0.i, ptr %_M_storage.i.i.i.i.i65, align 8
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %44, ptr noundef %retval.0.i.i.i.i.i.i64, ptr noundef nonnull %retval.sroa.4.0.i116.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i77) #28
+  store ptr %node.0.i, ptr %_M_storage.i.i.i.i.i65, align 8, !noalias !1166
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %44, ptr noundef %retval.0.i.i.i.i.i.i64, ptr noundef nonnull %retval.sroa.4.0.i116.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i77) #28, !noalias !1166
   %_M_node_count.i66 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  %47 = load i64, ptr %_M_node_count.i66, align 8
+  %47 = load i64, ptr %_M_node_count.i66, align 8, !noalias !1166
   %inc.i67 = add i64 %47, 1
-  store i64 %inc.i67, ptr %_M_node_count.i66, align 8
+  store i64 %inc.i67, ptr %_M_node_count.i66, align 8, !noalias !1166
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit.i
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit.i: ; preds = %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit18.i110, %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit75
@@ -82188,20 +82185,20 @@ if.then.i.i.i33.i:                                ; preds = %_ZNK6google8protobu
 
 lor.rhs.i:                                        ; preds = %if.then.i.i.i33.i
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.4.0.i.ph, i64 32
-  %63 = load ptr, ptr %_M_storage.i.i.i.i, align 8
-  %64 = load ptr, ptr %63, align 8
+  %63 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !noalias !1172
+  %64 = load ptr, ptr %63, align 8, !noalias !1172
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %65 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8
+  %65 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !noalias !1172
   %_M_string_length.i3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %66 = load i64, ptr %_M_string_length.i3.i.i.i.i.i, align 8
+  %66 = load i64, ptr %_M_string_length.i3.i.i.i.i.i, align 8, !noalias !1172
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %66, i64 %65)
   %cmp.i4.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
   br i1 %cmp.i4.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %lor.rhs.i
-  %67 = load ptr, ptr %64, align 8
-  %68 = load ptr, ptr %9, align 8
-  %call.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %68, ptr noundef %67, i64 noundef %.sroa.speculated.i.i.i.i.i) #28
+  %67 = load ptr, ptr %64, align 8, !noalias !1172
+  %68 = load ptr, ptr %9, align 8, !noalias !1172
+  %call.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %68, ptr noundef %67, i64 noundef %.sroa.speculated.i.i.i.i.i) #28, !noalias !1172
   %tobool.not.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i
 
@@ -82219,37 +82216,37 @@ _ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stri
 
 lor.end.i:                                        ; preds = %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i, %if.then.i.i.i33.i
   %69 = phi i1 [ true, %if.then.i.i.i33.i ], [ %cmp.i.i.i.i, %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i ]
-  %70 = load ptr, ptr %50, align 8
+  %70 = load ptr, ptr %50, align 8, !noalias !1172
   %cmp.i.i.i.i.i.i = icmp eq ptr %70, null
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %lor.end.i
-  %call.i.i.i.i.i5.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34
+  %call.i.i.i.i.i5.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34, !noalias !1172
   br label %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit
 
 _ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i: ; preds = %lor.end.i
   %hooks_cookie_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %70, i64 112
-  %71 = load ptr, ptr %hooks_cookie_.i.i.i.i.i.i.i, align 8
+  %71 = load ptr, ptr %hooks_cookie_.i.i.i.i.i.i.i, align 8, !noalias !1172
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %71, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i
-  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %70, ptr noundef nonnull @_ZTIh, i64 noundef 40)
+  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %70, ptr noundef nonnull @_ZTIh, i64 noundef 40), !noalias !1172
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i
-  %call11.i23.i.i.i.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %70, i64 noundef 40)
+  %call11.i23.i.i.i.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %70, i64 noundef 40), !noalias !1172
   br label %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit
 
 _ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit: ; preds = %if.then.i.i.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i5.i, %if.then.i.i.i.i.i.i ], [ %call11.i23.i.i.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i ]
   %_M_storage.i.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i, i64 32
-  store ptr %node.0.i, ptr %_M_storage.i.i.i.i.i19, align 8
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %69, ptr noundef %retval.0.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i20) #28
+  store ptr %node.0.i, ptr %_M_storage.i.i.i.i.i19, align 8, !noalias !1172
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %69, ptr noundef %retval.0.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i20) #28, !noalias !1172
   %_M_node_count.i = getelementptr inbounds nuw i8, ptr %50, i64 48
-  %72 = load i64, ptr %_M_node_count.i, align 8
+  %72 = load i64, ptr %_M_node_count.i, align 8, !noalias !1172
   %inc.i = add i64 %72, 1
-  store i64 %inc.i, ptr %_M_node_count.i, align 8
+  store i64 %inc.i, ptr %_M_node_count.i, align 8, !noalias !1172
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE8InnerMap12InsertUniqueEmPNSC_4NodeE.exit
 
 if.end62.i:                                       ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit.i, %if.then.i
@@ -84173,7 +84170,6 @@ if.end29.i:                                       ; preds = %while.cond21.i, %_Z
   %ref.tmp30.sroa.3.0.ref.tmp.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   %ref.tmp30.sroa.3.0.copyload.i = load i64, ptr %ref.tmp30.sroa.3.0.ref.tmp.i.sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  store i64 %ref.tmp30.sroa.3.0.copyload.i, ptr %bucket_index_.i, align 8
   %8 = load ptr, ptr %table_.i, align 8
   %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %8, i64 %ref.tmp30.sroa.3.0.copyload.i
   %9 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
@@ -85130,7 +85126,7 @@ if.then37:                                        ; preds = %_ZN6google8protobuf
 
 if.then.i.i.i:                                    ; preds = %if.then37
   store ptr %6, ptr %__an.i.i.i, align 8, !noalias !1291
-  %call5.i.i.i = call ptr @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef %7, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i)
+  %call5.i.i.i = call ptr @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef %7, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i), !noalias !1291
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit: ; preds = %if.then37, %if.then.i.i.i
@@ -85138,7 +85134,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22p
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i.i.i), !noalias !1291
   %and.i = and i64 %b, -2
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i.i, i64 32
-  %9 = load ptr, ptr %_M_storage.i.i.i.i, align 8
+  %9 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !noalias !1291
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i)
   br label %if.end62
 
@@ -85174,7 +85170,7 @@ if.else60:                                        ; preds = %_ZNK6google8protobu
 
 if.then.i.i.i33:                                  ; preds = %if.else60
   store ptr %12, ptr %__an.i.i.i26, align 8, !noalias !1297
-  %call5.i.i.i34 = call ptr @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef %13, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.i27, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i26)
+  %call5.i.i.i34 = call ptr @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef %13, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.i27, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i26), !noalias !1297
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit40
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit40: ; preds = %if.else60, %if.then.i.i.i33
@@ -85182,7 +85178,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22p
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i.i.i26), !noalias !1297
   %and.i36 = and i64 %b, -2
   %_M_storage.i.i.i.i37 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i.i35, i64 32
-  %15 = load ptr, ptr %_M_storage.i.i.i.i37, align 8
+  %15 = load ptr, ptr %_M_storage.i.i.i.i37, align 8, !noalias !1297
   store ptr %15, ptr %agg.result, align 8, !alias.scope !1297
   %m_.i.i38 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %this, ptr %m_.i.i38, align 8, !alias.scope !1297
@@ -85443,21 +85439,21 @@ if.then.i.i.i.i16:                                ; preds = %_ZNK6google8protobu
 
 lor.rhs.i44:                                      ; preds = %if.then.i.i.i.i16
   %_M_storage.i.i.i.i45 = getelementptr inbounds nuw i8, ptr %retval.sroa.4.0.i116.ph, i64 32
-  %37 = load ptr, ptr %_M_storage.i.i.i.i45, align 8
-  %38 = load ptr, ptr %node.0.i, align 8
-  %39 = load ptr, ptr %37, align 8
+  %37 = load ptr, ptr %_M_storage.i.i.i.i45, align 8, !noalias !1306
+  %38 = load ptr, ptr %node.0.i, align 8, !noalias !1306
+  %39 = load ptr, ptr %37, align 8, !noalias !1306
   %_M_string_length.i.i.i.i.i.i46 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load i64, ptr %_M_string_length.i.i.i.i.i.i46, align 8
+  %40 = load i64, ptr %_M_string_length.i.i.i.i.i.i46, align 8, !noalias !1306
   %_M_string_length.i3.i.i.i.i.i47 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load i64, ptr %_M_string_length.i3.i.i.i.i.i47, align 8
+  %41 = load i64, ptr %_M_string_length.i3.i.i.i.i.i47, align 8, !noalias !1306
   %.sroa.speculated.i.i.i.i.i48 = tail call i64 @llvm.umin.i64(i64 %41, i64 %40)
   %cmp.i4.i.i.i.i.i49 = icmp eq i64 %.sroa.speculated.i.i.i.i.i48, 0
   br i1 %cmp.i4.i.i.i.i.i49, label %if.then.i.i.i.i.i70, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i50
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i50: ; preds = %lor.rhs.i44
-  %42 = load ptr, ptr %39, align 8
-  %43 = load ptr, ptr %38, align 8
-  %call.i.i.i.i.i.i51 = tail call i32 @memcmp(ptr noundef %43, ptr noundef %42, i64 noundef %.sroa.speculated.i.i.i.i.i48) #28
+  %42 = load ptr, ptr %39, align 8, !noalias !1306
+  %43 = load ptr, ptr %38, align 8, !noalias !1306
+  %call.i.i.i.i.i.i51 = tail call i32 @memcmp(ptr noundef %43, ptr noundef %42, i64 noundef %.sroa.speculated.i.i.i.i.i48) #28, !noalias !1306
   %tobool.not.i.i.i.i.i52 = icmp eq i32 %call.i.i.i.i.i.i51, 0
   br i1 %tobool.not.i.i.i.i.i52, label %if.then.i.i.i.i.i70, label %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i53
 
@@ -85475,37 +85471,37 @@ _ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stri
 
 lor.end.i56:                                      ; preds = %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i53, %if.then.i.i.i.i16
   %44 = phi i1 [ true, %if.then.i.i.i.i16 ], [ %cmp.i.i.i.i55, %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i53 ]
-  %45 = load ptr, ptr %22, align 8
+  %45 = load ptr, ptr %22, align 8, !noalias !1306
   %cmp.i.i.i.i.i.i57 = icmp eq ptr %45, null
   br i1 %cmp.i.i.i.i.i.i57, label %if.then.i.i.i.i.i.i68, label %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i58
 
 if.then.i.i.i.i.i.i68:                            ; preds = %lor.end.i56
-  %call.i.i.i.i.i5.i69 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34
+  %call.i.i.i.i.i5.i69 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34, !noalias !1306
   br label %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit75
 
 _ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i58: ; preds = %lor.end.i56
   %hooks_cookie_.i.i.i.i.i.i.i59 = getelementptr inbounds nuw i8, ptr %45, i64 112
-  %46 = load ptr, ptr %hooks_cookie_.i.i.i.i.i.i.i59, align 8
+  %46 = load ptr, ptr %hooks_cookie_.i.i.i.i.i.i.i59, align 8, !noalias !1306
   %cmp.not.i.i.i.i.i.i.i60 = icmp eq ptr %46, null
   br i1 %cmp.not.i.i.i.i.i.i.i60, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i62, label %if.then.i.i.i.i.i.i.i61
 
 if.then.i.i.i.i.i.i.i61:                          ; preds = %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i58
-  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr noundef nonnull @_ZTIh, i64 noundef 40)
+  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr noundef nonnull @_ZTIh, i64 noundef 40), !noalias !1306
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i62
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i62: ; preds = %if.then.i.i.i.i.i.i.i61, %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i58
-  %call11.i23.i.i.i.i.i.i63 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %45, i64 noundef 40)
+  %call11.i23.i.i.i.i.i.i63 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %45, i64 noundef 40), !noalias !1306
   br label %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit75
 
 _ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit75: ; preds = %if.then.i.i.i.i.i.i68, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i62
   %retval.0.i.i.i.i.i.i64 = phi ptr [ %call.i.i.i.i.i5.i69, %if.then.i.i.i.i.i.i68 ], [ %call11.i23.i.i.i.i.i.i63, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i62 ]
   %_M_storage.i.i.i.i.i65 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i64, i64 32
-  store ptr %node.0.i, ptr %_M_storage.i.i.i.i.i65, align 8
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %44, ptr noundef %retval.0.i.i.i.i.i.i64, ptr noundef nonnull %retval.sroa.4.0.i116.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i77) #28
+  store ptr %node.0.i, ptr %_M_storage.i.i.i.i.i65, align 8, !noalias !1306
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %44, ptr noundef %retval.0.i.i.i.i.i.i64, ptr noundef nonnull %retval.sroa.4.0.i116.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i77) #28, !noalias !1306
   %_M_node_count.i66 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  %47 = load i64, ptr %_M_node_count.i66, align 8
+  %47 = load i64, ptr %_M_node_count.i66, align 8, !noalias !1306
   %inc.i67 = add i64 %47, 1
-  store i64 %inc.i67, ptr %_M_node_count.i66, align 8
+  store i64 %inc.i67, ptr %_M_node_count.i66, align 8, !noalias !1306
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit.i
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit.i: ; preds = %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit18.i110, %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit75
@@ -85626,20 +85622,20 @@ if.then.i.i.i33.i:                                ; preds = %_ZNK6google8protobu
 
 lor.rhs.i:                                        ; preds = %if.then.i.i.i33.i
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.4.0.i.ph, i64 32
-  %63 = load ptr, ptr %_M_storage.i.i.i.i, align 8
-  %64 = load ptr, ptr %63, align 8
+  %63 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !noalias !1312
+  %64 = load ptr, ptr %63, align 8, !noalias !1312
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %65 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8
+  %65 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !noalias !1312
   %_M_string_length.i3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %66 = load i64, ptr %_M_string_length.i3.i.i.i.i.i, align 8
+  %66 = load i64, ptr %_M_string_length.i3.i.i.i.i.i, align 8, !noalias !1312
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %66, i64 %65)
   %cmp.i4.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
   br i1 %cmp.i4.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %lor.rhs.i
-  %67 = load ptr, ptr %64, align 8
-  %68 = load ptr, ptr %9, align 8
-  %call.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %68, ptr noundef %67, i64 noundef %.sroa.speculated.i.i.i.i.i) #28
+  %67 = load ptr, ptr %64, align 8, !noalias !1312
+  %68 = load ptr, ptr %9, align 8, !noalias !1312
+  %call.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %68, ptr noundef %67, i64 noundef %.sroa.speculated.i.i.i.i.i) #28, !noalias !1312
   %tobool.not.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i
 
@@ -85657,37 +85653,37 @@ _ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stri
 
 lor.end.i:                                        ; preds = %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i, %if.then.i.i.i33.i
   %69 = phi i1 [ true, %if.then.i.i.i33.i ], [ %cmp.i.i.i.i, %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i ]
-  %70 = load ptr, ptr %50, align 8
+  %70 = load ptr, ptr %50, align 8, !noalias !1312
   %cmp.i.i.i.i.i.i = icmp eq ptr %70, null
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %lor.end.i
-  %call.i.i.i.i.i5.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34
+  %call.i.i.i.i.i5.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34, !noalias !1312
   br label %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit
 
 _ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i: ; preds = %lor.end.i
   %hooks_cookie_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %70, i64 112
-  %71 = load ptr, ptr %hooks_cookie_.i.i.i.i.i.i.i, align 8
+  %71 = load ptr, ptr %hooks_cookie_.i.i.i.i.i.i.i, align 8, !noalias !1312
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %71, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i
-  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %70, ptr noundef nonnull @_ZTIh, i64 noundef 40)
+  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %70, ptr noundef nonnull @_ZTIh, i64 noundef 40), !noalias !1312
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i
-  %call11.i23.i.i.i.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %70, i64 noundef 40)
+  %call11.i23.i.i.i.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %70, i64 noundef 40), !noalias !1312
   br label %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit
 
 _ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit: ; preds = %if.then.i.i.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i5.i, %if.then.i.i.i.i.i.i ], [ %call11.i23.i.i.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i ]
   %_M_storage.i.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i, i64 32
-  store ptr %node.0.i, ptr %_M_storage.i.i.i.i.i19, align 8
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %69, ptr noundef %retval.0.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i20) #28
+  store ptr %node.0.i, ptr %_M_storage.i.i.i.i.i19, align 8, !noalias !1312
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %69, ptr noundef %retval.0.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i20) #28, !noalias !1312
   %_M_node_count.i = getelementptr inbounds nuw i8, ptr %50, i64 48
-  %72 = load i64, ptr %_M_node_count.i, align 8
+  %72 = load i64, ptr %_M_node_count.i, align 8, !noalias !1312
   %inc.i = add i64 %72, 1
-  store i64 %inc.i, ptr %_M_node_count.i, align 8
+  store i64 %inc.i, ptr %_M_node_count.i, align 8, !noalias !1312
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE8InnerMap12InsertUniqueEmPNSC_4NodeE.exit
 
 if.end62.i:                                       ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE8InnerMap18InsertUniqueInTreeEmPNSC_4NodeE.exit.i, %if.then.i
@@ -87531,7 +87527,6 @@ if.end29.i:                                       ; preds = %while.cond21.i, %_Z
   %ref.tmp30.sroa.3.0.ref.tmp.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   %ref.tmp30.sroa.3.0.copyload.i = load i64, ptr %ref.tmp30.sroa.3.0.ref.tmp.i.sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  store i64 %ref.tmp30.sroa.3.0.copyload.i, ptr %bucket_index_.i, align 8
   %8 = load ptr, ptr %table_.i, align 8
   %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %8, i64 %ref.tmp30.sroa.3.0.copyload.i
   %9 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
@@ -88384,7 +88379,7 @@ if.then37:                                        ; preds = %_ZN6google8protobuf
 
 if.then.i.i.i:                                    ; preds = %if.then37
   store ptr %6, ptr %__an.i.i.i, align 8, !noalias !1427
-  %call5.i.i.i = call ptr @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef %7, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i)
+  %call5.i.i.i = call ptr @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef %7, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i), !noalias !1427
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap18InsertUniqueInTreeEmPNS9_4NodeE.exit
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap18InsertUniqueInTreeEmPNS9_4NodeE.exit: ; preds = %if.then37, %if.then.i.i.i
@@ -88392,7 +88387,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i.i.i), !noalias !1427
   %and.i = and i64 %b, -2
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i.i, i64 32
-  %9 = load ptr, ptr %_M_storage.i.i.i.i, align 8
+  %9 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !noalias !1427
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i)
   br label %if.end62
 
@@ -88428,7 +88423,7 @@ if.else60:                                        ; preds = %_ZNK6google8protobu
 
 if.then.i.i.i33:                                  ; preds = %if.else60
   store ptr %12, ptr %__an.i.i.i26, align 8, !noalias !1433
-  %call5.i.i.i34 = call ptr @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef %13, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.i27, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i26)
+  %call5.i.i.i34 = call ptr @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef %13, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.i27, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i.i26), !noalias !1433
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap18InsertUniqueInTreeEmPNS9_4NodeE.exit40
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap18InsertUniqueInTreeEmPNS9_4NodeE.exit40: ; preds = %if.else60, %if.then.i.i.i33
@@ -88436,7 +88431,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i.i.i26), !noalias !1433
   %and.i36 = and i64 %b, -2
   %_M_storage.i.i.i.i37 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i.i35, i64 32
-  %15 = load ptr, ptr %_M_storage.i.i.i.i37, align 8
+  %15 = load ptr, ptr %_M_storage.i.i.i.i37, align 8, !noalias !1433
   store ptr %15, ptr %agg.result, align 8, !alias.scope !1433
   %m_.i.i38 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %this, ptr %m_.i.i38, align 8, !alias.scope !1433
@@ -88697,21 +88692,21 @@ if.then.i.i.i.i16:                                ; preds = %_ZNK6google8protobu
 
 lor.rhs.i44:                                      ; preds = %if.then.i.i.i.i16
   %_M_storage.i.i.i.i45 = getelementptr inbounds nuw i8, ptr %retval.sroa.4.0.i116.ph, i64 32
-  %37 = load ptr, ptr %_M_storage.i.i.i.i45, align 8
-  %38 = load ptr, ptr %node.0.i, align 8
-  %39 = load ptr, ptr %37, align 8
+  %37 = load ptr, ptr %_M_storage.i.i.i.i45, align 8, !noalias !1442
+  %38 = load ptr, ptr %node.0.i, align 8, !noalias !1442
+  %39 = load ptr, ptr %37, align 8, !noalias !1442
   %_M_string_length.i.i.i.i.i.i46 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load i64, ptr %_M_string_length.i.i.i.i.i.i46, align 8
+  %40 = load i64, ptr %_M_string_length.i.i.i.i.i.i46, align 8, !noalias !1442
   %_M_string_length.i3.i.i.i.i.i47 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load i64, ptr %_M_string_length.i3.i.i.i.i.i47, align 8
+  %41 = load i64, ptr %_M_string_length.i3.i.i.i.i.i47, align 8, !noalias !1442
   %.sroa.speculated.i.i.i.i.i48 = tail call i64 @llvm.umin.i64(i64 %41, i64 %40)
   %cmp.i4.i.i.i.i.i49 = icmp eq i64 %.sroa.speculated.i.i.i.i.i48, 0
   br i1 %cmp.i4.i.i.i.i.i49, label %if.then.i.i.i.i.i70, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i50
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i50: ; preds = %lor.rhs.i44
-  %42 = load ptr, ptr %39, align 8
-  %43 = load ptr, ptr %38, align 8
-  %call.i.i.i.i.i.i51 = tail call i32 @memcmp(ptr noundef %43, ptr noundef %42, i64 noundef %.sroa.speculated.i.i.i.i.i48) #28
+  %42 = load ptr, ptr %39, align 8, !noalias !1442
+  %43 = load ptr, ptr %38, align 8, !noalias !1442
+  %call.i.i.i.i.i.i51 = tail call i32 @memcmp(ptr noundef %43, ptr noundef %42, i64 noundef %.sroa.speculated.i.i.i.i.i48) #28, !noalias !1442
   %tobool.not.i.i.i.i.i52 = icmp eq i32 %call.i.i.i.i.i.i51, 0
   br i1 %tobool.not.i.i.i.i.i52, label %if.then.i.i.i.i.i70, label %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i53
 
@@ -88729,37 +88724,37 @@ _ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stri
 
 lor.end.i56:                                      ; preds = %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i53, %if.then.i.i.i.i16
   %44 = phi i1 [ true, %if.then.i.i.i.i16 ], [ %cmp.i.i.i.i55, %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i53 ]
-  %45 = load ptr, ptr %22, align 8
+  %45 = load ptr, ptr %22, align 8, !noalias !1442
   %cmp.i.i.i.i.i.i57 = icmp eq ptr %45, null
   br i1 %cmp.i.i.i.i.i.i57, label %if.then.i.i.i.i.i.i68, label %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i58
 
 if.then.i.i.i.i.i.i68:                            ; preds = %lor.end.i56
-  %call.i.i.i.i.i5.i69 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34
+  %call.i.i.i.i.i5.i69 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34, !noalias !1442
   br label %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit75
 
 _ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i58: ; preds = %lor.end.i56
   %hooks_cookie_.i.i.i.i.i.i.i59 = getelementptr inbounds nuw i8, ptr %45, i64 112
-  %46 = load ptr, ptr %hooks_cookie_.i.i.i.i.i.i.i59, align 8
+  %46 = load ptr, ptr %hooks_cookie_.i.i.i.i.i.i.i59, align 8, !noalias !1442
   %cmp.not.i.i.i.i.i.i.i60 = icmp eq ptr %46, null
   br i1 %cmp.not.i.i.i.i.i.i.i60, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i62, label %if.then.i.i.i.i.i.i.i61
 
 if.then.i.i.i.i.i.i.i61:                          ; preds = %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i58
-  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr noundef nonnull @_ZTIh, i64 noundef 40)
+  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr noundef nonnull @_ZTIh, i64 noundef 40), !noalias !1442
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i62
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i62: ; preds = %if.then.i.i.i.i.i.i.i61, %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i58
-  %call11.i23.i.i.i.i.i.i63 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %45, i64 noundef 40)
+  %call11.i23.i.i.i.i.i.i63 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %45, i64 noundef 40), !noalias !1442
   br label %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit75
 
 _ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit75: ; preds = %if.then.i.i.i.i.i.i68, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i62
   %retval.0.i.i.i.i.i.i64 = phi ptr [ %call.i.i.i.i.i5.i69, %if.then.i.i.i.i.i.i68 ], [ %call11.i23.i.i.i.i.i.i63, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i62 ]
   %_M_storage.i.i.i.i.i65 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i64, i64 32
-  store ptr %node.0.i, ptr %_M_storage.i.i.i.i.i65, align 8
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %44, ptr noundef %retval.0.i.i.i.i.i.i64, ptr noundef nonnull %retval.sroa.4.0.i116.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i77) #28
+  store ptr %node.0.i, ptr %_M_storage.i.i.i.i.i65, align 8, !noalias !1442
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %44, ptr noundef %retval.0.i.i.i.i.i.i64, ptr noundef nonnull %retval.sroa.4.0.i116.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i77) #28, !noalias !1442
   %_M_node_count.i66 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  %47 = load i64, ptr %_M_node_count.i66, align 8
+  %47 = load i64, ptr %_M_node_count.i66, align 8, !noalias !1442
   %inc.i67 = add i64 %47, 1
-  store i64 %inc.i67, ptr %_M_node_count.i66, align 8
+  store i64 %inc.i67, ptr %_M_node_count.i66, align 8, !noalias !1442
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap18InsertUniqueInTreeEmPNS9_4NodeE.exit.i
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap18InsertUniqueInTreeEmPNS9_4NodeE.exit.i: ; preds = %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit18.i110, %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit75
@@ -88880,20 +88875,20 @@ if.then.i.i.i33.i:                                ; preds = %_ZNK6google8protobu
 
 lor.rhs.i:                                        ; preds = %if.then.i.i.i33.i
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.4.0.i.ph, i64 32
-  %63 = load ptr, ptr %_M_storage.i.i.i.i, align 8
-  %64 = load ptr, ptr %63, align 8
+  %63 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !noalias !1448
+  %64 = load ptr, ptr %63, align 8, !noalias !1448
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %65 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8
+  %65 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !noalias !1448
   %_M_string_length.i3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %66 = load i64, ptr %_M_string_length.i3.i.i.i.i.i, align 8
+  %66 = load i64, ptr %_M_string_length.i3.i.i.i.i.i, align 8, !noalias !1448
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %66, i64 %65)
   %cmp.i4.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
   br i1 %cmp.i4.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %lor.rhs.i
-  %67 = load ptr, ptr %64, align 8
-  %68 = load ptr, ptr %9, align 8
-  %call.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %68, ptr noundef %67, i64 noundef %.sroa.speculated.i.i.i.i.i) #28
+  %67 = load ptr, ptr %64, align 8, !noalias !1448
+  %68 = load ptr, ptr %9, align 8, !noalias !1448
+  %call.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %68, ptr noundef %67, i64 noundef %.sroa.speculated.i.i.i.i.i) #28, !noalias !1448
   %tobool.not.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i
 
@@ -88911,37 +88906,37 @@ _ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stri
 
 lor.end.i:                                        ; preds = %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i, %if.then.i.i.i33.i
   %69 = phi i1 [ true, %if.then.i.i.i33.i ], [ %cmp.i.i.i.i, %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i ]
-  %70 = load ptr, ptr %50, align 8
+  %70 = load ptr, ptr %50, align 8, !noalias !1448
   %cmp.i.i.i.i.i.i = icmp eq ptr %70, null
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %lor.end.i
-  %call.i.i.i.i.i5.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34
+  %call.i.i.i.i.i5.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34, !noalias !1448
   br label %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit
 
 _ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i: ; preds = %lor.end.i
   %hooks_cookie_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %70, i64 112
-  %71 = load ptr, ptr %hooks_cookie_.i.i.i.i.i.i.i, align 8
+  %71 = load ptr, ptr %hooks_cookie_.i.i.i.i.i.i.i, align 8, !noalias !1448
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %71, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i
-  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %70, ptr noundef nonnull @_ZTIh, i64 noundef 40)
+  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %70, ptr noundef nonnull @_ZTIh, i64 noundef 40), !noalias !1448
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZN6google8protobuf5Arena22CreateInternalRawArrayIhEEPT_m.exit.i.i.i.i.i.i
-  %call11.i23.i.i.i.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %70, i64 noundef 40)
+  %call11.i23.i.i.i.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %70, i64 noundef 40), !noalias !1448
   br label %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit
 
 _ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE10_M_insert_ISB_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit: ; preds = %if.then.i.i.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i5.i, %if.then.i.i.i.i.i.i ], [ %call11.i23.i.i.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i.i.i ]
   %_M_storage.i.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i, i64 32
-  store ptr %node.0.i, ptr %_M_storage.i.i.i.i.i19, align 8
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %69, ptr noundef %retval.0.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i20) #28
+  store ptr %node.0.i, ptr %_M_storage.i.i.i.i.i19, align 8, !noalias !1448
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %69, ptr noundef %retval.0.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i20) #28, !noalias !1448
   %_M_node_count.i = getelementptr inbounds nuw i8, ptr %50, i64 48
-  %72 = load i64, ptr %_M_node_count.i, align 8
+  %72 = load i64, ptr %_M_node_count.i, align 8, !noalias !1448
   %inc.i = add i64 %72, 1
-  store i64 %inc.i, ptr %_M_node_count.i, align 8
+  store i64 %inc.i, ptr %_M_node_count.i, align 8, !noalias !1448
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap12InsertUniqueEmPNS9_4NodeE.exit
 
 if.end62.i:                                       ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap18InsertUniqueInTreeEmPNS9_4NodeE.exit.i, %if.then.i
@@ -92732,7 +92727,7 @@ if.then37:                                        ; preds = %_ZN6google8protobuf
   %7 = extractvalue { ptr, i8 } %call.i.i, 0
   %and.i = and i64 %b, -2
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %8 = load ptr, ptr %_M_storage.i.i.i.i, align 8
+  %8 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !noalias !1614
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i)
   br label %if.end62
 
@@ -92763,7 +92758,7 @@ if.else60:                                        ; preds = %_ZNK6google8protobu
   %12 = extractvalue { ptr, i8 } %call.i.i30, 0
   %and.i31 = and i64 %b, -2
   %_M_storage.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %13 = load ptr, ptr %_M_storage.i.i.i.i32, align 8
+  %13 = load ptr, ptr %_M_storage.i.i.i.i32, align 8, !noalias !1620
   store ptr %13, ptr %agg.result, align 8, !alias.scope !1620
   %m_.i.i33 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %this, ptr %m_.i.i33, align 8, !alias.scope !1620
@@ -96371,7 +96366,7 @@ if.then37:                                        ; preds = %_ZN6google8protobuf
   %7 = extractvalue { ptr, i8 } %call.i.i, 0
   %and.i = and i64 %b, -2
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %8 = load ptr, ptr %_M_storage.i.i.i.i, align 8
+  %8 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !noalias !1775
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i)
   br label %if.end62
 
@@ -96402,7 +96397,7 @@ if.else60:                                        ; preds = %_ZNK6google8protobu
   %12 = extractvalue { ptr, i8 } %call.i.i30, 0
   %and.i31 = and i64 %b, -2
   %_M_storage.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %13 = load ptr, ptr %_M_storage.i.i.i.i32, align 8
+  %13 = load ptr, ptr %_M_storage.i.i.i.i32, align 8, !noalias !1781
   store ptr %13, ptr %agg.result, align 8, !alias.scope !1781
   %m_.i.i33 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %this, ptr %m_.i.i33, align 8, !alias.scope !1781
@@ -99735,7 +99730,7 @@ if.then37:                                        ; preds = %_ZN6google8protobuf
   %7 = extractvalue { ptr, i8 } %call.i.i, 0
   %and.i = and i64 %b, -2
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %8 = load ptr, ptr %_M_storage.i.i.i.i, align 8
+  %8 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !noalias !1931
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i)
   br label %if.end62
 
@@ -99766,7 +99761,7 @@ if.else60:                                        ; preds = %_ZNK6google8protobu
   %12 = extractvalue { ptr, i8 } %call.i.i30, 0
   %and.i31 = and i64 %b, -2
   %_M_storage.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %13 = load ptr, ptr %_M_storage.i.i.i.i32, align 8
+  %13 = load ptr, ptr %_M_storage.i.i.i.i32, align 8, !noalias !1937
   store ptr %13, ptr %agg.result, align 8, !alias.scope !1937
   %m_.i.i33 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %this, ptr %m_.i.i33, align 8, !alias.scope !1937
@@ -103223,7 +103218,7 @@ if.then37:                                        ; preds = %_ZN6google8protobuf
   %7 = extractvalue { ptr, i8 } %call.i.i, 0
   %and.i = and i64 %b, -2
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %8 = load ptr, ptr %_M_storage.i.i.i.i, align 8
+  %8 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !noalias !2091
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i)
   br label %if.end62
 
@@ -103254,7 +103249,7 @@ if.else60:                                        ; preds = %_ZNK6google8protobu
   %12 = extractvalue { ptr, i8 } %call.i.i30, 0
   %and.i31 = and i64 %b, -2
   %_M_storage.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %13 = load ptr, ptr %_M_storage.i.i.i.i32, align 8
+  %13 = load ptr, ptr %_M_storage.i.i.i.i32, align 8, !noalias !2097
   store ptr %13, ptr %agg.result, align 8, !alias.scope !2097
   %m_.i.i33 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %this, ptr %m_.i.i33, align 8, !alias.scope !2097
@@ -106586,7 +106581,7 @@ if.then37:                                        ; preds = %_ZN6google8protobuf
   %7 = extractvalue { ptr, i8 } %call.i.i, 0
   %and.i = and i64 %b, -2
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %8 = load ptr, ptr %_M_storage.i.i.i.i, align 8
+  %8 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !noalias !2247
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i)
   br label %if.end62
 
@@ -106617,7 +106612,7 @@ if.else60:                                        ; preds = %_ZNK6google8protobu
   %12 = extractvalue { ptr, i8 } %call.i.i30, 0
   %and.i31 = and i64 %b, -2
   %_M_storage.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %13 = load ptr, ptr %_M_storage.i.i.i.i32, align 8
+  %13 = load ptr, ptr %_M_storage.i.i.i.i32, align 8, !noalias !2253
   store ptr %13, ptr %agg.result, align 8, !alias.scope !2253
   %m_.i.i33 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %this, ptr %m_.i.i33, align 8, !alias.scope !2253
@@ -110074,7 +110069,7 @@ if.then37:                                        ; preds = %_ZN6google8protobuf
   %7 = extractvalue { ptr, i8 } %call.i.i, 0
   %and.i = and i64 %b, -2
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %8 = load ptr, ptr %_M_storage.i.i.i.i, align 8
+  %8 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !noalias !2407
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i)
   br label %if.end62
 
@@ -110105,7 +110100,7 @@ if.else60:                                        ; preds = %_ZNK6google8protobu
   %12 = extractvalue { ptr, i8 } %call.i.i30, 0
   %and.i31 = and i64 %b, -2
   %_M_storage.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %13 = load ptr, ptr %_M_storage.i.i.i.i32, align 8
+  %13 = load ptr, ptr %_M_storage.i.i.i.i32, align 8, !noalias !2413
   store ptr %13, ptr %agg.result, align 8, !alias.scope !2413
   %m_.i.i33 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %this, ptr %m_.i.i33, align 8, !alias.scope !2413
@@ -113671,7 +113666,7 @@ if.then37:                                        ; preds = %_ZN6google8protobuf
   %7 = extractvalue { ptr, i8 } %call.i.i, 0
   %and.i = and i64 %b, -2
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %8 = load ptr, ptr %_M_storage.i.i.i.i, align 8
+  %8 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !noalias !2568
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i)
   br label %if.end62
 
@@ -113702,7 +113697,7 @@ if.else60:                                        ; preds = %_ZNK6google8protobu
   %12 = extractvalue { ptr, i8 } %call.i.i30, 0
   %and.i31 = and i64 %b, -2
   %_M_storage.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %13 = load ptr, ptr %_M_storage.i.i.i.i32, align 8
+  %13 = load ptr, ptr %_M_storage.i.i.i.i32, align 8, !noalias !2574
   store ptr %13, ptr %agg.result, align 8, !alias.scope !2574
   %m_.i.i33 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %this, ptr %m_.i.i33, align 8, !alias.scope !2574

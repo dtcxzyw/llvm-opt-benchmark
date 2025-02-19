@@ -973,7 +973,7 @@ _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit: ; preds = %142
   %161 = landingpad { ptr, i32 }
           catch ptr null
   %162 = extractvalue { ptr, i32 } %161, 0
-  call void @__clang_call_terminate(ptr %162) #18
+  call void @__clang_call_terminate(ptr %162) #18, !noalias !6
   unreachable
 
 _ZNK8WasmEdge6Loader10Serializer17logSerializeErrorENS_7ErrCodeENS_11ASTNodeAttrE.exit: ; preds = %.noexc2.i

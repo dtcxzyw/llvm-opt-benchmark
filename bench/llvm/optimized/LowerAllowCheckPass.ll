@@ -959,7 +959,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i.i: ; preds = %_ZN
   %364 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %363) #19, !noalias !125
   %365 = extractvalue { ptr, i64 } %364, 0
   %366 = extractvalue { ptr, i64 } %364, 1
-  call void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC1ENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(80) %156, ptr nonnull @.str.22, i64 5, ptr %365, i64 %366) #19
+  call void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC1ENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(80) %156, ptr nonnull @.str.22, i64 5, ptr %365, i64 %366) #19, !noalias !125
   call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %42) #19, !noalias !125
   call void @_ZN4llvm18OptimizationRemarkC1EPKcNS_9StringRefEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(432) %42, ptr noundef nonnull @.str.6, ptr nonnull @.str.16, i64 7, ptr noundef nonnull %238) #19, !noalias !125
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(432) %42, ptr nonnull @.str.17, i64 20) #19, !noalias !125
@@ -1949,7 +1949,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i4.i.i: ; preds = %_Z
   %706 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %705) #19, !noalias !163
   %707 = extractvalue { ptr, i64 } %706, 0
   %708 = extractvalue { ptr, i64 } %706, 1
-  call void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC1ENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(80) %83, ptr nonnull @.str.22, i64 5, ptr %707, i64 %708) #19
+  call void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC1ENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(80) %83, ptr nonnull @.str.22, i64 5, ptr %707, i64 %708) #19, !noalias !163
   call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %30) #19, !noalias !163
   call void @_ZN4llvm24OptimizationRemarkMissedC1EPKcNS_9StringRefEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(432) %30, ptr noundef nonnull @.str.6, ptr nonnull @.str.23, i64 7, ptr noundef nonnull %238) #19, !noalias !163
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(432) %30, ptr nonnull @.str.24, i64 20) #19, !noalias !163

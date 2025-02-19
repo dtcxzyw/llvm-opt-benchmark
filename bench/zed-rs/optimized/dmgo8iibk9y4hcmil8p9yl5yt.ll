@@ -223,7 +223,7 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$C$u20$as$u20$gpui..BorrowAppContext
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %9 = load ptr, ptr %8, align 8, !invariant.load !4, !alias.scope !40, !noalias !43, !nonnull !4
   %10 = invoke { i64, i64 } %9(ptr noundef nonnull align 1 %5)
-          to label %.noexc unwind label %20
+          to label %.noexc unwind label %18
 
 .noexc:                                           ; preds = %2
   %11 = extractvalue { i64, i64 } %10, 0
@@ -235,36 +235,34 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$C$u20$as$u20$gpui..BorrowAppContext
 
 15:                                               ; preds = %.noexc
   invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.53c424c7ff5418d83142882a150e238a.14.llvm.1926931935225978806) #20
-          to label %.noexc6 unwind label %20
+          to label %.noexc6 unwind label %18
 
 .noexc6:                                          ; preds = %15
   unreachable
 
 "_ZN78_$LT$gpui..app..GlobalLease$LT$G$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hd9d11a92d89dd5f7E.llvm.1926931935225978806.exit": ; preds = %.noexc
   %16 = invoke noundef zeroext i1 @"_ZN5audio5Audio10play_sound28_$u7b$$u7b$closure$u7d$$u7d$17h2abbe7b054e0dea1E.llvm.1926931935225978806"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %1, ptr noalias noundef nonnull align 8 dereferenceable(56) %5, ptr noalias noundef nonnull align 8 dereferenceable(1176) %0)
-          to label %17 unwind label %20
+          to label %17 unwind label %18
 
 17:                                               ; preds = %"_ZN78_$LT$gpui..app..GlobalLease$LT$G$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hd9d11a92d89dd5f7E.llvm.1926931935225978806.exit"
-  %18 = load ptr, ptr %3, align 8, !nonnull !4, !align !11, !noundef !4
-  %19 = load ptr, ptr %7, align 8, !nonnull !4, !align !5, !noundef !4
-  tail call void @_ZN4gpui3app10AppContext16end_global_lease17h8e8a05f785dfda7dE.llvm.1926931935225978806(ptr noalias noundef nonnull align 8 dereferenceable(1176) %0, ptr noundef nonnull align 1 %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %19)
+  tail call void @_ZN4gpui3app10AppContext16end_global_lease17h8e8a05f785dfda7dE.llvm.1926931935225978806(ptr noalias noundef nonnull align 8 dereferenceable(1176) %0, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %16
 
-20:                                               ; preds = %"_ZN78_$LT$gpui..app..GlobalLease$LT$G$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hd9d11a92d89dd5f7E.llvm.1926931935225978806.exit", %2, %15
-  %21 = landingpad { ptr, i32 }
+18:                                               ; preds = %"_ZN78_$LT$gpui..app..GlobalLease$LT$G$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hd9d11a92d89dd5f7E.llvm.1926931935225978806.exit", %2, %15
+  %19 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr69drop_in_place$LT$gpui..app..GlobalLease$LT$audio..GlobalAudio$GT$$GT$17ha3704f835c766bd1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3) #23
-          to label %24 unwind label %22
+          to label %22 unwind label %20
 
-22:                                               ; preds = %20
-  %23 = landingpad { ptr, i32 }
+20:                                               ; preds = %18
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #21
   unreachable
 
-24:                                               ; preds = %20
-  resume { ptr, i32 } %21
+22:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

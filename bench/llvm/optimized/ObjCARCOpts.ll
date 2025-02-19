@@ -7565,15 +7565,15 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i: ; preds = %752, %_ZNK4llvm8Ca
   %772 = sub nsw i64 0, %771
   %773 = getelementptr inbounds %"class.llvm::Use", ptr %.sroa.0.0.copyload.i, i64 %772
   %774 = getelementptr inbounds nuw i8, ptr %768, i64 8
-  %775 = load i32, ptr %774, align 8, !tbaa !437, !noalias !433
+  %775 = load i32, ptr %774, align 8, !tbaa !437, !noalias !436
   %776 = zext i32 %775 to i64
   %.idx6.i.i.i = shl nuw nsw i64 %776, 5
   %777 = getelementptr inbounds nuw i8, ptr %773, i64 %.idx6.i.i.i
   %778 = getelementptr inbounds nuw i8, ptr %768, i64 12
-  %779 = load i32, ptr %778, align 4, !tbaa !438, !noalias !433
+  %779 = load i32, ptr %778, align 4, !tbaa !438, !noalias !436
   %780 = zext i32 %779 to i64
   %781 = sub nsw i64 %780, %776
-  %782 = load ptr, ptr %768, align 8, !tbaa !168, !noalias !433
+  %782 = load ptr, ptr %768, align 8, !tbaa !168, !noalias !436
   store ptr %777, ptr %5, align 8, !tbaa !231, !alias.scope !436
   store i64 %781, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !47, !alias.scope !436
   store ptr %782, ptr %603, align 8, !tbaa !439, !alias.scope !436
@@ -18815,7 +18815,7 @@ attributes #25 = { builtin nounwind allocsize(0) }
 !168 = !{!169, !170, i64 0}
 !169 = !{!"_ZTSN4llvm8CallBase12BundleOpInfoE", !170, i64 0, !19, i64 8, !19, i64 12}
 !170 = !{!"p1 _ZTSN4llvm14StringMapEntryIjEE", !12, i64 0}
-!171 = !{!172}
+!171 = !{!172, !166, !162}
 !172 = distinct !{!172, !173, !"_ZNK4llvm8CallBase29operandBundleFromBundleOpInfoERKNS0_12BundleOpInfoE: argument 0"}
 !173 = distinct !{!173, !"_ZNK4llvm8CallBase29operandBundleFromBundleOpInfoERKNS0_12BundleOpInfoE"}
 !174 = !{!175, !110, i64 0}

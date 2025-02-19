@@ -2818,7 +2818,7 @@ define void @_ZN5folly11IPAddressV610fromBinaryENS_5RangeIPKhEE(ptr dead_on_unwi
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #42
+  call void @__clang_call_terminate(ptr %13) #42, !noalias !83
   unreachable
 
 14:                                               ; preds = %7

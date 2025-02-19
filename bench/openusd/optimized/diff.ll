@@ -331,7 +331,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
   %149 = landingpad { ptr, i32 }
           catch ptr null
   %150 = extractvalue { ptr, i32 } %149, 0
-  call void @__clang_call_terminate(ptr %150) #14
+  call void @__clang_call_terminate(ptr %150) #14, !noalias !5
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i: ; preds = %143, %138
@@ -356,7 +356,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i: ; preds = %143, %138
   %161 = landingpad { ptr, i32 }
           catch ptr null
   %162 = extractvalue { ptr, i32 } %161, 0
-  call void @__clang_call_terminate(ptr %162) #14
+  call void @__clang_call_terminate(ptr %162) #14, !noalias !5
   unreachable
 
 .critedge.i.i:                                    ; preds = %155, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i
@@ -473,7 +473,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i: ; preds = %143, %138
   %213 = landingpad { ptr, i32 }
           catch ptr null
   %214 = extractvalue { ptr, i32 } %213, 0
-  call void @__clang_call_terminate(ptr %214) #14
+  call void @__clang_call_terminate(ptr %214) #14, !noalias !5
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit41.i.i: ; preds = %207, %202
@@ -498,7 +498,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit41.i.i: ; preds = %207, %2
   %225 = landingpad { ptr, i32 }
           catch ptr null
   %226 = extractvalue { ptr, i32 } %225, 0
-  call void @__clang_call_terminate(ptr %226) #14
+  call void @__clang_call_terminate(ptr %226) #14, !noalias !5
   unreachable
 
 .critedge31.i.i:                                  ; preds = %219, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit41.i.i
@@ -568,7 +568,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit41.i.i: ; preds = %207, %2
   %262 = landingpad { ptr, i32 }
           catch ptr null
   %263 = extractvalue { ptr, i32 } %262, 0
-  call void @__clang_call_terminate(ptr %263) #14
+  call void @__clang_call_terminate(ptr %263) #14, !noalias !5
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit52.i.i: ; preds = %256, %250
@@ -593,7 +593,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit52.i.i: ; preds = %256, %2
   %274 = landingpad { ptr, i32 }
           catch ptr null
   %275 = extractvalue { ptr, i32 } %274, 0
-  call void @__clang_call_terminate(ptr %275) #14
+  call void @__clang_call_terminate(ptr %275) #14, !noalias !5
   unreachable
 
 276:                                              ; preds = %268, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit52.i.i
@@ -812,7 +812,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
   %365 = landingpad { ptr, i32 }
           catch ptr null
   %366 = extractvalue { ptr, i32 } %365, 0
-  call void @__clang_call_terminate(ptr %366) #14
+  call void @__clang_call_terminate(ptr %366) #14, !noalias !5
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i18.i: ; preds = %359, %354
@@ -837,7 +837,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i18.i: ; preds = %359, %3
   %377 = landingpad { ptr, i32 }
           catch ptr null
   %378 = extractvalue { ptr, i32 } %377, 0
-  call void @__clang_call_terminate(ptr %378) #14
+  call void @__clang_call_terminate(ptr %378) #14, !noalias !5
   unreachable
 
 .critedge.i19.i:                                  ; preds = %371, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i18.i
@@ -954,7 +954,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i18.i: ; preds = %359, %3
   %429 = landingpad { ptr, i32 }
           catch ptr null
   %430 = extractvalue { ptr, i32 } %429, 0
-  call void @__clang_call_terminate(ptr %430) #14
+  call void @__clang_call_terminate(ptr %430) #14, !noalias !5
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit42.i.i: ; preds = %423, %418
@@ -979,7 +979,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit42.i.i: ; preds = %423, %4
   %441 = landingpad { ptr, i32 }
           catch ptr null
   %442 = extractvalue { ptr, i32 } %441, 0
-  call void @__clang_call_terminate(ptr %442) #14
+  call void @__clang_call_terminate(ptr %442) #14, !noalias !5
   unreachable
 
 .critedge32.i.i:                                  ; preds = %435, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit42.i.i
@@ -1049,7 +1049,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit42.i.i: ; preds = %423, %4
   %478 = landingpad { ptr, i32 }
           catch ptr null
   %479 = extractvalue { ptr, i32 } %478, 0
-  call void @__clang_call_terminate(ptr %479) #14
+  call void @__clang_call_terminate(ptr %479) #14, !noalias !5
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit53.i.i: ; preds = %472, %466
@@ -1074,7 +1074,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit53.i.i: ; preds = %472, %4
   %490 = landingpad { ptr, i32 }
           catch ptr null
   %491 = extractvalue { ptr, i32 } %490, 0
-  call void @__clang_call_terminate(ptr %491) #14
+  call void @__clang_call_terminate(ptr %491) #14, !noalias !5
   unreachable
 
 492:                                              ; preds = %484, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit53.i.i

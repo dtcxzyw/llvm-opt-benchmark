@@ -8532,14 +8532,14 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %55 = load i64, ptr %54, align 8, !alias.scope !2313, !noalias !2316, !noundef !4
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !2318)
-  %57 = load ptr, ptr %56, align 8, !alias.scope !2321, !noalias !2316, !nonnull !4, !noundef !4
+  call void @llvm.experimental.noalias.scope.decl(metadata !2320)
+  %57 = load ptr, ptr %56, align 8, !alias.scope !2323, !noalias !2316, !nonnull !4, !noundef !4
   %58 = icmp eq ptr %57, inttoptr (i64 -1 to ptr)
   br i1 %58, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a19c7364711ccd1E.exit.i.i", label %59
 
 59:                                               ; preds = %47
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %61 = atomicrmw add ptr %60, i64 1 monotonic, align 8, !noalias !2322
+  %61 = atomicrmw add ptr %60, i64 1 monotonic, align 8, !noalias !2324
   %62 = icmp slt i64 %61, 0
   br i1 %62, label %63, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a19c7364711ccd1E.exit.i.i"
 
@@ -25367,7 +25367,7 @@ attributes #37 = { noreturn }
 !2285 = distinct !{!2285, !2286, !"_ZN80_$LT$gpui..app..entity_map..WeakModel$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf9136f961636fc36E: argument 1"}
 !2286 = distinct !{!2286, !"_ZN80_$LT$gpui..app..entity_map..WeakModel$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf9136f961636fc36E"}
 !2287 = !{i32 1, i32 0}
-!2288 = !{!2289}
+!2288 = !{!2289, !2282}
 !2289 = distinct !{!2289, !2286, !"_ZN80_$LT$gpui..app..entity_map..WeakModel$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf9136f961636fc36E: argument 0"}
 !2290 = !{!2291}
 !2291 = distinct !{!2291, !2292, !"_ZN69_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha2733222d0f1ef44E.llvm.10591374660323954188: argument 0"}
@@ -25395,15 +25395,15 @@ attributes #37 = { noreturn }
 !2313 = !{!2314}
 !2314 = distinct !{!2314, !2315, !"_ZN80_$LT$gpui..app..entity_map..WeakModel$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf9136f961636fc36E: argument 1"}
 !2315 = distinct !{!2315, !"_ZN80_$LT$gpui..app..entity_map..WeakModel$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf9136f961636fc36E"}
-!2316 = !{!2317}
+!2316 = !{!2317, !2318}
 !2317 = distinct !{!2317, !2315, !"_ZN80_$LT$gpui..app..entity_map..WeakModel$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf9136f961636fc36E: argument 0"}
-!2318 = !{!2319}
-!2319 = distinct !{!2319, !2320, !"_ZN69_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha2733222d0f1ef44E.llvm.10591374660323954188: argument 0"}
-!2320 = distinct !{!2320, !"_ZN69_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha2733222d0f1ef44E.llvm.10591374660323954188"}
-!2321 = !{!2319, !2314}
-!2322 = !{!2319, !2317, !2314, !2323}
-!2323 = distinct !{!2323, !2324, !"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a19c7364711ccd1E: argument 0"}
-!2324 = distinct !{!2324, !"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a19c7364711ccd1E"}
+!2318 = distinct !{!2318, !2319, !"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a19c7364711ccd1E: argument 0"}
+!2319 = distinct !{!2319, !"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a19c7364711ccd1E"}
+!2320 = !{!2321}
+!2321 = distinct !{!2321, !2322, !"_ZN69_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha2733222d0f1ef44E.llvm.10591374660323954188: argument 0"}
+!2322 = distinct !{!2322, !"_ZN69_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha2733222d0f1ef44E.llvm.10591374660323954188"}
+!2323 = !{!2321, !2314}
+!2324 = !{!2321, !2317, !2314, !2318}
 !2325 = !{!2309, !2312, !2304, !2307}
 !2326 = !{!2309, !2304}
 !2327 = !{!2312, !2307}

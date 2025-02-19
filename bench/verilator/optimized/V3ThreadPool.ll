@@ -4238,7 +4238,7 @@ define internal void @"_ZN12V3ThreadPool7enqueueIRZNS_8selfTestEvE3$_3EEDaOT_"(p
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #32
+  tail call void @__clang_call_terminate(ptr %18) #32, !noalias !71
   unreachable
 
 common.resume:                                    ; preds = %101, %.body.i.i.i.i.i.i.i
@@ -7282,7 +7282,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   %12 = extractvalue { ptr, i32 } %10, 1
   %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #31
   %14 = icmp eq i32 %12, %13
-  %15 = tail call ptr @__cxa_begin_catch(ptr %11) #31
+  %15 = tail call ptr @__cxa_begin_catch(ptr %11) #31, !noalias !120
   br i1 %14, label %16, label %17
 
 16:                                               ; preds = %9
@@ -7335,7 +7335,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i: ; preds = %23, %_ZNSt15__e
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  tail call void @__clang_call_terminate(ptr %29) #32
+  tail call void @__clang_call_terminate(ptr %29) #32, !noalias !120
   unreachable
 
 30:                                               ; preds = %16
@@ -8267,7 +8267,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   %12 = extractvalue { ptr, i32 } %10, 1
   %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #31
   %14 = icmp eq i32 %12, %13
-  %15 = tail call ptr @__cxa_begin_catch(ptr %11) #31
+  %15 = tail call ptr @__cxa_begin_catch(ptr %11) #31, !noalias !131
   br i1 %14, label %16, label %17
 
 16:                                               ; preds = %9
@@ -8320,7 +8320,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i: ; preds = %23, %_ZNSt15__e
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  tail call void @__clang_call_terminate(ptr %29) #32
+  tail call void @__clang_call_terminate(ptr %29) #32, !noalias !131
   unreachable
 
 30:                                               ; preds = %16
@@ -9284,7 +9284,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   %11 = extractvalue { ptr, i32 } %9, 1
   %12 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #31
   %13 = icmp eq i32 %11, %12
-  %14 = tail call ptr @__cxa_begin_catch(ptr %10) #31
+  %14 = tail call ptr @__cxa_begin_catch(ptr %10) #31, !noalias !153
   br i1 %13, label %15, label %16
 
 15:                                               ; preds = %8
@@ -9337,7 +9337,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i: ; preds = %22, %_ZNSt15__e
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #32
+  tail call void @__clang_call_terminate(ptr %28) #32, !noalias !153
   unreachable
 
 29:                                               ; preds = %15
@@ -9575,7 +9575,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   %11 = extractvalue { ptr, i32 } %9, 1
   %12 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #31
   %13 = icmp eq i32 %11, %12
-  %14 = tail call ptr @__cxa_begin_catch(ptr %10) #31
+  %14 = tail call ptr @__cxa_begin_catch(ptr %10) #31, !noalias !162
   br i1 %13, label %15, label %16
 
 15:                                               ; preds = %8
@@ -9628,7 +9628,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i: ; preds = %22, %_ZNSt15__e
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #32
+  tail call void @__clang_call_terminate(ptr %28) #32, !noalias !162
   unreachable
 
 29:                                               ; preds = %15
@@ -10135,7 +10135,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   %11 = extractvalue { ptr, i32 } %9, 1
   %12 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #31
   %13 = icmp eq i32 %11, %12
-  %14 = tail call ptr @__cxa_begin_catch(ptr %10) #31
+  %14 = tail call ptr @__cxa_begin_catch(ptr %10) #31, !noalias !178
   br i1 %13, label %15, label %16
 
 15:                                               ; preds = %8
@@ -10188,7 +10188,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i: ; preds = %22, %_ZNSt15__e
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #32
+  tail call void @__clang_call_terminate(ptr %28) #32, !noalias !178
   unreachable
 
 29:                                               ; preds = %15
@@ -10463,7 +10463,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   %11 = extractvalue { ptr, i32 } %9, 1
   %12 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #31
   %13 = icmp eq i32 %11, %12
-  %14 = tail call ptr @__cxa_begin_catch(ptr %10) #31
+  %14 = tail call ptr @__cxa_begin_catch(ptr %10) #31, !noalias !187
   br i1 %13, label %15, label %16
 
 15:                                               ; preds = %8
@@ -10516,7 +10516,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i: ; preds = %22, %_ZNSt15__e
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #32
+  tail call void @__clang_call_terminate(ptr %28) #32, !noalias !187
   unreachable
 
 29:                                               ; preds = %15
@@ -11366,7 +11366,7 @@ define internal void @"_ZNSt13__future_base11_Task_stateIZN12V3ThreadPool8selfTe
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #32
+  tail call void @__clang_call_terminate(ptr %14) #32, !noalias !200
   unreachable
 
 .body.i.i.i.i.i.i:                                ; preds = %2

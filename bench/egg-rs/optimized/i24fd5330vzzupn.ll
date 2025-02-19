@@ -113,7 +113,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %19 = load ptr, ptr %18, align 8, !alias.scope !31, !noalias !32, !nonnull !9, !align !11, !noundef !9
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load ptr, ptr %20, align 8, !invariant.load !9, !noalias !31, !nonnull !9
-  %22 = call noundef zeroext i1 %21(ptr noundef nonnull align 1 %17, ptr noalias noundef nonnull readonly align 1 %12, i64 noundef %15)
+  %22 = call noundef zeroext i1 %21(ptr noundef nonnull align 1 %17, ptr noalias noundef nonnull readonly align 1 %12, i64 noundef %15), !noalias !31
   br label %"_ZN44_$LT$egg..Id$u20$as$u20$core..fmt..Debug$GT$3fmt17hafa7ca4d5bed82c6E.exit"
 
 23:                                               ; preds = %2
@@ -183,7 +183,7 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
   %19 = load ptr, ptr %18, align 8, !alias.scope !45, !noalias !46, !nonnull !9, !align !11, !noundef !9
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load ptr, ptr %20, align 8, !invariant.load !9, !noalias !45, !nonnull !9
-  %22 = call noundef zeroext i1 %21(ptr noundef nonnull align 1 %17, ptr noalias noundef nonnull readonly align 1 %12, i64 noundef %15)
+  %22 = call noundef zeroext i1 %21(ptr noundef nonnull align 1 %17, ptr noalias noundef nonnull readonly align 1 %12, i64 noundef %15), !noalias !45
   br label %"_ZN46_$LT$egg..Id$u20$as$u20$core..fmt..Display$GT$3fmt17haeee9b7da00b911eE.exit"
 
 23:                                               ; preds = %2

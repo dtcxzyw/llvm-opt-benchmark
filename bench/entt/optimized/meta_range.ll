@@ -720,7 +720,7 @@ _ZN4entt10meta_resetEv.exit:                      ; preds = %_ZNSt6vectorIN4entt
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  tail call void @__clang_call_terminate(ptr %34) #23
+  tail call void @__clang_call_terminate(ptr %34) #23, !noalias !33
   unreachable
 
 _ZN4entt7resolveEv.exit:                          ; preds = %_ZN4entt10meta_resetEv.exit, %30
@@ -1091,7 +1091,7 @@ define hidden void @_ZN23MetaRange_Iterator_Test8TestBodyEv(ptr nonnull readnone
   %116 = landingpad { ptr, i32 }
           catch ptr null
   %117 = extractvalue { ptr, i32 } %116, 0
-  tail call void @__clang_call_terminate(ptr %117) #23
+  tail call void @__clang_call_terminate(ptr %117) #23, !noalias !68
   unreachable
 
 _ZN4entt7resolveEv.exit:                          ; preds = %1, %113
@@ -5230,7 +5230,7 @@ define hidden void @_ZN26MetaRange_DirectValue_Test8TestBodyEv(ptr nonnull readn
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #23
+  tail call void @__clang_call_terminate(ptr %27) #23, !noalias !145
   unreachable
 
 _ZN4entt7resolveIiEENS_9meta_typeEv.exit:         ; preds = %1, %23
@@ -6521,13 +6521,13 @@ _ZN4entt12meta_factoryIiEC2Ev.exit:               ; preds = %1, %6
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #23
+  call void @__clang_call_terminate(ptr %20) #23, !noalias !185
   unreachable
 
 _ZN4entt12meta_factoryIiE4typeEj.exit:            ; preds = %_ZN4entt12meta_factoryIiEC2Ev.exit
   %.fca.0.extract.i.i.i = extractvalue { ptr, i8 } %17, 0
   %21 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i, i64 24
-  store i32 -1779859874, ptr %21, align 8, !tbaa !140
+  store i32 -1779859874, ptr %21, align 8, !tbaa !140, !noalias !185
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2)
   store i32 -2071979553, ptr %2, align 8, !tbaa !188, !noalias !189
@@ -6604,7 +6604,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %50, 
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #23
+  call void @__clang_call_terminate(ptr %56) #23, !noalias !189
   unreachable
 
 _ZN4entt12meta_factoryIiE4dataITnDaLi2ENS_7as_is_tEEES1_j.exit: ; preds = %30, %38, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %53

@@ -3820,7 +3820,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime4task3raw7RawTask3new17h0f1a
   resume { ptr, i32 } %11
 
 "_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h6e88495e59c190f4E.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %7, ptr noundef nonnull align 128 dereferenceable(128) %3, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %7, ptr noundef nonnull align 128 dereferenceable(128) %3, i64 128, i1 false), !noalias !371
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3), !noalias !371
   ret ptr %7
 }
@@ -3936,7 +3936,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime4task3raw7RawTask3new17h1292
   resume { ptr, i32 } %11
 
 "_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h96401dac0febecfcE.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(384) %7, ptr noundef nonnull align 128 dereferenceable(384) %3, i64 384, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(384) %7, ptr noundef nonnull align 128 dereferenceable(384) %3, i64 384, i1 false), !noalias !374
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %3), !noalias !374
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %.sroa.48.i)
   ret ptr %7
@@ -3990,7 +3990,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime4task3raw7RawTask3new17h20dc
   resume { ptr, i32 } %11
 
 "_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h26073de97dce8633E.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %7, ptr noundef nonnull align 128 dereferenceable(128) %3, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %7, ptr noundef nonnull align 128 dereferenceable(128) %3, i64 128, i1 false), !noalias !377
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3), !noalias !377
   ret ptr %7
 }
@@ -4043,7 +4043,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime4task3raw7RawTask3new17h20ee
   resume { ptr, i32 } %11
 
 "_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17had7205bc568be5dcE.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %7, ptr noundef nonnull align 128 dereferenceable(256) %3, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %7, ptr noundef nonnull align 128 dereferenceable(256) %3, i64 256, i1 false), !noalias !380
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3), !noalias !380
   ret ptr %7
 }
@@ -4098,7 +4098,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime4task3raw7RawTask3new17h2788
   resume { ptr, i32 } %12
 
 "_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17he95ac2b3283065a3E.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %8, ptr noundef nonnull align 128 dereferenceable(256) %4, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %8, ptr noundef nonnull align 128 dereferenceable(256) %4, i64 256, i1 false), !noalias !383
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4), !noalias !383
   ret ptr %8
 }
@@ -4157,7 +4157,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime4task3raw7RawTask3new17h280e
   resume { ptr, i32 } %11
 
 "_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h9cd59aaec917d3c5E.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(384) %7, ptr noundef nonnull align 128 dereferenceable(384) %3, i64 384, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(384) %7, ptr noundef nonnull align 128 dereferenceable(384) %3, i64 384, i1 false), !noalias !386
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %3), !noalias !386
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %.sroa.48.i)
   ret ptr %7
@@ -4213,7 +4213,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime4task3raw7RawTask3new17h429f
   resume { ptr, i32 } %11
 
 "_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h27339fb68c5e5e68E.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %7, ptr noundef nonnull align 128 dereferenceable(128) %3, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %7, ptr noundef nonnull align 128 dereferenceable(128) %3, i64 128, i1 false), !noalias !389
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3), !noalias !389
   ret ptr %7
 }
@@ -4321,7 +4321,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime4task3raw7RawTask3new17h5574
   resume { ptr, i32 } %11
 
 "_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17he9504260aff5243cE.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %7, ptr noundef nonnull align 128 dereferenceable(256) %3, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %7, ptr noundef nonnull align 128 dereferenceable(256) %3, i64 256, i1 false), !noalias !392
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3), !noalias !392
   ret ptr %7
 }
@@ -4374,7 +4374,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime4task3raw7RawTask3new17h5992
   resume { ptr, i32 } %11
 
 "_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hb71c0be55c809db6E.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %7, ptr noundef nonnull align 128 dereferenceable(256) %3, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %7, ptr noundef nonnull align 128 dereferenceable(256) %3, i64 256, i1 false), !noalias !395
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3), !noalias !395
   ret ptr %7
 }
@@ -4429,7 +4429,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime4task3raw7RawTask3new17h5bc7
   resume { ptr, i32 } %11
 
 "_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hafc02fc93fd2a7afE.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %7, ptr noundef nonnull align 128 dereferenceable(128) %3, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %7, ptr noundef nonnull align 128 dereferenceable(128) %3, i64 128, i1 false), !noalias !398
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3), !noalias !398
   ret ptr %7
 }
@@ -4482,7 +4482,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime4task3raw7RawTask3new17h6413
   resume { ptr, i32 } %11
 
 "_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17heca4386d016f568fE.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %7, ptr noundef nonnull align 128 dereferenceable(128) %3, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %7, ptr noundef nonnull align 128 dereferenceable(128) %3, i64 128, i1 false), !noalias !401
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3), !noalias !401
   ret ptr %7
 }
@@ -4537,7 +4537,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime4task3raw7RawTask3new17h6c74
   resume { ptr, i32 } %12
 
 "_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h0b3036a1e9d30b76E.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %8, ptr noundef nonnull align 128 dereferenceable(256) %4, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %8, ptr noundef nonnull align 128 dereferenceable(256) %4, i64 256, i1 false), !noalias !404
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4), !noalias !404
   ret ptr %8
 }
@@ -4592,7 +4592,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime4task3raw7RawTask3new17h801d
   resume { ptr, i32 } %11
 
 "_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h8570d2a5e10f2203E.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %7, ptr noundef nonnull align 128 dereferenceable(128) %3, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %7, ptr noundef nonnull align 128 dereferenceable(128) %3, i64 128, i1 false), !noalias !407
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3), !noalias !407
   ret ptr %7
 }
@@ -4755,7 +4755,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime4task3raw7RawTask3new17h9d99
   resume { ptr, i32 } %11
 
 "_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h23912259405c37b4E.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %7, ptr noundef nonnull align 128 dereferenceable(256) %3, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %7, ptr noundef nonnull align 128 dereferenceable(256) %3, i64 256, i1 false), !noalias !410
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3), !noalias !410
   ret ptr %7
 }
@@ -4808,7 +4808,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime4task3raw7RawTask3new17h9f0a
   resume { ptr, i32 } %11
 
 "_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hfd895826f3b536deE.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %7, ptr noundef nonnull align 128 dereferenceable(128) %3, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %7, ptr noundef nonnull align 128 dereferenceable(128) %3, i64 128, i1 false), !noalias !413
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3), !noalias !413
   ret ptr %7
 }
@@ -4918,7 +4918,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime4task3raw7RawTask3new17ha832
   resume { ptr, i32 } %11
 
 "_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hc8c4e2ed8de25db3E.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %7, ptr noundef nonnull align 128 dereferenceable(128) %3, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %7, ptr noundef nonnull align 128 dereferenceable(128) %3, i64 128, i1 false), !noalias !416
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3), !noalias !416
   ret ptr %7
 }
@@ -5083,7 +5083,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime4task3raw7RawTask3new17hb09c
   resume { ptr, i32 } %11
 
 "_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h707c19e0f7d51fb0E.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %7, ptr noundef nonnull align 128 dereferenceable(128) %3, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %7, ptr noundef nonnull align 128 dereferenceable(128) %3, i64 128, i1 false), !noalias !419
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3), !noalias !419
   ret ptr %7
 }
@@ -5136,7 +5136,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime4task3raw7RawTask3new17hc97b
   resume { ptr, i32 } %11
 
 "_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h189c9af02f6bc47eE.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %7, ptr noundef nonnull align 128 dereferenceable(128) %3, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %7, ptr noundef nonnull align 128 dereferenceable(128) %3, i64 128, i1 false), !noalias !422
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3), !noalias !422
   ret ptr %7
 }
@@ -5189,7 +5189,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime4task3raw7RawTask3new17hceb3
   resume { ptr, i32 } %11
 
 "_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h44e85068a49d87e4E.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %7, ptr noundef nonnull align 128 dereferenceable(128) %3, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %7, ptr noundef nonnull align 128 dereferenceable(128) %3, i64 128, i1 false), !noalias !425
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3), !noalias !425
   ret ptr %7
 }
@@ -5242,7 +5242,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime4task3raw7RawTask3new17hd0c6
   resume { ptr, i32 } %11
 
 "_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17he90b191b2eb5a54aE.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %7, ptr noundef nonnull align 128 dereferenceable(128) %3, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %7, ptr noundef nonnull align 128 dereferenceable(128) %3, i64 128, i1 false), !noalias !428
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3), !noalias !428
   ret ptr %7
 }
@@ -5411,7 +5411,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime4task3raw7RawTask3new17he796
   resume { ptr, i32 } %11
 
 "_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hf987c9409ecbe679E.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(384) %7, ptr noundef nonnull align 128 dereferenceable(384) %3, i64 384, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(384) %7, ptr noundef nonnull align 128 dereferenceable(384) %3, i64 384, i1 false), !noalias !431
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %3), !noalias !431
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %.sroa.48.i)
   ret ptr %7
@@ -5520,7 +5520,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime4task3raw7RawTask3new17hfe5b
   resume { ptr, i32 } %11
 
 "_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h44f2782ab0df275eE.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %7, ptr noundef nonnull align 128 dereferenceable(256) %3, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %7, ptr noundef nonnull align 128 dereferenceable(256) %3, i64 256, i1 false), !noalias !434
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3), !noalias !434
   ret ptr %7
 }

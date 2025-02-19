@@ -1103,7 +1103,7 @@ define hidden void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateS
   %26 = extractvalue { i64, ptr } %24, 1
   %27 = icmp ne ptr %26, null
   call void @llvm.assume(i1 %27)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %26, ptr noundef nonnull align 1 dereferenceable(56) @anon.0a1d393417899a61e67914e067b044ae.2, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %26, ptr noundef nonnull align 1 dereferenceable(56) @anon.0a1d393417899a61e67914e067b044ae.2, i64 56, i1 false), !noalias !319
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   store i64 %25, ptr %8, align 8
   %.sroa.063.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1319,7 +1319,7 @@ define hidden void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateS
   %27 = extractvalue { i64, ptr } %25, 1
   %28 = icmp ne ptr %27, null
   call void @llvm.assume(i1 %28)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %27, ptr noundef nonnull align 1 dereferenceable(56) @anon.0a1d393417899a61e67914e067b044ae.2, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %27, ptr noundef nonnull align 1 dereferenceable(56) @anon.0a1d393417899a61e67914e067b044ae.2, i64 56, i1 false), !noalias !378
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   store i64 %26, ptr %10, align 8
   %.sroa.063.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1550,7 +1550,7 @@ define hidden void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateS
   %29 = extractvalue { i64, ptr } %27, 1
   %30 = icmp ne ptr %29, null
   call void @llvm.assume(i1 %30)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %29, ptr noundef nonnull align 1 dereferenceable(56) @anon.0a1d393417899a61e67914e067b044ae.2, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %29, ptr noundef nonnull align 1 dereferenceable(56) @anon.0a1d393417899a61e67914e067b044ae.2, i64 56, i1 false), !noalias !447
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   store i64 %28, ptr %8, align 8
   %.sroa.063.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1824,7 +1824,7 @@ define hidden void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateS
   %28 = extractvalue { i64, ptr } %26, 1
   %29 = icmp ne ptr %28, null
   call void @llvm.assume(i1 %29)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %28, ptr noundef nonnull align 1 dereferenceable(56) @anon.0a1d393417899a61e67914e067b044ae.2, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %28, ptr noundef nonnull align 1 dereferenceable(56) @anon.0a1d393417899a61e67914e067b044ae.2, i64 56, i1 false), !noalias !497
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   store i64 %27, ptr %8, align 8
   %.sroa.063.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2101,7 +2101,7 @@ define hidden void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateS
   %26 = extractvalue { i64, ptr } %24, 1
   %27 = icmp ne ptr %26, null
   call void @llvm.assume(i1 %27)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %26, ptr noundef nonnull align 1 dereferenceable(56) @anon.0a1d393417899a61e67914e067b044ae.2, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %26, ptr noundef nonnull align 1 dereferenceable(56) @anon.0a1d393417899a61e67914e067b044ae.2, i64 56, i1 false), !noalias !547
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   store i64 %25, ptr %8, align 8
   %.sroa.063.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2316,7 +2316,7 @@ define hidden void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateS
   %26 = extractvalue { i64, ptr } %24, 1
   %27 = icmp ne ptr %26, null
   call void @llvm.assume(i1 %27)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %26, ptr noundef nonnull align 1 dereferenceable(56) @anon.0a1d393417899a61e67914e067b044ae.2, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %26, ptr noundef nonnull align 1 dereferenceable(56) @anon.0a1d393417899a61e67914e067b044ae.2, i64 56, i1 false), !noalias !592
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   store i64 %25, ptr %8, align 8
   %.sroa.063.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2531,7 +2531,7 @@ define hidden void @"_ZN146_$LT$diesel..query_builder..update_statement..UpdateS
   %26 = extractvalue { i64, ptr } %24, 1
   %27 = icmp ne ptr %26, null
   call void @llvm.assume(i1 %27)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %26, ptr noundef nonnull align 1 dereferenceable(56) @anon.0a1d393417899a61e67914e067b044ae.2, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %26, ptr noundef nonnull align 1 dereferenceable(56) @anon.0a1d393417899a61e67914e067b044ae.2, i64 56, i1 false), !noalias !637
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   store i64 %25, ptr %8, align 8
   %.sroa.063.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8

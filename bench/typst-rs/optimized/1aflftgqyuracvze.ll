@@ -4414,14 +4414,14 @@ _ZN10ttf_parser6tables4cmap8Subtable10is_unicode17h7be9306f3d972e5eE.exit.i: ; p
   %750 = icmp ne ptr %748, null
   call void @llvm.assume(i1 %750), !noalias !760
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !761
-  %751 = load i16, ptr %748, align 2, !noundef !12
+  %751 = load i16, ptr %748, align 2, !noalias !760, !noundef !12
   %752 = icmp ne ptr %749, null
   call void @llvm.assume(i1 %752)
   %753 = getelementptr inbounds nuw i8, ptr %749, i64 15
-  %754 = load i8, ptr %753, align 1, !alias.scope !769, !noundef !12
+  %754 = load i8, ptr %753, align 1, !alias.scope !769, !noalias !760, !noundef !12
   %755 = icmp slt i8 %754, 0
   %756 = getelementptr inbounds nuw i8, ptr %749, i64 8
-  %757 = load i64, ptr %756, align 8, !alias.scope !769
+  %757 = load i64, ptr %756, align 8, !alias.scope !769, !noalias !760
   %758 = and i8 %754, 127
   %759 = zext nneg i8 %758 to i64
   %.0.i60.i = select i1 %755, i64 %759, i64 %757
@@ -4463,17 +4463,17 @@ _ZN10ttf_parser6tables4cmap8Subtable10is_unicode17h7be9306f3d972e5eE.exit.i: ; p
 
 771:                                              ; preds = %.thread.i.i, %.noexc62.i
   %772 = phi i16 [ %751, %.thread.i.i ], [ %768, %.noexc62.i ]
-  %773 = load i8, ptr %753, align 1, !alias.scope !775, !noundef !12
+  %773 = load i8, ptr %753, align 1, !alias.scope !775, !noalias !760, !noundef !12
   %774 = icmp slt i8 %773, 0
-  %775 = load ptr, ptr %749, align 8, !alias.scope !775, !nonnull !12
-  %776 = load i64, ptr %756, align 8, !alias.scope !775
+  %775 = load ptr, ptr %749, align 8, !alias.scope !775, !noalias !760, !nonnull !12
+  %776 = load i64, ptr %756, align 8, !alias.scope !775, !noalias !760
   %777 = and i8 %773, 127
   %778 = zext nneg i8 %777 to i64
   %.sroa.3.0.i.i = select i1 %774, i64 %778, i64 %776
   %.sroa.0.0.i.i = select i1 %774, ptr %749, ptr %775
   %779 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %.sroa.3.0.i.i
   invoke void @_ZN10pdf_writer4font11UnicodeCmap18pair_with_multiple17h8354dd9d76f57d05E(ptr noalias noundef nonnull align 8 dereferenceable(56) %24, i16 noundef %772, ptr noundef nonnull %.sroa.0.0.i.i, ptr noundef nonnull %779)
-          to label %769 unwind label %.loopexit551
+          to label %769 unwind label %.loopexit551, !noalias !760
 
 780:                                              ; preds = %.body384
   %781 = landingpad { ptr, i32 }

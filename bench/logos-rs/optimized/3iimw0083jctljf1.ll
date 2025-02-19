@@ -32,7 +32,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %8 = extractvalue { ptr, i64 } %6, 1
   %9 = load ptr, ptr %1, align 8, !noalias !3
   %10 = load i32, ptr %9, align 4, !noalias !3
-  call void @"_ZN98_$LT$logos_codegen..graph..rope..Pattern$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17h028d462830e922e0E"(ptr nonnull sret([24 x i8]) align 8 %4, ptr align 1 %7, i64 %8)
+  call void @"_ZN98_$LT$logos_codegen..graph..rope..Pattern$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17h028d462830e922e0E"(ptr nonnull sret([24 x i8]) align 8 %4, ptr align 1 %7, i64 %8), !noalias !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %10, ptr %11, align 8, !alias.scope !3

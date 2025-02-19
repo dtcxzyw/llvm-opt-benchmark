@@ -1162,19 +1162,17 @@ _ZNK11ast_manager10is_impliesEPK9func_decl.exit.i: ; preds = %_ZNK4decl13get_fam
   %m_kind.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %m_kind.i.i.i.i.i, align 4
   switch i32 %33, label %_ZNK9func_decl9is_skolemEv.exit.i [
-    i32 9, label %if.then.i123
-    i32 4, label %if.then.i123.invoke
+    i32 9, label %if.then.i123.invoke
+    i32 4, label %if.then5.i
   ]
 
-if.then.i123:                                     ; preds = %_ZNK11ast_manager10is_impliesEPK9func_decl.exit.i
-  br label %if.then.i123.invoke
-
-if.then.i123.invoke:                              ; preds = %_ZNK11ast_manager10is_impliesEPK9func_decl.exit.i, %if.then.i123
-  %.sink = phi i32 [ 2, %if.then.i123 ], [ 3, %_ZNK11ast_manager10is_impliesEPK9func_decl.exit.i ]
-  %34 = phi ptr [ @.str.1, %if.then.i123 ], [ @.str.2, %_ZNK11ast_manager10is_impliesEPK9func_decl.exit.i ]
-  store i32 %.sink, ptr %len, align 4
+if.then.i123.invoke:                              ; preds = %_ZNK11ast_manager10is_impliesEPK9func_decl.exit.i, %if.then5.i
+  %34 = phi ptr [ @.str.2, %if.then5.i ], [ @.str.1, %_ZNK11ast_manager10is_impliesEPK9func_decl.exit.i ]
   %35 = invoke noundef ptr @_ZN9format_ns9mk_stringER11ast_managerPKc(ptr noundef nonnull align 8 dereferenceable(976) %call.i121124, ptr noundef nonnull %34)
           to label %invoke.cont42 unwind label %lpad.loopexit
+
+if.then5.i:                                       ; preds = %_ZNK11ast_manager10is_impliesEPK9func_decl.exit.i
+  br label %if.then.i123.invoke
 
 _ZNK9func_decl9is_skolemEv.exit.i:                ; preds = %_ZNK4decl13get_family_idEv.exit.thread.i.i.i, %_ZNK11ast_manager10is_impliesEPK9func_decl.exit.i, %call.i121.noexc
   %storemerge.in = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -8818,12 +8816,10 @@ _ZNK11ast_manager10is_impliesEPK9func_decl.exit.i: ; preds = %_ZNK4decl13get_fam
   ]
 
 if.then.i:                                        ; preds = %_ZNK11ast_manager10is_impliesEPK9func_decl.exit.i
-  store i32 2, ptr %len, align 4
   %call3.i = tail call noundef ptr @_ZN9format_ns9mk_stringER11ast_managerPKc(ptr noundef nonnull align 8 dereferenceable(976) %call.i, ptr noundef nonnull @.str.1)
   br label %_ZNK19smt2_pp_environment13pp_fdecl_nameEP9func_declRj.exit
 
 if.then5.i:                                       ; preds = %_ZNK11ast_manager10is_impliesEPK9func_decl.exit.i
-  store i32 3, ptr %len, align 4
   %call6.i = tail call noundef ptr @_ZN9format_ns9mk_stringER11ast_managerPKc(ptr noundef nonnull align 8 dereferenceable(976) %call.i, ptr noundef nonnull @.str.2)
   br label %_ZNK19smt2_pp_environment13pp_fdecl_nameEP9func_declRj.exit
 
@@ -12295,7 +12291,6 @@ invoke.cont:
   store ptr null, ptr %r, align 8
   %m_manager.i = getelementptr inbounds nuw i8, ptr %r, i64 8
   store ptr %cond-lvalue.i.i, ptr %m_manager.i, align 8
-  store i32 0, ptr %len, align 4
   %3 = load ptr, ptr %p, align 8
   %call5 = invoke noundef ptr @_ZN19smt2_pp_environment8pp_fdeclEP9func_declRj(ptr noundef nonnull align 8 dereferenceable(56) %env, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %len)
           to label %invoke.cont4 unwind label %lpad3

@@ -190,7 +190,6 @@ invoke.cont65.i:                                  ; preds = %new.notnull60.i
           to label %cleanup.done73.i unwind label %cleanup.action76.i
 
 new.cont69.i:                                     ; preds = %if.end57.i
-  store ptr null, ptr %otherGrouping.i, align 8
   %8 = load i32, ptr %localStatus, align 4
   %cmp.i.i.i = icmp sgt i32 %8, 0
   br i1 %cmp.i.i.i, label %cleanup164.i, label %if.then.i.i

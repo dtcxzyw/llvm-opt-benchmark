@@ -5244,7 +5244,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_16ZParamESaIS1_EE11_M_allocateEm.exit.thread.i
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  %30 = tail call ptr @__cxa_begin_catch(ptr %29) #44
+  %30 = tail call ptr @__cxa_begin_catch(ptr %29) #44, !noalias !188
   %31 = load ptr, ptr %2, align 8, !tbaa !28, !noalias !188
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8, !noalias !188
@@ -5266,7 +5266,7 @@ common.resume.i:                                  ; preds = %.body.i, %34
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #46
+  tail call void @__clang_call_terminate(ptr %38) #46, !noalias !188
   unreachable
 
 39:                                               ; preds = %27

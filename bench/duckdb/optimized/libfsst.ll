@@ -2261,10 +2261,10 @@ _ZNSt16allocator_traitsISaIPhEE8allocateERS1_m.exit.i.i.i.i: ; preds = %27
   br label %34
 
 34:                                               ; preds = %30, %.noexc19.thread
-  %35 = phi ptr [ null, %.noexc19.thread ], [ %29, %30 ]
-  %36 = phi ptr [ %25, %.noexc19.thread ], [ %32, %30 ]
-  %37 = phi ptr [ %24, %.noexc19.thread ], [ %31, %30 ]
-  store ptr %36, ptr %37, align 8, !tbaa !37
+  %35 = phi ptr [ %25, %.noexc19.thread ], [ %32, %30 ]
+  %36 = phi ptr [ %24, %.noexc19.thread ], [ %31, %30 ]
+  %37 = phi ptr [ null, %.noexc19.thread ], [ %29, %30 ]
+  store ptr %35, ptr %36, align 8, !tbaa !37
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %39 = icmp ne i32 %3, 0
   %40 = invoke noundef ptr @_Z16buildSymbolTableR8CountersSt6vectorIPhSaIS2_EEPmb(ptr noundef nonnull align 1 dereferenceable(394240) %38, ptr noundef nonnull %7, ptr noundef %17, i1 noundef zeroext %39)
@@ -2423,11 +2423,11 @@ _ZNSt10unique_ptrISt6vectorImSaImEESt14default_deleteIS2_EED2Ev.exit: ; preds = 
 
 .body:                                            ; preds = %47, %94
   %eh.lpad-body = phi { ptr, i32 } [ %95, %94 ], [ %48, %47 ]
-  %.not.i.i.i25 = icmp eq ptr %35, null
+  %.not.i.i.i25 = icmp eq ptr %37, null
   br i1 %.not.i.i.i25, label %_ZNSt6vectorIPhSaIS0_EED2Ev.exit26, label %96
 
 96:                                               ; preds = %.body
-  tail call void @_ZdlPv(ptr noundef nonnull %35) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %37) #25
   br label %_ZNSt6vectorIPhSaIS0_EED2Ev.exit26
 
 _ZNSt6vectorIPhSaIS0_EED2Ev.exit26:               ; preds = %92, %.body, %96, %90

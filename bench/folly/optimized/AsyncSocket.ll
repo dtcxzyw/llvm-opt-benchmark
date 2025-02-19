@@ -602,8 +602,6 @@ $_ZN5folly6detail8function5call_IZNS_21ObserverContainerBaseINS_28AsyncSocketObs
 
 $_ZN5folly6detail8function13DispatchSmall4execIZNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE25invokeInterfaceMethodImplEPS6_ONS_8FunctionIFvPNSA_12ObserverBaseESB_EEENS_8OptionalIS8_EEEUlSE_E_EEmNS1_2OpEPNS1_4DataESN_ = comdat any
 
-$_ZN5folly6detail8function14FunctionTraitsIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseEPS5_EE10uninitCallESB_SC_RNS1_4DataE = comdat any
-
 $_ZN5folly6detail8function5call_INS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEELb0ELb0EvJPNS_21ObserverContainerBaseIS4_S6_NS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseES7_EEET2_DpT3_RNS1_4DataE = comdat any
 
 $_ZN5folly6detail8function11DispatchBig4execINS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEEEEmNS1_2OpEPNS1_4DataESD_ = comdat any
@@ -3363,7 +3361,7 @@ define void @_ZN5folly11AsyncSocket15attachEventBaseEPNS_9EventBaseE(ptr noundef
   %3 = alloca %"class.folly::Function.365", align 16
   %4 = alloca %"class.folly::Optional.363", align 4
   %5 = alloca %"class.google::LogMessage", align 8
-  %.sroa.4 = alloca [40 x i8], align 8
+  %.sroa.4 = alloca [56 x i8], align 8
   %6 = load ptr, ptr @_ZZN5folly11AsyncSocket15attachEventBaseEPNS_9EventBaseEE8vlocal__, align 8, !tbaa !26
   %7 = load i32, ptr %6, align 4, !tbaa !17
   %8 = icmp sgt i32 %7, 4
@@ -3519,37 +3517,34 @@ _ZNSolsEt.exit:                                   ; preds = %34
   br i1 %.not26, label %_ZN5folly8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEC2EOS6_.exit.i.i.i, label %.lr.ph
 
 _ZN5folly8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEC2EOS6_.exit.i.i.i: ; preds = %.lr.ph, %60
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %75 = load ptr, ptr %74, align 8, !tbaa !207
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #48
-  store ptr null, ptr %3, align 16, !tbaa !184
-  %76 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseEPS5_EE10uninitCallESB_SC_RNS1_4DataE, ptr %76, align 16, !tbaa !208
-  %77 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store ptr null, ptr %77, align 8, !tbaa !210
-  %78 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #49
+  %76 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #49
           to label %_ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE12ObserverBaseEPS3_EEC2IFvPS2_SA_ENS0_ISF_EEvvEEONS0_IT_EE.exit.i unwind label %87
 
 _ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE12ObserverBaseEPS3_EEC2IFvPS2_SA_ENS0_ISF_EEvvEEONS0_IT_EE.exit.i: ; preds = %_ZN5folly8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEC2EOS6_.exit.i.i.i
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  %80 = getelementptr inbounds nuw i8, ptr %78, i64 48
-  store ptr @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket15attachEventBaseEPNS_9EventBaseEE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE", ptr %80, align 16, !tbaa !211
-  %81 = getelementptr inbounds nuw i8, ptr %78, i64 56
-  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %81, align 8, !tbaa !213
-  store ptr %0, ptr %78, align 16
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %76, i64 48
+  store ptr @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket15attachEventBaseEPNS_9EventBaseEE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE", ptr %80, align 16, !tbaa !208
+  %81 = getelementptr inbounds nuw i8, ptr %76, i64 56
+  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %81, align 8, !tbaa !210
+  store ptr %0, ptr %76, align 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 8
   %82 = load i64, ptr %.sroa.4, align 8
   store i64 %82, ptr %.sroa.4.0..sroa_idx, align 8
-  store ptr %78, ptr %3, align 16, !tbaa !184
-  store ptr @_ZN5folly6detail8function5call_INS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEELb0ELb0EvJPNS_21ObserverContainerBaseIS4_S6_NS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseES7_EEET2_DpT3_RNS1_4DataE, ptr %76, align 16, !tbaa !208
-  store ptr @_ZN5folly6detail8function11DispatchBig4execINS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEEEEmNS1_2OpEPNS1_4DataESD_, ptr %77, align 8, !tbaa !210
+  store ptr %76, ptr %3, align 16, !tbaa !184
+  store ptr @_ZN5folly6detail8function5call_INS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEELb0ELb0EvJPNS_21ObserverContainerBaseIS4_S6_NS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseES7_EEET2_DpT3_RNS1_4DataE, ptr %78, align 16, !tbaa !211
+  store ptr @_ZN5folly6detail8function11DispatchBig4execINS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEEEEmNS1_2OpEPNS1_4DataESD_, ptr %77, align 8, !tbaa !213
   store i8 0, ptr %4, align 4, !tbaa !184
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 0, ptr %83, align 4, !tbaa !214
   call void @_ZN5folly21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS1_6EventsELm32EEEE25invokeInterfaceMethodImplEPS2_ONS_8FunctionIFvPNS6_12ObserverBaseES7_EEENS_8OptionalIS4_EE(ptr noundef nonnull align 8 dereferenceable(81) %79, ptr noundef %75, ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull %4) #48
-  %84 = load ptr, ptr %77, align 8, !tbaa !210
+  %84 = load ptr, ptr %77, align 8, !tbaa !213
   %.not.i.i2.i = icmp eq ptr %84, null
   br i1 %.not.i.i2.i, label %90, label %85
 
@@ -3567,7 +3562,7 @@ _ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfa
 90:                                               ; preds = %85, %_ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE12ObserverBaseEPS3_EEC2IFvPS2_SA_ENS0_ISF_EEvvEEONS0_IT_EE.exit.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #48
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.4)
   ret void
 }
 
@@ -3576,7 +3571,7 @@ define void @_ZN5folly11AsyncSocket15detachEventBaseEv(ptr noundef nonnull align
   %2 = alloca %"class.folly::Function.365", align 16
   %3 = alloca %"class.folly::Optional.363", align 4
   %4 = alloca %"class.google::LogMessage", align 8
-  %.sroa.4 = alloca [40 x i8], align 8
+  %.sroa.4 = alloca [56 x i8], align 8
   %5 = load ptr, ptr @_ZZN5folly11AsyncSocket15detachEventBaseEvE8vlocal__, align 8, !tbaa !26
   %6 = load i32, ptr %5, align 4, !tbaa !17
   %7 = icmp sgt i32 %6, 4
@@ -3724,37 +3719,34 @@ _ZNSolsEt.exit:                                   ; preds = %31
   br i1 %.not23, label %_ZN5folly8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEC2EOS6_.exit.i.i.i, label %.lr.ph
 
 _ZN5folly8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEC2EOS6_.exit.i.i.i: ; preds = %.lr.ph, %57
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %71 = load ptr, ptr %70, align 8, !tbaa !207
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #48
-  store ptr null, ptr %2, align 16, !tbaa !184
-  %72 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseEPS5_EE10uninitCallESB_SC_RNS1_4DataE, ptr %72, align 16, !tbaa !208
-  %73 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store ptr null, ptr %73, align 8, !tbaa !210
-  %74 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #49
+  %72 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #49
           to label %_ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE12ObserverBaseEPS3_EEC2IFvPS2_SA_ENS0_ISF_EEvvEEONS0_IT_EE.exit.i unwind label %83
 
 _ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE12ObserverBaseEPS3_EEC2IFvPS2_SA_ENS0_ISF_EEvvEEONS0_IT_EE.exit.i: ; preds = %_ZN5folly8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEC2EOS6_.exit.i.i.i
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 48
-  store ptr @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket15detachEventBaseEvE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE", ptr %76, align 16, !tbaa !211
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 56
-  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %77, align 8, !tbaa !213
-  store ptr %46, ptr %74, align 16
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 48
+  store ptr @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket15detachEventBaseEvE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE", ptr %76, align 16, !tbaa !208
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 56
+  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %77, align 8, !tbaa !210
+  store ptr %46, ptr %72, align 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %72, i64 8
   %78 = load i64, ptr %.sroa.4, align 8
   store i64 %78, ptr %.sroa.4.0..sroa_idx, align 8
-  store ptr %74, ptr %2, align 16, !tbaa !184
-  store ptr @_ZN5folly6detail8function5call_INS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEELb0ELb0EvJPNS_21ObserverContainerBaseIS4_S6_NS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseES7_EEET2_DpT3_RNS1_4DataE, ptr %72, align 16, !tbaa !208
-  store ptr @_ZN5folly6detail8function11DispatchBig4execINS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEEEEmNS1_2OpEPNS1_4DataESD_, ptr %73, align 8, !tbaa !210
+  store ptr %72, ptr %2, align 16, !tbaa !184
+  store ptr @_ZN5folly6detail8function5call_INS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEELb0ELb0EvJPNS_21ObserverContainerBaseIS4_S6_NS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseES7_EEET2_DpT3_RNS1_4DataE, ptr %74, align 16, !tbaa !211
+  store ptr @_ZN5folly6detail8function11DispatchBig4execINS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEEEEmNS1_2OpEPNS1_4DataESD_, ptr %73, align 8, !tbaa !213
   store i8 0, ptr %3, align 4, !tbaa !184
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 0, ptr %79, align 4, !tbaa !214
   call void @_ZN5folly21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS1_6EventsELm32EEEE25invokeInterfaceMethodImplEPS2_ONS_8FunctionIFvPNS6_12ObserverBaseES7_EEENS_8OptionalIS4_EE(ptr noundef nonnull align 8 dereferenceable(81) %75, ptr noundef %71, ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull %3) #48
-  %80 = load ptr, ptr %73, align 8, !tbaa !210
+  %80 = load ptr, ptr %73, align 8, !tbaa !213
   %.not.i.i2.i = icmp eq ptr %80, null
   br i1 %.not.i.i2.i, label %86, label %81
 
@@ -3772,7 +3764,7 @@ _ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfa
 86:                                               ; preds = %81, %_ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE12ObserverBaseEPS3_EEC2IFvPS2_SA_ENS0_ISF_EEvvEEONS0_IT_EE.exit.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #48
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.4)
   ret void
 }
 
@@ -6720,32 +6712,29 @@ _ZN5folly8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEC2EO
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %61 = load ptr, ptr %60, align 8, !tbaa !207
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #48
-  store ptr null, ptr %2, align 16, !tbaa !184
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseEPS5_EE10uninitCallESB_SC_RNS1_4DataE, ptr %62, align 16, !tbaa !208
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store ptr null, ptr %63, align 8, !tbaa !210
-  %64 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #49
+  %62 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #49
           to label %_ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE12ObserverBaseEPS3_EEC2IFvPS2_SA_ENS0_ISF_EEvvEEONS0_IT_EE.exit.i unwind label %73
 
 _ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE12ObserverBaseEPS3_EEC2IFvPS2_SA_ENS0_ISF_EEvvEEONS0_IT_EE.exit.i: ; preds = %_ZN5folly8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEC2EOS6_.exit.i.i.i
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 48
-  store ptr @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket19detachNetworkSocketEvE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE", ptr %66, align 16, !tbaa !211
-  %67 = getelementptr inbounds nuw i8, ptr %64, i64 56
-  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %67, align 8, !tbaa !213
-  store ptr null, ptr %64, align 16
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 48
+  store ptr @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket19detachNetworkSocketEvE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE", ptr %66, align 16, !tbaa !208
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 56
+  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %67, align 8, !tbaa !210
+  store ptr null, ptr %62, align 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 8
   %68 = load i64, ptr %.sroa.4, align 8
   store i64 %68, ptr %.sroa.4.0..sroa_idx, align 8
-  store ptr %64, ptr %2, align 16, !tbaa !184
-  store ptr @_ZN5folly6detail8function5call_INS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEELb0ELb0EvJPNS_21ObserverContainerBaseIS4_S6_NS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseES7_EEET2_DpT3_RNS1_4DataE, ptr %62, align 16, !tbaa !208
-  store ptr @_ZN5folly6detail8function11DispatchBig4execINS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEEEEmNS1_2OpEPNS1_4DataESD_, ptr %63, align 8, !tbaa !210
+  store ptr %62, ptr %2, align 16, !tbaa !184
+  store ptr @_ZN5folly6detail8function5call_INS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEELb0ELb0EvJPNS_21ObserverContainerBaseIS4_S6_NS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseES7_EEET2_DpT3_RNS1_4DataE, ptr %64, align 16, !tbaa !211
+  store ptr @_ZN5folly6detail8function11DispatchBig4execINS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEEEEmNS1_2OpEPNS1_4DataESD_, ptr %63, align 8, !tbaa !213
   store i8 0, ptr %3, align 4, !tbaa !184
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 0, ptr %69, align 4, !tbaa !214
   call void @_ZN5folly21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS1_6EventsELm32EEEE25invokeInterfaceMethodImplEPS2_ONS_8FunctionIFvPNS6_12ObserverBaseES7_EEENS_8OptionalIS4_EE(ptr noundef nonnull align 8 dereferenceable(81) %65, ptr noundef %61, ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull %3) #48
-  %70 = load ptr, ptr %63, align 8, !tbaa !210
+  %70 = load ptr, ptr %63, align 8, !tbaa !213
   %.not.i.i2.i = icmp eq ptr %70, null
   br i1 %.not.i.i2.i, label %76, label %71
 
@@ -7087,7 +7076,6 @@ _ZN5follylsIcSt11char_traitsIcEEERSt13basic_ostreamIT_T0_ES7_RKNS_13NetworkSocke
 
 70:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #48
-  store ptr %0, ptr %5, align 8, !tbaa !173
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %72 = load i32, ptr %71, align 8, !tbaa !159
   %73 = add i32 %72, 1
@@ -11473,32 +11461,29 @@ _ZN5folly8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEC2EO
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %61 = load ptr, ptr %60, align 8, !tbaa !207
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #48
-  store ptr null, ptr %2, align 16, !tbaa !184
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseEPS5_EE10uninitCallESB_SC_RNS1_4DataE, ptr %62, align 16, !tbaa !208
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store ptr null, ptr %63, align 8, !tbaa !210
-  %64 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #49
+  %62 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #49
           to label %_ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE12ObserverBaseEPS3_EEC2IFvPS2_SA_ENS0_ISF_EEvvEEONS0_IT_EE.exit.i unwind label %73
 
 _ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE12ObserverBaseEPS3_EEC2IFvPS2_SA_ENS0_ISF_EEvvEEONS0_IT_EE.exit.i: ; preds = %_ZN5folly8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEC2EOS6_.exit.i.i.i
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 48
-  store ptr @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket27handleNetworkSocketAttachedEvE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE", ptr %66, align 16, !tbaa !211
-  %67 = getelementptr inbounds nuw i8, ptr %64, i64 56
-  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %67, align 8, !tbaa !213
-  store ptr null, ptr %64, align 16
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 48
+  store ptr @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket27handleNetworkSocketAttachedEvE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE", ptr %66, align 16, !tbaa !208
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 56
+  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %67, align 8, !tbaa !210
+  store ptr null, ptr %62, align 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 8
   %68 = load i64, ptr %.sroa.4, align 8
   store i64 %68, ptr %.sroa.4.0..sroa_idx, align 8
-  store ptr %64, ptr %2, align 16, !tbaa !184
-  store ptr @_ZN5folly6detail8function5call_INS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEELb0ELb0EvJPNS_21ObserverContainerBaseIS4_S6_NS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseES7_EEET2_DpT3_RNS1_4DataE, ptr %62, align 16, !tbaa !208
-  store ptr @_ZN5folly6detail8function11DispatchBig4execINS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEEEEmNS1_2OpEPNS1_4DataESD_, ptr %63, align 8, !tbaa !210
+  store ptr %62, ptr %2, align 16, !tbaa !184
+  store ptr @_ZN5folly6detail8function5call_INS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEELb0ELb0EvJPNS_21ObserverContainerBaseIS4_S6_NS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseES7_EEET2_DpT3_RNS1_4DataE, ptr %64, align 16, !tbaa !211
+  store ptr @_ZN5folly6detail8function11DispatchBig4execINS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEEEEmNS1_2OpEPNS1_4DataESD_, ptr %63, align 8, !tbaa !213
   store i8 0, ptr %3, align 4, !tbaa !184
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 0, ptr %69, align 4, !tbaa !214
   call void @_ZN5folly21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS1_6EventsELm32EEEE25invokeInterfaceMethodImplEPS2_ONS_8FunctionIFvPNS6_12ObserverBaseES7_EEENS_8OptionalIS4_EE(ptr noundef nonnull align 8 dereferenceable(81) %65, ptr noundef %61, ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull %3) #48
-  %70 = load ptr, ptr %63, align 8, !tbaa !210
+  %70 = load ptr, ptr %63, align 8, !tbaa !213
   %.not.i.i2.i = icmp eq ptr %70, null
   br i1 %.not.i.i2.i, label %76, label %71
 
@@ -13061,51 +13046,48 @@ _ZN5folly8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEC2EO
   store i64 %61, ptr %59, align 8
   store ptr null, ptr %6, align 16, !tbaa !184
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEE10uninitCallES4_S6_RNS1_4DataE, ptr %62, align 16, !tbaa !211
+  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEE10uninitCallES4_S6_RNS1_4DataE, ptr %62, align 16, !tbaa !208
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store ptr null, ptr %63, align 8, !tbaa !213
+  store ptr null, ptr %63, align 8, !tbaa !210
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 16 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) #48
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 16), ptr %6, align 16, !tbaa !7
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %65 = load i64, ptr %59, align 8
   store i64 %65, ptr %64, align 16
-  store ptr @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket16invokeConnectErrERKNS_20AsyncSocketExceptionEE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE", ptr %62, align 16, !tbaa !211
-  store ptr @"_ZN5folly6detail8function13DispatchSmall4execIZNS_11AsyncSocket16invokeConnectErrERKNS_20AsyncSocketExceptionEE3$_0EEmNS1_2OpEPNS1_4DataESB_", ptr %63, align 8, !tbaa !213
+  store ptr @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket16invokeConnectErrERKNS_20AsyncSocketExceptionEE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE", ptr %62, align 16, !tbaa !208
+  store ptr @"_ZN5folly6detail8function13DispatchSmall4execIZNS_11AsyncSocket16invokeConnectErrERKNS_20AsyncSocketExceptionEE3$_0EEmNS1_2OpEPNS1_4DataESB_", ptr %63, align 8, !tbaa !210
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %67 = load ptr, ptr %66, align 8, !tbaa !207
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #48
-  store ptr null, ptr %3, align 16, !tbaa !184
-  %68 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseEPS5_EE10uninitCallESB_SC_RNS1_4DataE, ptr %68, align 16, !tbaa !208
-  %69 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store ptr null, ptr %69, align 8, !tbaa !210
-  %70 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #49
+  %68 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #49
           to label %_ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE12ObserverBaseEPS3_EEC2IFvPS2_SA_ENS0_ISF_EEvvEEONS0_IT_EE.exit.i unwind label %80
 
 _ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE12ObserverBaseEPS3_EEC2IFvPS2_SA_ENS0_ISF_EEvvEEONS0_IT_EE.exit.i: ; preds = %_ZN5folly8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEC2EOS6_.exit.i.i.i
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  store ptr null, ptr %70, align 16, !tbaa !184
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 48
-  store ptr @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket16invokeConnectErrERKNS_20AsyncSocketExceptionEE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE", ptr %72, align 16, !tbaa !211
-  %73 = getelementptr inbounds nuw i8, ptr %70, i64 56
-  store ptr @"_ZN5folly6detail8function13DispatchSmall4execIZNS_11AsyncSocket16invokeConnectErrERKNS_20AsyncSocketExceptionEE3$_0EEmNS1_2OpEPNS1_4DataESB_", ptr %73, align 8, !tbaa !213
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEE10uninitCallES4_S6_RNS1_4DataE, ptr %62, align 16, !tbaa !211
-  store ptr null, ptr %63, align 8, !tbaa !213
-  call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 16 dereferenceable(64) %70, ptr noundef nonnull align 16 dereferenceable(64) %6) #48
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 16), ptr %70, align 8, !tbaa !7
-  %74 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  store ptr null, ptr %68, align 16, !tbaa !184
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 48
+  store ptr @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket16invokeConnectErrERKNS_20AsyncSocketExceptionEE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE", ptr %72, align 16, !tbaa !208
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 56
+  store ptr @"_ZN5folly6detail8function13DispatchSmall4execIZNS_11AsyncSocket16invokeConnectErrERKNS_20AsyncSocketExceptionEE3$_0EEmNS1_2OpEPNS1_4DataESB_", ptr %73, align 8, !tbaa !210
+  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEE10uninitCallES4_S6_RNS1_4DataE, ptr %62, align 16, !tbaa !208
+  store ptr null, ptr %63, align 8, !tbaa !210
+  call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 16 dereferenceable(64) %68, ptr noundef nonnull align 16 dereferenceable(64) %6) #48
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 16), ptr %68, align 8, !tbaa !7
+  %74 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %75 = load i64, ptr %64, align 16
   store i64 %75, ptr %74, align 8
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 16 dereferenceable(64) %6) #48
-  store ptr %70, ptr %3, align 16, !tbaa !184
-  store ptr @_ZN5folly6detail8function5call_INS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEELb0ELb0EvJPNS_21ObserverContainerBaseIS4_S6_NS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseES7_EEET2_DpT3_RNS1_4DataE, ptr %68, align 16, !tbaa !208
-  store ptr @_ZN5folly6detail8function11DispatchBig4execINS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEEEEmNS1_2OpEPNS1_4DataESD_, ptr %69, align 8, !tbaa !210
+  store ptr %68, ptr %3, align 16, !tbaa !184
+  store ptr @_ZN5folly6detail8function5call_INS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEELb0ELb0EvJPNS_21ObserverContainerBaseIS4_S6_NS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseES7_EEET2_DpT3_RNS1_4DataE, ptr %70, align 16, !tbaa !211
+  store ptr @_ZN5folly6detail8function11DispatchBig4execINS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEEEEmNS1_2OpEPNS1_4DataESD_, ptr %69, align 8, !tbaa !213
   store i8 0, ptr %4, align 4, !tbaa !184
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 0, ptr %76, align 4, !tbaa !214
   call void @_ZN5folly21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS1_6EventsELm32EEEE25invokeInterfaceMethodImplEPS2_ONS_8FunctionIFvPNS6_12ObserverBaseES7_EEENS_8OptionalIS4_EE(ptr noundef nonnull align 8 dereferenceable(81) %71, ptr noundef %67, ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull %4) #48
-  %77 = load ptr, ptr %69, align 8, !tbaa !210
+  %77 = load ptr, ptr %69, align 8, !tbaa !213
   %.not.i.i2.i = icmp eq ptr %77, null
   br i1 %.not.i.i2.i, label %_ZN5folly17ObserverContainerINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS1_6EventsELm32EEENS_35ObserverContainerStorePolicyDefaultILj2EEELm4EE33invokeInterfaceMethodAllObserversEONS_8FunctionIFvPS1_PS2_EEE.exit, label %78
 
@@ -13123,7 +13105,7 @@ _ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfa
 _ZN5folly17ObserverContainerINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS1_6EventsELm32EEENS_35ObserverContainerStorePolicyDefaultILj2EEELm4EE33invokeInterfaceMethodAllObserversEONS_8FunctionIFvPS1_PS2_EEE.exit: ; preds = %_ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE12ObserverBaseEPS3_EEC2IFvPS2_SA_ENS0_ISF_EEvvEEONS0_IT_EE.exit.i, %78
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #48
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %83 = load ptr, ptr %63, align 8, !tbaa !213
+  %83 = load ptr, ptr %63, align 8, !tbaa !210
   %.not.i.i = icmp eq ptr %83, null
   br i1 %.not.i.i, label %_ZN5folly8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEED2Ev.exit, label %84
 
@@ -13159,7 +13141,7 @@ define void @_ZN5folly11AsyncSocket20invokeConnectSuccessEv(ptr noundef nonnull 
   %2 = alloca %"class.folly::Function.365", align 16
   %3 = alloca %"class.folly::Optional.363", align 4
   %4 = alloca %"class.google::LogMessage", align 8
-  %.sroa.4 = alloca [40 x i8], align 8
+  %.sroa.4 = alloca [56 x i8], align 8
   %5 = load ptr, ptr @_ZZN5folly11AsyncSocket20invokeConnectSuccessEvE8vlocal__, align 8, !tbaa !26
   %6 = load i32, ptr %5, align 4, !tbaa !17
   %7 = icmp sgt i32 %6, 4
@@ -13268,37 +13250,34 @@ _ZN5folly8OptionalINSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIl
 
 _ZN5folly8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEC2EOS6_.exit.i.i.i: ; preds = %.lr.ph, %_ZN5folly8OptionalINSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEEEaSIRS9_EERSA_OT_.exit
   %.023.lcssa = phi i1 [ false, %_ZN5folly8OptionalINSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEEEaSIRS9_EERSA_OT_.exit ], [ %47, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %50 = load ptr, ptr %49, align 8, !tbaa !207
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #48
-  store ptr null, ptr %2, align 16, !tbaa !184
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseEPS5_EE10uninitCallESB_SC_RNS1_4DataE, ptr %51, align 16, !tbaa !208
-  %52 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store ptr null, ptr %52, align 8, !tbaa !210
-  %53 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #49
+  %51 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #49
           to label %_ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE12ObserverBaseEPS3_EEC2IFvPS2_SA_ENS0_ISF_EEvvEEONS0_IT_EE.exit.i unwind label %62
 
 _ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE12ObserverBaseEPS3_EEC2IFvPS2_SA_ENS0_ISF_EEvvEEONS0_IT_EE.exit.i: ; preds = %_ZN5folly8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEC2EOS6_.exit.i.i.i
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 48
-  store ptr @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket20invokeConnectSuccessEvE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE", ptr %55, align 16, !tbaa !211
-  %56 = getelementptr inbounds nuw i8, ptr %53, i64 56
-  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %56, align 8, !tbaa !213
-  store ptr null, ptr %53, align 16
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 48
+  store ptr @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket20invokeConnectSuccessEvE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE", ptr %55, align 16, !tbaa !208
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 56
+  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %56, align 8, !tbaa !210
+  store ptr null, ptr %51, align 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 8
   %57 = load i64, ptr %.sroa.4, align 8
   store i64 %57, ptr %.sroa.4.0..sroa_idx, align 8
-  store ptr %53, ptr %2, align 16, !tbaa !184
-  store ptr @_ZN5folly6detail8function5call_INS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEELb0ELb0EvJPNS_21ObserverContainerBaseIS4_S6_NS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseES7_EEET2_DpT3_RNS1_4DataE, ptr %51, align 16, !tbaa !208
-  store ptr @_ZN5folly6detail8function11DispatchBig4execINS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEEEEmNS1_2OpEPNS1_4DataESD_, ptr %52, align 8, !tbaa !210
+  store ptr %51, ptr %2, align 16, !tbaa !184
+  store ptr @_ZN5folly6detail8function5call_INS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEELb0ELb0EvJPNS_21ObserverContainerBaseIS4_S6_NS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseES7_EEET2_DpT3_RNS1_4DataE, ptr %53, align 16, !tbaa !211
+  store ptr @_ZN5folly6detail8function11DispatchBig4execINS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEEEEmNS1_2OpEPNS1_4DataESD_, ptr %52, align 8, !tbaa !213
   store i8 0, ptr %3, align 4, !tbaa !184
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 0, ptr %58, align 4, !tbaa !214
   call void @_ZN5folly21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS1_6EventsELm32EEEE25invokeInterfaceMethodImplEPS2_ONS_8FunctionIFvPNS6_12ObserverBaseES7_EEENS_8OptionalIS4_EE(ptr noundef nonnull align 8 dereferenceable(81) %54, ptr noundef %50, ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull %3) #48
-  %59 = load ptr, ptr %52, align 8, !tbaa !210
+  %59 = load ptr, ptr %52, align 8, !tbaa !213
   %.not.i.i2.i = icmp eq ptr %59, null
   br i1 %.not.i.i2.i, label %65, label %60
 
@@ -13316,7 +13295,7 @@ _ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfa
 65:                                               ; preds = %60, %_ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE12ObserverBaseEPS3_EEC2IFvPS2_SA_ENS0_ISF_EEvvEEONS0_IT_EE.exit.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #48
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.4)
   br i1 %.023.lcssa, label %66, label %70
 
 66:                                               ; preds = %65
@@ -13349,7 +13328,7 @@ define void @_ZN5folly11AsyncSocket20invokeConnectAttemptEv(ptr noundef nonnull 
   %2 = alloca %"class.folly::Function.365", align 16
   %3 = alloca %"class.folly::Optional.363", align 4
   %4 = alloca %"class.google::LogMessage", align 8
-  %.sroa.4 = alloca [40 x i8], align 8
+  %.sroa.4 = alloca [56 x i8], align 8
   %5 = load ptr, ptr @_ZZN5folly11AsyncSocket20invokeConnectAttemptEvE8vlocal__, align 8, !tbaa !26
   %6 = load i32, ptr %5, align 4, !tbaa !17
   %7 = icmp sgt i32 %6, 4
@@ -13435,37 +13414,34 @@ _ZN5follylsIcSt11char_traitsIcEEERSt13basic_ostreamIT_T0_ES7_RKNS_13NetworkSocke
   br i1 %.not21, label %_ZN5folly8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEC2EOS6_.exit.i.i.i, label %.lr.ph
 
 _ZN5folly8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEC2EOS6_.exit.i.i.i: ; preds = %.lr.ph, %.critedge23
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %37 = load ptr, ptr %36, align 8, !tbaa !207
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #48
-  store ptr null, ptr %2, align 16, !tbaa !184
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseEPS5_EE10uninitCallESB_SC_RNS1_4DataE, ptr %38, align 16, !tbaa !208
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store ptr null, ptr %39, align 8, !tbaa !210
-  %40 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #49
+  %38 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #49
           to label %_ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE12ObserverBaseEPS3_EEC2IFvPS2_SA_ENS0_ISF_EEvvEEONS0_IT_EE.exit.i unwind label %49
 
 _ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE12ObserverBaseEPS3_EEC2IFvPS2_SA_ENS0_ISF_EEvvEEONS0_IT_EE.exit.i: ; preds = %_ZN5folly8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEC2EOS6_.exit.i.i.i
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 48
-  store ptr @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket20invokeConnectAttemptEvE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE", ptr %42, align 16, !tbaa !211
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 56
-  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %43, align 8, !tbaa !213
-  store ptr null, ptr %40, align 16
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 48
+  store ptr @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket20invokeConnectAttemptEvE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE", ptr %42, align 16, !tbaa !208
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 56
+  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %43, align 8, !tbaa !210
+  store ptr null, ptr %38, align 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 8
   %44 = load i64, ptr %.sroa.4, align 8
   store i64 %44, ptr %.sroa.4.0..sroa_idx, align 8
-  store ptr %40, ptr %2, align 16, !tbaa !184
-  store ptr @_ZN5folly6detail8function5call_INS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEELb0ELb0EvJPNS_21ObserverContainerBaseIS4_S6_NS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseES7_EEET2_DpT3_RNS1_4DataE, ptr %38, align 16, !tbaa !208
-  store ptr @_ZN5folly6detail8function11DispatchBig4execINS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEEEEmNS1_2OpEPNS1_4DataESD_, ptr %39, align 8, !tbaa !210
+  store ptr %38, ptr %2, align 16, !tbaa !184
+  store ptr @_ZN5folly6detail8function5call_INS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEELb0ELb0EvJPNS_21ObserverContainerBaseIS4_S6_NS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseES7_EEET2_DpT3_RNS1_4DataE, ptr %40, align 16, !tbaa !211
+  store ptr @_ZN5folly6detail8function11DispatchBig4execINS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEEEEmNS1_2OpEPNS1_4DataESD_, ptr %39, align 8, !tbaa !213
   store i8 0, ptr %3, align 4, !tbaa !184
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 0, ptr %45, align 4, !tbaa !214
   call void @_ZN5folly21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS1_6EventsELm32EEEE25invokeInterfaceMethodImplEPS2_ONS_8FunctionIFvPNS6_12ObserverBaseES7_EEENS_8OptionalIS4_EE(ptr noundef nonnull align 8 dereferenceable(81) %41, ptr noundef %37, ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull %3) #48
-  %46 = load ptr, ptr %39, align 8, !tbaa !210
+  %46 = load ptr, ptr %39, align 8, !tbaa !213
   %.not.i.i2.i = icmp eq ptr %46, null
   br i1 %.not.i.i2.i, label %52, label %47
 
@@ -13483,7 +13459,7 @@ _ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfa
 52:                                               ; preds = %47, %_ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE12ObserverBaseEPS3_EEC2IFvPS2_SA_ENS0_ISF_EEvvEEONS0_IT_EE.exit.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #48
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.4)
   ret void
 }
 
@@ -27439,16 +27415,10 @@ _ZZN5folly21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSo
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5folly6detail8function14FunctionTraitsIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseEPS5_EE10uninitCallESB_SC_RNS1_4DataE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 16 dereferenceable(48) %2) #2 comdat align 2 {
-  tail call void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() #22
-  unreachable
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly6detail8function5call_INS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEELb0ELb0EvJPNS_21ObserverContainerBaseIS4_S6_NS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseES7_EEET2_DpT3_RNS1_4DataE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 16 dereferenceable(48) %2) #2 comdat {
   %4 = load ptr, ptr %2, align 16, !tbaa !184
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %6 = load ptr, ptr %5, align 16, !tbaa !211
+  %6 = load ptr, ptr %5, align 16, !tbaa !208
   tail call void %6(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 16 dereferenceable(48) %4)
   ret void
 }
@@ -27473,7 +27443,7 @@ define linkonce_odr noundef i64 @_ZN5folly6detail8function11DispatchBig4execINS_
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %11 = load ptr, ptr %10, align 8, !tbaa !213
+  %11 = load ptr, ptr %10, align 8, !tbaa !210
   %.not.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i, label %_ZN5folly8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEED2Ev.exit, label %12
 
@@ -28474,51 +28444,48 @@ _ZN5folly8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEC2EO
   store i64 %96, ptr %95, align 8
   store ptr null, ptr %10, align 16, !tbaa !184
   %97 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEE10uninitCallES4_S6_RNS1_4DataE, ptr %97, align 16, !tbaa !211
+  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEE10uninitCallES4_S6_RNS1_4DataE, ptr %97, align 16, !tbaa !208
   %98 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  store ptr null, ptr %98, align 8, !tbaa !213
+  store ptr null, ptr %98, align 8, !tbaa !210
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 16 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(24) %11) #48
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 16), ptr %10, align 16, !tbaa !7
   %99 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %100 = load i64, ptr %95, align 8
   store i64 %100, ptr %99, align 16
-  store ptr @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket12invalidStateEPNS_20AsyncSocketTransport15ConnectCallbackEE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE", ptr %97, align 16, !tbaa !211
-  store ptr @"_ZN5folly6detail8function13DispatchSmall4execIZNS_11AsyncSocket12invalidStateEPNS_20AsyncSocketTransport15ConnectCallbackEE3$_0EEmNS1_2OpEPNS1_4DataESB_", ptr %98, align 8, !tbaa !213
+  store ptr @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket12invalidStateEPNS_20AsyncSocketTransport15ConnectCallbackEE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE", ptr %97, align 16, !tbaa !208
+  store ptr @"_ZN5folly6detail8function13DispatchSmall4execIZNS_11AsyncSocket12invalidStateEPNS_20AsyncSocketTransport15ConnectCallbackEE3$_0EEmNS1_2OpEPNS1_4DataESB_", ptr %98, align 8, !tbaa !210
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %102 = load ptr, ptr %101, align 8, !tbaa !207
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #48
-  store ptr null, ptr %3, align 16, !tbaa !184
-  %103 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseEPS5_EE10uninitCallESB_SC_RNS1_4DataE, ptr %103, align 16, !tbaa !208
-  %104 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store ptr null, ptr %104, align 8, !tbaa !210
-  %105 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #49
+  %103 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #49
           to label %_ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE12ObserverBaseEPS3_EEC2IFvPS2_SA_ENS0_ISF_EEvvEEONS0_IT_EE.exit.i unwind label %115
 
 _ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE12ObserverBaseEPS3_EEC2IFvPS2_SA_ENS0_ISF_EEvvEEONS0_IT_EE.exit.i: ; preds = %_ZN5folly8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEC2EOS6_.exit.i.i.i
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %105 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  store ptr null, ptr %105, align 16, !tbaa !184
-  %107 = getelementptr inbounds nuw i8, ptr %105, i64 48
-  store ptr @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket12invalidStateEPNS_20AsyncSocketTransport15ConnectCallbackEE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE", ptr %107, align 16, !tbaa !211
-  %108 = getelementptr inbounds nuw i8, ptr %105, i64 56
-  store ptr @"_ZN5folly6detail8function13DispatchSmall4execIZNS_11AsyncSocket12invalidStateEPNS_20AsyncSocketTransport15ConnectCallbackEE3$_0EEmNS1_2OpEPNS1_4DataESB_", ptr %108, align 8, !tbaa !213
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEE10uninitCallES4_S6_RNS1_4DataE, ptr %97, align 16, !tbaa !211
-  store ptr null, ptr %98, align 8, !tbaa !213
-  call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 16 dereferenceable(64) %105, ptr noundef nonnull align 16 dereferenceable(64) %10) #48
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 16), ptr %105, align 8, !tbaa !7
-  %109 = getelementptr inbounds nuw i8, ptr %105, i64 16
+  store ptr null, ptr %103, align 16, !tbaa !184
+  %107 = getelementptr inbounds nuw i8, ptr %103, i64 48
+  store ptr @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket12invalidStateEPNS_20AsyncSocketTransport15ConnectCallbackEE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE", ptr %107, align 16, !tbaa !208
+  %108 = getelementptr inbounds nuw i8, ptr %103, i64 56
+  store ptr @"_ZN5folly6detail8function13DispatchSmall4execIZNS_11AsyncSocket12invalidStateEPNS_20AsyncSocketTransport15ConnectCallbackEE3$_0EEmNS1_2OpEPNS1_4DataESB_", ptr %108, align 8, !tbaa !210
+  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEE10uninitCallES4_S6_RNS1_4DataE, ptr %97, align 16, !tbaa !208
+  store ptr null, ptr %98, align 8, !tbaa !210
+  call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 16 dereferenceable(64) %103, ptr noundef nonnull align 16 dereferenceable(64) %10) #48
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 16), ptr %103, align 8, !tbaa !7
+  %109 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %110 = load i64, ptr %99, align 16
   store i64 %110, ptr %109, align 8
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 16 dereferenceable(64) %10) #48
-  store ptr %105, ptr %3, align 16, !tbaa !184
-  store ptr @_ZN5folly6detail8function5call_INS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEELb0ELb0EvJPNS_21ObserverContainerBaseIS4_S6_NS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseES7_EEET2_DpT3_RNS1_4DataE, ptr %103, align 16, !tbaa !208
-  store ptr @_ZN5folly6detail8function11DispatchBig4execINS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEEEEmNS1_2OpEPNS1_4DataESD_, ptr %104, align 8, !tbaa !210
+  store ptr %103, ptr %3, align 16, !tbaa !184
+  store ptr @_ZN5folly6detail8function5call_INS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEELb0ELb0EvJPNS_21ObserverContainerBaseIS4_S6_NS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseES7_EEET2_DpT3_RNS1_4DataE, ptr %105, align 16, !tbaa !211
+  store ptr @_ZN5folly6detail8function11DispatchBig4execINS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEEEEmNS1_2OpEPNS1_4DataESD_, ptr %104, align 8, !tbaa !213
   store i8 0, ptr %4, align 4, !tbaa !184
   %111 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 0, ptr %111, align 4, !tbaa !214
   call void @_ZN5folly21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS1_6EventsELm32EEEE25invokeInterfaceMethodImplEPS2_ONS_8FunctionIFvPNS6_12ObserverBaseES7_EEENS_8OptionalIS4_EE(ptr noundef nonnull align 8 dereferenceable(81) %106, ptr noundef %102, ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull %4) #48
-  %112 = load ptr, ptr %104, align 8, !tbaa !210
+  %112 = load ptr, ptr %104, align 8, !tbaa !213
   %.not.i.i2.i = icmp eq ptr %112, null
   br i1 %.not.i.i2.i, label %_ZN5folly17ObserverContainerINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS1_6EventsELm32EEENS_35ObserverContainerStorePolicyDefaultILj2EEELm4EE33invokeInterfaceMethodAllObserversEONS_8FunctionIFvPS1_PS2_EEE.exit, label %113
 
@@ -28536,7 +28503,7 @@ _ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfa
 _ZN5folly17ObserverContainerINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS1_6EventsELm32EEENS_35ObserverContainerStorePolicyDefaultILj2EEELm4EE33invokeInterfaceMethodAllObserversEONS_8FunctionIFvPS1_PS2_EEE.exit: ; preds = %_ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE12ObserverBaseEPS3_EEC2IFvPS2_SA_ENS0_ISF_EEvvEEONS0_IT_EE.exit.i, %113
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #48
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %118 = load ptr, ptr %98, align 8, !tbaa !213
+  %118 = load ptr, ptr %98, align 8, !tbaa !210
   %.not.i.i = icmp eq ptr %118, null
   br i1 %.not.i.i, label %_ZN5folly8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEED2Ev.exit, label %119
 
@@ -28786,21 +28753,21 @@ _ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfa
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  store ptr @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket7doCloseEvE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE", ptr %23, align 16, !tbaa !211
+  store ptr @"_ZN5folly6detail8function5call_IZNS_11AsyncSocket7doCloseEvE3$_0Lb1ELb0EvJPNS_28AsyncSocketObserverInterfaceEPS3_EEET2_DpT3_RNS1_4DataE", ptr %23, align 16, !tbaa !208
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 56
-  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %24, align 8, !tbaa !213
+  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %24, align 8, !tbaa !210
   store ptr null, ptr %19, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
   %25 = load i64, ptr %.sroa.4, align 8
   store i64 %25, ptr %.sroa.4.0..sroa_idx, align 8
   store ptr %19, ptr %2, align 16, !tbaa !184
-  store ptr @_ZN5folly6detail8function5call_INS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEELb0ELb0EvJPNS_21ObserverContainerBaseIS4_S6_NS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseES7_EEET2_DpT3_RNS1_4DataE, ptr %21, align 16, !tbaa !208
-  store ptr @_ZN5folly6detail8function11DispatchBig4execINS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEEEEmNS1_2OpEPNS1_4DataESD_, ptr %20, align 8, !tbaa !210
+  store ptr @_ZN5folly6detail8function5call_INS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEELb0ELb0EvJPNS_21ObserverContainerBaseIS4_S6_NS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE12ObserverBaseES7_EEET2_DpT3_RNS1_4DataE, ptr %21, align 16, !tbaa !211
+  store ptr @_ZN5folly6detail8function11DispatchBig4execINS_8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEEEEmNS1_2OpEPNS1_4DataESD_, ptr %20, align 8, !tbaa !213
   store i8 0, ptr %3, align 4, !tbaa !184
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 0, ptr %26, align 4, !tbaa !214
   call void @_ZN5folly21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS1_6EventsELm32EEEE25invokeInterfaceMethodImplEPS2_ONS_8FunctionIFvPNS6_12ObserverBaseES7_EEENS_8OptionalIS4_EE(ptr noundef nonnull align 8 dereferenceable(81) %22, ptr noundef %18, ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull %3) #48
-  %27 = load ptr, ptr %20, align 8, !tbaa !210
+  %27 = load ptr, ptr %20, align 8, !tbaa !213
   %.not.i.i2.i = icmp eq ptr %27, null
   br i1 %.not.i.i2.i, label %33, label %28
 
@@ -48898,10 +48865,10 @@ attributes #55 = { nounwind willreturn memory(read) }
 !206 = !{!"p1 _ZTSN5folly11AsyncSocket23LegacyLifecycleObserverE", !13, i64 0}
 !207 = !{!145, !83, i64 8}
 !208 = !{!209, !13, i64 48}
-!209 = !{!"_ZTSN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE12ObserverBaseEPS3_EEE", !14, i64 0, !13, i64 48, !13, i64 56}
+!209 = !{!"_ZTSN5folly8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEE", !14, i64 0, !13, i64 48, !13, i64 56}
 !210 = !{!209, !13, i64 56}
 !211 = !{!212, !13, i64 48}
-!212 = !{!"_ZTSN5folly8FunctionIFvPNS_28AsyncSocketObserverInterfaceEPNS_11AsyncSocketEEEE", !14, i64 0, !13, i64 48, !13, i64 56}
+!212 = !{!"_ZTSN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE12ObserverBaseEPS3_EEE", !14, i64 0, !13, i64 48, !13, i64 56}
 !213 = !{!212, !13, i64 56}
 !214 = !{!215, !23, i64 4}
 !215 = !{!"_ZTSN5folly8OptionalINS_28AsyncSocketObserverInterface6EventsEE28StorageTriviallyDestructibleE", !14, i64 0, !23, i64 4}

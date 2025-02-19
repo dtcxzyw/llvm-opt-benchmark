@@ -85748,8 +85748,7 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_114TransformTyposEE26TransformTypeInObjec
   %.0.i.i.i.i.i.i56 = select i1 %41, ptr %43, ptr null
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.0.0.copyload.i.i57 = load i32, ptr %63, align 8, !tbaa !739
-  %.sroa.010.0.copyload = load ptr, ptr %9, align 8, !tbaa !778
-  %64 = call ptr @_ZN5clang4Sema17getDestructorNameERKNS_14IdentifierInfoENS_14SourceLocationEPNS_5ScopeERNS_12CXXScopeSpecENS_9OpaquePtrINS_8QualTypeEEEb(ptr noundef nonnull align 8 dereferenceable(17504) %62, ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i.i.i.i.i56, i32 %.sroa.0.0.copyload.i.i57, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(48) %11, ptr %.sroa.010.0.copyload, i1 noundef zeroext false)
+  %64 = call ptr @_ZN5clang4Sema17getDestructorNameERKNS_14IdentifierInfoENS_14SourceLocationEPNS_5ScopeERNS_12CXXScopeSpecENS_9OpaquePtrINS_8QualTypeEEEb(ptr noundef nonnull align 8 dereferenceable(17504) %62, ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i.i.i.i.i56, i32 %.sroa.0.0.copyload.i.i57, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(48) %11, ptr %31, i1 noundef zeroext false)
   %.not128 = icmp eq ptr %64, null
   br i1 %.not128, label %.thread, label %.thread116
 
@@ -150023,8 +150022,7 @@ _ZN5clang13TreeTransformIZNS_4Sema25CorrectDelayedTyposInExprEPNS_4ExprEPNS_7Var
   %.0.i.i.i.i.i.i56 = select i1 %41, ptr %43, ptr null
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.0.0.copyload.i.i57 = load i32, ptr %63, align 8, !tbaa !739
-  %.sroa.010.0.copyload = load ptr, ptr %9, align 8, !tbaa !778
-  %64 = call ptr @_ZN5clang4Sema17getDestructorNameERKNS_14IdentifierInfoENS_14SourceLocationEPNS_5ScopeERNS_12CXXScopeSpecENS_9OpaquePtrINS_8QualTypeEEEb(ptr noundef nonnull align 8 dereferenceable(17504) %62, ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i.i.i.i.i56, i32 %.sroa.0.0.copyload.i.i57, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(48) %11, ptr %.sroa.010.0.copyload, i1 noundef zeroext false)
+  %64 = call ptr @_ZN5clang4Sema17getDestructorNameERKNS_14IdentifierInfoENS_14SourceLocationEPNS_5ScopeERNS_12CXXScopeSpecENS_9OpaquePtrINS_8QualTypeEEEb(ptr noundef nonnull align 8 dereferenceable(17504) %62, ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i.i.i.i.i56, i32 %.sroa.0.0.copyload.i.i57, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(48) %11, ptr %31, i1 noundef zeroext false)
   %.not128 = icmp eq ptr %64, null
   br i1 %.not128, label %.thread, label %.thread116
 

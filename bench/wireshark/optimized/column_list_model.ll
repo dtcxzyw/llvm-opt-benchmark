@@ -4823,7 +4823,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %17
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #28
+  call void @__clang_call_terminate(ptr %37) #28, !noalias !73
   unreachable
 
 _ZN7QStringD2Ev.exit.i:                           ; preds = %33

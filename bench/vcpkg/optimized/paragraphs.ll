@@ -1124,7 +1124,7 @@ _ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exi
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #22
+  call void @__clang_call_terminate(ptr %36) #22, !noalias !24
   unreachable
 
 _ZNO5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13value_or_exitERKNS_8LineInfoE.exit.i: ; preds = %33
@@ -1573,7 +1573,7 @@ _ZN5vcpkg8OptionalINS_24ParsedQualifiedSpecifierEED2Ev.exit.i: ; preds = %_ZN5vc
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #22
+  call void @__clang_call_terminate(ptr %41) #22, !noalias !30
   unreachable
 
 _ZNO5vcpkg8OptionalINS_24ParsedQualifiedSpecifierEE13value_or_exitERKNS_8LineInfoE.exit.i: ; preds = %38
@@ -2415,7 +2415,7 @@ _ZN5vcpkg24ParsedQualifiedSpecifierD2Ev.exit.i.i.i.i: ; preds = %168, %_ZSt8_Des
   %178 = landingpad { ptr, i32 }
           catch ptr null
   %179 = extractvalue { ptr, i32 } %178, 0
-  call void @__clang_call_terminate(ptr %179) #22
+  call void @__clang_call_terminate(ptr %179) #22, !noalias !34
   unreachable
 
 _ZNO5vcpkg8OptionalINS_10DependencyEE13value_or_exitERKNS_8LineInfoE.exit.i: ; preds = %176
@@ -2787,7 +2787,7 @@ define dso_local void @_ZN5vcpkg10Paragraphs29parse_single_merged_paragraphB5cxx
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  call void @__clang_call_terminate(ptr %45) #22
+  call void @__clang_call_terminate(ptr %45) #22, !noalias !78
   unreachable
 
 _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -2812,7 +2812,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS5_N5vcpkg
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #22
+  call void @__clang_call_terminate(ptr %53) #22, !noalias !78
   unreachable
 
 _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i.i: ; preds = %48
@@ -2851,7 +2851,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
 .body.i.i.i:                                      ; preds = %61, %59
   %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %62, %61 ], [ %60, %59 ]
   %63 = extractvalue { ptr, i32 } %eh.lpad-body.i.i.i, 0
-  %64 = call ptr @__cxa_begin_catch(ptr %63) #21
+  %64 = call ptr @__cxa_begin_catch(ptr %63) #21, !noalias !78
   call void @_ZdlPv(ptr noundef nonnull %55) #23, !noalias !78
   invoke void @__cxa_rethrow() #26
           to label %70 unwind label %65, !noalias !78
@@ -2866,7 +2866,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #22
+  call void @__clang_call_terminate(ptr %69) #22, !noalias !78
   unreachable
 
 70:                                               ; preds = %.body.i.i.i
@@ -2896,13 +2896,13 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 80:                                               ; preds = %77
   %81 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %82 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %81)
-          to label %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i.i.i.i unwind label %83
+          to label %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i.i.i.i unwind label %83, !noalias !78
 
 83:                                               ; preds = %80
   %84 = landingpad { ptr, i32 }
           catch ptr null
   %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #22
+  call void @__clang_call_terminate(ptr %85) #22, !noalias !78
   unreachable
 
 _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i.i.i.i: ; preds = %80
@@ -2911,7 +2911,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
 
 .thread.i.i.i:                                    ; preds = %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i.i.i.i, %77
   %87 = phi i1 [ true, %77 ], [ %86, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i.i.i.i ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %87, ptr noundef nonnull %55, ptr noundef nonnull %76, ptr noundef nonnull align 8 dereferenceable(32) %26) #21
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %87, ptr noundef nonnull %55, ptr noundef nonnull %76, ptr noundef nonnull align 8 dereferenceable(32) %26) #21, !noalias !78
   %88 = load i64, ptr %28, align 8, !noalias !78
   %89 = add i64 %88, 1
   store i64 %89, ptr %28, align 8, !noalias !78

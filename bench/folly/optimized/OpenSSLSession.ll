@@ -673,7 +673,7 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlock
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #12
+  call void @__clang_call_terminate(ptr %58) #12, !noalias !32
   unreachable
 
 59:                                               ; preds = %.split5.i.i

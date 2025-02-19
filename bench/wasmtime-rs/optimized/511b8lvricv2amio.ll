@@ -3018,7 +3018,7 @@ define internal fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen8emit_int1
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 1, ptr %23, align 8
   %24 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %17, ptr nonnull align 8 %8)
-  br label %55
+  br label %54
 
 25:                                               ; preds = %4
   %26 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
@@ -3049,12 +3049,11 @@ define internal fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen8emit_int1
 43:                                               ; preds = %31
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %45 = load ptr, ptr %44, align 8, !nonnull !3, !align !4, !noundef !3
-  %46 = load i128, ptr %13, align 16, !noundef !3
-  %47 = sub i128 0, %46
-  store i128 %47, ptr %10, align 16
+  %46 = sub i128 0, %2
+  store i128 %46, ptr %10, align 16
   store ptr %10, ptr %11, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr @"_ZN4core3fmt3num54_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i128$GT$3fmt17h2b9f38939d69c04bE", ptr %48, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr @"_ZN4core3fmt3num54_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i128$GT$3fmt17h2b9f38939d69c04bE", ptr %47, align 8
   store i64 2, ptr %9, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 2, ptr %.sroa.3.0..sroa_idx, align 8
@@ -3067,21 +3066,21 @@ define internal fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen8emit_int1
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i8 3, ptr %.sroa.8.0..sroa_idx, align 8
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.138, ptr %12, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 1, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store ptr %9, ptr %50, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store i64 1, ptr %51, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %11, ptr %52, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i64 1, ptr %53, align 8
-  %54 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %45, ptr nonnull align 8 %12)
-  br label %55
+  %48 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 1, ptr %48, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store ptr %9, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  store i64 1, ptr %50, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr %11, ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store i64 1, ptr %52, align 8
+  %53 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %45, ptr nonnull align 8 %12)
+  br label %54
 
-55:                                               ; preds = %43, %15
-  %.0.in = phi i1 [ %54, %43 ], [ %24, %15 ]
+54:                                               ; preds = %43, %15
+  %.0.in = phi i1 [ %53, %43 ], [ %24, %15 ]
   ret i1 %.0.in
 }
 

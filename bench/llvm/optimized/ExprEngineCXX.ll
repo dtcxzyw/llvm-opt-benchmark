@@ -399,7 +399,6 @@ define dso_local void @_ZN5clang4ento10ExprEngine18performTrivialCopyERNS0_11Nod
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"class.clang::ento::ExplodedNodeSet", align 8
-  %.sroa.9 = alloca [7 x i8], align 1
   %8 = alloca %"class.clang::ento::SVal", align 8
   %9 = alloca %"class.clang::PostStmt", align 8
   %10 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
@@ -456,7 +455,6 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit62:     ; preds = %4
   store ptr %2, ptr %6, align 8, !tbaa !146
   %41 = call noundef zeroext i1 @_ZN4llvm9SetVectorIPN5clang4ento12ExplodedNodeENS_11SmallVectorIS4_Lj4EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj4EE6removeERKS4_(ptr noundef nonnull align 8 dereferenceable(72) %40, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.9)
   %42 = load ptr, ptr %3, align 8, !tbaa !150
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 88
   %44 = load ptr, ptr %43, align 8
@@ -481,8 +479,6 @@ _ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit: ; preds = %22, %47
   store ptr %.sroa.086.0, ptr %8, align 8, !tbaa !192
   %.sroa.687.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i8 %.sroa.687.0, ptr %.sroa.687.0..sroa_idx, align 8, !tbaa !193
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9, i64 7, i1 false), !tbaa.struct !186
   call void @_ZN5clang4ento10ExprEngine8evalBindERNS0_15ExplodedNodeSetEPKNS_4StmtEPNS0_12ExplodedNodeENS0_4SValES9_bPKNS_12ProgramPointE(ptr noundef nonnull align 8 dereferenceable(796) %0, ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef %34, ptr noundef nonnull %2, ptr %.sroa.088.0, i8 %.sroa.7.0, ptr noundef nonnull byval(%"class.clang::ento::SVal") align 8 %8, i1 noundef zeroext true, ptr noundef null) #15
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #15
   store ptr %34, ptr %9, align 8, !tbaa !195
@@ -507,7 +503,6 @@ _ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit: ; preds = %22, %47
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit
   %59 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %55, %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.9)
   %60 = icmp eq ptr %59, %36
   br i1 %60, label %_ZN5clang4ento15ExplodedNodeSetD2Ev.exit, label %61
 
@@ -4589,11 +4584,9 @@ declare noundef i64 @_ZNK5clang10ASTContext32getArrayInitLoopExprElementCountEPK
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang4ento10ExprEngine25handleConstructionContextEPKNS_4ExprEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_18NodeBuilderContextEPKNS_15LocationContextEPKNS_19ConstructionContextERNS0_15EvalCallOptionsEj(ptr dead_on_unwind noalias writable sret(%"struct.std::pair") align 8 %0, ptr noundef nonnull align 8 dereferenceable(796) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(5) %7, i32 noundef %8) local_unnamed_addr #0 comdat align 2 {
-  %.sroa.7 = alloca [7 x i8], align 1
   %10 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %11 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %12 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.7)
   %13 = load ptr, ptr %3, align 8, !tbaa !170
   store ptr %13, ptr %10, align 8, !tbaa !170
   %.not.i.i = icmp eq ptr %13, null
@@ -4660,9 +4653,6 @@ _ZSt9make_pairIRN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERNS3_4S
   store ptr %.fca.0.extract22, ptr %26, align 8, !tbaa !192
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.fca.1.extract23, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !193
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7, i64 7, i1 false), !tbaa.struct !186
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.7)
   ret void
 }
 

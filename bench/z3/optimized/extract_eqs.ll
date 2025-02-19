@@ -2871,7 +2871,6 @@ invoke.cont38:                                    ; preds = %.noexc32, %lor.lhs.
   %m_manager.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 24
   store ptr %10, ptr %m_manager.i.i.i, align 8
   store ptr %call.i21, ptr %term.i.i, align 8
-  store ptr null, ptr %term4.i, align 8
   %dep.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
   store ptr %d, ptr %dep.i.i, align 8
   %26 = load ptr, ptr %eqs, align 8

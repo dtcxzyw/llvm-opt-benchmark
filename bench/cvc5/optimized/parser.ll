@@ -443,7 +443,7 @@ define hidden void @_ZN4cvc56parser6Parser13unexpectedEOFERKNSt7__cxx1112basic_s
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc56parser6Parser11nextCommandEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.5") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(41) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc56parser6Parser11nextCommandEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.5") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(41) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr.5", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -482,12 +482,12 @@ _ZNSt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS2_EEaSEOS5_.exit: ; pred
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i8 1, ptr %20, align 8, !tbaa !32
   invoke void @__cxa_rethrow() #25
-          to label %68 unwind label %58
+          to label %63 unwind label %58
 
 21:                                               ; preds = %12
   %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %23 = icmp eq i32 %15, %22
-  br i1 %23, label %24, label %60
+  br i1 %23, label %24, label %_ZNSt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS2_EED2Ev.exit55
 
 24:                                               ; preds = %21
   %25 = call ptr @__cxa_begin_catch(ptr %14) #24
@@ -565,47 +565,35 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
   invoke void @__cxa_end_catch()
-          to label %60 unwind label %65
+          to label %_ZNSt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS2_EED2Ev.exit55 unwind label %60
 
 56:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %57 = landingpad { ptr, i32 }
           cleanup
-  br label %60
+  br label %_ZNSt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS2_EED2Ev.exit55
 
 58:                                               ; preds = %18
   %59 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %60 unwind label %65
+          to label %_ZNSt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS2_EED2Ev.exit55 unwind label %60
 
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit52: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS2_EEaSEOS5_.exit
   ret void
 
-60:                                               ; preds = %58, %56, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28, %21
+_ZNSt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS2_EED2Ev.exit55: ; preds = %21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28, %56, %58
   %.merged = phi { ptr, i32 } [ %13, %21 ], [ %57, %56 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28 ], [ %59, %58 ]
-  %61 = load ptr, ptr %0, align 8, !tbaa !38
-  %.not.i53 = icmp eq ptr %61, null
-  br i1 %.not.i53, label %_ZNSt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS2_EED2Ev.exit55, label %_ZNKSt14default_deleteIN4cvc56parser3CmdEEclEPS2_.exit.i54
-
-_ZNKSt14default_deleteIN4cvc56parser3CmdEEclEPS2_.exit.i54: ; preds = %60
-  %62 = load ptr, ptr %61, align 8, !tbaa !15
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(16) %61) #24
-  br label %_ZNSt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS2_EED2Ev.exit55
-
-_ZNSt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS2_EED2Ev.exit55: ; preds = %60, %_ZNKSt14default_deleteIN4cvc56parser3CmdEEclEPS2_.exit.i54
   store ptr null, ptr %0, align 8, !tbaa !38
   resume { ptr, i32 } %.merged
 
-65:                                               ; preds = %58, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28
-  %66 = landingpad { ptr, i32 }
+60:                                               ; preds = %58, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28
+  %61 = landingpad { ptr, i32 }
           catch ptr null
-  %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #27
+  %62 = extractvalue { ptr, i32 } %61, 0
+  call void @__clang_call_terminate(ptr %62) #27
   unreachable
 
-68:                                               ; preds = %18
+63:                                               ; preds = %18
   unreachable
 }
 

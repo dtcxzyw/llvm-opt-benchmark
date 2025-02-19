@@ -1467,7 +1467,7 @@ _ZN7testing7CombineINS_8internal11ValueArray2IN2cv5Size_IiEES5_EENS2_IiiEENS1_14
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #31
+  call void @__clang_call_terminate(ptr %54) #31, !noalias !21
   unreachable
 
 55:                                               ; preds = %43

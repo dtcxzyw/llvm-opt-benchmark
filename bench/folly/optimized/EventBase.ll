@@ -17417,11 +17417,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit2: ; preds = %_ZStls
   br label %_ZN5folly8FunctionIFvvEEC2EOS2_.exit
 
 _ZN5folly8FunctionIFvvEEC2EOS2_.exit:             ; preds = %23, %31
-  store ptr null, ptr %6, align 16, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %33, align 16, !tbaa !161
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store ptr null, ptr %34, align 8, !tbaa !162
   %35 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #61
           to label %.noexc unwind label %56
 

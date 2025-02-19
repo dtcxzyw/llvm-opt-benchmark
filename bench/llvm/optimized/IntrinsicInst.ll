@@ -4397,7 +4397,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i: ; preds = %41, %_ZNK4llvm8Cal
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %62 = load i32, ptr %61, align 8, !tbaa !225, !noalias !221
   %63 = zext i32 %62 to i64
-  %64 = load i32, ptr %35, align 4, !noalias !226
+  %64 = load i32, ptr %35, align 4, !noalias !221
   %65 = and i32 %64, 134217727
   %66 = zext nneg i32 %65 to i64
   %67 = sub nsw i64 0, %66
@@ -4511,19 +4511,19 @@ _ZNK4llvm16GCProjectionInst13getStatepointEv.exit: ; preds = %1, %11, %12, %16, 
 
 34:                                               ; preds = %_ZNK4llvm16GCProjectionInst13getStatepointEv.exit
   %35 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
-  %36 = load i32, ptr %35, align 4, !noalias !227
+  %36 = load i32, ptr %35, align 4, !noalias !226
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i, label %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i
 
 _ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i: ; preds = %34
-  %38 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %.0.i) #17, !noalias !227
+  %38 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %.0.i) #17, !noalias !226
   %39 = extractvalue { ptr, i64 } %38, 0
-  %.pr.i.i = load i32, ptr %35, align 4, !noalias !227
+  %.pr.i.i = load i32, ptr %35, align 4, !noalias !226
   %40 = icmp slt i32 %.pr.i.i, 0
   br i1 %40, label %41, label %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i
 
 41:                                               ; preds = %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i
-  %42 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %.0.i) #17, !noalias !227
+  %42 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %.0.i) #17, !noalias !226
   %43 = extractvalue { ptr, i64 } %42, 0
   %44 = extractvalue { ptr, i64 } %42, 1
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 %44
@@ -4551,23 +4551,23 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i: ; preds = %41, %_ZNK4llvm8Cal
 
 .critedge.i:                                      ; preds = %.critedge.i.preheader, %52
   %indvars.iv = phi i64 [ 0, %.critedge.i.preheader ], [ %indvars.iv.next, %52 ]
-  %53 = load i32, ptr %35, align 4, !noalias !230
+  %53 = load i32, ptr %35, align 4, !noalias !229
   %54 = icmp slt i32 %53, 0
   tail call void @llvm.assume(i1 %54)
-  %55 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %.0.i) #17, !noalias !230
+  %55 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %.0.i) #17, !noalias !229
   %56 = extractvalue { ptr, i64 } %55, 0
   %57 = getelementptr inbounds nuw %"struct.llvm::CallBase::BundleOpInfo", ptr %56, i64 %indvars.iv
-  %58 = load ptr, ptr %57, align 8, !tbaa !218, !noalias !233
+  %58 = load ptr, ptr %57, align 8, !tbaa !218, !noalias !232
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %60 = load i32, ptr %59, align 4, !tbaa !224, !noalias !227
+  %60 = load i32, ptr %59, align 4, !tbaa !224, !noalias !226
   %.not8.i = icmp eq i32 %60, 5
   br i1 %.not8.i, label %.thread, label %52
 
 .thread:                                          ; preds = %.critedge.i
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %62 = load i32, ptr %61, align 8, !tbaa !225, !noalias !233
+  %62 = load i32, ptr %61, align 8, !tbaa !225, !noalias !232
   %63 = zext i32 %62 to i64
-  %64 = load i32, ptr %35, align 4, !noalias !236
+  %64 = load i32, ptr %35, align 4, !noalias !232
   %65 = and i32 %64, 134217727
   %66 = zext nneg i32 %65 to i64
   %67 = sub nsw i64 0, %66
@@ -4692,7 +4692,7 @@ _ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i:   ; preds = %14, %_ZNK4llvm8Call
   %34 = extractvalue { ptr, i64 } %32, 1
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
   %36 = getelementptr inbounds i8, ptr %35, i64 -4
-  %37 = load i32, ptr %36, align 4, !tbaa !237
+  %37 = load i32, ptr %36, align 4, !tbaa !235
   %38 = sub i32 %37, %29
   %39 = zext i32 %38 to i64
   br label %_ZNK4llvm8CallBase25getNumTotalBundleOperandsEv.exit
@@ -4807,7 +4807,7 @@ _ZN4llvm12PatternMatch18CastOperator_matchINS0_7bind_tyINS_5ValueEEELj47EE5match
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 2
-  %49 = load i16, ptr %48, align 2, !tbaa !238
+  %49 = load i16, ptr %48, align 2, !tbaa !236
   %50 = icmp eq i16 %49, 34
   br i1 %50, label %_ZN4llvm8dyn_castINS_11GEPOperatorENS_5ValueEEEDcPT0_.exit, label %.critedge20
 
@@ -4833,7 +4833,7 @@ _ZN4llvm8dyn_castINS_11GEPOperatorENS_5ValueEEEDcPT0_.exit: ; preds = %_ZN4llvm1
 
 62:                                               ; preds = %_ZN4llvm8dyn_castINS_11GEPOperatorENS_5ValueEEEDcPT0_.exit
   %63 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
-  %64 = load ptr, ptr %63, align 8, !tbaa !239
+  %64 = load ptr, ptr %63, align 8, !tbaa !237
   %65 = tail call noundef zeroext i1 @_ZNK4llvm4Type11isIntegerTyEj(ptr noundef nonnull align 8 dereferenceable(24) %64, i32 noundef 8) #17
   br i1 %65, label %66, label %.critedge
 
@@ -4858,7 +4858,7 @@ _ZN4llvm12PatternMatch7is_zero5matchINS_5ValueEEEbPT_.exit.thread34: ; preds = %
   br i1 %76, label %_ZN4llvm12PatternMatch7is_zero5matchINS_5ValueEEEbPT_.exit.thread, label %77
 
 77:                                               ; preds = %75
-  store ptr null, ptr %3, align 8, !tbaa !240
+  store ptr null, ptr %3, align 8, !tbaa !238
   %78 = call noundef zeroext i1 @_ZN4llvm12PatternMatch14cstval_pred_tyINS0_11is_zero_intENS_11ConstantIntELb1EE10match_implINS_8ConstantEEEbPT_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %72)
   %79 = load ptr, ptr %3, align 8
   %.not.i.i = icmp ne ptr %79, null
@@ -4866,7 +4866,7 @@ _ZN4llvm12PatternMatch7is_zero5matchINS_5ValueEEEbPT_.exit.thread34: ; preds = %
   br i1 %or.cond.not.i.i, label %80, label %_ZN4llvm12PatternMatch7is_zero5matchINS_5ValueEEEbPT_.exit
 
 80:                                               ; preds = %77
-  store ptr %72, ptr %79, align 8, !tbaa !243
+  store ptr %72, ptr %79, align 8, !tbaa !241
   br label %_ZN4llvm12PatternMatch7is_zero5matchINS_5ValueEEEbPT_.exit.thread
 
 _ZN4llvm12PatternMatch7is_zero5matchINS_5ValueEEEbPT_.exit.thread: ; preds = %75, %80
@@ -4937,7 +4937,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12PatternMatch17specific_
 _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds = %14, %2
   %.0 = phi ptr [ %1, %2 ], [ %13, %14 ]
   %17 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %18 = load i64, ptr %0, align 8, !tbaa !245
+  %18 = load i64, ptr %0, align 8, !tbaa !243
   %19 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %20 = load i32, ptr %19, align 8, !tbaa !203
   %21 = icmp ult i32 %20, 65
@@ -5075,7 +5075,7 @@ _ZN4llvm12PatternMatch11is_zero_int7isValueERKNS_5APIntE.exit67: ; preds = %45
   %.233 = phi i1 [ %.03188, %43 ], [ true, %50 ], [ true, %_ZN4llvm12PatternMatch11is_zero_int7isValueERKNS_5APIntE.exit67 ]
   %56 = add nuw i32 %.03089, 1
   %.not54 = icmp eq i32 %56, %41
-  br i1 %.not54, label %_ZN4llvm12PatternMatch11is_zero_int7isValueERKNS_5APIntE.exit.thread, label %.lr.ph, !llvm.loop !247
+  br i1 %.not54, label %_ZN4llvm12PatternMatch11is_zero_int7isValueERKNS_5APIntE.exit.thread, label %.lr.ph, !llvm.loop !245
 
 _ZN4llvm12PatternMatch11is_zero_int7isValueERKNS_5APIntE.exit.thread: ; preds = %43, %50, %_ZN4llvm12PatternMatch11is_zero_int7isValueERKNS_5APIntE.exit67, %.lr.ph, %55, %39, %_ZN4llvm12PatternMatch11is_zero_int7isValueERKNS_5APIntE.exit63, %31, %34, %10, %13, %_ZN4llvm12PatternMatch11is_zero_int7isValueERKNS_5APIntE.exit
   %.1 = phi i1 [ false, %_ZN4llvm12PatternMatch11is_zero_int7isValueERKNS_5APIntE.exit ], [ %15, %13 ], [ %12, %10 ], [ false, %_ZN4llvm12PatternMatch11is_zero_int7isValueERKNS_5APIntE.exit63 ], [ %36, %34 ], [ %33, %31 ], [ false, %39 ], [ false, %43 ], [ false, %50 ], [ false, %_ZN4llvm12PatternMatch11is_zero_int7isValueERKNS_5APIntE.exit67 ], [ false, %.lr.ph ], [ %.233, %55 ]
@@ -5341,30 +5341,28 @@ attributes #18 = { nounwind willreturn memory(read) }
 !218 = !{!219, !220, i64 0}
 !219 = !{!"_ZTSN4llvm8CallBase12BundleOpInfoE", !220, i64 0, !12, i64 8, !12, i64 12}
 !220 = !{!"p1 _ZTSN4llvm14StringMapEntryIjEE", !6, i64 0}
-!221 = !{!222}
+!221 = !{!222, !216, !212}
 !222 = distinct !{!222, !223, !"_ZNK4llvm8CallBase29operandBundleFromBundleOpInfoERKNS0_12BundleOpInfoE: argument 0"}
 !223 = distinct !{!223, !"_ZNK4llvm8CallBase29operandBundleFromBundleOpInfoERKNS0_12BundleOpInfoE"}
 !224 = !{!12, !12, i64 0}
 !225 = !{!219, !12, i64 8}
-!226 = !{!222, !216, !212}
-!227 = !{!228}
-!228 = distinct !{!228, !229, !"_ZNK4llvm8CallBase16getOperandBundleEj: argument 0"}
-!229 = distinct !{!229, !"_ZNK4llvm8CallBase16getOperandBundleEj"}
-!230 = !{!231, !228}
-!231 = distinct !{!231, !232, !"_ZNK4llvm8CallBase18getOperandBundleAtEj: argument 0"}
-!232 = distinct !{!232, !"_ZNK4llvm8CallBase18getOperandBundleAtEj"}
-!233 = !{!234}
-!234 = distinct !{!234, !235, !"_ZNK4llvm8CallBase29operandBundleFromBundleOpInfoERKNS0_12BundleOpInfoE: argument 0"}
-!235 = distinct !{!235, !"_ZNK4llvm8CallBase29operandBundleFromBundleOpInfoERKNS0_12BundleOpInfoE"}
-!236 = !{!234, !231, !228}
-!237 = !{!219, !12, i64 12}
-!238 = !{!24, !11, i64 2}
-!239 = !{!199, !25, i64 24}
-!240 = !{!241, !242, i64 0}
-!241 = !{!"_ZTSN4llvm12PatternMatch14cstval_pred_tyINS0_11is_zero_intENS_11ConstantIntELb1EEE", !242, i64 0}
-!242 = !{!"p2 _ZTSN4llvm8ConstantE", !6, i64 0}
-!243 = !{!244, !244, i64 0}
-!244 = !{!"p1 _ZTSN4llvm8ConstantE", !6, i64 0}
-!245 = !{!246, !35, i64 0}
-!246 = !{!"_ZTSN4llvm12PatternMatch17specific_intval64ILb0EEE", !35, i64 0}
-!247 = distinct !{!247, !83}
+!226 = !{!227}
+!227 = distinct !{!227, !228, !"_ZNK4llvm8CallBase16getOperandBundleEj: argument 0"}
+!228 = distinct !{!228, !"_ZNK4llvm8CallBase16getOperandBundleEj"}
+!229 = !{!230, !227}
+!230 = distinct !{!230, !231, !"_ZNK4llvm8CallBase18getOperandBundleAtEj: argument 0"}
+!231 = distinct !{!231, !"_ZNK4llvm8CallBase18getOperandBundleAtEj"}
+!232 = !{!233, !230, !227}
+!233 = distinct !{!233, !234, !"_ZNK4llvm8CallBase29operandBundleFromBundleOpInfoERKNS0_12BundleOpInfoE: argument 0"}
+!234 = distinct !{!234, !"_ZNK4llvm8CallBase29operandBundleFromBundleOpInfoERKNS0_12BundleOpInfoE"}
+!235 = !{!219, !12, i64 12}
+!236 = !{!24, !11, i64 2}
+!237 = !{!199, !25, i64 24}
+!238 = !{!239, !240, i64 0}
+!239 = !{!"_ZTSN4llvm12PatternMatch14cstval_pred_tyINS0_11is_zero_intENS_11ConstantIntELb1EEE", !240, i64 0}
+!240 = !{!"p2 _ZTSN4llvm8ConstantE", !6, i64 0}
+!241 = !{!242, !242, i64 0}
+!242 = !{!"p1 _ZTSN4llvm8ConstantE", !6, i64 0}
+!243 = !{!244, !35, i64 0}
+!244 = !{!"_ZTSN4llvm12PatternMatch17specific_intval64ILb0EEE", !35, i64 0}
+!245 = distinct !{!245, !83}

@@ -1047,9 +1047,9 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb14OptionTypeInfo6VectorINS_18FileTemperatureAgeEEES0_iNS_22OptionVerificationTypeENS_15OptionTypeFlagsERKS0_c(ptr noalias sret(%"class.rocksdb::OptionTypeInfo") align 8 %agg.result, i32 noundef %_offset, i32 noundef %_verification, i32 noundef %_flags, ptr noundef nonnull align 8 dereferenceable(180) %elem_info, i8 noundef signext %separator) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i.i73.sroa.5 = alloca [24 x i8], align 8
-  %ref.tmp.i.i32.sroa.5 = alloca [24 x i8], align 8
-  %ref.tmp.i.i.sroa.5 = alloca [24 x i8], align 8
+  %ref.tmp.i.i73.sroa.4 = alloca [24 x i8], align 8
+  %ref.tmp.i.i32.sroa.4 = alloca [24 x i8], align 8
+  %ref.tmp.i.i.sroa.4 = alloca [24 x i8], align 8
   %ref.tmp = alloca %"class.std::function", align 8
   %ref.tmp1 = alloca %class.anon.195, align 8
   %ref.tmp6 = alloca %"class.std::function.5", align 8
@@ -1107,8 +1107,8 @@ if.then.i.i.i:                                    ; preds = %call.i.i2.i.noexc
   store ptr %call.i.i2.i10, ptr %ref.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo6VectorINS0_18FileTemperatureAgeEEESF_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKSF_cEUlS4_SC_SC_SD_E_E9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo6VectorINS0_18FileTemperatureAgeEEESF_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKSF_cEUlS4_SC_SC_SD_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.5, i8 0, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.4, i8 0, i64 24, i1 false)
   %call.i.i.i.i122123 = invoke noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #31
           to label %call.i.i.i.i122.noexc unwind label %lpad4.body.thread
 
@@ -1128,14 +1128,14 @@ invoke.cont5:                                     ; preds = %call.i.i.i.i122.noe
   %9 = load ptr, ptr %_M_invoker.i, align 8
   %10 = load ptr, ptr %_M_manager.i.i, align 8
   store ptr %call.i.i.i.i122123, ptr %parse_func_.i, align 8
-  %ref.tmp.i.i.sroa.5.0.parse_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  %11 = load i64, ptr %ref.tmp.i.i.sroa.5, align 8
-  store i64 %11, ptr %ref.tmp.i.i.sroa.5.0.parse_func_.i.sroa_idx, align 8
+  %ref.tmp.i.i.sroa.4.0.parse_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %11 = load i64, ptr %ref.tmp.i.i.sroa.4, align 8
+  store i64 %11, ptr %ref.tmp.i.i.sroa.4.0.parse_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %10, ptr %_M_manager3.i.i.i, align 8
   %_M_invoker4.i2.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %9, ptr %_M_invoker4.i2.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.5)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.4)
   %tobool.not.i.i14 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i14, label %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEED2Ev.exit, label %if.then.i.i15
 
@@ -1194,8 +1194,8 @@ if.then.i.i.i37:                                  ; preds = %call.i.i2.i.noexc28
   store ptr %call.i.i2.i29, ptr %ref.tmp6, align 8
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo6VectorINS0_18FileTemperatureAgeEEESH_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKSH_cEUlS4_SC_SE_SF_E_E9_M_invokeERKSt9_Any_dataS4_SC_OSE_OSF_, ptr %_M_invoker.i27, align 8
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo6VectorINS0_18FileTemperatureAgeEEESH_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKSH_cEUlS4_SC_SE_SF_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation, ptr %_M_manager.i.i19, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i32.sroa.5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i32.sroa.5, i8 0, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i32.sroa.4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i32.sroa.4, i8 0, i64 24, i1 false)
   %call.i.i.i.i124126 = invoke noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #31
           to label %call.i.i.i.i124.noexc unwind label %lpad11.body.thread
 
@@ -1216,14 +1216,14 @@ invoke.cont12:                                    ; preds = %call.i.i.i.i124.noe
   %23 = load ptr, ptr %_M_invoker.i27, align 8
   %24 = load ptr, ptr %_M_manager.i.i19, align 8
   store ptr %call.i.i.i.i124126, ptr %serialize_func_.i, align 8
-  %ref.tmp.i.i32.sroa.5.0.serialize_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
-  %25 = load i64, ptr %ref.tmp.i.i32.sroa.5, align 8
-  store i64 %25, ptr %ref.tmp.i.i32.sroa.5.0.serialize_func_.i.sroa_idx, align 8
+  %ref.tmp.i.i32.sroa.4.0.serialize_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
+  %25 = load i64, ptr %ref.tmp.i.i32.sroa.4, align 8
+  store i64 %25, ptr %ref.tmp.i.i32.sroa.4.0.serialize_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i47 = getelementptr inbounds nuw i8, ptr %agg.result, i64 56
   store ptr %24, ptr %_M_manager3.i.i.i47, align 8
   %_M_invoker4.i2.i.i48 = getelementptr inbounds nuw i8, ptr %agg.result, i64 64
   store ptr %23, ptr %_M_invoker4.i2.i.i48, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i32.sroa.5)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i32.sroa.4)
   %tobool.not.i.i55 = icmp eq ptr %24, null
   br i1 %tobool.not.i.i55, label %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EED2Ev.exit, label %if.then.i.i56
 
@@ -1277,8 +1277,8 @@ if.then.i.i.i78:                                  ; preds = %call.i.i2.i.noexc69
   store ptr %call.i.i2.i70, ptr %ref.tmp16, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EZNS0_14OptionTypeInfo6VectorINS0_18FileTemperatureAgeEEESG_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKSG_cEUlS3_SB_SD_SD_SE_E_E9_M_invokeERKSt9_Any_dataS3_SB_OSD_SS_OSE_, ptr %_M_invoker.i68, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EZNS0_14OptionTypeInfo6VectorINS0_18FileTemperatureAgeEEESG_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKSG_cEUlS3_SB_SD_SD_SE_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %_M_manager.i.i60, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i73.sroa.5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i73.sroa.5, i8 0, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i73.sroa.4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i73.sroa.4, i8 0, i64 24, i1 false)
   %call.i.i.i.i128130 = invoke noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #31
           to label %call.i.i.i.i128.noexc unwind label %lpad21.body.thread
 
@@ -1296,14 +1296,14 @@ invoke.cont22:                                    ; preds = %call.i.i.i.i128.noe
   %32 = load ptr, ptr %_M_invoker.i68, align 8
   %33 = load ptr, ptr %_M_manager.i.i60, align 8
   store ptr %call.i.i.i.i128130, ptr %equals_func_.i, align 8
-  %ref.tmp.i.i73.sroa.5.0.equals_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 80
-  %34 = load i64, ptr %ref.tmp.i.i73.sroa.5, align 8
-  store i64 %34, ptr %ref.tmp.i.i73.sroa.5.0.equals_func_.i.sroa_idx, align 8
+  %ref.tmp.i.i73.sroa.4.0.equals_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 80
+  %34 = load i64, ptr %ref.tmp.i.i73.sroa.4, align 8
+  store i64 %34, ptr %ref.tmp.i.i73.sroa.4.0.equals_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i88 = getelementptr inbounds nuw i8, ptr %agg.result, i64 88
   store ptr %33, ptr %_M_manager3.i.i.i88, align 8
   %_M_invoker4.i2.i.i89 = getelementptr inbounds nuw i8, ptr %agg.result, i64 96
   store ptr %32, ptr %_M_invoker4.i2.i.i89, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i73.sroa.5)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i73.sroa.4)
   %tobool.not.i.i96 = icmp eq ptr %33, null
   br i1 %tobool.not.i.i96, label %_ZNSt8functionIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EED2Ev.exit, label %if.then.i.i97
 
@@ -1429,9 +1429,9 @@ ehcleanup26:                                      ; preds = %ehcleanup25, %ehcle
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb14OptionTypeInfo6StructERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKSt13unordered_mapIS6_S0_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIS7_S0_EEEiNS_22OptionVerificationTypeENS_15OptionTypeFlagsE(ptr noalias sret(%"class.rocksdb::OptionTypeInfo") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %struct_name, ptr noundef %struct_map, i32 noundef %offset, i32 noundef %verification, i32 noundef %flags) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i.i74.sroa.5 = alloca [24 x i8], align 8
-  %ref.tmp.i.i33.sroa.5 = alloca [24 x i8], align 8
-  %ref.tmp.i.i.sroa.5 = alloca [24 x i8], align 8
+  %ref.tmp.i.i74.sroa.4 = alloca [24 x i8], align 8
+  %ref.tmp.i.i33.sroa.4 = alloca [24 x i8], align 8
+  %ref.tmp.i.i.sroa.4 = alloca [24 x i8], align 8
   %ref.tmp = alloca %"class.std::function", align 8
   %ref.tmp1 = alloca %class.anon.159, align 8
   %ref.tmp6 = alloca %"class.std::function.5", align 8
@@ -1489,8 +1489,8 @@ if.then.i.i.i:                                    ; preds = %call.i.i2.i.noexc
   store ptr %call.i.i2.i11, ptr %ref.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo6StructESC_PKSt13unordered_mapISA_SF_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SF_EEEiNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo6StructESC_PKSt13unordered_mapISA_SF_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SF_EEEiNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.5, i8 0, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.4, i8 0, i64 24, i1 false)
   %call.i.i.i.i123124 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %call.i.i.i.i123.noexc unwind label %lpad4.body.thread
 
@@ -1510,14 +1510,14 @@ invoke.cont5:                                     ; preds = %call.i.i.i.i123.noe
   %9 = load ptr, ptr %_M_invoker.i, align 8
   %10 = load ptr, ptr %_M_manager.i.i, align 8
   store ptr %call.i.i.i.i123124, ptr %parse_func_.i, align 8
-  %ref.tmp.i.i.sroa.5.0.parse_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  %11 = load i64, ptr %ref.tmp.i.i.sroa.5, align 8
-  store i64 %11, ptr %ref.tmp.i.i.sroa.5.0.parse_func_.i.sroa_idx, align 8
+  %ref.tmp.i.i.sroa.4.0.parse_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %11 = load i64, ptr %ref.tmp.i.i.sroa.4, align 8
+  store i64 %11, ptr %ref.tmp.i.i.sroa.4.0.parse_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %10, ptr %_M_manager3.i.i.i, align 8
   %_M_invoker4.i2.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %9, ptr %_M_invoker4.i2.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.5)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.4)
   %tobool.not.i.i15 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i15, label %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEED2Ev.exit, label %if.then.i.i16
 
@@ -1576,8 +1576,8 @@ if.then.i.i.i38:                                  ; preds = %call.i.i2.i.noexc29
   store ptr %call.i.i2.i30, ptr %ref.tmp6, align 8
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo6StructESC_PKSt13unordered_mapISA_SH_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SH_EEEiNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E9_M_invokeERKSt9_Any_dataS4_SC_OSE_OSF_, ptr %_M_invoker.i28, align 8
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo6StructESC_PKSt13unordered_mapISA_SH_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SH_EEEiNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation, ptr %_M_manager.i.i20, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i33.sroa.5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i33.sroa.5, i8 0, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i33.sroa.4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i33.sroa.4, i8 0, i64 24, i1 false)
   %call.i.i.i.i125127 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %call.i.i.i.i125.noexc unwind label %lpad11.body.thread
 
@@ -1598,14 +1598,14 @@ invoke.cont12:                                    ; preds = %call.i.i.i.i125.noe
   %23 = load ptr, ptr %_M_invoker.i28, align 8
   %24 = load ptr, ptr %_M_manager.i.i20, align 8
   store ptr %call.i.i.i.i125127, ptr %serialize_func_.i, align 8
-  %ref.tmp.i.i33.sroa.5.0.serialize_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
-  %25 = load i64, ptr %ref.tmp.i.i33.sroa.5, align 8
-  store i64 %25, ptr %ref.tmp.i.i33.sroa.5.0.serialize_func_.i.sroa_idx, align 8
+  %ref.tmp.i.i33.sroa.4.0.serialize_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
+  %25 = load i64, ptr %ref.tmp.i.i33.sroa.4, align 8
+  store i64 %25, ptr %ref.tmp.i.i33.sroa.4.0.serialize_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i48 = getelementptr inbounds nuw i8, ptr %agg.result, i64 56
   store ptr %24, ptr %_M_manager3.i.i.i48, align 8
   %_M_invoker4.i2.i.i49 = getelementptr inbounds nuw i8, ptr %agg.result, i64 64
   store ptr %23, ptr %_M_invoker4.i2.i.i49, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i33.sroa.5)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i33.sroa.4)
   %tobool.not.i.i56 = icmp eq ptr %24, null
   br i1 %tobool.not.i.i56, label %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EED2Ev.exit, label %if.then.i.i57
 
@@ -1664,8 +1664,8 @@ if.then.i.i.i79:                                  ; preds = %call.i.i2.i.noexc70
   store ptr %call.i.i2.i71, ptr %ref.tmp16, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EZNS0_14OptionTypeInfo6StructESB_PKSt13unordered_mapIS9_SG_St4hashIS9_ESt8equal_toIS9_ESaISt4pairISA_SG_EEEiNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsEEUlS3_SB_SD_SD_SE_E_E9_M_invokeERKSt9_Any_dataS3_SB_OSD_SZ_OSE_, ptr %_M_invoker.i69, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EZNS0_14OptionTypeInfo6StructESB_PKSt13unordered_mapIS9_SG_St4hashIS9_ESt8equal_toIS9_ESaISt4pairISA_SG_EEEiNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsEEUlS3_SB_SD_SD_SE_E_E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation, ptr %_M_manager.i.i61, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i74.sroa.5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i74.sroa.5, i8 0, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i74.sroa.4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i74.sroa.4, i8 0, i64 24, i1 false)
   %call.i.i.i.i129131 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %call.i.i.i.i129.noexc unwind label %lpad21.body.thread
 
@@ -1686,14 +1686,14 @@ invoke.cont22:                                    ; preds = %call.i.i.i.i129.noe
   %37 = load ptr, ptr %_M_invoker.i69, align 8
   %38 = load ptr, ptr %_M_manager.i.i61, align 8
   store ptr %call.i.i.i.i129131, ptr %equals_func_.i, align 8
-  %ref.tmp.i.i74.sroa.5.0.equals_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 80
-  %39 = load i64, ptr %ref.tmp.i.i74.sroa.5, align 8
-  store i64 %39, ptr %ref.tmp.i.i74.sroa.5.0.equals_func_.i.sroa_idx, align 8
+  %ref.tmp.i.i74.sroa.4.0.equals_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 80
+  %39 = load i64, ptr %ref.tmp.i.i74.sroa.4, align 8
+  store i64 %39, ptr %ref.tmp.i.i74.sroa.4.0.equals_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i89 = getelementptr inbounds nuw i8, ptr %agg.result, i64 88
   store ptr %38, ptr %_M_manager3.i.i.i89, align 8
   %_M_invoker4.i2.i.i90 = getelementptr inbounds nuw i8, ptr %agg.result, i64 96
   store ptr %37, ptr %_M_invoker4.i2.i.i90, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i74.sroa.5)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i74.sroa.4)
   %tobool.not.i.i97 = icmp eq ptr %38, null
   br i1 %tobool.not.i.i97, label %_ZNSt8functionIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EED2Ev.exit, label %if.then.i.i98
 
@@ -4624,7 +4624,7 @@ invoke.cont539:                                   ; preds = %.noexc990
   store i32 348, ptr %ref.tmp538, align 8, !alias.scope !9
   %parse_func_.i.i993 = getelementptr inbounds nuw i8, ptr %ref.tmp538, i64 8
   %type_.i.i994 = getelementptr inbounds nuw i8, ptr %ref.tmp538, i64 168
-  %121 = getelementptr inbounds nuw i8, ptr %ref.tmp538, i64 40
+  %121 = getelementptr inbounds nuw i8, ptr %ref.tmp538, i64 72
   %122 = getelementptr inbounds nuw i8, ptr %ref.tmp538, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %122, i8 0, i64 64, i1 false), !alias.scope !9
   store i32 19, ptr %type_.i.i994, align 8, !alias.scope !9
@@ -4639,15 +4639,15 @@ invoke.cont539:                                   ; preds = %.noexc990
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo4EnumINS0_20PrepopulateBlobCacheEEESF_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SJ_EEENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation, ptr %_M_manager3.i.i.i.i997, align 8, !alias.scope !9
   %_M_invoker4.i2.i.i.i998 = getelementptr inbounds nuw i8, ptr %ref.tmp538, i64 32
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo4EnumINS0_20PrepopulateBlobCacheEEESF_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SJ_EEENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_, ptr %_M_invoker4.i2.i.i.i998, align 8, !alias.scope !9
-  store i64 ptrtoint (ptr @_ZN7rocksdb13OptionsHelper33prepopulate_blob_cache_string_mapB5cxx11E to i64), ptr %121, align 8, !alias.scope !9
+  %serialize_func_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp538, i64 40
+  store i64 ptrtoint (ptr @_ZN7rocksdb13OptionsHelper33prepopulate_blob_cache_string_mapB5cxx11E to i64), ptr %serialize_func_.i.i, align 8, !alias.scope !9
   %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %ref.tmp538, i64 48
   store i64 0, ptr %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i, align 8, !alias.scope !9
   %_M_manager3.i.i.i23.i = getelementptr inbounds nuw i8, ptr %ref.tmp538, i64 56
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo4EnumINS0_20PrepopulateBlobCacheEEESH_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SL_EEENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation, ptr %_M_manager3.i.i.i23.i, align 8, !alias.scope !9
   %_M_invoker4.i2.i.i24.i = getelementptr inbounds nuw i8, ptr %ref.tmp538, i64 64
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo4EnumINS0_20PrepopulateBlobCacheEEESH_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SL_EEENS0_15OptionTypeFlagsEEUlS4_SC_SE_SF_E_E9_M_invokeERKSt9_Any_dataS4_SC_OSE_OSF_, ptr %_M_invoker4.i2.i.i24.i, align 8, !alias.scope !9
-  %equals_func_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp538, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %equals_func_.i.i, i8 0, i64 16, i1 false), !alias.scope !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %121, i8 0, i64 16, i1 false), !alias.scope !9
   %_M_manager3.i.i.i53.i = getelementptr inbounds nuw i8, ptr %ref.tmp538, i64 88
   store ptr @_ZNSt17_Function_handlerIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EZNS0_14OptionTypeInfo4EnumINS0_20PrepopulateBlobCacheEEESG_iPKSt13unordered_mapIS9_T_St4hashIS9_ESt8equal_toIS9_ESaISt4pairISA_SK_EEENS0_15OptionTypeFlagsEEUlS3_SB_SD_SD_SE_E_E10_M_managerERSt9_Any_dataRKSY_St18_Manager_operation, ptr %_M_manager3.i.i.i53.i, align 8, !alias.scope !9
   %_M_invoker4.i2.i.i54.i = getelementptr inbounds nuw i8, ptr %ref.tmp538, i64 96
@@ -4975,10 +4975,10 @@ if.then.i.i.i1113:                                ; preds = %.noexc1117
   br label %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEEC2EOSF_.exit.i.i
 
 _ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEEC2EOSF_.exit.i.i: ; preds = %if.then.i.i.i1113, %.noexc1117
-  %serialize_func_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 13464
+  %serialize_func_.i.i1115 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 13464
   %_M_invoker.i7.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 13488
   %_M_invoker2.i8.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp611, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %serialize_func_.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %serialize_func_.i.i1115, i8 0, i64 24, i1 false)
   %138 = load ptr, ptr %_M_invoker2.i8.i.i, align 8
   store ptr %138, ptr %_M_invoker.i7.i.i, align 8
   %_M_manager.i.i.i9.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp611, i64 56
@@ -4989,16 +4989,16 @@ _ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stri
 if.then.i11.i.i:                                  ; preds = %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEEC2EOSF_.exit.i.i
   %serialize_func_4.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp611, i64 40
   %_M_manager.i.i12.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 13480
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %serialize_func_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %serialize_func_4.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %serialize_func_.i.i1115, ptr noundef nonnull align 8 dereferenceable(32) %serialize_func_4.i.i, i64 16, i1 false)
   store ptr %139, ptr %_M_manager.i.i12.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i9.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EEC2EOSH_.exit.i.i
 
 _ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EEC2EOSH_.exit.i.i: ; preds = %if.then.i11.i.i, %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEEC2EOSF_.exit.i.i
-  %equals_func_.i.i1115 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 13496
+  %equals_func_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 13496
   %_M_invoker.i13.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 13520
   %_M_invoker2.i14.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp611, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %equals_func_.i.i1115, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %equals_func_.i.i, i8 0, i64 24, i1 false)
   %140 = load ptr, ptr %_M_invoker2.i14.i.i, align 8
   store ptr %140, ptr %_M_invoker.i13.i.i, align 8
   %_M_manager.i.i.i15.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp611, i64 88
@@ -5009,7 +5009,7 @@ _ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stri
 if.then.i17.i.i:                                  ; preds = %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EEC2EOSH_.exit.i.i
   %equals_func_5.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp611, i64 72
   %_M_manager.i.i18.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 13512
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %equals_func_.i.i1115, ptr noundef nonnull align 8 dereferenceable(32) %equals_func_5.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %equals_func_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %equals_func_5.i.i, i64 16, i1 false)
   store ptr %141, ptr %_M_manager.i.i18.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i15.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EEC2EOSG_.exit.i.i
@@ -7159,9 +7159,9 @@ eh.resume:                                        ; preds = %arraydestroy.body84
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb14OptionTypeInfo6VectorIiEES0_iNS_22OptionVerificationTypeENS_15OptionTypeFlagsERKS0_c(ptr noalias sret(%"class.rocksdb::OptionTypeInfo") align 8 %agg.result, i32 noundef %_offset, i32 noundef %_verification, i32 noundef %_flags, ptr noundef nonnull align 8 dereferenceable(180) %elem_info, i8 noundef signext %separator) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i.i73.sroa.5 = alloca [24 x i8], align 8
-  %ref.tmp.i.i32.sroa.5 = alloca [24 x i8], align 8
-  %ref.tmp.i.i.sroa.5 = alloca [24 x i8], align 8
+  %ref.tmp.i.i73.sroa.4 = alloca [24 x i8], align 8
+  %ref.tmp.i.i32.sroa.4 = alloca [24 x i8], align 8
+  %ref.tmp.i.i.sroa.4 = alloca [24 x i8], align 8
   %ref.tmp = alloca %"class.std::function", align 8
   %ref.tmp1 = alloca %class.anon.200, align 8
   %ref.tmp6 = alloca %"class.std::function.5", align 8
@@ -7219,8 +7219,8 @@ if.then.i.i.i:                                    ; preds = %call.i.i2.i.noexc
   store ptr %call.i.i2.i10, ptr %ref.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo6VectorIiEESF_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKSF_cEUlS4_SC_SC_SD_E_E9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo6VectorIiEESF_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKSF_cEUlS4_SC_SC_SD_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.5, i8 0, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.4, i8 0, i64 24, i1 false)
   %call.i.i.i.i122123 = invoke noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #31
           to label %call.i.i.i.i122.noexc unwind label %lpad4.body.thread
 
@@ -7240,14 +7240,14 @@ invoke.cont5:                                     ; preds = %call.i.i.i.i122.noe
   %9 = load ptr, ptr %_M_invoker.i, align 8
   %10 = load ptr, ptr %_M_manager.i.i, align 8
   store ptr %call.i.i.i.i122123, ptr %parse_func_.i, align 8
-  %ref.tmp.i.i.sroa.5.0.parse_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  %11 = load i64, ptr %ref.tmp.i.i.sroa.5, align 8
-  store i64 %11, ptr %ref.tmp.i.i.sroa.5.0.parse_func_.i.sroa_idx, align 8
+  %ref.tmp.i.i.sroa.4.0.parse_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %11 = load i64, ptr %ref.tmp.i.i.sroa.4, align 8
+  store i64 %11, ptr %ref.tmp.i.i.sroa.4.0.parse_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %10, ptr %_M_manager3.i.i.i, align 8
   %_M_invoker4.i2.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %9, ptr %_M_invoker4.i2.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.5)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.4)
   %tobool.not.i.i14 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i14, label %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEED2Ev.exit, label %if.then.i.i15
 
@@ -7306,8 +7306,8 @@ if.then.i.i.i37:                                  ; preds = %call.i.i2.i.noexc28
   store ptr %call.i.i2.i29, ptr %ref.tmp6, align 8
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo6VectorIiEESH_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKSH_cEUlS4_SC_SE_SF_E_E9_M_invokeERKSt9_Any_dataS4_SC_OSE_OSF_, ptr %_M_invoker.i27, align 8
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo6VectorIiEESH_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKSH_cEUlS4_SC_SE_SF_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %_M_manager.i.i19, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i32.sroa.5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i32.sroa.5, i8 0, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i32.sroa.4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i32.sroa.4, i8 0, i64 24, i1 false)
   %call.i.i.i.i124126 = invoke noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #31
           to label %call.i.i.i.i124.noexc unwind label %lpad11.body.thread
 
@@ -7328,14 +7328,14 @@ invoke.cont12:                                    ; preds = %call.i.i.i.i124.noe
   %23 = load ptr, ptr %_M_invoker.i27, align 8
   %24 = load ptr, ptr %_M_manager.i.i19, align 8
   store ptr %call.i.i.i.i124126, ptr %serialize_func_.i, align 8
-  %ref.tmp.i.i32.sroa.5.0.serialize_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
-  %25 = load i64, ptr %ref.tmp.i.i32.sroa.5, align 8
-  store i64 %25, ptr %ref.tmp.i.i32.sroa.5.0.serialize_func_.i.sroa_idx, align 8
+  %ref.tmp.i.i32.sroa.4.0.serialize_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
+  %25 = load i64, ptr %ref.tmp.i.i32.sroa.4, align 8
+  store i64 %25, ptr %ref.tmp.i.i32.sroa.4.0.serialize_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i47 = getelementptr inbounds nuw i8, ptr %agg.result, i64 56
   store ptr %24, ptr %_M_manager3.i.i.i47, align 8
   %_M_invoker4.i2.i.i48 = getelementptr inbounds nuw i8, ptr %agg.result, i64 64
   store ptr %23, ptr %_M_invoker4.i2.i.i48, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i32.sroa.5)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i32.sroa.4)
   %tobool.not.i.i55 = icmp eq ptr %24, null
   br i1 %tobool.not.i.i55, label %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EED2Ev.exit, label %if.then.i.i56
 
@@ -7389,8 +7389,8 @@ if.then.i.i.i78:                                  ; preds = %call.i.i2.i.noexc69
   store ptr %call.i.i2.i70, ptr %ref.tmp16, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EZNS0_14OptionTypeInfo6VectorIiEESG_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKSG_cEUlS3_SB_SD_SD_SE_E_E9_M_invokeERKSt9_Any_dataS3_SB_OSD_SR_OSE_, ptr %_M_invoker.i68, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EZNS0_14OptionTypeInfo6VectorIiEESG_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKSG_cEUlS3_SB_SD_SD_SE_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %_M_manager.i.i60, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i73.sroa.5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i73.sroa.5, i8 0, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i73.sroa.4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i73.sroa.4, i8 0, i64 24, i1 false)
   %call.i.i.i.i128130 = invoke noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #31
           to label %call.i.i.i.i128.noexc unwind label %lpad21.body.thread
 
@@ -7408,14 +7408,14 @@ invoke.cont22:                                    ; preds = %call.i.i.i.i128.noe
   %32 = load ptr, ptr %_M_invoker.i68, align 8
   %33 = load ptr, ptr %_M_manager.i.i60, align 8
   store ptr %call.i.i.i.i128130, ptr %equals_func_.i, align 8
-  %ref.tmp.i.i73.sroa.5.0.equals_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 80
-  %34 = load i64, ptr %ref.tmp.i.i73.sroa.5, align 8
-  store i64 %34, ptr %ref.tmp.i.i73.sroa.5.0.equals_func_.i.sroa_idx, align 8
+  %ref.tmp.i.i73.sroa.4.0.equals_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 80
+  %34 = load i64, ptr %ref.tmp.i.i73.sroa.4, align 8
+  store i64 %34, ptr %ref.tmp.i.i73.sroa.4.0.equals_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i88 = getelementptr inbounds nuw i8, ptr %agg.result, i64 88
   store ptr %33, ptr %_M_manager3.i.i.i88, align 8
   %_M_invoker4.i2.i.i89 = getelementptr inbounds nuw i8, ptr %agg.result, i64 96
   store ptr %32, ptr %_M_invoker4.i2.i.i89, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i73.sroa.5)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i73.sroa.4)
   %tobool.not.i.i96 = icmp eq ptr %33, null
   br i1 %tobool.not.i.i96, label %_ZNSt8functionIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EED2Ev.exit, label %if.then.i.i97
 
@@ -8195,9 +8195,9 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb14OptionTypeInfo6VectorINS_15CompressionTypeEEES0_iNS_22OptionVerificationTypeENS_15OptionTypeFlagsERKS0_c(ptr noalias sret(%"class.rocksdb::OptionTypeInfo") align 8 %agg.result, i32 noundef %_offset, i32 noundef %_verification, i32 noundef %_flags, ptr noundef nonnull align 8 dereferenceable(180) %elem_info, i8 noundef signext %separator) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i.i73.sroa.5 = alloca [24 x i8], align 8
-  %ref.tmp.i.i32.sroa.5 = alloca [24 x i8], align 8
-  %ref.tmp.i.i.sroa.5 = alloca [24 x i8], align 8
+  %ref.tmp.i.i73.sroa.4 = alloca [24 x i8], align 8
+  %ref.tmp.i.i32.sroa.4 = alloca [24 x i8], align 8
+  %ref.tmp.i.i.sroa.4 = alloca [24 x i8], align 8
   %ref.tmp = alloca %"class.std::function", align 8
   %ref.tmp1 = alloca %class.anon.222, align 8
   %ref.tmp6 = alloca %"class.std::function.5", align 8
@@ -8255,8 +8255,8 @@ if.then.i.i.i:                                    ; preds = %call.i.i2.i.noexc
   store ptr %call.i.i2.i10, ptr %ref.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo6VectorINS0_15CompressionTypeEEESF_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKSF_cEUlS4_SC_SC_SD_E_E9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo6VectorINS0_15CompressionTypeEEESF_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKSF_cEUlS4_SC_SC_SD_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.5, i8 0, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.4, i8 0, i64 24, i1 false)
   %call.i.i.i.i122123 = invoke noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #31
           to label %call.i.i.i.i122.noexc unwind label %lpad4.body.thread
 
@@ -8276,14 +8276,14 @@ invoke.cont5:                                     ; preds = %call.i.i.i.i122.noe
   %9 = load ptr, ptr %_M_invoker.i, align 8
   %10 = load ptr, ptr %_M_manager.i.i, align 8
   store ptr %call.i.i.i.i122123, ptr %parse_func_.i, align 8
-  %ref.tmp.i.i.sroa.5.0.parse_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  %11 = load i64, ptr %ref.tmp.i.i.sroa.5, align 8
-  store i64 %11, ptr %ref.tmp.i.i.sroa.5.0.parse_func_.i.sroa_idx, align 8
+  %ref.tmp.i.i.sroa.4.0.parse_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %11 = load i64, ptr %ref.tmp.i.i.sroa.4, align 8
+  store i64 %11, ptr %ref.tmp.i.i.sroa.4.0.parse_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %10, ptr %_M_manager3.i.i.i, align 8
   %_M_invoker4.i2.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %9, ptr %_M_invoker4.i2.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.5)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.4)
   %tobool.not.i.i14 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i14, label %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEED2Ev.exit, label %if.then.i.i15
 
@@ -8342,8 +8342,8 @@ if.then.i.i.i37:                                  ; preds = %call.i.i2.i.noexc28
   store ptr %call.i.i2.i29, ptr %ref.tmp6, align 8
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo6VectorINS0_15CompressionTypeEEESH_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKSH_cEUlS4_SC_SE_SF_E_E9_M_invokeERKSt9_Any_dataS4_SC_OSE_OSF_, ptr %_M_invoker.i27, align 8
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo6VectorINS0_15CompressionTypeEEESH_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKSH_cEUlS4_SC_SE_SF_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation, ptr %_M_manager.i.i19, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i32.sroa.5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i32.sroa.5, i8 0, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i32.sroa.4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i32.sroa.4, i8 0, i64 24, i1 false)
   %call.i.i.i.i124126 = invoke noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #31
           to label %call.i.i.i.i124.noexc unwind label %lpad11.body.thread
 
@@ -8364,14 +8364,14 @@ invoke.cont12:                                    ; preds = %call.i.i.i.i124.noe
   %23 = load ptr, ptr %_M_invoker.i27, align 8
   %24 = load ptr, ptr %_M_manager.i.i19, align 8
   store ptr %call.i.i.i.i124126, ptr %serialize_func_.i, align 8
-  %ref.tmp.i.i32.sroa.5.0.serialize_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
-  %25 = load i64, ptr %ref.tmp.i.i32.sroa.5, align 8
-  store i64 %25, ptr %ref.tmp.i.i32.sroa.5.0.serialize_func_.i.sroa_idx, align 8
+  %ref.tmp.i.i32.sroa.4.0.serialize_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
+  %25 = load i64, ptr %ref.tmp.i.i32.sroa.4, align 8
+  store i64 %25, ptr %ref.tmp.i.i32.sroa.4.0.serialize_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i47 = getelementptr inbounds nuw i8, ptr %agg.result, i64 56
   store ptr %24, ptr %_M_manager3.i.i.i47, align 8
   %_M_invoker4.i2.i.i48 = getelementptr inbounds nuw i8, ptr %agg.result, i64 64
   store ptr %23, ptr %_M_invoker4.i2.i.i48, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i32.sroa.5)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i32.sroa.4)
   %tobool.not.i.i55 = icmp eq ptr %24, null
   br i1 %tobool.not.i.i55, label %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EED2Ev.exit, label %if.then.i.i56
 
@@ -8425,8 +8425,8 @@ if.then.i.i.i78:                                  ; preds = %call.i.i2.i.noexc69
   store ptr %call.i.i2.i70, ptr %ref.tmp16, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EZNS0_14OptionTypeInfo6VectorINS0_15CompressionTypeEEESG_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKSG_cEUlS3_SB_SD_SD_SE_E_E9_M_invokeERKSt9_Any_dataS3_SB_OSD_SS_OSE_, ptr %_M_invoker.i68, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EZNS0_14OptionTypeInfo6VectorINS0_15CompressionTypeEEESG_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKSG_cEUlS3_SB_SD_SD_SE_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %_M_manager.i.i60, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i73.sroa.5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i73.sroa.5, i8 0, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i73.sroa.4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i73.sroa.4, i8 0, i64 24, i1 false)
   %call.i.i.i.i128130 = invoke noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #31
           to label %call.i.i.i.i128.noexc unwind label %lpad21.body.thread
 
@@ -8444,14 +8444,14 @@ invoke.cont22:                                    ; preds = %call.i.i.i.i128.noe
   %32 = load ptr, ptr %_M_invoker.i68, align 8
   %33 = load ptr, ptr %_M_manager.i.i60, align 8
   store ptr %call.i.i.i.i128130, ptr %equals_func_.i, align 8
-  %ref.tmp.i.i73.sroa.5.0.equals_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 80
-  %34 = load i64, ptr %ref.tmp.i.i73.sroa.5, align 8
-  store i64 %34, ptr %ref.tmp.i.i73.sroa.5.0.equals_func_.i.sroa_idx, align 8
+  %ref.tmp.i.i73.sroa.4.0.equals_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 80
+  %34 = load i64, ptr %ref.tmp.i.i73.sroa.4, align 8
+  store i64 %34, ptr %ref.tmp.i.i73.sroa.4.0.equals_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i88 = getelementptr inbounds nuw i8, ptr %agg.result, i64 88
   store ptr %33, ptr %_M_manager3.i.i.i88, align 8
   %_M_invoker4.i2.i.i89 = getelementptr inbounds nuw i8, ptr %agg.result, i64 96
   store ptr %32, ptr %_M_invoker4.i2.i.i89, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i73.sroa.5)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i73.sroa.4)
   %tobool.not.i.i96 = icmp eq ptr %33, null
   br i1 %tobool.not.i.i96, label %_ZNSt8functionIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EED2Ev.exit, label %if.then.i.i97
 
@@ -11918,9 +11918,9 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb14OptionTypeInfo6VectorISt10shared_ptrINS_31TablePropertiesCollectorFactoryEEEES0_iNS_22OptionVerificationTypeENS_15OptionTypeFlagsERKS0_c(ptr noalias sret(%"class.rocksdb::OptionTypeInfo") align 8 %agg.result, i32 noundef %_offset, i32 noundef %_verification, i32 noundef %_flags, ptr noundef nonnull align 8 dereferenceable(180) %elem_info, i8 noundef signext %separator) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i.i73.sroa.5 = alloca [24 x i8], align 8
-  %ref.tmp.i.i32.sroa.5 = alloca [24 x i8], align 8
-  %ref.tmp.i.i.sroa.5 = alloca [24 x i8], align 8
+  %ref.tmp.i.i73.sroa.4 = alloca [24 x i8], align 8
+  %ref.tmp.i.i32.sroa.4 = alloca [24 x i8], align 8
+  %ref.tmp.i.i.sroa.4 = alloca [24 x i8], align 8
   %ref.tmp = alloca %"class.std::function", align 8
   %ref.tmp1 = alloca %class.anon.233, align 8
   %ref.tmp6 = alloca %"class.std::function.5", align 8
@@ -11978,8 +11978,8 @@ if.then.i.i.i:                                    ; preds = %call.i.i2.i.noexc
   store ptr %call.i.i2.i10, ptr %ref.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo6VectorISt10shared_ptrINS0_31TablePropertiesCollectorFactoryEEEESF_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKSF_cEUlS4_SC_SC_SD_E_E9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo6VectorISt10shared_ptrINS0_31TablePropertiesCollectorFactoryEEEESF_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKSF_cEUlS4_SC_SC_SD_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.5, i8 0, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.4, i8 0, i64 24, i1 false)
   %call.i.i.i.i122123 = invoke noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #31
           to label %call.i.i.i.i122.noexc unwind label %lpad4.body.thread
 
@@ -11999,14 +11999,14 @@ invoke.cont5:                                     ; preds = %call.i.i.i.i122.noe
   %9 = load ptr, ptr %_M_invoker.i, align 8
   %10 = load ptr, ptr %_M_manager.i.i, align 8
   store ptr %call.i.i.i.i122123, ptr %parse_func_.i, align 8
-  %ref.tmp.i.i.sroa.5.0.parse_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  %11 = load i64, ptr %ref.tmp.i.i.sroa.5, align 8
-  store i64 %11, ptr %ref.tmp.i.i.sroa.5.0.parse_func_.i.sroa_idx, align 8
+  %ref.tmp.i.i.sroa.4.0.parse_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %11 = load i64, ptr %ref.tmp.i.i.sroa.4, align 8
+  store i64 %11, ptr %ref.tmp.i.i.sroa.4.0.parse_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %10, ptr %_M_manager3.i.i.i, align 8
   %_M_invoker4.i2.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %9, ptr %_M_invoker4.i2.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.5)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.4)
   %tobool.not.i.i14 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i14, label %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEED2Ev.exit, label %if.then.i.i15
 
@@ -12065,8 +12065,8 @@ if.then.i.i.i37:                                  ; preds = %call.i.i2.i.noexc28
   store ptr %call.i.i2.i29, ptr %ref.tmp6, align 8
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo6VectorISt10shared_ptrINS0_31TablePropertiesCollectorFactoryEEEESH_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKSH_cEUlS4_SC_SE_SF_E_E9_M_invokeERKSt9_Any_dataS4_SC_OSE_OSF_, ptr %_M_invoker.i27, align 8
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EZNS0_14OptionTypeInfo6VectorISt10shared_ptrINS0_31TablePropertiesCollectorFactoryEEEESH_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKSH_cEUlS4_SC_SE_SF_E_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation, ptr %_M_manager.i.i19, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i32.sroa.5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i32.sroa.5, i8 0, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i32.sroa.4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i32.sroa.4, i8 0, i64 24, i1 false)
   %call.i.i.i.i124126 = invoke noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #31
           to label %call.i.i.i.i124.noexc unwind label %lpad11.body.thread
 
@@ -12087,14 +12087,14 @@ invoke.cont12:                                    ; preds = %call.i.i.i.i124.noe
   %23 = load ptr, ptr %_M_invoker.i27, align 8
   %24 = load ptr, ptr %_M_manager.i.i19, align 8
   store ptr %call.i.i.i.i124126, ptr %serialize_func_.i, align 8
-  %ref.tmp.i.i32.sroa.5.0.serialize_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
-  %25 = load i64, ptr %ref.tmp.i.i32.sroa.5, align 8
-  store i64 %25, ptr %ref.tmp.i.i32.sroa.5.0.serialize_func_.i.sroa_idx, align 8
+  %ref.tmp.i.i32.sroa.4.0.serialize_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
+  %25 = load i64, ptr %ref.tmp.i.i32.sroa.4, align 8
+  store i64 %25, ptr %ref.tmp.i.i32.sroa.4.0.serialize_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i47 = getelementptr inbounds nuw i8, ptr %agg.result, i64 56
   store ptr %24, ptr %_M_manager3.i.i.i47, align 8
   %_M_invoker4.i2.i.i48 = getelementptr inbounds nuw i8, ptr %agg.result, i64 64
   store ptr %23, ptr %_M_invoker4.i2.i.i48, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i32.sroa.5)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i32.sroa.4)
   %tobool.not.i.i55 = icmp eq ptr %24, null
   br i1 %tobool.not.i.i55, label %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EED2Ev.exit, label %if.then.i.i56
 
@@ -12148,8 +12148,8 @@ if.then.i.i.i78:                                  ; preds = %call.i.i2.i.noexc69
   store ptr %call.i.i2.i70, ptr %ref.tmp16, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EZNS0_14OptionTypeInfo6VectorISt10shared_ptrINS0_31TablePropertiesCollectorFactoryEEEESG_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKSG_cEUlS3_SB_SD_SD_SE_E_E9_M_invokeERKSt9_Any_dataS3_SB_OSD_SU_OSE_, ptr %_M_invoker.i68, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EZNS0_14OptionTypeInfo6VectorISt10shared_ptrINS0_31TablePropertiesCollectorFactoryEEEESG_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKSG_cEUlS3_SB_SD_SD_SE_E_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation, ptr %_M_manager.i.i60, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i73.sroa.5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i73.sroa.5, i8 0, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i73.sroa.4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i73.sroa.4, i8 0, i64 24, i1 false)
   %call.i.i.i.i128130 = invoke noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #31
           to label %call.i.i.i.i128.noexc unwind label %lpad21.body.thread
 
@@ -12167,14 +12167,14 @@ invoke.cont22:                                    ; preds = %call.i.i.i.i128.noe
   %32 = load ptr, ptr %_M_invoker.i68, align 8
   %33 = load ptr, ptr %_M_manager.i.i60, align 8
   store ptr %call.i.i.i.i128130, ptr %equals_func_.i, align 8
-  %ref.tmp.i.i73.sroa.5.0.equals_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 80
-  %34 = load i64, ptr %ref.tmp.i.i73.sroa.5, align 8
-  store i64 %34, ptr %ref.tmp.i.i73.sroa.5.0.equals_func_.i.sroa_idx, align 8
+  %ref.tmp.i.i73.sroa.4.0.equals_func_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 80
+  %34 = load i64, ptr %ref.tmp.i.i73.sroa.4, align 8
+  store i64 %34, ptr %ref.tmp.i.i73.sroa.4.0.equals_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i88 = getelementptr inbounds nuw i8, ptr %agg.result, i64 88
   store ptr %33, ptr %_M_manager3.i.i.i88, align 8
   %_M_invoker4.i2.i.i89 = getelementptr inbounds nuw i8, ptr %agg.result, i64 96
   store ptr %32, ptr %_M_invoker4.i2.i.i89, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i73.sroa.5)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i73.sroa.4)
   %tobool.not.i.i96 = icmp eq ptr %33, null
   br i1 %tobool.not.i.i96, label %_ZNSt8functionIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EED2Ev.exit, label %if.then.i.i97
 

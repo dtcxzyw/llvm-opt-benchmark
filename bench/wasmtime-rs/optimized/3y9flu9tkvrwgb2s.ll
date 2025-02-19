@@ -180,7 +180,7 @@ define align 16 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17hce2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define noundef nonnull align 16 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc0c197152f0a65bbE"(ptr align 8 %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define nonnull align 16 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc0c197152f0a65bbE"(ptr align 8 %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca {}, align 1
   %3 = alloca ptr, align 8
   %4 = getelementptr i8, ptr %0, i64 8
@@ -206,24 +206,23 @@ define noundef nonnull align 16 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u
   %10 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$core..mem..maybe_uninit..MaybeUninit$LT$cranelift_isle..ast..Pattern$GT$$GT$$GT$17h0ce6b159290e890eE"(ptr nonnull align 8 %3) #6
-          to label %15 unwind label %13
+          to label %14 unwind label %12
 
 11:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17he66b11159ca5f9b7E.exit"
-  %12 = load ptr, ptr %3, align 8, !nonnull !3, !align !4, !noundef !3
-  ret ptr %12
+  ret ptr %6
 
-13:                                               ; preds = %9
-  %14 = landingpad { ptr, i32 }
+12:                                               ; preds = %9
+  %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #7
   unreachable
 
-15:                                               ; preds = %9
+14:                                               ; preds = %9
   resume { ptr, i32 } %10
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define noundef nonnull align 16 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfa34dbc79485af90E"(ptr align 8 %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define nonnull align 16 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfa34dbc79485af90E"(ptr align 8 %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca {}, align 1
   %3 = alloca ptr, align 8
   %4 = getelementptr i8, ptr %0, i64 8
@@ -249,19 +248,18 @@ define noundef nonnull align 16 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u
   %10 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr115drop_in_place$LT$alloc..boxed..Box$LT$core..mem..maybe_uninit..MaybeUninit$LT$cranelift_isle..ast..Expr$GT$$GT$$GT$17ha608a13accf90229E"(ptr nonnull align 8 %3) #6
-          to label %15 unwind label %13
+          to label %14 unwind label %12
 
 11:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h24b1018aced40b86E.exit"
-  %12 = load ptr, ptr %3, align 8, !nonnull !3, !align !4, !noundef !3
-  ret ptr %12
+  ret ptr %6
 
-13:                                               ; preds = %9
-  %14 = landingpad { ptr, i32 }
+12:                                               ; preds = %9
+  %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #7
   unreachable
 
-15:                                               ; preds = %9
+14:                                               ; preds = %9
   resume { ptr, i32 } %10
 }
 

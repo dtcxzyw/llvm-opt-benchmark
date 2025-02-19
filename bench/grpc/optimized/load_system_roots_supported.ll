@@ -449,7 +449,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #20
+  call void @__clang_call_terminate(ptr %7) #20, !noalias !7
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i:         ; preds = %.noexc4

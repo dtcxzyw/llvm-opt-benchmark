@@ -424,7 +424,6 @@ if.end:                                           ; preds = %invoke.cont21, %if.
   %args31 = getelementptr inbounds nuw i8, ptr %args, i64 64
   call void @_ZN9grpc_core18ChildPolicyHandler17CreateChildPolicyESt17basic_string_viewIcSt11char_traitsIcEERKNS_11ChannelArgsE(ptr nonnull sret(%"class.std::unique_ptr.5") align 8 %ref.tmp25, ptr noundef nonnull align 8 dereferenceable(96) %this, i64 %27, ptr %28, ptr noundef nonnull align 8 dereferenceable(8) %args31)
   %29 = load ptr, ptr %ref.tmp25, align 8
-  store ptr null, ptr %ref.tmp25, align 8
   %30 = load ptr, ptr %cond-lvalue, align 8
   store ptr %29, ptr %cond-lvalue, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %30, null

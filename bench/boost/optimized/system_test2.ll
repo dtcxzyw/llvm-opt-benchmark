@@ -61003,7 +61003,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36
   %478 = landingpad { ptr, i32 }
           catch ptr null
   %479 = extractvalue { ptr, i32 } %478, 0
-  call void @__clang_call_terminate(ptr %479) #62
+  call void @__clang_call_terminate(ptr %479) #62, !noalias !1117
   unreachable
 
 480:                                              ; preds = %"_ZNK5boost3nfp23named_parameter_combineINS0_15named_parameterIKZNS_9unit_test14runtime_config12_GLOBAL__N_119register_parametersERNS_7runtime16parameters_storeEE3$_0NS6_12_GLOBAL__N_110callback_tERSA_EENS1_INS2_IKNS3_13basic_cstringIKcEENSB_9env_var_tERSI_EENS2_ISI_NSB_13description_tESK_EEEEEixENS0_7keywordISC_Lb0EEE.exit.i.i.i.i"
@@ -94544,7 +94544,7 @@ define linkonce_odr hidden void @_ZN5boost4bindIvNS_9unit_test17test_unit_fixtur
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #62
+  tail call void @__clang_call_terminate(ptr %31) #62, !noalias !1796
   unreachable
 
 32:                                               ; preds = %25, %.noexc.i.i.i.i.i.i, %8
@@ -94576,7 +94576,7 @@ define linkonce_odr hidden void @_ZN5boost4bindIvNS_9unit_test17test_unit_fixtur
   %47 = landingpad { ptr, i32 }
           catch ptr null
   %48 = extractvalue { ptr, i32 } %47, 0
-  tail call void @__clang_call_terminate(ptr %48) #62
+  tail call void @__clang_call_terminate(ptr %48) #62, !noalias !1796
   unreachable
 
 _ZN5boost4bindINS_4_mfi2mfIMNS_9unit_test17test_unit_fixtureEFvvEvS4_JEEEJNS_10shared_ptrIS4_EEEEENS_3_bi6bind_tINSA_11unspecifiedET_NSA_7list_avIJDpT0_EE4typeEEESD_SG_.exit: ; preds = %4
@@ -177679,11 +177679,9 @@ define linkonce_odr hidden void @_ZN5boost4asio6detail14signal_handlerIZNS_7proc
   %7 = alloca %"class.boost::asio::detail::binder2.1520", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #61
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store ptr %8, ptr %5, align 8, !tbaa !3664
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %9, align 8, !tbaa !3666
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %1, ptr %10, align 8, !tbaa !3667
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #61
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %12 = load ptr, ptr %11, align 8, !tbaa !2961
@@ -184397,11 +184395,9 @@ define linkonce_odr hidden void @_ZN5boost4asio6detail18descriptor_read_opINS0_1
   tail call void @llvm.assume(i1 %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #61
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store ptr %9, ptr %5, align 8, !tbaa !3803
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %10, align 8, !tbaa !3805
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %1, ptr %11, align 8, !tbaa !3810
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #61
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %13 = load ptr, ptr %12, align 8, !tbaa !2961

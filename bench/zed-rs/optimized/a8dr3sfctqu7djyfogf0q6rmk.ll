@@ -1633,8 +1633,8 @@ define hidden void @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$a
 
 29:                                               ; preds = %9
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %31 = load ptr, ptr %30, align 8, !nonnull !17, !noundef !17
-  tail call void %31(ptr noundef %17)
+  %31 = load ptr, ptr %30, align 8, !noalias !362, !nonnull !17, !noundef !17
+  tail call void %31(ptr noundef %17), !noalias !362
   br label %37
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hf700ff2c3aa08c92E.exit.i": ; preds = %25, %23

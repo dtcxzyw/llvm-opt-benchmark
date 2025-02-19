@@ -11427,7 +11427,7 @@ _ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i: ; preds = %_ZNK
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  call void @__clang_call_terminate(ptr %47) #34
+  call void @__clang_call_terminate(ptr %47) #34, !noalias !193
   unreachable
 
 _ZN7testing8internal11MatcherBaseIdED2Ev.exit.sink.split.i: ; preds = %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i.i.i.i, %.noexc
@@ -12315,7 +12315,7 @@ _ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i: ; preds = %_ZNK
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  call void @__clang_call_terminate(ptr %47) #34
+  call void @__clang_call_terminate(ptr %47) #34, !noalias !230
   unreachable
 
 _ZN7testing8internal11MatcherBaseIdED2Ev.exit.sink.split.i: ; preds = %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i.i.i.i, %.noexc
@@ -13203,7 +13203,7 @@ _ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i: ; preds = %_ZNK
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  call void @__clang_call_terminate(ptr %47) #34
+  call void @__clang_call_terminate(ptr %47) #34, !noalias !267
   unreachable
 
 _ZN7testing8internal11MatcherBaseIdED2Ev.exit.sink.split.i: ; preds = %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i.i.i.i, %.noexc
@@ -17503,7 +17503,7 @@ _ZNK7testing8internal11MatcherBaseIiE8IsSharedEv.exit.i.i.i.i.i: ; preds = %_ZNK
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #34
+  tail call void @__clang_call_terminate(ptr %35) #34, !noalias !391
   unreachable
 
 _ZNSt10_Head_baseILm0EN7testing7MatcherIiEELb0EED2Ev.exit.i.i.sink.split: ; preds = %_ZNSt11_Tuple_implILm1EJN7testing7MatcherIiEEEEC2ERKS3_.exit.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIiE8IsSharedEv.exit.i.i.i.i.i.i.i
@@ -17533,7 +17533,7 @@ _ZNK7testing8internal11MatcherBaseIiE8IsSharedEv.exit.i.i.i2.i.i: ; preds = %_ZN
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  tail call void @__clang_call_terminate(ptr %45) #34
+  tail call void @__clang_call_terminate(ptr %45) #34, !noalias !391
   unreachable
 
 _ZN7testing8internal11MatcherBaseIiED2Ev.exit7:   ; preds = %41, %38, %_ZNK7testing8internal11MatcherBaseIiE8IsSharedEv.exit.i.i.i2.i.i, %_ZNSt10_Head_baseILm0EN7testing7MatcherIiEELb0EED2Ev.exit.i.i
@@ -27243,7 +27243,7 @@ _ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i: ; preds = %_ZNK
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #34
+  tail call void @__clang_call_terminate(ptr %35) #34, !noalias !724
   unreachable
 
 _ZNSt10_Head_baseILm0EN7testing7MatcherIdEELb0EED2Ev.exit.i.i.sink.split: ; preds = %_ZNSt11_Tuple_implILm1EJN7testing7MatcherIdEEEEC2ERKS3_.exit.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i.i.i
@@ -27273,7 +27273,7 @@ _ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i2.i.i: ; preds = %_ZN
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  tail call void @__clang_call_terminate(ptr %45) #34
+  tail call void @__clang_call_terminate(ptr %45) #34, !noalias !724
   unreachable
 
 _ZN7testing8internal11MatcherBaseIdED2Ev.exit7:   ; preds = %41, %38, %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i2.i.i, %_ZNSt10_Head_baseILm0EN7testing7MatcherIdEELb0EED2Ev.exit.i.i
@@ -114991,7 +114991,7 @@ _ZNK7testing8internal11MatcherBaseImE8IsSharedEv.exit.i.i.i.i.i: ; preds = %_ZNK
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #34
+  tail call void @__clang_call_terminate(ptr %35) #34, !noalias !2043
   unreachable
 
 _ZNSt10_Head_baseILm0EN7testing7MatcherImEELb0EED2Ev.exit.i.i.sink.split: ; preds = %_ZNSt11_Tuple_implILm1EJN7testing7MatcherImEEEEC2ERKS3_.exit.i.i.i.i, %_ZNK7testing8internal11MatcherBaseImE8IsSharedEv.exit.i.i.i.i.i.i.i
@@ -115021,7 +115021,7 @@ _ZNK7testing8internal11MatcherBaseImE8IsSharedEv.exit.i.i.i2.i.i: ; preds = %_ZN
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  tail call void @__clang_call_terminate(ptr %45) #34
+  tail call void @__clang_call_terminate(ptr %45) #34, !noalias !2043
   unreachable
 
 _ZN7testing8internal11MatcherBaseImED2Ev.exit7:   ; preds = %41, %38, %_ZNK7testing8internal11MatcherBaseImE8IsSharedEv.exit.i.i.i2.i.i, %_ZNSt10_Head_baseILm0EN7testing7MatcherImEELb0EED2Ev.exit.i.i
@@ -123388,7 +123388,7 @@ _ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i: ; preds = %_ZNK
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #34
+  tail call void @__clang_call_terminate(ptr %31) #34, !noalias !2176
   unreachable
 
 _ZN7testing8internal11MatcherBaseIdED2Ev.exit.sink.split.i: ; preds = %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i.i.i.i, %.noexc
@@ -123556,7 +123556,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(72) ptr @_
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #34
+  call void @__clang_call_terminate(ptr %15) #34, !noalias !2177
   unreachable
 
 16:                                               ; preds = %7
@@ -123690,7 +123690,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(72) ptr @_
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #34
+  call void @__clang_call_terminate(ptr %15) #34, !noalias !2180
   unreachable
 
 16:                                               ; preds = %7
@@ -125001,7 +125001,7 @@ _ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i: ; preds = %_ZNK
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #34
+  tail call void @__clang_call_terminate(ptr %31) #34, !noalias !2193
   unreachable
 
 _ZN7testing8internal11MatcherBaseIdED2Ev.exit.sink.split.i: ; preds = %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i.i.i.i, %.noexc
@@ -125167,7 +125167,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(72) ptr @_
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #34
+  call void @__clang_call_terminate(ptr %15) #34, !noalias !2194
   unreachable
 
 16:                                               ; preds = %7
@@ -125301,7 +125301,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(72) ptr @_
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #34
+  call void @__clang_call_terminate(ptr %15) #34, !noalias !2197
   unreachable
 
 16:                                               ; preds = %7
@@ -126593,7 +126593,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(72) ptr @_
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #34
+  call void @__clang_call_terminate(ptr %15) #34, !noalias !2208
   unreachable
 
 16:                                               ; preds = %7

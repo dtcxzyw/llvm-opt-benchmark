@@ -623,7 +623,7 @@ _ZN4llvm17PreservedAnalysesD2Ev.exit:             ; preds = %_ZN4llvm19SmallPtrS
   %266 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(136) %85) #10, !noalias !103
   %267 = extractvalue { ptr, i64 } %266, 0
   %268 = extractvalue { ptr, i64 } %266, 1
-  call void @_ZN4llvm8demangleB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, i64 %268, ptr %267) #10
+  call void @_ZN4llvm8demangleB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, i64 %268, ptr %267) #10, !noalias !103
   %269 = load ptr, ptr %10, align 8, !tbaa !106, !noalias !103
   %270 = load i64, ptr %56, align 8, !tbaa !110, !noalias !103
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #10, !noalias !103

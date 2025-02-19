@@ -6013,7 +6013,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
 148:                                              ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17he7d8f3d7e55a023bE.exit.i.i"
   %149 = landingpad { ptr, i32 }
           cleanup
-  call void @__rust_dealloc(ptr noundef nonnull %145, i64 noundef 3616, i64 noundef 8) #26
+  call void @__rust_dealloc(ptr noundef nonnull %145, i64 noundef 3616, i64 noundef 8) #26, !noalias !1434
   br label %.body43.i
 
 150:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2123ab90478238d3E.exit.i"
@@ -6049,9 +6049,9 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
 
 156:                                              ; preds = %153
   %157 = getelementptr inbounds nuw i8, ptr %145, i64 3544
-  store i32 1, ptr %157, align 8, !alias.scope !1456
+  store i32 1, ptr %157, align 8, !alias.scope !1456, !noalias !1434
   %158 = getelementptr inbounds nuw i8, ptr %145, i64 3548
-  store float %154, ptr %158, align 4, !alias.scope !1456
+  store float %154, ptr %158, align 4, !alias.scope !1456, !noalias !1434
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %28), !noalias !1417
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %27), !noalias !1417
   invoke void @"_ZN5theme8settings1_89_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$theme..settings..ThemeSettingsContent$GT$9serialize17h55ea1ea337754238E.llvm.13344647550164899859"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(3616) %.sroa.01.0.i)
@@ -6095,7 +6095,7 @@ _ZN10serde_json5value8to_value17h2b8075ccf5c453c5E.exit.i: ; preds = %156
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !1417
   store ptr %145, ptr %10, align 8, !noalias !1474
   invoke void @"_ZN5theme8settings1_89_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$theme..settings..ThemeSettingsContent$GT$9serialize17h55ea1ea337754238E.llvm.13344647550164899859"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(3616) %145)
-          to label %"_ZN5serde3ser5impls78_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..boxed..Box$LT$T$GT$$GT$9serialize17he5aa2522c8ac9a20E.llvm.13344647550164899859.exit.i.i" unwind label %170
+          to label %"_ZN5serde3ser5impls78_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..boxed..Box$LT$T$GT$$GT$9serialize17he5aa2522c8ac9a20E.llvm.13344647550164899859.exit.i.i" unwind label %170, !noalias !1434
 
 170:                                              ; preds = %169
   %171 = landingpad { ptr, i32 }
@@ -6330,7 +6330,7 @@ _ZN10serde_json5value8to_value17h2b8075ccf5c453c5E.exit.i: ; preds = %156
 .thread13.i:                                      ; preds = %164, %.thread17.i
   %eh.lpad-body3216.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.thread17.i ], [ %165, %164 ]
   invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$theme..settings..ThemeSettingsContent$GT$$GT$17h8344117b3b4d8e56E"(ptr %145) #24
-          to label %.body43.i unwind label %234
+          to label %.body43.i unwind label %234, !noalias !1434
 
 236:                                              ; preds = %.body.i
   invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$settings..settings_store..DeserializedSetting$C$anyhow..Error$GT$$GT$17h1087a3e7eaeab3e2E"(ptr noalias noundef align 8 dereferenceable(16) %29) #24
@@ -6838,7 +6838,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
 152:                                              ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17he7d8f3d7e55a023bE.exit.i.i"
   %153 = landingpad { ptr, i32 }
           cleanup
-  call void @__rust_dealloc(ptr noundef nonnull %149, i64 noundef 3616, i64 noundef 8) #26
+  call void @__rust_dealloc(ptr noundef nonnull %149, i64 noundef 3616, i64 noundef 8) #26, !noalias !1603
   br label %.body46.i
 
 154:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2123ab90478238d3E.exit.i"
@@ -6883,7 +6883,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !1653
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 24, i1 false), !noalias !1639
   invoke void @_ZN5theme8settings20ThemeSettingsContent9set_theme17hb7ac08133990377eE(ptr noalias noundef nonnull align 8 dereferenceable(3616) %149, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10, i1 noundef zeroext %158)
-          to label %164 unwind label %.thread97.i
+          to label %164 unwind label %.thread97.i, !noalias !1603
 
 .thread97.i:                                      ; preds = %164, %"_ZN8settings24editable_setting_control22EditableSettingControl5write28_$u7b$$u7b$closure$u7d$$u7d$17h4d43b142e8d2eb55E.exit.i.i"
   %lpad.thr_comm95.i = landingpad { ptr, i32 }
@@ -6941,7 +6941,7 @@ _ZN10serde_json5value8to_value17h2b8075ccf5c453c5E.exit.i: ; preds = %164
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !1602
   store ptr %149, ptr %9, align 8, !noalias !1666
   invoke void @"_ZN5theme8settings1_89_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$theme..settings..ThemeSettingsContent$GT$9serialize17h55ea1ea337754238E.llvm.13344647550164899859"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(3616) %149)
-          to label %"_ZN5serde3ser5impls78_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..boxed..Box$LT$T$GT$$GT$9serialize17he5aa2522c8ac9a20E.llvm.13344647550164899859.exit.i.i" unwind label %176
+          to label %"_ZN5serde3ser5impls78_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..boxed..Box$LT$T$GT$$GT$9serialize17he5aa2522c8ac9a20E.llvm.13344647550164899859.exit.i.i" unwind label %176, !noalias !1603
 
 176:                                              ; preds = %175
   %177 = landingpad { ptr, i32 }
@@ -7176,7 +7176,7 @@ _ZN10serde_json5value8to_value17h2b8075ccf5c453c5E.exit.i: ; preds = %164
 .thread86.i:                                      ; preds = %170, %.thread97.i, %159
   %eh.lpad-body3289.i = phi { ptr, i32 } [ %lpad.thr_comm95.i, %.thread97.i ], [ %171, %170 ], [ %160, %159 ]
   invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$theme..settings..ThemeSettingsContent$GT$$GT$17h8344117b3b4d8e56E"(ptr %149) #24
-          to label %.body46.i unwind label %240
+          to label %.body46.i unwind label %240, !noalias !1603
 
 242:                                              ; preds = %.body.i
   invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$settings..settings_store..DeserializedSetting$C$anyhow..Error$GT$$GT$17h1087a3e7eaeab3e2E"(ptr noalias noundef align 8 dereferenceable(16) %30) #24
@@ -7677,7 +7677,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
 148:                                              ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17he7d8f3d7e55a023bE.exit.i.i"
   %149 = landingpad { ptr, i32 }
           cleanup
-  call void @__rust_dealloc(ptr noundef nonnull %145, i64 noundef 3616, i64 noundef 8) #26
+  call void @__rust_dealloc(ptr noundef nonnull %145, i64 noundef 3616, i64 noundef 8) #26, !noalias !1809
   br label %.body43.i
 
 150:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2123ab90478238d3E.exit.i"
@@ -7699,7 +7699,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3616) %145, ptr noundef nonnull align 8 dereferenceable(3616) %11, i64 3616, i1 false), !noalias !1828
   call void @llvm.lifetime.end.p0(i64 3616, ptr nonnull %11), !noalias !1793
   invoke void @_ZN5theme8settings20ThemeSettingsContent8set_mode17h83e4aeea9350265aE(ptr noalias noundef nonnull align 8 dereferenceable(3616) %145, i8 noundef %4)
-          to label %"_ZN8settings14settings_store13SettingsStore20update_settings_file28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hde7a388fde7c1eafE.exit.i" unwind label %.thread17.i
+          to label %"_ZN8settings14settings_store13SettingsStore20update_settings_file28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hde7a388fde7c1eafE.exit.i" unwind label %.thread17.i, !noalias !1809
 
 .thread17.i:                                      ; preds = %"_ZN8settings14settings_store13SettingsStore20update_settings_file28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hde7a388fde7c1eafE.exit.i", %153
   %lpad.thr_comm.i = landingpad { ptr, i32 }
@@ -7755,7 +7755,7 @@ _ZN10serde_json5value8to_value17h2b8075ccf5c453c5E.exit.i: ; preds = %"_ZN8setti
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !1793
   store ptr %145, ptr %10, align 8, !noalias !1842
   invoke void @"_ZN5theme8settings1_89_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$theme..settings..ThemeSettingsContent$GT$9serialize17h55ea1ea337754238E.llvm.13344647550164899859"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(3616) %145)
-          to label %"_ZN5serde3ser5impls78_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..boxed..Box$LT$T$GT$$GT$9serialize17he5aa2522c8ac9a20E.llvm.13344647550164899859.exit.i.i" unwind label %166
+          to label %"_ZN5serde3ser5impls78_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..boxed..Box$LT$T$GT$$GT$9serialize17he5aa2522c8ac9a20E.llvm.13344647550164899859.exit.i.i" unwind label %166, !noalias !1809
 
 166:                                              ; preds = %165
   %167 = landingpad { ptr, i32 }
@@ -7990,7 +7990,7 @@ _ZN10serde_json5value8to_value17h2b8075ccf5c453c5E.exit.i: ; preds = %"_ZN8setti
 .thread13.i:                                      ; preds = %160, %.thread17.i
   %eh.lpad-body3216.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.thread17.i ], [ %161, %160 ]
   invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$theme..settings..ThemeSettingsContent$GT$$GT$17h8344117b3b4d8e56E"(ptr %145) #24
-          to label %.body43.i unwind label %230
+          to label %.body43.i unwind label %230, !noalias !1809
 
 232:                                              ; preds = %.body.i
   invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$settings..settings_store..DeserializedSetting$C$anyhow..Error$GT$$GT$17h1087a3e7eaeab3e2E"(ptr noalias noundef align 8 dereferenceable(16) %29) #24
@@ -8486,7 +8486,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
 148:                                              ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17he7d8f3d7e55a023bE.exit.i.i"
   %149 = landingpad { ptr, i32 }
           cleanup
-  call void @__rust_dealloc(ptr noundef nonnull %145, i64 noundef 3616, i64 noundef 8) #26
+  call void @__rust_dealloc(ptr noundef nonnull %145, i64 noundef 3616, i64 noundef 8) #26, !noalias !1985
   br label %.body43.i
 
 150:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2123ab90478238d3E.exit.i"
@@ -8508,7 +8508,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3616) %145, ptr noundef nonnull align 8 dereferenceable(3616) %11, i64 3616, i1 false), !noalias !2004
   call void @llvm.lifetime.end.p0(i64 3616, ptr nonnull %11), !noalias !1969
   invoke void @"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigaturesControl$u20$as$u20$settings..editable_setting_control..EditableSettingControl$GT$5apply17h3564cac08f858b7aE"(ptr noalias noundef nonnull align 8 dereferenceable(3616) %145, i1 noundef zeroext %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %3)
-          to label %"_ZN8settings14settings_store13SettingsStore20update_settings_file28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h126f710214c8a176E.exit.i" unwind label %.thread76.i
+          to label %"_ZN8settings14settings_store13SettingsStore20update_settings_file28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h126f710214c8a176E.exit.i" unwind label %.thread76.i, !noalias !1985
 
 .thread76.i:                                      ; preds = %"_ZN8settings14settings_store13SettingsStore20update_settings_file28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h126f710214c8a176E.exit.i", %153
   %lpad.thr_comm.i = landingpad { ptr, i32 }
@@ -8564,7 +8564,7 @@ _ZN10serde_json5value8to_value17h2b8075ccf5c453c5E.exit.i: ; preds = %"_ZN8setti
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !1969
   store ptr %145, ptr %10, align 8, !noalias !2018
   invoke void @"_ZN5theme8settings1_89_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$theme..settings..ThemeSettingsContent$GT$9serialize17h55ea1ea337754238E.llvm.13344647550164899859"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(3616) %145)
-          to label %"_ZN5serde3ser5impls78_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..boxed..Box$LT$T$GT$$GT$9serialize17he5aa2522c8ac9a20E.llvm.13344647550164899859.exit.i.i" unwind label %166
+          to label %"_ZN5serde3ser5impls78_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..boxed..Box$LT$T$GT$$GT$9serialize17he5aa2522c8ac9a20E.llvm.13344647550164899859.exit.i.i" unwind label %166, !noalias !1985
 
 166:                                              ; preds = %165
   %167 = landingpad { ptr, i32 }
@@ -8799,7 +8799,7 @@ _ZN10serde_json5value8to_value17h2b8075ccf5c453c5E.exit.i: ; preds = %"_ZN8setti
 .thread72.i:                                      ; preds = %160, %.thread76.i
   %eh.lpad-body3275.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.thread76.i ], [ %161, %160 ]
   invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$theme..settings..ThemeSettingsContent$GT$$GT$17h8344117b3b4d8e56E"(ptr %145) #24
-          to label %.body43.i unwind label %230
+          to label %.body43.i unwind label %230, !noalias !1985
 
 232:                                              ; preds = %.body.i
   invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$settings..settings_store..DeserializedSetting$C$anyhow..Error$GT$$GT$17h1087a3e7eaeab3e2E"(ptr noalias noundef align 8 dereferenceable(16) %29) #24
@@ -9295,7 +9295,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
 148:                                              ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17he7d8f3d7e55a023bE.exit.i.i"
   %149 = landingpad { ptr, i32 }
           cleanup
-  call void @__rust_dealloc(ptr noundef nonnull %145, i64 noundef 3616, i64 noundef 8) #26
+  call void @__rust_dealloc(ptr noundef nonnull %145, i64 noundef 3616, i64 noundef 8) #26, !noalias !2160
   br label %.body43.i
 
 150:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2123ab90478238d3E.exit.i"
@@ -9322,9 +9322,9 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3616) %145, ptr noundef nonnull align 8 dereferenceable(3616) %11, i64 3616, i1 false), !noalias !2179
   call void @llvm.lifetime.end.p0(i64 3616, ptr nonnull %11), !noalias !2144
   %156 = getelementptr inbounds nuw i8, ptr %145, i64 3552
-  store i32 1, ptr %156, align 8, !alias.scope !2182
+  store i32 1, ptr %156, align 8, !alias.scope !2182, !noalias !2160
   %157 = getelementptr inbounds nuw i8, ptr %145, i64 3556
-  store float %4, ptr %157, align 4, !alias.scope !2182
+  store float %4, ptr %157, align 4, !alias.scope !2182, !noalias !2160
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %28), !noalias !2144
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %27), !noalias !2144
   invoke void @"_ZN5theme8settings1_89_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$theme..settings..ThemeSettingsContent$GT$9serialize17h55ea1ea337754238E.llvm.13344647550164899859"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(3616) %.sroa.01.0.i)
@@ -9373,7 +9373,7 @@ _ZN10serde_json5value8to_value17h2b8075ccf5c453c5E.exit.i: ; preds = %155
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !2144
   store ptr %145, ptr %10, align 8, !noalias !2200
   invoke void @"_ZN5theme8settings1_89_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$theme..settings..ThemeSettingsContent$GT$9serialize17h55ea1ea337754238E.llvm.13344647550164899859"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(3616) %145)
-          to label %"_ZN5serde3ser5impls78_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..boxed..Box$LT$T$GT$$GT$9serialize17he5aa2522c8ac9a20E.llvm.13344647550164899859.exit.i.i" unwind label %170
+          to label %"_ZN5serde3ser5impls78_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..boxed..Box$LT$T$GT$$GT$9serialize17he5aa2522c8ac9a20E.llvm.13344647550164899859.exit.i.i" unwind label %170, !noalias !2160
 
 170:                                              ; preds = %169
   %171 = landingpad { ptr, i32 }
@@ -9608,7 +9608,7 @@ _ZN10serde_json5value8to_value17h2b8075ccf5c453c5E.exit.i: ; preds = %155
 .thread13.i:                                      ; preds = %164, %.thread17.i
   %eh.lpad-body3216.i = phi { ptr, i32 } [ %158, %.thread17.i ], [ %165, %164 ]
   invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$theme..settings..ThemeSettingsContent$GT$$GT$17h8344117b3b4d8e56E"(ptr %145) #24
-          to label %.body43.i unwind label %234
+          to label %.body43.i unwind label %234, !noalias !2160
 
 236:                                              ; preds = %.body.i
   invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$settings..settings_store..DeserializedSetting$C$anyhow..Error$GT$$GT$17h1087a3e7eaeab3e2E"(ptr noalias noundef align 8 dereferenceable(16) %29) #24
@@ -10115,7 +10115,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
 151:                                              ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17he7d8f3d7e55a023bE.exit.i.i"
   %152 = landingpad { ptr, i32 }
           cleanup
-  call void @__rust_dealloc(ptr noundef nonnull %148, i64 noundef 3616, i64 noundef 8) #26
+  call void @__rust_dealloc(ptr noundef nonnull %148, i64 noundef 3616, i64 noundef 8) #26, !noalias !2329
   br label %.body46.i
 
 153:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2123ab90478238d3E.exit.i"
@@ -10142,7 +10142,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
   %.sroa.470.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.470.0.copyload.i = load ptr, ptr %.sroa.470.0..sroa_idx.i, align 8, !alias.scope !2289, !noalias !2373, !nonnull !5, !noundef !5
   invoke void @"_ZN141_$LT$settings_ui..appearance_settings_controls..UiFontFamilyControl$u20$as$u20$settings..editable_setting_control..EditableSettingControl$GT$5apply17hc3b3e2703ad3afbfE"(ptr noalias noundef nonnull align 8 dereferenceable(3616) %148, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %.sroa.470.0.copyload.i)
-          to label %158 unwind label %.thread92.i
+          to label %158 unwind label %.thread92.i, !noalias !2329
 
 .thread92.i:                                      ; preds = %158, %156
   %lpad.thr_comm90.i = landingpad { ptr, i32 }
@@ -10199,7 +10199,7 @@ _ZN10serde_json5value8to_value17h2b8075ccf5c453c5E.exit.i: ; preds = %158
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !2328
   store ptr %148, ptr %9, align 8, !noalias !2385
   invoke void @"_ZN5theme8settings1_89_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$theme..settings..ThemeSettingsContent$GT$9serialize17h55ea1ea337754238E.llvm.13344647550164899859"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(3616) %148)
-          to label %"_ZN5serde3ser5impls78_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..boxed..Box$LT$T$GT$$GT$9serialize17he5aa2522c8ac9a20E.llvm.13344647550164899859.exit.i.i" unwind label %170
+          to label %"_ZN5serde3ser5impls78_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..boxed..Box$LT$T$GT$$GT$9serialize17he5aa2522c8ac9a20E.llvm.13344647550164899859.exit.i.i" unwind label %170, !noalias !2329
 
 170:                                              ; preds = %169
   %171 = landingpad { ptr, i32 }
@@ -10434,7 +10434,7 @@ _ZN10serde_json5value8to_value17h2b8075ccf5c453c5E.exit.i: ; preds = %158
 .thread84.i:                                      ; preds = %164, %.thread92.i
   %eh.lpad-body3287.i = phi { ptr, i32 } [ %lpad.thr_comm90.i, %.thread92.i ], [ %165, %164 ]
   invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$theme..settings..ThemeSettingsContent$GT$$GT$17h8344117b3b4d8e56E"(ptr %148) #24
-          to label %.body46.i unwind label %234
+          to label %.body46.i unwind label %234, !noalias !2329
 
 236:                                              ; preds = %.body.i
   invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$settings..settings_store..DeserializedSetting$C$anyhow..Error$GT$$GT$17h1087a3e7eaeab3e2E"(ptr noalias noundef align 8 dereferenceable(16) %29) #24
@@ -20771,7 +20771,7 @@ attributes #27 = { "function-inline-cost-multiplier"="2" }
 !1450 = distinct !{!1450, !1451, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hecf7a8e7acafad23E: argument 0"}
 !1451 = distinct !{!1451, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hecf7a8e7acafad23E"}
 !1452 = !{!1450, !1386, !1378}
-!1453 = !{!1454}
+!1453 = !{!1454, !1386, !1378}
 !1454 = distinct !{!1454, !1455, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h9121a30975b3b731E: argument 0"}
 !1455 = distinct !{!1455, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h9121a30975b3b731E"}
 !1456 = !{!1457, !1459, !1461}
@@ -20797,13 +20797,13 @@ attributes #27 = { "function-inline-cost-multiplier"="2" }
 !1476 = distinct !{!1476, !"_ZN10serde_json5value8to_value17hac90fc8fb61b164dE"}
 !1477 = distinct !{!1477, !1476, !"_ZN10serde_json5value8to_value17hac90fc8fb61b164dE: argument 1"}
 !1478 = !{!1475, !1386, !1378}
-!1479 = !{!1480, !1475}
+!1479 = !{!1480, !1475, !1386, !1378}
 !1480 = distinct !{!1480, !1481, !"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$theme..settings..ThemeSettingsContent$GT$$GT$17h8344117b3b4d8e56E.llvm.13344647550164899859: argument 0"}
 !1481 = distinct !{!1481, !"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$theme..settings..ThemeSettingsContent$GT$$GT$17h8344117b3b4d8e56E.llvm.13344647550164899859"}
-!1482 = !{!1483, !1480, !1475}
+!1482 = !{!1483, !1480, !1475, !1386, !1378}
 !1483 = distinct !{!1483, !1484, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8aa8c32ea2cec56cE.llvm.13344647550164899859: argument 0"}
 !1484 = distinct !{!1484, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8aa8c32ea2cec56cE.llvm.13344647550164899859"}
-!1485 = !{!1486, !1480, !1475}
+!1485 = !{!1486, !1480, !1475, !1386, !1378}
 !1486 = distinct !{!1486, !1487, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8aa8c32ea2cec56cE.llvm.13344647550164899859: argument 0"}
 !1487 = distinct !{!1487, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8aa8c32ea2cec56cE.llvm.13344647550164899859"}
 !1488 = !{!1489}
@@ -20954,7 +20954,7 @@ attributes #27 = { "function-inline-cost-multiplier"="2" }
 !1633 = distinct !{!1633, !1634, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hecf7a8e7acafad23E: argument 0"}
 !1634 = distinct !{!1634, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hecf7a8e7acafad23E"}
 !1635 = !{!1633, !1571, !1564}
-!1636 = !{!1637}
+!1636 = !{!1637, !1571, !1564}
 !1637 = distinct !{!1637, !1638, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h9121a30975b3b731E: argument 0"}
 !1638 = distinct !{!1638, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h9121a30975b3b731E"}
 !1639 = !{!1571, !1561, !1572}
@@ -20989,13 +20989,13 @@ attributes #27 = { "function-inline-cost-multiplier"="2" }
 !1668 = distinct !{!1668, !"_ZN10serde_json5value8to_value17hac90fc8fb61b164dE"}
 !1669 = distinct !{!1669, !1668, !"_ZN10serde_json5value8to_value17hac90fc8fb61b164dE: argument 1"}
 !1670 = !{!1667, !1571, !1564}
-!1671 = !{!1672, !1667}
+!1671 = !{!1672, !1667, !1571, !1564}
 !1672 = distinct !{!1672, !1673, !"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$theme..settings..ThemeSettingsContent$GT$$GT$17h8344117b3b4d8e56E.llvm.13344647550164899859: argument 0"}
 !1673 = distinct !{!1673, !"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$theme..settings..ThemeSettingsContent$GT$$GT$17h8344117b3b4d8e56E.llvm.13344647550164899859"}
-!1674 = !{!1675, !1672, !1667}
+!1674 = !{!1675, !1672, !1667, !1571, !1564}
 !1675 = distinct !{!1675, !1676, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8aa8c32ea2cec56cE.llvm.13344647550164899859: argument 0"}
 !1676 = distinct !{!1676, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8aa8c32ea2cec56cE.llvm.13344647550164899859"}
-!1677 = !{!1678, !1672, !1667}
+!1677 = !{!1678, !1672, !1667, !1571, !1564}
 !1678 = distinct !{!1678, !1679, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8aa8c32ea2cec56cE.llvm.13344647550164899859: argument 0"}
 !1679 = distinct !{!1679, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8aa8c32ea2cec56cE.llvm.13344647550164899859"}
 !1680 = !{!1681}
@@ -21146,7 +21146,7 @@ attributes #27 = { "function-inline-cost-multiplier"="2" }
 !1825 = distinct !{!1825, !1826, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hecf7a8e7acafad23E: argument 0"}
 !1826 = distinct !{!1826, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hecf7a8e7acafad23E"}
 !1827 = !{!1825, !1762, !1754}
-!1828 = !{!1829}
+!1828 = !{!1829, !1762, !1754}
 !1829 = distinct !{!1829, !1830, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h9121a30975b3b731E: argument 0"}
 !1830 = distinct !{!1830, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h9121a30975b3b731E"}
 !1831 = !{!1832}
@@ -21165,13 +21165,13 @@ attributes #27 = { "function-inline-cost-multiplier"="2" }
 !1844 = distinct !{!1844, !"_ZN10serde_json5value8to_value17hac90fc8fb61b164dE"}
 !1845 = distinct !{!1845, !1844, !"_ZN10serde_json5value8to_value17hac90fc8fb61b164dE: argument 1"}
 !1846 = !{!1843, !1762, !1754}
-!1847 = !{!1848, !1843}
+!1847 = !{!1848, !1843, !1762, !1754}
 !1848 = distinct !{!1848, !1849, !"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$theme..settings..ThemeSettingsContent$GT$$GT$17h8344117b3b4d8e56E.llvm.13344647550164899859: argument 0"}
 !1849 = distinct !{!1849, !"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$theme..settings..ThemeSettingsContent$GT$$GT$17h8344117b3b4d8e56E.llvm.13344647550164899859"}
-!1850 = !{!1851, !1848, !1843}
+!1850 = !{!1851, !1848, !1843, !1762, !1754}
 !1851 = distinct !{!1851, !1852, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8aa8c32ea2cec56cE.llvm.13344647550164899859: argument 0"}
 !1852 = distinct !{!1852, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8aa8c32ea2cec56cE.llvm.13344647550164899859"}
-!1853 = !{!1854, !1848, !1843}
+!1853 = !{!1854, !1848, !1843, !1762, !1754}
 !1854 = distinct !{!1854, !1855, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8aa8c32ea2cec56cE.llvm.13344647550164899859: argument 0"}
 !1855 = distinct !{!1855, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8aa8c32ea2cec56cE.llvm.13344647550164899859"}
 !1856 = !{!1857}
@@ -21322,7 +21322,7 @@ attributes #27 = { "function-inline-cost-multiplier"="2" }
 !2001 = distinct !{!2001, !2002, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hecf7a8e7acafad23E: argument 0"}
 !2002 = distinct !{!2002, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hecf7a8e7acafad23E"}
 !2003 = !{!2001, !1937, !1929}
-!2004 = !{!2005}
+!2004 = !{!2005, !1937, !1929}
 !2005 = distinct !{!2005, !2006, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h9121a30975b3b731E: argument 0"}
 !2006 = distinct !{!2006, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h9121a30975b3b731E"}
 !2007 = !{!2008}
@@ -21341,13 +21341,13 @@ attributes #27 = { "function-inline-cost-multiplier"="2" }
 !2020 = distinct !{!2020, !"_ZN10serde_json5value8to_value17hac90fc8fb61b164dE"}
 !2021 = distinct !{!2021, !2020, !"_ZN10serde_json5value8to_value17hac90fc8fb61b164dE: argument 1"}
 !2022 = !{!2019, !1937, !1929}
-!2023 = !{!2024, !2019}
+!2023 = !{!2024, !2019, !1937, !1929}
 !2024 = distinct !{!2024, !2025, !"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$theme..settings..ThemeSettingsContent$GT$$GT$17h8344117b3b4d8e56E.llvm.13344647550164899859: argument 0"}
 !2025 = distinct !{!2025, !"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$theme..settings..ThemeSettingsContent$GT$$GT$17h8344117b3b4d8e56E.llvm.13344647550164899859"}
-!2026 = !{!2027, !2024, !2019}
+!2026 = !{!2027, !2024, !2019, !1937, !1929}
 !2027 = distinct !{!2027, !2028, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8aa8c32ea2cec56cE.llvm.13344647550164899859: argument 0"}
 !2028 = distinct !{!2028, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8aa8c32ea2cec56cE.llvm.13344647550164899859"}
-!2029 = !{!2030, !2024, !2019}
+!2029 = !{!2030, !2024, !2019, !1937, !1929}
 !2030 = distinct !{!2030, !2031, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8aa8c32ea2cec56cE.llvm.13344647550164899859: argument 0"}
 !2031 = distinct !{!2031, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8aa8c32ea2cec56cE.llvm.13344647550164899859"}
 !2032 = !{!2033}
@@ -21497,7 +21497,7 @@ attributes #27 = { "function-inline-cost-multiplier"="2" }
 !2176 = distinct !{!2176, !2177, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hecf7a8e7acafad23E: argument 0"}
 !2177 = distinct !{!2177, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hecf7a8e7acafad23E"}
 !2178 = !{!2176, !2113, !2105}
-!2179 = !{!2180}
+!2179 = !{!2180, !2113, !2105}
 !2180 = distinct !{!2180, !2181, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h9121a30975b3b731E: argument 0"}
 !2181 = distinct !{!2181, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h9121a30975b3b731E"}
 !2182 = !{!2183, !2185, !2187}
@@ -21523,13 +21523,13 @@ attributes #27 = { "function-inline-cost-multiplier"="2" }
 !2202 = distinct !{!2202, !"_ZN10serde_json5value8to_value17hac90fc8fb61b164dE"}
 !2203 = distinct !{!2203, !2202, !"_ZN10serde_json5value8to_value17hac90fc8fb61b164dE: argument 1"}
 !2204 = !{!2201, !2113, !2105}
-!2205 = !{!2206, !2201}
+!2205 = !{!2206, !2201, !2113, !2105}
 !2206 = distinct !{!2206, !2207, !"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$theme..settings..ThemeSettingsContent$GT$$GT$17h8344117b3b4d8e56E.llvm.13344647550164899859: argument 0"}
 !2207 = distinct !{!2207, !"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$theme..settings..ThemeSettingsContent$GT$$GT$17h8344117b3b4d8e56E.llvm.13344647550164899859"}
-!2208 = !{!2209, !2206, !2201}
+!2208 = !{!2209, !2206, !2201, !2113, !2105}
 !2209 = distinct !{!2209, !2210, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8aa8c32ea2cec56cE.llvm.13344647550164899859: argument 0"}
 !2210 = distinct !{!2210, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8aa8c32ea2cec56cE.llvm.13344647550164899859"}
-!2211 = !{!2212, !2206, !2201}
+!2211 = !{!2212, !2206, !2201, !2113, !2105}
 !2212 = distinct !{!2212, !2213, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8aa8c32ea2cec56cE.llvm.13344647550164899859: argument 0"}
 !2213 = distinct !{!2213, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8aa8c32ea2cec56cE.llvm.13344647550164899859"}
 !2214 = !{!2215}
@@ -21680,7 +21680,7 @@ attributes #27 = { "function-inline-cost-multiplier"="2" }
 !2359 = distinct !{!2359, !2360, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hecf7a8e7acafad23E: argument 0"}
 !2360 = distinct !{!2360, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hecf7a8e7acafad23E"}
 !2361 = !{!2359, !2297, !2290}
-!2362 = !{!2363}
+!2362 = !{!2363, !2297, !2290}
 !2363 = distinct !{!2363, !2364, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h9121a30975b3b731E: argument 0"}
 !2364 = distinct !{!2364, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h9121a30975b3b731E"}
 !2365 = !{!2366, !2368, !2369, !2370, !2372, !2297, !2287, !2298, !2290}
@@ -21708,13 +21708,13 @@ attributes #27 = { "function-inline-cost-multiplier"="2" }
 !2387 = distinct !{!2387, !"_ZN10serde_json5value8to_value17hac90fc8fb61b164dE"}
 !2388 = distinct !{!2388, !2387, !"_ZN10serde_json5value8to_value17hac90fc8fb61b164dE: argument 1"}
 !2389 = !{!2386, !2297, !2290}
-!2390 = !{!2391, !2386}
+!2390 = !{!2391, !2386, !2297, !2290}
 !2391 = distinct !{!2391, !2392, !"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$theme..settings..ThemeSettingsContent$GT$$GT$17h8344117b3b4d8e56E.llvm.13344647550164899859: argument 0"}
 !2392 = distinct !{!2392, !"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$theme..settings..ThemeSettingsContent$GT$$GT$17h8344117b3b4d8e56E.llvm.13344647550164899859"}
-!2393 = !{!2394, !2391, !2386}
+!2393 = !{!2394, !2391, !2386, !2297, !2290}
 !2394 = distinct !{!2394, !2395, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8aa8c32ea2cec56cE.llvm.13344647550164899859: argument 0"}
 !2395 = distinct !{!2395, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8aa8c32ea2cec56cE.llvm.13344647550164899859"}
-!2396 = !{!2397, !2391, !2386}
+!2396 = !{!2397, !2391, !2386, !2297, !2290}
 !2397 = distinct !{!2397, !2398, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8aa8c32ea2cec56cE.llvm.13344647550164899859: argument 0"}
 !2398 = distinct !{!2398, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8aa8c32ea2cec56cE.llvm.13344647550164899859"}
 !2399 = !{!2400}

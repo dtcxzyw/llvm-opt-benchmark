@@ -9863,7 +9863,7 @@ lpad2.i.i.i.i.i:                                  ; preds = %invoke.cont3.i.i.i.
   %3 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %lpad.i.body unwind label %terminate.lpad.i.i.i.i.i
+          to label %if.then.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %lpad2.i.i.i.i.i
   %4 = landingpad { ptr, i32 }
@@ -9880,13 +9880,8 @@ lpad.i.body.thread:                               ; preds = %entry
           cleanup
   br label %ehcleanup
 
-lpad.i.body:                                      ; preds = %lpad2.i.i.i.i.i
-  %.pr = load ptr, ptr %ref.tmp, align 8
-  %tobool.not.i.i.i = icmp eq ptr %.pr, null
-  br i1 %tobool.not.i.i.i, label %ehcleanup, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %lpad.i.body
-  call void @_ZdlPv(ptr noundef nonnull %.pr) #33
+if.then.i.i.i:                                    ; preds = %lpad2.i.i.i.i.i
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i10) #33
   br label %ehcleanup
 
 call.i.noexc:                                     ; preds = %for.inc.i.i.i.i.i
@@ -9940,8 +9935,8 @@ lpad6.body:                                       ; preds = %lpad.i3, %lpad6
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #31
   br label %ehcleanup
 
-ehcleanup:                                        ; preds = %lpad.i.body.thread, %if.then.i.i.i, %lpad.i.body, %lpad6.body
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body5, %lpad6.body ], [ %3, %if.then.i.i.i ], [ %3, %lpad.i.body ], [ %6, %lpad.i.body.thread ]
+ehcleanup:                                        ; preds = %lpad.i.body.thread, %if.then.i.i.i, %lpad6.body
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body5, %lpad6.body ], [ %3, %if.then.i.i.i ], [ %6, %lpad.i.body.thread ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1) #31
   resume { ptr, i32 } %.pn
 }
@@ -10093,7 +10088,7 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %invoke.cont
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #35
+  call void @__clang_call_terminate(ptr %4) #35, !noalias !357
   unreachable
 
 _ZN5folly6detail22callWithConstructedKeyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3f146detail11F14BasicSetINS9_21VectorContainerPolicyIS7_vvvvSt17integral_constantIbLb1EEEEE11UsableAsKeyESaIS7_EZNSF_7emplaceIJRKS7_EEESt4pairINS9_23VectorContainerIteratorIPSJ_EEbEDpOT_EUlSS_E_SK_TnNSt9enable_ifIXoosr3std7is_sameINS_12remove_cvrefIT3_E4typeET_EE5valuesrT0_ISY_E5valueEiE4typeELi0EEEDaRT1_OT2_OSW_.exit.i.i: ; preds = %invoke.cont

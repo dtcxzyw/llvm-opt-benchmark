@@ -7462,7 +7462,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i31
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #29
+  call void @__clang_call_terminate(ptr %40) #29, !noalias !82
   unreachable
 
 lpad.i:                                           ; preds = %call.i29.noexc
@@ -7482,7 +7482,7 @@ terminate.lpad.i4.i:                              ; preds = %if.then.i2.i
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  call void @__clang_call_terminate(ptr %45) #29
+  call void @__clang_call_terminate(ptr %45) #29, !noalias !82
   unreachable
 
 _ZNSt10unique_ptrIN17grpc_event_engine12experimental30RefCountedDNSResolverInterfaceEN9grpc_core16OrphanableDeleteEED2Ev.exit5.i: ; preds = %if.then.i2.i, %lpad.i
@@ -7617,7 +7617,7 @@ terminate.lpad.i.i73:                             ; preds = %if.then.i.i71
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #29
+  call void @__clang_call_terminate(ptr %66) #29, !noalias !88
   unreachable
 
 lpad.i63:                                         ; preds = %call.i62.noexc
@@ -7637,7 +7637,7 @@ terminate.lpad.i4.i67:                            ; preds = %if.then.i2.i65
   %70 = landingpad { ptr, i32 }
           catch ptr null
   %71 = extractvalue { ptr, i32 } %70, 0
-  call void @__clang_call_terminate(ptr %71) #29
+  call void @__clang_call_terminate(ptr %71) #29, !noalias !88
   unreachable
 
 _ZNSt10unique_ptrIN17grpc_event_engine12experimental30RefCountedDNSResolverInterfaceEN9grpc_core16OrphanableDeleteEED2Ev.exit5.i68: ; preds = %if.then.i2.i65, %lpad.i63

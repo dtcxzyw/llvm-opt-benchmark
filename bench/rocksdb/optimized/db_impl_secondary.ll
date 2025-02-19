@@ -15002,15 +15002,11 @@ _ZNKSt14default_deleteIN7rocksdb11FSDirectoryEEclEPS1_.exit.i: ; preds = %cleanu
 _ZNSt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS1_EED2Ev.exit: ; preds = %cleanup, %_ZNKSt14default_deleteIN7rocksdb11FSDirectoryEEclEPS1_.exit.i
   store ptr null, ptr %output_dir, align 8
   %cmp.not.i145 = icmp eq ptr %101, null
-  br i1 %cmp.not.i145, label %_ZNSt10unique_ptrIN7rocksdb10CompactionESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb10CompactionEEclEPS1_.exit.i
+  br i1 %cmp.not.i145, label %nrvo.skipdtor, label %_ZNKSt14default_deleteIN7rocksdb10CompactionEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN7rocksdb10CompactionEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS1_EED2Ev.exit
   call void @_ZN7rocksdb10CompactionD1Ev(ptr noundef nonnull align 16 dereferenceable(4788) %101) #23
   call void @_ZdlPv(ptr noundef nonnull %101) #22
-  br label %_ZNSt10unique_ptrIN7rocksdb10CompactionESt14default_deleteIS1_EED2Ev.exit
-
-_ZNSt10unique_ptrIN7rocksdb10CompactionESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN7rocksdb10CompactionEEclEPS1_.exit.i
-  store ptr null, ptr %c, align 8
   br label %nrvo.skipdtor
 
 ehcleanup123:                                     ; preds = %ehcleanup122, %lpad68
@@ -15038,7 +15034,7 @@ ehcleanup125:                                     ; preds = %_ZNSt10unique_ptrIN
   %cmp.not.i.i161 = icmp eq ptr %106, null
   br i1 %cmp.not.i.i161, label %_ZN7rocksdb6StatusD2Ev.exit163, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i162
 
-nrvo.skipdtor:                                    ; preds = %_ZNSt10unique_ptrIN7rocksdb10CompactionESt14default_deleteIS1_EED2Ev.exit, %invoke.cont55
+nrvo.skipdtor:                                    ; preds = %_ZNKSt14default_deleteIN7rocksdb10CompactionEEclEPS1_.exit.i, %_ZNSt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS1_EED2Ev.exit, %invoke.cont55
   %107 = load ptr, ptr %input_files49, align 8
   %_M_finish.i151 = getelementptr inbounds nuw i8, ptr %input_files49, i64 8
   %108 = load ptr, ptr %_M_finish.i151, align 8

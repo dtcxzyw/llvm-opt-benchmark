@@ -3818,7 +3818,7 @@ define linkonce_odr void @_ZTv0_n56_NK5arrow2io8internal29InputStreamConcurrency
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #29
+  tail call void @__clang_call_terminate(ptr %15) #29, !noalias !328
   unreachable
 
 _ZNK5arrow2io8internal29InputStreamConcurrencyWrapperINS0_21CompressedInputStreamEE4TellEv.exit: ; preds = %2

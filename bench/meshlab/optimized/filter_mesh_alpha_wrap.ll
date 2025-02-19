@@ -19592,7 +19592,7 @@ _ZN4CGAL8VectorC3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8back
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #40
+  call void @__clang_call_terminate(ptr %26) #40, !noalias !303
   unreachable
 
 _ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i: ; preds = %23, %16
@@ -156884,7 +156884,7 @@ _ZN4CGAL8VectorC3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8back
   %128 = landingpad { ptr, i32 }
           catch ptr null
   %129 = extractvalue { ptr, i32 } %128, 0
-  call void @__clang_call_terminate(ptr %129) #40
+  call void @__clang_call_terminate(ptr %129) #40, !noalias !2689
   unreachable
 
 _ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i: ; preds = %126, %119
@@ -157571,7 +157571,7 @@ _ZN4CGAL8VectorC3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8back
   %66 = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #40
+  call void @__clang_call_terminate(ptr %67) #40, !noalias !2695
   unreachable
 
 _ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i: ; preds = %64, %57

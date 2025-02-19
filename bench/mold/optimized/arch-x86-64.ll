@@ -2476,10 +2476,8 @@ if.end:                                           ; preds = %lor.lhs.false
   store ptr %add.ptr.i, ptr %6, align 8
   store ptr %10, ptr %7, align 8
   %elf_syms.i = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %x.0.copyload.i.i = load i32, ptr %r_sym, align 1
-  %conv.i58 = zext i32 %x.0.copyload.i.i to i64
   %11 = load ptr, ptr %elf_syms.i, align 8
-  %add.ptr.i.i59 = getelementptr inbounds nuw %"struct.mold::elf::ElfSym", ptr %11, i64 %conv.i58
+  %add.ptr.i.i59 = getelementptr inbounds nuw %"struct.mold::elf::ElfSym", ptr %11, i64 %conv
   %st_type.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i59, i64 4
   %bf.load.i = load i16, ptr %st_type.i, align 1
   %12 = and i16 %bf.load.i, 15
@@ -2496,7 +2494,7 @@ if.then.i:                                        ; preds = %if.end
 if.then.i.i:                                      ; preds = %if.then.i
   %symtab_shndx_sec.i.i = getelementptr inbounds nuw i8, ptr %8, i64 688
   %13 = load ptr, ptr %symtab_shndx_sec.i.i, align 8
-  %14 = shl nuw nsw i64 %conv.i58, 2
+  %14 = shl nuw nsw i64 %conv, 2
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 %14
   %x.0.copyload.i3.i.i = load i32, ptr %add.ptr.i.i.i, align 1
   %conv5.i.i = zext i32 %x.0.copyload.i3.i.i to i64

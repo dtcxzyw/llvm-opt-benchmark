@@ -1748,7 +1748,7 @@ _ZNO5vcpkg7Command10string_argENS_10StringViewE.exit6: ; preds = %_ZNO5vcpkg7Com
 .noexc:                                           ; preds = %15
   %20 = extractvalue { ptr, i64 } %19, 0
   %21 = extractvalue { ptr, i64 } %19, 1
-  %22 = call noundef zeroext i1 @_ZN5vcpkgeqENS_10StringViewES0_(ptr nonnull @.str.39, i64 4, ptr %20, i64 %21) #18
+  %22 = call noundef zeroext i1 @_ZN5vcpkgeqENS_10StringViewES0_(ptr nonnull @.str.39, i64 4, ptr %20, i64 %21) #18, !noalias !58
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !58
   %23 = zext i1 %22 to i8
   store i8 %23, ptr %0, align 8, !alias.scope !58

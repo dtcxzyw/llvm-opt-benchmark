@@ -384,11 +384,11 @@ _ZN2cv12_GLOBAL__N_126opjCreateBufferInputStreamEPNS_6detail15OpjMemoryBufferE.e
   %45 = load ptr, ptr %44, align 8
   store ptr %35, ptr %44, align 8
   %.not.i.i.i.i = icmp eq ptr %45, null
-  br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIPvN2cv6detail16OpjStreamDeleterEED2Ev.exit, label %46
+  br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIPvN2cv6detail16OpjStreamDeleterEE5resetEPS0_.exit, label %46
 
 46:                                               ; preds = %_ZN2cv12_GLOBAL__N_126opjCreateBufferInputStreamEPNS_6detail15OpjMemoryBufferE.exit
   invoke void @opj_stream_destroy(ptr noundef nonnull %45)
-          to label %_ZNSt10unique_ptrIPvN2cv6detail16OpjStreamDeleterEED2Ev.exit unwind label %47
+          to label %_ZNSt10unique_ptrIPvN2cv6detail16OpjStreamDeleterEE5resetEPS0_.exit unwind label %47
 
 47:                                               ; preds = %46
   %48 = landingpad { ptr, i32 }
@@ -396,10 +396,6 @@ _ZN2cv12_GLOBAL__N_126opjCreateBufferInputStreamEPNS_6detail15OpjMemoryBufferE.e
   %49 = extractvalue { ptr, i32 } %48, 0
   tail call void @__clang_call_terminate(ptr %49) #21
   unreachable
-
-_ZNSt10unique_ptrIPvN2cv6detail16OpjStreamDeleterEED2Ev.exit: ; preds = %46, %_ZN2cv12_GLOBAL__N_126opjCreateBufferInputStreamEPNS_6detail15OpjMemoryBufferE.exit
-  store ptr null, ptr %2, align 8
-  br label %_ZNSt10unique_ptrIPvN2cv6detail16OpjStreamDeleterEE5resetEPS0_.exit
 
 50:                                               ; preds = %1
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -422,7 +418,7 @@ _ZNSt10unique_ptrIPvN2cv6detail16OpjStreamDeleterEED2Ev.exit: ; preds = %46, %_Z
   tail call void @__clang_call_terminate(ptr %59) #21
   unreachable
 
-_ZNSt10unique_ptrIPvN2cv6detail16OpjStreamDeleterEE5resetEPS0_.exit: ; preds = %56, %50, %_ZNSt10unique_ptrIPvN2cv6detail16OpjStreamDeleterEED2Ev.exit
+_ZNSt10unique_ptrIPvN2cv6detail16OpjStreamDeleterEE5resetEPS0_.exit: ; preds = %_ZN2cv12_GLOBAL__N_126opjCreateBufferInputStreamEPNS_6detail15OpjMemoryBufferE.exit, %46, %56, %50
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %61 = load ptr, ptr %60, align 8
   %.not47 = icmp eq ptr %61, null
@@ -3113,7 +3109,6 @@ _ZSt4copyIN2cv12_GLOBAL__N_116ChannelsIteratorINS1_13ConstItTraitsItEEEEPiET0_T_
   unreachable
 
 363:                                              ; preds = %359
-  store ptr null, ptr %22, align 8
   invoke void @opj_destroy_codec(ptr noundef nonnull %287)
           to label %367 unwind label %364
 
@@ -3125,7 +3120,6 @@ _ZSt4copyIN2cv12_GLOBAL__N_116ChannelsIteratorINS1_13ConstItTraitsItEEEEPiET0_T_
   unreachable
 
 367:                                              ; preds = %363
-  store ptr null, ptr %17, align 8
   call void @_ZdlPv(ptr noundef nonnull %182) #24
   invoke void @opj_image_destroy(ptr noundef nonnull %152)
           to label %_ZNSt6vectorI19opj_image_comptparmSaIS0_EED2Ev.exit unwind label %368

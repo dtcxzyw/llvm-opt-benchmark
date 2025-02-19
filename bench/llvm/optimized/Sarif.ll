@@ -379,7 +379,7 @@ _ZL11getFileNameN5clang12FileEntryRefE.exit:      ; preds = %_ZNK5clang12FileEnt
   br i1 %.not.i.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread70.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %_ZL11getFileNameN5clang12FileEntryRefE.exit
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %79, ptr noundef nonnull dereferenceable(2) @.str.43, i64 2)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %79, ptr noundef nonnull dereferenceable(2) @.str.43, i64 2), !noalias !39
   %81 = icmp eq i32 %bcmp.i.i, 0
   br i1 %81, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread70.thread.i
 
@@ -410,12 +410,12 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i: ; preds = %_ZNK4llvm9StringR
   ]
 
 90:                                               ; preds = %._crit_edge.i.i.i.i
-  %91 = load i8, ptr %82, align 1, !tbaa !52
+  %91 = load i8, ptr %82, align 1, !tbaa !52, !noalias !39
   store i8 %91, ptr %89, align 1, !tbaa !52, !noalias !39
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i
 
 92:                                               ; preds = %._crit_edge.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %89, ptr nonnull align 1 %82, i64 %83, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %89, ptr nonnull align 1 %82, i64 %83, i1 false), !noalias !39
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i: ; preds = %92, %90, %._crit_edge.i.i.i.i

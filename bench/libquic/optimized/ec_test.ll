@@ -174,7 +174,7 @@ common.resume:                                    ; preds = %219, %266, %144, %_
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #19
+  call void @__clang_call_terminate(ptr %42) #19, !noalias !6
   unreachable
 
 _ZL18DecodeECPrivateKeyPKhm.exit.thread92.i:      ; preds = %39, %_ZL18DecodeECPrivateKeyPKhm.exit.thread.i
@@ -540,7 +540,7 @@ _ZL18DecodeECPrivateKeyPKhm.exit.thread.i10:      ; preds = %138
   %148 = landingpad { ptr, i32 }
           catch ptr null
   %149 = extractvalue { ptr, i32 } %148, 0
-  call void @__clang_call_terminate(ptr %149) #19
+  call void @__clang_call_terminate(ptr %149) #19, !noalias !24
   unreachable
 
 150:                                              ; preds = %143
@@ -638,7 +638,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i7:                 ; preds = %161
   %178 = landingpad { ptr, i32 }
           catch ptr null
   %179 = extractvalue { ptr, i32 } %178, 0
-  call void @__clang_call_terminate(ptr %179) #19
+  call void @__clang_call_terminate(ptr %179) #19, !noalias !27
   unreachable
 
 180:                                              ; preds = %176, %173, %.noexc18.i
@@ -802,7 +802,7 @@ _ZL18DecodeECPrivateKeyPKhm.exit.thread.i26:      ; preds = %213
   %223 = landingpad { ptr, i32 }
           catch ptr null
   %224 = extractvalue { ptr, i32 } %223, 0
-  call void @__clang_call_terminate(ptr %224) #19
+  call void @__clang_call_terminate(ptr %224) #19, !noalias !30
   unreachable
 
 _ZL18DecodeECPrivateKeyPKhm.exit.thread26.i:      ; preds = %221, %_ZL18DecodeECPrivateKeyPKhm.exit.thread.i26

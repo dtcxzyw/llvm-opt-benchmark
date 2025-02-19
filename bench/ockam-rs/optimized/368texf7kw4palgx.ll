@@ -109,7 +109,7 @@ define hidden { i64, i64 } @"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$11create_w
   %7 = tail call { i64, ptr } @"_ZN12sharded_slab5shard18Array$LT$T$C$C$GT$7current17h200c46c5509ed6caE.llvm.10805634051311926935"(ptr noundef nonnull align 8 %0), !noalias !28
   %8 = extractvalue { i64, ptr } %7, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !28
-  call void @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$9init_with17haac7929b589b06baE"(ptr noalias noundef nonnull sret({ [24 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef readonly align 8 dereferenceable(40) %8)
+  call void @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$9init_with17haac7929b589b06baE"(ptr noalias noundef nonnull sret({ [24 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef readonly align 8 dereferenceable(40) %8), !noalias !28
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %10 = load i8, ptr %9, align 8, !range !31, !noalias !28, !noundef !4
   %11 = icmp eq i8 %10, 2

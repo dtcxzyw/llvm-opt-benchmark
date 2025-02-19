@@ -457,7 +457,7 @@ terminate.lpad.i:                                 ; preds = %entry
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #26
+  call void @__clang_call_terminate(ptr %5) #26, !noalias !10
   unreachable
 
 _ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.exit: ; preds = %if.then.i, %if.then23.i, %if.end25.i
@@ -793,7 +793,7 @@ terminate.lpad.i:                                 ; preds = %entry
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #26
+  call void @__clang_call_terminate(ptr %5) #26, !noalias !21
   unreachable
 
 _ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.exit: ; preds = %if.then.i, %if.then23.i, %if.end25.i
@@ -848,7 +848,7 @@ terminate.lpad.i:                                 ; preds = %entry
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #26
+  call void @__clang_call_terminate(ptr %5) #26, !noalias !24
   unreachable
 
 _ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.exit: ; preds = %if.then.i, %if.then23.i, %if.end25.i
@@ -2309,7 +2309,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i, %if
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #26
+  call void @__clang_call_terminate(ptr %3) #26, !noalias !28
   unreachable
 
 _ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit: ; preds = %invoke.cont12.i
@@ -2380,7 +2380,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i, %if
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #26
+  call void @__clang_call_terminate(ptr %3) #26, !noalias !31
   unreachable
 
 _ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit: ; preds = %invoke.cont12.i
@@ -3289,7 +3289,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i, %if
   %136 = landingpad { ptr, i32 }
           catch ptr null
   %137 = extractvalue { ptr, i32 } %136, 0
-  call void @__clang_call_terminate(ptr %137) #26
+  call void @__clang_call_terminate(ptr %137) #26, !noalias !43
   unreachable
 
 _ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit: ; preds = %invoke.cont12.i
@@ -6123,7 +6123,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i, %if
   %136 = landingpad { ptr, i32 }
           catch ptr null
   %137 = extractvalue { ptr, i32 } %136, 0
-  call void @__clang_call_terminate(ptr %137) #26
+  call void @__clang_call_terminate(ptr %137) #26, !noalias !70
   unreachable
 
 _ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit: ; preds = %invoke.cont12.i
@@ -7168,7 +7168,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i, %if
   %136 = landingpad { ptr, i32 }
           catch ptr null
   %137 = extractvalue { ptr, i32 } %136, 0
-  call void @__clang_call_terminate(ptr %137) #26
+  call void @__clang_call_terminate(ptr %137) #26, !noalias !82
   unreachable
 
 _ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit: ; preds = %invoke.cont12.i
@@ -7871,7 +7871,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i, %if
   %81 = landingpad { ptr, i32 }
           catch ptr null
   %82 = extractvalue { ptr, i32 } %81, 0
-  call void @__clang_call_terminate(ptr %82) #26
+  call void @__clang_call_terminate(ptr %82) #26, !noalias !95
   unreachable
 
 _ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit: ; preds = %invoke.cont12.i
@@ -8518,7 +8518,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i, %if
   %81 = landingpad { ptr, i32 }
           catch ptr null
   %82 = extractvalue { ptr, i32 } %81, 0
-  call void @__clang_call_terminate(ptr %82) #26
+  call void @__clang_call_terminate(ptr %82) #26, !noalias !107
   unreachable
 
 _ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE.exit: ; preds = %invoke.cont12.i

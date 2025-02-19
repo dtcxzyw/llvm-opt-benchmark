@@ -13754,16 +13754,16 @@ entry:
   %ref.tmp.i.i5.i.i.i.i.i = alloca %"class.mold::Fatal", align 8
   %ref.tmp.i6.i.i.i.i.i = alloca %"class.mold::Fatal", align 8
   %buf.i.i.i.i.i.i.i.i.i.i.i.i = alloca [32 x i8], align 16
-  %val.addr.i195.i.i.i.i.i.i.i.i.i.i.i = alloca i64, align 8
-  %val.addr.i191.i.i.i.i.i.i.i.i.i.i.i = alloca i8, align 1
-  %val.i190.i.i.i.i.i.i.i.i.i.i.i = alloca %"class.mold::BigEndian", align 4
-  %val.addr.i162.i.i.i.i.i.i.i.i.i.i.i = alloca i64, align 8
-  %val.addr.i159.i.i.i.i.i.i.i.i.i.i.i = alloca i32, align 4
-  %val.addr.i158.i.i.i.i.i.i.i.i.i.i.i = alloca i8, align 1
-  %val.addr.i109.i.i.i.i.i.i.i.i.i.i.i = alloca i64, align 8
-  %val.addr.i.i93.i.i.i.i.i.i.i.i.i.i.i = alloca i64, align 8
-  %val.addr.i84.i.i.i.i.i.i.i.i.i.i.i = alloca i32, align 4
-  %val.addr.i58.i.i.i.i.i.i.i.i.i.i.i = alloca i64, align 8
+  %val.addr.i197.i.i.i.i.i.i.i.i.i.i.i = alloca i64, align 8
+  %val.addr.i193.i.i.i.i.i.i.i.i.i.i.i = alloca i8, align 1
+  %val.i192.i.i.i.i.i.i.i.i.i.i.i = alloca %"class.mold::BigEndian", align 4
+  %val.addr.i164.i.i.i.i.i.i.i.i.i.i.i = alloca i64, align 8
+  %val.addr.i161.i.i.i.i.i.i.i.i.i.i.i = alloca i32, align 4
+  %val.addr.i160.i.i.i.i.i.i.i.i.i.i.i = alloca i8, align 1
+  %val.addr.i111.i.i.i.i.i.i.i.i.i.i.i = alloca i64, align 8
+  %val.addr.i.i96.i.i.i.i.i.i.i.i.i.i.i = alloca i64, align 8
+  %val.addr.i87.i.i.i.i.i.i.i.i.i.i.i = alloca i32, align 4
+  %val.addr.i61.i.i.i.i.i.i.i.i.i.i.i = alloca i64, align 8
   %val.addr.i.i.i.i.i.i.i.i.i.i.i.i = alloca i64, align 8
   %val.i.i.i.i.i.i.i.i.i.i.i.i = alloca %"class.mold::BigEndian", align 4
   %val.addr.i.i.i.i.i.i.i.i.i.i.i.i.i = alloca i64, align 8
@@ -13839,10 +13839,10 @@ _ZNK4mold3elf12InputSectionINS0_5PPC32EE4shdrEv.exit.i.i.i.i.i.i.i.i.i.i.i: ; pr
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i.i.i.i.i.i.i.i.i.i.i.i)
   %fde_begin.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 64
   %14 = load i32, ptr %fde_begin.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.i43.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %14, -1
-  br i1 %cmp.i43.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_fdesEv.exit.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i44.i.i.i.i.i.i.i.i.i.i.i
+  %cmp.i46.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %14, -1
+  br i1 %cmp.i46.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_fdesEv.exit.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i47.i.i.i.i.i.i.i.i.i.i.i
 
-if.end.i44.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %_ZNK4mold3elf12InputSectionINS0_5PPC32EE4shdrEv.exit.i.i.i.i.i.i.i.i.i.i.i
+if.end.i47.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %_ZNK4mold3elf12InputSectionINS0_5PPC32EE4shdrEv.exit.i.i.i.i.i.i.i.i.i.i.i
   %15 = load ptr, ptr %8, align 8
   %fdes.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 416
   %16 = load ptr, ptr %fdes.i.i.i.i.i.i.i.i.i.i.i.i, align 8
@@ -13852,77 +13852,77 @@ if.end.i44.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %_ZNK4mold3elf12Inpu
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
-  %conv.i45.i.i.i.i.i.i.i.i.i.i.i = sext i32 %14 to i64
+  %conv.i48.i.i.i.i.i.i.i.i.i.i.i = sext i32 %14 to i64
   %fde_end.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 68
   %18 = load i32, ptr %fde_end.i.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %sub.i46.i.i.i.i.i.i.i.i.i.i.i = sub nsw i32 %18, %14
-  %conv4.i.i.i.i.i.i.i.i.i.i.i.i = sext i32 %sub.i46.i.i.i.i.i.i.i.i.i.i.i to i64
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %sub.i46.i.i.i.i.i.i.i.i.i.i.i, -1
-  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i = sub nsw i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %conv.i45.i.i.i.i.i.i.i.i.i.i.i
+  %sub.i49.i.i.i.i.i.i.i.i.i.i.i = sub nsw i32 %18, %14
+  %conv4.i.i.i.i.i.i.i.i.i.i.i.i = sext i32 %sub.i49.i.i.i.i.i.i.i.i.i.i.i to i64
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %sub.i49.i.i.i.i.i.i.i.i.i.i.i, -1
+  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i = sub nsw i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %conv.i48.i.i.i.i.i.i.i.i.i.i.i
   %__count.addr.0.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %conv4.i.i.i.i.i.i.i.i.i.i.i.i
   br label %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_fdesEv.exit.i.i.i.i.i.i.i.i.i.i.i
 
-_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_fdesEv.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.end.i44.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf12InputSectionINS0_5PPC32EE4shdrEv.exit.i.i.i.i.i.i.i.i.i.i.i
-  %retval.sroa.3.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %__count.addr.0.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.end.i44.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %_ZNK4mold3elf12InputSectionINS0_5PPC32EE4shdrEv.exit.i.i.i.i.i.i.i.i.i.i.i ]
+_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_fdesEv.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.end.i47.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf12InputSectionINS0_5PPC32EE4shdrEv.exit.i.i.i.i.i.i.i.i.i.i.i
+  %retval.sroa.3.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %__count.addr.0.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.end.i47.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %_ZNK4mold3elf12InputSectionINS0_5PPC32EE4shdrEv.exit.i.i.i.i.i.i.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.addr.i.i.i.i.i.i.i.i.i.i.i.i)
   store i64 %retval.sroa.3.0.i.i.i.i.i.i.i.i.i.i.i.i, ptr %val.addr.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   call void @blake3_hasher_update(ptr noundef nonnull %hasher.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %val.addr.i.i.i.i.i.i.i.i.i.i.i.i, i64 noundef 8) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.addr.i.i.i.i.i.i.i.i.i.i.i.i)
   %relsec_idx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 84
   %19 = load i32, ptr %relsec_idx.i.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %cmp.i48.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %19, -1
-  br i1 %cmp.i48.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i49.i.i.i.i.i.i.i.i.i.i.i
+  %cmp.i51.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %19, -1
+  br i1 %cmp.i51.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i52.i.i.i.i.i.i.i.i.i.i.i
 
-if.end.i49.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_fdesEv.exit.i.i.i.i.i.i.i.i.i.i.i
+if.end.i52.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_fdesEv.exit.i.i.i.i.i.i.i.i.i.i.i
   %20 = load ptr, ptr %8, align 8
-  %elf_sections.i50.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %conv.i51.i.i.i.i.i.i.i.i.i.i.i = zext i32 %19 to i64
-  %21 = load ptr, ptr %elf_sections.i50.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %add.ptr.i.i52.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.mold::elf::ElfShdr", ptr %21, i64 %conv.i51.i.i.i.i.i.i.i.i.i.i.i
-  %call4.i.i.i.i.i.i.i.i.i.i.i.i = call { ptr, i64 } @_ZN4mold3elf9InputFileINS0_5PPC32EE8get_dataINS0_6ElfRelIS2_EEEESt4spanIT_Lm18446744073709551615EERNS0_7ContextIS2_EERKNS0_7ElfShdrIS2_EE(ptr noundef nonnull align 8 dereferenceable(280) %20, ptr noundef nonnull align 8 dereferenceable(4576) %4, ptr noundef nonnull align 1 dereferenceable(40) %add.ptr.i.i52.i.i.i.i.i.i.i.i.i.i.i)
+  %elf_sections.i53.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %conv.i54.i.i.i.i.i.i.i.i.i.i.i = zext i32 %19 to i64
+  %21 = load ptr, ptr %elf_sections.i53.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %add.ptr.i.i55.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.mold::elf::ElfShdr", ptr %21, i64 %conv.i54.i.i.i.i.i.i.i.i.i.i.i
+  %call4.i.i.i.i.i.i.i.i.i.i.i.i = call { ptr, i64 } @_ZN4mold3elf9InputFileINS0_5PPC32EE8get_dataINS0_6ElfRelIS2_EEEESt4spanIT_Lm18446744073709551615EERNS0_7ContextIS2_EERKNS0_7ElfShdrIS2_EE(ptr noundef nonnull align 8 dereferenceable(280) %20, ptr noundef nonnull align 8 dereferenceable(4576) %4, ptr noundef nonnull align 1 dereferenceable(40) %add.ptr.i.i55.i.i.i.i.i.i.i.i.i.i.i)
   %22 = extractvalue { ptr, i64 } %call4.i.i.i.i.i.i.i.i.i.i.i.i, 1
   br label %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i
 
-_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.end.i49.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_fdesEv.exit.i.i.i.i.i.i.i.i.i.i.i
-  %retval.sroa.3.0.i54.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %22, %if.end.i49.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_fdesEv.exit.i.i.i.i.i.i.i.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.addr.i58.i.i.i.i.i.i.i.i.i.i.i)
-  store i64 %retval.sroa.3.0.i54.i.i.i.i.i.i.i.i.i.i.i, ptr %val.addr.i58.i.i.i.i.i.i.i.i.i.i.i, align 8
-  call void @blake3_hasher_update(ptr noundef nonnull %hasher.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %val.addr.i58.i.i.i.i.i.i.i.i.i.i.i, i64 noundef 8) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.addr.i58.i.i.i.i.i.i.i.i.i.i.i)
+_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.end.i52.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_fdesEv.exit.i.i.i.i.i.i.i.i.i.i.i
+  %retval.sroa.3.0.i57.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %22, %if.end.i52.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_fdesEv.exit.i.i.i.i.i.i.i.i.i.i.i ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.addr.i61.i.i.i.i.i.i.i.i.i.i.i)
+  store i64 %retval.sroa.3.0.i57.i.i.i.i.i.i.i.i.i.i.i, ptr %val.addr.i61.i.i.i.i.i.i.i.i.i.i.i, align 8
+  call void @blake3_hasher_update(ptr noundef nonnull %hasher.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %val.addr.i61.i.i.i.i.i.i.i.i.i.i.i, i64 noundef 8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.addr.i61.i.i.i.i.i.i.i.i.i.i.i)
   %23 = load i32, ptr %fde_begin.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.i60.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %23, -1
-  br i1 %cmp.i60.i.i.i.i.i.i.i.i.i.i.i, label %for.cond56.preheader.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_fdesEv.exit80.i.i.i.i.i.i.i.i.i.i.i
+  %cmp.i63.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %23, -1
+  br i1 %cmp.i63.i.i.i.i.i.i.i.i.i.i.i, label %for.cond56.preheader.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_fdesEv.exit83.i.i.i.i.i.i.i.i.i.i.i
 
-_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_fdesEv.exit80.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i
+_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_fdesEv.exit83.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i
   %24 = load ptr, ptr %8, align 8
-  %fdes.i62.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 416
-  %25 = load ptr, ptr %fdes.i62.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i63.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 424
-  %26 = load ptr, ptr %_M_finish.i.i.i.i63.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i64.i.i.i.i.i.i.i.i.i.i.i = ptrtoint ptr %26 to i64
-  %sub.ptr.rhs.cast.i.i.i.i65.i.i.i.i.i.i.i.i.i.i.i = ptrtoint ptr %25 to i64
-  %sub.ptr.sub.i.i.i.i66.i.i.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i64.i.i.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i65.i.i.i.i.i.i.i.i.i.i.i
-  %sub.ptr.div.i.i.i.i67.i.i.i.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i66.i.i.i.i.i.i.i.i.i.i.i, 4
-  %conv.i68.i.i.i.i.i.i.i.i.i.i.i = sext i32 %23 to i64
-  %fde_end.i69.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 68
-  %27 = load i32, ptr %fde_end.i69.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %sub.i70.i.i.i.i.i.i.i.i.i.i.i = sub nsw i32 %27, %23
-  %conv4.i71.i.i.i.i.i.i.i.i.i.i.i = sext i32 %sub.i70.i.i.i.i.i.i.i.i.i.i.i to i64
-  %cmp.i.i72.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %sub.i70.i.i.i.i.i.i.i.i.i.i.i, -1
-  %sub.i.i73.i.i.i.i.i.i.i.i.i.i.i = sub nsw i64 %sub.ptr.div.i.i.i.i67.i.i.i.i.i.i.i.i.i.i.i, %conv.i68.i.i.i.i.i.i.i.i.i.i.i
-  %__count.addr.0.i.i74.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i72.i.i.i.i.i.i.i.i.i.i.i, i64 %sub.i.i73.i.i.i.i.i.i.i.i.i.i.i, i64 %conv4.i71.i.i.i.i.i.i.i.i.i.i.i
-  %add.ptr.i.i75.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::FdeRecord", ptr %25, i64 %conv.i68.i.i.i.i.i.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::FdeRecord", ptr %add.ptr.i.i75.i.i.i.i.i.i.i.i.i.i.i, i64 %__count.addr.0.i.i74.i.i.i.i.i.i.i.i.i.i.i
-  %cmp.i82222.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %__count.addr.0.i.i74.i.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %cmp.i82222.i.i.i.i.i.i.i.i.i.i.i, label %for.cond56.preheader.i.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i
+  %fdes.i65.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 416
+  %25 = load ptr, ptr %fdes.i65.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %_M_finish.i.i.i.i66.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 424
+  %26 = load ptr, ptr %_M_finish.i.i.i.i66.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i67.i.i.i.i.i.i.i.i.i.i.i = ptrtoint ptr %26 to i64
+  %sub.ptr.rhs.cast.i.i.i.i68.i.i.i.i.i.i.i.i.i.i.i = ptrtoint ptr %25 to i64
+  %sub.ptr.sub.i.i.i.i69.i.i.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i67.i.i.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i68.i.i.i.i.i.i.i.i.i.i.i
+  %sub.ptr.div.i.i.i.i70.i.i.i.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i69.i.i.i.i.i.i.i.i.i.i.i, 4
+  %conv.i71.i.i.i.i.i.i.i.i.i.i.i = sext i32 %23 to i64
+  %fde_end.i72.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 68
+  %27 = load i32, ptr %fde_end.i72.i.i.i.i.i.i.i.i.i.i.i, align 4
+  %sub.i73.i.i.i.i.i.i.i.i.i.i.i = sub nsw i32 %27, %23
+  %conv4.i74.i.i.i.i.i.i.i.i.i.i.i = sext i32 %sub.i73.i.i.i.i.i.i.i.i.i.i.i to i64
+  %cmp.i.i75.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %sub.i73.i.i.i.i.i.i.i.i.i.i.i, -1
+  %sub.i.i76.i.i.i.i.i.i.i.i.i.i.i = sub nsw i64 %sub.ptr.div.i.i.i.i70.i.i.i.i.i.i.i.i.i.i.i, %conv.i71.i.i.i.i.i.i.i.i.i.i.i
+  %__count.addr.0.i.i77.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i75.i.i.i.i.i.i.i.i.i.i.i, i64 %sub.i.i76.i.i.i.i.i.i.i.i.i.i.i, i64 %conv4.i74.i.i.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i78.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::FdeRecord", ptr %25, i64 %conv.i71.i.i.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::FdeRecord", ptr %add.ptr.i.i78.i.i.i.i.i.i.i.i.i.i.i, i64 %__count.addr.0.i.i77.i.i.i.i.i.i.i.i.i.i.i
+  %cmp.i85222.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %__count.addr.0.i.i77.i.i.i.i.i.i.i.i.i.i.i, 0
+  br i1 %cmp.i85222.i.i.i.i.i.i.i.i.i.i.i, label %for.cond56.preheader.i.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i
 
-for.cond56.preheader.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %for.inc53.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_fdesEv.exit80.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i
+for.cond56.preheader.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %for.inc53.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_fdesEv.exit83.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i
   %28 = load i32, ptr %relsec_idx.i.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %cmp.i165.i.i.i.i.i.i.i23.i.i.i.i = icmp eq i32 %28, -1
-  br i1 %cmp.i165.i.i.i.i.i.i.i23.i.i.i.i, label %_ZN3tbb6detail2d06invokeIRKZN4mold3elfL15compute_digestsINS4_5PPC32EEESt6vectorISt5arrayIhLm16EESaIS9_EERNS4_7ContextIT_EESt4spanIPNS4_12InputSectionISD_EELm18446744073709551615EEEUllE_JRlEEENSt13invoke_resultISD_JDpT0_EE4typeEOSD_DpOSQ_.exit.i.i.i.i.i, label %if.end.i166.i.i.i.i.i.i.i.i.i.i.i
+  %cmp.i167.i.i.i.i.i.i.i23.i.i.i.i = icmp eq i32 %28, -1
+  br i1 %cmp.i167.i.i.i.i.i.i.i23.i.i.i.i, label %_ZN3tbb6detail2d06invokeIRKZN4mold3elfL15compute_digestsINS4_5PPC32EEESt6vectorISt5arrayIhLm16EESaIS9_EERNS4_7ContextIT_EESt4spanIPNS4_12InputSectionISD_EELm18446744073709551615EEEUllE_JRlEEENSt13invoke_resultISD_JDpT0_EE4typeEOSD_DpOSQ_.exit.i.i.i.i.i, label %if.end.i168.i.i.i.i.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_fdesEv.exit80.i.i.i.i.i.i.i.i.i.i.i, %for.inc53.i.i.i.i.i.i.i.i.i.i.i
-  %__begin0.sroa.0.0223.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i163.i.i.i.i.i.i.i.i.i.i.i, %for.inc53.i.i.i.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i75.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_fdesEv.exit80.i.i.i.i.i.i.i.i.i.i.i ]
+for.body.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_fdesEv.exit83.i.i.i.i.i.i.i.i.i.i.i, %for.inc53.i.i.i.i.i.i.i.i.i.i.i
+  %__begin0.sroa.0.0223.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i165.i.i.i.i.i.i.i.i.i.i.i, %for.inc53.i.i.i.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i78.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_fdesEv.exit83.i.i.i.i.i.i.i.i.i.i.i ]
   %29 = load ptr, ptr %8, align 8
   %cies.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 392
   %cie_idx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.0223.i.i.i.i.i.i.i.i.i.i.i, i64 12
@@ -13931,16 +13931,16 @@ for.body.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %_ZNK4mold3elf12Inpu
   %31 = load ptr, ptr %cies.i.i.i.i.i.i.i.i.i.i.i, align 8
   %icf_idx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.mold::elf::CieRecord", ptr %31, i64 %conv.i.i.i.i.i.i.i.i.i.i.i, i32 5
   %32 = load i32, ptr %icf_idx.i.i.i.i.i.i.i.i.i.i.i, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i84.i.i.i.i.i.i.i.i.i.i.i)
-  store i32 %32, ptr %val.addr.i84.i.i.i.i.i.i.i.i.i.i.i, align 4
-  call void @blake3_hasher_update(ptr noundef nonnull %hasher.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %val.addr.i84.i.i.i.i.i.i.i.i.i.i.i, i64 noundef 4) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i84.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i87.i.i.i.i.i.i.i.i.i.i.i)
+  store i32 %32, ptr %val.addr.i87.i.i.i.i.i.i.i.i.i.i.i, align 4
+  call void @blake3_hasher_update(ptr noundef nonnull %hasher.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %val.addr.i87.i.i.i.i.i.i.i.i.i.i.i, i64 noundef 4) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i87.i.i.i.i.i.i.i.i.i.i.i)
   %33 = load ptr, ptr %8, align 8
   %cies.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 392
   %34 = load i16, ptr %cie_idx.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %conv.i85.i.i.i.i.i.i.i.i.i.i.i = zext i16 %34 to i64
+  %conv.i88.i.i.i.i.i.i.i.i.i.i.i = zext i16 %34 to i64
   %35 = load ptr, ptr %cies.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %contents.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.mold::elf::CieRecord", ptr %35, i64 %conv.i85.i.i.i.i.i.i.i.i.i.i.i, i32 8
+  %contents.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.mold::elf::CieRecord", ptr %35, i64 %conv.i88.i.i.i.i.i.i.i.i.i.i.i, i32 8
   %36 = load i32, ptr %__begin0.sroa.0.0223.i.i.i.i.i.i.i.i.i.i.i, align 4
   %conv2.i.i.i.i.i.i.i.i.i.i.i.i = zext i32 %36 to i64
   %37 = load i64, ptr %contents.i.i.i.i.i.i.i.i.i.i.i.i, align 8
@@ -13952,36 +13952,36 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %for.body.i.i.i.i.i.
   unreachable
 
 _ZNK4mold3elf9FdeRecordINS0_5PPC32EE12get_contentsERNS0_10ObjectFileIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i
-  %_M_str.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.mold::elf::CieRecord", ptr %35, i64 %conv.i85.i.i.i.i.i.i.i.i.i.i.i, i32 8, i32 1
+  %_M_str.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.mold::elf::CieRecord", ptr %35, i64 %conv.i88.i.i.i.i.i.i.i.i.i.i.i, i32 8, i32 1
   %38 = load ptr, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %add.ptr.i2.i86.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %38, i64 %conv2.i.i.i.i.i.i.i.i.i.i.i.i
-  %x.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %add.ptr.i2.i86.i.i.i.i.i.i.i.i.i.i.i, align 1
+  %add.ptr.i2.i89.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %38, i64 %conv2.i.i.i.i.i.i.i.i.i.i.i.i
+  %x.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %add.ptr.i2.i89.i.i.i.i.i.i.i.i.i.i.i, align 1
   %39 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i = add i32 %39, 4
   %conv4.i.i.i.i.i.i.i.i.i.i.i.i.i = zext i32 %add.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %sub.i.i87.i.i.i.i.i.i.i.i.i.i.i = sub nuw i64 %37, %conv2.i.i.i.i.i.i.i.i.i.i.i.i
-  %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i87.i.i.i.i.i.i.i.i.i.i.i, i64 %conv4.i.i.i.i.i.i.i.i.i.i.i.i.i)
-  %cmp.i.i88.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i64 %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.i.i, 8
-  br i1 %cmp.i.i88.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i.i.i.i.i.i.i.i.i
+  %sub.i.i90.i.i.i.i.i.i.i.i.i.i.i = sub nuw i64 %37, %conv2.i.i.i.i.i.i.i.i.i.i.i.i
+  %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i90.i.i.i.i.i.i.i.i.i.i.i, i64 %conv4.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  %cmp.i.i91.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ult i64 %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.i.i, 8
+  br i1 %cmp.i.i91.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNK4mold3elf9FdeRecordINS0_5PPC32EE12get_contentsERNS0_10ObjectFileIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i
   call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.32, i64 noundef 8, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.i.i) #31
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK4mold3elf9FdeRecordINS0_5PPC32EE12get_contentsERNS0_10ObjectFileIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i
-  %sub.i89.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
-  %add.ptr.i90.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i2.i86.i.i.i.i.i.i.i.i.i.i.i, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.addr.i.i93.i.i.i.i.i.i.i.i.i.i.i)
-  store i64 %sub.i89.i.i.i.i.i.i.i.i.i.i.i, ptr %val.addr.i.i93.i.i.i.i.i.i.i.i.i.i.i, align 8
-  call void @blake3_hasher_update(ptr noundef nonnull %hasher.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %val.addr.i.i93.i.i.i.i.i.i.i.i.i.i.i, i64 noundef 8) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.addr.i.i93.i.i.i.i.i.i.i.i.i.i.i)
-  call void @blake3_hasher_update(ptr noundef nonnull %hasher.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %add.ptr.i90.i.i.i.i.i.i.i.i.i.i.i, i64 noundef %sub.i89.i.i.i.i.i.i.i.i.i.i.i) #13
+  %sub.i92.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
+  %add.ptr.i93.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i2.i89.i.i.i.i.i.i.i.i.i.i.i, i64 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.addr.i.i96.i.i.i.i.i.i.i.i.i.i.i)
+  store i64 %sub.i92.i.i.i.i.i.i.i.i.i.i.i, ptr %val.addr.i.i96.i.i.i.i.i.i.i.i.i.i.i, align 8
+  call void @blake3_hasher_update(ptr noundef nonnull %hasher.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %val.addr.i.i96.i.i.i.i.i.i.i.i.i.i.i, i64 noundef 8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.addr.i.i96.i.i.i.i.i.i.i.i.i.i.i)
+  call void @blake3_hasher_update(ptr noundef nonnull %hasher.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %add.ptr.i93.i.i.i.i.i.i.i.i.i.i.i, i64 noundef %sub.i92.i.i.i.i.i.i.i.i.i.i.i) #13
   %40 = load ptr, ptr %8, align 8
-  %cies.i95.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %40, i64 392
+  %cies.i97.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %40, i64 392
   %41 = load i16, ptr %cie_idx.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %conv.i97.i.i.i.i.i.i.i.i.i.i.i = zext i16 %41 to i64
-  %42 = load ptr, ptr %cies.i95.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %rels2.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.mold::elf::CieRecord", ptr %42, i64 %conv.i97.i.i.i.i.i.i.i.i.i.i.i, i32 7
+  %conv.i99.i.i.i.i.i.i.i.i.i.i.i = zext i16 %41 to i64
+  %42 = load ptr, ptr %cies.i97.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %rels2.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.mold::elf::CieRecord", ptr %42, i64 %conv.i99.i.i.i.i.i.i.i.i.i.i.i, i32 7
   %rels.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %rels2.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %rels.sroa.3.0.rels2.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %rels2.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %rels.sroa.3.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %rels.sroa.3.0.rels2.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i, align 8
@@ -13994,14 +13994,14 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i.i.i.i.i.i.i.
 land.rhs.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i.i.i.i.i.i.i.i.i
   %44 = load i32, ptr %__begin0.sroa.0.0223.i.i.i.i.i.i.i.i.i.i.i, align 4
   %conv8.i.i.i.i.i.i.i.i.i.i.i.i = zext i32 %44 to i64
-  %_M_str.i.i.i104.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.mold::elf::CieRecord", ptr %42, i64 %conv.i97.i.i.i.i.i.i.i.i.i.i.i, i32 8, i32 1
-  %45 = load ptr, ptr %_M_str.i.i.i104.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %_M_str.i.i.i106.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.mold::elf::CieRecord", ptr %42, i64 %conv.i99.i.i.i.i.i.i.i.i.i.i.i, i32 8, i32 1
+  %45 = load ptr, ptr %_M_str.i.i.i106.i.i.i.i.i.i.i.i.i.i.i, align 8
   %add.ptr.i6.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %45, i64 %conv8.i.i.i.i.i.i.i.i.i.i.i.i
-  %x.0.copyload.i.i.i105.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %add.ptr.i6.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %46 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i.i105.i.i.i.i.i.i.i.i.i.i.i)
-  %add.i.i106.i.i.i.i.i.i.i.i.i.i.i = add i32 %46, 4
-  %conv4.i.i107.i.i.i.i.i.i.i.i.i.i.i = zext i32 %add.i.i106.i.i.i.i.i.i.i.i.i.i.i to i64
-  %add.i.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %conv4.i.i107.i.i.i.i.i.i.i.i.i.i.i, %conv8.i.i.i.i.i.i.i.i.i.i.i.i
+  %x.0.copyload.i.i.i107.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %add.ptr.i6.i.i.i.i.i.i.i.i.i.i.i.i, align 1
+  %46 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i.i107.i.i.i.i.i.i.i.i.i.i.i)
+  %add.i.i108.i.i.i.i.i.i.i.i.i.i.i = add i32 %46, 4
+  %conv4.i.i109.i.i.i.i.i.i.i.i.i.i.i = zext i32 %add.i.i108.i.i.i.i.i.i.i.i.i.i.i to i64
+  %add.i.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %conv4.i.i109.i.i.i.i.i.i.i.i.i.i.i, %conv8.i.i.i.i.i.i.i.i.i.i.i.i
   br label %land.rhs.i.i.i.i.i.i.i.i.i.i.i.i
 
 land.rhs.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %while.body.i.i.i.i.i.i.i.i.i.i.i.i, %land.rhs.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
@@ -14020,144 +14020,144 @@ while.body.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %land.rhs.i.i.i.i.i.
 
 _ZNK4mold3elf9FdeRecordINS0_5PPC32EE8get_relsERNS0_10ObjectFileIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i.i.i.i.i.i.i.i.i
   %end.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %conv3.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %rels.sroa.3.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i.i.i.i.i ], [ %end.012.i.i.i.i.i.i.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %sub.i98.i.i.i.i.i.i.i.i.i.i.i = sub nsw i64 %end.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i, %conv3.i.i.i.i.i.i.i.i.i.i.i.i
-  %cmp.i.i99.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %sub.i98.i.i.i.i.i.i.i.i.i.i.i, -1
-  %sub.i.i100.i.i.i.i.i.i.i.i.i.i.i = sub i64 %rels.sroa.3.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, %conv3.i.i.i.i.i.i.i.i.i.i.i.i
-  %__count.addr.0.i.i101.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i99.i.i.i.i.i.i.i.i.i.i.i, i64 %sub.i.i100.i.i.i.i.i.i.i.i.i.i.i, i64 %sub.i98.i.i.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.addr.i109.i.i.i.i.i.i.i.i.i.i.i)
-  store i64 %__count.addr.0.i.i101.i.i.i.i.i.i.i.i.i.i.i, ptr %val.addr.i109.i.i.i.i.i.i.i.i.i.i.i, align 8
-  call void @blake3_hasher_update(ptr noundef nonnull %hasher.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %val.addr.i109.i.i.i.i.i.i.i.i.i.i.i, i64 noundef 8) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.addr.i109.i.i.i.i.i.i.i.i.i.i.i)
+  %sub.i100.i.i.i.i.i.i.i.i.i.i.i = sub nsw i64 %end.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i, %conv3.i.i.i.i.i.i.i.i.i.i.i.i
+  %cmp.i.i101.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %sub.i100.i.i.i.i.i.i.i.i.i.i.i, -1
+  %sub.i.i102.i.i.i.i.i.i.i.i.i.i.i = sub i64 %rels.sroa.3.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, %conv3.i.i.i.i.i.i.i.i.i.i.i.i
+  %__count.addr.0.i.i103.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i101.i.i.i.i.i.i.i.i.i.i.i, i64 %sub.i.i102.i.i.i.i.i.i.i.i.i.i.i, i64 %sub.i100.i.i.i.i.i.i.i.i.i.i.i
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.addr.i111.i.i.i.i.i.i.i.i.i.i.i)
+  store i64 %__count.addr.0.i.i103.i.i.i.i.i.i.i.i.i.i.i, ptr %val.addr.i111.i.i.i.i.i.i.i.i.i.i.i, align 8
+  call void @blake3_hasher_update(ptr noundef nonnull %hasher.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %val.addr.i111.i.i.i.i.i.i.i.i.i.i.i, i64 noundef 8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.addr.i111.i.i.i.i.i.i.i.i.i.i.i)
   %48 = load ptr, ptr %8, align 8
-  %cies.i110.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %48, i64 392
+  %cies.i112.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %48, i64 392
   %49 = load i16, ptr %cie_idx.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %conv.i112.i.i.i.i.i.i.i.i.i.i.i = zext i16 %49 to i64
-  %50 = load ptr, ptr %cies.i110.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %rels2.i113.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.mold::elf::CieRecord", ptr %50, i64 %conv.i112.i.i.i.i.i.i.i.i.i.i.i, i32 7
-  %rels.sroa.0.0.copyload.i114.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %rels2.i113.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %rels.sroa.3.0.rels2.sroa_idx.i115.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %rels2.i113.i.i.i.i.i.i.i.i.i.i.i, i64 8
-  %rels.sroa.3.0.copyload.i116.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %rels.sroa.3.0.rels2.sroa_idx.i115.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %conv.i114.i.i.i.i.i.i.i.i.i.i.i = zext i16 %49 to i64
+  %50 = load ptr, ptr %cies.i112.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %rels2.i115.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.mold::elf::CieRecord", ptr %50, i64 %conv.i114.i.i.i.i.i.i.i.i.i.i.i, i32 7
+  %rels.sroa.0.0.copyload.i116.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %rels2.i115.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %rels.sroa.3.0.rels2.sroa_idx.i117.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %rels2.i115.i.i.i.i.i.i.i.i.i.i.i, i64 8
+  %rels.sroa.3.0.copyload.i118.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %rels.sroa.3.0.rels2.sroa_idx.i117.i.i.i.i.i.i.i.i.i.i.i, align 8
   %51 = load i32, ptr %rel_idx.i.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %conv3.i118.i.i.i.i.i.i.i.i.i.i.i = zext i32 %51 to i64
-  %cmp11.i119.i.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %rels.sroa.3.0.copyload.i116.i.i.i.i.i.i.i.i.i.i.i, %conv3.i118.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %cmp11.i119.i.i.i.i.i.i.i.i.i.i.i, label %land.rhs.lr.ph.i128.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf9FdeRecordINS0_5PPC32EE8get_relsERNS0_10ObjectFileIS2_EE.exit145.i.i.i.i.i.i.i.i.i.i.i
+  %conv3.i120.i.i.i.i.i.i.i.i.i.i.i = zext i32 %51 to i64
+  %cmp11.i121.i.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %rels.sroa.3.0.copyload.i118.i.i.i.i.i.i.i.i.i.i.i, %conv3.i120.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp11.i121.i.i.i.i.i.i.i.i.i.i.i, label %land.rhs.lr.ph.i130.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf9FdeRecordINS0_5PPC32EE8get_relsERNS0_10ObjectFileIS2_EE.exit147.i.i.i.i.i.i.i.i.i.i.i
 
-land.rhs.lr.ph.i128.i.i.i.i.i.i.i.i.i.i.i:        ; preds = %_ZNK4mold3elf9FdeRecordINS0_5PPC32EE8get_relsERNS0_10ObjectFileIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i
+land.rhs.lr.ph.i130.i.i.i.i.i.i.i.i.i.i.i:        ; preds = %_ZNK4mold3elf9FdeRecordINS0_5PPC32EE8get_relsERNS0_10ObjectFileIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i
   %52 = load i32, ptr %__begin0.sroa.0.0223.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %conv8.i129.i.i.i.i.i.i.i.i.i.i.i = zext i32 %52 to i64
-  %_M_str.i.i.i130.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.mold::elf::CieRecord", ptr %50, i64 %conv.i112.i.i.i.i.i.i.i.i.i.i.i, i32 8, i32 1
-  %53 = load ptr, ptr %_M_str.i.i.i130.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %add.ptr.i6.i131.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %53, i64 %conv8.i129.i.i.i.i.i.i.i.i.i.i.i
-  %x.0.copyload.i.i.i132.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %add.ptr.i6.i131.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %54 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i.i132.i.i.i.i.i.i.i.i.i.i.i)
-  %add.i.i133.i.i.i.i.i.i.i.i.i.i.i = add i32 %54, 4
-  %conv4.i.i134.i.i.i.i.i.i.i.i.i.i.i = zext i32 %add.i.i133.i.i.i.i.i.i.i.i.i.i.i to i64
-  %add.i135.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %conv4.i.i134.i.i.i.i.i.i.i.i.i.i.i, %conv8.i129.i.i.i.i.i.i.i.i.i.i.i
-  br label %land.rhs.i136.i.i.i.i.i.i.i.i.i.i.i
+  %conv8.i131.i.i.i.i.i.i.i.i.i.i.i = zext i32 %52 to i64
+  %_M_str.i.i.i132.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.mold::elf::CieRecord", ptr %50, i64 %conv.i114.i.i.i.i.i.i.i.i.i.i.i, i32 8, i32 1
+  %53 = load ptr, ptr %_M_str.i.i.i132.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %add.ptr.i6.i133.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %53, i64 %conv8.i131.i.i.i.i.i.i.i.i.i.i.i
+  %x.0.copyload.i.i.i134.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %add.ptr.i6.i133.i.i.i.i.i.i.i.i.i.i.i, align 1
+  %54 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i.i134.i.i.i.i.i.i.i.i.i.i.i)
+  %add.i.i135.i.i.i.i.i.i.i.i.i.i.i = add i32 %54, 4
+  %conv4.i.i136.i.i.i.i.i.i.i.i.i.i.i = zext i32 %add.i.i135.i.i.i.i.i.i.i.i.i.i.i to i64
+  %add.i137.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %conv4.i.i136.i.i.i.i.i.i.i.i.i.i.i, %conv8.i131.i.i.i.i.i.i.i.i.i.i.i
+  br label %land.rhs.i138.i.i.i.i.i.i.i.i.i.i.i
 
-land.rhs.i136.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %while.body.i142.i.i.i.i.i.i.i.i.i.i.i, %land.rhs.lr.ph.i128.i.i.i.i.i.i.i.i.i.i.i
-  %end.012.i137.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %conv3.i118.i.i.i.i.i.i.i.i.i.i.i, %land.rhs.lr.ph.i128.i.i.i.i.i.i.i.i.i.i.i ], [ %inc.i143.i.i.i.i.i.i.i.i.i.i.i, %while.body.i142.i.i.i.i.i.i.i.i.i.i.i ]
-  %add.ptr.i5.i138.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.mold::elf::ElfRel", ptr %rels.sroa.0.0.copyload.i114.i.i.i.i.i.i.i.i.i.i.i, i64 %end.012.i137.i.i.i.i.i.i.i.i.i.i.i
-  %x.0.copyload.i.i139.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %add.ptr.i5.i138.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %55 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i139.i.i.i.i.i.i.i.i.i.i.i)
-  %conv7.i140.i.i.i.i.i.i.i.i.i.i.i = zext i32 %55 to i64
-  %cmp10.i141.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %add.i135.i.i.i.i.i.i.i.i.i.i.i, %conv7.i140.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %cmp10.i141.i.i.i.i.i.i.i.i.i.i.i, label %while.body.i142.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf9FdeRecordINS0_5PPC32EE8get_relsERNS0_10ObjectFileIS2_EE.exit145.i.i.i.i.i.i.i.i.i.i.i
+land.rhs.i138.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %while.body.i144.i.i.i.i.i.i.i.i.i.i.i, %land.rhs.lr.ph.i130.i.i.i.i.i.i.i.i.i.i.i
+  %end.012.i139.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %conv3.i120.i.i.i.i.i.i.i.i.i.i.i, %land.rhs.lr.ph.i130.i.i.i.i.i.i.i.i.i.i.i ], [ %inc.i145.i.i.i.i.i.i.i.i.i.i.i, %while.body.i144.i.i.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i5.i140.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.mold::elf::ElfRel", ptr %rels.sroa.0.0.copyload.i116.i.i.i.i.i.i.i.i.i.i.i, i64 %end.012.i139.i.i.i.i.i.i.i.i.i.i.i
+  %x.0.copyload.i.i141.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %add.ptr.i5.i140.i.i.i.i.i.i.i.i.i.i.i, align 1
+  %55 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i141.i.i.i.i.i.i.i.i.i.i.i)
+  %conv7.i142.i.i.i.i.i.i.i.i.i.i.i = zext i32 %55 to i64
+  %cmp10.i143.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %add.i137.i.i.i.i.i.i.i.i.i.i.i, %conv7.i142.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp10.i143.i.i.i.i.i.i.i.i.i.i.i, label %while.body.i144.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf9FdeRecordINS0_5PPC32EE8get_relsERNS0_10ObjectFileIS2_EE.exit147.i.i.i.i.i.i.i.i.i.i.i
 
-while.body.i142.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %land.rhs.i136.i.i.i.i.i.i.i.i.i.i.i
-  %inc.i143.i.i.i.i.i.i.i.i.i.i.i = add nuw i64 %end.012.i137.i.i.i.i.i.i.i.i.i.i.i, 1
-  %exitcond.not.i144.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %inc.i143.i.i.i.i.i.i.i.i.i.i.i, %rels.sroa.3.0.copyload.i116.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %exitcond.not.i144.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf9FdeRecordINS0_5PPC32EE8get_relsERNS0_10ObjectFileIS2_EE.exit145.i.i.i.i.i.i.i.i.i.i.i, label %land.rhs.i136.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !142
+while.body.i144.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %land.rhs.i138.i.i.i.i.i.i.i.i.i.i.i
+  %inc.i145.i.i.i.i.i.i.i.i.i.i.i = add nuw i64 %end.012.i139.i.i.i.i.i.i.i.i.i.i.i, 1
+  %exitcond.not.i146.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %inc.i145.i.i.i.i.i.i.i.i.i.i.i, %rels.sroa.3.0.copyload.i118.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %exitcond.not.i146.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf9FdeRecordINS0_5PPC32EE8get_relsERNS0_10ObjectFileIS2_EE.exit147.i.i.i.i.i.i.i.i.i.i.i, label %land.rhs.i138.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !142
 
-_ZNK4mold3elf9FdeRecordINS0_5PPC32EE8get_relsERNS0_10ObjectFileIS2_EE.exit145.i.i.i.i.i.i.i.i.i.i.i: ; preds = %while.body.i142.i.i.i.i.i.i.i.i.i.i.i, %land.rhs.i136.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf9FdeRecordINS0_5PPC32EE8get_relsERNS0_10ObjectFileIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i
-  %end.0.lcssa.i120.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %conv3.i118.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf9FdeRecordINS0_5PPC32EE8get_relsERNS0_10ObjectFileIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %rels.sroa.3.0.copyload.i116.i.i.i.i.i.i.i.i.i.i.i, %while.body.i142.i.i.i.i.i.i.i.i.i.i.i ], [ %end.012.i137.i.i.i.i.i.i.i.i.i.i.i, %land.rhs.i136.i.i.i.i.i.i.i.i.i.i.i ]
-  %sub.i121.i.i.i.i.i.i.i.i.i.i.i = sub nsw i64 %end.0.lcssa.i120.i.i.i.i.i.i.i.i.i.i.i, %conv3.i118.i.i.i.i.i.i.i.i.i.i.i
-  %cmp.i.i122.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %sub.i121.i.i.i.i.i.i.i.i.i.i.i, -1
-  %sub.i.i123.i.i.i.i.i.i.i.i.i.i.i = sub i64 %rels.sroa.3.0.copyload.i116.i.i.i.i.i.i.i.i.i.i.i, %conv3.i118.i.i.i.i.i.i.i.i.i.i.i
-  %__count.addr.0.i.i124.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i122.i.i.i.i.i.i.i.i.i.i.i, i64 %sub.i.i123.i.i.i.i.i.i.i.i.i.i.i, i64 %sub.i121.i.i.i.i.i.i.i.i.i.i.i
-  %add.ptr.i7.i125.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.mold::elf::ElfRel", ptr %rels.sroa.0.0.copyload.i114.i.i.i.i.i.i.i.i.i.i.i, i64 %conv3.i118.i.i.i.i.i.i.i.i.i.i.i
-  %add.ptr.i152.idx.i.i.i.i.i.i.i.i.i.i.i = mul i64 %__count.addr.0.i.i124.i.i.i.i.i.i.i.i.i.i.i, 12
-  %add.ptr.i152.i.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %add.ptr.i7.i125.i.i.i.i.i.i.i.i.i.i.i, i64 %add.ptr.i152.idx.i.i.i.i.i.i.i.i.i.i.i
-  %cmp.i153219.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %add.ptr.i152.idx.i.i.i.i.i.i.i.i.i.i.i, 12
-  br i1 %cmp.i153219.i.i.i.i.i.i.i.i.i.i.i, label %for.inc53.i.i.i.i.i.i.i.i.i.i.i, label %for.body39.preheader.i.i.i.i.i.i.i.i.i.i.i
+_ZNK4mold3elf9FdeRecordINS0_5PPC32EE8get_relsERNS0_10ObjectFileIS2_EE.exit147.i.i.i.i.i.i.i.i.i.i.i: ; preds = %while.body.i144.i.i.i.i.i.i.i.i.i.i.i, %land.rhs.i138.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf9FdeRecordINS0_5PPC32EE8get_relsERNS0_10ObjectFileIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i
+  %end.0.lcssa.i122.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %conv3.i120.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf9FdeRecordINS0_5PPC32EE8get_relsERNS0_10ObjectFileIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %rels.sroa.3.0.copyload.i118.i.i.i.i.i.i.i.i.i.i.i, %while.body.i144.i.i.i.i.i.i.i.i.i.i.i ], [ %end.012.i139.i.i.i.i.i.i.i.i.i.i.i, %land.rhs.i138.i.i.i.i.i.i.i.i.i.i.i ]
+  %sub.i123.i.i.i.i.i.i.i.i.i.i.i = sub nsw i64 %end.0.lcssa.i122.i.i.i.i.i.i.i.i.i.i.i, %conv3.i120.i.i.i.i.i.i.i.i.i.i.i
+  %cmp.i.i124.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %sub.i123.i.i.i.i.i.i.i.i.i.i.i, -1
+  %sub.i.i125.i.i.i.i.i.i.i.i.i.i.i = sub i64 %rels.sroa.3.0.copyload.i118.i.i.i.i.i.i.i.i.i.i.i, %conv3.i120.i.i.i.i.i.i.i.i.i.i.i
+  %__count.addr.0.i.i126.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i124.i.i.i.i.i.i.i.i.i.i.i, i64 %sub.i.i125.i.i.i.i.i.i.i.i.i.i.i, i64 %sub.i123.i.i.i.i.i.i.i.i.i.i.i
+  %add.ptr.i7.i127.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.mold::elf::ElfRel", ptr %rels.sroa.0.0.copyload.i116.i.i.i.i.i.i.i.i.i.i.i, i64 %conv3.i120.i.i.i.i.i.i.i.i.i.i.i
+  %add.ptr.i154.idx.i.i.i.i.i.i.i.i.i.i.i = mul i64 %__count.addr.0.i.i126.i.i.i.i.i.i.i.i.i.i.i, 12
+  %add.ptr.i154.i.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %add.ptr.i7.i127.i.i.i.i.i.i.i.i.i.i.i, i64 %add.ptr.i154.idx.i.i.i.i.i.i.i.i.i.i.i
+  %cmp.i155219.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %add.ptr.i154.idx.i.i.i.i.i.i.i.i.i.i.i, 12
+  br i1 %cmp.i155219.i.i.i.i.i.i.i.i.i.i.i, label %for.inc53.i.i.i.i.i.i.i.i.i.i.i, label %for.body39.preheader.i.i.i.i.i.i.i.i.i.i.i
 
-for.body39.preheader.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %_ZNK4mold3elf9FdeRecordINS0_5PPC32EE8get_relsERNS0_10ObjectFileIS2_EE.exit145.i.i.i.i.i.i.i.i.i.i.i
-  %__begin030.sroa.0.0218.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i7.i125.i.i.i.i.i.i.i.i.i.i.i, i64 12
+for.body39.preheader.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %_ZNK4mold3elf9FdeRecordINS0_5PPC32EE8get_relsERNS0_10ObjectFileIS2_EE.exit147.i.i.i.i.i.i.i.i.i.i.i
+  %__begin030.sroa.0.0218.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i7.i127.i.i.i.i.i.i.i.i.i.i.i, i64 12
   br label %for.body39.i.i.i.i.i.i.i.i.i.i.i
 
 for.body39.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %for.body39.i.i.i.i.i.i.i.i.i.i.i, %for.body39.preheader.i.i.i.i.i.i.i.i.i.i.i
   %__begin030.sroa.0.0221.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %__begin030.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i, %for.body39.i.i.i.i.i.i.i.i.i.i.i ], [ %__begin030.sroa.0.0218.i.i.i.i.i.i.i.i.i.i.i, %for.body39.preheader.i.i.i.i.i.i.i.i.i.i.i ]
-  %add.ptr.i7.i125.pn220.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %__begin030.sroa.0.0221.i.i.i.i.i.i.i.i.i.i.i, %for.body39.i.i.i.i.i.i.i.i.i.i.i ], [ %add.ptr.i7.i125.i.i.i.i.i.i.i.i.i.i.i, %for.body39.preheader.i.i.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i7.i127.pn220.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %__begin030.sroa.0.0221.i.i.i.i.i.i.i.i.i.i.i, %for.body39.i.i.i.i.i.i.i.i.i.i.i ], [ %add.ptr.i7.i127.i.i.i.i.i.i.i.i.i.i.i, %for.body39.preheader.i.i.i.i.i.i.i.i.i.i.i ]
   %56 = load ptr, ptr %8, align 8
   %symbols.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %56, i64 48
-  %r_sym.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i7.i125.pn220.i.i.i.i.i.i.i.i.i.i.i, i64 16
+  %r_sym.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i7.i127.pn220.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %57 = load i8, ptr %r_sym.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %conv.i154.i.i.i.i.i.i.i.i.i.i.i = zext i8 %57 to i64
-  %shl.i.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %conv.i154.i.i.i.i.i.i.i.i.i.i.i, 16
-  %arrayidx3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i7.i125.pn220.i.i.i.i.i.i.i.i.i.i.i, i64 17
+  %conv.i156.i.i.i.i.i.i.i.i.i.i.i = zext i8 %57 to i64
+  %shl.i.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %conv.i156.i.i.i.i.i.i.i.i.i.i.i, 16
+  %arrayidx3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i7.i127.pn220.i.i.i.i.i.i.i.i.i.i.i, i64 17
   %58 = load i8, ptr %arrayidx3.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %conv4.i155.i.i.i.i.i.i.i.i.i.i.i = zext i8 %58 to i64
-  %shl5.i.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %conv4.i155.i.i.i.i.i.i.i.i.i.i.i, 8
+  %conv4.i157.i.i.i.i.i.i.i.i.i.i.i = zext i8 %58 to i64
+  %shl5.i.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %conv4.i157.i.i.i.i.i.i.i.i.i.i.i, 8
   %or.i.i.i.i.i.i.i.i.i.i.i.i = or disjoint i64 %shl5.i.i.i.i.i.i.i.i.i.i.i.i, %shl.i.i.i.i.i.i.i.i.i.i.i.i
-  %arrayidx7.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i7.i125.pn220.i.i.i.i.i.i.i.i.i.i.i, i64 18
+  %arrayidx7.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i7.i127.pn220.i.i.i.i.i.i.i.i.i.i.i, i64 18
   %59 = load i8, ptr %arrayidx7.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %conv8.i156.i.i.i.i.i.i.i.i.i.i.i = zext i8 %59 to i64
-  %or9.i.i.i.i.i.i.i.i.i.i.i.i = or disjoint i64 %or.i.i.i.i.i.i.i.i.i.i.i.i, %conv8.i156.i.i.i.i.i.i.i.i.i.i.i
+  %conv8.i158.i.i.i.i.i.i.i.i.i.i.i = zext i8 %59 to i64
+  %or9.i.i.i.i.i.i.i.i.i.i.i.i = or disjoint i64 %or.i.i.i.i.i.i.i.i.i.i.i.i, %conv8.i158.i.i.i.i.i.i.i.i.i.i.i
   %60 = load ptr, ptr %symbols.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %add.ptr.i157.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %60, i64 %or9.i.i.i.i.i.i.i.i.i.i.i.i
-  %61 = load ptr, ptr %add.ptr.i157.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %add.ptr.i159.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %60, i64 %or9.i.i.i.i.i.i.i.i.i.i.i.i
+  %61 = load ptr, ptr %add.ptr.i159.i.i.i.i.i.i.i.i.i.i.i, align 8
   call fastcc void @_ZZN4mold3elfL14compute_digestINS0_5PPC32EEESt5arrayIhLm16EERNS0_7ContextIT_EERNS0_12InputSectionIS6_EEENKUlRNS0_6SymbolIS2_EEE_clESE_(ptr nonnull %hash.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %61)
-  %r_type.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i7.i125.pn220.i.i.i.i.i.i.i.i.i.i.i, i64 19
+  %r_type.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i7.i127.pn220.i.i.i.i.i.i.i.i.i.i.i, i64 19
   %62 = load i8, ptr %r_type.i.i.i.i.i.i.i.i.i.i.i, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i158.i.i.i.i.i.i.i.i.i.i.i)
-  store i8 %62, ptr %val.addr.i158.i.i.i.i.i.i.i.i.i.i.i, align 1
-  call void @blake3_hasher_update(ptr noundef nonnull %hasher.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %val.addr.i158.i.i.i.i.i.i.i.i.i.i.i, i64 noundef 1) #13
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i158.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i160.i.i.i.i.i.i.i.i.i.i.i)
+  store i8 %62, ptr %val.addr.i160.i.i.i.i.i.i.i.i.i.i.i, align 1
+  call void @blake3_hasher_update(ptr noundef nonnull %hasher.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %val.addr.i160.i.i.i.i.i.i.i.i.i.i.i, i64 noundef 1) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i160.i.i.i.i.i.i.i.i.i.i.i)
   %x.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %__begin030.sroa.0.0221.i.i.i.i.i.i.i.i.i.i.i, align 1
   %63 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i)
   %64 = load i32, ptr %__begin0.sroa.0.0223.i.i.i.i.i.i.i.i.i.i.i, align 4
   %sub.i.i.i.i.i.i.i.i.i.i.i = sub i32 %63, %64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i159.i.i.i.i.i.i.i.i.i.i.i)
-  store i32 %sub.i.i.i.i.i.i.i.i.i.i.i, ptr %val.addr.i159.i.i.i.i.i.i.i.i.i.i.i, align 4
-  call void @blake3_hasher_update(ptr noundef nonnull %hasher.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %val.addr.i159.i.i.i.i.i.i.i.i.i.i.i, i64 noundef 4) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i159.i.i.i.i.i.i.i.i.i.i.i)
-  %r_addend.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i7.i125.pn220.i.i.i.i.i.i.i.i.i.i.i, i64 20
-  %x.0.copyload.i.i.i161.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %r_addend.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %65 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i.i161.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i161.i.i.i.i.i.i.i.i.i.i.i)
+  store i32 %sub.i.i.i.i.i.i.i.i.i.i.i, ptr %val.addr.i161.i.i.i.i.i.i.i.i.i.i.i, align 4
+  call void @blake3_hasher_update(ptr noundef nonnull %hasher.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %val.addr.i161.i.i.i.i.i.i.i.i.i.i.i, i64 noundef 4) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i161.i.i.i.i.i.i.i.i.i.i.i)
+  %r_addend.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i7.i127.pn220.i.i.i.i.i.i.i.i.i.i.i, i64 20
+  %x.0.copyload.i.i.i163.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %r_addend.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
+  %65 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i.i163.i.i.i.i.i.i.i.i.i.i.i)
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i = sext i32 %65 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.addr.i162.i.i.i.i.i.i.i.i.i.i.i)
-  store i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %val.addr.i162.i.i.i.i.i.i.i.i.i.i.i, align 8
-  call void @blake3_hasher_update(ptr noundef nonnull %hasher.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %val.addr.i162.i.i.i.i.i.i.i.i.i.i.i, i64 noundef 8) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.addr.i162.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.addr.i164.i.i.i.i.i.i.i.i.i.i.i)
+  store i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %val.addr.i164.i.i.i.i.i.i.i.i.i.i.i, align 8
+  call void @blake3_hasher_update(ptr noundef nonnull %hasher.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %val.addr.i164.i.i.i.i.i.i.i.i.i.i.i, i64 noundef 8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.addr.i164.i.i.i.i.i.i.i.i.i.i.i)
   %__begin030.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin030.sroa.0.0221.i.i.i.i.i.i.i.i.i.i.i, i64 12
-  %cmp.i153.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %__begin030.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i, %add.ptr.i152.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %cmp.i153.i.i.i.i.i.i.i.i.i.i.i, label %for.inc53.i.i.i.i.i.i.i.i.i.i.i, label %for.body39.i.i.i.i.i.i.i.i.i.i.i
+  %cmp.i155.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %__begin030.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i, %add.ptr.i154.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i155.i.i.i.i.i.i.i.i.i.i.i, label %for.inc53.i.i.i.i.i.i.i.i.i.i.i, label %for.body39.i.i.i.i.i.i.i.i.i.i.i
 
-for.inc53.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body39.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf9FdeRecordINS0_5PPC32EE8get_relsERNS0_10ObjectFileIS2_EE.exit145.i.i.i.i.i.i.i.i.i.i.i
-  %incdec.ptr.i163.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.0223.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  %cmp.i82.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i163.i.i.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %cmp.i82.i.i.i.i.i.i.i.i.i.i.i, label %for.cond56.preheader.i.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i
+for.inc53.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body39.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf9FdeRecordINS0_5PPC32EE8get_relsERNS0_10ObjectFileIS2_EE.exit147.i.i.i.i.i.i.i.i.i.i.i
+  %incdec.ptr.i165.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.0223.i.i.i.i.i.i.i.i.i.i.i, i64 16
+  %cmp.i85.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i165.i.i.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i85.i.i.i.i.i.i.i.i.i.i.i, label %for.cond56.preheader.i.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i
 
-if.end.i166.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %for.cond56.preheader.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit188.i.i.i.i.i.i.i.i.i.i.i
-  %66 = phi i32 [ %82, %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit188.i.i.i.i.i.i.i.i.i.i.i ], [ %28, %for.cond56.preheader.i.i.i.i.i.i.i.i.i.i.i ]
-  %i.0.i.i.i.i.i.i.i24.i.i.i.i = phi i64 [ %inc.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit188.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %for.cond56.preheader.i.i.i.i.i.i.i.i.i.i.i ]
+if.end.i168.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %for.cond56.preheader.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit190.i.i.i.i.i.i.i.i.i.i.i
+  %66 = phi i32 [ %82, %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit190.i.i.i.i.i.i.i.i.i.i.i ], [ %28, %for.cond56.preheader.i.i.i.i.i.i.i.i.i.i.i ]
+  %i.0.i.i.i.i.i.i.i24.i.i.i.i = phi i64 [ %inc.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit190.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %for.cond56.preheader.i.i.i.i.i.i.i.i.i.i.i ]
   %67 = load ptr, ptr %8, align 8
-  %elf_sections.i167.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %conv.i168.i.i.i.i.i.i.i.i.i.i.i = zext i32 %66 to i64
-  %68 = load ptr, ptr %elf_sections.i167.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %add.ptr.i.i169.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.mold::elf::ElfShdr", ptr %68, i64 %conv.i168.i.i.i.i.i.i.i.i.i.i.i
+  %elf_sections.i169.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %67, i64 16
+  %conv.i170.i.i.i.i.i.i.i.i.i.i.i = zext i32 %66 to i64
+  %68 = load ptr, ptr %elf_sections.i169.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %add.ptr.i.i171.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.mold::elf::ElfShdr", ptr %68, i64 %conv.i170.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %ref.tmp.i6.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %ref.tmp.i.i5.i.i.i.i.i)
   %mf.i.i7.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load ptr, ptr %mf.i.i7.i.i.i.i.i, align 8
   %data.i.i8.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %69, i64 32
   %70 = load ptr, ptr %data.i.i8.i.i.i.i.i, align 8
-  %sh_offset.i.i9.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i169.i.i.i.i.i.i.i.i.i.i.i, i64 16
+  %sh_offset.i.i9.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i171.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %x.0.copyload.i.i.i10.i.i.i.i.i = load i32, ptr %sh_offset.i.i9.i.i.i.i.i, align 1
   %71 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i.i10.i.i.i.i.i)
   %idx.ext.i.i11.i.i.i.i.i = zext i32 %71 to i64
   %add.ptr.i.i12.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %70, i64 %idx.ext.i.i11.i.i.i.i.i
-  %sh_size.i.i13.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i169.i.i.i.i.i.i.i.i.i.i.i, i64 20
+  %sh_size.i.i13.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i171.i.i.i.i.i.i.i.i.i.i.i, i64 20
   %x.0.copyload.i6.i.i14.i.i.i.i.i = load i32, ptr %sh_size.i.i13.i.i.i.i.i, align 1
   %72 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i6.i.i14.i.i.i.i.i)
   %idx.ext3.i.i15.i.i.i.i.i = zext i32 %72 to i64
@@ -14168,8 +14168,8 @@ if.end.i166.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %for.cond56.preheade
   %cmp.i.i19.i.i.i.i.i = icmp ult ptr %add.ptr8.i.i18.i.i.i.i.i, %add.ptr4.i.i16.i.i.i.i.i
   br i1 %cmp.i.i19.i.i.i.i.i, label %if.then.i.i30.i.i.i.i.i, label %_ZN4mold3elf9InputFileINS0_5PPC32EE10get_stringERNS0_7ContextIS2_EERKNS0_7ElfShdrIS2_EE.exit.i20.i.i.i.i.i
 
-if.then.i.i30.i.i.i.i.i:                          ; preds = %if.end.i166.i.i.i.i.i.i.i.i.i.i.i
-  %sh_offset.i.i9.i.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %add.ptr.i.i169.i.i.i.i.i.i.i.i.i.i.i, i64 16
+if.then.i.i30.i.i.i.i.i:                          ; preds = %if.end.i168.i.i.i.i.i.i.i.i.i.i.i
+  %sh_offset.i.i9.i.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %add.ptr.i.i171.i.i.i.i.i.i.i.i.i.i.i, i64 16
   call void @_ZN4mold5FatalINS_3elf7ContextINS1_5PPC32EEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp.i.i5.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(4576) %4)
   %call9.i.i31.i.i.i.i.i = call noundef nonnull align 8 dereferenceable(400) ptr @_ZN4mold5FatalINS_3elf7ContextINS1_5PPC32EEEElsIRNS1_9InputFileIS3_EEEERS5_OT_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp.i.i5.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(280) %67)
   %call10.i.i32.i.i.i.i.i = call noundef nonnull align 8 dereferenceable(400) ptr @_ZN4mold5FatalINS_3elf7ContextINS1_5PPC32EEEElsIRA35_KcEERS5_OT_(ptr noundef nonnull align 8 dereferenceable(400) %call9.i.i31.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(35) @.str.23)
@@ -14177,12 +14177,12 @@ if.then.i.i30.i.i.i.i.i:                          ; preds = %if.end.i166.i.i.i.i
   call void @_ZN4mold5FatalINS_3elf7ContextINS1_5PPC32EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp.i.i5.i.i.i.i.i) #31
   unreachable
 
-_ZN4mold3elf9InputFileINS0_5PPC32EE10get_stringERNS0_7ContextIS2_EERKNS0_7ElfShdrIS2_EE.exit.i20.i.i.i.i.i: ; preds = %if.end.i166.i.i.i.i.i.i.i.i.i.i.i
+_ZN4mold3elf9InputFileINS0_5PPC32EE10get_stringERNS0_7ContextIS2_EERKNS0_7ElfShdrIS2_EE.exit.i20.i.i.i.i.i: ; preds = %if.end.i168.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %ref.tmp.i.i5.i.i.i.i.i)
   %rem3.i21.i.i.i.i.i = urem i32 %72, 12
   %div4.i26.i.i.i.i.i = udiv i32 %72, 12
   %tobool.not.i22.i.i.i.i.i = icmp eq i32 %rem3.i21.i.i.i.i.i, 0
-  br i1 %tobool.not.i22.i.i.i.i.i, label %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit175.i.i.i.i.i.i.thread.i.i.i.i.i, label %if.then.i23.i.i.i.i.i
+  br i1 %tobool.not.i22.i.i.i.i.i, label %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit177.i.i.i.i.i.i.thread.i.i.i.i.i, label %if.then.i23.i.i.i.i.i
 
 if.then.i23.i.i.i.i.i:                            ; preds = %_ZN4mold3elf9InputFileINS0_5PPC32EE10get_stringERNS0_7ContextIS2_EERKNS0_7ElfShdrIS2_EE.exit.i20.i.i.i.i.i
   call void @_ZN4mold5FatalINS_3elf7ContextINS1_5PPC32EEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp.i6.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(4576) %4)
@@ -14191,58 +14191,58 @@ if.then.i23.i.i.i.i.i:                            ; preds = %_ZN4mold3elf9InputF
   call void @_ZN4mold5FatalINS_3elf7ContextINS1_5PPC32EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp.i6.i.i.i.i.i) #31
   unreachable
 
-_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit175.i.i.i.i.i.i.thread.i.i.i.i.i: ; preds = %_ZN4mold3elf9InputFileINS0_5PPC32EE10get_stringERNS0_7ContextIS2_EERKNS0_7ElfShdrIS2_EE.exit.i20.i.i.i.i.i
+_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit177.i.i.i.i.i.i.thread.i.i.i.i.i: ; preds = %_ZN4mold3elf9InputFileINS0_5PPC32EE10get_stringERNS0_7ContextIS2_EERKNS0_7ElfShdrIS2_EE.exit.i20.i.i.i.i.i
   %div.zext.i27.i.i.i.i.i = zext nneg i32 %div4.i26.i.i.i.i.i to i64
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %ref.tmp.i6.i.i.i.i.i)
   %cmp.i.i.i.i.i.i41.i.i.i.i.i = icmp samesign ult i64 %i.0.i.i.i.i.i.i.i24.i.i.i.i, %div.zext.i27.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i41.i.i.i.i.i, label %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit188.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d06invokeIRKZN4mold3elfL15compute_digestsINS4_5PPC32EEESt6vectorISt5arrayIhLm16EESaIS9_EERNS4_7ContextIT_EESt4spanIPNS4_12InputSectionISD_EELm18446744073709551615EEEUllE_JRlEEENSt13invoke_resultISD_JDpT0_EE4typeEOSD_DpOSQ_.exit.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i41.i.i.i.i.i, label %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit190.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d06invokeIRKZN4mold3elfL15compute_digestsINS4_5PPC32EEESt6vectorISt5arrayIhLm16EESaIS9_EERNS4_7ContextIT_EESt4spanIPNS4_12InputSectionISD_EELm18446744073709551615EEEUllE_JRlEEENSt13invoke_resultISD_JDpT0_EE4typeEOSD_DpOSQ_.exit.i.i.i.i.i
 
-_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit188.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit175.i.i.i.i.i.i.thread.i.i.i.i.i
-  %add.ptr.i189.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.mold::elf::ElfRel", ptr %add.ptr.i.i12.i.i.i.i.i, i64 %i.0.i.i.i.i.i.i.i24.i.i.i.i
-  %agg.tmp65.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %add.ptr.i189.i.i.i.i.i.i.i.i.i.i.i, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i190.i.i.i.i.i.i.i.i.i.i.i)
-  store i32 %agg.tmp65.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, ptr %val.i190.i.i.i.i.i.i.i.i.i.i.i, align 4
-  call void @blake3_hasher_update(ptr noundef nonnull %hasher.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %val.i190.i.i.i.i.i.i.i.i.i.i.i, i64 noundef 4) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i190.i.i.i.i.i.i.i.i.i.i.i)
-  %r_type68.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i189.i.i.i.i.i.i.i.i.i.i.i, i64 7
+_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit190.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit177.i.i.i.i.i.i.thread.i.i.i.i.i
+  %add.ptr.i191.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.mold::elf::ElfRel", ptr %add.ptr.i.i12.i.i.i.i.i, i64 %i.0.i.i.i.i.i.i.i24.i.i.i.i
+  %agg.tmp65.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %add.ptr.i191.i.i.i.i.i.i.i.i.i.i.i, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i192.i.i.i.i.i.i.i.i.i.i.i)
+  store i32 %agg.tmp65.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, ptr %val.i192.i.i.i.i.i.i.i.i.i.i.i, align 4
+  call void @blake3_hasher_update(ptr noundef nonnull %hasher.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %val.i192.i.i.i.i.i.i.i.i.i.i.i, i64 noundef 4) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i192.i.i.i.i.i.i.i.i.i.i.i)
+  %r_type68.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i191.i.i.i.i.i.i.i.i.i.i.i, i64 7
   %74 = load i8, ptr %r_type68.i.i.i.i.i.i.i.i.i.i.i, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i191.i.i.i.i.i.i.i.i.i.i.i)
-  store i8 %74, ptr %val.addr.i191.i.i.i.i.i.i.i.i.i.i.i, align 1
-  call void @blake3_hasher_update(ptr noundef nonnull %hasher.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %val.addr.i191.i.i.i.i.i.i.i.i.i.i.i, i64 noundef 1) #13
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i191.i.i.i.i.i.i.i.i.i.i.i)
-  %r_addend.i.i192.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i189.i.i.i.i.i.i.i.i.i.i.i, i64 8
-  %x.0.copyload.i.i.i193.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %r_addend.i.i192.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %75 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i.i193.i.i.i.i.i.i.i.i.i.i.i)
-  %conv.i.i194.i.i.i.i.i.i.i.i.i.i.i = sext i32 %75 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.addr.i195.i.i.i.i.i.i.i.i.i.i.i)
-  store i64 %conv.i.i194.i.i.i.i.i.i.i.i.i.i.i, ptr %val.addr.i195.i.i.i.i.i.i.i.i.i.i.i, align 8
-  call void @blake3_hasher_update(ptr noundef nonnull %hasher.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %val.addr.i195.i.i.i.i.i.i.i.i.i.i.i, i64 noundef 8) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.addr.i195.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i193.i.i.i.i.i.i.i.i.i.i.i)
+  store i8 %74, ptr %val.addr.i193.i.i.i.i.i.i.i.i.i.i.i, align 1
+  call void @blake3_hasher_update(ptr noundef nonnull %hasher.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %val.addr.i193.i.i.i.i.i.i.i.i.i.i.i, i64 noundef 1) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i193.i.i.i.i.i.i.i.i.i.i.i)
+  %r_addend.i.i194.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i191.i.i.i.i.i.i.i.i.i.i.i, i64 8
+  %x.0.copyload.i.i.i195.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %r_addend.i.i194.i.i.i.i.i.i.i.i.i.i.i, align 1
+  %75 = call noundef i32 @llvm.bswap.i32(i32 %x.0.copyload.i.i.i195.i.i.i.i.i.i.i.i.i.i.i)
+  %conv.i.i196.i.i.i.i.i.i.i.i.i.i.i = sext i32 %75 to i64
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.addr.i197.i.i.i.i.i.i.i.i.i.i.i)
+  store i64 %conv.i.i196.i.i.i.i.i.i.i.i.i.i.i, ptr %val.addr.i197.i.i.i.i.i.i.i.i.i.i.i, align 8
+  call void @blake3_hasher_update(ptr noundef nonnull %hasher.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %val.addr.i197.i.i.i.i.i.i.i.i.i.i.i, i64 noundef 8) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.addr.i197.i.i.i.i.i.i.i.i.i.i.i)
   %76 = load ptr, ptr %8, align 8
   %symbols71.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %76, i64 48
-  %r_sym72.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i189.i.i.i.i.i.i.i.i.i.i.i, i64 4
+  %r_sym72.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i191.i.i.i.i.i.i.i.i.i.i.i, i64 4
   %77 = load i8, ptr %r_sym72.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %conv.i196.i.i.i.i.i.i.i.i.i.i.i = zext i8 %77 to i64
-  %shl.i197.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %conv.i196.i.i.i.i.i.i.i.i.i.i.i, 16
-  %arrayidx3.i198.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i189.i.i.i.i.i.i.i.i.i.i.i, i64 5
-  %78 = load i8, ptr %arrayidx3.i198.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %conv4.i199.i.i.i.i.i.i.i.i.i.i.i = zext i8 %78 to i64
-  %shl5.i200.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %conv4.i199.i.i.i.i.i.i.i.i.i.i.i, 8
-  %or.i201.i.i.i.i.i.i.i.i.i.i.i = or disjoint i64 %shl5.i200.i.i.i.i.i.i.i.i.i.i.i, %shl.i197.i.i.i.i.i.i.i.i.i.i.i
-  %arrayidx7.i202.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i189.i.i.i.i.i.i.i.i.i.i.i, i64 6
-  %79 = load i8, ptr %arrayidx7.i202.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %conv8.i203.i.i.i.i.i.i.i.i.i.i.i = zext i8 %79 to i64
-  %or9.i204.i.i.i.i.i.i.i.i.i.i.i = or disjoint i64 %or.i201.i.i.i.i.i.i.i.i.i.i.i, %conv8.i203.i.i.i.i.i.i.i.i.i.i.i
+  %conv.i198.i.i.i.i.i.i.i.i.i.i.i = zext i8 %77 to i64
+  %shl.i199.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %conv.i198.i.i.i.i.i.i.i.i.i.i.i, 16
+  %arrayidx3.i200.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i191.i.i.i.i.i.i.i.i.i.i.i, i64 5
+  %78 = load i8, ptr %arrayidx3.i200.i.i.i.i.i.i.i.i.i.i.i, align 1
+  %conv4.i201.i.i.i.i.i.i.i.i.i.i.i = zext i8 %78 to i64
+  %shl5.i202.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %conv4.i201.i.i.i.i.i.i.i.i.i.i.i, 8
+  %or.i203.i.i.i.i.i.i.i.i.i.i.i = or disjoint i64 %shl5.i202.i.i.i.i.i.i.i.i.i.i.i, %shl.i199.i.i.i.i.i.i.i.i.i.i.i
+  %arrayidx7.i204.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i191.i.i.i.i.i.i.i.i.i.i.i, i64 6
+  %79 = load i8, ptr %arrayidx7.i204.i.i.i.i.i.i.i.i.i.i.i, align 1
+  %conv8.i205.i.i.i.i.i.i.i.i.i.i.i = zext i8 %79 to i64
+  %or9.i206.i.i.i.i.i.i.i.i.i.i.i = or disjoint i64 %or.i203.i.i.i.i.i.i.i.i.i.i.i, %conv8.i205.i.i.i.i.i.i.i.i.i.i.i
   %80 = load ptr, ptr %symbols71.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %add.ptr.i205.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %80, i64 %or9.i204.i.i.i.i.i.i.i.i.i.i.i
-  %81 = load ptr, ptr %add.ptr.i205.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %add.ptr.i207.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %80, i64 %or9.i206.i.i.i.i.i.i.i.i.i.i.i
+  %81 = load ptr, ptr %add.ptr.i207.i.i.i.i.i.i.i.i.i.i.i, align 8
   call fastcc void @_ZZN4mold3elfL14compute_digestINS0_5PPC32EEESt5arrayIhLm16EERNS0_7ContextIT_EERNS0_12InputSectionIS6_EEENKUlRNS0_6SymbolIS2_EEE_clESE_(ptr nonnull %hash.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %81)
   %inc.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %i.0.i.i.i.i.i.i.i24.i.i.i.i, 1
   %82 = load i32, ptr %relsec_idx.i.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %cmp.i165.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %82, -1
-  br i1 %cmp.i165.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d06invokeIRKZN4mold3elfL15compute_digestsINS4_5PPC32EEESt6vectorISt5arrayIhLm16EESaIS9_EERNS4_7ContextIT_EESt4spanIPNS4_12InputSectionISD_EELm18446744073709551615EEEUllE_JRlEEENSt13invoke_resultISD_JDpT0_EE4typeEOSD_DpOSQ_.exit.i.i.i.i.i, label %if.end.i166.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !272
+  %cmp.i167.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %82, -1
+  br i1 %cmp.i167.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d06invokeIRKZN4mold3elfL15compute_digestsINS4_5PPC32EEESt6vectorISt5arrayIhLm16EESaIS9_EERNS4_7ContextIT_EESt4spanIPNS4_12InputSectionISD_EELm18446744073709551615EEEUllE_JRlEEENSt13invoke_resultISD_JDpT0_EE4typeEOSD_DpOSQ_.exit.i.i.i.i.i, label %if.end.i168.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !272
 
-_ZN3tbb6detail2d06invokeIRKZN4mold3elfL15compute_digestsINS4_5PPC32EEESt6vectorISt5arrayIhLm16EESaIS9_EERNS4_7ContextIT_EESt4spanIPNS4_12InputSectionISD_EELm18446744073709551615EEEUllE_JRlEEENSt13invoke_resultISD_JDpT0_EE4typeEOSD_DpOSQ_.exit.i.i.i.i.i: ; preds = %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit188.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit175.i.i.i.i.i.i.thread.i.i.i.i.i, %for.cond56.preheader.i.i.i.i.i.i.i.i.i.i.i
+_ZN3tbb6detail2d06invokeIRKZN4mold3elfL15compute_digestsINS4_5PPC32EEESt6vectorISt5arrayIhLm16EESaIS9_EERNS4_7ContextIT_EESt4spanIPNS4_12InputSectionISD_EELm18446744073709551615EEEUllE_JRlEEENSt13invoke_resultISD_JDpT0_EE4typeEOSD_DpOSQ_.exit.i.i.i.i.i: ; preds = %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit190.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf12InputSectionINS0_5PPC32EE8get_relsERNS0_7ContextIS2_EE.exit177.i.i.i.i.i.i.thread.i.i.i.i.i, %for.cond56.preheader.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @blake3_hasher_finalize(ptr noundef nonnull %hasher.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %buf.i.i.i.i.i.i.i.i.i.i.i.i, i64 noundef 32) #13
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %buf.i.i.i.i.i.i.i.i.i.i.i.i, align 16

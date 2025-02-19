@@ -24507,7 +24507,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34: ; preds = %_ZN
   %1497 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %1495, i64 %1496) #26, !noalias !954
   %1498 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %485, ptr %1495, i64 %1496, i32 noundef %1497), !noalias !954
   %.fca.0.extract.i.i37 = extractvalue { ptr, i8 } %1498, 0
-  %1499 = load ptr, ptr %.fca.0.extract.i.i37, align 8, !tbaa !546
+  %1499 = load ptr, ptr %.fca.0.extract.i.i37, align 8, !tbaa !546, !noalias !954
   %1500 = getelementptr inbounds nuw i8, ptr %1499, i64 8
   %1501 = load i32, ptr %1500, align 4, !tbaa !76, !noalias !954
   call void @llvm.experimental.noalias.scope.decl(metadata !957)

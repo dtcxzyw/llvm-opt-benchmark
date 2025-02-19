@@ -7660,7 +7660,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i6.i.i31: ; preds = %
   %805 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %792) #29, !noalias !715
   %806 = extractvalue { ptr, i64 } %805, 0
   %807 = extractvalue { ptr, i64 } %805, 1
-  call void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC1ENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr nonnull @.str.435, i64 15, ptr %806, i64 %807) #29
+  call void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC1ENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr nonnull @.str.435, i64 15, ptr %806, i64 %807) #29, !noalias !715
   %808 = call noundef nonnull align 8 dereferenceable(432) ptr @_ZN4llvmlsINS_26OptimizationRemarkAnalysisEEERT_S3_NSt9enable_ifIXsr3std10is_base_ofINS_30DiagnosticInfoOptimizationBaseES2_EE5valueENS5_8ArgumentEE4typeE(ptr noundef nonnull align 8 dereferenceable(432) %72, ptr noundef nonnull %6), !noalias !715
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(432) %808, ptr nonnull @.str.436, i64 1) #29, !noalias !715
   %809 = getelementptr inbounds nuw i8, ptr %808, i64 8

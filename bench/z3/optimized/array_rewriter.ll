@@ -7224,7 +7224,6 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %sw.bb
   br label %invoke.cont14
 
 invoke.cont14:                                    ; preds = %sw.bb, %_ZN11ast_manager7inc_refEP3ast.exit.i
-  store ptr %18, ptr %tmp, align 8
   %.pr = load ptr, ptr %result, align 8
   %cmp.i = icmp eq ptr %18, %.pr
   %or.cond = select i1 %first.0.ph419, i1 true, i1 %cmp.i
@@ -7330,7 +7329,6 @@ _ZN11ast_manager7inc_refEP3ast.exit.i104:         ; preds = %if.then51
   br label %invoke.cont56
 
 invoke.cont56:                                    ; preds = %if.then51, %_ZN11ast_manager7inc_refEP3ast.exit.i104
-  store ptr %35, ptr %tmp, align 8
   %.pr365 = load ptr, ptr %result, align 8
   %cmp.i117 = icmp eq ptr %35, %.pr365
   %or.cond532 = select i1 %.us-phi421, i1 true, i1 %cmp.i117
@@ -7524,7 +7522,6 @@ _ZN7obj_refI4expr11ast_managerEaSEOS2_.exit163:   ; preds = %invoke.cont105
 
 if.then113:                                       ; preds = %_ZN7obj_refI4expr11ast_managerEaSEOS2_.exit163
   store ptr %62, ptr %result, align 8
-  store ptr %.pr369, ptr %tmp, align 8
   %tobool.not.i.i.i165 = icmp eq ptr %.pr369, null
   br i1 %tobool.not.i.i.i165, label %_ZN7obj_refI4expr11ast_managerEaSEOS2_.exit173, label %if.then.i.i.i.i166
 
@@ -7908,7 +7905,6 @@ invoke.cont171:                                   ; preds = %invoke.cont169, %_Z
 
 if.then177:                                       ; preds = %invoke.cont171
   store ptr %call170, ptr %result, align 8
-  store ptr %.pr371, ptr %tmp, align 8
   %tobool.not.i.i.i283 = icmp eq ptr %.pr371, null
   br i1 %tobool.not.i.i.i283, label %_ZN7obj_refI4expr11ast_managerEaSEOS2_.exit291, label %if.then.i.i.i.i284
 
@@ -8033,7 +8029,6 @@ _ZN11ast_manager7inc_refEP3ast.exit.i331:         ; preds = %invoke.cont196
   br label %invoke.cont198
 
 invoke.cont198:                                   ; preds = %invoke.cont196, %_ZN11ast_manager7inc_refEP3ast.exit.i331
-  store ptr %call197, ptr %tmp, align 8
   %.pr373 = load ptr, ptr %result, align 8
   %cmp.i344 = icmp eq ptr %call197, %.pr373
   %or.cond535 = select i1 %.us-phi421, i1 true, i1 %cmp.i344

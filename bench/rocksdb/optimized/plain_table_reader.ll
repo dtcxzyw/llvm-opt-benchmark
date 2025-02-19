@@ -5755,8 +5755,8 @@ if.end37:                                         ; preds = %invoke.cont34
   %data_end_offset = getelementptr inbounds nuw i8, ptr %this, i64 160
   %53 = load i32, ptr %offset, align 4
   %54 = load i32, ptr %data_end_offset, align 16
-  %cmp138 = icmp ult i32 %53, %54
-  br i1 %cmp138, label %while.body.lr.ph, label %while.end
+  %cmp140 = icmp ult i32 %53, %54
+  br i1 %cmp140, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end37
   %prefix_match.promoted = load i8, ptr %prefix_match, align 1
@@ -5886,7 +5886,7 @@ invoke.cont50:                                    ; preds = %call2.i.i120.noexc,
 invoke.cont52:                                    ; preds = %invoke.cont50
   %bcmp.i.i = call i32 @bcmp(ptr %retval.sroa.0.0.i.i122, ptr %25, i64 %24)
   %cmp6.i.i.not = icmp eq i32 %bcmp.i.i, 0
-  br i1 %cmp6.i.i.not, label %if.end56, label %if.then54
+  br i1 %cmp6.i.i.not, label %if.end57, label %if.then54
 
 if.then54:                                        ; preds = %invoke.cont50, %invoke.cont52
   %state_.i.i125 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -5894,12 +5894,8 @@ if.then54:                                        ; preds = %invoke.cont50, %inv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !48
   br label %cleanup
 
-if.end56:                                         ; preds = %invoke.cont52
-  store i8 1, ptr %prefix_match, align 1
-  br label %if.end57
-
-if.end57:                                         ; preds = %if.end56, %if.end46
-  %75 = phi i8 [ 1, %if.end56 ], [ %55, %if.end46 ]
+if.end57:                                         ; preds = %invoke.cont52, %if.end46
+  %75 = phi i8 [ %55, %if.end46 ], [ 1, %invoke.cont52 ]
   %call59 = invoke noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %internal_comparator_, ptr noundef nonnull align 8 dereferenceable(25) %found_key, ptr noundef nonnull align 8 dereferenceable(25) %parsed_target)
           to label %invoke.cont58 unwind label %lpad24.loopexit
 
@@ -6630,8 +6626,8 @@ _ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit: ; preds = %if.end
   %46 = extractvalue { ptr, i64 } %call2.i.i, 1
   %.pre = load ptr, ptr %table_, align 8
   %prefix_extractor_.i60.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 96
-  %.pre147 = load ptr, ptr %prefix_extractor_.i60.phi.trans.insert, align 16
-  %47 = icmp eq ptr %.pre147, null
+  %.pre153 = load ptr, ptr %prefix_extractor_.i60.phi.trans.insert, align 16
+  %47 = icmp eq ptr %.pre153, null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   store ptr %45, ptr %prefix_slice, align 8
   %48 = getelementptr inbounds nuw i8, ptr %prefix_slice, i64 8
@@ -6648,7 +6644,7 @@ if.then44:                                        ; preds = %_ZNK7rocksdb16Plain
   br i1 %call47, label %if.then44.if.end58_crit_edge, label %if.then48
 
 if.then44.if.end58_crit_edge:                     ; preds = %if.then44
-  %.pre148 = load ptr, ptr %table_, align 8
+  %.pre154 = load ptr, ptr %table_, align 8
   br label %if.end58
 
 if.then48:                                        ; preds = %if.then44
@@ -6673,10 +6669,10 @@ _ZN7rocksdb6StatusD2Ev.exit84:                    ; preds = %_ZN7rocksdb6Statusa
   br label %if.end120.sink.split
 
 if.end58:                                         ; preds = %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit.thread, %if.then44.if.end58_crit_edge, %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit
-  %retval.sroa.0.0.i.i155 = phi ptr [ %45, %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit ], [ %45, %if.then44.if.end58_crit_edge ], [ @.str.15, %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit.thread ]
-  %retval.sroa.3.0.i.i154 = phi i64 [ %46, %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit ], [ %46, %if.then44.if.end58_crit_edge ], [ 0, %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit.thread ]
-  %size_.i.i.i138153 = phi ptr [ %size_.i.i.i, %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit ], [ %size_.i.i.i, %if.then44.if.end58_crit_edge ], [ %size_.i.i.i136, %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit.thread ]
-  %54 = phi ptr [ %.pre, %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit ], [ %.pre148, %if.then44.if.end58_crit_edge ], [ %1, %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit.thread ]
+  %retval.sroa.0.0.i.i161 = phi ptr [ %45, %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit ], [ %45, %if.then44.if.end58_crit_edge ], [ @.str.15, %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit.thread ]
+  %retval.sroa.3.0.i.i160 = phi i64 [ %46, %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit ], [ %46, %if.then44.if.end58_crit_edge ], [ 0, %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit.thread ]
+  %size_.i.i.i138159 = phi ptr [ %size_.i.i.i, %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit ], [ %size_.i.i.i, %if.then44.if.end58_crit_edge ], [ %size_.i.i.i136, %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit.thread ]
+  %54 = phi ptr [ %.pre, %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit ], [ %.pre154, %if.then44.if.end58_crit_edge ], [ %1, %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit.thread ]
   %prefix_hash.0 = phi i32 [ 0, %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit ], [ %call2.i, %if.then44.if.end58_crit_edge ], [ 0, %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit.thread ]
   %decoder_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %next_offset_61 = getelementptr inbounds nuw i8, ptr %this, i64 224
@@ -6766,8 +6762,8 @@ if.then78:                                        ; preds = %if.end72
   %70 = load ptr, ptr %vfn80, align 8
   call void %70(ptr noundef nonnull align 8 dereferenceable(280) %this)
   %71 = load i8, ptr %status_62, align 8
-  %cmp.i109146 = icmp eq i8 %71, 0
-  br i1 %cmp.i109146, label %land.rhs.lr.ph, label %if.end120
+  %cmp.i109147 = icmp eq i8 %71, 0
+  br i1 %cmp.i109147, label %land.rhs.lr.ph, label %if.end120
 
 land.rhs.lr.ph:                                   ; preds = %if.then78
   %prefix_match.promoted = load i8, ptr %prefix_match, align 1
@@ -6822,13 +6818,13 @@ _ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit123: ; preds = %if.the
   %retval.sroa.3.0.i.i119 = phi i64 [ %86, %if.then.i.i115 ], [ 0, %if.then87 ]
   %retval.sroa.0.0.i.i120 = phi ptr [ %85, %if.then.i.i115 ], [ @.str.15, %if.then87 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i110)
-  %cmp.i.i = icmp eq i64 %retval.sroa.3.0.i.i119, %retval.sroa.3.0.i.i154
+  %cmp.i.i = icmp eq i64 %retval.sroa.3.0.i.i119, %retval.sroa.3.0.i.i160
   br i1 %cmp.i.i, label %_ZN7rocksdbneERKNS_5SliceES2_.exit, label %if.then96
 
 _ZN7rocksdbneERKNS_5SliceES2_.exit:               ; preds = %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit123
-  %bcmp.i.i = call i32 @bcmp(ptr %retval.sroa.0.0.i.i120, ptr %retval.sroa.0.0.i.i155, i64 %retval.sroa.3.0.i.i154)
+  %bcmp.i.i = call i32 @bcmp(ptr %retval.sroa.0.0.i.i120, ptr %retval.sroa.0.0.i.i161, i64 %retval.sroa.3.0.i.i160)
   %cmp6.i.i.not = icmp eq i32 %bcmp.i.i, 0
-  br i1 %cmp6.i.i.not, label %if.end102, label %if.then96
+  br i1 %cmp6.i.i.not, label %if.end103, label %if.then96
 
 if.then96:                                        ; preds = %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit123, %_ZN7rocksdbneERKNS_5SliceES2_.exit
   %87 = load ptr, ptr %table_, align 8
@@ -6837,12 +6833,8 @@ if.then96:                                        ; preds = %_ZNK7rocksdb16Plain
   store i32 %88, ptr %next_offset_61, align 8
   br label %if.end120.sink.split
 
-if.end102:                                        ; preds = %_ZN7rocksdbneERKNS_5SliceES2_.exit
-  store i8 1, ptr %prefix_match, align 1
-  br label %if.end103
-
-if.end103:                                        ; preds = %if.end102, %for.body
-  %89 = phi i8 [ 1, %if.end102 ], [ %77, %for.body ]
+if.end103:                                        ; preds = %_ZN7rocksdbneERKNS_5SliceES2_.exit, %for.body
+  %89 = phi i8 [ %77, %for.body ], [ 1, %_ZN7rocksdbneERKNS_5SliceES2_.exit ]
   %90 = load ptr, ptr %table_, align 8
   %vtable106 = load ptr, ptr %this, align 8
   %vfn107 = getelementptr inbounds nuw i8, ptr %vtable106, i64 88
@@ -6857,7 +6849,7 @@ if.end103:                                        ; preds = %if.end102, %for.bod
   store ptr %92, ptr %ref.tmp.i125, align 8
   store i64 %sub.i.i127, ptr %73, align 8
   %94 = load ptr, ptr %target, align 8
-  %95 = load i64, ptr %size_.i.i.i138153, align 8
+  %95 = load i64, ptr %size_.i.i.i138159, align 8
   %sub.i9.i = add i64 %95, -8
   store ptr %94, ptr %ref.tmp2.i, align 8
   store i64 %sub.i9.i, ptr %74, align 8
@@ -6900,7 +6892,7 @@ if.then.i132:                                     ; preds = %_ZNK7rocksdb21UserC
   %add.ptr7.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -8
   %result.0.copyload.i.i = load i64, ptr %add.ptr7.i, align 1
   %102 = load ptr, ptr %target, align 8
-  %103 = load i64, ptr %size_.i.i.i138153, align 8
+  %103 = load i64, ptr %size_.i.i.i138159, align 8
   %add.ptr11.i = getelementptr inbounds i8, ptr %102, i64 %103
   %add.ptr12.i = getelementptr inbounds i8, ptr %add.ptr11.i, i64 -8
   %result.0.copyload.i13.i = load i64, ptr %add.ptr12.i, align 1

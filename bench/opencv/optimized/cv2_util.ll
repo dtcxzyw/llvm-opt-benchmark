@@ -790,7 +790,6 @@ _ZNK2cv7TLSDataISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESa
 
 46:                                               ; preds = %45, %42
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
-  store ptr null, ptr %6, align 8
   %47 = load i64, ptr %13, align 8
   %48 = add nsw i64 %47, -1
   store i64 %48, ptr %13, align 8

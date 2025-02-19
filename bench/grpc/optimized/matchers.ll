@@ -168,7 +168,7 @@ invoke.cont20:                                    ; preds = %invoke.cont17
   store i64 %14, ptr %agg.result, align 8
   store i64 54, ptr %ref.tmp8, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %14, 0
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i, label %cleanup
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i14
 
 if.then.i.i.i:                                    ; preds = %invoke.cont20
   invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(64) %agg.result)
@@ -185,11 +185,11 @@ invoke.cont22:                                    ; preds = %if.then.i.i.i
   %.pre = load i64, ptr %ref.tmp8, align 8
   %and.i.i.i = and i64 %.pre, 1
   %cmp.i.i.i = icmp eq i64 %and.i.i.i, 0
-  br i1 %cmp.i.i.i, label %cleanup, label %if.then.i.i
+  br i1 %cmp.i.i.i, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i14, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont22
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %.pre)
-          to label %cleanup unwind label %terminate.lpad.i
+          to label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i14 unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
   %16 = landingpad { ptr, i32 }
@@ -268,16 +268,14 @@ lpad27:                                           ; preds = %if.end
   call void @_ZNSt10unique_ptrIN3re23RE2ESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp26) #14
   br label %ehcleanup33
 
-cleanup:                                          ; preds = %invoke.cont20, %if.then.i.i, %invoke.cont22
+_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i14: ; preds = %invoke.cont20, %invoke.cont22, %if.then.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #14
-  %.pre22 = load ptr, ptr %regex_matcher, align 8
-  %cmp.not.i13 = icmp eq ptr %.pre22, null
-  br i1 %cmp.not.i13, label %return, label %_ZNSt10unique_ptrIN3re23RE2ESt14default_deleteIS1_EED2Ev.exit15.sink.split
+  br label %_ZNSt10unique_ptrIN3re23RE2ESt14default_deleteIS1_EED2Ev.exit15.sink.split
 
-_ZNSt10unique_ptrIN3re23RE2ESt14default_deleteIS1_EED2Ev.exit15.sink.split: ; preds = %cleanup, %_ZN9grpc_core13StringMatcherD2Ev.exit
-  %.sink26 = phi ptr [ %25, %_ZN9grpc_core13StringMatcherD2Ev.exit ], [ %.pre22, %cleanup ]
-  call void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212) %.sink26) #14
-  call void @_ZdlPv(ptr noundef nonnull %.sink26) #16
+_ZNSt10unique_ptrIN3re23RE2ESt14default_deleteIS1_EED2Ev.exit15.sink.split: ; preds = %_ZN9grpc_core13StringMatcherD2Ev.exit, %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i14
+  %.sink25 = phi ptr [ %call.i910, %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i14 ], [ %25, %_ZN9grpc_core13StringMatcherD2Ev.exit ]
+  call void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212) %.sink25) #14
+  call void @_ZdlPv(ptr noundef nonnull %.sink25) #16
   br label %return
 
 ehcleanup33:                                      ; preds = %lpad27, %ehcleanup24, %lpad4
@@ -306,7 +304,7 @@ _ZN9grpc_core13StringMatcherD2Ev.exit20:          ; preds = %invoke.cont37, %_ZN
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i19) #14
   br label %return
 
-return:                                           ; preds = %cleanup, %_ZN9grpc_core13StringMatcherD2Ev.exit, %_ZNSt10unique_ptrIN3re23RE2ESt14default_deleteIS1_EED2Ev.exit15.sink.split, %_ZN9grpc_core13StringMatcherD2Ev.exit20
+return:                                           ; preds = %_ZN9grpc_core13StringMatcherD2Ev.exit, %_ZNSt10unique_ptrIN3re23RE2ESt14default_deleteIS1_EED2Ev.exit15.sink.split, %_ZN9grpc_core13StringMatcherD2Ev.exit20
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup33, %ehcleanup

@@ -1063,7 +1063,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %invoke.cont
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #34
+  call void @__clang_call_terminate(ptr %2) #34, !noalias !13
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i.i: ; preds = %invoke.cont
@@ -1249,7 +1249,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %.noexc.i.i.i.i
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #34
+  call void @__clang_call_terminate(ptr %28) #34, !noalias !13
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %.noexc.i.i.i.i
@@ -1405,7 +1405,7 @@ terminate.lpad.i.i.i.i.i10.i:                     ; preds = %"_ZN2tf11FlowBuilde
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #34
+  call void @__clang_call_terminate(ptr %40) #34, !noalias !17
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i11.i: ; preds = %"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_0TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_.exit.i"
@@ -1591,7 +1591,7 @@ terminate.lpad.i.i.i.i60.i:                       ; preds = %.noexc.i.i.i58.i
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #34
+  call void @__clang_call_terminate(ptr %66) #34, !noalias !17
   unreachable
 
 if.end.i.i.i61.i:                                 ; preds = %.noexc.i.i.i58.i
@@ -1741,7 +1741,7 @@ terminate.lpad.i.i.i.i.i159.i:                    ; preds = %"_ZN2tf11FlowBuilde
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #34
+  call void @__clang_call_terminate(ptr %78) #34, !noalias !21
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i160.i: ; preds = %"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_1TnPNSt9enable_ifIX19is_condition_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_.exit.i"
@@ -1927,7 +1927,7 @@ terminate.lpad.i.i.i.i209.i:                      ; preds = %.noexc.i.i.i207.i
   %103 = landingpad { ptr, i32 }
           catch ptr null
   %104 = extractvalue { ptr, i32 } %103, 0
-  call void @__clang_call_terminate(ptr %104) #34
+  call void @__clang_call_terminate(ptr %104) #34, !noalias !21
   unreachable
 
 if.end.i.i.i210.i:                                ; preds = %.noexc.i.i.i207.i
@@ -2077,7 +2077,7 @@ terminate.lpad.i.i.i.i.i311.i:                    ; preds = %"_ZN2tf11FlowBuilde
   %115 = landingpad { ptr, i32 }
           catch ptr null
   %116 = extractvalue { ptr, i32 } %115, 0
-  call void @__clang_call_terminate(ptr %116) #34
+  call void @__clang_call_terminate(ptr %116) #34, !noalias !25
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i312.i: ; preds = %"_ZN2tf11FlowBuilder7emplaceIZ4mainE3$_2TnPNSt9enable_ifIX16is_static_task_vIT_EEvE4typeELPv0EEENS_4TaskEOS4_.exit.i"
@@ -2271,7 +2271,7 @@ terminate.lpad.i.i.i.i361.i:                      ; preds = %.noexc.i.i.i359.i
   %142 = landingpad { ptr, i32 }
           catch ptr null
   %143 = extractvalue { ptr, i32 } %142, 0
-  call void @__clang_call_terminate(ptr %143) #34
+  call void @__clang_call_terminate(ptr %143) #34, !noalias !25
   unreachable
 
 if.end.i.i.i362.i:                                ; preds = %.noexc.i.i.i359.i

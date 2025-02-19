@@ -1917,7 +1917,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i.i.i.i.i.i.i: ; pre
   %97 = landingpad { ptr, i32 }
           catch ptr null
   %98 = extractvalue { ptr, i32 } %97, 0
-  call void @__clang_call_terminate(ptr %98) #31
+  call void @__clang_call_terminate(ptr %98) #31, !noalias !45
   unreachable
 
 _ZSt19__relocate_object_aIN5vcpkg7JThreadES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i: ; preds = %94
@@ -2825,7 +2825,7 @@ _ZNR5vcpkg7Command10string_argENS_10StringViewE.exit.i: ; preds = %.noexc.i
 
 .noexc41.i:                                       ; preds = %26, %_ZNR5vcpkg7Command10string_argENS_10StringViewE.exit.i
   invoke void @_ZN5vcpkg20append_shell_escapedERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr %23, i64 %24)
-          to label %_ZNR5vcpkg7Command10string_argENS_10StringViewE.exit43.i unwind label %30
+          to label %_ZNR5vcpkg7Command10string_argENS_10StringViewE.exit43.i unwind label %30, !noalias !66
 
 _ZNR5vcpkg7Command10string_argENS_10StringViewE.exit43.i: ; preds = %.noexc41.i
   %27 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #27, !noalias !66
@@ -9041,7 +9041,7 @@ _ZNSt12_Vector_baseIN5vcpkg7JThreadESaIS1_EE11_M_allocateEm.exit: ; preds = %5
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #31
+  tail call void @__clang_call_terminate(ptr %25) #31, !noalias !203
   unreachable
 
 _ZSt19__relocate_object_aIN5vcpkg7JThreadES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %21

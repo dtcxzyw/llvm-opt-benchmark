@@ -15527,7 +15527,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22PcpComposeSitePayloadsERKNS_8TfRefPtrINS_
   %3463 = landingpad { ptr, i32 }
           catch ptr null
   %3464 = extractvalue { ptr, i32 } %3463, 0
-  call void @__clang_call_terminate(ptr %3464) #31
+  call void @__clang_call_terminate(ptr %3464) #31, !noalias !167
   unreachable
 
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadEEvPT_.exit.i.i.i.i.i.i: ; preds = %3461, %3448, %.lr.ph.i.i.i.i7.i.i
@@ -46305,7 +46305,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit.thread.i.i: ; preds = 
   %150 = landingpad { ptr, i32 }
           catch ptr null
   %151 = extractvalue { ptr, i32 } %150, 0
-  call void @__clang_call_terminate(ptr %151) #31
+  call void @__clang_call_terminate(ptr %151) #31, !noalias !448
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit.i.i: ; preds = %148, %135
@@ -46339,7 +46339,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit.i.i: ; preds = %148, %
   %168 = landingpad { ptr, i32 }
           catch ptr null
   %169 = extractvalue { ptr, i32 } %168, 0
-  call void @__clang_call_terminate(ptr %169) #31
+  call void @__clang_call_terminate(ptr %169) #31, !noalias !448
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i: ; preds = %166, %153, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit.thread.i.i

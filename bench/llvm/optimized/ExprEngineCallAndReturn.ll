@@ -4719,11 +4719,9 @@ declare i64 @_ZNK5clang4ento9CallEvent13getResultTypeEv(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang4ento10ExprEngine25handleConstructionContextEPKNS_4ExprEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_18NodeBuilderContextEPKNS_15LocationContextEPKNS_19ConstructionContextERNS0_15EvalCallOptionsEj(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.814") align 8 %0, ptr noundef nonnull align 8 dereferenceable(796) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(5) %7, i32 noundef %8) local_unnamed_addr #0 comdat align 2 {
-  %.sroa.7 = alloca [7 x i8], align 1
   %10 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %11 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %12 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.7)
   %13 = load ptr, ptr %3, align 8, !tbaa !50
   store ptr %13, ptr %10, align 8, !tbaa !50
   %.not.i.i = icmp eq ptr %13, null
@@ -4793,9 +4791,6 @@ _ZSt9make_pairIRN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERNS3_4S
   store ptr %.fca.0.extract, ptr %27, align 8, !tbaa !199
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.fca.1.extract, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !477
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7, i64 7, i1 false), !tbaa.struct !184
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.7)
   ret void
 }
 

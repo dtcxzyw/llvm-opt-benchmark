@@ -2097,7 +2097,7 @@ define internal fastcc void @_ZN7testing8ValuesInIN12_GLOBAL__N_19TestParamELm33
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  %14 = tail call ptr @__cxa_begin_catch(ptr %13) #32
+  %14 = tail call ptr @__cxa_begin_catch(ptr %13) #32, !noalias !110
   %15 = load ptr, ptr %2, align 8, !tbaa !18, !noalias !110
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !noalias !110
@@ -2119,7 +2119,7 @@ common.resume.i:                                  ; preds = %24, %18
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #35
+  tail call void @__clang_call_terminate(ptr %22) #35, !noalias !110
   unreachable
 
 23:                                               ; preds = %11

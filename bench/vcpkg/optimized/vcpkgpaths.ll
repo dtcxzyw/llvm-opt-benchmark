@@ -1343,7 +1343,7 @@ define dso_local void @_ZN5vcpkg10VcpkgPathsC2ERKNS_10FilesystemERKNS_17VcpkgCmd
   %235 = landingpad { ptr, i32 }
           catch ptr null
   %236 = extractvalue { ptr, i32 } %235, 0
-  call void @__clang_call_terminate(ptr %236) #26
+  call void @__clang_call_terminate(ptr %236) #26, !noalias !14
   unreachable
 
 _ZNO5vcpkg9ExpectedTINS_21ManifestConfigurationENS_15LocalizedStringEE13value_or_exitERKNS_8LineInfoE.exit.i: ; preds = %.noexc71
@@ -3823,7 +3823,7 @@ _ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit.i.i:  ; preds = %28, %_ZSt8_DestroyI
   %32 = extractvalue { ptr, i64 } %30, 0
   %33 = extractvalue { ptr, i64 } %30, 1
   %34 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings29case_insensitive_ascii_equalsENS_10StringViewES1_(ptr %32, i64 %33, ptr nonnull @.str.136, i64 6)
-          to label %35 unwind label %50
+          to label %35 unwind label %50, !noalias !44
 
 35:                                               ; preds = %31
   br i1 %34, label %36, label %_ZNSt6vectorIN5vcpkg11TripletFileESaIS1_EE12emplace_backIJNS0_10StringViewERNS0_4PathEEEERS1_DpOT_.exit.i.i
@@ -3847,7 +3847,7 @@ _ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit.i.i:  ; preds = %28, %_ZSt8_DestroyI
   %45 = extractvalue { ptr, i64 } %44, 0
   %46 = extractvalue { ptr, i64 } %44, 1
   invoke void @_ZN5vcpkg11TripletFileC1ENS_10StringViewES1_(ptr noundef nonnull align 8 dereferenceable(64) %41, ptr %39, i64 %40, ptr %45, i64 %46)
-          to label %.noexc.i.i unwind label %50
+          to label %.noexc.i.i unwind label %50, !noalias !44
 
 .noexc.i.i:                                       ; preds = %43
   %47 = load ptr, ptr %20, align 8, !noalias !44
@@ -4320,7 +4320,7 @@ define dso_local { ptr, i64 } @_ZNK5vcpkg10VcpkgPaths20get_ports_cmake_hashEv(pt
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #26
+  call void @__clang_call_terminate(ptr %25) #26, !noalias !53
   unreachable
 
 "_ZZNK5vcpkg10VcpkgPaths20get_ports_cmake_hashEvENK3$_0clB5cxx11Ev.exit.i": ; preds = %12
@@ -4930,7 +4930,7 @@ _ZNKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg8Lock
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #26
+  call void @__clang_call_terminate(ptr %42) #26, !noalias !79
   unreachable
 
 _ZN5vcpkg4Json5Value6stringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXsr3stdE18is_constructible_vINS_10StringViewERKT_EEiE4typeELi0EEES1_SD_.exit.i: ; preds = %.lr.ph.i
@@ -17200,7 +17200,7 @@ _ZN12_GLOBAL__N_128process_input_directory_implERKN5vcpkg18ReadOnlyFilesystemERK
   %277 = landingpad { ptr, i32 }
           catch ptr null
   %278 = extractvalue { ptr, i32 } %277, 0
-  call void @__clang_call_terminate(ptr %278) #26
+  call void @__clang_call_terminate(ptr %278) #26, !noalias !334
   unreachable
 
 _ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE13value_or_exitERKNS_8LineInfoE.exit.i.i: ; preds = %267
@@ -17468,7 +17468,7 @@ _ZN5vcpkg4PathC2ERKS0_.exit:                      ; preds = %325
   %362 = landingpad { ptr, i32 }
           catch ptr null
   %363 = extractvalue { ptr, i32 } %362, 0
-  call void @__clang_call_terminate(ptr %363) #26
+  call void @__clang_call_terminate(ptr %363) #26, !noalias !337
   unreachable
 
 _ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE13value_or_exitERKNS_8LineInfoE.exit.i: ; preds = %352
@@ -18365,7 +18365,7 @@ _ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcp
   %708 = extractvalue { ptr, i64 } %707, 0
   %709 = extractvalue { ptr, i64 } %707, 1
   invoke void @_ZN5vcpkg3msg6formatIJNS0_6path_tEEJNS_10StringViewEEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS6_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %13, i64 %.sroa.01.0.copyload.i, ptr %708, i64 %709)
-          to label %710 unwind label %717
+          to label %710 unwind label %717, !noalias !355
 
 710:                                              ; preds = %705
   %711 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNO5vcpkg15LocalizedString10append_rawEc(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 noundef signext 10)

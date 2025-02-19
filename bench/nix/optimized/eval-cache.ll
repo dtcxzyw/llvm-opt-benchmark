@@ -1173,7 +1173,7 @@ _ZSt11make_sharedIN3nix10eval_cache6AttrDbEJRKNS0_14StoreDirConfigERKNS0_4HashER
 
 27:                                               ; preds = %.body.i
   %28 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
-  %29 = tail call ptr @__cxa_begin_catch(ptr %28) #29
+  %29 = tail call ptr @__cxa_begin_catch(ptr %28) #29, !noalias !4
   invoke void @_ZN3nix15ignoreExceptionENS_9VerbosityE(i32 noundef 0)
           to label %30 unwind label %31, !noalias !4
 
@@ -1192,7 +1192,7 @@ _ZSt11make_sharedIN3nix10eval_cache6AttrDbEJRKNS0_14StoreDirConfigERKNS0_4HashER
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #32
+  tail call void @__clang_call_terminate(ptr %35) #32, !noalias !4
   unreachable
 
 36:                                               ; preds = %5

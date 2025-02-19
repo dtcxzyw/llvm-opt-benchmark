@@ -198,8 +198,6 @@ invoke.cont12:
 
 invoke.cont13:                                    ; preds = %invoke.cont12
   store ptr %call, ptr %cdlData, align 8
-  %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %cdlData, i64 8
-  store ptr null, ptr %_M_refcount.i.i, align 8
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev9CDLOpDataEEC2IS1_vEEPT_.exit unwind label %lpad.i.i.i.i
 
@@ -236,6 +234,7 @@ unreachable.i.i.i.i:                              ; preds = %lpad.i.i.i.i
   unreachable
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev9CDLOpDataEEC2IS1_vEEPT_.exit: ; preds = %invoke.cont13
+  %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %cdlData, i64 8
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12

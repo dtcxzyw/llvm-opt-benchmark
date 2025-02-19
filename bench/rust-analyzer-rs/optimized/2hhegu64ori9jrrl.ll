@@ -3591,7 +3591,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i.i.
   %524 = extractvalue { i64, ptr } %520, 1
   %525 = icmp ne ptr %524, null
   call void @llvm.assume(i1 %525)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %524, ptr align 1 %522, i64 %519, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %524, ptr align 1 %522, i64 %519, i1 false), !noalias !432
   br i1 %266, label %527, label %526
 
 526:                                              ; preds = %521

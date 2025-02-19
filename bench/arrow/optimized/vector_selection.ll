@@ -2573,7 +2573,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: 
   %556 = landingpad { ptr, i32 }
           catch ptr null
   %557 = extractvalue { ptr, i32 } %556, 0
-  call void @__clang_call_terminate(ptr %557) #28
+  call void @__clang_call_terminate(ptr %557) #28, !noalias !100
   unreachable
 
 558:                                              ; preds = %447, %_ZSt11make_sharedIN5arrow7compute14VectorFunctionEJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_5ArityENS1_11FunctionDocEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEEDpOT0_.exit.i
@@ -2876,7 +2876,7 @@ _ZNSt12__shared_ptrIN5arrow7compute15KernelSignatureELN9__gnu_cxx12_Lock_policyE
   %672 = landingpad { ptr, i32 }
           catch ptr null
   %673 = extractvalue { ptr, i32 } %672, 0
-  call void @__clang_call_terminate(ptr %673) #28
+  call void @__clang_call_terminate(ptr %673) #28, !noalias !100
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %669, %_ZNSt12__shared_ptrIN5arrow7compute15KernelSignatureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
@@ -3000,7 +3000,7 @@ _ZSt8_DestroyIPN5arrow7compute9InputTypeES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = 
   %727 = landingpad { ptr, i32 }
           catch ptr null
   %728 = extractvalue { ptr, i32 } %727, 0
-  call void @__clang_call_terminate(ptr %728) #28
+  call void @__clang_call_terminate(ptr %728) #28, !noalias !100
   unreachable
 
 _ZNSt6vectorIN5arrow7compute9InputTypeESaIS2_EED2Ev.exit.i: ; preds = %721, %_ZSt8_DestroyIPN5arrow7compute9InputTypeES2_EvT_S4_RSaIT0_E.exit.i.i
@@ -3140,7 +3140,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %781, %777, %775
   %786 = landingpad { ptr, i32 }
           catch ptr null
   %787 = extractvalue { ptr, i32 } %786, 0
-  call void @__clang_call_terminate(ptr %787) #28
+  call void @__clang_call_terminate(ptr %787) #28, !noalias !100
   unreachable
 
 _ZN5arrow7compute12VectorKernelD2Ev.exit70.i:     ; preds = %783, %_ZN5arrow6StatusD2Ev.exit.i

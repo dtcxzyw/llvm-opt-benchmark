@@ -81523,7 +81523,7 @@ _ZN6symfpu3ITEIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionES6
   %170 = landingpad { ptr, i32 }
           catch ptr null
   %171 = extractvalue { ptr, i32 } %170, 0
-  call void @__clang_call_terminate(ptr %171) #24
+  call void @__clang_call_terminate(ptr %171) #24, !noalias !1002
   unreachable
 
 172:                                              ; preds = %.noexc
@@ -81575,7 +81575,7 @@ _ZN6symfpu3ITEIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionES6
   %188 = landingpad { ptr, i32 }
           catch ptr null
   %189 = extractvalue { ptr, i32 } %188, 0
-  call void @__clang_call_terminate(ptr %189) #24
+  call void @__clang_call_terminate(ptr %189) #24, !noalias !1005
   unreachable
 
 190:                                              ; preds = %.noexc251

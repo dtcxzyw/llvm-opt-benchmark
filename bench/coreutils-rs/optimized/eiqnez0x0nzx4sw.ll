@@ -556,7 +556,7 @@ define hidden void @"_ZN6uucore8features6format15Format$LT$F$GT$5parse17h9b4aad5
   %61 = extractvalue { i64, ptr } %55, 1
   %62 = icmp ne ptr %61, null
   call void @llvm.assume(i1 %62)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull align 1 %53, i64 %54, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull align 1 %53, i64 %54, i1 false), !noalias !69
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8), !noalias !71
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 6, ptr %63, align 8
@@ -750,7 +750,7 @@ define hidden void @"_ZN6uucore8features6format15Format$LT$F$GT$5parse17h9b4aad5
   %120 = extractvalue { i64, ptr } %107, 1
   %121 = icmp ne ptr %120, null
   call void @llvm.assume(i1 %121)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %120, ptr nonnull align 1 %104, i64 %106, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %120, ptr nonnull align 1 %104, i64 %106, i1 false), !noalias !80
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !82
   br label %131
 

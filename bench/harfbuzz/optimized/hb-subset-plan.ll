@@ -4045,9 +4045,9 @@ if.then10.i:                                      ; preds = %_ZN11hb_vector_tI9h
   %.fca.0.load.i.i.i142.i = load ptr, ptr %retval.i.i.i140.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i140.i)
   %178 = trunc i64 %.fca.1.load.i.i.i.i to i32
-  %cmp.not.i1498.i = icmp ne i32 %178, -1
-  %cmp4.i1499.i = icmp ne ptr %.fca.0.load.i.i.i.i, %.fca.0.load.i.i.i142.i
-  %179 = select i1 %cmp.not.i1498.i, i1 true, i1 %cmp4.i1499.i
+  %cmp.not.i1505.i = icmp ne i32 %178, -1
+  %cmp4.i1506.i = icmp ne ptr %.fca.0.load.i.i.i.i, %.fca.0.load.i.i.i142.i
+  %179 = select i1 %cmp.not.i1505.i, i1 true, i1 %cmp4.i1506.i
   br i1 %179, label %for.body.lr.ph.i341, label %if.end184.i
 
 for.body.lr.ph.i341:                              ; preds = %if.then10.i
@@ -4181,9 +4181,9 @@ if.else.i:                                        ; preds = %_ZN11hb_vector_tI9h
   %.fca.0.load.i.i.i166.i = load ptr, ptr %retval.i.i.i164.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i164.i)
   %201 = trunc i64 %.fca.1.load.i.i.i162.i to i32
-  %cmp.not.i1711496.i = icmp ne i32 %201, -1
-  %cmp4.i1721497.i = icmp ne ptr %.fca.0.load.i.i.i159.i, %.fca.0.load.i.i.i166.i
-  %202 = select i1 %cmp.not.i1711496.i, i1 true, i1 %cmp4.i1721497.i
+  %cmp.not.i1711503.i = icmp ne i32 %201, -1
+  %cmp4.i1721504.i = icmp ne ptr %.fca.0.load.i.i.i159.i, %.fca.0.load.i.i.i166.i
+  %202 = select i1 %cmp.not.i1711503.i, i1 true, i1 %cmp4.i1721504.i
   br i1 %202, label %for.body30.lr.ph.i, label %if.end184.i
 
 for.body30.lr.ph.i:                               ; preds = %if.else.i
@@ -5619,10 +5619,10 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE14get_populationEv.exit903.i: ; p
   %.fca.0.load.i.i.i913.i = load ptr, ptr %retval.i.i.i911.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i911.i)
   %386 = load i32, ptr %385, align 8
-  %cmp.not.i9181490.i = icmp ne i32 %386, -1
+  %cmp.not.i9181493.i = icmp ne i32 %386, -1
   %387 = load ptr, ptr %__begin385.i, align 8
-  %cmp4.i9191491.i = icmp ne ptr %387, %.fca.0.load.i.i.i913.i
-  %388 = select i1 %cmp.not.i9181490.i, i1 true, i1 %cmp4.i9191491.i
+  %cmp4.i9191494.i = icmp ne ptr %387, %.fca.0.load.i.i.i913.i
+  %388 = select i1 %cmp.not.i9181493.i, i1 true, i1 %cmp4.i9191494.i
   br i1 %388, label %for.body91.lr.ph.i, label %for.end112.i
 
 for.body91.lr.ph.i:                               ; preds = %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE14get_populationEv.exit903.i
@@ -5727,8 +5727,8 @@ while.end.thread.i.i:                             ; preds = %if.end13.i.i, %whil
   %idxprom28.i.phi.trans.insert.i = zext i32 %spec.select70.i.i to i64
   %is_used_.i21.i.phi.trans.insert.i = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %399, i64 %idxprom28.i.phi.trans.insert.i, i32 1
   %bf.load.i22.i.pre.i = load i32, ptr %is_used_.i21.i.phi.trans.insert.i, align 4
-  %.pre1517.i = and i32 %bf.load.i22.i.pre.i, 2
-  %404 = icmp eq i32 %.pre1517.i, 0
+  %.pre1526.i = and i32 %bf.load.i22.i.pre.i, 2
+  %404 = icmp eq i32 %.pre1526.i, 0
   %arrayidx29.i.i = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %399, i64 %idxprom28.i.phi.trans.insert.i
   %is_used_.i21.i.i = getelementptr inbounds nuw i8, ptr %arrayidx29.i.i, i64 4
   br i1 %404, label %if.end34.i.i, label %if.then31.i.i
@@ -5746,15 +5746,15 @@ if.then31.i.i:                                    ; preds = %while.end.thread.i.
   br label %if.end34.i.i
 
 if.end34.i.i:                                     ; preds = %if.end4.i.i, %if.then31.i.i, %while.end.thread.i.i
-  %is_used_.i21.i1526.i = phi ptr [ %is_used_.i21.i.i, %if.then31.i.i ], [ %is_used_.i21.i.i, %while.end.thread.i.i ], [ %is_used_.i44.i.i, %if.end4.i.i ]
-  %arrayidx29.i1525.i = phi ptr [ %arrayidx29.i.i, %if.then31.i.i ], [ %arrayidx29.i.i, %while.end.thread.i.i ], [ %arrayidx43.i.i, %if.end4.i.i ]
-  %length.03765.i1524.i = phi i32 [ %length.037.i.i, %if.then31.i.i ], [ %length.037.i.i, %while.end.thread.i.i ], [ 0, %if.end4.i.i ]
-  store i32 %393, ptr %arrayidx29.i1525.i, align 4
-  %value36.i.i = getelementptr inbounds nuw i8, ptr %arrayidx29.i1525.i, i64 8
+  %is_used_.i21.i1535.i = phi ptr [ %is_used_.i21.i.i, %if.then31.i.i ], [ %is_used_.i21.i.i, %while.end.thread.i.i ], [ %is_used_.i44.i.i, %if.end4.i.i ]
+  %arrayidx29.i1534.i = phi ptr [ %arrayidx29.i.i, %if.then31.i.i ], [ %arrayidx29.i.i, %while.end.thread.i.i ], [ %arrayidx43.i.i, %if.end4.i.i ]
+  %length.03765.i1533.i = phi i32 [ %length.037.i.i, %if.then31.i.i ], [ %length.037.i.i, %while.end.thread.i.i ], [ 0, %if.end4.i.i ]
+  store i32 %393, ptr %arrayidx29.i1534.i, align 4
+  %value36.i.i = getelementptr inbounds nuw i8, ptr %arrayidx29.i1534.i, i64 8
   store i32 %390, ptr %value36.i.i, align 4
   %bf.shl.i.i = shl nuw i32 %and.i.i, 2
   %bf.set.i34.i.i = or disjoint i32 %bf.shl.i.i, 3
-  store i32 %bf.set.i34.i.i, ptr %is_used_.i21.i1526.i, align 4
+  store i32 %bf.set.i34.i.i, ptr %is_used_.i21.i1535.i, align 4
   %408 = load i32, ptr %occupancy.i.i, align 8
   %inc39.i.i = add i32 %408, 1
   store i32 %inc39.i.i, ptr %occupancy.i.i, align 8
@@ -5765,7 +5765,7 @@ if.end34.i.i:                                     ; preds = %if.end4.i.i, %if.th
   %max_chain_length.i.i319 = getelementptr inbounds nuw i8, ptr %394, i64 18
   %410 = load i16, ptr %max_chain_length.i.i319, align 2
   %conv42.i.i = zext i16 %410 to i32
-  %cmp43.i.i = icmp ugt i32 %length.03765.i1524.i, %conv42.i.i
+  %cmp43.i.i = icmp ugt i32 %length.03765.i1533.i, %conv42.i.i
   br i1 %cmp43.i.i, label %land.lhs.true44.i.i, label %_ZN12hb_hashmap_tIjjLb1EE13set_with_hashIRKjRjEEbOT_jOT0_b.exit.i
 
 land.lhs.true44.i.i:                              ; preds = %if.end34.i.i
@@ -5887,10 +5887,10 @@ for.end112.i:                                     ; preds = %_ZNR9hb_iter_tIN23h
   %.fca.0.load.i.i.i981.i = load ptr, ptr %retval.i.i.i979.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i979.i)
   %426 = load i32, ptr %425, align 8
-  %cmp.not.i9861492.i = icmp ne i32 %426, -1
+  %cmp.not.i9861498.i = icmp ne i32 %426, -1
   %427 = load ptr, ptr %__begin3114.i, align 8
-  %cmp4.i9871493.i = icmp ne ptr %427, %.fca.0.load.i.i.i981.i
-  %428 = select i1 %cmp.not.i9861492.i, i1 true, i1 %cmp4.i9871493.i
+  %cmp4.i9871499.i = icmp ne ptr %427, %.fca.0.load.i.i.i981.i
+  %428 = select i1 %cmp.not.i9861498.i, i1 true, i1 %cmp4.i9871499.i
   br i1 %428, label %for.body120.lr.ph.i, label %for.end139.i
 
 for.body120.lr.ph.i:                              ; preds = %for.end112.i
@@ -6296,12 +6296,12 @@ while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %
   %storemerge.i.i.i.i = phi i32 [ %485, %if.end.i.i.i1166.i ], [ %486, %land.rhs.i.i.i.i ]
   store i32 %storemerge.i.i.i.i, ptr %last.i, align 4
   %call2.i.i.i.i = call noundef zeroext i1 @_ZNK12hb_bit_set_t4nextEPj(ptr noundef nonnull align 8 dereferenceable(49) %s.i1160.i, ptr noundef nonnull %i.i.i.i.i)
-  %.pre1513.pre.i = load i32, ptr %last.i, align 4
+  %.pre1522.pre.i = load i32, ptr %last.i, align 4
   br i1 %call2.i.i.i.i, label %land.rhs.i.i.i.i, label %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE10next_rangeEPjS2_.exit.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.cond.i.i.i.i
   %486 = load i32, ptr %i.i.i.i.i, align 4
-  %add.i.i.i1167.i = add i32 %.pre1513.pre.i, 1
+  %add.i.i.i1167.i = add i32 %.pre1522.pre.i, 1
   %cmp.i.i.i1168.i = icmp eq i32 %486, %add.i.i.i1167.i
   br i1 %cmp.i.i.i1168.i, label %while.cond.i.i.i.i, label %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE10next_rangeEPjS2_.exit.i, !llvm.loop !18
 
@@ -6326,10 +6326,10 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE10next_rangeEPjS2_.exit.i: ; pred
   br label %for.body147.i
 
 for.body147.i:                                    ; preds = %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE10next_rangeEPjS2_.exit.i, %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE10next_rangeEPjS2_.exit.thread.i
-  %489 = phi i32 [ %dec.i.i1170.i, %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE10next_rangeEPjS2_.exit.thread.i ], [ %.pre1513.pre.i, %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE10next_rangeEPjS2_.exit.i ]
+  %489 = phi i32 [ %dec.i.i1170.i, %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE10next_rangeEPjS2_.exit.thread.i ], [ %.pre1522.pre.i, %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE10next_rangeEPjS2_.exit.i ]
   %first.11461.i = phi i32 [ %487, %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE10next_rangeEPjS2_.exit.thread.i ], [ %485, %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE10next_rangeEPjS2_.exit.i ]
-  %cmp150.not1494.i = icmp ugt i32 %first.11461.i, %489
-  br i1 %cmp150.not1494.i, label %for.cond145.loopexit.i, label %for.body151.i
+  %cmp150.not1500.i = icmp ugt i32 %first.11461.i, %489
+  br i1 %cmp150.not1500.i, label %for.cond145.loopexit.i, label %for.body151.i
 
 for.body151.i:                                    ; preds = %for.body147.i, %for.inc165.i
   %490 = phi i32 [ %inc.i288, %for.inc165.i ], [ %first.11461.i, %for.body147.i ]
@@ -6608,11 +6608,11 @@ if.end12.i.i:                                     ; preds = %if.end.i1414.i
 
 if.end.i.i1420.i:                                 ; preds = %if.end12.i.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %call8.i.i, i8 0, i64 %529, i1 false)
-  %.pre1514.i = load i32, ptr %mask.i1338.i, align 4
+  %.pre1523.i = load i32, ptr %mask.i1338.i, align 4
   br label %_ZL9hb_memsetPvij.exit.i.i
 
 _ZL9hb_memsetPvij.exit.i.i:                       ; preds = %if.end.i.i1420.i, %if.end12.i.i
-  %530 = phi i32 [ %.pre1514.i, %if.end.i.i1420.i ], [ %525, %if.end12.i.i ]
+  %530 = phi i32 [ %.pre1523.i, %if.end.i.i1420.i ], [ %525, %if.end12.i.i ]
   %add.i.i1422.i = add i32 %530, 1
   %items.i1423.i = getelementptr inbounds nuw i8, ptr %522, i64 40
   %531 = load ptr, ptr %items.i1423.i, align 8
@@ -6732,8 +6732,8 @@ while.end.thread.i1381.i:                         ; preds = %if.end13.i1360.i, %
   %idxprom28.i1383.phi.trans.insert.i = zext i32 %spec.select70.i1380.i to i64
   %is_used_.i21.i1385.phi.trans.insert.i = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %534, i64 %idxprom28.i1383.phi.trans.insert.i, i32 1
   %bf.load.i22.i1386.pre.i = load i32, ptr %is_used_.i21.i1385.phi.trans.insert.i, align 4
-  %.pre1516.i = and i32 %bf.load.i22.i1386.pre.i, 2
-  %539 = icmp eq i32 %.pre1516.i, 0
+  %.pre1525.i = and i32 %bf.load.i22.i1386.pre.i, 2
+  %539 = icmp eq i32 %.pre1525.i, 0
   %arrayidx29.i1384.i = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %534, i64 %idxprom28.i1383.phi.trans.insert.i
   %is_used_.i21.i1385.i = getelementptr inbounds nuw i8, ptr %arrayidx29.i1384.i, i64 4
   br i1 %539, label %if.end34.i1393.i, label %if.then31.i1388.i
@@ -6751,15 +6751,15 @@ if.then31.i1388.i:                                ; preds = %while.end.thread.i1
   br label %if.end34.i1393.i
 
 if.end34.i1393.i:                                 ; preds = %if.end4.i1342.i, %if.then31.i1388.i, %while.end.thread.i1381.i
-  %is_used_.i21.i13851534.i = phi ptr [ %is_used_.i21.i1385.i, %if.then31.i1388.i ], [ %is_used_.i21.i1385.i, %while.end.thread.i1381.i ], [ %is_used_.i44.i1349.i, %if.end4.i1342.i ]
-  %arrayidx29.i13841533.i = phi ptr [ %arrayidx29.i1384.i, %if.then31.i1388.i ], [ %arrayidx29.i1384.i, %while.end.thread.i1381.i ], [ %arrayidx43.i1348.i, %if.end4.i1342.i ]
-  %length.03765.i13821532.i = phi i32 [ %length.037.i1377.i, %if.then31.i1388.i ], [ %length.037.i1377.i, %while.end.thread.i1381.i ], [ 0, %if.end4.i1342.i ]
-  store i32 %490, ptr %arrayidx29.i13841533.i, align 4
-  %value36.i1394.i = getelementptr inbounds nuw i8, ptr %arrayidx29.i13841533.i, i64 8
+  %is_used_.i21.i13851543.i = phi ptr [ %is_used_.i21.i1385.i, %if.then31.i1388.i ], [ %is_used_.i21.i1385.i, %while.end.thread.i1381.i ], [ %is_used_.i44.i1349.i, %if.end4.i1342.i ]
+  %arrayidx29.i13841542.i = phi ptr [ %arrayidx29.i1384.i, %if.then31.i1388.i ], [ %arrayidx29.i1384.i, %while.end.thread.i1381.i ], [ %arrayidx43.i1348.i, %if.end4.i1342.i ]
+  %length.03765.i13821541.i = phi i32 [ %length.037.i1377.i, %if.then31.i1388.i ], [ %length.037.i1377.i, %while.end.thread.i1381.i ], [ 0, %if.end4.i1342.i ]
+  store i32 %490, ptr %arrayidx29.i13841542.i, align 4
+  %value36.i1394.i = getelementptr inbounds nuw i8, ptr %arrayidx29.i13841542.i, i64 8
   store i32 %499, ptr %value36.i1394.i, align 4
   %bf.shl.i1395.i = shl nuw i32 %and.i1343.i, 2
   %bf.set.i34.i1396.i = or disjoint i32 %bf.shl.i1395.i, 3
-  store i32 %bf.set.i34.i1396.i, ptr %is_used_.i21.i13851534.i, align 4
+  store i32 %bf.set.i34.i1396.i, ptr %is_used_.i21.i13851543.i, align 4
   %543 = load i32, ptr %occupancy.i1335.i, align 8
   %inc39.i1397.i = add i32 %543, 1
   store i32 %inc39.i1397.i, ptr %occupancy.i1335.i, align 8
@@ -6770,7 +6770,7 @@ if.end34.i1393.i:                                 ; preds = %if.end4.i1342.i, %i
   %max_chain_length.i1400.i = getelementptr inbounds nuw i8, ptr %522, i64 18
   %545 = load i16, ptr %max_chain_length.i1400.i, align 2
   %conv42.i1401.i = zext i16 %545 to i32
-  %cmp43.i1402.i = icmp ugt i32 %length.03765.i13821532.i, %conv42.i1401.i
+  %cmp43.i1402.i = icmp ugt i32 %length.03765.i13821541.i, %conv42.i1401.i
   br i1 %cmp43.i1402.i, label %land.lhs.true44.i1403.i, label %_ZN12hb_hashmap_tIjjLb1EE13set_with_hashIRKjRjEEbOT_jOT0_b.exit1410.i
 
 land.lhs.true44.i1403.i:                          ; preds = %if.end34.i1393.i

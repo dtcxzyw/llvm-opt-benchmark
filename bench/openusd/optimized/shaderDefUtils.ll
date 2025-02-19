@@ -3692,7 +3692,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENSt7__cxx1112ba
   %831 = landingpad { ptr, i32 }
           catch ptr null
   %832 = extractvalue { ptr, i32 } %831, 0
-  call void @__clang_call_terminate(ptr %832) #22
+  call void @__clang_call_terminate(ptr %832) #22, !noalias !17
   unreachable
 
 833:                                              ; preds = %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S7_EEEixERSC_.exit100.i, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35SdrPropertyMetadata_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit98.i, %698, %693
@@ -5231,7 +5231,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENSt7__cxx1112ba
   %1469 = landingpad { ptr, i32 }
           catch ptr null
   %1470 = extractvalue { ptr, i32 } %1469, 0
-  call void @__clang_call_terminate(ptr %1470) #22
+  call void @__clang_call_terminate(ptr %1470) #22, !noalias !40
   unreachable
 
 1471:                                             ; preds = %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S7_EEEixERSC_.exit100.i115, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35SdrPropertyMetadata_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit98.i112, %1336, %1331

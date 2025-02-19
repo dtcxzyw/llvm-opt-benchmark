@@ -5215,7 +5215,7 @@ switch.lookup:                                    ; preds = %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !802
   %101 = extractvalue { ptr, i64 } %97, 0
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %102, ptr nonnull readonly align 1 %89, i64 %91, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %102, ptr nonnull readonly align 1 %89, i64 %91, i1 false), !noalias !799
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !805
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9d8c47219b0efa9cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
           to label %.noexc17 unwind label %49
@@ -6996,7 +6996,7 @@ define noundef zeroext i1 @"_ZN132_$LT$indexed_docs..providers..rustdoc..to_mark
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfffacfe60dd02fefE.exit.i": ; preds = %54
   %57 = extractvalue { ptr, i64 } %55, 0
-  %lhsc.i = load i8, ptr %57, align 1
+  %lhsc.i = load i8, ptr %57, align 1, !noalias !1174
   %58 = icmp eq i8 %lhsc.i, 97
   br i1 %58, label %59, label %_ZN12indexed_docs9providers7rustdoc11to_markdown20RustdocItemCollector10parse_item17hbe61e44a5c53d023E.exit.thread
 
@@ -7234,7 +7234,7 @@ switch.lookup40:                                  ; preds = %100
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !1174
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false), !noalias !1174
   %109 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_matches17h56cf22b16a1faba9E"(ptr noalias noundef nonnull readonly align 1 %.sroa.04.0.i, i64 noundef %.sroa.4.0.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %17)
-          to label %112 unwind label %110
+          to label %112 unwind label %110, !noalias !1174
 
 110:                                              ; preds = %112, %107
   %111 = landingpad { ptr, i32 }
@@ -7246,7 +7246,7 @@ switch.lookup40:                                  ; preds = %100
   %113 = extractvalue { ptr, i64 } %109, 0
   %114 = extractvalue { ptr, i64 } %109, 1
   %115 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_matches17h4a1e7ec1fc68bc95E"(ptr noalias noundef nonnull readonly align 1 %113, i64 noundef %114, ptr noalias noundef nonnull readonly align 1 @anon.dc2fcfba4294ec83610fd12715f7a8d2.77, i64 noundef 5)
-          to label %116 unwind label %110
+          to label %116 unwind label %110, !noalias !1174
 
 116:                                              ; preds = %112
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcc1d49382fbafdeaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
@@ -7258,7 +7258,7 @@ switch.lookup40:                                  ; preds = %100
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17), !noalias !1174
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !1174
   %120 = invoke { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$15copy_from_slice17ha2e88b974bc94ec2E"(ptr noalias noundef nonnull readonly align 1 %119, i64 noundef %118)
-          to label %121 unwind label %.loopexit.split-lp.loopexit.split-lp.i
+          to label %121 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !1174
 
 121:                                              ; preds = %117
   %122 = extractvalue { ptr, i64 } %120, 0
@@ -9235,7 +9235,7 @@ attributes #33 = { noreturn }
 !1213 = distinct !{!1213, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h9fab2ecdf6cdaddcE"}
 !1214 = distinct !{!1214, !1213, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17h9fab2ecdf6cdaddcE: argument 1"}
 !1215 = !{!1209, !1212, !1175}
-!1216 = !{!1217, !1219}
+!1216 = !{!1217, !1219, !1175}
 !1217 = distinct !{!1217, !1218, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h60eee12a78cbd099E.llvm.193548883091242491: argument 0"}
 !1218 = distinct !{!1218, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h60eee12a78cbd099E.llvm.193548883091242491"}
 !1219 = distinct !{!1219, !1220, !"_ZN4core3ptr48drop_in_place$LT$alloc..sync..Arc$LT$str$GT$$GT$17h97f9e8bef8990a27E.llvm.193548883091242491: argument 0"}

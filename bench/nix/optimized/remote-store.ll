@@ -2176,7 +2176,7 @@ define void @_ZN3nix11RemoteStoreC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #35
+  call void @__clang_call_terminate(ptr %62) #35, !noalias !13
   unreachable
 
 _ZNSt8functionIFbRKN3nix3refINS0_11RemoteStore10ConnectionEEEEED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %58, %56
@@ -2192,7 +2192,7 @@ _ZNSt8functionIFbRKN3nix3refINS0_11RemoteStore10ConnectionEEEEED2Ev.exit.i.i.i.i
   %67 = landingpad { ptr, i32 }
           catch ptr null
   %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #35
+  call void @__clang_call_terminate(ptr %68) #35, !noalias !13
   unreachable
 
 69:                                               ; preds = %3
@@ -2210,7 +2210,7 @@ _ZNSt8functionIFbRKN3nix3refINS0_11RemoteStore10ConnectionEEEEED2Ev.exit.i.i.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #35
+  call void @__clang_call_terminate(ptr %76) #35, !noalias !13
   unreachable
 
 _ZNSt8functionIFbRKN3nix3refINS0_11RemoteStore10ConnectionEEEEED2Ev.exit8.i.i.i.i.i.i.i.i: ; preds = %72, %69
@@ -2226,7 +2226,7 @@ _ZNSt8functionIFbRKN3nix3refINS0_11RemoteStore10ConnectionEEEEED2Ev.exit8.i.i.i.
   %81 = landingpad { ptr, i32 }
           catch ptr null
   %82 = extractvalue { ptr, i32 } %81, 0
-  call void @__clang_call_terminate(ptr %82) #35
+  call void @__clang_call_terminate(ptr %82) #35, !noalias !13
   unreachable
 
 common.resume.i:                                  ; preds = %.body.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix4PoolINS1_11RemoteStore10ConnectionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i
@@ -14735,7 +14735,7 @@ _ZN3nix9StorePathC2ERKS0_.exit.i:                 ; preds = %_ZN3nix9DrvOutputC2
   %143 = landingpad { ptr, i32 }
           catch ptr null
   %144 = extractvalue { ptr, i32 } %143, 0
-  call void @__clang_call_terminate(ptr %144) #35
+  call void @__clang_call_terminate(ptr %144) #35, !noalias !101
   unreachable
 
 145:                                              ; preds = %137, %135, %133
@@ -14798,7 +14798,7 @@ _ZSt11make_sharedIKN3nix11RealisationEJRS2_EESt10shared_ptrIT_EDpOT0_.exit.i: ; 
   %164 = landingpad { ptr, i32 }
           catch ptr null
   %165 = extractvalue { ptr, i32 } %164, 0
-  call void @__clang_call_terminate(ptr %165) #35
+  call void @__clang_call_terminate(ptr %165) #35, !noalias !101
   unreachable
 
 166:                                              ; preds = %_ZSt11make_sharedIKN3nix11RealisationEJRS2_EESt10shared_ptrIT_EDpOT0_.exit.i, %139

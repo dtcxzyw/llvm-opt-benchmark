@@ -205,7 +205,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly captures(no
 51:                                               ; preds = %50, %44
   %.pn.pn = phi { ptr, i32 } [ %.pn, %50 ], [ %45, %44 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #16
-  br label %296
+  br label %294
 
 52:                                               ; preds = %2
   %53 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.2)
@@ -227,7 +227,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly captures(no
 61:                                               ; preds = %59, %57, %54, %52
   %62 = landingpad { ptr, i32 }
           cleanup
-  br label %296
+  br label %294
 
 63:                                               ; preds = %35, %34, %43
   %.023 = phi i32 [ -1, %43 ], [ %38, %35 ], [ 0, %34 ]
@@ -421,7 +421,7 @@ _ZN2cv3PtrINS_13wechat_qrcode12WeChatQRCodeEED2Ev.exit: ; preds = %122, %134, %_
   %141 = extractvalue { ptr, i32 } %eh.lpad-body, 1
   %142 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #16
   %143 = icmp eq i32 %141, %142
-  br i1 %143, label %144, label %295
+  br i1 %143, label %144, label %293
 
 144:                                              ; preds = %.body
   %145 = extractvalue { ptr, i32 } %eh.lpad-body, 0
@@ -443,18 +443,18 @@ _ZN2cv3PtrINS_13wechat_qrcode12WeChatQRCodeEED2Ev.exit: ; preds = %122, %134, %_
 
 156:                                              ; preds = %154
   invoke void @__cxa_end_catch()
-          to label %258 unwind label %159
+          to label %_ZN2cv3PtrINS_13wechat_qrcode12WeChatQRCodeEED2Ev.exit82 unwind label %159
 
 157:                                              ; preds = %154, %148, %144
   %158 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %295 unwind label %297
+          to label %293 unwind label %295
 
 159:                                              ; preds = %156
   %160 = landingpad { ptr, i32 }
           cleanup
-  br label %295
+  br label %293
 
 161:                                              ; preds = %_ZN2cv3PtrINS_13wechat_qrcode12WeChatQRCodeEED2Ev.exit
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #16
@@ -504,7 +504,7 @@ _ZN2cv3PtrINS_13wechat_qrcode12WeChatQRCodeEED2Ev.exit: ; preds = %122, %134, %_
   %180 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #16
-  br label %295
+  br label %293
 
 181:                                              ; preds = %190
   %182 = landingpad { ptr, i32 }
@@ -761,115 +761,111 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.l
 _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
   %255 = phi ptr [ %.pr.i74, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %251, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
   %.not.i.i.i75 = icmp eq ptr %255, null
-  br i1 %.not.i.i.i75, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, label %256
+  br i1 %.not.i.i.i75, label %258, label %256
 
 256:                                              ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i
   call void @_ZdlPv(ptr noundef nonnull %255) #19
-  br label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
-
-_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, %256
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
   br label %258
 
 257:                                              ; preds = %183, %250, %185, %181
   %.pn51 = phi { ptr, i32 } [ %186, %185 ], [ %182, %181 ], [ %.pn46.pn, %250 ], [ %184, %183 ]
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
-  br label %295
+  br label %293
 
-258:                                              ; preds = %156, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
-  %259 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %260 = load ptr, ptr %259, align 8
-  %.not.i.i.i.i76 = icmp eq ptr %260, null
-  br i1 %.not.i.i.i.i76, label %_ZN2cv3PtrINS_13wechat_qrcode12WeChatQRCodeEED2Ev.exit82, label %261
+258:                                              ; preds = %256, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
+  %.pre107 = load ptr, ptr %70, align 8
+  %.not.i.i.i.i76 = icmp eq ptr %.pre107, null
+  br i1 %.not.i.i.i.i76, label %_ZN2cv3PtrINS_13wechat_qrcode12WeChatQRCodeEED2Ev.exit82, label %259
 
-261:                                              ; preds = %258
-  %262 = getelementptr inbounds nuw i8, ptr %260, i64 8
-  %263 = load atomic i64, ptr %262 acquire, align 8
-  %264 = icmp eq i64 %263, 4294967297
-  %265 = trunc i64 %263 to i32
-  br i1 %264, label %266, label %271
+259:                                              ; preds = %258
+  %260 = getelementptr inbounds nuw i8, ptr %.pre107, i64 8
+  %261 = load atomic i64, ptr %260 acquire, align 8
+  %262 = icmp eq i64 %261, 4294967297
+  %263 = trunc i64 %261 to i32
+  br i1 %262, label %264, label %269
 
-266:                                              ; preds = %261
-  store i32 0, ptr %262, align 8
-  %267 = getelementptr inbounds nuw i8, ptr %260, i64 12
-  store i32 0, ptr %267, align 4
-  %268 = load ptr, ptr %260, align 8
-  %269 = getelementptr inbounds nuw i8, ptr %268, i64 16
-  %270 = load ptr, ptr %269, align 8
-  call void %270(ptr noundef nonnull align 8 dereferenceable(16) %260) #16
+264:                                              ; preds = %259
+  store i32 0, ptr %260, align 8
+  %265 = getelementptr inbounds nuw i8, ptr %.pre107, i64 12
+  store i32 0, ptr %265, align 4
+  %266 = load ptr, ptr %.pre107, align 8
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 16
+  %268 = load ptr, ptr %267, align 8
+  call void %268(ptr noundef nonnull align 8 dereferenceable(16) %.pre107) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i81
 
-271:                                              ; preds = %261
-  %272 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i77 = icmp eq i8 %272, 0
-  br i1 %.not.i.i.i.i.i77, label %275, label %273
+269:                                              ; preds = %259
+  %270 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i77 = icmp eq i8 %270, 0
+  br i1 %.not.i.i.i.i.i77, label %273, label %271
 
-273:                                              ; preds = %271
-  %274 = add nsw i32 %265, -1
-  store i32 %274, ptr %262, align 4
-  br label %277
+271:                                              ; preds = %269
+  %272 = add nsw i32 %263, -1
+  store i32 %272, ptr %260, align 4
+  br label %275
 
-275:                                              ; preds = %271
-  %276 = atomicrmw volatile add ptr %262, i32 -1 acq_rel, align 4
-  br label %277
+273:                                              ; preds = %269
+  %274 = atomicrmw volatile add ptr %260, i32 -1 acq_rel, align 4
+  br label %275
 
-277:                                              ; preds = %275, %273
-  %.0.i.i.i.i.i78 = phi i32 [ %265, %273 ], [ %276, %275 ]
-  %278 = icmp eq i32 %.0.i.i.i.i.i78, 1
-  br i1 %278, label %279, label %_ZN2cv3PtrINS_13wechat_qrcode12WeChatQRCodeEED2Ev.exit82
+275:                                              ; preds = %273, %271
+  %.0.i.i.i.i.i78 = phi i32 [ %263, %271 ], [ %274, %273 ]
+  %276 = icmp eq i32 %.0.i.i.i.i.i78, 1
+  br i1 %276, label %277, label %_ZN2cv3PtrINS_13wechat_qrcode12WeChatQRCodeEED2Ev.exit82
 
-279:                                              ; preds = %277
-  %280 = load ptr, ptr %260, align 8
-  %281 = getelementptr inbounds nuw i8, ptr %280, i64 16
-  %282 = load ptr, ptr %281, align 8
-  call void %282(ptr noundef nonnull align 8 dereferenceable(16) %260) #16
-  %283 = getelementptr inbounds nuw i8, ptr %260, i64 12
-  %284 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i79 = icmp eq i8 %284, 0
-  br i1 %.not.i.i.i.i.i.i.i79, label %288, label %285
+277:                                              ; preds = %275
+  %278 = load ptr, ptr %.pre107, align 8
+  %279 = getelementptr inbounds nuw i8, ptr %278, i64 16
+  %280 = load ptr, ptr %279, align 8
+  call void %280(ptr noundef nonnull align 8 dereferenceable(16) %.pre107) #16
+  %281 = getelementptr inbounds nuw i8, ptr %.pre107, i64 12
+  %282 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i79 = icmp eq i8 %282, 0
+  br i1 %.not.i.i.i.i.i.i.i79, label %286, label %283
 
-285:                                              ; preds = %279
-  %286 = load i32, ptr %283, align 4
-  %287 = add nsw i32 %286, -1
-  store i32 %287, ptr %283, align 4
-  br label %290
+283:                                              ; preds = %277
+  %284 = load i32, ptr %281, align 4
+  %285 = add nsw i32 %284, -1
+  store i32 %285, ptr %281, align 4
+  br label %288
 
-288:                                              ; preds = %279
-  %289 = atomicrmw volatile add ptr %283, i32 -1 acq_rel, align 4
-  br label %290
+286:                                              ; preds = %277
+  %287 = atomicrmw volatile add ptr %281, i32 -1 acq_rel, align 4
+  br label %288
 
-290:                                              ; preds = %288, %285
-  %.0.i.i.i.i.i.i.i80 = phi i32 [ %286, %285 ], [ %289, %288 ]
-  %291 = icmp eq i32 %.0.i.i.i.i.i.i.i80, 1
-  br i1 %291, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i81, label %_ZN2cv3PtrINS_13wechat_qrcode12WeChatQRCodeEED2Ev.exit82
+288:                                              ; preds = %286, %283
+  %.0.i.i.i.i.i.i.i80 = phi i32 [ %284, %283 ], [ %287, %286 ]
+  %289 = icmp eq i32 %.0.i.i.i.i.i.i.i80, 1
+  br i1 %289, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i81, label %_ZN2cv3PtrINS_13wechat_qrcode12WeChatQRCodeEED2Ev.exit82
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i81: ; preds = %290, %266
-  %292 = load ptr, ptr %260, align 8
-  %293 = getelementptr inbounds nuw i8, ptr %292, i64 24
-  %294 = load ptr, ptr %293, align 8
-  call void %294(ptr noundef nonnull align 8 dereferenceable(16) %260) #16
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i81: ; preds = %288, %264
+  %290 = load ptr, ptr %.pre107, align 8
+  %291 = getelementptr inbounds nuw i8, ptr %290, i64 24
+  %292 = load ptr, ptr %291, align 8
+  call void %292(ptr noundef nonnull align 8 dereferenceable(16) %.pre107) #16
   br label %_ZN2cv3PtrINS_13wechat_qrcode12WeChatQRCodeEED2Ev.exit82
 
-295:                                              ; preds = %157, %257, %179, %159, %.body
+293:                                              ; preds = %157, %257, %179, %159, %.body
   %.merged53 = phi { ptr, i32 } [ %.pn51, %257 ], [ %180, %179 ], [ %160, %159 ], [ %158, %157 ], [ %eh.lpad-body, %.body ]
   call void @_ZN2cv3PtrINS_13wechat_qrcode12WeChatQRCodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
-  br label %296
+  br label %294
 
-_ZN2cv3PtrINS_13wechat_qrcode12WeChatQRCodeEED2Ev.exit82: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i81, %290, %277, %258, %59
+_ZN2cv3PtrINS_13wechat_qrcode12WeChatQRCodeEED2Ev.exit82: ; preds = %156, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i81, %288, %275, %258, %59
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #16
   ret i32 0
 
-296:                                              ; preds = %295, %61, %51
-  %.merged = phi { ptr, i32 } [ %.merged53, %295 ], [ %.pn.pn, %51 ], [ %62, %61 ]
+294:                                              ; preds = %293, %61, %51
+  %.merged = phi { ptr, i32 } [ %.merged53, %293 ], [ %.pn.pn, %51 ], [ %62, %61 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #16
   resume { ptr, i32 } %.merged
 
-297:                                              ; preds = %157
-  %298 = landingpad { ptr, i32 }
+295:                                              ; preds = %157
+  %296 = landingpad { ptr, i32 }
           catch ptr null
-  %299 = extractvalue { ptr, i32 } %298, 0
-  call void @__clang_call_terminate(ptr %299) #20
+  %297 = extractvalue { ptr, i32 } %296, 0
+  call void @__clang_call_terminate(ptr %297) #20
   unreachable
 }
 

@@ -2145,7 +2145,6 @@ if.else.i.i.i.i.i:                                ; preds = %_ZN9grpc_core10GetC
 invoke.cont13:                                    ; preds = %if.then.i.i.i.i.i12, %if.else.i.i.i.i.i
   %retval.0.i.i.i.i.i = phi ptr [ %add.ptr3.i.i.i.i.i, %if.then.i.i.i.i.i12 ], [ %call4.i.i.i.i.i14, %if.else.i.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %retval.0.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp, i64 32, i1 false)
-  store ptr @_ZN9grpc_core20arena_promise_detail4NullISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE6vtableE, ptr %ref.tmp, align 16
   %fn_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i, i64 32
   store i64 %19, ptr %fn_.i.i.i.i.i.i, align 16
   store ptr %retval.0.i.i.i.i.i, ptr %arg.i, align 16

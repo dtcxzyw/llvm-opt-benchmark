@@ -4552,7 +4552,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_St10unique_ptrINS_11Pendin
   %122 = landingpad { ptr, i32 }
           catch ptr null
   %123 = extractvalue { ptr, i32 } %122, 0
-  call void @__clang_call_terminate(ptr %123) #23
+  call void @__clang_call_terminate(ptr %123) #23, !noalias !21
   unreachable
 
 124:                                              ; preds = %.noexc
@@ -4574,7 +4574,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_St10unique_ptrINS_11Pendin
   %133 = landingpad { ptr, i32 }
           catch ptr null
   %134 = extractvalue { ptr, i32 } %133, 0
-  call void @__clang_call_terminate(ptr %134) #23
+  call void @__clang_call_terminate(ptr %134) #23, !noalias !21
   unreachable
 
 _ZN4Luau11TypePackVarD2Ev.exit5.i:                ; preds = %126, %124
@@ -4589,7 +4589,6 @@ _ZN4Luau11TypePackVarD2Ev.exit5.i:                ; preds = %126, %124
 
 137:                                              ; preds = %135
   %138 = load ptr, ptr %5, align 8
-  store ptr null, ptr %5, align 8
   %139 = load ptr, ptr %136, align 8
   store ptr %138, ptr %136, align 8
   %.not.i.i.i.i31 = icmp eq ptr %139, null
@@ -5420,7 +5419,7 @@ define dso_local noundef ptr @_ZN4Luau6TxnLog5queueEPKNS_11TypePackVarE(ptr noun
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #23
+  call void @__clang_call_terminate(ptr %39) #23, !noalias !37
   unreachable
 
 40:                                               ; preds = %14
@@ -5442,7 +5441,7 @@ define dso_local noundef ptr @_ZN4Luau6TxnLog5queueEPKNS_11TypePackVarE(ptr noun
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #23
+  call void @__clang_call_terminate(ptr %50) #23, !noalias !37
   unreachable
 
 _ZN4Luau11TypePackVarD2Ev.exit5.i:                ; preds = %42, %40

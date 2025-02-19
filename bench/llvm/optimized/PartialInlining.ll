@@ -3416,7 +3416,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i.i: ; preds = %_ZN
   %829 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %828) #19, !noalias !238
   %830 = extractvalue { ptr, i64 } %829, 0
   %831 = extractvalue { ptr, i64 } %829, 1
-  call void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC1ENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(80) %11, ptr nonnull @.str.52, i64 5, ptr %830, i64 %831) #19
+  call void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC1ENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(80) %11, ptr nonnull @.str.52, i64 5, ptr %830, i64 %831) #19, !noalias !238
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9), !noalias !133
   store ptr %120, ptr %9, align 8, !tbaa !239, !noalias !238
   %832 = load ptr, ptr %11, align 8, !tbaa !241, !noalias !238

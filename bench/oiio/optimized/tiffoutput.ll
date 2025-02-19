@@ -46288,7 +46288,7 @@ lpad.i.i.i:                                       ; preds = %entry
   %25 = extractvalue { ptr, i32 } %23, 1
   %26 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #27
   %matches.i.i.i = icmp eq i32 %25, %26
-  %27 = tail call ptr @__cxa_begin_catch(ptr %24) #27
+  %27 = tail call ptr @__cxa_begin_catch(ptr %24) #27, !noalias !387
   br i1 %matches.i.i.i, label %catch3.i.i.i, label %catch.i.i.i
 
 catch3.i.i.i:                                     ; preds = %lpad.i.i.i
@@ -46341,7 +46341,7 @@ terminate.lpad.i.i.i:                             ; preds = %lpad5.i.i.i
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  tail call void @__clang_call_terminate(ptr %34) #30
+  tail call void @__clang_call_terminate(ptr %34) #30, !noalias !387
   unreachable
 
 unreachable.i.i.i:                                ; preds = %catch3.i.i.i
@@ -46618,7 +46618,7 @@ lpad.i.i.i:                                       ; preds = %entry
   %25 = extractvalue { ptr, i32 } %23, 1
   %26 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #27
   %matches.i.i.i = icmp eq i32 %25, %26
-  %27 = tail call ptr @__cxa_begin_catch(ptr %24) #27
+  %27 = tail call ptr @__cxa_begin_catch(ptr %24) #27, !noalias !396
   br i1 %matches.i.i.i, label %catch3.i.i.i, label %catch.i.i.i
 
 catch3.i.i.i:                                     ; preds = %lpad.i.i.i
@@ -46671,7 +46671,7 @@ terminate.lpad.i.i.i:                             ; preds = %lpad5.i.i.i
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  tail call void @__clang_call_terminate(ptr %34) #30
+  tail call void @__clang_call_terminate(ptr %34) #30, !noalias !396
   unreachable
 
 unreachable.i.i.i:                                ; preds = %catch3.i.i.i
@@ -47712,7 +47712,7 @@ lpad.i.i.i:                                       ; preds = %entry
   %3 = extractvalue { ptr, i32 } %1, 1
   %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #27
   %matches.i.i.i = icmp eq i32 %3, %4
-  %5 = tail call ptr @__cxa_begin_catch(ptr %2) #27
+  %5 = tail call ptr @__cxa_begin_catch(ptr %2) #27, !noalias !418
   br i1 %matches.i.i.i, label %catch3.i.i.i, label %catch.i.i.i
 
 catch3.i.i.i:                                     ; preds = %lpad.i.i.i
@@ -47765,7 +47765,7 @@ terminate.lpad.i.i.i:                             ; preds = %lpad5.i.i.i
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #30
+  tail call void @__clang_call_terminate(ptr %12) #30, !noalias !418
   unreachable
 
 unreachable.i.i.i:                                ; preds = %catch3.i.i.i
@@ -48209,7 +48209,7 @@ lpad.i.i.i:                                       ; preds = %entry
   %3 = extractvalue { ptr, i32 } %1, 1
   %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #27
   %matches.i.i.i = icmp eq i32 %3, %4
-  %5 = tail call ptr @__cxa_begin_catch(ptr %2) #27
+  %5 = tail call ptr @__cxa_begin_catch(ptr %2) #27, !noalias !428
   br i1 %matches.i.i.i, label %catch3.i.i.i, label %catch.i.i.i
 
 catch3.i.i.i:                                     ; preds = %lpad.i.i.i
@@ -48262,7 +48262,7 @@ terminate.lpad.i.i.i:                             ; preds = %lpad5.i.i.i
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #30
+  tail call void @__clang_call_terminate(ptr %12) #30, !noalias !428
   unreachable
 
 unreachable.i.i.i:                                ; preds = %catch3.i.i.i

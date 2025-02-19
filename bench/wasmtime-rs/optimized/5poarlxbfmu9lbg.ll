@@ -5242,7 +5242,7 @@ define void @"_ZN85_$LT$core..time..Duration$u20$as$u20$wasmtime_cli_flags..opt.
   %19 = extractvalue { i64, ptr } %17, 1
   %20 = icmp ne ptr %19, null
   tail call void @llvm.assume(i1 %20)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !850
   %21 = icmp eq i64 %18, -9223372036854775808
   br i1 %21, label %23, label %22
 

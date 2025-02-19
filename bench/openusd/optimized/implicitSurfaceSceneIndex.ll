@@ -2452,7 +2452,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_CubeToMesh17_PointsDataSou
   %317 = landingpad { ptr, i32 }
           catch ptr null
   %318 = extractvalue { ptr, i32 } %317, 0
-  %319 = call ptr @__cxa_begin_catch(ptr %318) #25
+  %319 = call ptr @__cxa_begin_catch(ptr %318) #25, !noalias !28
   %320 = load ptr, ptr %304, align 8, !noalias !28
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 8
   %322 = load ptr, ptr %321, align 8, !noalias !28
@@ -2470,7 +2470,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_CubeToMesh17_PointsDataSou
   %326 = landingpad { ptr, i32 }
           catch ptr null
   %327 = extractvalue { ptr, i32 } %326, 0
-  call void @__clang_call_terminate(ptr %327) #26
+  call void @__clang_call_terminate(ptr %327) #26, !noalias !28
   unreachable
 
 328:                                              ; preds = %316
@@ -3983,7 +3983,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSou
   %978 = landingpad { ptr, i32 }
           catch ptr null
   %979 = extractvalue { ptr, i32 } %978, 0
-  %980 = call ptr @__cxa_begin_catch(ptr %979) #25
+  %980 = call ptr @__cxa_begin_catch(ptr %979) #25, !noalias !43
   %981 = load ptr, ptr %965, align 8, !noalias !43
   %982 = getelementptr inbounds nuw i8, ptr %981, i64 8
   %983 = load ptr, ptr %982, align 8, !noalias !43
@@ -4001,7 +4001,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111_ConeToMesh17_PointsDataSou
   %987 = landingpad { ptr, i32 }
           catch ptr null
   %988 = extractvalue { ptr, i32 } %987, 0
-  call void @__clang_call_terminate(ptr %988) #26
+  call void @__clang_call_terminate(ptr %988) #26, !noalias !43
   unreachable
 
 989:                                              ; preds = %977
@@ -5276,7 +5276,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_Ma
   %1538 = landingpad { ptr, i32 }
           catch ptr null
   %1539 = extractvalue { ptr, i32 } %1538, 0
-  %1540 = call ptr @__cxa_begin_catch(ptr %1539) #25
+  %1540 = call ptr @__cxa_begin_catch(ptr %1539) #25, !noalias !52
   %1541 = load ptr, ptr %1525, align 8, !noalias !52
   %1542 = getelementptr inbounds nuw i8, ptr %1541, i64 8
   %1543 = load ptr, ptr %1542, align 8, !noalias !52
@@ -5294,7 +5294,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ConeToTransformedCone17_Ma
   %1547 = landingpad { ptr, i32 }
           catch ptr null
   %1548 = extractvalue { ptr, i32 } %1547, 0
-  call void @__clang_call_terminate(ptr %1548) #26
+  call void @__clang_call_terminate(ptr %1548) #26, !noalias !52
   unreachable
 
 1549:                                             ; preds = %1537
@@ -6736,7 +6736,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDat
   %2165 = landingpad { ptr, i32 }
           catch ptr null
   %2166 = extractvalue { ptr, i32 } %2165, 0
-  %2167 = call ptr @__cxa_begin_catch(ptr %2166) #25
+  %2167 = call ptr @__cxa_begin_catch(ptr %2166) #25, !noalias !67
   %2168 = load ptr, ptr %2152, align 8, !noalias !67
   %2169 = getelementptr inbounds nuw i8, ptr %2168, i64 8
   %2170 = load ptr, ptr %2169, align 8, !noalias !67
@@ -6754,7 +6754,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CylinderToMesh17_PointsDat
   %2174 = landingpad { ptr, i32 }
           catch ptr null
   %2175 = extractvalue { ptr, i32 } %2174, 0
-  call void @__clang_call_terminate(ptr %2175) #26
+  call void @__clang_call_terminate(ptr %2175) #26, !noalias !67
   unreachable
 
 2176:                                             ; preds = %2164
@@ -8119,7 +8119,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylin
   %2758 = landingpad { ptr, i32 }
           catch ptr null
   %2759 = extractvalue { ptr, i32 } %2758, 0
-  %2760 = call ptr @__cxa_begin_catch(ptr %2759) #25
+  %2760 = call ptr @__cxa_begin_catch(ptr %2759) #25, !noalias !76
   %2761 = load ptr, ptr %2745, align 8, !noalias !76
   %2762 = getelementptr inbounds nuw i8, ptr %2761, i64 8
   %2763 = load ptr, ptr %2762, align 8, !noalias !76
@@ -8137,7 +8137,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_CylinderToTransformedCylin
   %2767 = landingpad { ptr, i32 }
           catch ptr null
   %2768 = extractvalue { ptr, i32 } %2767, 0
-  call void @__clang_call_terminate(ptr %2768) #26
+  call void @__clang_call_terminate(ptr %2768) #26, !noalias !76
   unreachable
 
 2769:                                             ; preds = %2757
@@ -9579,7 +9579,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_SphereToMesh17_PointsDataS
   %3385 = landingpad { ptr, i32 }
           catch ptr null
   %3386 = extractvalue { ptr, i32 } %3385, 0
-  %3387 = call ptr @__cxa_begin_catch(ptr %3386) #25
+  %3387 = call ptr @__cxa_begin_catch(ptr %3386) #25, !noalias !91
   %3388 = load ptr, ptr %3372, align 8, !noalias !91
   %3389 = getelementptr inbounds nuw i8, ptr %3388, i64 8
   %3390 = load ptr, ptr %3389, align 8, !noalias !91
@@ -9597,7 +9597,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_SphereToMesh17_PointsDataS
   %3394 = landingpad { ptr, i32 }
           catch ptr null
   %3395 = extractvalue { ptr, i32 } %3394, 0
-  call void @__clang_call_terminate(ptr %3395) #26
+  call void @__clang_call_terminate(ptr %3395) #26, !noalias !91
   unreachable
 
 3396:                                             ; preds = %3384
@@ -11223,7 +11223,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsData
   %4085 = landingpad { ptr, i32 }
           catch ptr null
   %4086 = extractvalue { ptr, i32 } %4085, 0
-  %4087 = call ptr @__cxa_begin_catch(ptr %4086) #25
+  %4087 = call ptr @__cxa_begin_catch(ptr %4086) #25, !noalias !106
   %4088 = load ptr, ptr %4072, align 8, !noalias !106
   %4089 = getelementptr inbounds nuw i8, ptr %4088, i64 8
   %4090 = load ptr, ptr %4089, align 8, !noalias !106
@@ -11241,7 +11241,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CapsuleToMesh17_PointsData
   %4094 = landingpad { ptr, i32 }
           catch ptr null
   %4095 = extractvalue { ptr, i32 } %4094, 0
-  call void @__clang_call_terminate(ptr %4095) #26
+  call void @__clang_call_terminate(ptr %4095) #26, !noalias !106
   unreachable
 
 4096:                                             ; preds = %4084

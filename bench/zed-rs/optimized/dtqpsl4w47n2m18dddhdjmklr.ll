@@ -768,7 +768,7 @@ define hidden void @"_ZN117_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %10 = extractvalue { ptr, ptr } %9, 1
   %11 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %11)
-  %.val.i = load i64, ptr %8, align 8, !noundef !15
+  %.val.i = load i64, ptr %8, align 8, !noalias !197, !noundef !15
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4), !noalias !200
   call fastcc void @"_ZN18activity_indicator17ActivityIndicator28pending_language_server_work28_$u7b$$u7b$closure$u7d$$u7d$17h12a7f0c995bc727cE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %4, i64 noundef %.val.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %10), !noalias !208
   %12 = load i64, ptr %4, align 8, !range !16, !noalias !200, !noundef !15
@@ -6364,7 +6364,7 @@ common.resume:                                    ; preds = %27, %22, %24, %40
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4gpui6window20ViewContext$LT$V$GT$4emit17ha27a304a7535554aE.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false), !noalias !2129
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %32, ptr %44, align 8, !noalias !2134
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -7279,7 +7279,7 @@ attributes #43 = { cold }
 !205 = distinct !{!205, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0f1a5b5cb64df957E"}
 !206 = distinct !{!206, !205, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0f1a5b5cb64df957E: argument 1"}
 !207 = distinct !{!207, !199, !"_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h802c49ca35f1aa4dE.llvm.12501931995097931548: argument 1"}
-!208 = !{!201, !204}
+!208 = !{!201, !204, !198}
 !209 = !{!207}
 !210 = !{!211}
 !211 = distinct !{!211, !212, !"_ZN68_$LT$text..InsertionFragmentKey$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc5a2dbcaa667a7c7E.llvm.12501931995097931548: argument 0"}

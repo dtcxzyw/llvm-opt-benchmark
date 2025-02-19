@@ -3320,7 +3320,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %_ZNSt10lock_guardIS
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #37
+  tail call void @__clang_call_terminate(ptr %1) #37, !noalias !13
   unreachable
 
 _ZN5folly3f146detail11F14BasicMapINS1_19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_deleteISE_EERKNS_7dynamicEEEvvvEEE11try_emplaceIJEEESt4pairINS1_21NodeContainerIteratorIPSQ_IKS9_SM_EEEbERSS_DpOT_.exit.i: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
@@ -27197,7 +27197,6 @@ _ZNSt10unique_ptrIN8facebook5velox6common10BytesRangeESt14default_deleteIS3_EED2
 
 invoke.cont.i372:                                 ; preds = %_ZNSt10unique_ptrIN8facebook5velox6common10BytesRangeESt14default_deleteIS3_EED2Ev.exit357
   %80 = load ptr, ptr %ranges, align 8, !noalias !620
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ranges, i8 0, i64 24, i1 false), !noalias !620
   %nullAllowed_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i358359, i64 8
   store i8 %frombool72, ptr %nullAllowed_.i.i.i, align 8, !noalias !620
   %deterministic_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i358359, i64 9
@@ -45941,7 +45940,7 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %invoke.cont
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #37
+  call void @__clang_call_terminate(ptr %4) #37, !noalias !987
   unreachable
 
 _ZN5folly6detail22callWithConstructedKeyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3f146detail11F14BasicSetINS9_21VectorContainerPolicyIS7_vvvvSt17integral_constantIbLb1EEEEE11UsableAsKeyESaIS7_EZNSF_7emplaceIJRKS7_EEESt4pairINS9_23VectorContainerIteratorIPSJ_EEbEDpOT_EUlSS_E_SK_TnNSt9enable_ifIXoosr3std7is_sameINS_12remove_cvrefIT3_E4typeET_EE5valuesrT0_ISY_E5valueEiE4typeELi0EEEDaRT1_OT2_OSW_.exit.i.i: ; preds = %invoke.cont

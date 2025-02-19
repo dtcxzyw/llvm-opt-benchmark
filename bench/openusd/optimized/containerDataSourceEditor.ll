@@ -1643,7 +1643,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit: ; preds = %
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  %43 = call ptr @__cxa_begin_catch(ptr %42) #21
+  %43 = call ptr @__cxa_begin_catch(ptr %42) #21, !noalias !10
   %44 = load ptr, ptr %38, align 8, !noalias !10
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8, !noalias !10
@@ -1661,7 +1661,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit: ; preds = %
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #24
+  call void @__clang_call_terminate(ptr %51) #24, !noalias !10
   unreachable
 
 52:                                               ; preds = %40

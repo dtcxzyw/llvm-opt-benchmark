@@ -6569,7 +6569,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #30
+  call void @__clang_call_terminate(ptr %20) #30, !noalias !123
   unreachable
 
 _ZN8QuantLib10DayCounterD2Ev.exit.i:              ; preds = %if.then.i.i.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i12.i, %_ZN5boost10shared_ptrIN8QuantLib11FlatForwardEED2Ev.exit.i
@@ -6609,7 +6609,7 @@ terminate.lpad.i.i.i25.i:                         ; preds = %if.then.i.i.i.i.i29
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #30
+  call void @__clang_call_terminate(ptr %27) #30, !noalias !123
   unreachable
 
 _ZN8QuantLib6HandleINS_5QuoteEED2Ev.exit.i:       ; preds = %if.then.i.i.i.i.i29.i, %.noexc.i.i.i26.i, %if.then.i.i.i19.i, %_ZN8QuantLib10DayCounterD2Ev.exit.i
@@ -6647,7 +6647,7 @@ terminate.lpad.i.i40.i:                           ; preds = %if.then.i.i.i.i44.i
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #30
+  call void @__clang_call_terminate(ptr %34) #30, !noalias !123
   unreachable
 
 _ZN5boost10shared_ptrIN8QuantLib5QuoteEED2Ev.exit.i: ; preds = %if.then.i.i.i.i44.i, %.noexc.i.i41.i, %if.then.i.i34.i, %_ZN8QuantLib6HandleINS_5QuoteEED2Ev.exit.i
@@ -6685,7 +6685,7 @@ terminate.lpad.i.i55.i:                           ; preds = %if.then.i.i.i.i59.i
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #30
+  call void @__clang_call_terminate(ptr %41) #30, !noalias !123
   unreachable
 
 _ZN5boost10shared_ptrIN8QuantLib11SimpleQuoteEED2Ev.exit.i: ; preds = %if.then.i.i.i.i59.i, %.noexc.i.i56.i, %if.then.i.i49.i, %_ZN5boost10shared_ptrIN8QuantLib5QuoteEED2Ev.exit.i
@@ -6728,7 +6728,7 @@ terminate.lpad.i.i.i70.i:                         ; preds = %if.then.i.i.i.i.i74
   %47 = landingpad { ptr, i32 }
           catch ptr null
   %48 = extractvalue { ptr, i32 } %47, 0
-  call void @__clang_call_terminate(ptr %48) #30
+  call void @__clang_call_terminate(ptr %48) #30, !noalias !123
   unreachable
 
 _ZN8QuantLib8CalendarD2Ev.exit.i:                 ; preds = %if.then.i.i.i.i.i74.i, %.noexc.i.i.i71.i, %if.then.i.i.i64.i, %_ZN5boost10shared_ptrIN8QuantLib11SimpleQuoteEED2Ev.exit.i

@@ -5027,8 +5027,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %137 = extractvalue { ptr, ptr } %136, 0
   %138 = extractvalue { ptr, ptr } %136, 1
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 24
-  %140 = load ptr, ptr %139, align 8, !invariant.load !4, !nonnull !4
-  %141 = call noundef zeroext i1 %140(ptr noundef align 1 %137, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28)
+  %140 = load ptr, ptr %139, align 8, !invariant.load !4, !noalias !482, !nonnull !4
+  %141 = call noundef zeroext i1 %140(ptr noundef align 1 %137, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28), !noalias !482
   br i1 %141, label %142, label %152
 
 142:                                              ; preds = %.critedge172.i
@@ -5084,7 +5084,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %25, ptr %26, align 8, !noalias !485
   store i64 1, ptr %61, align 8, !noalias !485
   store ptr %144, ptr %62, align 8, !noalias !485
-  call void @_ZN7tracing15__macro_support13__tracing_log17h26d06cc2ffa55b75E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %131, ptr noundef nonnull align 1 %137, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %138, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26)
+  call void @_ZN7tracing15__macro_support13__tracing_log17h26d06cc2ffa55b75E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %131, ptr noundef nonnull align 1 %137, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %138, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26), !noalias !482
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27), !noalias !485
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %22), !noalias !485
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %23), !noalias !485
@@ -5157,14 +5157,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %175 = extractvalue { ptr, ptr } %174, 0
   %176 = extractvalue { ptr, ptr } %174, 1
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 24
-  %178 = load ptr, ptr %177, align 8, !invariant.load !4, !nonnull !4
-  %179 = call noundef zeroext i1 %178(ptr noundef align 1 %175, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
+  %178 = load ptr, ptr %177, align 8, !invariant.load !4, !noalias !482, !nonnull !4
+  %179 = call noundef zeroext i1 %178(ptr noundef align 1 %175, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8), !noalias !482
   br i1 %179, label %180, label %181
 
 180:                                              ; preds = %.critedge9.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !499
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !499
-  call void @_ZN7tracing15__macro_support13__tracing_log17h26d06cc2ffa55b75E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %169, ptr noundef nonnull align 1 %175, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %176, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %33)
+  call void @_ZN7tracing15__macro_support13__tracing_log17h26d06cc2ffa55b75E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %169, ptr noundef nonnull align 1 %175, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %176, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %33), !noalias !482
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !499
   br label %181
 
@@ -5279,8 +5279,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit206
   %227 = extractvalue { ptr, ptr } %226, 0
   %228 = extractvalue { ptr, ptr } %226, 1
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 24
-  %230 = load ptr, ptr %229, align 8, !invariant.load !4, !nonnull !4
-  %231 = call noundef zeroext i1 %230(ptr noundef align 1 %227, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
+  %230 = load ptr, ptr %229, align 8, !invariant.load !4, !noalias !482, !nonnull !4
+  %231 = call noundef zeroext i1 %230(ptr noundef align 1 %227, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15), !noalias !482
   br i1 %231, label %232, label %242
 
 232:                                              ; preds = %.critedge180.i
@@ -5337,7 +5337,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit206
   store ptr %12, ptr %13, align 8, !noalias !485
   store i64 1, ptr %90, align 8, !noalias !485
   store ptr %234, ptr %91, align 8, !noalias !485
-  call void @_ZN7tracing15__macro_support13__tracing_log17h26d06cc2ffa55b75E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %221, ptr noundef nonnull align 1 %227, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %228, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13)
+  call void @_ZN7tracing15__macro_support13__tracing_log17h26d06cc2ffa55b75E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %221, ptr noundef nonnull align 1 %227, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %228, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13), !noalias !482
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !485
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !485
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !485
@@ -5404,14 +5404,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit206
   %259 = extractvalue { ptr, ptr } %258, 0
   %260 = extractvalue { ptr, ptr } %258, 1
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 24
-  %262 = load ptr, ptr %261, align 8, !invariant.load !4, !nonnull !4
-  %263 = call noundef zeroext i1 %262(ptr noundef align 1 %259, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  %262 = load ptr, ptr %261, align 8, !invariant.load !4, !noalias !482, !nonnull !4
+  %263 = call noundef zeroext i1 %262(ptr noundef align 1 %259, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6), !noalias !482
   br i1 %263, label %264, label %265
 
 264:                                              ; preds = %.critedge9.i221.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !514
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !514
-  call void @_ZN7tracing15__macro_support13__tracing_log17h26d06cc2ffa55b75E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %253, ptr noundef nonnull align 1 %259, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %260, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20)
+  call void @_ZN7tracing15__macro_support13__tracing_log17h26d06cc2ffa55b75E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %253, ptr noundef nonnull align 1 %259, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %260, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20), !noalias !482
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !514
   br label %265
 

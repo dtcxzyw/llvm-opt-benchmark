@@ -17813,7 +17813,6 @@ if.then.i.i1387:                                  ; preds = %_ZN5eastl4pairIK10T
   br label %_ZN10TestObjectD2Ev.exit.i1389
 
 _ZN10TestObjectD2Ev.exit.i1389:                   ; preds = %if.then.i.i1387, %_ZN5eastl4pairIK10TestObjectS1_ED2Ev.exit1384
-  store i32 0, ptr %mMagicValue.i4.i422, align 8
   %356 = load i32, ptr %mMagicValue.i.i412, align 8
   %cmp.not.i2.i1391 = icmp eq i32 %356, 32623592
   br i1 %cmp.not.i2.i1391, label %_ZN5eastl4pairIK10TestObjectS1_ED2Ev.exit1396, label %if.then.i3.i1392
@@ -17825,7 +17824,6 @@ if.then.i3.i1392:                                 ; preds = %_ZN10TestObjectD2Ev
   br label %_ZN5eastl4pairIK10TestObjectS1_ED2Ev.exit1396
 
 _ZN5eastl4pairIK10TestObjectS1_ED2Ev.exit1396:    ; preds = %_ZN10TestObjectD2Ev.exit.i1389, %if.then.i3.i1392
-  store i32 0, ptr %mMagicValue.i.i412, align 8
   %dec.i5.i1394 = add nsw i64 %346, -6
   store i64 %dec.i5.i1394, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i6.i1395 = add nsw i64 %347, 6
@@ -17841,7 +17839,6 @@ if.then.i.i1399:                                  ; preds = %_ZN5eastl4pairIK10T
   br label %_ZN10TestObjectD2Ev.exit.i1401
 
 _ZN10TestObjectD2Ev.exit.i1401:                   ; preds = %if.then.i.i1399, %_ZN5eastl4pairIK10TestObjectS1_ED2Ev.exit1396
-  store i32 0, ptr %mMagicValue.i4.i390, align 8
   %360 = load i32, ptr %mMagicValue.i.i380, align 8
   %cmp.not.i2.i1403 = icmp eq i32 %360, 32623592
   br i1 %cmp.not.i2.i1403, label %_ZN5eastl4pairIK10TestObjectS1_ED2Ev.exit1408, label %if.then.i3.i1404
@@ -17853,7 +17850,6 @@ if.then.i3.i1404:                                 ; preds = %_ZN10TestObjectD2Ev
   br label %_ZN5eastl4pairIK10TestObjectS1_ED2Ev.exit1408
 
 _ZN5eastl4pairIK10TestObjectS1_ED2Ev.exit1408:    ; preds = %_ZN10TestObjectD2Ev.exit.i1401, %if.then.i3.i1404
-  store i32 0, ptr %mMagicValue.i.i380, align 8
   %dec.i5.i1406 = add nsw i64 %346, -8
   store i64 %dec.i5.i1406, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i6.i1407 = add nsw i64 %347, 8
@@ -17869,7 +17865,6 @@ if.then.i.i1411:                                  ; preds = %_ZN5eastl4pairIK10T
   br label %_ZN10TestObjectD2Ev.exit.i1413
 
 _ZN10TestObjectD2Ev.exit.i1413:                   ; preds = %if.then.i.i1411, %_ZN5eastl4pairIK10TestObjectS1_ED2Ev.exit1408
-  store i32 0, ptr %mMagicValue.i4.i358, align 8
   %364 = load i32, ptr %mMagicValue.i.i348, align 8
   %cmp.not.i2.i1415 = icmp eq i32 %364, 32623592
   br i1 %cmp.not.i2.i1415, label %_ZN5eastl4pairIK10TestObjectS1_ED2Ev.exit1420, label %if.then.i3.i1416
@@ -17881,7 +17876,6 @@ if.then.i3.i1416:                                 ; preds = %_ZN10TestObjectD2Ev
   br label %_ZN5eastl4pairIK10TestObjectS1_ED2Ev.exit1420
 
 _ZN5eastl4pairIK10TestObjectS1_ED2Ev.exit1420:    ; preds = %_ZN10TestObjectD2Ev.exit.i1413, %if.then.i3.i1416
-  store i32 0, ptr %mMagicValue.i.i348, align 8
   %dec.i5.i1418 = add nsw i64 %346, -10
   store i64 %dec.i5.i1418, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i6.i1419 = add nsw i64 %347, 10
@@ -17897,7 +17891,6 @@ if.then.i.i1423:                                  ; preds = %_ZN5eastl4pairIK10T
   br label %_ZN10TestObjectD2Ev.exit.i1425
 
 _ZN10TestObjectD2Ev.exit.i1425:                   ; preds = %if.then.i.i1423, %_ZN5eastl4pairIK10TestObjectS1_ED2Ev.exit1420
-  store i32 0, ptr %mMagicValue.i4.i326, align 8
   %368 = load i32, ptr %mMagicValue.i.i316, align 8
   %cmp.not.i2.i1427 = icmp eq i32 %368, 32623592
   br i1 %cmp.not.i2.i1427, label %_ZN10TestObjectD2Ev.exit1474, label %if.then.i3.i1428
@@ -17909,7 +17902,6 @@ if.then.i3.i1428:                                 ; preds = %_ZN10TestObjectD2Ev
   br label %_ZN10TestObjectD2Ev.exit1474
 
 _ZN10TestObjectD2Ev.exit1474:                     ; preds = %_ZN10TestObjectD2Ev.exit.i1425, %if.then.i3.i1428
-  store i32 0, ptr %mMagicValue.i.i316, align 8
   %dec.i1472 = add nsw i64 %346, -18
   store i64 %dec.i1472, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i1473 = add nsw i64 %347, 18

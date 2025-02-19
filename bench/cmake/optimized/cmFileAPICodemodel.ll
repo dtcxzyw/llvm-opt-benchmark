@@ -14142,12 +14142,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65.i: ; preds = %_
   ]
 
 2649:                                             ; preds = %._crit_edge.i.i.i.i.i.i
-  %2650 = load i8, ptr %2640, align 1, !tbaa !81
+  %2650 = load i8, ptr %2640, align 1, !tbaa !81, !noalias !708
   store i8 %2650, ptr %2648, align 1, !tbaa !81, !noalias !708
   br label %2652
 
 2651:                                             ; preds = %._crit_edge.i.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2648, ptr align 1 %2640, i64 %2639, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2648, ptr align 1 %2640, i64 %2639, i1 false), !noalias !708
   br label %2652
 
 2652:                                             ; preds = %2651, %2649, %._crit_edge.i.i.i.i.i.i
@@ -14476,7 +14476,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43.i.i: ; preds = 
   %2751 = landingpad { ptr, i32 }
           catch ptr null
   %2752 = extractvalue { ptr, i32 } %2751, 0
-  call void @__clang_call_terminate(ptr %2752) #32
+  call void @__clang_call_terminate(ptr %2752) #32, !noalias !708
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i: ; preds = %._crit_edge201.i
@@ -14954,14 +14954,14 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 2896:                                             ; preds = %2894
   %2897 = load i64, ptr %2886, align 8, !tbaa !80, !noalias !708
   %2898 = getelementptr inbounds nuw i8, ptr %2893, i64 40
-  %2899 = load i64, ptr %2898, align 8, !tbaa !80
+  %2899 = load i64, ptr %2898, align 8, !tbaa !80, !noalias !708
   %.sroa.speculated.i.i.i.i.i.i.i229 = call i64 @llvm.umin.i64(i64 %2899, i64 %2897)
   %2900 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i.i229, 0
   br i1 %2900, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i233, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i230
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i230: ; preds = %2896
   %2901 = getelementptr inbounds nuw i8, ptr %2893, i64 32
-  %2902 = load ptr, ptr %2901, align 8, !tbaa !79
+  %2902 = load ptr, ptr %2901, align 8, !tbaa !79, !noalias !708
   %2903 = load ptr, ptr %2864, align 8, !tbaa !79, !noalias !708
   %2904 = call i32 @memcmp(ptr noundef %2903, ptr noundef %2902, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i229) #28, !noalias !708
   %.not.i.i.i.i.i.i119.i = icmp eq i32 %2904, 0
@@ -14981,7 +14981,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 .thread.i120.i:                                   ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i231, %2894
   %2907 = phi i1 [ true, %2894 ], [ %2906, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i231 ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2907, ptr noundef nonnull %2863, ptr noundef nonnull %2893, ptr noundef nonnull align 8 dereferenceable(32) %2522) #28
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2907, ptr noundef nonnull %2863, ptr noundef nonnull %2893, ptr noundef nonnull align 8 dereferenceable(32) %2522) #28, !noalias !708
   %2908 = load i64, ptr %2526, align 8, !tbaa !455, !noalias !708
   %2909 = add i64 %2908, 1
   store i64 %2909, ptr %2526, align 8, !tbaa !455, !noalias !708
@@ -15025,7 +15025,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_j
   %2920 = phi ptr [ %.pre209.i, %.noexc93.i ], [ %2845, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
   %.sroa.07.0.i.i = phi ptr [ %.sroa.0.010.i.i, %.noexc93.i ], [ %.19.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
   %2921 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 64
-  store i32 %.044204.i, ptr %2921, align 4, !tbaa !167
+  store i32 %.044204.i, ptr %2921, align 4, !tbaa !167, !noalias !708
   %2922 = icmp eq ptr %2920, %2550
   br i1 %2922, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i95.i227, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i94.i218
 

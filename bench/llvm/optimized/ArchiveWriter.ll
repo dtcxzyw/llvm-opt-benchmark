@@ -3063,7 +3063,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i:  ; preds = %613, %612, %610
   %641 = ptrtoint ptr %639 to i64
   %642 = add i64 %637, %640
   %643 = sub i64 %642, %641
-  %644 = load ptr, ptr %.fca.0.extract.i.i, align 8, !tbaa !263
+  %644 = load ptr, ptr %.fca.0.extract.i.i, align 8, !tbaa !263, !noalias !170
   %645 = getelementptr inbounds nuw i8, ptr %644, i64 8
   store i64 %643, ptr %645, align 8, !tbaa !265, !noalias !170
   %.sroa.0.0.copyload.i174.i = load ptr, ptr %545, align 8, !tbaa !3, !noalias !170
@@ -3129,7 +3129,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit50.i.i: ; preds = %653, %652, %650
   br label %_ZN4llvm11raw_ostreamlsEc.exit53.i.i
 
 _ZN4llvm11raw_ostreamlsEc.exit53.i.i:             ; preds = %672, %670, %661, %659, %629
-  %675 = load ptr, ptr %.fca.0.extract.i.i, align 8, !tbaa !263
+  %675 = load ptr, ptr %.fca.0.extract.i.i, align 8, !tbaa !263, !noalias !170
   %676 = getelementptr inbounds nuw i8, ptr %675, i64 8
   %677 = load i64, ptr %676, align 8, !tbaa !265, !noalias !170
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i

@@ -898,12 +898,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
   ]
 
 81:                                               ; preds = %._crit_edge.i.i.i.i
-  %82 = load i8, ptr %70, align 1, !tbaa !15
+  %82 = load i8, ptr %70, align 1, !tbaa !15, !noalias !51
   store i8 %82, ptr %80, align 1, !tbaa !15, !noalias !51
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i
 
 83:                                               ; preds = %._crit_edge.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr nonnull align 1 %70, i64 %71, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr nonnull align 1 %70, i64 %71, i1 false), !noalias !51
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i: ; preds = %83, %81, %._crit_edge.i.i.i.i

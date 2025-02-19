@@ -597,7 +597,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_41HdCollectionsSchemaTok
   %47 = landingpad { ptr, i32 }
           catch ptr null
   %48 = extractvalue { ptr, i32 } %47, 0
-  %49 = tail call ptr @__cxa_begin_catch(ptr %48) #21
+  %49 = tail call ptr @__cxa_begin_catch(ptr %48) #21, !noalias !4
   %50 = load ptr, ptr %28, align 8, !noalias !4
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8, !noalias !4
@@ -615,7 +615,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_41HdCollectionsSchemaTok
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  tail call void @__clang_call_terminate(ptr %57) #24
+  tail call void @__clang_call_terminate(ptr %57) #24, !noalias !4
   unreachable
 
 58:                                               ; preds = %46
@@ -1587,7 +1587,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %_ZNK32pxrInte
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  %47 = tail call ptr @__cxa_begin_catch(ptr %46) #21
+  %47 = tail call ptr @__cxa_begin_catch(ptr %46) #21, !noalias !18
   %48 = load ptr, ptr %26, align 8, !noalias !18
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8, !noalias !18
@@ -1609,7 +1609,7 @@ common.resume.i:                                  ; preds = %51, %.body.i
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  tail call void @__clang_call_terminate(ptr %55) #24
+  tail call void @__clang_call_terminate(ptr %55) #24, !noalias !18
   unreachable
 
 56:                                               ; preds = %44

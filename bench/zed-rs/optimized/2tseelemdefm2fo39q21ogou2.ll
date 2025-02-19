@@ -24782,7 +24782,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
 133:                                              ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h1cc06e3579c16426E.exit.i.i"
   %134 = landingpad { ptr, i32 }
           cleanup
-  call void @__rust_dealloc(ptr noundef nonnull %130, i64 noundef 24, i64 noundef 4) #46
+  call void @__rust_dealloc(ptr noundef nonnull %130, i64 noundef 24, i64 noundef 4) #46, !noalias !4182
   br label %.body42.i
 
 135:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f97e60cc0bef8a8E.exit.i"
@@ -24811,7 +24811,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
   %switch.i.i.i = icmp ugt i8 %4, 1
   %..i.i.i = zext i1 %switch.i.i.i to i8
   %141 = getelementptr inbounds nuw i8, ptr %130, i64 17
-  store i8 %..i.i.i, ptr %141, align 1, !alias.scope !4200
+  store i8 %..i.i.i, ptr %141, align 1, !alias.scope !4200, !noalias !4182
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %26), !noalias !4166
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %25), !noalias !4166
   invoke void @"_ZN13outline_panel22outline_panel_settings1_118_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$outline_panel..outline_panel_settings..OutlinePanelSettingsContent$GT$9serialize17h3f76b3fbbdaee500E"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %25, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %.sroa.01.0.i)
@@ -24858,7 +24858,7 @@ _ZN10serde_json5value8to_value17h960a6e0fc592c286E.exit.i: ; preds = %140
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %24), !noalias !4166
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %23), !noalias !4166
   invoke void @"_ZN13outline_panel22outline_panel_settings1_118_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$outline_panel..outline_panel_settings..OutlinePanelSettingsContent$GT$9serialize17h3f76b3fbbdaee500E"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %23, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %130)
-          to label %158 unwind label %154
+          to label %158 unwind label %154, !noalias !4182
 
 154:                                              ; preds = %153
   %155 = landingpad { ptr, i32 }
@@ -25079,7 +25079,7 @@ _ZN10serde_json5value8to_value17h960a6e0fc592c286E.exit.i: ; preds = %140
 
 .thread18.i:                                      ; preds = %148, %.thread22.i
   %eh.lpad-body3321.i = phi { ptr, i32 } [ %142, %.thread22.i ], [ %149, %148 ]
-  call void @__rust_dealloc(ptr noundef nonnull %130, i64 noundef 24, i64 noundef 4) #46
+  call void @__rust_dealloc(ptr noundef nonnull %130, i64 noundef 24, i64 noundef 4) #46, !noalias !4182
   br label %.body42.i
 
 218:                                              ; preds = %.body.i
@@ -25548,7 +25548,7 @@ default.unreachable231:                           ; preds = %138, %62, %2
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %98 = load ptr, ptr %97, align 8, !invariant.load !4, !noalias !4377, !nonnull !4
   invoke void %98(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %31, ptr noundef nonnull align 1 %94, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
-          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb497f7eeae5cdf13E.exit.i" unwind label %99
+          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb497f7eeae5cdf13E.exit.i" unwind label %99, !noalias !4375
 
 99:                                               ; preds = %92
   %100 = landingpad { ptr, i32 }
@@ -35751,7 +35751,7 @@ attributes #48 = { "function-inline-cost-multiplier"="2" }
 !3181 = distinct !{!3181, !3179, !"_ZN63_$LT$schemars..schema..Schema$u20$as$u20$core..clone..Clone$GT$5clone17h6e475f596f568e54E: argument 0"}
 !3182 = !{!3181, !3178, !3175}
 !3183 = !{!3178, !3175}
-!3184 = !{!3185}
+!3184 = !{!3185, !3175}
 !3185 = distinct !{!3185, !3186, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17ha238383e2508fa81E: argument 0"}
 !3186 = distinct !{!3186, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17ha238383e2508fa81E"}
 !3187 = !{!3188}
@@ -35769,7 +35769,7 @@ attributes #48 = { "function-inline-cost-multiplier"="2" }
 !3199 = distinct !{!3199, !3197, !"_ZN63_$LT$schemars..schema..Schema$u20$as$u20$core..clone..Clone$GT$5clone17h6e475f596f568e54E: argument 0"}
 !3200 = !{!3199, !3196, !3193}
 !3201 = !{!3196, !3193}
-!3202 = !{!3203}
+!3202 = !{!3203, !3193}
 !3203 = distinct !{!3203, !3204, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17ha238383e2508fa81E: argument 0"}
 !3204 = distinct !{!3204, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17ha238383e2508fa81E"}
 !3205 = !{!3206}
@@ -35782,7 +35782,7 @@ attributes #48 = { "function-inline-cost-multiplier"="2" }
 !3212 = distinct !{!3212, !3210, !"_ZN63_$LT$schemars..schema..Schema$u20$as$u20$core..clone..Clone$GT$5clone17h6e475f596f568e54E: argument 0"}
 !3213 = !{!3212, !3209, !3206}
 !3214 = !{!3209, !3206}
-!3215 = !{!3216}
+!3215 = !{!3216, !3206}
 !3216 = distinct !{!3216, !3217, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17ha238383e2508fa81E: argument 0"}
 !3217 = distinct !{!3217, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17ha238383e2508fa81E"}
 !3218 = !{!3219}
@@ -35811,7 +35811,7 @@ attributes #48 = { "function-inline-cost-multiplier"="2" }
 !3241 = distinct !{!3241, !3239, !"_ZN63_$LT$schemars..schema..Schema$u20$as$u20$core..clone..Clone$GT$5clone17h6e475f596f568e54E: argument 0"}
 !3242 = !{!3241, !3238, !3235}
 !3243 = !{!3238, !3235}
-!3244 = !{!3245}
+!3244 = !{!3245, !3235}
 !3245 = distinct !{!3245, !3246, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17ha238383e2508fa81E: argument 0"}
 !3246 = distinct !{!3246, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17ha238383e2508fa81E"}
 !3247 = !{!3248}
@@ -35824,7 +35824,7 @@ attributes #48 = { "function-inline-cost-multiplier"="2" }
 !3254 = distinct !{!3254, !3252, !"_ZN63_$LT$schemars..schema..Schema$u20$as$u20$core..clone..Clone$GT$5clone17h6e475f596f568e54E: argument 0"}
 !3255 = !{!3254, !3251, !3248}
 !3256 = !{!3251, !3248}
-!3257 = !{!3258}
+!3257 = !{!3258, !3248}
 !3258 = distinct !{!3258, !3259, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17ha238383e2508fa81E: argument 0"}
 !3259 = distinct !{!3259, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17ha238383e2508fa81E"}
 !3260 = !{!3261}
@@ -36764,7 +36764,7 @@ attributes #48 = { "function-inline-cost-multiplier"="2" }
 !4194 = distinct !{!4194, !4195, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f97e60cc0bef8a8E: argument 0"}
 !4195 = distinct !{!4195, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f97e60cc0bef8a8E"}
 !4196 = !{!4194, !4134, !4126}
-!4197 = !{!4198}
+!4197 = !{!4198, !4134, !4126}
 !4198 = distinct !{!4198, !4199, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h9a0590f70986b012E: argument 0"}
 !4199 = distinct !{!4199, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h9a0590f70986b012E"}
 !4200 = !{!4201, !4203}
@@ -36783,14 +36783,14 @@ attributes #48 = { "function-inline-cost-multiplier"="2" }
 !4213 = !{!4206, !4209, !4134, !4126}
 !4214 = !{!4206, !4209}
 !4215 = !{!4211, !4134, !4126, !4135}
-!4216 = !{!4217, !4219, !4221}
+!4216 = !{!4217, !4219, !4221, !4134, !4126}
 !4217 = distinct !{!4217, !4218, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd7db37a950e25f37E.llvm.15060150511525080235: argument 0"}
 !4218 = distinct !{!4218, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd7db37a950e25f37E.llvm.15060150511525080235"}
 !4219 = distinct !{!4219, !4220, !"_ZN4core3ptr112drop_in_place$LT$alloc..boxed..Box$LT$outline_panel..outline_panel_settings..OutlinePanelSettingsContent$GT$$GT$17hb66cadf0ac56f0dbE.llvm.15060150511525080235: argument 0"}
 !4220 = distinct !{!4220, !"_ZN4core3ptr112drop_in_place$LT$alloc..boxed..Box$LT$outline_panel..outline_panel_settings..OutlinePanelSettingsContent$GT$$GT$17hb66cadf0ac56f0dbE.llvm.15060150511525080235"}
 !4221 = distinct !{!4221, !4222, !"_ZN10serde_json5value8to_value17ha854882f4a7019c1E: argument 0"}
 !4222 = distinct !{!4222, !"_ZN10serde_json5value8to_value17ha854882f4a7019c1E"}
-!4223 = !{!4224, !4226, !4221}
+!4223 = !{!4224, !4226, !4221, !4134, !4126}
 !4224 = distinct !{!4224, !4225, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd7db37a950e25f37E.llvm.15060150511525080235: argument 0"}
 !4225 = distinct !{!4225, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd7db37a950e25f37E.llvm.15060150511525080235"}
 !4226 = distinct !{!4226, !4227, !"_ZN4core3ptr112drop_in_place$LT$alloc..boxed..Box$LT$outline_panel..outline_panel_settings..OutlinePanelSettingsContent$GT$$GT$17hb66cadf0ac56f0dbE.llvm.15060150511525080235: argument 0"}
@@ -36944,7 +36944,7 @@ attributes #48 = { "function-inline-cost-multiplier"="2" }
 !4374 = distinct !{!4374, !4371, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb497f7eeae5cdf13E: argument 2"}
 !4375 = !{!4364}
 !4376 = !{!4370}
-!4377 = !{!4373, !4370, !4374}
+!4377 = !{!4373, !4370, !4374, !4364}
 !4378 = !{!4379}
 !4379 = distinct !{!4379, !4380, !"_ZN4core3ptr218drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..string..String$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h269084b0a149ba2fE: argument 0"}
 !4380 = distinct !{!4380, !"_ZN4core3ptr218drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..string..String$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h269084b0a149ba2fE"}

@@ -8111,11 +8111,11 @@ define hidden void @"_ZN6syntax14Parse$LT$T$GT$6errors17h5ff6bdb6548318faE.llvm.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !1593
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1598
   %31 = getelementptr inbounds nuw [0 x { [4 x i64] }], ptr %16, i64 0, i64 %.sroa.7.030.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06.sroa.0.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06.sroa.0.i, i64 24, i1 false), !noalias !1600
   %.sroa.06.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store i32 %28, ptr %.sroa.06.sroa.4.0..sroa_idx.i, align 8
+  store i32 %28, ptr %.sroa.06.sroa.4.0..sroa_idx.i, align 8, !noalias !1600
   %.sroa.06.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 28
-  store i32 %30, ptr %.sroa.06.sroa.5.0..sroa_idx.i, align 4
+  store i32 %30, ptr %.sroa.06.sroa.5.0..sroa_idx.i, align 4, !noalias !1600
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.06.sroa.0.i)
   %32 = icmp eq i64 %21, 0
   br i1 %32, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17ha73711e23fc1e1e3E.llvm.3573574483942673257.exit", label %.lr.ph.i

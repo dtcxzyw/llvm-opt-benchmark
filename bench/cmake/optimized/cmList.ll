@@ -1340,7 +1340,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %_ZN9__gnu_cxx5__ops
   %109 = landingpad { ptr, i32 }
           catch ptr null
   %110 = extractvalue { ptr, i32 } %109, 0
-  call void @__clang_call_terminate(ptr %110) #36
+  call void @__clang_call_terminate(ptr %110) #36, !noalias !91
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit2.i.i.i:            ; preds = %106, %101

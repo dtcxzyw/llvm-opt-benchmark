@@ -1042,7 +1042,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #33
+  call void @__clang_call_terminate(ptr %2) #33, !noalias !11
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i: ; preds = %invoke.cont
@@ -1228,7 +1228,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %.noexc.i.i.i
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #33
+  call void @__clang_call_terminate(ptr %28) #33, !noalias !11
   unreachable
 
 if.end.i.i.i:                                     ; preds = %.noexc.i.i.i
@@ -1383,7 +1383,7 @@ terminate.lpad.i.i.i.i.i20:                       ; preds = %invoke.cont5
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #33
+  call void @__clang_call_terminate(ptr %40) #33, !noalias !15
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i21: ; preds = %invoke.cont5
@@ -1569,7 +1569,7 @@ terminate.lpad.i.i.i.i70:                         ; preds = %.noexc.i.i.i68
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #33
+  call void @__clang_call_terminate(ptr %66) #33, !noalias !15
   unreachable
 
 if.end.i.i.i71:                                   ; preds = %.noexc.i.i.i68
@@ -1724,7 +1724,7 @@ terminate.lpad.i.i.i.i.i179:                      ; preds = %invoke.cont7
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #33
+  call void @__clang_call_terminate(ptr %78) #33, !noalias !19
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i180: ; preds = %invoke.cont7
@@ -1910,7 +1910,7 @@ terminate.lpad.i.i.i.i229:                        ; preds = %.noexc.i.i.i227
   %103 = landingpad { ptr, i32 }
           catch ptr null
   %104 = extractvalue { ptr, i32 } %103, 0
-  call void @__clang_call_terminate(ptr %104) #33
+  call void @__clang_call_terminate(ptr %104) #33, !noalias !19
   unreachable
 
 if.end.i.i.i230:                                  ; preds = %.noexc.i.i.i227
@@ -2065,7 +2065,7 @@ terminate.lpad.i.i.i.i.i338:                      ; preds = %invoke.cont10
   %115 = landingpad { ptr, i32 }
           catch ptr null
   %116 = extractvalue { ptr, i32 } %115, 0
-  call void @__clang_call_terminate(ptr %116) #33
+  call void @__clang_call_terminate(ptr %116) #33, !noalias !23
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i339: ; preds = %invoke.cont10
@@ -2251,7 +2251,7 @@ terminate.lpad.i.i.i.i388:                        ; preds = %.noexc.i.i.i386
   %141 = landingpad { ptr, i32 }
           catch ptr null
   %142 = extractvalue { ptr, i32 } %141, 0
-  call void @__clang_call_terminate(ptr %142) #33
+  call void @__clang_call_terminate(ptr %142) #33, !noalias !23
   unreachable
 
 if.end.i.i.i389:                                  ; preds = %.noexc.i.i.i386
@@ -2406,7 +2406,7 @@ terminate.lpad.i.i.i.i.i497:                      ; preds = %invoke.cont13
   %153 = landingpad { ptr, i32 }
           catch ptr null
   %154 = extractvalue { ptr, i32 } %153, 0
-  call void @__clang_call_terminate(ptr %154) #33
+  call void @__clang_call_terminate(ptr %154) #33, !noalias !27
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i498: ; preds = %invoke.cont13
@@ -2600,7 +2600,7 @@ terminate.lpad.i.i.i.i547:                        ; preds = %.noexc.i.i.i545
   %180 = landingpad { ptr, i32 }
           catch ptr null
   %181 = extractvalue { ptr, i32 } %180, 0
-  call void @__clang_call_terminate(ptr %181) #33
+  call void @__clang_call_terminate(ptr %181) #33, !noalias !27
   unreachable
 
 if.end.i.i.i548:                                  ; preds = %.noexc.i.i.i545

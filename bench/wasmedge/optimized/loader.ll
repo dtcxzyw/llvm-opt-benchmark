@@ -2703,7 +2703,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #23
+  tail call void @__clang_call_terminate(ptr %21) #23, !noalias !43
   unreachable
 
 _ZN8WasmEdge6Loader13SharedLibrary3getIjEENS_6SymbolIT_EEPKc.exit: ; preds = %13
@@ -2920,7 +2920,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  tail call void @__clang_call_terminate(ptr %23) #23
+  tail call void @__clang_call_terminate(ptr %23) #23, !noalias !52
   unreachable
 
 _ZN8WasmEdge6Loader13SharedLibrary3getIjEENS_6SymbolIT_EEPKc.exit: ; preds = %15
@@ -2981,7 +2981,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  tail call void @__clang_call_terminate(ptr %44) #23
+  tail call void @__clang_call_terminate(ptr %44) #23, !noalias !61
   unreachable
 
 _ZN8WasmEdge6Loader13SharedLibrary3getIhEENS_6SymbolIT_EEPKc.exit: ; preds = %36
@@ -34707,7 +34707,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #23
+  tail call void @__clang_call_terminate(ptr %19) #23, !noalias !313
   unreachable
 
 _ZN8WasmEdge6Loader13SharedLibrary3getIPA23_KPvEENS_6SymbolIT_EEPKc.exit: ; preds = %11
@@ -34805,7 +34805,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #23
+  call void @__clang_call_terminate(ptr %38) #23, !noalias !326
   unreachable
 
 _ZN8WasmEdge6Loader13SharedLibrary3getIFvPvS3_PKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEPSH_EEENS_6SymbolIT_EEPKc.exit: ; preds = %30
@@ -35030,7 +35030,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #23
+  call void @__clang_call_terminate(ptr %40) #23, !noalias !340
   unreachable
 
 _ZN8WasmEdge6Loader13SharedLibrary3getIvEENS_6SymbolIT_EEPKc.exit: ; preds = %32

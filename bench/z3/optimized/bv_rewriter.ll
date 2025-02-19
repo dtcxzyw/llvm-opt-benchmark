@@ -47776,7 +47776,6 @@ terminate.lpad.i.i:                               ; preds = %for.cond.preheader.
   unreachable
 
 _ZN7obj_mapI4exprjED2Ev.exit:                     ; preds = %cleanup, %for.cond.preheader.i.i.i.i
-  store ptr null, ptr %mul_map, align 8
   %128 = load ptr, ptr %valid, align 8
   %cmp.not.i.i.i216 = icmp eq ptr %128, %m_initial_buffer.i
   %cmp.i.i.i.i217 = icmp eq ptr %128, null

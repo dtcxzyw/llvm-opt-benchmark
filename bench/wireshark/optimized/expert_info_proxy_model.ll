@@ -273,7 +273,7 @@ _ZNK11QModelIndex6parentEv.exit69:                ; preds = %54, %58
   %87 = landingpad { ptr, i32 }
           catch ptr null
   %88 = extractvalue { ptr, i32 } %87, 0
-  call void @__clang_call_terminate(ptr %88) #18
+  call void @__clang_call_terminate(ptr %88) #18, !noalias !21
   unreachable
 
 _ZN7QStringC2ERK10QByteArray.exit.i:              ; preds = %83
@@ -310,7 +310,7 @@ _ZN7QStringC2ERK10QByteArray.exit.i:              ; preds = %83
   %105 = landingpad { ptr, i32 }
           catch ptr null
   %106 = extractvalue { ptr, i32 } %105, 0
-  call void @__clang_call_terminate(ptr %106) #18
+  call void @__clang_call_terminate(ptr %106) #18, !noalias !27
   unreachable
 
 _ZN7QStringC2ERK10QByteArray.exit.i71:            ; preds = %94
@@ -548,7 +548,7 @@ _ZN7QStringD2Ev.exit103:                          ; preds = %181, %_ZN17QArrayDa
   %188 = landingpad { ptr, i32 }
           catch ptr null
   %189 = extractvalue { ptr, i32 } %188, 0
-  call void @__clang_call_terminate(ptr %189) #18
+  call void @__clang_call_terminate(ptr %189) #18, !noalias !33
   unreachable
 
 _ZN7QStringC2ERK10QByteArray.exit.i104:           ; preds = %184
@@ -585,7 +585,7 @@ _ZN7QStringC2ERK10QByteArray.exit.i104:           ; preds = %184
   %206 = landingpad { ptr, i32 }
           catch ptr null
   %207 = extractvalue { ptr, i32 } %206, 0
-  call void @__clang_call_terminate(ptr %207) #18
+  call void @__clang_call_terminate(ptr %207) #18, !noalias !39
   unreachable
 
 _ZN7QStringC2ERK10QByteArray.exit.i108:           ; preds = %195
@@ -1446,7 +1446,7 @@ _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread: ; preds = %20, %
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #18
+  call void @__clang_call_terminate(ptr %42) #18, !noalias !69
   unreachable
 
 _ZN7QStringC2ERK10QByteArray.exit.i:              ; preds = %37
@@ -1533,7 +1533,7 @@ _ZN7QStringD2Ev.exit23:                           ; preds = %68, %_ZN17QArrayDat
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #18
+  call void @__clang_call_terminate(ptr %75) #18, !noalias !75
   unreachable
 
 _ZN7QStringC2ERK10QByteArray.exit.i24:            ; preds = %70
@@ -1620,7 +1620,7 @@ _ZN7QStringD2Ev.exit34:                           ; preds = %101, %_ZN17QArrayDa
   %107 = landingpad { ptr, i32 }
           catch ptr null
   %108 = extractvalue { ptr, i32 } %107, 0
-  call void @__clang_call_terminate(ptr %108) #18
+  call void @__clang_call_terminate(ptr %108) #18, !noalias !81
   unreachable
 
 _ZN7QStringC2ERK10QByteArray.exit.i35:            ; preds = %103

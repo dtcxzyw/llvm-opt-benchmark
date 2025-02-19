@@ -980,7 +980,6 @@ if.then33:                                        ; preds = %do.body.i.i.i, %_ZN
 
 _ZN9grpc_core13RefCountedPtrINS_24CertificateProviderStore26CertificateProviderWrapperEEaSEOS3_.exit25: ; preds = %if.then33
   %10 = load ptr, ptr %ref.tmp34, align 8
-  store ptr null, ptr %ref.tmp34, align 8
   store ptr %10, ptr %second, align 8
   br label %if.end43
 

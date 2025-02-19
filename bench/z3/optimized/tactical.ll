@@ -8811,7 +8811,6 @@ terminate.lpad.i101:                              ; preds = %for.body.i.i100
   unreachable
 
 _ZN13scoped_limitsD2Ev.exit:                      ; preds = %.noexc.i, %_ZN15ref_vector_coreI4goal21ref_unmanaged_wrapperIS0_EED2Ev.exit
-  store i32 0, ptr %m_sz.i, align 8
   %97 = load ptr, ptr %managers, align 8
   %cmp.i.i.i.i = icmp eq ptr %97, null
   br i1 %cmp.i.i.i.i, label %_ZN17scoped_ptr_vectorI11ast_managerED2Ev.exit, label %_ZN6vectorIP11ast_managerLb0EjE3endEv.exit.i.i

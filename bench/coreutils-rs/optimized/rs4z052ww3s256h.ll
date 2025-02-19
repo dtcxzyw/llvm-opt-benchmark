@@ -802,7 +802,7 @@ _ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381
   %139 = extractvalue { i64, ptr } %137, 1
   %140 = icmp ne ptr %139, null
   tail call void @llvm.assume(i1 %140)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %139, ptr noundef nonnull align 1 dereferenceable(21) @anon.dda7f24f519593b2af526acfe86e06ea.17, i64 21, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %139, ptr noundef nonnull align 1 dereferenceable(21) @anon.dda7f24f519593b2af526acfe86e06ea.17, i64 21, i1 false), !noalias !145
   br label %314
 
 141:                                              ; preds = %125
@@ -918,7 +918,7 @@ _ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381
   %178 = extractvalue { i64, ptr } %176, 1
   %179 = icmp ne ptr %178, null
   tail call void @llvm.assume(i1 %179)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %178, ptr noundef nonnull align 1 dereferenceable(21) @anon.dda7f24f519593b2af526acfe86e06ea.13, i64 21, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %178, ptr noundef nonnull align 1 dereferenceable(21) @anon.dda7f24f519593b2af526acfe86e06ea.13, i64 21, i1 false), !noalias !206
   br label %306
 
 180:                                              ; preds = %170
@@ -1099,7 +1099,7 @@ _ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381
   %235 = extractvalue { i64, ptr } %233, 1
   %236 = icmp ne ptr %235, null
   tail call void @llvm.assume(i1 %236)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(41) %235, ptr noundef nonnull align 1 dereferenceable(41) @anon.dda7f24f519593b2af526acfe86e06ea.14, i64 41, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(41) %235, ptr noundef nonnull align 1 dereferenceable(41) @anon.dda7f24f519593b2af526acfe86e06ea.14, i64 41, i1 false), !noalias !206
   br label %306
 
 237:                                              ; preds = %228

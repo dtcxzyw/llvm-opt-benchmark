@@ -629,7 +629,7 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9pu
 46:                                               ; preds = %_ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9push_backEOS4_.exit.i, %.noexc
   %.fca.0.extract.i = extractvalue { ptr, i8 } %33, 0
   %47 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 40
-  %48 = load i16, ptr %47, align 2, !tbaa !17
+  %48 = load i16, ptr %47, align 2, !tbaa !17, !noalias !76
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %50 = sext i16 %48 to i64
   %51 = load ptr, ptr %49, align 8, !tbaa !67, !noalias !76
@@ -1051,7 +1051,7 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9pu
 87:                                               ; preds = %_ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9push_backEOS4_.exit.i, %.noexc
   %.fca.0.extract.i = extractvalue { ptr, i8 } %74, 0
   %88 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 40
-  %89 = load i16, ptr %88, align 2, !tbaa !17
+  %89 = load i16, ptr %88, align 2, !tbaa !17, !noalias !90
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %91 = sext i16 %89 to i64
   %92 = load ptr, ptr %90, align 8, !tbaa !67, !noalias !90
@@ -1426,7 +1426,7 @@ _ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9pu
 _ZN5boost7archive6detail19basic_iarchive_impl13register_typeERKNS1_17basic_iserializerE.exit: ; preds = %2, %_ZNSt6vectorIN5boost7archive6detail19basic_iarchive_impl10cobject_idESaIS4_EE9push_backEOS4_.exit.i
   %.fca.0.extract.i = extractvalue { ptr, i8 } %12, 0
   %25 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 40
-  %26 = load i16, ptr %25, align 2, !tbaa !17
+  %26 = load i16, ptr %25, align 2, !tbaa !17, !noalias !94
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %28 = sext i16 %26 to i64
   %29 = load ptr, ptr %27, align 8, !tbaa !67, !noalias !94

@@ -579,7 +579,6 @@ lpad.i7:                                          ; preds = %if.then6
 _ZNSt10unique_ptrI14ssl_session_stN3tsi17SslSessionDeleterEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN3tsi16SslCachedSessionESt14default_deleteIS1_EED2Ev.exit.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
-  store ptr null, ptr %agg.tmp, align 8
   br label %cleanup
 
 lpad:                                             ; preds = %call.i.noexc, %if.end

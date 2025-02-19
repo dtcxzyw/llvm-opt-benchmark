@@ -25122,14 +25122,14 @@ _ZN5boost14static_strings6testTSIiEEbT_PKcb.exit:
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %23) #36
   %36 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1359, ptr noundef nonnull @.str.13, i32 noundef 3939, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_strings18testToStaticStringEv, i1 noundef zeroext %35)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22) #36
-  %37 = getelementptr inbounds nuw i8, ptr %22, i64 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %37, i8 0, i64 9, i1 false), !alias.scope !86
+  %37 = getelementptr inbounds nuw i8, ptr %22, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %22, i64 3
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %38, i8 0, i64 9, i1 false), !alias.scope !86
   store i8 1, ptr %22, align 1, !tbaa !91, !alias.scope !86
-  %38 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  store i8 48, ptr %38, align 1
+  store i8 48, ptr %37, align 1
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 2
   store i8 0, ptr %39, align 1, !tbaa !9, !alias.scope !86
-  %40 = call i64 @strtoull(ptr noundef nonnull captures(none) %38, ptr noundef null, i32 noundef 10) #36
+  %40 = call i64 @strtoull(ptr noundef nonnull captures(none) %37, ptr noundef null, i32 noundef 10) #36
   %41 = and i64 %40, 4294967295
   %42 = icmp eq i64 %41, 0
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22) #36
@@ -25254,8 +25254,8 @@ _ZN5boost14static_strings6testTSIxEEbT_PKcb.exit23: ; preds = %.lr.ph.i.i.i.i
   br i1 %.not.i.i.i.i25, label %_ZN5boost14static_strings6testTSIyEEbT_PKcb.exit, label %.preheader.i.i.i.i24, !llvm.loop !118
 
 _ZN5boost14static_strings6testTSIyEEbT_PKcb.exit: ; preds = %.preheader.i.i.i.i24
-  store i8 20, ptr %17, align 1, !tbaa !101, !alias.scope !117
   %104 = getelementptr inbounds nuw i8, ptr %17, i64 1
+  store i8 20, ptr %17, align 1, !tbaa !101, !alias.scope !117
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %104, ptr noundef nonnull align 16 dereferenceable(20) %16, i64 20, i1 false)
   %105 = getelementptr inbounds nuw i8, ptr %17, i64 21
   store i8 0, ptr %105, align 1, !tbaa !9, !alias.scope !117
@@ -25284,8 +25284,8 @@ _ZN5boost14static_strings6testTSIyEEbT_PKcb.exit: ; preds = %.preheader.i.i.i.i2
   br i1 %.not.i.i.i.i33, label %_ZN5boost14static_strings6testTSIyEEbT_PKcb.exit38, label %.preheader.i.i.i.i30, !llvm.loop !118
 
 _ZN5boost14static_strings6testTSIyEEbT_PKcb.exit38: ; preds = %.preheader.i.i.i.i30
-  store i8 20, ptr %15, align 1, !tbaa !101, !alias.scope !125
   %115 = getelementptr inbounds nuw i8, ptr %15, i64 1
+  store i8 20, ptr %15, align 1, !tbaa !101, !alias.scope !125
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %115, ptr noundef nonnull align 16 dereferenceable(20) %14, i64 20, i1 false)
   %116 = getelementptr inbounds nuw i8, ptr %15, i64 21
   store i8 0, ptr %116, align 1, !tbaa !9, !alias.scope !125
@@ -25311,7 +25311,8 @@ _ZN5boost14static_strings6testTSIyEEbT_PKcb.exit38: ; preds = %.preheader.i.i.i.
   br label %128
 
 128:                                              ; preds = %126, %_ZN5boost14static_strings6testTSIyEEbT_PKcb.exit38
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %24, i8 0, i64 15, i1 false), !alias.scope !132
+  %.ptr.ptr = getelementptr inbounds nuw i8, ptr %24, i64 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %.ptr.ptr, i8 0, i64 14, i1 false), !alias.scope !132
   %129 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #36, !noalias !132
   %130 = icmp ugt i64 %129, 13
   br i1 %130, label %131, label %132
@@ -25326,7 +25327,6 @@ _ZN5boost14static_strings6testTSIyEEbT_PKcb.exit38: ; preds = %.preheader.i.i.i.
 132:                                              ; preds = %128
   %133 = trunc nuw i64 %129 to i8
   store i8 %133, ptr %24, align 1, !tbaa !133, !alias.scope !132
-  %.ptr.ptr = getelementptr inbounds nuw i8, ptr %24, i64 1
   %134 = icmp eq i64 %129, 0
   br i1 %134, label %_ZN5boost14static_strings16to_static_stringEf.exit.thread, label %.lr.ph.preheader
 
@@ -25340,7 +25340,7 @@ _ZN5boost14static_strings16to_static_stringEf.exit.thread: ; preds = %132
   %137 = landingpad { ptr, i32 }
           catch ptr null
   %138 = extractvalue { ptr, i32 } %137, 0
-  tail call void @__clang_call_terminate(ptr %138) #37
+  tail call void @__clang_call_terminate(ptr %138) #37, !noalias !132
   unreachable
 
 .lr.ph.preheader:                                 ; preds = %132
@@ -25423,7 +25423,8 @@ _ZN5boost14static_stringseqILm13EcSt11char_traitsIcEEEbRKNS0_19basic_static_stri
   br label %164
 
 164:                                              ; preds = %162, %_ZN5boost14static_stringseqILm13EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit49
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %25, i8 0, i64 23, i1 false), !alias.scope !141
+  %.ptr.ptr288 = getelementptr inbounds nuw i8, ptr %25, i64 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %.ptr.ptr288, i8 0, i64 22, i1 false), !alias.scope !141
   %165 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #36, !noalias !141
   %166 = icmp ugt i64 %165, 21
   br i1 %166, label %167, label %168
@@ -25438,7 +25439,6 @@ _ZN5boost14static_stringseqILm13EcSt11char_traitsIcEEEbRKNS0_19basic_static_stri
 168:                                              ; preds = %164
   %169 = trunc nuw i64 %165 to i8
   store i8 %169, ptr %25, align 1, !tbaa !142, !alias.scope !141
-  %.ptr.ptr288 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %170 = icmp eq i64 %165, 0
   br i1 %170, label %_ZN5boost14static_strings16to_static_stringEd.exit.thread, label %.lr.ph260.preheader
 
@@ -25452,7 +25452,7 @@ _ZN5boost14static_strings16to_static_stringEd.exit.thread: ; preds = %168
   %173 = landingpad { ptr, i32 }
           catch ptr null
   %174 = extractvalue { ptr, i32 } %173, 0
-  call void @__clang_call_terminate(ptr %174) #37
+  call void @__clang_call_terminate(ptr %174) #37, !noalias !141
   unreachable
 
 .lr.ph260.preheader:                              ; preds = %168
@@ -25535,7 +25535,8 @@ _ZN5boost14static_stringseqILm21EcSt11char_traitsIcEEEbRKNS0_19basic_static_stri
   br label %200
 
 200:                                              ; preds = %198, %_ZN5boost14static_stringseqILm21EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit68
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(27) %26, i8 0, i64 27, i1 false), !alias.scope !150
+  %.ptr.ptr291 = getelementptr inbounds nuw i8, ptr %26, i64 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %.ptr.ptr291, i8 0, i64 26, i1 false), !alias.scope !150
   %201 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #36, !noalias !150
   %202 = icmp ugt i64 %201, 25
   br i1 %202, label %203, label %204
@@ -25550,7 +25551,6 @@ _ZN5boost14static_stringseqILm21EcSt11char_traitsIcEEEbRKNS0_19basic_static_stri
 204:                                              ; preds = %200
   %205 = trunc nuw i64 %201 to i8
   store i8 %205, ptr %26, align 1, !tbaa !151, !alias.scope !150
-  %.ptr.ptr291 = getelementptr inbounds nuw i8, ptr %26, i64 1
   %206 = icmp eq i64 %201, 0
   br i1 %206, label %_ZN5boost14static_strings16to_static_stringEe.exit.thread, label %.lr.ph264.preheader
 
@@ -25564,7 +25564,7 @@ _ZN5boost14static_strings16to_static_stringEe.exit.thread: ; preds = %204
   %209 = landingpad { ptr, i32 }
           catch ptr null
   %210 = extractvalue { ptr, i32 } %209, 0
-  call void @__clang_call_terminate(ptr %210) #37
+  call void @__clang_call_terminate(ptr %210) #37, !noalias !150
   unreachable
 
 .lr.ph264.preheader:                              ; preds = %204
@@ -25825,7 +25825,6 @@ _ZN5boost14static_strings7testTWSIyEEbT_PKwb.exit134: ; preds = %.preheader.i.i.
   br label %322
 
 322:                                              ; preds = %320, %_ZN5boost14static_strings7testTWSIyEEbT_PKwb.exit134
-  store i8 0, ptr %27, align 4, !tbaa !195, !alias.scope !194
   %scevgep.i.i.i.i.ptr.ptr = getelementptr inbounds nuw i8, ptr %27, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %scevgep.i.i.i.i.ptr.ptr, i8 0, i64 56, i1 false), !tbaa !160, !alias.scope !194
   %323 = call noundef i64 @wcslen(ptr noundef nonnull %2) #38, !noalias !194
@@ -25853,7 +25852,7 @@ _ZN5boost14static_strings17to_static_wstringEf.exit.thread: ; preds = %326
   %330 = landingpad { ptr, i32 }
           catch ptr null
   %331 = extractvalue { ptr, i32 } %330, 0
-  call void @__clang_call_terminate(ptr %331) #37
+  call void @__clang_call_terminate(ptr %331) #37, !noalias !194
   unreachable
 
 _ZN5boost14static_strings17to_static_wstringEf.exit: ; preds = %326
@@ -25944,7 +25943,6 @@ _ZN5boost14static_stringseqILm13EwSt11char_traitsIwEEEbRKNS0_19basic_static_stri
   br label %361
 
 361:                                              ; preds = %359, %_ZN5boost14static_stringseqILm13EwSt11char_traitsIwEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit151
-  store i8 0, ptr %28, align 4, !tbaa !204, !alias.scope !203
   %scevgep.i.i.i.i153.ptr.ptr = getelementptr inbounds nuw i8, ptr %28, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %scevgep.i.i.i.i153.ptr.ptr, i8 0, i64 88, i1 false), !tbaa !160, !alias.scope !203
   %362 = call noundef i64 @wcslen(ptr noundef nonnull %1) #38, !noalias !203
@@ -25972,7 +25970,7 @@ _ZN5boost14static_strings17to_static_wstringEd.exit.thread: ; preds = %365
   %369 = landingpad { ptr, i32 }
           catch ptr null
   %370 = extractvalue { ptr, i32 } %369, 0
-  call void @__clang_call_terminate(ptr %370) #37
+  call void @__clang_call_terminate(ptr %370) #37, !noalias !203
   unreachable
 
 _ZN5boost14static_strings17to_static_wstringEd.exit: ; preds = %365
@@ -26063,7 +26061,6 @@ _ZN5boost14static_stringseqILm21EwSt11char_traitsIwEEEbRKNS0_19basic_static_stri
   br label %400
 
 400:                                              ; preds = %398, %_ZN5boost14static_stringseqILm21EwSt11char_traitsIwEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit171
-  store i8 0, ptr %29, align 4, !tbaa !213, !alias.scope !212
   %scevgep.i.i.i.i173.ptr.ptr = getelementptr inbounds nuw i8, ptr %29, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(104) %scevgep.i.i.i.i173.ptr.ptr, i8 0, i64 104, i1 false), !tbaa !160, !alias.scope !212
   %401 = call noundef i64 @wcslen(ptr noundef nonnull %0) #38, !noalias !212
@@ -26091,7 +26088,7 @@ _ZN5boost14static_strings17to_static_wstringEe.exit.thread: ; preds = %404
   %408 = landingpad { ptr, i32 }
           catch ptr null
   %409 = extractvalue { ptr, i32 } %408, 0
-  call void @__clang_call_terminate(ptr %409) #37
+  call void @__clang_call_terminate(ptr %409) #37, !noalias !212
   unreachable
 
 _ZN5boost14static_strings17to_static_wstringEe.exit: ; preds = %404
@@ -26189,7 +26186,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings6testTSI
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %7, i8 0, i64 12, i1 false), !alias.scope !221
   store i8 1, ptr %5, align 1, !tbaa !84, !alias.scope !221
-  br label %34
+  br label %33
 
 8:                                                ; preds = %3
   %9 = icmp slt i32 %0, 0
@@ -26254,7 +26251,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings6testTSI
 
 29:                                               ; preds = %.loopexit.i.i
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str) #35
-          to label %.noexc.i.i unwind label %36, !noalias !221
+          to label %.noexc.i.i unwind label %35, !noalias !221
 
 .noexc.i.i:                                       ; preds = %29
   unreachable
@@ -26264,57 +26261,56 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings6testTSI
   %.0.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.0.i.idx.i.i
   %31 = trunc nuw nsw i64 %gepdiff.i.i to i8
   store i8 %31, ptr %5, align 1, !tbaa !84, !alias.scope !221
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %33 = icmp eq i64 %.0.i.idx.i.i, 11
-  br i1 %33, label %_ZN5boost14static_strings16to_static_stringEi.exit, label %34
+  %32 = icmp eq i64 %.0.i.idx.i.i, 11
+  br i1 %32, label %_ZN5boost14static_strings16to_static_stringEi.exit, label %33
 
-34:                                               ; preds = %30, %.thread.i.i
-  %35 = phi ptr [ %7, %.thread.i.i ], [ %32, %30 ]
+33:                                               ; preds = %30, %.thread.i.i
+  %34 = phi ptr [ %7, %.thread.i.i ], [ %27, %30 ]
   %.0.i.ptr1320.i.i = phi ptr [ %.ptr6.i.i, %.thread.i.i ], [ %.0.i.ptr.i.i, %30 ]
   %gepdiff1418.i.i = phi i64 [ 1, %.thread.i.i ], [ %gepdiff.i.i, %30 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull align 1 %.0.i.ptr1320.i.i, i64 %gepdiff1418.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr nonnull align 1 %.0.i.ptr1320.i.i, i64 %gepdiff1418.i.i, i1 false)
   br label %_ZN5boost14static_strings16to_static_stringEi.exit
 
-36:                                               ; preds = %29
-  %37 = landingpad { ptr, i32 }
+35:                                               ; preds = %29
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #37
+  %37 = extractvalue { ptr, i32 } %36, 0
+  tail call void @__clang_call_terminate(ptr %37) #37, !noalias !221
   unreachable
 
-_ZN5boost14static_strings16to_static_stringEi.exit: ; preds = %30, %34
-  %39 = phi ptr [ %35, %34 ], [ %32, %30 ]
-  %gepdiff1419.i.i = phi i64 [ %gepdiff1418.i.i, %34 ], [ 0, %30 ]
-  %40 = getelementptr inbounds nuw [12 x i8], ptr %39, i64 0, i64 %gepdiff1419.i.i
-  store i8 0, ptr %40, align 1, !tbaa !9, !alias.scope !221
+_ZN5boost14static_strings16to_static_stringEi.exit: ; preds = %30, %33
+  %38 = phi ptr [ %34, %33 ], [ %27, %30 ]
+  %gepdiff1419.i.i = phi i64 [ %gepdiff1418.i.i, %33 ], [ 0, %30 ]
+  %39 = getelementptr inbounds nuw [12 x i8], ptr %38, i64 0, i64 %gepdiff1419.i.i
+  store i8 0, ptr %39, align 1, !tbaa !9, !alias.scope !221
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %4) #36, !noalias !221
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %42 = call i64 @strtoll(ptr noundef nonnull captures(none) %41, ptr noundef null, i32 noundef 10) #36
-  %43 = trunc i64 %42 to i32
-  %44 = icmp eq i32 %0, %43
-  %brmerge.not = and i1 %2, %44
-  br i1 %brmerge.not, label %45, label %_ZN5boost14static_stringseqILm11EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %41 = call i64 @strtoll(ptr noundef nonnull captures(none) %40, ptr noundef null, i32 noundef 10) #36
+  %42 = trunc i64 %41 to i32
+  %43 = icmp eq i32 %0, %42
+  %brmerge.not = and i1 %2, %43
+  br i1 %brmerge.not, label %44, label %_ZN5boost14static_stringseqILm11EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
 
-45:                                               ; preds = %_ZN5boost14static_strings16to_static_stringEi.exit
-  %46 = load i8, ptr %5, align 1, !tbaa !84
-  %47 = zext i8 %46 to i64
-  %48 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #36
-  %or.cond.not.i = icmp eq i64 %48, %47
-  br i1 %or.cond.not.i, label %49, label %_ZN5boost14static_stringseqILm11EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
+44:                                               ; preds = %_ZN5boost14static_strings16to_static_stringEi.exit
+  %45 = load i8, ptr %5, align 1, !tbaa !84
+  %46 = zext i8 %45 to i64
+  %47 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #36
+  %or.cond.not.i = icmp eq i64 %47, %46
+  br i1 %or.cond.not.i, label %48, label %_ZN5boost14static_stringseqILm11EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
 
-49:                                               ; preds = %45
-  %50 = icmp eq i8 %46, 0
-  br i1 %50, label %_ZN5boost14static_stringseqILm11EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit, label %51
+48:                                               ; preds = %44
+  %49 = icmp eq i8 %45, 0
+  br i1 %49, label %_ZN5boost14static_stringseqILm11EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit, label %50
 
-51:                                               ; preds = %49
-  %bcmp.i = call i32 @bcmp(ptr nonnull %41, ptr nonnull %1, i64 %47)
-  %52 = icmp eq i32 %bcmp.i, 0
+50:                                               ; preds = %48
+  %bcmp.i = call i32 @bcmp(ptr nonnull %40, ptr nonnull %1, i64 %46)
+  %51 = icmp eq i32 %bcmp.i, 0
   br label %_ZN5boost14static_stringseqILm11EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
 
-_ZN5boost14static_stringseqILm11EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit: ; preds = %51, %49, %45, %_ZN5boost14static_strings16to_static_stringEi.exit
-  %53 = phi i1 [ %44, %_ZN5boost14static_strings16to_static_stringEi.exit ], [ %52, %51 ], [ true, %49 ], [ false, %45 ]
+_ZN5boost14static_stringseqILm11EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit: ; preds = %50, %48, %44, %_ZN5boost14static_strings16to_static_stringEi.exit
+  %52 = phi i1 [ %43, %_ZN5boost14static_strings16to_static_stringEi.exit ], [ %51, %50 ], [ true, %48 ], [ false, %44 ]
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %5) #36
-  ret i1 %53
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -26352,33 +26348,33 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings6testTSI
   %16 = ptrtoint ptr %6 to i64
   %17 = ptrtoint ptr %.09.i.i.i to i64
   %18 = sub i64 %16, %17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %5, i8 0, i64 12, i1 false), !alias.scope !230
-  %19 = icmp ugt i64 %18, 10
-  br i1 %19, label %20, label %_ZN5boost14static_strings16to_static_stringEj.exit
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %19, i8 0, i64 11, i1 false), !alias.scope !230
+  %20 = icmp ugt i64 %18, 10
+  br i1 %20, label %21, label %_ZN5boost14static_strings16to_static_stringEj.exit
 
-20:                                               ; preds = %.loopexit.i.i
+21:                                               ; preds = %.loopexit.i.i
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str) #35
-          to label %.noexc.i.i unwind label %21, !noalias !230
+          to label %.noexc.i.i unwind label %22, !noalias !230
 
-.noexc.i.i:                                       ; preds = %20
+.noexc.i.i:                                       ; preds = %21
   unreachable
 
-21:                                               ; preds = %20
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %21
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #37
+  %24 = extractvalue { ptr, i32 } %23, 0
+  call void @__clang_call_terminate(ptr %24) #37, !noalias !230
   unreachable
 
 _ZN5boost14static_strings16to_static_stringEj.exit: ; preds = %.loopexit.i.i
-  %24 = trunc nuw i64 %18 to i8
-  store i8 %24, ptr %5, align 1, !tbaa !91, !alias.scope !230
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 1 %.09.i.i.i, i64 %18, i1 false)
-  %26 = getelementptr inbounds nuw [11 x i8], ptr %25, i64 0, i64 %18
+  %25 = trunc nuw i64 %18 to i8
+  store i8 %25, ptr %5, align 1, !tbaa !91, !alias.scope !230
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull align 1 %.09.i.i.i, i64 %18, i1 false)
+  %26 = getelementptr inbounds nuw [11 x i8], ptr %19, i64 0, i64 %18
   store i8 0, ptr %26, align 1, !tbaa !9, !alias.scope !230
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #36, !noalias !230
-  %27 = call i64 @strtoull(ptr noundef nonnull captures(none) %25, ptr noundef null, i32 noundef 10) #36
+  %27 = call i64 @strtoull(ptr noundef nonnull captures(none) %19, ptr noundef null, i32 noundef 10) #36
   %28 = trunc i64 %27 to i32
   %29 = icmp eq i32 %0, %28
   %brmerge.not = and i1 %2, %29
@@ -26390,7 +26386,7 @@ _ZN5boost14static_strings16to_static_stringEj.exit: ; preds = %.loopexit.i.i
   br i1 %or.cond.not.i, label %32, label %_ZN5boost14static_stringseqILm10EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
 
 32:                                               ; preds = %30
-  %bcmp.i = call i32 @bcmp(ptr nonnull %25, ptr nonnull %1, i64 %18)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %19, ptr nonnull %1, i64 %18)
   %33 = icmp eq i32 %bcmp.i, 0
   br label %_ZN5boost14static_stringseqILm10EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
 
@@ -26417,7 +26413,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings6testTSI
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %7, i8 0, i64 21, i1 false), !alias.scope !238
   store i8 1, ptr %5, align 1, !tbaa !101, !alias.scope !238
-  br label %32
+  br label %31
 
 8:                                                ; preds = %3
   %9 = icmp slt i64 %0, 0
@@ -26480,7 +26476,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings6testTSI
 
 27:                                               ; preds = %.loopexit.i.i
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str) #35
-          to label %.noexc.i.i unwind label %34, !noalias !238
+          to label %.noexc.i.i unwind label %33, !noalias !238
 
 .noexc.i.i:                                       ; preds = %27
   unreachable
@@ -26490,56 +26486,55 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings6testTSI
   %.0.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.0.i.idx.i.i
   %29 = trunc nuw nsw i64 %gepdiff.i.i to i8
   store i8 %29, ptr %5, align 1, !tbaa !101, !alias.scope !238
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %31 = icmp eq i64 %.0.i.idx.i.i, 20
-  br i1 %31, label %_ZN5boost14static_strings16to_static_stringEx.exit, label %32
+  %30 = icmp eq i64 %.0.i.idx.i.i, 20
+  br i1 %30, label %_ZN5boost14static_strings16to_static_stringEx.exit, label %31
 
-32:                                               ; preds = %28, %.thread.i.i
-  %33 = phi ptr [ %7, %.thread.i.i ], [ %30, %28 ]
+31:                                               ; preds = %28, %.thread.i.i
+  %32 = phi ptr [ %7, %.thread.i.i ], [ %25, %28 ]
   %.0.i.ptr1320.i.i = phi ptr [ %.ptr6.i.i, %.thread.i.i ], [ %.0.i.ptr.i.i, %28 ]
   %gepdiff1418.i.i = phi i64 [ 1, %.thread.i.i ], [ %gepdiff.i.i, %28 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull align 1 %.0.i.ptr1320.i.i, i64 %gepdiff1418.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull align 1 %.0.i.ptr1320.i.i, i64 %gepdiff1418.i.i, i1 false)
   br label %_ZN5boost14static_strings16to_static_stringEx.exit
 
-34:                                               ; preds = %27
-  %35 = landingpad { ptr, i32 }
+33:                                               ; preds = %27
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  tail call void @__clang_call_terminate(ptr %36) #37
+  %35 = extractvalue { ptr, i32 } %34, 0
+  tail call void @__clang_call_terminate(ptr %35) #37, !noalias !238
   unreachable
 
-_ZN5boost14static_strings16to_static_stringEx.exit: ; preds = %28, %32
-  %37 = phi ptr [ %33, %32 ], [ %30, %28 ]
-  %gepdiff1419.i.i = phi i64 [ %gepdiff1418.i.i, %32 ], [ 0, %28 ]
-  %38 = getelementptr inbounds nuw [21 x i8], ptr %37, i64 0, i64 %gepdiff1419.i.i
-  store i8 0, ptr %38, align 1, !tbaa !9, !alias.scope !238
+_ZN5boost14static_strings16to_static_stringEx.exit: ; preds = %28, %31
+  %36 = phi ptr [ %32, %31 ], [ %25, %28 ]
+  %gepdiff1419.i.i = phi i64 [ %gepdiff1418.i.i, %31 ], [ 0, %28 ]
+  %37 = getelementptr inbounds nuw [21 x i8], ptr %36, i64 0, i64 %gepdiff1419.i.i
+  store i8 0, ptr %37, align 1, !tbaa !9, !alias.scope !238
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #36, !noalias !238
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %40 = call i64 @strtoll(ptr noundef nonnull captures(none) %39, ptr noundef null, i32 noundef 10) #36
-  %41 = icmp eq i64 %40, %0
-  %brmerge.not = and i1 %2, %41
-  br i1 %brmerge.not, label %42, label %_ZN5boost14static_stringseqILm20EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %39 = call i64 @strtoll(ptr noundef nonnull captures(none) %38, ptr noundef null, i32 noundef 10) #36
+  %40 = icmp eq i64 %39, %0
+  %brmerge.not = and i1 %2, %40
+  br i1 %brmerge.not, label %41, label %_ZN5boost14static_stringseqILm20EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
 
-42:                                               ; preds = %_ZN5boost14static_strings16to_static_stringEx.exit
-  %43 = load i8, ptr %5, align 1, !tbaa !101
-  %44 = zext i8 %43 to i64
-  %45 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #36
-  %or.cond.not.i = icmp eq i64 %45, %44
-  br i1 %or.cond.not.i, label %46, label %_ZN5boost14static_stringseqILm20EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
+41:                                               ; preds = %_ZN5boost14static_strings16to_static_stringEx.exit
+  %42 = load i8, ptr %5, align 1, !tbaa !101
+  %43 = zext i8 %42 to i64
+  %44 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #36
+  %or.cond.not.i = icmp eq i64 %44, %43
+  br i1 %or.cond.not.i, label %45, label %_ZN5boost14static_stringseqILm20EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
 
-46:                                               ; preds = %42
-  %47 = icmp eq i8 %43, 0
-  br i1 %47, label %_ZN5boost14static_stringseqILm20EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit, label %48
+45:                                               ; preds = %41
+  %46 = icmp eq i8 %42, 0
+  br i1 %46, label %_ZN5boost14static_stringseqILm20EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit, label %47
 
-48:                                               ; preds = %46
-  %bcmp.i = call i32 @bcmp(ptr nonnull %39, ptr nonnull %1, i64 %44)
-  %49 = icmp eq i32 %bcmp.i, 0
+47:                                               ; preds = %45
+  %bcmp.i = call i32 @bcmp(ptr nonnull %38, ptr nonnull %1, i64 %43)
+  %48 = icmp eq i32 %bcmp.i, 0
   br label %_ZN5boost14static_stringseqILm20EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
 
-_ZN5boost14static_stringseqILm20EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit: ; preds = %48, %46, %42, %_ZN5boost14static_strings16to_static_stringEx.exit
-  %50 = phi i1 [ %41, %_ZN5boost14static_strings16to_static_stringEx.exit ], [ %49, %48 ], [ true, %46 ], [ false, %42 ]
+_ZN5boost14static_stringseqILm20EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit: ; preds = %47, %45, %41, %_ZN5boost14static_strings16to_static_stringEx.exit
+  %49 = phi i1 [ %40, %_ZN5boost14static_strings16to_static_stringEx.exit ], [ %48, %47 ], [ true, %45 ], [ false, %41 ]
   call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %5) #36
-  ret i1 %50
+  ret i1 %49
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -26568,62 +26563,61 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings6testTSI
 
 15:                                               ; preds = %11
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str) #35
-          to label %.noexc.i.i unwind label %20, !noalias !245
+          to label %.noexc.i.i unwind label %19, !noalias !245
 
 .noexc.i.i:                                       ; preds = %15
   unreachable
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %18 = icmp eq i64 %13, 0
-  br i1 %18, label %_ZN5boost14static_strings16to_static_stringEd.exit, label %19
+  %17 = icmp eq i64 %13, 0
+  br i1 %17, label %_ZN5boost14static_strings16to_static_stringEd.exit, label %18
 
-19:                                               ; preds = %16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 16 %4, i64 %13, i1 false)
+18:                                               ; preds = %16
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull align 16 %4, i64 %13, i1 false)
   br label %_ZN5boost14static_strings16to_static_stringEd.exit
 
-20:                                               ; preds = %15
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %15
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #37
+  %21 = extractvalue { ptr, i32 } %20, 0
+  tail call void @__clang_call_terminate(ptr %21) #37, !noalias !245
   unreachable
 
-_ZN5boost14static_strings16to_static_stringEd.exit: ; preds = %16, %19
-  %23 = getelementptr inbounds nuw [22 x i8], ptr %17, i64 0, i64 %13
-  store i8 0, ptr %23, align 1, !tbaa !9, !alias.scope !245
+_ZN5boost14static_strings16to_static_stringEd.exit: ; preds = %16, %18
+  %22 = getelementptr inbounds nuw [22 x i8], ptr %12, i64 0, i64 %13
+  store i8 0, ptr %22, align 1, !tbaa !9, !alias.scope !245
   call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %4) #36, !noalias !245
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #36
   call void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @vsnprintf, i64 noundef 328, ptr noundef nonnull @.str.5426, double noundef %0)
-  %24 = load ptr, ptr %6, align 8, !tbaa !246
-  %25 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #36
-  %or.cond.not.i = icmp ne i64 %25, %13
-  %brmerge = or i1 %or.cond.not.i, %18
+  %23 = load ptr, ptr %6, align 8, !tbaa !246
+  %24 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #36
+  %or.cond.not.i = icmp ne i64 %24, %13
+  %brmerge = or i1 %or.cond.not.i, %17
   %not.or.cond.not.i = xor i1 %or.cond.not.i, true
-  br i1 %brmerge, label %_ZN5boost14static_stringseqILm21EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit, label %26
+  br i1 %brmerge, label %_ZN5boost14static_stringseqILm21EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit, label %25
 
-26:                                               ; preds = %_ZN5boost14static_strings16to_static_stringEd.exit
-  %bcmp.i = call i32 @bcmp(ptr nonnull %17, ptr nonnull %24, i64 %13)
-  %27 = icmp eq i32 %bcmp.i, 0
+25:                                               ; preds = %_ZN5boost14static_strings16to_static_stringEd.exit
+  %bcmp.i = call i32 @bcmp(ptr nonnull %12, ptr nonnull %23, i64 %13)
+  %26 = icmp eq i32 %bcmp.i, 0
   br label %_ZN5boost14static_stringseqILm21EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
 
-_ZN5boost14static_stringseqILm21EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit: ; preds = %_ZN5boost14static_strings16to_static_stringEd.exit, %26
-  %.0.i.i = phi i1 [ %27, %26 ], [ %not.or.cond.not.i, %_ZN5boost14static_strings16to_static_stringEd.exit ]
-  %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %29 = icmp eq ptr %24, %28
-  br i1 %29, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZN5boost14static_stringseqILm21EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit: ; preds = %_ZN5boost14static_strings16to_static_stringEd.exit, %25
+  %.0.i.i = phi i1 [ %26, %25 ], [ %not.or.cond.not.i, %_ZN5boost14static_strings16to_static_stringEd.exit ]
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %28 = icmp eq ptr %23, %27
+  br i1 %28, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZN5boost14static_stringseqILm21EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %31 = load i64, ptr %30, align 8, !tbaa !249
-  %32 = icmp ult i64 %31, 16
-  call void @llvm.assume(i1 %32)
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %30 = load i64, ptr %29, align 8, !tbaa !249
+  %31 = icmp ult i64 %30, 16
+  call void @llvm.assume(i1 %31)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZN5boost14static_stringseqILm21EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
-  %33 = load i64, ptr %28, align 8, !tbaa !9
-  %34 = add i64 %33, 1
-  call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %34) #39
+  %32 = load i64, ptr %27, align 8, !tbaa !9
+  %33 = add i64 %32, 1
+  call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %33) #39
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -26658,62 +26652,61 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings6testTSI
 
 15:                                               ; preds = %11
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str) #35
-          to label %.noexc.i.i unwind label %20, !noalias !256
+          to label %.noexc.i.i unwind label %19, !noalias !256
 
 .noexc.i.i:                                       ; preds = %15
   unreachable
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %18 = icmp eq i64 %13, 0
-  br i1 %18, label %_ZN5boost14static_strings16to_static_stringEe.exit, label %19
+  %17 = icmp eq i64 %13, 0
+  br i1 %17, label %_ZN5boost14static_strings16to_static_stringEe.exit, label %18
 
-19:                                               ; preds = %16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 16 %4, i64 %13, i1 false)
+18:                                               ; preds = %16
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull align 16 %4, i64 %13, i1 false)
   br label %_ZN5boost14static_strings16to_static_stringEe.exit
 
-20:                                               ; preds = %15
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %15
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #37
+  %21 = extractvalue { ptr, i32 } %20, 0
+  tail call void @__clang_call_terminate(ptr %21) #37, !noalias !256
   unreachable
 
-_ZN5boost14static_strings16to_static_stringEe.exit: ; preds = %16, %19
-  %23 = getelementptr inbounds nuw [26 x i8], ptr %17, i64 0, i64 %13
-  store i8 0, ptr %23, align 1, !tbaa !9, !alias.scope !256
+_ZN5boost14static_strings16to_static_stringEe.exit: ; preds = %16, %18
+  %22 = getelementptr inbounds nuw [26 x i8], ptr %12, i64 0, i64 %13
+  store i8 0, ptr %22, align 1, !tbaa !9, !alias.scope !256
   call void @llvm.lifetime.end.p0(i64 26, ptr nonnull %4) #36, !noalias !256
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #36
   call void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @vsnprintf, i64 noundef 4952, ptr noundef nonnull @.str.5428, x86_fp80 noundef %0)
-  %24 = load ptr, ptr %6, align 8, !tbaa !246
-  %25 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #36
-  %or.cond.not.i = icmp ne i64 %25, %13
-  %brmerge = or i1 %or.cond.not.i, %18
+  %23 = load ptr, ptr %6, align 8, !tbaa !246
+  %24 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #36
+  %or.cond.not.i = icmp ne i64 %24, %13
+  %brmerge = or i1 %or.cond.not.i, %17
   %not.or.cond.not.i = xor i1 %or.cond.not.i, true
-  br i1 %brmerge, label %_ZN5boost14static_stringseqILm25EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit, label %26
+  br i1 %brmerge, label %_ZN5boost14static_stringseqILm25EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit, label %25
 
-26:                                               ; preds = %_ZN5boost14static_strings16to_static_stringEe.exit
-  %bcmp.i = call i32 @bcmp(ptr nonnull %17, ptr nonnull %24, i64 %13)
-  %27 = icmp eq i32 %bcmp.i, 0
+25:                                               ; preds = %_ZN5boost14static_strings16to_static_stringEe.exit
+  %bcmp.i = call i32 @bcmp(ptr nonnull %12, ptr nonnull %23, i64 %13)
+  %26 = icmp eq i32 %bcmp.i, 0
   br label %_ZN5boost14static_stringseqILm25EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
 
-_ZN5boost14static_stringseqILm25EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit: ; preds = %_ZN5boost14static_strings16to_static_stringEe.exit, %26
-  %.0.i.i = phi i1 [ %27, %26 ], [ %not.or.cond.not.i, %_ZN5boost14static_strings16to_static_stringEe.exit ]
-  %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %29 = icmp eq ptr %24, %28
-  br i1 %29, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZN5boost14static_stringseqILm25EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit: ; preds = %_ZN5boost14static_strings16to_static_stringEe.exit, %25
+  %.0.i.i = phi i1 [ %26, %25 ], [ %not.or.cond.not.i, %_ZN5boost14static_strings16to_static_stringEe.exit ]
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %28 = icmp eq ptr %23, %27
+  br i1 %28, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZN5boost14static_stringseqILm25EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %31 = load i64, ptr %30, align 8, !tbaa !249
-  %32 = icmp ult i64 %31, 16
-  call void @llvm.assume(i1 %32)
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %30 = load i64, ptr %29, align 8, !tbaa !249
+  %31 = icmp ult i64 %30, 16
+  call void @llvm.assume(i1 %31)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZN5boost14static_stringseqILm25EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
-  %33 = load i64, ptr %28, align 8, !tbaa !9
-  %34 = add i64 %33, 1
-  call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %34) #39
+  %32 = load i64, ptr %27, align 8, !tbaa !9
+  %33 = add i64 %32, 1
+  call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %33) #39
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -26749,62 +26742,61 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings6testTSI
 
 16:                                               ; preds = %12
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str) #35
-          to label %.noexc.i.i unwind label %21, !noalias !263
+          to label %.noexc.i.i unwind label %20, !noalias !263
 
 .noexc.i.i:                                       ; preds = %16
   unreachable
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %19 = icmp eq i64 %14, 0
-  br i1 %19, label %_ZN5boost14static_strings16to_static_stringEf.exit, label %20
+  %18 = icmp eq i64 %14, 0
+  br i1 %18, label %_ZN5boost14static_strings16to_static_stringEf.exit, label %19
 
-20:                                               ; preds = %17
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %4, i64 %14, i1 false)
+19:                                               ; preds = %17
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %4, i64 %14, i1 false)
   br label %_ZN5boost14static_strings16to_static_stringEf.exit
 
-21:                                               ; preds = %16
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %16
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  tail call void @__clang_call_terminate(ptr %23) #37
+  %22 = extractvalue { ptr, i32 } %21, 0
+  tail call void @__clang_call_terminate(ptr %22) #37, !noalias !263
   unreachable
 
-_ZN5boost14static_strings16to_static_stringEf.exit: ; preds = %17, %20
-  %24 = getelementptr inbounds nuw [14 x i8], ptr %18, i64 0, i64 %14
-  store i8 0, ptr %24, align 1, !tbaa !9, !alias.scope !263
+_ZN5boost14static_strings16to_static_stringEf.exit: ; preds = %17, %19
+  %23 = getelementptr inbounds nuw [14 x i8], ptr %13, i64 0, i64 %14
+  store i8 0, ptr %23, align 1, !tbaa !9, !alias.scope !263
   call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %4) #36, !noalias !263
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #36
   call void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @vsnprintf, i64 noundef 58, ptr noundef nonnull @.str.5426, double noundef %7)
-  %25 = load ptr, ptr %6, align 8, !tbaa !246
-  %26 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #36
-  %or.cond.not.i = icmp ne i64 %26, %14
-  %brmerge = or i1 %or.cond.not.i, %19
+  %24 = load ptr, ptr %6, align 8, !tbaa !246
+  %25 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #36
+  %or.cond.not.i = icmp ne i64 %25, %14
+  %brmerge = or i1 %or.cond.not.i, %18
   %not.or.cond.not.i = xor i1 %or.cond.not.i, true
-  br i1 %brmerge, label %_ZN5boost14static_stringseqILm13EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit, label %27
+  br i1 %brmerge, label %_ZN5boost14static_stringseqILm13EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit, label %26
 
-27:                                               ; preds = %_ZN5boost14static_strings16to_static_stringEf.exit
-  %bcmp.i = call i32 @bcmp(ptr nonnull %18, ptr nonnull %25, i64 %14)
-  %28 = icmp eq i32 %bcmp.i, 0
+26:                                               ; preds = %_ZN5boost14static_strings16to_static_stringEf.exit
+  %bcmp.i = call i32 @bcmp(ptr nonnull %13, ptr nonnull %24, i64 %14)
+  %27 = icmp eq i32 %bcmp.i, 0
   br label %_ZN5boost14static_stringseqILm13EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
 
-_ZN5boost14static_stringseqILm13EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit: ; preds = %_ZN5boost14static_strings16to_static_stringEf.exit, %27
-  %.0.i.i = phi i1 [ %28, %27 ], [ %not.or.cond.not.i, %_ZN5boost14static_strings16to_static_stringEf.exit ]
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %30 = icmp eq ptr %25, %29
-  br i1 %30, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZN5boost14static_stringseqILm13EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit: ; preds = %_ZN5boost14static_strings16to_static_stringEf.exit, %26
+  %.0.i.i = phi i1 [ %27, %26 ], [ %not.or.cond.not.i, %_ZN5boost14static_strings16to_static_stringEf.exit ]
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %29 = icmp eq ptr %24, %28
+  br i1 %29, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZN5boost14static_stringseqILm13EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %32 = load i64, ptr %31, align 8, !tbaa !249
-  %33 = icmp ult i64 %32, 16
-  call void @llvm.assume(i1 %33)
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %31 = load i64, ptr %30, align 8, !tbaa !249
+  %32 = icmp ult i64 %31, 16
+  call void @llvm.assume(i1 %32)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZN5boost14static_stringseqILm13EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit
-  %34 = load i64, ptr %29, align 8, !tbaa !9
-  %35 = add i64 %34, 1
-  call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %35) #39
+  %33 = load i64, ptr %28, align 8, !tbaa !9
+  %34 = add i64 %33, 1
+  call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %34) #39
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -26916,7 +26908,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #37
+  tail call void @__clang_call_terminate(ptr %37) #37, !noalias !270
   unreachable
 
 _ZN5boost14static_strings17to_static_wstringEi.exit: ; preds = %29, %32
@@ -26988,7 +26980,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
   %17 = ptrtoint ptr %.09.i.i.i to i64
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 2
-  store i8 0, ptr %5, align 4, !tbaa !283, !alias.scope !281
   %scevgep.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %scevgep.i.i.i.i, i8 0, i64 44, i1 false), !tbaa !160, !alias.scope !281
   %20 = icmp ugt i64 %19, 10
@@ -27005,7 +26996,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #37
+  call void @__clang_call_terminate(ptr %24) #37, !noalias !281
   unreachable
 
 _ZN5boost14static_strings17to_static_wstringEj.exit: ; preds = %.loopexit.i.i
@@ -27146,7 +27137,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #37
+  tail call void @__clang_call_terminate(ptr %35) #37, !noalias !291
   unreachable
 
 _ZN5boost14static_strings17to_static_wstringEx.exit: ; preds = %27, %30
@@ -27199,7 +27190,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
   br label %10
 
 10:                                               ; preds = %8, %3
-  store i8 0, ptr %5, align 4, !tbaa !204, !alias.scope !298
   %scevgep.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %scevgep.i.i.i.i, i8 0, i64 88, i1 false), !tbaa !160, !alias.scope !298
   %11 = call noundef i64 @wcslen(ptr noundef nonnull %4) #38, !noalias !298
@@ -27229,7 +27219,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #37
+  call void @__clang_call_terminate(ptr %22) #37, !noalias !298
   unreachable
 
 _ZN5boost14static_strings17to_static_wstringEd.exit: ; preds = %14, %17
@@ -27299,7 +27289,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
   br label %10
 
 10:                                               ; preds = %8, %3
-  store i8 0, ptr %5, align 4, !tbaa !213, !alias.scope !309
   %scevgep.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(104) %scevgep.i.i.i.i, i8 0, i64 104, i1 false), !tbaa !160, !alias.scope !309
   %11 = call noundef i64 @wcslen(ptr noundef nonnull %4) #38, !noalias !309
@@ -27329,7 +27318,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #37
+  call void @__clang_call_terminate(ptr %22) #37, !noalias !309
   unreachable
 
 _ZN5boost14static_strings17to_static_wstringEe.exit: ; preds = %14, %17
@@ -27400,7 +27389,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
   br label %11
 
 11:                                               ; preds = %9, %3
-  store i8 0, ptr %5, align 4, !tbaa !195, !alias.scope !316
   %scevgep.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %scevgep.i.i.i.i, i8 0, i64 56, i1 false), !tbaa !160, !alias.scope !316
   %12 = call noundef i64 @wcslen(ptr noundef nonnull %4) #38, !noalias !316
@@ -27430,7 +27418,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #37
+  call void @__clang_call_terminate(ptr %23) #37, !noalias !316
   unreachable
 
 _ZN5boost14static_strings17to_static_wstringEf.exit: ; preds = %15, %18
@@ -80310,380 +80298,378 @@ _ZN5boost6detail9test_implEPKcS2_iS2_b.exit70:    ; preds = %_ZN5boost6detail9te
 
 _ZN5boost6detail9test_implEPKcS2_iS2_b.exit68:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit70, %102, %104
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %70) #36
-  %106 = getelementptr inbounds nuw i8, ptr %70, i64 5
-  store i8 0, ptr %106, align 1
+  %106 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  store i16 0, ptr %106, align 1
   store i8 3, ptr %70, align 1, !tbaa !319
   %107 = getelementptr inbounds nuw i8, ptr %70, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %107, i8 120, i64 3, i1 false)
-  %108 = getelementptr inbounds nuw i8, ptr %70, i64 4
-  store i8 0, ptr %108, align 1, !tbaa !9
-  %109 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %110 = icmp eq i8 %109, 0
-  br i1 %110, label %111, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit66, !prof !56
+  %108 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %109 = icmp eq i8 %108, 0
+  br i1 %109, label %110, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit66, !prof !56
 
-111:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit68
-  %112 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i65 = icmp eq i32 %112, 0
-  br i1 %.not.i.i65, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit66, label %113
+110:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit68
+  %111 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i65 = icmp eq i32 %111, 0
+  br i1 %.not.i.i65, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit66, label %112
 
-113:                                              ; preds = %111
+112:                                              ; preds = %110
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %114 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %113 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit66
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit66:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit68, %111, %113
-  %115 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %116 = icmp eq i8 %115, 0
-  br i1 %116, label %117, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit64, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit66:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit68, %110, %112
+  %114 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %115 = icmp eq i8 %114, 0
+  br i1 %115, label %116, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit64, !prof !56
 
-117:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit66
-  %118 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i63 = icmp eq i32 %118, 0
-  br i1 %.not.i.i63, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit64, label %119
+116:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit66
+  %117 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i63 = icmp eq i32 %117, 0
+  br i1 %.not.i.i63, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit64, label %118
 
-119:                                              ; preds = %117
+118:                                              ; preds = %116
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %120 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %119 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit64
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit64:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit66, %117, %119
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit64:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit66, %116, %118
   %bcmp.i61.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %107, ptr noundef nonnull dereferenceable(3) @.str.5442, i64 3)
-  %121 = icmp eq i32 %bcmp.i61.i, 0
-  %122 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5441, ptr noundef nonnull @.str.13, i32 noundef 314, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv, i1 noundef zeroext %121)
-  %123 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %124 = icmp eq i8 %123, 0
-  br i1 %124, label %125, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit62, !prof !56
+  %120 = icmp eq i32 %bcmp.i61.i, 0
+  %121 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5441, ptr noundef nonnull @.str.13, i32 noundef 314, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv, i1 noundef zeroext %120)
+  %122 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %123 = icmp eq i8 %122, 0
+  br i1 %123, label %124, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit62, !prof !56
 
-125:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit64
-  %126 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i61 = icmp eq i32 %126, 0
-  br i1 %.not.i.i61, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit62, label %127
+124:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit64
+  %125 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i61 = icmp eq i32 %125, 0
+  br i1 %.not.i.i61, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit62, label %126
 
-127:                                              ; preds = %125
+126:                                              ; preds = %124
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %128 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %127 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit62
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit62:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit64, %125, %127
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit62:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit64, %124, %126
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str) #35
-          to label %.noexc.i unwind label %129
+          to label %.noexc.i unwind label %128
 
 .noexc.i:                                         ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit62
   unreachable
 
-129:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit62
-  %130 = landingpad { ptr, i32 }
+128:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit62
+  %129 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %131 = extractvalue { ptr, i32 } %130, 0
-  %132 = extractvalue { ptr, i32 } %130, 1
-  %133 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12length_error) #36
-  %134 = icmp eq i32 %132, %133
-  %135 = tail call ptr @__cxa_begin_catch(ptr %131) #36
-  br i1 %134, label %136, label %203
+  %130 = extractvalue { ptr, i32 } %129, 0
+  %131 = extractvalue { ptr, i32 } %129, 1
+  %132 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12length_error) #36
+  %133 = icmp eq i32 %131, %132
+  %134 = tail call ptr @__cxa_begin_catch(ptr %130) #36
+  br i1 %133, label %135, label %202
 
-136:                                              ; preds = %129
-  %137 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %138 = icmp eq i8 %137, 0
-  br i1 %138, label %139, label %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit.i, !prof !56
+135:                                              ; preds = %128
+  %136 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %137 = icmp eq i8 %136, 0
+  br i1 %137, label %138, label %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit.i, !prof !56
 
-139:                                              ; preds = %136
-  %140 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i59 = icmp eq i32 %140, 0
-  br i1 %.not.i59, label %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit.i, label %141
+138:                                              ; preds = %135
+  %139 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i59 = icmp eq i32 %139, 0
+  br i1 %.not.i59, label %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit.i, label %140
 
-141:                                              ; preds = %139
+140:                                              ; preds = %138
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %142 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %141 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit.i
 
-_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit.i: ; preds = %141, %139, %136, %203
+_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit.i: ; preds = %140, %138, %135, %202
   tail call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %70) #36
-  %143 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %144 = icmp eq i8 %143, 0
-  br i1 %144, label %145, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit58, !prof !56
+  %142 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %143 = icmp eq i8 %142, 0
+  br i1 %143, label %144, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit58, !prof !56
 
-145:                                              ; preds = %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit.i
-  %146 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i57 = icmp eq i32 %146, 0
-  br i1 %.not.i.i57, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit58, label %147
+144:                                              ; preds = %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit.i
+  %145 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i57 = icmp eq i32 %145, 0
+  br i1 %.not.i.i57, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit58, label %146
 
-147:                                              ; preds = %145
+146:                                              ; preds = %144
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %148 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %147 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit58
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit58:    ; preds = %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit.i, %145, %147
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit58:    ; preds = %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit.i, %144, %146
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %71) #36
   %scevgep.i.i62.i = getelementptr inbounds nuw i8, ptr %71, i64 1
   store i8 3, ptr %71, align 1, !tbaa !1608
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %scevgep.i.i62.i, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds nuw (i8, ptr @.str.1303, i64 2), i64 3, i1 false)
-  %149 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  store i8 0, ptr %149, align 1, !tbaa !9
+  %148 = getelementptr inbounds nuw i8, ptr %71, i64 4
+  store i8 0, ptr %148, align 1, !tbaa !9
   %bcmp.i65.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %scevgep.i.i62.i, ptr noundef nonnull dereferenceable(3) @.str.5445, i64 3)
-  %150 = icmp eq i32 %bcmp.i65.i, 0
-  %151 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5444, ptr noundef nonnull @.str.13, i32 noundef 324, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv, i1 noundef zeroext %150)
-  %152 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %153 = icmp eq i8 %152, 0
-  br i1 %153, label %154, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit56, !prof !56
+  %149 = icmp eq i32 %bcmp.i65.i, 0
+  %150 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5444, ptr noundef nonnull @.str.13, i32 noundef 324, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv, i1 noundef zeroext %149)
+  %151 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %152 = icmp eq i8 %151, 0
+  br i1 %152, label %153, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit56, !prof !56
 
-154:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit58
-  %155 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i55 = icmp eq i32 %155, 0
-  br i1 %.not.i.i55, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit56, label %156
+153:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit58
+  %154 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i55 = icmp eq i32 %154, 0
+  br i1 %.not.i.i55, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit56, label %155
 
-156:                                              ; preds = %154
+155:                                              ; preds = %153
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %157 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %156 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit56
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit56:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit58, %154, %156
-  %158 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %159 = icmp eq i8 %158, 0
-  br i1 %159, label %160, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit.i, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit56:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit58, %153, %155
+  %157 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %158 = icmp eq i8 %157, 0
+  br i1 %158, label %159, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit.i, !prof !56
 
-160:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit56
-  %161 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i.i = icmp eq i32 %161, 0
-  br i1 %.not.i.i.i, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit.i, label %162
+159:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit56
+  %160 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i.i = icmp eq i32 %160, 0
+  br i1 %.not.i.i.i, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit.i, label %161
 
-162:                                              ; preds = %160
+161:                                              ; preds = %159
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %163 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %162 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit.i
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit.i:    ; preds = %162, %160, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit56
-  %164 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %165 = icmp eq i8 %164, 0
-  br i1 %165, label %166, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit68.i, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit.i:    ; preds = %161, %159, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit56
+  %163 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %164 = icmp eq i8 %163, 0
+  br i1 %164, label %165, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit68.i, !prof !56
 
-166:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit.i
-  %167 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i67.i = icmp eq i32 %167, 0
-  br i1 %.not.i.i67.i, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit68.i, label %168
+165:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit.i
+  %166 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i67.i = icmp eq i32 %166, 0
+  br i1 %.not.i.i67.i, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit68.i, label %167
 
-168:                                              ; preds = %166
+167:                                              ; preds = %165
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %169 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %168 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit68.i
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit68.i:  ; preds = %168, %166, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit.i
-  %170 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %171 = icmp eq i8 %170, 0
-  br i1 %171, label %172, label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit71.i, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit68.i:  ; preds = %167, %165, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit.i
+  %169 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %170 = icmp eq i8 %169, 0
+  br i1 %170, label %171, label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit71.i, !prof !56
 
-172:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit68.i
-  %173 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i69.i = icmp eq i32 %173, 0
-  br i1 %.not.i.i69.i, label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit71.i, label %174
+171:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit68.i
+  %172 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i69.i = icmp eq i32 %172, 0
+  br i1 %.not.i.i69.i, label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit71.i, label %173
 
-174:                                              ; preds = %172
+173:                                              ; preds = %171
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %175 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %174 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit71.i
 
-_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit71.i: ; preds = %174, %172, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit68.i
+_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit71.i: ; preds = %173, %171, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit68.i
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %71) #36
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %72) #36
   store i32 3355138, ptr %72, align 4
-  %176 = getelementptr inbounds nuw i8, ptr %72, i64 1
-  %bcmp.i75.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %176, ptr noundef nonnull dereferenceable(2) @.str.5449, i64 2)
-  %177 = icmp eq i32 %bcmp.i75.i, 0
-  %178 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5448, ptr noundef nonnull @.str.13, i32 noundef 334, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv, i1 noundef zeroext %177)
-  %179 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %180 = icmp eq i8 %179, 0
-  br i1 %180, label %181, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit54, !prof !56
+  %175 = getelementptr inbounds nuw i8, ptr %72, i64 1
+  %bcmp.i75.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %175, ptr noundef nonnull dereferenceable(2) @.str.5449, i64 2)
+  %176 = icmp eq i32 %bcmp.i75.i, 0
+  %177 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5448, ptr noundef nonnull @.str.13, i32 noundef 334, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv, i1 noundef zeroext %176)
+  %178 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %179 = icmp eq i8 %178, 0
+  br i1 %179, label %180, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit54, !prof !56
 
-181:                                              ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit71.i
-  %182 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i53 = icmp eq i32 %182, 0
-  br i1 %.not.i.i53, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit54, label %183
+180:                                              ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit71.i
+  %181 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i53 = icmp eq i32 %181, 0
+  br i1 %.not.i.i53, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit54, label %182
 
-183:                                              ; preds = %181
+182:                                              ; preds = %180
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %184 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %183 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit54
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit54:    ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit71.i, %181, %183
-  %185 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %186 = icmp eq i8 %185, 0
-  br i1 %186, label %187, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit80.i, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit54:    ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit71.i, %180, %182
+  %184 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %185 = icmp eq i8 %184, 0
+  br i1 %185, label %186, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit80.i, !prof !56
 
-187:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit54
-  %188 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i79.i = icmp eq i32 %188, 0
-  br i1 %.not.i.i79.i, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit80.i, label %189
+186:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit54
+  %187 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i79.i = icmp eq i32 %187, 0
+  br i1 %.not.i.i79.i, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit80.i, label %188
 
-189:                                              ; preds = %187
+188:                                              ; preds = %186
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %190 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %189 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit80.i
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit80.i:  ; preds = %189, %187, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit54
-  %191 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %192 = icmp eq i8 %191, 0
-  br i1 %192, label %193, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit82.i, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit80.i:  ; preds = %188, %186, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit54
+  %190 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %191 = icmp eq i8 %190, 0
+  br i1 %191, label %192, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit82.i, !prof !56
 
-193:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit80.i
-  %194 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i81.i = icmp eq i32 %194, 0
-  br i1 %.not.i.i81.i, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit82.i, label %195
+192:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit80.i
+  %193 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i81.i = icmp eq i32 %193, 0
+  br i1 %.not.i.i81.i, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit82.i, label %194
 
-195:                                              ; preds = %193
+194:                                              ; preds = %192
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %196 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %195 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit82.i
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit82.i:  ; preds = %195, %193, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit80.i
-  %197 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %198 = icmp eq i8 %197, 0
-  br i1 %198, label %199, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit84.i, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit82.i:  ; preds = %194, %192, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit80.i
+  %196 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %197 = icmp eq i8 %196, 0
+  br i1 %197, label %198, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit84.i, !prof !56
 
-199:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit82.i
-  %200 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i83.i = icmp eq i32 %200, 0
-  br i1 %.not.i.i83.i, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit84.i, label %201
+198:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit82.i
+  %199 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i83.i = icmp eq i32 %199, 0
+  br i1 %.not.i.i83.i, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit84.i, label %200
 
-201:                                              ; preds = %199
+200:                                              ; preds = %198
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %202 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %201 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit84.i
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit84.i:  ; preds = %201, %199, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit82.i
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit84.i:  ; preds = %200, %198, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit82.i
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12out_of_rangeEEvPKc(ptr noundef nonnull @.str.3) #35
-          to label %.noexc86.i unwind label %207
+          to label %.noexc86.i unwind label %206
 
 .noexc86.i:                                       ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit84.i
   unreachable
 
-203:                                              ; preds = %129
+202:                                              ; preds = %128
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.5443, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 318, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv)
-          to label %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit.i unwind label %204
+          to label %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit.i unwind label %203
 
-204:                                              ; preds = %203
-  %205 = landingpad { ptr, i32 }
+203:                                              ; preds = %202
+  %204 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %206 unwind label %388
+          to label %205 unwind label %384
 
-206:                                              ; preds = %204
+205:                                              ; preds = %203
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %70) #36
   br label %common.resume
 
-207:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit84.i
-  %208 = landingpad { ptr, i32 }
+206:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit84.i
+  %207 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12out_of_range
           catch ptr null
-  %209 = extractvalue { ptr, i32 } %208, 0
-  %210 = extractvalue { ptr, i32 } %208, 1
-  %211 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #36
-  %212 = icmp eq i32 %210, %211
-  %213 = tail call ptr @__cxa_begin_catch(ptr %209) #36
-  br i1 %212, label %214, label %267
+  %208 = extractvalue { ptr, i32 } %207, 0
+  %209 = extractvalue { ptr, i32 } %207, 1
+  %210 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #36
+  %211 = icmp eq i32 %209, %210
+  %212 = tail call ptr @__cxa_begin_catch(ptr %208) #36
+  br i1 %211, label %213, label %266
 
-214:                                              ; preds = %207
-  %215 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %216 = icmp eq i8 %215, 0
-  br i1 %216, label %217, label %_ZN5boost14static_stringseqILm5EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit.i, !prof !56
+213:                                              ; preds = %206
+  %214 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %215 = icmp eq i8 %214, 0
+  br i1 %215, label %216, label %_ZN5boost14static_stringseqILm5EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit.i, !prof !56
 
-217:                                              ; preds = %214
-  %218 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i51 = icmp eq i32 %218, 0
-  br i1 %.not.i51, label %_ZN5boost14static_stringseqILm5EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit.i, label %219
+216:                                              ; preds = %213
+  %217 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i51 = icmp eq i32 %217, 0
+  br i1 %.not.i51, label %_ZN5boost14static_stringseqILm5EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit.i, label %218
 
-219:                                              ; preds = %217
+218:                                              ; preds = %216
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %220 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %219 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost14static_stringseqILm5EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit.i
 
-_ZN5boost14static_stringseqILm5EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit.i: ; preds = %219, %217, %214, %267
+_ZN5boost14static_stringseqILm5EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit.i: ; preds = %218, %216, %213, %266
   tail call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %72) #36
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %73) #36
-  %221 = getelementptr inbounds nuw i8, ptr %73, i64 5
-  store i16 0, ptr %221, align 1
+  %220 = getelementptr inbounds nuw i8, ptr %73, i64 5
+  store i16 0, ptr %220, align 1
   store i8 3, ptr %73, align 1, !tbaa !317
-  %222 = getelementptr inbounds nuw i8, ptr %73, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %222, ptr noundef nonnull align 1 dereferenceable(3) @.str.5451, i64 3, i1 false)
-  %223 = getelementptr inbounds nuw i8, ptr %73, i64 4
-  store i8 0, ptr %223, align 1, !tbaa !9
-  %bcmp.i90.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %222, ptr noundef nonnull dereferenceable(3) @.str.5453, i64 3)
-  %224 = icmp eq i32 %bcmp.i90.i, 0
-  %225 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5452, ptr noundef nonnull @.str.13, i32 noundef 346, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv, i1 noundef zeroext %224)
-  %226 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %227 = icmp eq i8 %226, 0
-  br i1 %227, label %228, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit50, !prof !56
+  %221 = getelementptr inbounds nuw i8, ptr %73, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %221, ptr noundef nonnull align 1 dereferenceable(3) @.str.5451, i64 3, i1 false)
+  %222 = getelementptr inbounds nuw i8, ptr %73, i64 4
+  store i8 0, ptr %222, align 1, !tbaa !9
+  %bcmp.i90.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %221, ptr noundef nonnull dereferenceable(3) @.str.5453, i64 3)
+  %223 = icmp eq i32 %bcmp.i90.i, 0
+  %224 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5452, ptr noundef nonnull @.str.13, i32 noundef 346, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv, i1 noundef zeroext %223)
+  %225 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %226 = icmp eq i8 %225, 0
+  br i1 %226, label %227, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit50, !prof !56
 
-228:                                              ; preds = %_ZN5boost14static_stringseqILm5EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit.i
-  %229 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i49 = icmp eq i32 %229, 0
-  br i1 %.not.i.i49, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit50, label %230
+227:                                              ; preds = %_ZN5boost14static_stringseqILm5EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit.i
+  %228 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i49 = icmp eq i32 %228, 0
+  br i1 %.not.i.i49, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit50, label %229
 
-230:                                              ; preds = %228
+229:                                              ; preds = %227
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %231 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %230 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit50
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit50:    ; preds = %_ZN5boost14static_stringseqILm5EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit.i, %228, %230
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit50:    ; preds = %_ZN5boost14static_stringseqILm5EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit.i, %227, %229
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %74) #36
-  %232 = getelementptr inbounds nuw i8, ptr %74, i64 5
-  store i16 0, ptr %232, align 1
+  %231 = getelementptr inbounds nuw i8, ptr %74, i64 5
+  store i16 0, ptr %231, align 1
   store i8 3, ptr %74, align 1, !tbaa !317
-  %233 = getelementptr inbounds nuw i8, ptr %74, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %233, ptr noundef nonnull align 1 dereferenceable(3) @.str.5454, i64 3, i1 false)
-  %234 = getelementptr inbounds nuw i8, ptr %74, i64 4
-  store i8 0, ptr %234, align 1, !tbaa !9
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %233, ptr noundef nonnull dereferenceable(3) @.str.5456, i64 3)
-  %235 = icmp eq i32 %bcmp.i, 0
-  %236 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5455, ptr noundef nonnull @.str.13, i32 noundef 350, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv, i1 noundef zeroext %235)
-  %237 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %238 = icmp eq i8 %237, 0
-  br i1 %238, label %239, label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit98.i, !prof !56
+  %232 = getelementptr inbounds nuw i8, ptr %74, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %232, ptr noundef nonnull align 1 dereferenceable(3) @.str.5454, i64 3, i1 false)
+  %233 = getelementptr inbounds nuw i8, ptr %74, i64 4
+  store i8 0, ptr %233, align 1, !tbaa !9
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %232, ptr noundef nonnull dereferenceable(3) @.str.5456, i64 3)
+  %234 = icmp eq i32 %bcmp.i, 0
+  %235 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5455, ptr noundef nonnull @.str.13, i32 noundef 350, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv, i1 noundef zeroext %234)
+  %236 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %237 = icmp eq i8 %236, 0
+  br i1 %237, label %238, label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit98.i, !prof !56
 
-239:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit50
-  %240 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i47 = icmp eq i32 %240, 0
-  br i1 %.not.i.i47, label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit98.i, label %241
+238:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit50
+  %239 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i47 = icmp eq i32 %239, 0
+  br i1 %.not.i.i47, label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit98.i, label %240
 
-241:                                              ; preds = %239
+240:                                              ; preds = %238
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %242 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %241 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit98.i
 
-_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit98.i: ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit50, %239, %241
+_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit98.i: ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit50, %238, %240
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %74) #36
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %73) #36
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %75) #36
@@ -80691,111 +80677,111 @@ _ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.ex
   store i32 13106, ptr %scevgep.i.i92.i, align 1
   store i8 2, ptr %75, align 1, !tbaa !1608
   %bcmp.i96.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %scevgep.i.i92.i, ptr noundef nonnull dereferenceable(2) @.str.5449, i64 2)
-  %243 = icmp eq i32 %bcmp.i96.i, 0
-  %244 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5448, ptr noundef nonnull @.str.13, i32 noundef 357, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv, i1 noundef zeroext %243)
-  %245 = getelementptr inbounds nuw i8, ptr %75, i64 3
-  %246 = load i8, ptr %245, align 1, !tbaa !9
-  %247 = icmp eq i8 %246, 0
-  %248 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1298, ptr noundef nonnull @.str.13, i32 noundef 358, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv, i1 noundef zeroext %247)
+  %242 = icmp eq i32 %bcmp.i96.i, 0
+  %243 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5448, ptr noundef nonnull @.str.13, i32 noundef 357, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv, i1 noundef zeroext %242)
+  %244 = getelementptr inbounds nuw i8, ptr %75, i64 3
+  %245 = load i8, ptr %244, align 1, !tbaa !9
+  %246 = icmp eq i8 %245, 0
+  %247 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1298, ptr noundef nonnull @.str.13, i32 noundef 358, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv, i1 noundef zeroext %246)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %75) #36
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %76) #36
-  %249 = getelementptr inbounds nuw i8, ptr %76, i64 1
+  %248 = getelementptr inbounds nuw i8, ptr %76, i64 1
   store i8 5, ptr %76, align 1, !tbaa !317
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %249, ptr noundef nonnull align 1 dereferenceable(5) @.str.1303, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %248, ptr noundef nonnull align 1 dereferenceable(5) @.str.1303, i64 5, i1 false)
   %.sroa.8.1..sroa_idx.i = getelementptr inbounds nuw i8, ptr %76, i64 6
   store i8 0, ptr %.sroa.8.1..sroa_idx.i, align 1
-  %bcmp.i101.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %249, ptr noundef nonnull dereferenceable(5) @.str.1303, i64 5)
-  %250 = icmp eq i32 %bcmp.i101.i, 0
-  %251 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5457, ptr noundef nonnull @.str.13, i32 noundef 363, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv, i1 noundef zeroext %250)
-  %252 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %253 = icmp eq i8 %252, 0
-  br i1 %253, label %254, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit46, !prof !56
+  %bcmp.i101.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %248, ptr noundef nonnull dereferenceable(5) @.str.1303, i64 5)
+  %249 = icmp eq i32 %bcmp.i101.i, 0
+  %250 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5457, ptr noundef nonnull @.str.13, i32 noundef 363, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv, i1 noundef zeroext %249)
+  %251 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %252 = icmp eq i8 %251, 0
+  br i1 %252, label %253, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit46, !prof !56
 
-254:                                              ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit98.i
-  %255 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i45 = icmp eq i32 %255, 0
-  br i1 %.not.i.i45, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit46, label %256
+253:                                              ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit98.i
+  %254 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i45 = icmp eq i32 %254, 0
+  br i1 %.not.i.i45, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit46, label %255
 
-256:                                              ; preds = %254
+255:                                              ; preds = %253
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %257 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %256 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit46
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit46:    ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit98.i, %254, %256
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit46:    ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit98.i, %253, %255
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %77) #36
   store i64 5, ptr %77, align 8
-  %258 = getelementptr inbounds nuw i8, ptr %77, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %258, ptr noundef nonnull align 1 dereferenceable(5) @.str.1303, i64 5, i1 false)
-  %bcmp.i105.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %258, ptr noundef nonnull dereferenceable(5) @.str.1303, i64 5)
-  %259 = icmp eq i32 %bcmp.i105.i, 0
-  %260 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5458, ptr noundef nonnull @.str.13, i32 noundef 366, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv, i1 noundef zeroext %259)
-  %261 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %262 = icmp eq i8 %261, 0
-  br i1 %262, label %263, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit44, !prof !56
+  %257 = getelementptr inbounds nuw i8, ptr %77, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %257, ptr noundef nonnull align 1 dereferenceable(5) @.str.1303, i64 5, i1 false)
+  %bcmp.i105.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %257, ptr noundef nonnull dereferenceable(5) @.str.1303, i64 5)
+  %258 = icmp eq i32 %bcmp.i105.i, 0
+  %259 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5458, ptr noundef nonnull @.str.13, i32 noundef 366, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv, i1 noundef zeroext %258)
+  %260 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %261 = icmp eq i8 %260, 0
+  br i1 %261, label %262, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit44, !prof !56
 
-263:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit46
-  %264 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i43 = icmp eq i32 %264, 0
-  br i1 %.not.i.i43, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit44, label %265
+262:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit46
+  %263 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i43 = icmp eq i32 %263, 0
+  br i1 %.not.i.i43, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit44, label %264
 
-265:                                              ; preds = %263
+264:                                              ; preds = %262
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %266 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %265 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit44
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit44:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit46, %263, %265
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit44:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit46, %262, %264
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str) #35
-          to label %.noexc106.i unwind label %271
+          to label %.noexc106.i unwind label %270
 
 .noexc106.i:                                      ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit44
   unreachable
 
-267:                                              ; preds = %207
+266:                                              ; preds = %206
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.5450, ptr noundef nonnull @.str.1316, ptr noundef nonnull @.str.13, i32 noundef 342, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv)
-          to label %_ZN5boost14static_stringseqILm5EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit.i unwind label %268
+          to label %_ZN5boost14static_stringseqILm5EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit.i unwind label %267
 
-268:                                              ; preds = %267
-  %269 = landingpad { ptr, i32 }
+267:                                              ; preds = %266
+  %268 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %270 unwind label %388
+          to label %269 unwind label %384
 
-270:                                              ; preds = %268
+269:                                              ; preds = %267
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %72) #36
   br label %common.resume
 
-271:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit44
-  %272 = landingpad { ptr, i32 }
+270:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit44
+  %271 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %273 = extractvalue { ptr, i32 } %272, 0
-  %274 = extractvalue { ptr, i32 } %272, 1
-  %275 = icmp eq i32 %274, %133
-  %276 = tail call ptr @__cxa_begin_catch(ptr %273) #36
-  br i1 %275, label %277, label %298
+  %272 = extractvalue { ptr, i32 } %271, 0
+  %273 = extractvalue { ptr, i32 } %271, 1
+  %274 = icmp eq i32 %273, %132
+  %275 = tail call ptr @__cxa_begin_catch(ptr %272) #36
+  br i1 %274, label %276, label %297
 
-277:                                              ; preds = %271
-  %278 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %279 = icmp eq i8 %278, 0
-  br i1 %279, label %280, label %_ZN5boost14static_strings19basic_static_stringILm0EcSt11char_traitsIcEEC2ESt16initializer_listIcE.exit.i, !prof !56
+276:                                              ; preds = %270
+  %277 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %278 = icmp eq i8 %277, 0
+  br i1 %278, label %279, label %_ZN5boost14static_strings19basic_static_stringILm0EcSt11char_traitsIcEEC2ESt16initializer_listIcE.exit.i, !prof !56
 
-280:                                              ; preds = %277
-  %281 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i41 = icmp eq i32 %281, 0
-  br i1 %.not.i41, label %_ZN5boost14static_strings19basic_static_stringILm0EcSt11char_traitsIcEEC2ESt16initializer_listIcE.exit.i, label %282
+279:                                              ; preds = %276
+  %280 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i41 = icmp eq i32 %280, 0
+  br i1 %.not.i41, label %_ZN5boost14static_strings19basic_static_stringILm0EcSt11char_traitsIcEEC2ESt16initializer_listIcE.exit.i, label %281
 
-282:                                              ; preds = %280
+281:                                              ; preds = %279
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %283 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %282 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost14static_strings19basic_static_stringILm0EcSt11char_traitsIcEEC2ESt16initializer_listIcE.exit.i
 
-_ZN5boost14static_strings19basic_static_stringILm0EcSt11char_traitsIcEEC2ESt16initializer_listIcE.exit.i: ; preds = %282, %280, %277, %298
+_ZN5boost14static_strings19basic_static_stringILm0EcSt11char_traitsIcEEC2ESt16initializer_listIcE.exit.i: ; preds = %281, %279, %276, %297
   tail call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %77) #36
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %76) #36
@@ -80804,2881 +80790,2873 @@ _ZN5boost14static_strings19basic_static_stringILm0EcSt11char_traitsIcEEC2ESt16in
   store i32 3355185, ptr %scevgep.i.i107.i, align 1
   store i8 3, ptr %78, align 1, !tbaa !1608
   %bcmp.i110.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %scevgep.i.i107.i, ptr noundef nonnull dereferenceable(3) @.str.1293, i64 3)
-  %284 = icmp eq i32 %bcmp.i110.i, 0
-  %285 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5460, ptr noundef nonnull @.str.13, i32 noundef 374, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv, i1 noundef zeroext %284)
-  %286 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %287 = icmp eq i8 %286, 0
-  br i1 %287, label %288, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit40, !prof !56
+  %283 = icmp eq i32 %bcmp.i110.i, 0
+  %284 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5460, ptr noundef nonnull @.str.13, i32 noundef 374, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv, i1 noundef zeroext %283)
+  %285 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %286 = icmp eq i8 %285, 0
+  br i1 %286, label %287, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit40, !prof !56
 
-288:                                              ; preds = %_ZN5boost14static_strings19basic_static_stringILm0EcSt11char_traitsIcEEC2ESt16initializer_listIcE.exit.i
-  %289 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i39 = icmp eq i32 %289, 0
-  br i1 %.not.i.i39, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit40, label %290
+287:                                              ; preds = %_ZN5boost14static_strings19basic_static_stringILm0EcSt11char_traitsIcEEC2ESt16initializer_listIcE.exit.i
+  %288 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i39 = icmp eq i32 %288, 0
+  br i1 %.not.i.i39, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit40, label %289
 
-290:                                              ; preds = %288
+289:                                              ; preds = %287
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %291 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %290 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit40
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit40:    ; preds = %_ZN5boost14static_strings19basic_static_stringILm0EcSt11char_traitsIcEEC2ESt16initializer_listIcE.exit.i, %288, %290
-  %292 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %293 = icmp eq i8 %292, 0
-  br i1 %293, label %294, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit114.i, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit40:    ; preds = %_ZN5boost14static_strings19basic_static_stringILm0EcSt11char_traitsIcEEC2ESt16initializer_listIcE.exit.i, %287, %289
+  %291 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %292 = icmp eq i8 %291, 0
+  br i1 %292, label %293, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit114.i, !prof !56
 
-294:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit40
-  %295 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i113.i = icmp eq i32 %295, 0
-  br i1 %.not.i.i113.i, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit114.i, label %296
+293:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit40
+  %294 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i113.i = icmp eq i32 %294, 0
+  br i1 %.not.i.i113.i, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit114.i, label %295
 
-296:                                              ; preds = %294
+295:                                              ; preds = %293
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %297 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %296 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit114.i
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit114.i: ; preds = %296, %294, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit40
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit114.i: ; preds = %295, %293, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit40
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str) #35
-          to label %.noexc115.i unwind label %302
+          to label %.noexc115.i unwind label %301
 
 .noexc115.i:                                      ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit114.i
   unreachable
 
-298:                                              ; preds = %271
+297:                                              ; preds = %270
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.5459, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 370, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm0EcSt11char_traitsIcEEC2ESt16initializer_listIcE.exit.i unwind label %299
+          to label %_ZN5boost14static_strings19basic_static_stringILm0EcSt11char_traitsIcEEC2ESt16initializer_listIcE.exit.i unwind label %298
 
-299:                                              ; preds = %298
-  %300 = landingpad { ptr, i32 }
+298:                                              ; preds = %297
+  %299 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %301 unwind label %388
+          to label %300 unwind label %384
 
-301:                                              ; preds = %299
+300:                                              ; preds = %298
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %77) #36
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %76) #36
   br label %common.resume
 
-302:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit114.i
-  %303 = landingpad { ptr, i32 }
+301:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit114.i
+  %302 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %.4.i = extractvalue { ptr, i32 } %303, 0
-  %.428.i = extractvalue { ptr, i32 } %303, 1
-  %304 = icmp eq i32 %.428.i, %133
-  %305 = tail call ptr @__cxa_begin_catch(ptr %.4.i) #36
-  br i1 %304, label %306, label %322
+  %.4.i = extractvalue { ptr, i32 } %302, 0
+  %.428.i = extractvalue { ptr, i32 } %302, 1
+  %303 = icmp eq i32 %.428.i, %132
+  %304 = tail call ptr @__cxa_begin_catch(ptr %.4.i) #36
+  br i1 %303, label %305, label %320
 
-306:                                              ; preds = %302
-  %307 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %308 = icmp eq i8 %307, 0
-  br i1 %308, label %309, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2INS_17basic_string_viewIcS3_EEvEERKT_.exit.i, !prof !56
+305:                                              ; preds = %301
+  %306 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %307 = icmp eq i8 %306, 0
+  br i1 %307, label %308, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2INS_17basic_string_viewIcS3_EEvEERKT_.exit.i, !prof !56
 
-309:                                              ; preds = %306
-  %310 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i37 = icmp eq i32 %310, 0
-  br i1 %.not.i37, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2INS_17basic_string_viewIcS3_EEvEERKT_.exit.i, label %311
+308:                                              ; preds = %305
+  %309 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i37 = icmp eq i32 %309, 0
+  br i1 %.not.i37, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2INS_17basic_string_viewIcS3_EEvEERKT_.exit.i, label %310
 
-311:                                              ; preds = %309
+310:                                              ; preds = %308
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %312 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %311 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2INS_17basic_string_viewIcS3_EEvEERKT_.exit.i
 
-_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2INS_17basic_string_viewIcS3_EEvEERKT_.exit.i: ; preds = %311, %309, %306, %322
+_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2INS_17basic_string_viewIcS3_EEvEERKT_.exit.i: ; preds = %310, %308, %305, %320
   tail call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %78) #36
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %79) #36
   %scevgep.i.i116.i = getelementptr inbounds nuw i8, ptr %79, i64 1
-  store i8 3, ptr %79, align 1, !tbaa !1608
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %scevgep.i.i116.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.1293, i64 3, i1 false)
-  %313 = getelementptr inbounds nuw i8, ptr %79, i64 4
-  store i8 0, ptr %313, align 1, !tbaa !9
   %bcmp.i119.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %scevgep.i.i116.i, ptr noundef nonnull dereferenceable(3) @.str.1293, i64 3)
-  %314 = icmp eq i32 %bcmp.i119.i, 0
-  %315 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5460, ptr noundef nonnull @.str.13, i32 noundef 385, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv, i1 noundef zeroext %314)
-  %316 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %317 = icmp eq i8 %316, 0
-  br i1 %317, label %318, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit36, !prof !56
+  %312 = icmp eq i32 %bcmp.i119.i, 0
+  %313 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5460, ptr noundef nonnull @.str.13, i32 noundef 385, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv, i1 noundef zeroext %312)
+  %314 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %315 = icmp eq i8 %314, 0
+  br i1 %315, label %316, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit36, !prof !56
 
-318:                                              ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2INS_17basic_string_viewIcS3_EEvEERKT_.exit.i
-  %319 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i35 = icmp eq i32 %319, 0
-  br i1 %.not.i.i35, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit36, label %320
+316:                                              ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2INS_17basic_string_viewIcS3_EEvEERKT_.exit.i
+  %317 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i35 = icmp eq i32 %317, 0
+  br i1 %.not.i.i35, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit36, label %318
 
-320:                                              ; preds = %318
+318:                                              ; preds = %316
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %321 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %319 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit36
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit36:    ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2INS_17basic_string_viewIcS3_EEvEERKT_.exit.i, %318, %320
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit36:    ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2INS_17basic_string_viewIcS3_EEvEERKT_.exit.i, %316, %318
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str) #35
-          to label %.noexc121.i unwind label %326
+          to label %.noexc121.i unwind label %324
 
 .noexc121.i:                                      ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit36
   unreachable
 
-322:                                              ; preds = %302
+320:                                              ; preds = %301
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.5462, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 380, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2INS_17basic_string_viewIcS3_EEvEERKT_.exit.i unwind label %323
+          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2INS_17basic_string_viewIcS3_EEvEERKT_.exit.i unwind label %321
 
-323:                                              ; preds = %322
-  %324 = landingpad { ptr, i32 }
+321:                                              ; preds = %320
+  %322 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %325 unwind label %388
+          to label %323 unwind label %384
 
-325:                                              ; preds = %323
+323:                                              ; preds = %321
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %78) #36
   br label %common.resume
 
-326:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit36
-  %327 = landingpad { ptr, i32 }
+324:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit36
+  %325 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %.6.i = extractvalue { ptr, i32 } %327, 0
-  %.630.i = extractvalue { ptr, i32 } %327, 1
-  %328 = icmp eq i32 %.630.i, %133
-  %329 = tail call ptr @__cxa_begin_catch(ptr %.6.i) #36
-  br i1 %328, label %330, label %351
+  %.6.i = extractvalue { ptr, i32 } %325, 0
+  %.630.i = extractvalue { ptr, i32 } %325, 1
+  %326 = icmp eq i32 %.630.i, %132
+  %327 = tail call ptr @__cxa_begin_catch(ptr %.6.i) #36
+  br i1 %326, label %328, label %347
 
-330:                                              ; preds = %326
-  %331 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %332 = icmp eq i8 %331, 0
-  br i1 %332, label %333, label %_ZN5boost6detail12test_resultsEv.exit, !prof !56
+328:                                              ; preds = %324
+  %329 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %330 = icmp eq i8 %329, 0
+  br i1 %330, label %331, label %_ZN5boost6detail12test_resultsEv.exit, !prof !56
 
-333:                                              ; preds = %330
-  %334 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i = icmp eq i32 %334, 0
-  br i1 %.not.i, label %_ZN5boost6detail12test_resultsEv.exit, label %335
+331:                                              ; preds = %328
+  %332 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i = icmp eq i32 %332, 0
+  br i1 %.not.i, label %_ZN5boost6detail12test_resultsEv.exit, label %333
 
-335:                                              ; preds = %333
+333:                                              ; preds = %331
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %336 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %334 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail12test_resultsEv.exit
 
-_ZN5boost6detail12test_resultsEv.exit:            ; preds = %335, %333, %330, %351
+_ZN5boost6detail12test_resultsEv.exit:            ; preds = %333, %331, %328, %347
   tail call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %79) #36
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %80) #36
-  %337 = getelementptr inbounds nuw i8, ptr %80, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %337, i8 0, i64 3, i1 false)
-  store i8 2, ptr %80, align 1, !tbaa !317
-  %338 = getelementptr inbounds nuw i8, ptr %80, i64 1
-  store i16 13363, ptr %338, align 1
-  %339 = getelementptr inbounds nuw i8, ptr %80, i64 3
-  store i8 0, ptr %339, align 1, !tbaa !9
-  %bcmp.i126.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %338, ptr noundef nonnull dereferenceable(2) @.str.5465, i64 2)
-  %340 = icmp eq i32 %bcmp.i126.i, 0
-  %341 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5464, ptr noundef nonnull @.str.13, i32 noundef 394, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv, i1 noundef zeroext %340)
-  %342 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %343 = icmp eq i8 %342, 0
-  br i1 %343, label %344, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit, !prof !56
+  %335 = getelementptr inbounds nuw i8, ptr %80, i64 1
+  store i16 13363, ptr %335, align 1
+  %bcmp.i126.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %335, ptr noundef nonnull dereferenceable(2) @.str.5465, i64 2)
+  %336 = icmp eq i32 %bcmp.i126.i, 0
+  %337 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5464, ptr noundef nonnull @.str.13, i32 noundef 394, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv, i1 noundef zeroext %336)
+  %338 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %339 = icmp eq i8 %338, 0
+  br i1 %339, label %340, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit, !prof !56
 
-344:                                              ; preds = %_ZN5boost6detail12test_resultsEv.exit
-  %345 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i = icmp eq i32 %345, 0
-  br i1 %.not.i.i, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit, label %346
+340:                                              ; preds = %_ZN5boost6detail12test_resultsEv.exit
+  %341 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i = icmp eq i32 %341, 0
+  br i1 %.not.i.i, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit, label %342
 
-346:                                              ; preds = %344
+342:                                              ; preds = %340
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %347 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %343 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit:      ; preds = %_ZN5boost6detail12test_resultsEv.exit, %344, %346
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit:      ; preds = %_ZN5boost6detail12test_resultsEv.exit, %340, %342
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %81) #36
-  %348 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  store ptr %348, ptr %81, align 8, !tbaa !1559
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %348, ptr noundef nonnull align 1 dereferenceable(5) @.str.1303, i64 5, i1 false)
-  %349 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  store i64 5, ptr %349, align 8, !tbaa !249
-  %350 = getelementptr inbounds nuw i8, ptr %81, i64 21
-  store i8 0, ptr %350, align 1, !tbaa !9
+  %344 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  store ptr %344, ptr %81, align 8, !tbaa !1559
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %344, ptr noundef nonnull align 1 dereferenceable(5) @.str.1303, i64 5, i1 false)
+  %345 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  store i64 5, ptr %345, align 8, !tbaa !249
+  %346 = getelementptr inbounds nuw i8, ptr %81, i64 21
+  store i8 0, ptr %346, align 1, !tbaa !9
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str) #35
-          to label %.noexc134.i unwind label %355
+          to label %.noexc134.i unwind label %351
 
 .noexc134.i:                                      ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit
   unreachable
 
-351:                                              ; preds = %326
+347:                                              ; preds = %324
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.5463, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 389, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv)
-          to label %_ZN5boost6detail12test_resultsEv.exit unwind label %352
+          to label %_ZN5boost6detail12test_resultsEv.exit unwind label %348
 
-352:                                              ; preds = %351
-  %353 = landingpad { ptr, i32 }
+348:                                              ; preds = %347
+  %349 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %354 unwind label %388
+          to label %350 unwind label %384
 
-354:                                              ; preds = %352
+350:                                              ; preds = %348
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %79) #36
   br label %common.resume
 
-355:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit
-  %356 = landingpad { ptr, i32 }
+351:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit
+  %352 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %357 = load ptr, ptr %81, align 8, !tbaa !246
-  %358 = icmp eq ptr %357, %348
-  br i1 %358, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i142.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i141.i
+  %353 = load ptr, ptr %81, align 8, !tbaa !246
+  %354 = icmp eq ptr %353, %344
+  br i1 %354, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i142.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i141.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i142.i: ; preds = %355
-  %359 = load i64, ptr %349, align 8, !tbaa !249
-  %360 = icmp ult i64 %359, 16
-  call void @llvm.assume(i1 %360)
-  br label %363
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i142.i: ; preds = %351
+  %355 = load i64, ptr %345, align 8, !tbaa !249
+  %356 = icmp ult i64 %355, 16
+  call void @llvm.assume(i1 %356)
+  br label %359
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i141.i: ; preds = %355
-  %361 = load i64, ptr %348, align 8, !tbaa !9
-  %362 = add i64 %361, 1
-  call void @_ZdlPvm(ptr noundef %357, i64 noundef %362) #39
-  br label %363
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i141.i: ; preds = %351
+  %357 = load i64, ptr %344, align 8, !tbaa !9
+  %358 = add i64 %357, 1
+  call void @_ZdlPvm(ptr noundef %353, i64 noundef %358) #39
+  br label %359
 
-363:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i141.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i142.i
+359:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i141.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i142.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %81) #36
-  %.11.i = extractvalue { ptr, i32 } %356, 0
-  %.1135.i = extractvalue { ptr, i32 } %356, 1
-  %364 = icmp eq i32 %.1135.i, %133
-  %365 = call ptr @__cxa_begin_catch(ptr %.11.i) #36
-  br i1 %364, label %366, label %369
+  %.11.i = extractvalue { ptr, i32 } %352, 0
+  %.1135.i = extractvalue { ptr, i32 } %352, 1
+  %360 = icmp eq i32 %.1135.i, %132
+  %361 = call ptr @__cxa_begin_catch(ptr %.11.i) #36
+  br i1 %360, label %362, label %365
 
-366:                                              ; preds = %363
-  %367 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
-          to label %368 unwind label %372
+362:                                              ; preds = %359
+  %363 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
+          to label %364 unwind label %368
 
-368:                                              ; preds = %369, %366
+364:                                              ; preds = %365, %362
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %80) #36
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str) #35
-          to label %.noexc144.i unwind label %375
+          to label %.noexc144.i unwind label %371
 
-.noexc144.i:                                      ; preds = %368
+.noexc144.i:                                      ; preds = %364
   unreachable
 
-369:                                              ; preds = %363
+365:                                              ; preds = %359
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.5466, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 398, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv)
-          to label %368 unwind label %370
+          to label %364 unwind label %366
 
-370:                                              ; preds = %369
-  %371 = landingpad { ptr, i32 }
+366:                                              ; preds = %365
+  %367 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %374 unwind label %388
+          to label %370 unwind label %384
 
-372:                                              ; preds = %366
-  %373 = landingpad { ptr, i32 }
+368:                                              ; preds = %362
+  %369 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %374 unwind label %388
+          to label %370 unwind label %384
 
-374:                                              ; preds = %372, %370
-  %.pn55.i = phi { ptr, i32 } [ %371, %370 ], [ %373, %372 ]
+370:                                              ; preds = %368, %366
+  %.pn55.i = phi { ptr, i32 } [ %367, %366 ], [ %369, %368 ]
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %80) #36
   br label %common.resume
 
-375:                                              ; preds = %368
-  %376 = landingpad { ptr, i32 }
+371:                                              ; preds = %364
+  %372 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %377 = extractvalue { ptr, i32 } %376, 0
-  %378 = extractvalue { ptr, i32 } %376, 1
-  %379 = icmp eq i32 %378, %133
-  %380 = call ptr @__cxa_begin_catch(ptr %377) #36
-  br i1 %379, label %381, label %383
+  %373 = extractvalue { ptr, i32 } %372, 0
+  %374 = extractvalue { ptr, i32 } %372, 1
+  %375 = icmp eq i32 %374, %132
+  %376 = call ptr @__cxa_begin_catch(ptr %373) #36
+  br i1 %375, label %377, label %379
 
-381:                                              ; preds = %375
-  %382 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
-          to label %_ZN5boost14static_stringsL13testConstructEv.exit unwind label %386
+377:                                              ; preds = %371
+  %378 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
+          to label %_ZN5boost14static_stringsL13testConstructEv.exit unwind label %382
 
-383:                                              ; preds = %375
+379:                                              ; preds = %371
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.5468, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 401, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL13testConstructEv)
-          to label %_ZN5boost14static_stringsL13testConstructEv.exit unwind label %384
+          to label %_ZN5boost14static_stringsL13testConstructEv.exit unwind label %380
 
-384:                                              ; preds = %383
-  %385 = landingpad { ptr, i32 }
+380:                                              ; preds = %379
+  %381 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %388
+          to label %common.resume unwind label %384
 
-386:                                              ; preds = %381
-  %387 = landingpad { ptr, i32 }
+382:                                              ; preds = %377
+  %383 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %388
+          to label %common.resume unwind label %384
 
-common.resume:                                    ; preds = %1453, %1455, %1804, %1820, %1836, %1858, %1878, %1896, %1914, %1930, %1944, %1353, %1371, %1385, %1407, %1423, %1437, %1439, %1466, %1468, %1484, %1486, %1496, %1498, %1510, %1512, %1530, %1553, %1586, %1606, %1626, %1646, %1664, %1691, %1710, %1218, %1251, %867, %959, %975, %415, %441, %455, %577, %605, %616, %618, %206, %270, %301, %325, %354, %374, %384, %386
-  %common.resume.op = phi { ptr, i32 } [ %385, %384 ], [ %.pn55.i, %374 ], [ %353, %354 ], [ %324, %325 ], [ %300, %301 ], [ %269, %270 ], [ %205, %206 ], [ %387, %386 ], [ %578, %577 ], [ %456, %455 ], [ %442, %441 ], [ %416, %415 ], [ %606, %605 ], [ %617, %616 ], [ %619, %618 ], [ %960, %959 ], [ %868, %867 ], [ %976, %975 ], [ %.pn15.pn.i, %1251 ], [ %1217, %1218 ], [ %.pn170.pn.i, %1710 ], [ %.pn160.i, %1691 ], [ %.pn158.i, %1664 ], [ %.pn154.i, %1646 ], [ %.pn152.i, %1626 ], [ %.pn150.i, %1606 ], [ %.pn147.pn.i, %1586 ], [ %.pn145.i, %1553 ], [ %.pn143.i, %1530 ], [ %1511, %1510 ], [ %1497, %1496 ], [ %1485, %1484 ], [ %1467, %1466 ], [ %1438, %1437 ], [ %1424, %1423 ], [ %1408, %1407 ], [ %1386, %1385 ], [ %1372, %1371 ], [ %1354, %1353 ], [ %1440, %1439 ], [ %1469, %1468 ], [ %1487, %1486 ], [ %1499, %1498 ], [ %1513, %1512 ], [ %.pn62.i, %1944 ], [ %.pn60.i, %1930 ], [ %.pn56.i, %1914 ], [ %.pn54.i, %1896 ], [ %1877, %1878 ], [ %1859, %1858 ], [ %1837, %1836 ], [ %1821, %1820 ], [ %1805, %1804 ], [ %1454, %1453 ], [ %1456, %1455 ]
+common.resume:                                    ; preds = %1449, %1451, %1800, %1816, %1832, %1854, %1874, %1892, %1910, %1926, %1940, %1349, %1367, %1381, %1403, %1419, %1433, %1435, %1462, %1464, %1480, %1482, %1492, %1494, %1506, %1508, %1526, %1549, %1582, %1602, %1622, %1642, %1660, %1687, %1706, %1214, %1247, %863, %955, %971, %411, %437, %451, %573, %601, %612, %614, %205, %269, %300, %323, %350, %370, %380, %382
+  %common.resume.op = phi { ptr, i32 } [ %381, %380 ], [ %.pn55.i, %370 ], [ %349, %350 ], [ %322, %323 ], [ %299, %300 ], [ %268, %269 ], [ %204, %205 ], [ %383, %382 ], [ %574, %573 ], [ %452, %451 ], [ %438, %437 ], [ %412, %411 ], [ %602, %601 ], [ %613, %612 ], [ %615, %614 ], [ %956, %955 ], [ %864, %863 ], [ %972, %971 ], [ %.pn15.pn.i, %1247 ], [ %1213, %1214 ], [ %.pn170.pn.i, %1706 ], [ %.pn160.i, %1687 ], [ %.pn158.i, %1660 ], [ %.pn154.i, %1642 ], [ %.pn152.i, %1622 ], [ %.pn150.i, %1602 ], [ %.pn147.pn.i, %1582 ], [ %.pn145.i, %1549 ], [ %.pn143.i, %1526 ], [ %1507, %1506 ], [ %1493, %1492 ], [ %1481, %1480 ], [ %1463, %1462 ], [ %1434, %1433 ], [ %1420, %1419 ], [ %1404, %1403 ], [ %1382, %1381 ], [ %1368, %1367 ], [ %1350, %1349 ], [ %1436, %1435 ], [ %1465, %1464 ], [ %1483, %1482 ], [ %1495, %1494 ], [ %1509, %1508 ], [ %.pn62.i, %1940 ], [ %.pn60.i, %1926 ], [ %.pn56.i, %1910 ], [ %.pn54.i, %1892 ], [ %1873, %1874 ], [ %1855, %1854 ], [ %1833, %1832 ], [ %1817, %1816 ], [ %1801, %1800 ], [ %1450, %1449 ], [ %1452, %1451 ]
   resume { ptr, i32 } %common.resume.op
 
-388:                                              ; preds = %386, %384, %372, %370, %352, %323, %299, %268, %204
-  %389 = landingpad { ptr, i32 }
+384:                                              ; preds = %382, %380, %368, %366, %348, %321, %298, %267, %203
+  %385 = landingpad { ptr, i32 }
           catch ptr null
-  %390 = extractvalue { ptr, i32 } %389, 0
-  call void @__clang_call_terminate(ptr %390) #37
+  %386 = extractvalue { ptr, i32 } %385, 0
+  call void @__clang_call_terminate(ptr %386) #37
   unreachable
 
-_ZN5boost14static_stringsL13testConstructEv.exit: ; preds = %381, %383
+_ZN5boost14static_stringsL13testConstructEv.exit: ; preds = %377, %379
   call void @__cxa_end_catch()
   call fastcc void @_ZN5boost14static_stringsL14testAssignmentEv()
-  %391 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %392 = icmp eq i8 %391, 0
-  br i1 %392, label %393, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit150, !prof !56
+  %387 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %388 = icmp eq i8 %387, 0
+  br i1 %388, label %389, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit150, !prof !56
 
-393:                                              ; preds = %_ZN5boost14static_stringsL13testConstructEv.exit
-  %394 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i149 = icmp eq i32 %394, 0
-  br i1 %.not.i.i149, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit150, label %395
+389:                                              ; preds = %_ZN5boost14static_stringsL13testConstructEv.exit
+  %390 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i149 = icmp eq i32 %390, 0
+  br i1 %.not.i.i149, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit150, label %391
 
-395:                                              ; preds = %393
+391:                                              ; preds = %389
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %396 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %392 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit150
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit150:   ; preds = %_ZN5boost14static_stringsL13testConstructEv.exit, %393, %395
-  %397 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %398 = icmp eq i8 %397, 0
-  br i1 %398, label %399, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit148, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit150:   ; preds = %_ZN5boost14static_stringsL13testConstructEv.exit, %389, %391
+  %393 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %394 = icmp eq i8 %393, 0
+  br i1 %394, label %395, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit148, !prof !56
 
-399:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit150
-  %400 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i147 = icmp eq i32 %400, 0
-  br i1 %.not.i.i147, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit148, label %401
+395:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit150
+  %396 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i147 = icmp eq i32 %396, 0
+  br i1 %.not.i.i147, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit148, label %397
 
-401:                                              ; preds = %399
+397:                                              ; preds = %395
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %402 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %398 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit148
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit148:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit150, %399, %401
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit148:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit150, %395, %397
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12out_of_rangeEEvPKc(ptr noundef nonnull @.str.1) #35
-          to label %.noexc47.i unwind label %403
+          to label %.noexc47.i unwind label %399
 
 .noexc47.i:                                       ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit148
   unreachable
 
-403:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit148
-  %404 = landingpad { ptr, i32 }
+399:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit148
+  %400 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12out_of_range
           catch ptr null
-  %.0.i = extractvalue { ptr, i32 } %404, 0
-  %.019.i = extractvalue { ptr, i32 } %404, 1
-  %405 = icmp eq i32 %.019.i, %211
-  %406 = call ptr @__cxa_begin_catch(ptr %.0.i) #36
-  br i1 %405, label %407, label %414
+  %.0.i = extractvalue { ptr, i32 } %400, 0
+  %.019.i = extractvalue { ptr, i32 } %400, 1
+  %401 = icmp eq i32 %.019.i, %210
+  %402 = call ptr @__cxa_begin_catch(ptr %.0.i) #36
+  br i1 %401, label %403, label %410
 
-407:                                              ; preds = %403
-  %408 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %409 = icmp eq i8 %408, 0
-  br i1 %409, label %410, label %_ZN5boost6detail12test_resultsEv.exit146, !prof !56
+403:                                              ; preds = %399
+  %404 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %405 = icmp eq i8 %404, 0
+  br i1 %405, label %406, label %_ZN5boost6detail12test_resultsEv.exit146, !prof !56
 
-410:                                              ; preds = %407
-  %411 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i145 = icmp eq i32 %411, 0
-  br i1 %.not.i145, label %_ZN5boost6detail12test_resultsEv.exit146, label %412
+406:                                              ; preds = %403
+  %407 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i145 = icmp eq i32 %407, 0
+  br i1 %.not.i145, label %_ZN5boost6detail12test_resultsEv.exit146, label %408
 
-412:                                              ; preds = %410
+408:                                              ; preds = %406
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %413 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %409 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail12test_resultsEv.exit146
 
-_ZN5boost6detail12test_resultsEv.exit146:         ; preds = %412, %410, %407, %414
+_ZN5boost6detail12test_resultsEv.exit146:         ; preds = %408, %406, %403, %410
   call void @__cxa_end_catch()
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12out_of_rangeEEvPKc(ptr noundef nonnull @.str.1) #35
-          to label %.noexc53.i unwind label %417
+          to label %.noexc53.i unwind label %413
 
 .noexc53.i:                                       ; preds = %_ZN5boost6detail12test_resultsEv.exit146
   unreachable
 
-414:                                              ; preds = %403
+410:                                              ; preds = %399
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.5558, ptr noundef nonnull @.str.1316, ptr noundef nonnull @.str.13, i32 noundef 768, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testElementsEv)
-          to label %_ZN5boost6detail12test_resultsEv.exit146 unwind label %415
+          to label %_ZN5boost6detail12test_resultsEv.exit146 unwind label %411
 
-415:                                              ; preds = %414
-  %416 = landingpad { ptr, i32 }
+411:                                              ; preds = %410
+  %412 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %620
+          to label %common.resume unwind label %616
 
-417:                                              ; preds = %_ZN5boost6detail12test_resultsEv.exit146
-  %418 = landingpad { ptr, i32 }
+413:                                              ; preds = %_ZN5boost6detail12test_resultsEv.exit146
+  %414 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12out_of_range
           catch ptr null
-  %.2.i = extractvalue { ptr, i32 } %418, 0
-  %.221.i = extractvalue { ptr, i32 } %418, 1
-  %419 = icmp eq i32 %.221.i, %211
-  %420 = call ptr @__cxa_begin_catch(ptr %.2.i) #36
-  br i1 %419, label %421, label %440
+  %.2.i = extractvalue { ptr, i32 } %414, 0
+  %.221.i = extractvalue { ptr, i32 } %414, 1
+  %415 = icmp eq i32 %.221.i, %210
+  %416 = call ptr @__cxa_begin_catch(ptr %.2.i) #36
+  br i1 %415, label %417, label %436
 
-421:                                              ; preds = %417
-  %422 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %423 = icmp eq i8 %422, 0
-  br i1 %423, label %424, label %_ZNK5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE2atEm.exit61.i, !prof !56
+417:                                              ; preds = %413
+  %418 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %419 = icmp eq i8 %418, 0
+  br i1 %419, label %420, label %_ZNK5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE2atEm.exit61.i, !prof !56
 
-424:                                              ; preds = %421
-  %425 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i143 = icmp eq i32 %425, 0
-  br i1 %.not.i143, label %_ZNK5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE2atEm.exit61.i, label %426
+420:                                              ; preds = %417
+  %421 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i143 = icmp eq i32 %421, 0
+  br i1 %.not.i143, label %_ZNK5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE2atEm.exit61.i, label %422
 
-426:                                              ; preds = %424
+422:                                              ; preds = %420
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %427 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %423 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZNK5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE2atEm.exit61.i
 
-_ZNK5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE2atEm.exit61.i: ; preds = %426, %424, %421, %440
+_ZNK5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE2atEm.exit61.i: ; preds = %422, %420, %417, %436
   call void @__cxa_end_catch()
-  %428 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %429 = icmp eq i8 %428, 0
-  br i1 %429, label %430, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit142, !prof !56
+  %424 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %425 = icmp eq i8 %424, 0
+  br i1 %425, label %426, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit142, !prof !56
 
-430:                                              ; preds = %_ZNK5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE2atEm.exit61.i
-  %431 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i141 = icmp eq i32 %431, 0
-  br i1 %.not.i.i141, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit142, label %432
+426:                                              ; preds = %_ZNK5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE2atEm.exit61.i
+  %427 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i141 = icmp eq i32 %427, 0
+  br i1 %.not.i.i141, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit142, label %428
 
-432:                                              ; preds = %430
+428:                                              ; preds = %426
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %433 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %429 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit142
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit142:   ; preds = %_ZNK5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE2atEm.exit61.i, %430, %432
-  %434 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %435 = icmp eq i8 %434, 0
-  br i1 %435, label %436, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit140, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit142:   ; preds = %_ZNK5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE2atEm.exit61.i, %426, %428
+  %430 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %431 = icmp eq i8 %430, 0
+  br i1 %431, label %432, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit140, !prof !56
 
-436:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit142
-  %437 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i139 = icmp eq i32 %437, 0
-  br i1 %.not.i.i139, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit140, label %438
+432:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit142
+  %433 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i139 = icmp eq i32 %433, 0
+  br i1 %.not.i.i139, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit140, label %434
 
-438:                                              ; preds = %436
+434:                                              ; preds = %432
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %439 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %435 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit140
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit140:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit142, %436, %438
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit140:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit142, %432, %434
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12out_of_rangeEEvPKc(ptr noundef nonnull @.str.1) #35
-          to label %.noexc66.i unwind label %443
+          to label %.noexc66.i unwind label %439
 
 .noexc66.i:                                       ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit140
   unreachable
 
-440:                                              ; preds = %417
+436:                                              ; preds = %413
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.5559, ptr noundef nonnull @.str.1316, ptr noundef nonnull @.str.13, i32 noundef 769, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testElementsEv)
-          to label %_ZNK5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE2atEm.exit61.i unwind label %441
+          to label %_ZNK5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE2atEm.exit61.i unwind label %437
 
-441:                                              ; preds = %440
-  %442 = landingpad { ptr, i32 }
+437:                                              ; preds = %436
+  %438 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %620
+          to label %common.resume unwind label %616
 
-443:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit140
-  %444 = landingpad { ptr, i32 }
+439:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit140
+  %440 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12out_of_range
           catch ptr null
-  %.3.i = extractvalue { ptr, i32 } %444, 0
-  %.322.i = extractvalue { ptr, i32 } %444, 1
-  %445 = icmp eq i32 %.322.i, %211
-  %446 = call ptr @__cxa_begin_catch(ptr %.3.i) #36
-  br i1 %445, label %447, label %454
+  %.3.i = extractvalue { ptr, i32 } %440, 0
+  %.322.i = extractvalue { ptr, i32 } %440, 1
+  %441 = icmp eq i32 %.322.i, %210
+  %442 = call ptr @__cxa_begin_catch(ptr %.3.i) #36
+  br i1 %441, label %443, label %450
 
-447:                                              ; preds = %443
-  %448 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %449 = icmp eq i8 %448, 0
-  br i1 %449, label %450, label %_ZN5boost6detail12test_resultsEv.exit138, !prof !56
+443:                                              ; preds = %439
+  %444 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %445 = icmp eq i8 %444, 0
+  br i1 %445, label %446, label %_ZN5boost6detail12test_resultsEv.exit138, !prof !56
 
-450:                                              ; preds = %447
-  %451 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i137 = icmp eq i32 %451, 0
-  br i1 %.not.i137, label %_ZN5boost6detail12test_resultsEv.exit138, label %452
+446:                                              ; preds = %443
+  %447 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i137 = icmp eq i32 %447, 0
+  br i1 %.not.i137, label %_ZN5boost6detail12test_resultsEv.exit138, label %448
 
-452:                                              ; preds = %450
+448:                                              ; preds = %446
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %453 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %449 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail12test_resultsEv.exit138
 
-_ZN5boost6detail12test_resultsEv.exit138:         ; preds = %452, %450, %447, %454
+_ZN5boost6detail12test_resultsEv.exit138:         ; preds = %448, %446, %443, %450
   call void @__cxa_end_catch()
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12out_of_rangeEEvPKc(ptr noundef nonnull @.str.1) #35
-          to label %.noexc72.i unwind label %457
+          to label %.noexc72.i unwind label %453
 
 .noexc72.i:                                       ; preds = %_ZN5boost6detail12test_resultsEv.exit138
   unreachable
 
-454:                                              ; preds = %443
+450:                                              ; preds = %439
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.5562, ptr noundef nonnull @.str.1316, ptr noundef nonnull @.str.13, i32 noundef 774, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testElementsEv)
-          to label %_ZN5boost6detail12test_resultsEv.exit138 unwind label %455
+          to label %_ZN5boost6detail12test_resultsEv.exit138 unwind label %451
 
-455:                                              ; preds = %454
-  %456 = landingpad { ptr, i32 }
+451:                                              ; preds = %450
+  %452 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %620
+          to label %common.resume unwind label %616
 
-457:                                              ; preds = %_ZN5boost6detail12test_resultsEv.exit138
-  %458 = landingpad { ptr, i32 }
+453:                                              ; preds = %_ZN5boost6detail12test_resultsEv.exit138
+  %454 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12out_of_range
           catch ptr null
-  %.4.i1 = extractvalue { ptr, i32 } %458, 0
-  %.423.i = extractvalue { ptr, i32 } %458, 1
-  %459 = icmp eq i32 %.423.i, %211
-  %460 = call ptr @__cxa_begin_catch(ptr %.4.i1) #36
-  br i1 %459, label %461, label %576
+  %.4.i1 = extractvalue { ptr, i32 } %454, 0
+  %.423.i = extractvalue { ptr, i32 } %454, 1
+  %455 = icmp eq i32 %.423.i, %210
+  %456 = call ptr @__cxa_begin_catch(ptr %.4.i1) #36
+  br i1 %455, label %457, label %572
 
-461:                                              ; preds = %457
-  %462 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %463 = icmp eq i8 %462, 0
-  br i1 %463, label %464, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit79.i, !prof !56
+457:                                              ; preds = %453
+  %458 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %459 = icmp eq i8 %458, 0
+  br i1 %459, label %460, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit79.i, !prof !56
 
-464:                                              ; preds = %461
-  %465 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i135 = icmp eq i32 %465, 0
-  br i1 %.not.i135, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit79.i, label %466
+460:                                              ; preds = %457
+  %461 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i135 = icmp eq i32 %461, 0
+  br i1 %.not.i135, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit79.i, label %462
 
-466:                                              ; preds = %464
+462:                                              ; preds = %460
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %467 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %463 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit79.i
 
-_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit79.i: ; preds = %466, %464, %461, %576
+_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit79.i: ; preds = %462, %460, %457, %572
   call void @__cxa_end_catch()
-  %468 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %469 = icmp eq i8 %468, 0
-  br i1 %469, label %470, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit134, !prof !56
+  %464 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %465 = icmp eq i8 %464, 0
+  br i1 %465, label %466, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit134, !prof !56
 
-470:                                              ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit79.i
-  %471 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i133 = icmp eq i32 %471, 0
-  br i1 %.not.i.i133, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit134, label %472
+466:                                              ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit79.i
+  %467 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i133 = icmp eq i32 %467, 0
+  br i1 %.not.i.i133, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit134, label %468
 
-472:                                              ; preds = %470
+468:                                              ; preds = %466
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %473 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %469 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit134
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit134:   ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit79.i, %470, %472
-  %474 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %475 = icmp eq i8 %474, 0
-  br i1 %475, label %476, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit132, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit134:   ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit79.i, %466, %468
+  %470 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %471 = icmp eq i8 %470, 0
+  br i1 %471, label %472, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit132, !prof !56
 
-476:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit134
-  %477 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i131 = icmp eq i32 %477, 0
-  br i1 %.not.i.i131, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit132, label %478
+472:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit134
+  %473 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i131 = icmp eq i32 %473, 0
+  br i1 %.not.i.i131, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit132, label %474
 
-478:                                              ; preds = %476
+474:                                              ; preds = %472
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %479 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %475 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit132
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit132:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit134, %476, %478
-  %480 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %481 = icmp eq i8 %480, 0
-  br i1 %481, label %482, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit130, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit132:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit134, %472, %474
+  %476 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %477 = icmp eq i8 %476, 0
+  br i1 %477, label %478, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit130, !prof !56
 
-482:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit132
-  %483 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i129 = icmp eq i32 %483, 0
-  br i1 %.not.i.i129, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit130, label %484
+478:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit132
+  %479 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i129 = icmp eq i32 %479, 0
+  br i1 %.not.i.i129, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit130, label %480
 
-484:                                              ; preds = %482
+480:                                              ; preds = %478
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %485 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %481 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit130
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit130:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit132, %482, %484
-  %486 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %487 = icmp eq i8 %486, 0
-  br i1 %487, label %488, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit128, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit130:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit132, %478, %480
+  %482 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %483 = icmp eq i8 %482, 0
+  br i1 %483, label %484, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit128, !prof !56
 
-488:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit130
-  %489 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i127 = icmp eq i32 %489, 0
-  br i1 %.not.i.i127, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit128, label %490
+484:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit130
+  %485 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i127 = icmp eq i32 %485, 0
+  br i1 %.not.i.i127, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit128, label %486
 
-490:                                              ; preds = %488
+486:                                              ; preds = %484
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %491 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %487 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit128
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit128:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit130, %488, %490
-  %492 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %493 = icmp eq i8 %492, 0
-  br i1 %493, label %494, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit126, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit128:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit130, %484, %486
+  %488 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %489 = icmp eq i8 %488, 0
+  br i1 %489, label %490, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit126, !prof !56
 
-494:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit128
-  %495 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i125 = icmp eq i32 %495, 0
-  br i1 %.not.i.i125, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit126, label %496
+490:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit128
+  %491 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i125 = icmp eq i32 %491, 0
+  br i1 %.not.i.i125, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit126, label %492
 
-496:                                              ; preds = %494
+492:                                              ; preds = %490
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %497 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %493 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit126
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit126:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit128, %494, %496
-  %498 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %499 = icmp eq i8 %498, 0
-  br i1 %499, label %500, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit124, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit126:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit128, %490, %492
+  %494 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %495 = icmp eq i8 %494, 0
+  br i1 %495, label %496, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit124, !prof !56
 
-500:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit126
-  %501 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i123 = icmp eq i32 %501, 0
-  br i1 %.not.i.i123, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit124, label %502
+496:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit126
+  %497 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i123 = icmp eq i32 %497, 0
+  br i1 %.not.i.i123, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit124, label %498
 
-502:                                              ; preds = %500
+498:                                              ; preds = %496
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %503 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %499 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit124
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit124:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit126, %500, %502
-  %504 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %505 = icmp eq i8 %504, 0
-  br i1 %505, label %506, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit122, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit124:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit126, %496, %498
+  %500 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %501 = icmp eq i8 %500, 0
+  br i1 %501, label %502, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit122, !prof !56
 
-506:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit124
-  %507 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i121 = icmp eq i32 %507, 0
-  br i1 %.not.i.i121, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit122, label %508
+502:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit124
+  %503 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i121 = icmp eq i32 %503, 0
+  br i1 %.not.i.i121, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit122, label %504
 
-508:                                              ; preds = %506
+504:                                              ; preds = %502
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %509 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %505 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit122
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit122:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit124, %506, %508
-  %510 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %511 = icmp eq i8 %510, 0
-  br i1 %511, label %512, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit120, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit122:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit124, %502, %504
+  %506 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %507 = icmp eq i8 %506, 0
+  br i1 %507, label %508, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit120, !prof !56
 
-512:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit122
-  %513 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i119 = icmp eq i32 %513, 0
-  br i1 %.not.i.i119, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit120, label %514
+508:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit122
+  %509 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i119 = icmp eq i32 %509, 0
+  br i1 %.not.i.i119, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit120, label %510
 
-514:                                              ; preds = %512
+510:                                              ; preds = %508
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %515 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %511 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit120
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit120:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit122, %512, %514
-  %516 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %517 = icmp eq i8 %516, 0
-  br i1 %517, label %518, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit118, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit120:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit122, %508, %510
+  %512 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %513 = icmp eq i8 %512, 0
+  br i1 %513, label %514, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit118, !prof !56
 
-518:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit120
-  %519 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i117 = icmp eq i32 %519, 0
-  br i1 %.not.i.i117, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit118, label %520
+514:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit120
+  %515 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i117 = icmp eq i32 %515, 0
+  br i1 %.not.i.i117, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit118, label %516
 
-520:                                              ; preds = %518
+516:                                              ; preds = %514
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %521 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %517 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit118
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit118:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit120, %518, %520
-  %522 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %523 = icmp eq i8 %522, 0
-  br i1 %523, label %524, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit116, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit118:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit120, %514, %516
+  %518 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %519 = icmp eq i8 %518, 0
+  br i1 %519, label %520, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit116, !prof !56
 
-524:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit118
-  %525 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i115 = icmp eq i32 %525, 0
-  br i1 %.not.i.i115, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit116, label %526
+520:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit118
+  %521 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i115 = icmp eq i32 %521, 0
+  br i1 %.not.i.i115, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit116, label %522
 
-526:                                              ; preds = %524
+522:                                              ; preds = %520
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %527 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %523 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit116
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit116:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit118, %524, %526
-  %528 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %529 = icmp eq i8 %528, 0
-  br i1 %529, label %530, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit114, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit116:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit118, %520, %522
+  %524 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %525 = icmp eq i8 %524, 0
+  br i1 %525, label %526, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit114, !prof !56
 
-530:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit116
-  %531 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i113 = icmp eq i32 %531, 0
-  br i1 %.not.i.i113, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit114, label %532
+526:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit116
+  %527 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i113 = icmp eq i32 %527, 0
+  br i1 %.not.i.i113, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit114, label %528
 
-532:                                              ; preds = %530
+528:                                              ; preds = %526
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %533 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %529 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit114
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit114:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit116, %530, %532
-  %534 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %535 = icmp eq i8 %534, 0
-  br i1 %535, label %536, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit112, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit114:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit116, %526, %528
+  %530 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %531 = icmp eq i8 %530, 0
+  br i1 %531, label %532, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit112, !prof !56
 
-536:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit114
-  %537 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i111 = icmp eq i32 %537, 0
-  br i1 %.not.i.i111, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit112, label %538
+532:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit114
+  %533 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i111 = icmp eq i32 %533, 0
+  br i1 %.not.i.i111, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit112, label %534
 
-538:                                              ; preds = %536
+534:                                              ; preds = %532
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %539 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %535 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit112
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit112:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit114, %536, %538
-  %540 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %541 = icmp eq i8 %540, 0
-  br i1 %541, label %542, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit110, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit112:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit114, %532, %534
+  %536 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %537 = icmp eq i8 %536, 0
+  br i1 %537, label %538, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit110, !prof !56
 
-542:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit112
-  %543 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i109 = icmp eq i32 %543, 0
-  br i1 %.not.i.i109, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit110, label %544
+538:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit112
+  %539 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i109 = icmp eq i32 %539, 0
+  br i1 %.not.i.i109, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit110, label %540
 
-544:                                              ; preds = %542
+540:                                              ; preds = %538
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %545 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %541 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit110
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit110:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit112, %542, %544
-  %546 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %547 = icmp eq i8 %546, 0
-  br i1 %547, label %548, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit108, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit110:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit112, %538, %540
+  %542 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %543 = icmp eq i8 %542, 0
+  br i1 %543, label %544, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit108, !prof !56
 
-548:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit110
-  %549 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i107 = icmp eq i32 %549, 0
-  br i1 %.not.i.i107, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit108, label %550
+544:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit110
+  %545 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i107 = icmp eq i32 %545, 0
+  br i1 %.not.i.i107, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit108, label %546
 
-550:                                              ; preds = %548
+546:                                              ; preds = %544
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %551 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %547 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit108
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit108:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit110, %548, %550
-  %552 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %553 = icmp eq i8 %552, 0
-  br i1 %553, label %554, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit106, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit108:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit110, %544, %546
+  %548 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %549 = icmp eq i8 %548, 0
+  br i1 %549, label %550, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit106, !prof !56
 
-554:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit108
-  %555 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i105 = icmp eq i32 %555, 0
-  br i1 %.not.i.i105, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit106, label %556
+550:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit108
+  %551 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i105 = icmp eq i32 %551, 0
+  br i1 %.not.i.i105, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit106, label %552
 
-556:                                              ; preds = %554
+552:                                              ; preds = %550
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %557 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %553 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit106
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit106:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit108, %554, %556
-  %558 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %559 = icmp eq i8 %558, 0
-  br i1 %559, label %560, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit104, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit106:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit108, %550, %552
+  %554 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %555 = icmp eq i8 %554, 0
+  br i1 %555, label %556, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit104, !prof !56
 
-560:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit106
-  %561 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i103 = icmp eq i32 %561, 0
-  br i1 %.not.i.i103, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit104, label %562
+556:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit106
+  %557 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i103 = icmp eq i32 %557, 0
+  br i1 %.not.i.i103, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit104, label %558
 
-562:                                              ; preds = %560
+558:                                              ; preds = %556
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %563 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %559 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit104
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit104:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit106, %560, %562
-  %564 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %565 = icmp eq i8 %564, 0
-  br i1 %565, label %566, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit102, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit104:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit106, %556, %558
+  %560 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %561 = icmp eq i8 %560, 0
+  br i1 %561, label %562, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit102, !prof !56
 
-566:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit104
-  %567 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i101 = icmp eq i32 %567, 0
-  br i1 %.not.i.i101, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit102, label %568
+562:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit104
+  %563 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i101 = icmp eq i32 %563, 0
+  br i1 %.not.i.i101, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit102, label %564
 
-568:                                              ; preds = %566
+564:                                              ; preds = %562
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %569 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %565 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit102
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit102:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit104, %566, %568
-  %570 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %571 = icmp eq i8 %570, 0
-  br i1 %571, label %572, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit100, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit102:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit104, %562, %564
+  %566 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %567 = icmp eq i8 %566, 0
+  br i1 %567, label %568, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit100, !prof !56
 
-572:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit102
-  %573 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i99 = icmp eq i32 %573, 0
-  br i1 %.not.i.i99, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit100, label %574
+568:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit102
+  %569 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i99 = icmp eq i32 %569, 0
+  br i1 %.not.i.i99, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit100, label %570
 
-574:                                              ; preds = %572
+570:                                              ; preds = %568
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %575 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %571 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit100
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit100:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit102, %572, %574
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit100:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit102, %568, %570
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12out_of_rangeEEvPKc(ptr noundef nonnull @.str.1) #35
-          to label %.noexc110.i unwind label %579
+          to label %.noexc110.i unwind label %575
 
 .noexc110.i:                                      ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit100
   unreachable
 
-576:                                              ; preds = %457
+572:                                              ; preds = %453
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.5563, ptr noundef nonnull @.str.1316, ptr noundef nonnull @.str.13, i32 noundef 775, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testElementsEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit79.i unwind label %577
+          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit79.i unwind label %573
 
-577:                                              ; preds = %576
-  %578 = landingpad { ptr, i32 }
+573:                                              ; preds = %572
+  %574 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %620
+          to label %common.resume unwind label %616
 
-579:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit100
-  %580 = landingpad { ptr, i32 }
+575:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit100
+  %576 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12out_of_range
           catch ptr null
-  %581 = extractvalue { ptr, i32 } %580, 0
-  %582 = extractvalue { ptr, i32 } %580, 1
-  %583 = icmp eq i32 %582, %211
-  %584 = call ptr @__cxa_begin_catch(ptr %581) #36
-  br i1 %583, label %585, label %604
+  %577 = extractvalue { ptr, i32 } %576, 0
+  %578 = extractvalue { ptr, i32 } %576, 1
+  %579 = icmp eq i32 %578, %210
+  %580 = call ptr @__cxa_begin_catch(ptr %577) #36
+  br i1 %579, label %581, label %600
 
-585:                                              ; preds = %579
-  %586 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %587 = icmp eq i8 %586, 0
-  br i1 %587, label %588, label %_ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE2atEm.exit115.i, !prof !56
+581:                                              ; preds = %575
+  %582 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %583 = icmp eq i8 %582, 0
+  br i1 %583, label %584, label %_ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE2atEm.exit115.i, !prof !56
 
-588:                                              ; preds = %585
-  %589 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i97 = icmp eq i32 %589, 0
-  br i1 %.not.i97, label %_ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE2atEm.exit115.i, label %590
+584:                                              ; preds = %581
+  %585 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i97 = icmp eq i32 %585, 0
+  br i1 %.not.i97, label %_ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE2atEm.exit115.i, label %586
 
-590:                                              ; preds = %588
+586:                                              ; preds = %584
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %591 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %587 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE2atEm.exit115.i
 
-_ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE2atEm.exit115.i: ; preds = %590, %588, %585, %604
+_ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE2atEm.exit115.i: ; preds = %586, %584, %581, %600
   call void @__cxa_end_catch()
-  %592 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %593 = icmp eq i8 %592, 0
-  br i1 %593, label %594, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit96, !prof !56
+  %588 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %589 = icmp eq i8 %588, 0
+  br i1 %589, label %590, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit96, !prof !56
 
-594:                                              ; preds = %_ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE2atEm.exit115.i
-  %595 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i95 = icmp eq i32 %595, 0
-  br i1 %.not.i.i95, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit96, label %596
+590:                                              ; preds = %_ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE2atEm.exit115.i
+  %591 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i95 = icmp eq i32 %591, 0
+  br i1 %.not.i.i95, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit96, label %592
 
-596:                                              ; preds = %594
+592:                                              ; preds = %590
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %597 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %593 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit96
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit96:    ; preds = %_ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE2atEm.exit115.i, %594, %596
-  %598 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %599 = icmp eq i8 %598, 0
-  br i1 %599, label %600, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit94, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit96:    ; preds = %_ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE2atEm.exit115.i, %590, %592
+  %594 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %595 = icmp eq i8 %594, 0
+  br i1 %595, label %596, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit94, !prof !56
 
-600:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit96
-  %601 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i93 = icmp eq i32 %601, 0
-  br i1 %.not.i.i93, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit94, label %602
+596:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit96
+  %597 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i93 = icmp eq i32 %597, 0
+  br i1 %.not.i.i93, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit94, label %598
 
-602:                                              ; preds = %600
+598:                                              ; preds = %596
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %603 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %599 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit94
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit94:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit96, %600, %602
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit94:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit96, %596, %598
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12out_of_rangeEEvPKc(ptr noundef nonnull @.str.1) #35
-          to label %.noexc117.i unwind label %607
+          to label %.noexc117.i unwind label %603
 
 .noexc117.i:                                      ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit94
   unreachable
 
-604:                                              ; preds = %579
+600:                                              ; preds = %575
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.5582, ptr noundef nonnull @.str.1316, ptr noundef nonnull @.str.13, i32 noundef 818, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testElementsEv)
-          to label %_ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE2atEm.exit115.i unwind label %605
+          to label %_ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE2atEm.exit115.i unwind label %601
 
-605:                                              ; preds = %604
-  %606 = landingpad { ptr, i32 }
+601:                                              ; preds = %600
+  %602 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %620
+          to label %common.resume unwind label %616
 
-607:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit94
-  %608 = landingpad { ptr, i32 }
+603:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit94
+  %604 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12out_of_range
           catch ptr null
-  %609 = extractvalue { ptr, i32 } %608, 0
-  %610 = extractvalue { ptr, i32 } %608, 1
-  %611 = icmp eq i32 %610, %211
-  %612 = call ptr @__cxa_begin_catch(ptr %609) #36
-  br i1 %611, label %613, label %615
+  %605 = extractvalue { ptr, i32 } %604, 0
+  %606 = extractvalue { ptr, i32 } %604, 1
+  %607 = icmp eq i32 %606, %210
+  %608 = call ptr @__cxa_begin_catch(ptr %605) #36
+  br i1 %607, label %609, label %611
 
-613:                                              ; preds = %607
-  %614 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
-          to label %_ZN5boost14static_stringsL12testElementsEv.exit unwind label %618
+609:                                              ; preds = %603
+  %610 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
+          to label %_ZN5boost14static_stringsL12testElementsEv.exit unwind label %614
 
-615:                                              ; preds = %607
+611:                                              ; preds = %603
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.5583, ptr noundef nonnull @.str.1316, ptr noundef nonnull @.str.13, i32 noundef 826, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testElementsEv)
-          to label %_ZN5boost14static_stringsL12testElementsEv.exit unwind label %616
+          to label %_ZN5boost14static_stringsL12testElementsEv.exit unwind label %612
 
-616:                                              ; preds = %615
+612:                                              ; preds = %611
+  %613 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %common.resume unwind label %616
+
+614:                                              ; preds = %609
+  %615 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %common.resume unwind label %616
+
+616:                                              ; preds = %614, %612, %601, %573, %451, %437, %411
   %617 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %620
-
-618:                                              ; preds = %613
-  %619 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %620
-
-620:                                              ; preds = %618, %616, %605, %577, %455, %441, %415
-  %621 = landingpad { ptr, i32 }
           catch ptr null
-  %622 = extractvalue { ptr, i32 } %621, 0
-  call void @__clang_call_terminate(ptr %622) #37
+  %618 = extractvalue { ptr, i32 } %617, 0
+  call void @__clang_call_terminate(ptr %618) #37
   unreachable
 
-_ZN5boost14static_stringsL12testElementsEv.exit:  ; preds = %613, %615
+_ZN5boost14static_stringsL12testElementsEv.exit:  ; preds = %609, %611
   call void @__cxa_end_catch()
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %65) #36
-  %623 = getelementptr inbounds nuw i8, ptr %65, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %623, ptr noundef nonnull align 1 dereferenceable(5) @.str.1303, i64 5, i1 false)
-  %624 = getelementptr inbounds nuw i8, ptr %65, i64 2
-  %625 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %626 = icmp eq i8 %625, 0
-  br i1 %626, label %627, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit92, !prof !56
+  %619 = getelementptr inbounds nuw i8, ptr %65, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %619, ptr noundef nonnull align 1 dereferenceable(5) @.str.1303, i64 5, i1 false)
+  %620 = getelementptr inbounds nuw i8, ptr %65, i64 2
+  %621 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %622 = icmp eq i8 %621, 0
+  br i1 %622, label %623, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit92, !prof !56
 
-627:                                              ; preds = %_ZN5boost14static_stringsL12testElementsEv.exit
-  %628 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i91 = icmp eq i32 %628, 0
-  br i1 %.not.i.i91, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit92, label %629
+623:                                              ; preds = %_ZN5boost14static_stringsL12testElementsEv.exit
+  %624 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i91 = icmp eq i32 %624, 0
+  br i1 %.not.i.i91, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit92, label %625
 
-629:                                              ; preds = %627
+625:                                              ; preds = %623
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %630 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %626 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit92
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit92:    ; preds = %_ZN5boost14static_stringsL12testElementsEv.exit, %627, %629
-  %631 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %632 = icmp eq i8 %631, 0
-  br i1 %632, label %633, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit90, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit92:    ; preds = %_ZN5boost14static_stringsL12testElementsEv.exit, %623, %625
+  %627 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %628 = icmp eq i8 %627, 0
+  br i1 %628, label %629, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit90, !prof !56
 
-633:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit92
-  %634 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i89 = icmp eq i32 %634, 0
-  br i1 %.not.i.i89, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit90, label %635
+629:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit92
+  %630 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i89 = icmp eq i32 %630, 0
+  br i1 %.not.i.i89, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit90, label %631
 
-635:                                              ; preds = %633
+631:                                              ; preds = %629
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %636 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %632 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit90
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit90:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit92, %633, %635
-  store i8 95, ptr %624, align 1, !tbaa !9
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %623, ptr noundef nonnull dereferenceable(5) @.str.5587, i64 5)
-  %637 = icmp eq i32 %bcmp.i.i, 0
-  %638 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5586, ptr noundef nonnull @.str.13, i32 noundef 833, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testElementsEv, i1 noundef zeroext %637)
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit90:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit92, %629, %631
+  store i8 95, ptr %620, align 1, !tbaa !9
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %619, ptr noundef nonnull dereferenceable(5) @.str.5587, i64 5)
+  %633 = icmp eq i32 %bcmp.i.i, 0
+  %634 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5586, ptr noundef nonnull @.str.13, i32 noundef 833, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testElementsEv, i1 noundef zeroext %633)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %65) #36
-  %639 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %640 = icmp eq i8 %639, 0
-  br i1 %640, label %641, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit88, !prof !56
+  %635 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %636 = icmp eq i8 %635, 0
+  br i1 %636, label %637, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit88, !prof !56
 
-641:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit90
-  %642 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i87 = icmp eq i32 %642, 0
-  br i1 %.not.i.i87, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit88, label %643
+637:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit90
+  %638 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i87 = icmp eq i32 %638, 0
+  br i1 %.not.i.i87, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit88, label %639
 
-643:                                              ; preds = %641
+639:                                              ; preds = %637
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %644 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %640 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit88
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit88:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit90, %641, %643
-  %645 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %646 = icmp eq i8 %645, 0
-  br i1 %646, label %647, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit86, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit88:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit90, %637, %639
+  %641 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %642 = icmp eq i8 %641, 0
+  br i1 %642, label %643, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit86, !prof !56
 
-647:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit88
-  %648 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i85 = icmp eq i32 %648, 0
-  br i1 %.not.i.i85, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit86, label %649
+643:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit88
+  %644 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i85 = icmp eq i32 %644, 0
+  br i1 %.not.i.i85, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit86, label %645
 
-649:                                              ; preds = %647
+645:                                              ; preds = %643
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %650 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %646 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit86
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit86:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit88, %647, %649
-  %651 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %652 = icmp eq i8 %651, 0
-  br i1 %652, label %653, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit84, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit86:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit88, %643, %645
+  %647 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %648 = icmp eq i8 %647, 0
+  br i1 %648, label %649, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit84, !prof !56
 
-653:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit86
-  %654 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i83 = icmp eq i32 %654, 0
-  br i1 %.not.i.i83, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit84, label %655
+649:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit86
+  %650 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i83 = icmp eq i32 %650, 0
+  br i1 %.not.i.i83, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit84, label %651
 
-655:                                              ; preds = %653
+651:                                              ; preds = %649
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %656 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %652 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit84
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit84:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit86, %653, %655
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit84:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit86, %649, %651
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %66) #36
   %scevgep.i.i121.i = getelementptr inbounds nuw i8, ptr %66, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %scevgep.i.i121.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.1293, i64 3, i1 false)
-  %657 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %658 = icmp eq i8 %657, 0
-  br i1 %658, label %659, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit82, !prof !56
+  %653 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %654 = icmp eq i8 %653, 0
+  br i1 %654, label %655, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit82, !prof !56
 
-659:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit84
-  %660 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i81 = icmp eq i32 %660, 0
-  br i1 %.not.i.i81, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit82, label %661
+655:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit84
+  %656 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i81 = icmp eq i32 %656, 0
+  br i1 %.not.i.i81, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit82, label %657
 
-661:                                              ; preds = %659
+657:                                              ; preds = %655
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %662 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %658 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit82
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit82:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit84, %659, %661
-  %663 = getelementptr inbounds nuw i8, ptr %66, i64 3
-  %664 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %665 = icmp eq i8 %664, 0
-  br i1 %665, label %666, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit80, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit82:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit84, %655, %657
+  %659 = getelementptr inbounds nuw i8, ptr %66, i64 3
+  %660 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %661 = icmp eq i8 %660, 0
+  br i1 %661, label %662, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit80, !prof !56
 
-666:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit82
-  %667 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i79 = icmp eq i32 %667, 0
-  br i1 %.not.i.i79, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit80, label %668
+662:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit82
+  %663 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i79 = icmp eq i32 %663, 0
+  br i1 %.not.i.i79, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit80, label %664
 
-668:                                              ; preds = %666
+664:                                              ; preds = %662
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %669 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %665 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit80
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit80:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit82, %666, %668
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit80:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit82, %662, %664
   store i8 95, ptr %scevgep.i.i121.i, align 1, !tbaa !9
   %bcmp.i125.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %scevgep.i.i121.i, ptr noundef nonnull dereferenceable(3) @.str.5592, i64 3)
-  %670 = icmp eq i32 %bcmp.i125.i, 0
-  %671 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5591, ptr noundef nonnull @.str.13, i32 noundef 846, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testElementsEv, i1 noundef zeroext %670)
-  store i8 95, ptr %663, align 1, !tbaa !9
+  %666 = icmp eq i32 %bcmp.i125.i, 0
+  %667 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5591, ptr noundef nonnull @.str.13, i32 noundef 846, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testElementsEv, i1 noundef zeroext %666)
+  store i8 95, ptr %659, align 1, !tbaa !9
   %bcmp.i128.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %scevgep.i.i121.i, ptr noundef nonnull dereferenceable(3) @.str.5594, i64 3)
-  %672 = icmp eq i32 %bcmp.i128.i, 0
-  %673 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5593, ptr noundef nonnull @.str.13, i32 noundef 848, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testElementsEv, i1 noundef zeroext %672)
+  %668 = icmp eq i32 %bcmp.i128.i, 0
+  %669 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5593, ptr noundef nonnull @.str.13, i32 noundef 848, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testElementsEv, i1 noundef zeroext %668)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %66) #36
-  %674 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %675 = icmp eq i8 %674, 0
-  br i1 %675, label %676, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit78, !prof !56
+  %670 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %671 = icmp eq i8 %670, 0
+  br i1 %671, label %672, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit78, !prof !56
 
-676:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit80
-  %677 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i77 = icmp eq i32 %677, 0
-  br i1 %.not.i.i77, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit78, label %678
+672:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit80
+  %673 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i77 = icmp eq i32 %673, 0
+  br i1 %.not.i.i77, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit78, label %674
 
-678:                                              ; preds = %676
+674:                                              ; preds = %672
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %679 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %675 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit78
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit78:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit80, %676, %678
-  %680 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %681 = icmp eq i8 %680, 0
-  br i1 %681, label %682, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit76, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit78:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit80, %672, %674
+  %676 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %677 = icmp eq i8 %676, 0
+  br i1 %677, label %678, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit76, !prof !56
 
-682:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit78
-  %683 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i75 = icmp eq i32 %683, 0
-  br i1 %.not.i.i75, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit76, label %684
+678:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit78
+  %679 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i75 = icmp eq i32 %679, 0
+  br i1 %.not.i.i75, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit76, label %680
 
-684:                                              ; preds = %682
+680:                                              ; preds = %678
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %685 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %681 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit76
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit76:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit78, %682, %684
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit76:    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit78, %678, %680
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %67) #36
   %scevgep.i.i132.i = getelementptr inbounds nuw i8, ptr %67, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %scevgep.i.i132.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.1293, i64 3, i1 false)
   %bcmp.i2 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %scevgep.i.i132.i, ptr noundef nonnull dereferenceable(3) @.str.1293, i64 3)
-  %686 = icmp eq i32 %bcmp.i2, 0
-  %687 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5595, ptr noundef nonnull @.str.13, i32 noundef 858, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testElementsEv, i1 noundef zeroext %686)
+  %682 = icmp eq i32 %bcmp.i2, 0
+  %683 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5595, ptr noundef nonnull @.str.13, i32 noundef 858, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testElementsEv, i1 noundef zeroext %682)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %67) #36
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %68) #36
   %scevgep.i.i134.i = getelementptr inbounds nuw i8, ptr %68, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %scevgep.i.i134.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.1293, i64 3, i1 false)
   %bcmp38.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %scevgep.i.i134.i, ptr noundef nonnull dereferenceable(3) @.str.1293, i64 3)
-  %688 = icmp eq i32 %bcmp38.i, 0
-  %689 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5595, ptr noundef nonnull @.str.13, i32 noundef 863, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testElementsEv, i1 noundef zeroext %688)
+  %684 = icmp eq i32 %bcmp38.i, 0
+  %685 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5595, ptr noundef nonnull @.str.13, i32 noundef 863, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testElementsEv, i1 noundef zeroext %684)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %68) #36
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %69) #36
   %scevgep.i.i136.i = getelementptr inbounds nuw i8, ptr %69, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %scevgep.i.i136.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.1293, i64 3, i1 false)
-  %690 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  store i8 0, ptr %690, align 1, !tbaa !9
+  %686 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  store i8 0, ptr %686, align 1, !tbaa !9
   %bcmp39.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %scevgep.i.i136.i, ptr noundef nonnull dereferenceable(4) @.str.5597, i64 4)
-  %691 = icmp eq i32 %bcmp39.i, 0
-  %692 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5596, ptr noundef nonnull @.str.13, i32 noundef 868, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testElementsEv, i1 noundef zeroext %691)
+  %687 = icmp eq i32 %bcmp39.i, 0
+  %688 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5596, ptr noundef nonnull @.str.13, i32 noundef 868, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testElementsEv, i1 noundef zeroext %687)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %69) #36
-  %693 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %694 = icmp eq i8 %693, 0
-  br i1 %694, label %695, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit166, !prof !56
+  %689 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %690 = icmp eq i8 %689, 0
+  br i1 %690, label %691, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit166, !prof !56
 
-695:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit76
-  %696 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i165 = icmp eq i32 %696, 0
-  br i1 %.not.i.i165, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit166, label %697
+691:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit76
+  %692 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i165 = icmp eq i32 %692, 0
+  br i1 %.not.i.i165, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit166, label %693
 
-697:                                              ; preds = %695
+693:                                              ; preds = %691
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %698 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %694 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit166
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit166:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit76, %695, %697
-  %699 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %700 = icmp eq i8 %699, 0
-  br i1 %700, label %701, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit164, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit166:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit76, %691, %693
+  %695 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %696 = icmp eq i8 %695, 0
+  br i1 %696, label %697, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit164, !prof !56
 
-701:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit166
-  %702 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i163 = icmp eq i32 %702, 0
-  br i1 %.not.i.i163, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit164, label %703
+697:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit166
+  %698 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i163 = icmp eq i32 %698, 0
+  br i1 %.not.i.i163, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit164, label %699
 
-703:                                              ; preds = %701
+699:                                              ; preds = %697
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %704 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %700 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit164
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit164:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit166, %701, %703
-  %705 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %706 = icmp eq i8 %705, 0
-  br i1 %706, label %707, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit162, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit164:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit166, %697, %699
+  %701 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %702 = icmp eq i8 %701, 0
+  br i1 %702, label %703, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit162, !prof !56
 
-707:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit164
-  %708 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i161 = icmp eq i32 %708, 0
-  br i1 %.not.i.i161, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit162, label %709
+703:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit164
+  %704 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i161 = icmp eq i32 %704, 0
+  br i1 %.not.i.i161, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit162, label %705
 
-709:                                              ; preds = %707
+705:                                              ; preds = %703
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %710 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %706 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit162
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit162:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit164, %707, %709
-  %711 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %712 = icmp eq i8 %711, 0
-  br i1 %712, label %713, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit160, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit162:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit164, %703, %705
+  %707 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %708 = icmp eq i8 %707, 0
+  br i1 %708, label %709, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit160, !prof !56
 
-713:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit162
-  %714 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i159 = icmp eq i32 %714, 0
-  br i1 %.not.i.i159, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit160, label %715
+709:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit162
+  %710 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i159 = icmp eq i32 %710, 0
+  br i1 %.not.i.i159, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit160, label %711
 
-715:                                              ; preds = %713
+711:                                              ; preds = %709
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %716 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %712 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit160
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit160:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit162, %713, %715
-  %717 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %718 = icmp eq i8 %717, 0
-  br i1 %718, label %719, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit158, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit160:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit162, %709, %711
+  %713 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %714 = icmp eq i8 %713, 0
+  br i1 %714, label %715, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit158, !prof !56
 
-719:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit160
-  %720 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i157 = icmp eq i32 %720, 0
-  br i1 %.not.i.i157, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit158, label %721
+715:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit160
+  %716 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i157 = icmp eq i32 %716, 0
+  br i1 %.not.i.i157, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit158, label %717
 
-721:                                              ; preds = %719
+717:                                              ; preds = %715
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %722 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %718 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit158
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit158:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit160, %719, %721
-  %723 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %724 = icmp eq i8 %723, 0
-  br i1 %724, label %725, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit156, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit158:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit160, %715, %717
+  %719 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %720 = icmp eq i8 %719, 0
+  br i1 %720, label %721, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit156, !prof !56
 
-725:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit158
-  %726 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i155 = icmp eq i32 %726, 0
-  br i1 %.not.i.i155, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit156, label %727
+721:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit158
+  %722 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i155 = icmp eq i32 %722, 0
+  br i1 %.not.i.i155, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit156, label %723
 
-727:                                              ; preds = %725
+723:                                              ; preds = %721
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %728 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %724 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit156
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit156:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit158, %725, %727
-  %729 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %730 = icmp eq i8 %729, 0
-  br i1 %730, label %731, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit154, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit156:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit158, %721, %723
+  %725 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %726 = icmp eq i8 %725, 0
+  br i1 %726, label %727, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit154, !prof !56
 
-731:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit156
-  %732 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i153 = icmp eq i32 %732, 0
-  br i1 %.not.i.i153, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit154, label %733
+727:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit156
+  %728 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i153 = icmp eq i32 %728, 0
+  br i1 %.not.i.i153, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit154, label %729
 
-733:                                              ; preds = %731
+729:                                              ; preds = %727
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %734 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %730 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit154
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit154:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit156, %731, %733
-  %735 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %736 = icmp eq i8 %735, 0
-  br i1 %736, label %737, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit152, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit154:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit156, %727, %729
+  %731 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %732 = icmp eq i8 %731, 0
+  br i1 %732, label %733, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit152, !prof !56
 
-737:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit154
-  %738 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i151 = icmp eq i32 %738, 0
-  br i1 %.not.i.i151, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit152, label %739
+733:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit154
+  %734 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i151 = icmp eq i32 %734, 0
+  br i1 %.not.i.i151, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit152, label %735
 
-739:                                              ; preds = %737
+735:                                              ; preds = %733
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %740 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %736 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit152
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit152:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit154, %737, %739
-  %741 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %742 = icmp eq i8 %741, 0
-  br i1 %742, label %743, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit.i3, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit152:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit154, %733, %735
+  %737 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %738 = icmp eq i8 %737, 0
+  br i1 %738, label %739, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit.i3, !prof !56
 
-743:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit152
-  %744 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i.i8 = icmp eq i32 %744, 0
-  br i1 %.not.i.i.i8, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit.i3, label %745
+739:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit152
+  %740 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i.i8 = icmp eq i32 %740, 0
+  br i1 %.not.i.i.i8, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit.i3, label %741
 
-745:                                              ; preds = %743
+741:                                              ; preds = %739
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %746 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %742 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit.i3
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit.i3:   ; preds = %745, %743, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit152
-  %747 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %748 = icmp eq i8 %747, 0
-  br i1 %748, label %749, label %_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit.i, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit.i3:   ; preds = %741, %739, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit152
+  %743 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %744 = icmp eq i8 %743, 0
+  br i1 %744, label %745, label %_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit.i, !prof !56
 
-749:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit.i3
-  %750 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i20.i = icmp eq i32 %750, 0
-  br i1 %.not.i.i20.i, label %_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit.i, label %751
+745:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit.i3
+  %746 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i20.i = icmp eq i32 %746, 0
+  br i1 %.not.i.i20.i, label %_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit.i, label %747
 
-751:                                              ; preds = %749
+747:                                              ; preds = %745
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %752 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %748 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit.i
 
-_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit.i: ; preds = %751, %749, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit.i3
-  %753 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %754 = icmp eq i8 %753, 0
-  br i1 %754, label %755, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit220, !prof !56
+_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit.i: ; preds = %747, %745, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit.i3
+  %749 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %750 = icmp eq i8 %749, 0
+  br i1 %750, label %751, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit220, !prof !56
 
-755:                                              ; preds = %_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit.i
-  %756 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i219 = icmp eq i32 %756, 0
-  br i1 %.not.i.i219, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit220, label %757
+751:                                              ; preds = %_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit.i
+  %752 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i219 = icmp eq i32 %752, 0
+  br i1 %.not.i.i219, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit220, label %753
 
-757:                                              ; preds = %755
+753:                                              ; preds = %751
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %758 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %754 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit220
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit220:   ; preds = %_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit.i, %755, %757
-  %759 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %760 = icmp eq i8 %759, 0
-  br i1 %760, label %761, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit218, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit220:   ; preds = %_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit.i, %751, %753
+  %755 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %756 = icmp eq i8 %755, 0
+  br i1 %756, label %757, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit218, !prof !56
 
-761:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit220
-  %762 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i217 = icmp eq i32 %762, 0
-  br i1 %.not.i.i217, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit218, label %763
+757:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit220
+  %758 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i217 = icmp eq i32 %758, 0
+  br i1 %.not.i.i217, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit218, label %759
 
-763:                                              ; preds = %761
+759:                                              ; preds = %757
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %764 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %760 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit218
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit218:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit220, %761, %763
-  %765 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %766 = icmp eq i8 %765, 0
-  br i1 %766, label %767, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit24.i, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit218:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit220, %757, %759
+  %761 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %762 = icmp eq i8 %761, 0
+  br i1 %762, label %763, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit24.i, !prof !56
 
-767:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit218
-  %768 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i23.i = icmp eq i32 %768, 0
-  br i1 %.not.i.i23.i, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit24.i, label %769
+763:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit218
+  %764 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i23.i = icmp eq i32 %764, 0
+  br i1 %.not.i.i23.i, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit24.i, label %765
 
-769:                                              ; preds = %767
+765:                                              ; preds = %763
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %770 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %766 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit24.i
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit24.i:  ; preds = %769, %767, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit218
-  %771 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %772 = icmp eq i8 %771, 0
-  br i1 %772, label %773, label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit.i, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit24.i:  ; preds = %765, %763, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit218
+  %767 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %768 = icmp eq i8 %767, 0
+  br i1 %768, label %769, label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit.i, !prof !56
 
-773:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit24.i
-  %774 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i25.i = icmp eq i32 %774, 0
-  br i1 %.not.i.i25.i, label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit.i, label %775
+769:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit24.i
+  %770 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i25.i = icmp eq i32 %770, 0
+  br i1 %.not.i.i25.i, label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit.i, label %771
 
-775:                                              ; preds = %773
+771:                                              ; preds = %769
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %776 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %772 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit.i
 
-_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit.i: ; preds = %775, %773, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit24.i
-  %777 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %778 = icmp eq i8 %777, 0
-  br i1 %778, label %779, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit216, !prof !56
+_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit.i: ; preds = %771, %769, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit24.i
+  %773 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %774 = icmp eq i8 %773, 0
+  br i1 %774, label %775, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit216, !prof !56
 
-779:                                              ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit.i
-  %780 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i215 = icmp eq i32 %780, 0
-  br i1 %.not.i.i215, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit216, label %781
+775:                                              ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit.i
+  %776 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i215 = icmp eq i32 %776, 0
+  br i1 %.not.i.i215, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit216, label %777
 
-781:                                              ; preds = %779
+777:                                              ; preds = %775
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %782 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %778 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit216
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit216:   ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit.i, %779, %781
-  %783 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %784 = icmp eq i8 %783, 0
-  br i1 %784, label %785, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit214, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit216:   ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit.i, %775, %777
+  %779 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %780 = icmp eq i8 %779, 0
+  br i1 %780, label %781, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit214, !prof !56
 
-785:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit216
-  %786 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i213 = icmp eq i32 %786, 0
-  br i1 %.not.i.i213, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit214, label %787
+781:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit216
+  %782 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i213 = icmp eq i32 %782, 0
+  br i1 %.not.i.i213, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit214, label %783
 
-787:                                              ; preds = %785
+783:                                              ; preds = %781
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %788 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %784 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit214
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit214:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit216, %785, %787
-  %789 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %790 = icmp eq i8 %789, 0
-  br i1 %790, label %791, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit212, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit214:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit216, %781, %783
+  %785 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %786 = icmp eq i8 %785, 0
+  br i1 %786, label %787, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit212, !prof !56
 
-791:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit214
-  %792 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i211 = icmp eq i32 %792, 0
-  br i1 %.not.i.i211, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit212, label %793
+787:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit214
+  %788 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i211 = icmp eq i32 %788, 0
+  br i1 %.not.i.i211, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit212, label %789
 
-793:                                              ; preds = %791
+789:                                              ; preds = %787
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %794 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %790 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit212
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit212:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit214, %791, %793
-  %795 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %796 = icmp eq i8 %795, 0
-  br i1 %796, label %797, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit32.i, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit212:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit214, %787, %789
+  %791 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %792 = icmp eq i8 %791, 0
+  br i1 %792, label %793, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit32.i, !prof !56
 
-797:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit212
-  %798 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i31.i = icmp eq i32 %798, 0
-  br i1 %.not.i.i31.i, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit32.i, label %799
+793:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit212
+  %794 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i31.i = icmp eq i32 %794, 0
+  br i1 %.not.i.i31.i, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit32.i, label %795
 
-799:                                              ; preds = %797
+795:                                              ; preds = %793
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %800 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %796 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit32.i
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit32.i:  ; preds = %799, %797, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit212
-  %801 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %802 = icmp eq i8 %801, 0
-  br i1 %802, label %803, label %_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit36.i, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit32.i:  ; preds = %795, %793, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit212
+  %797 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %798 = icmp eq i8 %797, 0
+  br i1 %798, label %799, label %_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit36.i, !prof !56
 
-803:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit32.i
-  %804 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i33.i = icmp eq i32 %804, 0
-  br i1 %.not.i.i33.i, label %_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit36.i, label %805
+799:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit32.i
+  %800 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i33.i = icmp eq i32 %800, 0
+  br i1 %.not.i.i33.i, label %_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit36.i, label %801
 
-805:                                              ; preds = %803
+801:                                              ; preds = %799
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %806 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %802 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit36.i
 
-_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit36.i: ; preds = %805, %803, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit32.i
-  %807 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %808 = icmp eq i8 %807, 0
-  br i1 %808, label %809, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit210, !prof !56
+_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit36.i: ; preds = %801, %799, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit32.i
+  %803 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %804 = icmp eq i8 %803, 0
+  br i1 %804, label %805, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit210, !prof !56
 
-809:                                              ; preds = %_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit36.i
-  %810 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i209 = icmp eq i32 %810, 0
-  br i1 %.not.i.i209, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit210, label %811
+805:                                              ; preds = %_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit36.i
+  %806 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i209 = icmp eq i32 %806, 0
+  br i1 %.not.i.i209, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit210, label %807
 
-811:                                              ; preds = %809
+807:                                              ; preds = %805
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %812 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %808 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit210
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit210:   ; preds = %_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit36.i, %809, %811
-  %813 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %814 = icmp eq i8 %813, 0
-  br i1 %814, label %815, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit208, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit210:   ; preds = %_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit36.i, %805, %807
+  %809 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %810 = icmp eq i8 %809, 0
+  br i1 %810, label %811, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit208, !prof !56
 
-815:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit210
-  %816 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i207 = icmp eq i32 %816, 0
-  br i1 %.not.i.i207, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit208, label %817
+811:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit210
+  %812 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i207 = icmp eq i32 %812, 0
+  br i1 %.not.i.i207, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit208, label %813
 
-817:                                              ; preds = %815
+813:                                              ; preds = %811
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %818 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %814 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit208
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit208:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit210, %815, %817
-  %819 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %820 = icmp eq i8 %819, 0
-  br i1 %820, label %821, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit206, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit208:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit210, %811, %813
+  %815 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %816 = icmp eq i8 %815, 0
+  br i1 %816, label %817, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit206, !prof !56
 
-821:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit208
-  %822 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i205 = icmp eq i32 %822, 0
-  br i1 %.not.i.i205, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit206, label %823
+817:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit208
+  %818 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i205 = icmp eq i32 %818, 0
+  br i1 %.not.i.i205, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit206, label %819
 
-823:                                              ; preds = %821
+819:                                              ; preds = %817
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %824 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %820 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit206
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit206:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit208, %821, %823
-  %825 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %826 = icmp eq i8 %825, 0
-  br i1 %826, label %827, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit41.i, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit206:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit208, %817, %819
+  %821 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %822 = icmp eq i8 %821, 0
+  br i1 %822, label %823, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit41.i, !prof !56
 
-827:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit206
-  %828 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i40.i = icmp eq i32 %828, 0
-  br i1 %.not.i.i40.i, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit41.i, label %829
+823:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit206
+  %824 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i40.i = icmp eq i32 %824, 0
+  br i1 %.not.i.i40.i, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit41.i, label %825
 
-829:                                              ; preds = %827
+825:                                              ; preds = %823
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %830 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %826 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit41.i
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit41.i:  ; preds = %829, %827, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit206
-  %831 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %832 = icmp eq i8 %831, 0
-  br i1 %832, label %833, label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit48.i, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit41.i:  ; preds = %825, %823, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit206
+  %827 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %828 = icmp eq i8 %827, 0
+  br i1 %828, label %829, label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit48.i, !prof !56
 
-833:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit41.i
-  %834 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i42.i = icmp eq i32 %834, 0
-  br i1 %.not.i.i42.i, label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit48.i, label %835
+829:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit41.i
+  %830 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i42.i = icmp eq i32 %830, 0
+  br i1 %.not.i.i42.i, label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit48.i, label %831
 
-835:                                              ; preds = %833
+831:                                              ; preds = %829
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %836 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %832 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit48.i
 
-_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit48.i: ; preds = %835, %833, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit41.i
-  %837 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %838 = icmp eq i8 %837, 0
-  br i1 %838, label %839, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit204, !prof !56
+_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit48.i: ; preds = %831, %829, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit41.i
+  %833 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %834 = icmp eq i8 %833, 0
+  br i1 %834, label %835, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit204, !prof !56
 
-839:                                              ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit48.i
-  %840 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i203 = icmp eq i32 %840, 0
-  br i1 %.not.i.i203, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit204, label %841
+835:                                              ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit48.i
+  %836 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i203 = icmp eq i32 %836, 0
+  br i1 %.not.i.i203, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit204, label %837
 
-841:                                              ; preds = %839
+837:                                              ; preds = %835
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %842 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %838 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit204
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit204:   ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit48.i, %839, %841
-  %843 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %844 = icmp eq i8 %843, 0
-  br i1 %844, label %845, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit202, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit204:   ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit48.i, %835, %837
+  %839 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %840 = icmp eq i8 %839, 0
+  br i1 %840, label %841, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit202, !prof !56
 
-845:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit204
-  %846 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i201 = icmp eq i32 %846, 0
-  br i1 %.not.i.i201, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit202, label %847
+841:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit204
+  %842 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i201 = icmp eq i32 %842, 0
+  br i1 %.not.i.i201, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit202, label %843
 
-847:                                              ; preds = %845
+843:                                              ; preds = %841
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %848 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %844 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit202
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit202:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit204, %845, %847
-  %849 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %850 = icmp eq i8 %849, 0
-  br i1 %850, label %851, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit200, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit202:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit204, %841, %843
+  %845 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %846 = icmp eq i8 %845, 0
+  br i1 %846, label %847, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit200, !prof !56
 
-851:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit202
-  %852 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i199 = icmp eq i32 %852, 0
-  br i1 %.not.i.i199, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit200, label %853
+847:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit202
+  %848 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i199 = icmp eq i32 %848, 0
+  br i1 %.not.i.i199, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit200, label %849
 
-853:                                              ; preds = %851
+849:                                              ; preds = %847
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %854 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %850 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit200
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit200:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit202, %851, %853
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit200:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit202, %847, %849
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.2) #35
-          to label %.noexc.i7 unwind label %855
+          to label %.noexc.i7 unwind label %851
 
 .noexc.i7:                                        ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit200
   unreachable
 
-855:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit200
-  %856 = landingpad { ptr, i32 }
+851:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit200
+  %852 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %.0.i4 = extractvalue { ptr, i32 } %856, 0
-  %.010.i = extractvalue { ptr, i32 } %856, 1
-  %857 = icmp eq i32 %.010.i, %133
-  %858 = call ptr @__cxa_begin_catch(ptr %.0.i4) #36
-  br i1 %857, label %859, label %866
+  %.0.i4 = extractvalue { ptr, i32 } %852, 0
+  %.010.i = extractvalue { ptr, i32 } %852, 1
+  %853 = icmp eq i32 %.010.i, %132
+  %854 = call ptr @__cxa_begin_catch(ptr %.0.i4) #36
+  br i1 %853, label %855, label %862
 
-859:                                              ; preds = %855
-  %860 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %861 = icmp eq i8 %860, 0
-  br i1 %861, label %862, label %_ZN5boost6detail12test_resultsEv.exit198, !prof !56
+855:                                              ; preds = %851
+  %856 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %857 = icmp eq i8 %856, 0
+  br i1 %857, label %858, label %_ZN5boost6detail12test_resultsEv.exit198, !prof !56
 
-862:                                              ; preds = %859
-  %863 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i197 = icmp eq i32 %863, 0
-  br i1 %.not.i197, label %_ZN5boost6detail12test_resultsEv.exit198, label %864
+858:                                              ; preds = %855
+  %859 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i197 = icmp eq i32 %859, 0
+  br i1 %.not.i197, label %_ZN5boost6detail12test_resultsEv.exit198, label %860
 
-864:                                              ; preds = %862
+860:                                              ; preds = %858
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %865 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %861 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail12test_resultsEv.exit198
 
-_ZN5boost6detail12test_resultsEv.exit198:         ; preds = %864, %862, %859, %866
+_ZN5boost6detail12test_resultsEv.exit198:         ; preds = %860, %858, %855, %862
   call void @__cxa_end_catch()
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.2) #35
-          to label %.noexc53.i6 unwind label %869
+          to label %.noexc53.i6 unwind label %865
 
 .noexc53.i6:                                      ; preds = %_ZN5boost6detail12test_resultsEv.exit198
   unreachable
 
-866:                                              ; preds = %855
+862:                                              ; preds = %851
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.5623, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 944, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testCapacityEv)
-          to label %_ZN5boost6detail12test_resultsEv.exit198 unwind label %867
+          to label %_ZN5boost6detail12test_resultsEv.exit198 unwind label %863
 
-867:                                              ; preds = %866
-  %868 = landingpad { ptr, i32 }
+863:                                              ; preds = %862
+  %864 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %977
+          to label %common.resume unwind label %973
 
-869:                                              ; preds = %_ZN5boost6detail12test_resultsEv.exit198
-  %870 = landingpad { ptr, i32 }
+865:                                              ; preds = %_ZN5boost6detail12test_resultsEv.exit198
+  %866 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %.2.i5 = extractvalue { ptr, i32 } %870, 0
-  %.212.i = extractvalue { ptr, i32 } %870, 1
-  %871 = icmp eq i32 %.212.i, %133
-  %872 = call ptr @__cxa_begin_catch(ptr %.2.i5) #36
-  br i1 %871, label %873, label %958
+  %.2.i5 = extractvalue { ptr, i32 } %866, 0
+  %.212.i = extractvalue { ptr, i32 } %866, 1
+  %867 = icmp eq i32 %.212.i, %132
+  %868 = call ptr @__cxa_begin_catch(ptr %.2.i5) #36
+  br i1 %867, label %869, label %954
 
-873:                                              ; preds = %869
-  %874 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %875 = icmp eq i8 %874, 0
-  br i1 %875, label %876, label %_ZN5boost6detail12test_resultsEv.exit196, !prof !56
+869:                                              ; preds = %865
+  %870 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %871 = icmp eq i8 %870, 0
+  br i1 %871, label %872, label %_ZN5boost6detail12test_resultsEv.exit196, !prof !56
 
-876:                                              ; preds = %873
-  %877 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i195 = icmp eq i32 %877, 0
-  br i1 %.not.i195, label %_ZN5boost6detail12test_resultsEv.exit196, label %878
+872:                                              ; preds = %869
+  %873 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i195 = icmp eq i32 %873, 0
+  br i1 %.not.i195, label %_ZN5boost6detail12test_resultsEv.exit196, label %874
 
-878:                                              ; preds = %876
+874:                                              ; preds = %872
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %879 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %875 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail12test_resultsEv.exit196
 
-_ZN5boost6detail12test_resultsEv.exit196:         ; preds = %878, %876, %873, %958
+_ZN5boost6detail12test_resultsEv.exit196:         ; preds = %874, %872, %869, %954
   call void @__cxa_end_catch()
-  %880 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %881 = icmp eq i8 %880, 0
-  br i1 %881, label %882, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit55.i, !prof !56
+  %876 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %877 = icmp eq i8 %876, 0
+  br i1 %877, label %878, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit55.i, !prof !56
 
-882:                                              ; preds = %_ZN5boost6detail12test_resultsEv.exit196
-  %883 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i54.i = icmp eq i32 %883, 0
-  br i1 %.not.i.i54.i, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit55.i, label %884
+878:                                              ; preds = %_ZN5boost6detail12test_resultsEv.exit196
+  %879 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i54.i = icmp eq i32 %879, 0
+  br i1 %.not.i.i54.i, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit55.i, label %880
 
-884:                                              ; preds = %882
+880:                                              ; preds = %878
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %885 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %881 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit55.i
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit55.i:  ; preds = %884, %882, %_ZN5boost6detail12test_resultsEv.exit196
-  %886 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %887 = icmp eq i8 %886, 0
-  br i1 %887, label %888, label %_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit59.i, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit55.i:  ; preds = %880, %878, %_ZN5boost6detail12test_resultsEv.exit196
+  %882 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %883 = icmp eq i8 %882, 0
+  br i1 %883, label %884, label %_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit59.i, !prof !56
 
-888:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit55.i
-  %889 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i56.i = icmp eq i32 %889, 0
-  br i1 %.not.i.i56.i, label %_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit59.i, label %890
+884:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit55.i
+  %885 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i56.i = icmp eq i32 %885, 0
+  br i1 %.not.i.i56.i, label %_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit59.i, label %886
 
-890:                                              ; preds = %888
+886:                                              ; preds = %884
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %891 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %887 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit59.i
 
-_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit59.i: ; preds = %890, %888, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit55.i
-  %892 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %893 = icmp eq i8 %892, 0
-  br i1 %893, label %894, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit194, !prof !56
+_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit59.i: ; preds = %886, %884, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit55.i
+  %888 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %889 = icmp eq i8 %888, 0
+  br i1 %889, label %890, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit194, !prof !56
 
-894:                                              ; preds = %_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit59.i
-  %895 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i193 = icmp eq i32 %895, 0
-  br i1 %.not.i.i193, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit194, label %896
+890:                                              ; preds = %_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit59.i
+  %891 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i193 = icmp eq i32 %891, 0
+  br i1 %.not.i.i193, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit194, label %892
 
-896:                                              ; preds = %894
+892:                                              ; preds = %890
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %897 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %893 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit194
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit194:   ; preds = %_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit59.i, %894, %896
-  %898 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %899 = icmp eq i8 %898, 0
-  br i1 %899, label %900, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit192, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit194:   ; preds = %_ZN5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEEC2EPKc.exit59.i, %890, %892
+  %894 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %895 = icmp eq i8 %894, 0
+  br i1 %895, label %896, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit192, !prof !56
 
-900:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit194
-  %901 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i191 = icmp eq i32 %901, 0
-  br i1 %.not.i.i191, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit192, label %902
+896:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit194
+  %897 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i191 = icmp eq i32 %897, 0
+  br i1 %.not.i.i191, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit192, label %898
 
-902:                                              ; preds = %900
+898:                                              ; preds = %896
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %903 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %899 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit192
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit192:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit194, %900, %902
-  %904 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %905 = icmp eq i8 %904, 0
-  br i1 %905, label %906, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit190, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit192:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit194, %896, %898
+  %900 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %901 = icmp eq i8 %900, 0
+  br i1 %901, label %902, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit190, !prof !56
 
-906:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit192
-  %907 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i189 = icmp eq i32 %907, 0
-  br i1 %.not.i.i189, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit190, label %908
+902:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit192
+  %903 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i189 = icmp eq i32 %903, 0
+  br i1 %.not.i.i189, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit190, label %904
 
-908:                                              ; preds = %906
+904:                                              ; preds = %902
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %909 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %905 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit190
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit190:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit192, %906, %908
-  %910 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %911 = icmp eq i8 %910, 0
-  br i1 %911, label %912, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit188, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit190:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit192, %902, %904
+  %906 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %907 = icmp eq i8 %906, 0
+  br i1 %907, label %908, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit188, !prof !56
 
-912:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit190
-  %913 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i187 = icmp eq i32 %913, 0
-  br i1 %.not.i.i187, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit188, label %914
+908:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit190
+  %909 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i187 = icmp eq i32 %909, 0
+  br i1 %.not.i.i187, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit188, label %910
 
-914:                                              ; preds = %912
+910:                                              ; preds = %908
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %915 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %911 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit188
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit188:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit190, %912, %914
-  %916 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %917 = icmp eq i8 %916, 0
-  br i1 %917, label %918, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit186, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit188:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit190, %908, %910
+  %912 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %913 = icmp eq i8 %912, 0
+  br i1 %913, label %914, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit186, !prof !56
 
-918:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit188
-  %919 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i185 = icmp eq i32 %919, 0
-  br i1 %.not.i.i185, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit186, label %920
+914:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit188
+  %915 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i185 = icmp eq i32 %915, 0
+  br i1 %.not.i.i185, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit186, label %916
 
-920:                                              ; preds = %918
+916:                                              ; preds = %914
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %921 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %917 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit186
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit186:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit188, %918, %920
-  %922 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %923 = icmp eq i8 %922, 0
-  br i1 %923, label %924, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit184, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit186:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit188, %914, %916
+  %918 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %919 = icmp eq i8 %918, 0
+  br i1 %919, label %920, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit184, !prof !56
 
-924:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit186
-  %925 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i183 = icmp eq i32 %925, 0
-  br i1 %.not.i.i183, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit184, label %926
+920:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit186
+  %921 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i183 = icmp eq i32 %921, 0
+  br i1 %.not.i.i183, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit184, label %922
 
-926:                                              ; preds = %924
+922:                                              ; preds = %920
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %927 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %923 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit184
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit184:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit186, %924, %926
-  %928 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %929 = icmp eq i8 %928, 0
-  br i1 %929, label %930, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit65.i, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit184:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit186, %920, %922
+  %924 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %925 = icmp eq i8 %924, 0
+  br i1 %925, label %926, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit65.i, !prof !56
 
-930:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit184
-  %931 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i64.i = icmp eq i32 %931, 0
-  br i1 %.not.i.i64.i, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit65.i, label %932
+926:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit184
+  %927 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i64.i = icmp eq i32 %927, 0
+  br i1 %.not.i.i64.i, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit65.i, label %928
 
-932:                                              ; preds = %930
+928:                                              ; preds = %926
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %933 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %929 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit65.i
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit65.i:  ; preds = %932, %930, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit184
-  %934 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %935 = icmp eq i8 %934, 0
-  br i1 %935, label %936, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit67.i, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit65.i:  ; preds = %928, %926, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit184
+  %930 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %931 = icmp eq i8 %930, 0
+  br i1 %931, label %932, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit67.i, !prof !56
 
-936:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit65.i
-  %937 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i66.i = icmp eq i32 %937, 0
-  br i1 %.not.i.i66.i, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit67.i, label %938
+932:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit65.i
+  %933 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i66.i = icmp eq i32 %933, 0
+  br i1 %.not.i.i66.i, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit67.i, label %934
 
-938:                                              ; preds = %936
+934:                                              ; preds = %932
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %939 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %935 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit67.i
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit67.i:  ; preds = %938, %936, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit65.i
-  %940 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %941 = icmp eq i8 %940, 0
-  br i1 %941, label %942, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit182, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit67.i:  ; preds = %934, %932, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit65.i
+  %936 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %937 = icmp eq i8 %936, 0
+  br i1 %937, label %938, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit182, !prof !56
 
-942:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit67.i
-  %943 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i181 = icmp eq i32 %943, 0
-  br i1 %.not.i.i181, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit182, label %944
+938:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit67.i
+  %939 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i181 = icmp eq i32 %939, 0
+  br i1 %.not.i.i181, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit182, label %940
 
-944:                                              ; preds = %942
+940:                                              ; preds = %938
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %945 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %941 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit182
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit182:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit67.i, %942, %944
-  %946 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %947 = icmp eq i8 %946, 0
-  br i1 %947, label %948, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit180, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit182:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit67.i, %938, %940
+  %942 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %943 = icmp eq i8 %942, 0
+  br i1 %943, label %944, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit180, !prof !56
 
-948:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit182
-  %949 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i179 = icmp eq i32 %949, 0
-  br i1 %.not.i.i179, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit180, label %950
+944:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit182
+  %945 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i179 = icmp eq i32 %945, 0
+  br i1 %.not.i.i179, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit180, label %946
 
-950:                                              ; preds = %948
+946:                                              ; preds = %944
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %951 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %947 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit180
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit180:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit182, %948, %950
-  %952 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %953 = icmp eq i8 %952, 0
-  br i1 %953, label %954, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit178, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit180:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit182, %944, %946
+  %948 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %949 = icmp eq i8 %948, 0
+  br i1 %949, label %950, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit178, !prof !56
 
-954:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit180
-  %955 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i177 = icmp eq i32 %955, 0
-  br i1 %.not.i.i177, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit178, label %956
+950:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit180
+  %951 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i177 = icmp eq i32 %951, 0
+  br i1 %.not.i.i177, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit178, label %952
 
-956:                                              ; preds = %954
+952:                                              ; preds = %950
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %957 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %953 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit178
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit178:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit180, %954, %956
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit178:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit180, %950, %952
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.2) #35
-          to label %.noexc68.i unwind label %961
+          to label %.noexc68.i unwind label %957
 
 .noexc68.i:                                       ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit178
   unreachable
 
-958:                                              ; preds = %869
+954:                                              ; preds = %865
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.5624, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 945, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testCapacityEv)
-          to label %_ZN5boost6detail12test_resultsEv.exit196 unwind label %959
+          to label %_ZN5boost6detail12test_resultsEv.exit196 unwind label %955
 
-959:                                              ; preds = %958
-  %960 = landingpad { ptr, i32 }
+955:                                              ; preds = %954
+  %956 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %977
+          to label %common.resume unwind label %973
 
-961:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit178
-  %962 = landingpad { ptr, i32 }
+957:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit178
+  %958 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %963 = extractvalue { ptr, i32 } %962, 0
-  %964 = extractvalue { ptr, i32 } %962, 1
-  %965 = icmp eq i32 %964, %133
-  %966 = call ptr @__cxa_begin_catch(ptr %963) #36
-  br i1 %965, label %967, label %974
+  %959 = extractvalue { ptr, i32 } %958, 0
+  %960 = extractvalue { ptr, i32 } %958, 1
+  %961 = icmp eq i32 %960, %132
+  %962 = call ptr @__cxa_begin_catch(ptr %959) #36
+  br i1 %961, label %963, label %970
 
-967:                                              ; preds = %961
-  %968 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %969 = icmp eq i8 %968, 0
-  br i1 %969, label %970, label %_ZN5boost14static_stringsL12testCapacityEv.exit, !prof !56
+963:                                              ; preds = %957
+  %964 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %965 = icmp eq i8 %964, 0
+  br i1 %965, label %966, label %_ZN5boost14static_stringsL12testCapacityEv.exit, !prof !56
 
-970:                                              ; preds = %967
-  %971 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i175 = icmp eq i32 %971, 0
-  br i1 %.not.i175, label %_ZN5boost14static_stringsL12testCapacityEv.exit, label %972
+966:                                              ; preds = %963
+  %967 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i175 = icmp eq i32 %967, 0
+  br i1 %.not.i175, label %_ZN5boost14static_stringsL12testCapacityEv.exit, label %968
 
-972:                                              ; preds = %970
+968:                                              ; preds = %966
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %973 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %969 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost14static_stringsL12testCapacityEv.exit
 
-974:                                              ; preds = %961
+970:                                              ; preds = %957
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.5636, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 970, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testCapacityEv)
-          to label %_ZN5boost14static_stringsL12testCapacityEv.exit unwind label %975
+          to label %_ZN5boost14static_stringsL12testCapacityEv.exit unwind label %971
 
-975:                                              ; preds = %974
-  %976 = landingpad { ptr, i32 }
+971:                                              ; preds = %970
+  %972 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %977
+          to label %common.resume unwind label %973
 
-977:                                              ; preds = %975, %959, %867
-  %978 = landingpad { ptr, i32 }
+973:                                              ; preds = %971, %955, %863
+  %974 = landingpad { ptr, i32 }
           catch ptr null
-  %979 = extractvalue { ptr, i32 } %978, 0
-  call void @__clang_call_terminate(ptr %979) #37
+  %975 = extractvalue { ptr, i32 } %974, 0
+  call void @__clang_call_terminate(ptr %975) #37
   unreachable
 
-_ZN5boost14static_stringsL12testCapacityEv.exit:  ; preds = %972, %970, %967, %974
+_ZN5boost14static_stringsL12testCapacityEv.exit:  ; preds = %968, %966, %963, %970
   call void @__cxa_end_catch()
-  %980 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %981 = icmp eq i8 %980, 0
-  br i1 %981, label %982, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit174, !prof !56
+  %976 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %977 = icmp eq i8 %976, 0
+  br i1 %977, label %978, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit174, !prof !56
 
-982:                                              ; preds = %_ZN5boost14static_stringsL12testCapacityEv.exit
-  %983 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i173 = icmp eq i32 %983, 0
-  br i1 %.not.i.i173, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit174, label %984
+978:                                              ; preds = %_ZN5boost14static_stringsL12testCapacityEv.exit
+  %979 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i173 = icmp eq i32 %979, 0
+  br i1 %.not.i.i173, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit174, label %980
 
-984:                                              ; preds = %982
+980:                                              ; preds = %978
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %985 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %981 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit174
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit174:   ; preds = %_ZN5boost14static_stringsL12testCapacityEv.exit, %982, %984
-  %986 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %987 = icmp eq i8 %986, 0
-  br i1 %987, label %988, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit172, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit174:   ; preds = %_ZN5boost14static_stringsL12testCapacityEv.exit, %978, %980
+  %982 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %983 = icmp eq i8 %982, 0
+  br i1 %983, label %984, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit172, !prof !56
 
-988:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit174
-  %989 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i171 = icmp eq i32 %989, 0
-  br i1 %.not.i.i171, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit172, label %990
+984:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit174
+  %985 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i171 = icmp eq i32 %985, 0
+  br i1 %.not.i.i171, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit172, label %986
 
-990:                                              ; preds = %988
+986:                                              ; preds = %984
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %991 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %987 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit172
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit172:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit174, %988, %990
-  %992 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %993 = icmp eq i8 %992, 0
-  br i1 %993, label %994, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit170, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit172:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit174, %984, %986
+  %988 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %989 = icmp eq i8 %988, 0
+  br i1 %989, label %990, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit170, !prof !56
 
-994:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit172
-  %995 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i169 = icmp eq i32 %995, 0
-  br i1 %.not.i.i169, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit170, label %996
+990:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit172
+  %991 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i169 = icmp eq i32 %991, 0
+  br i1 %.not.i.i169, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit170, label %992
 
-996:                                              ; preds = %994
+992:                                              ; preds = %990
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %997 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %993 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit170
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit170:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit172, %994, %996
-  %998 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %999 = icmp eq i8 %998, 0
-  br i1 %999, label %1000, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit168, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit170:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit172, %990, %992
+  %994 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %995 = icmp eq i8 %994, 0
+  br i1 %995, label %996, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit168, !prof !56
 
-1000:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit170
-  %1001 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i167 = icmp eq i32 %1001, 0
-  br i1 %.not.i.i167, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit168, label %1002
+996:                                              ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit170
+  %997 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i167 = icmp eq i32 %997, 0
+  br i1 %.not.i.i167, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit168, label %998
 
-1002:                                             ; preds = %1000
+998:                                              ; preds = %996
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1003 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %999 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit168
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit168:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit170, %1000, %1002
-  %1004 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1005 = icmp eq i8 %1004, 0
-  br i1 %1005, label %1006, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit224, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit168:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit170, %996, %998
+  %1000 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1001 = icmp eq i8 %1000, 0
+  br i1 %1001, label %1002, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit224, !prof !56
 
-1006:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit168
-  %1007 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i223 = icmp eq i32 %1007, 0
-  br i1 %.not.i.i223, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit224, label %1008
+1002:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit168
+  %1003 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i223 = icmp eq i32 %1003, 0
+  br i1 %.not.i.i223, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit224, label %1004
 
-1008:                                             ; preds = %1006
+1004:                                             ; preds = %1002
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1009 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1005 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit224
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit224:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit168, %1006, %1008
-  %1010 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1011 = icmp eq i8 %1010, 0
-  br i1 %1011, label %1012, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit222, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit224:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit168, %1002, %1004
+  %1006 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1007 = icmp eq i8 %1006, 0
+  br i1 %1007, label %1008, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit222, !prof !56
 
-1012:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit224
-  %1013 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i221 = icmp eq i32 %1013, 0
-  br i1 %.not.i.i221, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit222, label %1014
+1008:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit224
+  %1009 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i221 = icmp eq i32 %1009, 0
+  br i1 %.not.i.i221, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit222, label %1010
 
-1014:                                             ; preds = %1012
+1010:                                             ; preds = %1008
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1015 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1011 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit222
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit222:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit224, %1012, %1014
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit222:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit224, %1008, %1010
   call fastcc void @_ZN5boost14static_stringsL10testInsertEv()
   call fastcc void @_ZN5boost14static_stringsL9testEraseEv()
-  %1016 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1017 = icmp eq i8 %1016, 0
-  br i1 %1017, label %1018, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit230, !prof !56
+  %1012 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1013 = icmp eq i8 %1012, 0
+  br i1 %1013, label %1014, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit230, !prof !56
 
-1018:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit222
-  %1019 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i229 = icmp eq i32 %1019, 0
-  br i1 %.not.i.i229, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit230, label %1020
+1014:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit222
+  %1015 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i229 = icmp eq i32 %1015, 0
+  br i1 %.not.i.i229, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit230, label %1016
 
-1020:                                             ; preds = %1018
+1016:                                             ; preds = %1014
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1021 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1017 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit230
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit230:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit222, %1018, %1020
-  %1022 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1023 = icmp eq i8 %1022, 0
-  br i1 %1023, label %1024, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit228, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit230:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit222, %1014, %1016
+  %1018 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1019 = icmp eq i8 %1018, 0
+  br i1 %1019, label %1020, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit228, !prof !56
 
-1024:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit230
-  %1025 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i227 = icmp eq i32 %1025, 0
-  br i1 %.not.i.i227, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit228, label %1026
+1020:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit230
+  %1021 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i227 = icmp eq i32 %1021, 0
+  br i1 %.not.i.i227, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit228, label %1022
 
-1026:                                             ; preds = %1024
+1022:                                             ; preds = %1020
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1027 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1023 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit228
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit228:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit230, %1024, %1026
-  %1028 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1029 = icmp eq i8 %1028, 0
-  br i1 %1029, label %1030, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit226, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit228:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit230, %1020, %1022
+  %1024 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1025 = icmp eq i8 %1024, 0
+  br i1 %1025, label %1026, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit226, !prof !56
 
-1030:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit228
-  %1031 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i225 = icmp eq i32 %1031, 0
-  br i1 %.not.i.i225, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit226, label %1032
+1026:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit228
+  %1027 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i225 = icmp eq i32 %1027, 0
+  br i1 %.not.i.i225, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit226, label %1028
 
-1032:                                             ; preds = %1030
+1028:                                             ; preds = %1026
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1033 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1029 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit226
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit226:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit228, %1030, %1032
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit226:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit228, %1026, %1028
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %60) #36
   %scevgep.i.i1.i = getelementptr inbounds nuw i8, ptr %60, i64 1
   store i8 3, ptr %60, align 1, !tbaa !1608
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %scevgep.i.i1.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.6063, i64 3, i1 false)
-  %1034 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  store i8 0, ptr %1034, align 1, !tbaa !9
+  %1030 = getelementptr inbounds nuw i8, ptr %60, i64 4
+  store i8 0, ptr %1030, align 1, !tbaa !9
   br label %.lr.ph.i6.i
 
-.lr.ph.i6.i:                                      ; preds = %1040, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit226
-  %1035 = phi i8 [ %1041, %1040 ], [ 3, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit226 ]
-  %.017.i7.i = phi ptr [ %.1.i10.i, %1040 ], [ %scevgep.i.i1.i, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit226 ]
-  %.01316.i8.i = phi ptr [ %1042, %1040 ], [ %scevgep.i.i1.i, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit226 ]
-  %1036 = load i8, ptr %.01316.i8.i, align 1, !tbaa !9
-  %1037 = icmp eq i8 %1036, 97
-  br i1 %1037, label %1040, label %1038
+.lr.ph.i6.i:                                      ; preds = %1036, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit226
+  %1031 = phi i8 [ %1037, %1036 ], [ 3, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit226 ]
+  %.017.i7.i = phi ptr [ %.1.i10.i, %1036 ], [ %scevgep.i.i1.i, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit226 ]
+  %.01316.i8.i = phi ptr [ %1038, %1036 ], [ %scevgep.i.i1.i, %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit226 ]
+  %1032 = load i8, ptr %.01316.i8.i, align 1, !tbaa !9
+  %1033 = icmp eq i8 %1032, 97
+  br i1 %1033, label %1036, label %1034
 
-1038:                                             ; preds = %.lr.ph.i6.i
-  %1039 = getelementptr inbounds nuw i8, ptr %.017.i7.i, i64 1
-  store i8 %1036, ptr %.017.i7.i, align 1, !tbaa !9
+1034:                                             ; preds = %.lr.ph.i6.i
+  %1035 = getelementptr inbounds nuw i8, ptr %.017.i7.i, i64 1
+  store i8 %1032, ptr %.017.i7.i, align 1, !tbaa !9
   %.pre.i9.i = load i8, ptr %60, align 1, !tbaa !1608
-  br label %1040
+  br label %1036
 
-1040:                                             ; preds = %1038, %.lr.ph.i6.i
-  %1041 = phi i8 [ %1035, %.lr.ph.i6.i ], [ %.pre.i9.i, %1038 ]
-  %.1.i10.i = phi ptr [ %.017.i7.i, %.lr.ph.i6.i ], [ %1039, %1038 ]
-  %1042 = getelementptr inbounds nuw i8, ptr %.01316.i8.i, i64 1
-  %1043 = zext i8 %1041 to i64
-  %1044 = getelementptr inbounds nuw i8, ptr %scevgep.i.i1.i, i64 %1043
-  %.not.i11.i = icmp eq ptr %1042, %1044
+1036:                                             ; preds = %1034, %.lr.ph.i6.i
+  %1037 = phi i8 [ %1031, %.lr.ph.i6.i ], [ %.pre.i9.i, %1034 ]
+  %.1.i10.i = phi ptr [ %.017.i7.i, %.lr.ph.i6.i ], [ %1035, %1034 ]
+  %1038 = getelementptr inbounds nuw i8, ptr %.01316.i8.i, i64 1
+  %1039 = zext i8 %1037 to i64
+  %1040 = getelementptr inbounds nuw i8, ptr %scevgep.i.i1.i, i64 %1039
+  %.not.i11.i = icmp eq ptr %1038, %1040
   br i1 %.not.i11.i, label %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_1EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i", label %.lr.ph.i6.i, !llvm.loop !1610
 
-"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_1EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i": ; preds = %1040
-  %1045 = ptrtoint ptr %1042 to i64
-  %1046 = ptrtoint ptr %.1.i10.i to i64
-  %1047 = sub i64 %1045, %1046
-  %1048 = ptrtoint ptr %scevgep.i.i1.i to i64
-  %1049 = sub i64 %1046, %1048
-  %1050 = getelementptr inbounds nuw i8, ptr %scevgep.i.i1.i, i64 %1049
-  %1051 = load i8, ptr %1042, align 1
-  store i8 %1051, ptr %1050, align 1
-  %.neg.i.i15.i = sub i64 %1046, %1045
-  %1052 = trunc i64 %.neg.i.i15.i to i8
-  %1053 = add i8 %1041, %1052
-  store i8 %1053, ptr %60, align 1, !tbaa !1608
-  %1054 = icmp eq i64 %1047, 3
-  %1055 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6064, ptr noundef nonnull @.str.13, i32 noundef 2003, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %1054)
-  %1056 = load i8, ptr %60, align 1, !tbaa !1608
-  %or.cond.not.i16.i = icmp eq i8 %1056, 0
-  %1057 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5437, ptr noundef nonnull @.str.13, i32 noundef 2004, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %or.cond.not.i16.i)
-  %1058 = load i8, ptr %60, align 1, !tbaa !1608
-  %1059 = zext i8 %1058 to i64
-  %1060 = getelementptr inbounds nuw i8, ptr %scevgep.i.i1.i, i64 %1059
-  %1061 = load i8, ptr %1060, align 1, !tbaa !9
-  %1062 = icmp eq i8 %1061, 0
-  %1063 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5438, ptr noundef nonnull @.str.13, i32 noundef 2005, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %1062)
+"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_1EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i": ; preds = %1036
+  %1041 = ptrtoint ptr %1038 to i64
+  %1042 = ptrtoint ptr %.1.i10.i to i64
+  %1043 = sub i64 %1041, %1042
+  %1044 = ptrtoint ptr %scevgep.i.i1.i to i64
+  %1045 = sub i64 %1042, %1044
+  %1046 = getelementptr inbounds nuw i8, ptr %scevgep.i.i1.i, i64 %1045
+  %1047 = load i8, ptr %1038, align 1
+  store i8 %1047, ptr %1046, align 1
+  %.neg.i.i15.i = sub i64 %1042, %1041
+  %1048 = trunc i64 %.neg.i.i15.i to i8
+  %1049 = add i8 %1037, %1048
+  store i8 %1049, ptr %60, align 1, !tbaa !1608
+  %1050 = icmp eq i64 %1043, 3
+  %1051 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6064, ptr noundef nonnull @.str.13, i32 noundef 2003, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %1050)
+  %1052 = load i8, ptr %60, align 1, !tbaa !1608
+  %or.cond.not.i16.i = icmp eq i8 %1052, 0
+  %1053 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5437, ptr noundef nonnull @.str.13, i32 noundef 2004, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %or.cond.not.i16.i)
+  %1054 = load i8, ptr %60, align 1, !tbaa !1608
+  %1055 = zext i8 %1054 to i64
+  %1056 = getelementptr inbounds nuw i8, ptr %scevgep.i.i1.i, i64 %1055
+  %1057 = load i8, ptr %1056, align 1, !tbaa !9
+  %1058 = icmp eq i8 %1057, 0
+  %1059 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5438, ptr noundef nonnull @.str.13, i32 noundef 2005, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %1058)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %60) #36
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %61) #36
   %scevgep.i.i20.i = getelementptr inbounds nuw i8, ptr %61, i64 1
   store i8 3, ptr %61, align 1, !tbaa !1608
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %scevgep.i.i20.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.5475, i64 3, i1 false)
-  %1064 = getelementptr inbounds nuw i8, ptr %61, i64 4
-  store i8 0, ptr %1064, align 1, !tbaa !9
+  %1060 = getelementptr inbounds nuw i8, ptr %61, i64 4
+  store i8 0, ptr %1060, align 1, !tbaa !9
   br label %.lr.ph.i25.i
 
-.lr.ph.i25.i:                                     ; preds = %1070, %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_1EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i"
-  %1065 = phi i8 [ %1071, %1070 ], [ 3, %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_1EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i" ]
-  %.017.i26.i = phi ptr [ %.1.i29.i, %1070 ], [ %scevgep.i.i20.i, %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_1EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i" ]
-  %.01316.i27.i = phi ptr [ %1072, %1070 ], [ %scevgep.i.i20.i, %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_1EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i" ]
-  %1066 = load i8, ptr %.01316.i27.i, align 1, !tbaa !9
-  %1067 = icmp eq i8 %1066, 97
-  br i1 %1067, label %1070, label %1068
+.lr.ph.i25.i:                                     ; preds = %1066, %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_1EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i"
+  %1061 = phi i8 [ %1067, %1066 ], [ 3, %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_1EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i" ]
+  %.017.i26.i = phi ptr [ %.1.i29.i, %1066 ], [ %scevgep.i.i20.i, %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_1EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i" ]
+  %.01316.i27.i = phi ptr [ %1068, %1066 ], [ %scevgep.i.i20.i, %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_1EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i" ]
+  %1062 = load i8, ptr %.01316.i27.i, align 1, !tbaa !9
+  %1063 = icmp eq i8 %1062, 97
+  br i1 %1063, label %1066, label %1064
 
-1068:                                             ; preds = %.lr.ph.i25.i
-  %1069 = getelementptr inbounds nuw i8, ptr %.017.i26.i, i64 1
-  store i8 %1066, ptr %.017.i26.i, align 1, !tbaa !9
+1064:                                             ; preds = %.lr.ph.i25.i
+  %1065 = getelementptr inbounds nuw i8, ptr %.017.i26.i, i64 1
+  store i8 %1062, ptr %.017.i26.i, align 1, !tbaa !9
   %.pre.i28.i = load i8, ptr %61, align 1, !tbaa !1608
-  br label %1070
+  br label %1066
 
-1070:                                             ; preds = %1068, %.lr.ph.i25.i
-  %1071 = phi i8 [ %1065, %.lr.ph.i25.i ], [ %.pre.i28.i, %1068 ]
-  %.1.i29.i = phi ptr [ %.017.i26.i, %.lr.ph.i25.i ], [ %1069, %1068 ]
-  %1072 = getelementptr inbounds nuw i8, ptr %.01316.i27.i, i64 1
-  %1073 = zext i8 %1071 to i64
-  %1074 = getelementptr inbounds nuw i8, ptr %scevgep.i.i20.i, i64 %1073
-  %.not.i30.i = icmp eq ptr %1072, %1074
+1066:                                             ; preds = %1064, %.lr.ph.i25.i
+  %1067 = phi i8 [ %1061, %.lr.ph.i25.i ], [ %.pre.i28.i, %1064 ]
+  %.1.i29.i = phi ptr [ %.017.i26.i, %.lr.ph.i25.i ], [ %1065, %1064 ]
+  %1068 = getelementptr inbounds nuw i8, ptr %.01316.i27.i, i64 1
+  %1069 = zext i8 %1067 to i64
+  %1070 = getelementptr inbounds nuw i8, ptr %scevgep.i.i20.i, i64 %1069
+  %.not.i30.i = icmp eq ptr %1068, %1070
   br i1 %.not.i30.i, label %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_2EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i", label %.lr.ph.i25.i, !llvm.loop !1611
 
-"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_2EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i": ; preds = %1070
-  %1075 = ptrtoint ptr %1072 to i64
-  %1076 = ptrtoint ptr %.1.i29.i to i64
-  %1077 = sub i64 %1075, %1076
-  %1078 = ptrtoint ptr %scevgep.i.i20.i to i64
-  %1079 = sub i64 %1076, %1078
-  %1080 = getelementptr inbounds nuw i8, ptr %scevgep.i.i20.i, i64 %1079
-  %1081 = load i8, ptr %1072, align 1
-  store i8 %1081, ptr %1080, align 1
-  %.neg.i.i34.i = sub i64 %1076, %1075
-  %1082 = trunc i64 %.neg.i.i34.i to i8
-  %1083 = add i8 %1071, %1082
-  store i8 %1083, ptr %61, align 1, !tbaa !1608
-  %1084 = icmp eq i64 %1077, 1
-  %1085 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6065, ptr noundef nonnull @.str.13, i32 noundef 2009, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %1084)
-  %1086 = load i8, ptr %61, align 1, !tbaa !1608
-  %or.cond.not.i35.i = icmp eq i8 %1086, 2
-  br i1 %or.cond.not.i35.i, label %1087, label %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit38.i
+"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_2EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i": ; preds = %1066
+  %1071 = ptrtoint ptr %1068 to i64
+  %1072 = ptrtoint ptr %.1.i29.i to i64
+  %1073 = sub i64 %1071, %1072
+  %1074 = ptrtoint ptr %scevgep.i.i20.i to i64
+  %1075 = sub i64 %1072, %1074
+  %1076 = getelementptr inbounds nuw i8, ptr %scevgep.i.i20.i, i64 %1075
+  %1077 = load i8, ptr %1068, align 1
+  store i8 %1077, ptr %1076, align 1
+  %.neg.i.i34.i = sub i64 %1072, %1071
+  %1078 = trunc i64 %.neg.i.i34.i to i8
+  %1079 = add i8 %1067, %1078
+  store i8 %1079, ptr %61, align 1, !tbaa !1608
+  %1080 = icmp eq i64 %1073, 1
+  %1081 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6065, ptr noundef nonnull @.str.13, i32 noundef 2009, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %1080)
+  %1082 = load i8, ptr %61, align 1, !tbaa !1608
+  %or.cond.not.i35.i = icmp eq i8 %1082, 2
+  br i1 %or.cond.not.i35.i, label %1083, label %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit38.i
 
-1087:                                             ; preds = %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_2EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i"
+1083:                                             ; preds = %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_2EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i"
   %bcmp.i37.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %scevgep.i.i20.i, ptr noundef nonnull dereferenceable(2) @.str.5638, i64 2)
-  %1088 = icmp eq i32 %bcmp.i37.i, 0
+  %1084 = icmp eq i32 %bcmp.i37.i, 0
   br label %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit38.i
 
-_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit38.i: ; preds = %1087, %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_2EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i"
-  %.0.i.i36.i = phi i1 [ %1088, %1087 ], [ false, %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_2EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i" ]
-  %1089 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6066, ptr noundef nonnull @.str.13, i32 noundef 2010, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %.0.i.i36.i)
-  %1090 = load i8, ptr %61, align 1, !tbaa !1608
-  %1091 = zext i8 %1090 to i64
-  %1092 = getelementptr inbounds nuw i8, ptr %scevgep.i.i20.i, i64 %1091
-  %1093 = load i8, ptr %1092, align 1, !tbaa !9
-  %1094 = icmp eq i8 %1093, 0
-  %1095 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5438, ptr noundef nonnull @.str.13, i32 noundef 2011, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %1094)
+_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit38.i: ; preds = %1083, %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_2EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i"
+  %.0.i.i36.i = phi i1 [ %1084, %1083 ], [ false, %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_2EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i" ]
+  %1085 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6066, ptr noundef nonnull @.str.13, i32 noundef 2010, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %.0.i.i36.i)
+  %1086 = load i8, ptr %61, align 1, !tbaa !1608
+  %1087 = zext i8 %1086 to i64
+  %1088 = getelementptr inbounds nuw i8, ptr %scevgep.i.i20.i, i64 %1087
+  %1089 = load i8, ptr %1088, align 1, !tbaa !9
+  %1090 = icmp eq i8 %1089, 0
+  %1091 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5438, ptr noundef nonnull @.str.13, i32 noundef 2011, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %1090)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %61) #36
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %62) #36
   %scevgep.i.i39.i = getelementptr inbounds nuw i8, ptr %62, i64 1
   store i8 3, ptr %62, align 1, !tbaa !1608
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %scevgep.i.i39.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.5475, i64 3, i1 false)
-  %1096 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  store i8 0, ptr %1096, align 1, !tbaa !9
+  %1092 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  store i8 0, ptr %1092, align 1, !tbaa !9
   br label %.lr.ph.i44.i
 
-.lr.ph.i44.i:                                     ; preds = %1102, %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit38.i
-  %1097 = phi i8 [ %1103, %1102 ], [ 3, %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit38.i ]
-  %.017.i45.i = phi ptr [ %.1.i48.i, %1102 ], [ %scevgep.i.i39.i, %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit38.i ]
-  %.01316.i46.i = phi ptr [ %1104, %1102 ], [ %scevgep.i.i39.i, %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit38.i ]
-  %1098 = load i8, ptr %.01316.i46.i, align 1, !tbaa !9
-  %1099 = icmp eq i8 %1098, 98
-  br i1 %1099, label %1102, label %1100
+.lr.ph.i44.i:                                     ; preds = %1098, %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit38.i
+  %1093 = phi i8 [ %1099, %1098 ], [ 3, %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit38.i ]
+  %.017.i45.i = phi ptr [ %.1.i48.i, %1098 ], [ %scevgep.i.i39.i, %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit38.i ]
+  %.01316.i46.i = phi ptr [ %1100, %1098 ], [ %scevgep.i.i39.i, %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit38.i ]
+  %1094 = load i8, ptr %.01316.i46.i, align 1, !tbaa !9
+  %1095 = icmp eq i8 %1094, 98
+  br i1 %1095, label %1098, label %1096
 
-1100:                                             ; preds = %.lr.ph.i44.i
-  %1101 = getelementptr inbounds nuw i8, ptr %.017.i45.i, i64 1
-  store i8 %1098, ptr %.017.i45.i, align 1, !tbaa !9
+1096:                                             ; preds = %.lr.ph.i44.i
+  %1097 = getelementptr inbounds nuw i8, ptr %.017.i45.i, i64 1
+  store i8 %1094, ptr %.017.i45.i, align 1, !tbaa !9
   %.pre.i47.i = load i8, ptr %62, align 1, !tbaa !1608
-  br label %1102
+  br label %1098
 
-1102:                                             ; preds = %1100, %.lr.ph.i44.i
-  %1103 = phi i8 [ %1097, %.lr.ph.i44.i ], [ %.pre.i47.i, %1100 ]
-  %.1.i48.i = phi ptr [ %.017.i45.i, %.lr.ph.i44.i ], [ %1101, %1100 ]
-  %1104 = getelementptr inbounds nuw i8, ptr %.01316.i46.i, i64 1
-  %1105 = zext i8 %1103 to i64
-  %1106 = getelementptr inbounds nuw i8, ptr %scevgep.i.i39.i, i64 %1105
-  %.not.i49.i = icmp eq ptr %1104, %1106
+1098:                                             ; preds = %1096, %.lr.ph.i44.i
+  %1099 = phi i8 [ %1093, %.lr.ph.i44.i ], [ %.pre.i47.i, %1096 ]
+  %.1.i48.i = phi ptr [ %.017.i45.i, %.lr.ph.i44.i ], [ %1097, %1096 ]
+  %1100 = getelementptr inbounds nuw i8, ptr %.01316.i46.i, i64 1
+  %1101 = zext i8 %1099 to i64
+  %1102 = getelementptr inbounds nuw i8, ptr %scevgep.i.i39.i, i64 %1101
+  %.not.i49.i = icmp eq ptr %1100, %1102
   br i1 %.not.i49.i, label %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_3EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i", label %.lr.ph.i44.i, !llvm.loop !1612
 
-"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_3EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i": ; preds = %1102
-  %1107 = ptrtoint ptr %1104 to i64
-  %1108 = ptrtoint ptr %.1.i48.i to i64
-  %1109 = sub i64 %1107, %1108
-  %1110 = ptrtoint ptr %scevgep.i.i39.i to i64
-  %1111 = sub i64 %1108, %1110
-  %1112 = getelementptr inbounds nuw i8, ptr %scevgep.i.i39.i, i64 %1111
-  %1113 = load i8, ptr %1104, align 1
-  store i8 %1113, ptr %1112, align 1
-  %.neg.i.i53.i = sub i64 %1108, %1107
-  %1114 = trunc i64 %.neg.i.i53.i to i8
-  %1115 = add i8 %1103, %1114
-  store i8 %1115, ptr %62, align 1, !tbaa !1608
-  %1116 = icmp eq i64 %1109, 1
-  %1117 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6067, ptr noundef nonnull @.str.13, i32 noundef 2015, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %1116)
-  %1118 = load i8, ptr %62, align 1, !tbaa !1608
-  %or.cond.not.i54.i = icmp eq i8 %1118, 2
-  br i1 %or.cond.not.i54.i, label %1119, label %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit57.i
+"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_3EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i": ; preds = %1098
+  %1103 = ptrtoint ptr %1100 to i64
+  %1104 = ptrtoint ptr %.1.i48.i to i64
+  %1105 = sub i64 %1103, %1104
+  %1106 = ptrtoint ptr %scevgep.i.i39.i to i64
+  %1107 = sub i64 %1104, %1106
+  %1108 = getelementptr inbounds nuw i8, ptr %scevgep.i.i39.i, i64 %1107
+  %1109 = load i8, ptr %1100, align 1
+  store i8 %1109, ptr %1108, align 1
+  %.neg.i.i53.i = sub i64 %1104, %1103
+  %1110 = trunc i64 %.neg.i.i53.i to i8
+  %1111 = add i8 %1099, %1110
+  store i8 %1111, ptr %62, align 1, !tbaa !1608
+  %1112 = icmp eq i64 %1105, 1
+  %1113 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6067, ptr noundef nonnull @.str.13, i32 noundef 2015, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %1112)
+  %1114 = load i8, ptr %62, align 1, !tbaa !1608
+  %or.cond.not.i54.i = icmp eq i8 %1114, 2
+  br i1 %or.cond.not.i54.i, label %1115, label %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit57.i
 
-1119:                                             ; preds = %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_3EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i"
+1115:                                             ; preds = %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_3EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i"
   %bcmp.i56.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %scevgep.i.i39.i, ptr noundef nonnull dereferenceable(2) @.str.5640, i64 2)
-  %1120 = icmp eq i32 %bcmp.i56.i, 0
+  %1116 = icmp eq i32 %bcmp.i56.i, 0
   br label %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit57.i
 
-_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit57.i: ; preds = %1119, %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_3EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i"
-  %.0.i.i55.i = phi i1 [ %1120, %1119 ], [ false, %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_3EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i" ]
-  %1121 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5968, ptr noundef nonnull @.str.13, i32 noundef 2016, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %.0.i.i55.i)
-  %1122 = load i8, ptr %62, align 1, !tbaa !1608
-  %1123 = zext i8 %1122 to i64
-  %1124 = getelementptr inbounds nuw i8, ptr %scevgep.i.i39.i, i64 %1123
-  %1125 = load i8, ptr %1124, align 1, !tbaa !9
-  %1126 = icmp eq i8 %1125, 0
-  %1127 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5438, ptr noundef nonnull @.str.13, i32 noundef 2017, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %1126)
+_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit57.i: ; preds = %1115, %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_3EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i"
+  %.0.i.i55.i = phi i1 [ %1116, %1115 ], [ false, %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_3EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i" ]
+  %1117 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5968, ptr noundef nonnull @.str.13, i32 noundef 2016, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %.0.i.i55.i)
+  %1118 = load i8, ptr %62, align 1, !tbaa !1608
+  %1119 = zext i8 %1118 to i64
+  %1120 = getelementptr inbounds nuw i8, ptr %scevgep.i.i39.i, i64 %1119
+  %1121 = load i8, ptr %1120, align 1, !tbaa !9
+  %1122 = icmp eq i8 %1121, 0
+  %1123 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5438, ptr noundef nonnull @.str.13, i32 noundef 2017, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %1122)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %62) #36
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %63) #36
   %scevgep.i.i58.i = getelementptr inbounds nuw i8, ptr %63, i64 1
   store i8 3, ptr %63, align 1, !tbaa !1608
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %scevgep.i.i58.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.5475, i64 3, i1 false)
-  %1128 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  store i8 0, ptr %1128, align 1, !tbaa !9
+  %1124 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  store i8 0, ptr %1124, align 1, !tbaa !9
   br label %.lr.ph.i63.i
 
-.lr.ph.i63.i:                                     ; preds = %1134, %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit57.i
-  %1129 = phi i8 [ %1135, %1134 ], [ 3, %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit57.i ]
-  %.017.i64.i = phi ptr [ %.1.i67.i, %1134 ], [ %scevgep.i.i58.i, %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit57.i ]
-  %.01316.i65.i = phi ptr [ %1136, %1134 ], [ %scevgep.i.i58.i, %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit57.i ]
-  %1130 = load i8, ptr %.01316.i65.i, align 1, !tbaa !9
-  %1131 = icmp eq i8 %1130, 99
-  br i1 %1131, label %1134, label %1132
+.lr.ph.i63.i:                                     ; preds = %1130, %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit57.i
+  %1125 = phi i8 [ %1131, %1130 ], [ 3, %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit57.i ]
+  %.017.i64.i = phi ptr [ %.1.i67.i, %1130 ], [ %scevgep.i.i58.i, %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit57.i ]
+  %.01316.i65.i = phi ptr [ %1132, %1130 ], [ %scevgep.i.i58.i, %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit57.i ]
+  %1126 = load i8, ptr %.01316.i65.i, align 1, !tbaa !9
+  %1127 = icmp eq i8 %1126, 99
+  br i1 %1127, label %1130, label %1128
 
-1132:                                             ; preds = %.lr.ph.i63.i
-  %1133 = getelementptr inbounds nuw i8, ptr %.017.i64.i, i64 1
-  store i8 %1130, ptr %.017.i64.i, align 1, !tbaa !9
+1128:                                             ; preds = %.lr.ph.i63.i
+  %1129 = getelementptr inbounds nuw i8, ptr %.017.i64.i, i64 1
+  store i8 %1126, ptr %.017.i64.i, align 1, !tbaa !9
   %.pre.i66.i = load i8, ptr %63, align 1, !tbaa !1608
-  br label %1134
+  br label %1130
 
-1134:                                             ; preds = %1132, %.lr.ph.i63.i
-  %1135 = phi i8 [ %1129, %.lr.ph.i63.i ], [ %.pre.i66.i, %1132 ]
-  %.1.i67.i = phi ptr [ %.017.i64.i, %.lr.ph.i63.i ], [ %1133, %1132 ]
-  %1136 = getelementptr inbounds nuw i8, ptr %.01316.i65.i, i64 1
-  %1137 = zext i8 %1135 to i64
-  %1138 = getelementptr inbounds nuw i8, ptr %scevgep.i.i58.i, i64 %1137
-  %.not.i68.i = icmp eq ptr %1136, %1138
+1130:                                             ; preds = %1128, %.lr.ph.i63.i
+  %1131 = phi i8 [ %1125, %.lr.ph.i63.i ], [ %.pre.i66.i, %1128 ]
+  %.1.i67.i = phi ptr [ %.017.i64.i, %.lr.ph.i63.i ], [ %1129, %1128 ]
+  %1132 = getelementptr inbounds nuw i8, ptr %.01316.i65.i, i64 1
+  %1133 = zext i8 %1131 to i64
+  %1134 = getelementptr inbounds nuw i8, ptr %scevgep.i.i58.i, i64 %1133
+  %.not.i68.i = icmp eq ptr %1132, %1134
   br i1 %.not.i68.i, label %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_4EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i", label %.lr.ph.i63.i, !llvm.loop !1613
 
-"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_4EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i": ; preds = %1134
-  %1139 = ptrtoint ptr %1136 to i64
-  %1140 = ptrtoint ptr %.1.i67.i to i64
-  %1141 = sub i64 %1139, %1140
-  %1142 = ptrtoint ptr %scevgep.i.i58.i to i64
-  %1143 = sub i64 %1140, %1142
-  %1144 = getelementptr inbounds nuw i8, ptr %scevgep.i.i58.i, i64 %1143
-  %1145 = load i8, ptr %1136, align 1
-  store i8 %1145, ptr %1144, align 1
-  %.neg.i.i72.i = sub i64 %1140, %1139
-  %1146 = trunc i64 %.neg.i.i72.i to i8
-  %1147 = add i8 %1135, %1146
-  store i8 %1147, ptr %63, align 1, !tbaa !1608
-  %1148 = icmp eq i64 %1141, 1
-  %1149 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6068, ptr noundef nonnull @.str.13, i32 noundef 2021, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %1148)
-  %1150 = load i8, ptr %63, align 1, !tbaa !1608
-  %or.cond.not.i73.i = icmp eq i8 %1150, 2
-  br i1 %or.cond.not.i73.i, label %1151, label %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit76.i
+"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_4EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i": ; preds = %1130
+  %1135 = ptrtoint ptr %1132 to i64
+  %1136 = ptrtoint ptr %.1.i67.i to i64
+  %1137 = sub i64 %1135, %1136
+  %1138 = ptrtoint ptr %scevgep.i.i58.i to i64
+  %1139 = sub i64 %1136, %1138
+  %1140 = getelementptr inbounds nuw i8, ptr %scevgep.i.i58.i, i64 %1139
+  %1141 = load i8, ptr %1132, align 1
+  store i8 %1141, ptr %1140, align 1
+  %.neg.i.i72.i = sub i64 %1136, %1135
+  %1142 = trunc i64 %.neg.i.i72.i to i8
+  %1143 = add i8 %1131, %1142
+  store i8 %1143, ptr %63, align 1, !tbaa !1608
+  %1144 = icmp eq i64 %1137, 1
+  %1145 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6068, ptr noundef nonnull @.str.13, i32 noundef 2021, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %1144)
+  %1146 = load i8, ptr %63, align 1, !tbaa !1608
+  %or.cond.not.i73.i = icmp eq i8 %1146, 2
+  br i1 %or.cond.not.i73.i, label %1147, label %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit76.i
 
-1151:                                             ; preds = %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_4EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i"
+1147:                                             ; preds = %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_4EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i"
   %bcmp.i75.i9 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %scevgep.i.i58.i, ptr noundef nonnull dereferenceable(2) @.str.4123, i64 2)
-  %1152 = icmp eq i32 %bcmp.i75.i9, 0
+  %1148 = icmp eq i32 %bcmp.i75.i9, 0
   br label %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit76.i
 
-_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit76.i: ; preds = %1151, %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_4EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i"
-  %.0.i.i74.i = phi i1 [ %1152, %1151 ], [ false, %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_4EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i" ]
-  %1153 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6069, ptr noundef nonnull @.str.13, i32 noundef 2022, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %.0.i.i74.i)
-  %1154 = load i8, ptr %63, align 1, !tbaa !1608
-  %1155 = zext i8 %1154 to i64
-  %1156 = getelementptr inbounds nuw i8, ptr %scevgep.i.i58.i, i64 %1155
-  %1157 = load i8, ptr %1156, align 1, !tbaa !9
-  %1158 = icmp eq i8 %1157, 0
-  %1159 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5438, ptr noundef nonnull @.str.13, i32 noundef 2023, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %1158)
+_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit76.i: ; preds = %1147, %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_4EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i"
+  %.0.i.i74.i = phi i1 [ %1148, %1147 ], [ false, %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_4EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i" ]
+  %1149 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6069, ptr noundef nonnull @.str.13, i32 noundef 2022, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %.0.i.i74.i)
+  %1150 = load i8, ptr %63, align 1, !tbaa !1608
+  %1151 = zext i8 %1150 to i64
+  %1152 = getelementptr inbounds nuw i8, ptr %scevgep.i.i58.i, i64 %1151
+  %1153 = load i8, ptr %1152, align 1, !tbaa !9
+  %1154 = icmp eq i8 %1153, 0
+  %1155 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5438, ptr noundef nonnull @.str.13, i32 noundef 2023, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %1154)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %63) #36
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %64) #36
   %scevgep.i.i77.i = getelementptr inbounds nuw i8, ptr %64, i64 1
   store i8 3, ptr %64, align 1, !tbaa !1608
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %scevgep.i.i77.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.5475, i64 3, i1 false)
-  %1160 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  store i8 0, ptr %1160, align 1, !tbaa !9
+  %1156 = getelementptr inbounds nuw i8, ptr %64, i64 4
+  store i8 0, ptr %1156, align 1, !tbaa !9
   br label %.lr.ph.i82.i
 
-.lr.ph.i82.i:                                     ; preds = %1166, %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit76.i
-  %1161 = phi i8 [ %1167, %1166 ], [ 3, %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit76.i ]
-  %.017.i83.i = phi ptr [ %.1.i86.i, %1166 ], [ %scevgep.i.i77.i, %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit76.i ]
-  %.01316.i84.i = phi ptr [ %1168, %1166 ], [ %scevgep.i.i77.i, %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit76.i ]
-  %1162 = load i8, ptr %.01316.i84.i, align 1, !tbaa !9
-  %1163 = icmp eq i8 %1162, 100
-  br i1 %1163, label %1166, label %1164
+.lr.ph.i82.i:                                     ; preds = %1162, %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit76.i
+  %1157 = phi i8 [ %1163, %1162 ], [ 3, %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit76.i ]
+  %.017.i83.i = phi ptr [ %.1.i86.i, %1162 ], [ %scevgep.i.i77.i, %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit76.i ]
+  %.01316.i84.i = phi ptr [ %1164, %1162 ], [ %scevgep.i.i77.i, %_ZN5boost14static_stringseqILm3EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit76.i ]
+  %1158 = load i8, ptr %.01316.i84.i, align 1, !tbaa !9
+  %1159 = icmp eq i8 %1158, 100
+  br i1 %1159, label %1162, label %1160
 
-1164:                                             ; preds = %.lr.ph.i82.i
-  %1165 = getelementptr inbounds nuw i8, ptr %.017.i83.i, i64 1
-  store i8 %1162, ptr %.017.i83.i, align 1, !tbaa !9
+1160:                                             ; preds = %.lr.ph.i82.i
+  %1161 = getelementptr inbounds nuw i8, ptr %.017.i83.i, i64 1
+  store i8 %1158, ptr %.017.i83.i, align 1, !tbaa !9
   %.pre.i85.i = load i8, ptr %64, align 1, !tbaa !1608
-  br label %1166
+  br label %1162
 
-1166:                                             ; preds = %1164, %.lr.ph.i82.i
-  %1167 = phi i8 [ %1161, %.lr.ph.i82.i ], [ %.pre.i85.i, %1164 ]
-  %.1.i86.i = phi ptr [ %.017.i83.i, %.lr.ph.i82.i ], [ %1165, %1164 ]
-  %1168 = getelementptr inbounds nuw i8, ptr %.01316.i84.i, i64 1
-  %1169 = zext i8 %1167 to i64
-  %1170 = getelementptr inbounds nuw i8, ptr %scevgep.i.i77.i, i64 %1169
-  %.not.i87.i = icmp eq ptr %1168, %1170
+1162:                                             ; preds = %1160, %.lr.ph.i82.i
+  %1163 = phi i8 [ %1157, %.lr.ph.i82.i ], [ %.pre.i85.i, %1160 ]
+  %.1.i86.i = phi ptr [ %.017.i83.i, %.lr.ph.i82.i ], [ %1161, %1160 ]
+  %1164 = getelementptr inbounds nuw i8, ptr %.01316.i84.i, i64 1
+  %1165 = zext i8 %1163 to i64
+  %1166 = getelementptr inbounds nuw i8, ptr %scevgep.i.i77.i, i64 %1165
+  %.not.i87.i = icmp eq ptr %1164, %1166
   br i1 %.not.i87.i, label %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_5EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i", label %.lr.ph.i82.i, !llvm.loop !1614
 
-"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_5EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i": ; preds = %1166
-  %1171 = ptrtoint ptr %1168 to i64
-  %1172 = ptrtoint ptr %.1.i86.i to i64
-  %1173 = ptrtoint ptr %scevgep.i.i77.i to i64
-  %1174 = sub i64 %1172, %1173
-  %1175 = getelementptr inbounds nuw i8, ptr %scevgep.i.i77.i, i64 %1174
-  %1176 = load i8, ptr %1168, align 1
-  store i8 %1176, ptr %1175, align 1
-  %.neg.i.i91.i = sub i64 %1172, %1171
-  %1177 = trunc i64 %.neg.i.i91.i to i8
-  %1178 = add i8 %1167, %1177
-  store i8 %1178, ptr %64, align 1, !tbaa !1608
-  %1179 = icmp eq ptr %1168, %.1.i86.i
-  %1180 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6070, ptr noundef nonnull @.str.13, i32 noundef 2027, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %1179)
-  %1181 = load i8, ptr %64, align 1, !tbaa !1608
-  %or.cond.not.i92.i = icmp eq i8 %1181, 3
-  br i1 %or.cond.not.i92.i, label %1182, label %_ZN5boost14static_stringsL11testEraseIfEv.exit
+"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_5EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i": ; preds = %1162
+  %1167 = ptrtoint ptr %1164 to i64
+  %1168 = ptrtoint ptr %.1.i86.i to i64
+  %1169 = ptrtoint ptr %scevgep.i.i77.i to i64
+  %1170 = sub i64 %1168, %1169
+  %1171 = getelementptr inbounds nuw i8, ptr %scevgep.i.i77.i, i64 %1170
+  %1172 = load i8, ptr %1164, align 1
+  store i8 %1172, ptr %1171, align 1
+  %.neg.i.i91.i = sub i64 %1168, %1167
+  %1173 = trunc i64 %.neg.i.i91.i to i8
+  %1174 = add i8 %1163, %1173
+  store i8 %1174, ptr %64, align 1, !tbaa !1608
+  %1175 = icmp eq ptr %1164, %.1.i86.i
+  %1176 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6070, ptr noundef nonnull @.str.13, i32 noundef 2027, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %1175)
+  %1177 = load i8, ptr %64, align 1, !tbaa !1608
+  %or.cond.not.i92.i = icmp eq i8 %1177, 3
+  br i1 %or.cond.not.i92.i, label %1178, label %_ZN5boost14static_stringsL11testEraseIfEv.exit
 
-1182:                                             ; preds = %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_5EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i"
+1178:                                             ; preds = %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_5EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i"
   %bcmp.i94.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %scevgep.i.i77.i, ptr noundef nonnull dereferenceable(3) @.str.5475, i64 3)
-  %1183 = icmp eq i32 %bcmp.i94.i, 0
+  %1179 = icmp eq i32 %bcmp.i94.i, 0
   br label %_ZN5boost14static_stringsL11testEraseIfEv.exit
 
-_ZN5boost14static_stringsL11testEraseIfEv.exit:   ; preds = %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_5EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i", %1182
-  %.0.i.i93.i = phi i1 [ %1183, %1182 ], [ false, %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_5EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i" ]
-  %1184 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5657, ptr noundef nonnull @.str.13, i32 noundef 2028, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %.0.i.i93.i)
-  %1185 = load i8, ptr %64, align 1, !tbaa !1608
-  %1186 = zext i8 %1185 to i64
-  %1187 = getelementptr inbounds nuw i8, ptr %scevgep.i.i77.i, i64 %1186
-  %1188 = load i8, ptr %1187, align 1, !tbaa !9
-  %1189 = icmp eq i8 %1188, 0
-  %1190 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5438, ptr noundef nonnull @.str.13, i32 noundef 2029, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %1189)
+_ZN5boost14static_stringsL11testEraseIfEv.exit:   ; preds = %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_5EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i", %1178
+  %.0.i.i93.i = phi i1 [ %1179, %1178 ], [ false, %"_ZN5boost14static_strings8erase_ifILm3EcSt11char_traitsIcEZNS0_L11testEraseIfEvE3$_5EENS0_19basic_static_stringIXT_ET0_T1_E9size_typeERS8_T2_.exit.i" ]
+  %1180 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5657, ptr noundef nonnull @.str.13, i32 noundef 2028, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %.0.i.i93.i)
+  %1181 = load i8, ptr %64, align 1, !tbaa !1608
+  %1182 = zext i8 %1181 to i64
+  %1183 = getelementptr inbounds nuw i8, ptr %scevgep.i.i77.i, i64 %1182
+  %1184 = load i8, ptr %1183, align 1, !tbaa !9
+  %1185 = icmp eq i8 %1184, 0
+  %1186 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5438, ptr noundef nonnull @.str.13, i32 noundef 2029, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testEraseIfEv, i1 noundef zeroext %1185)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %64) #36
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %58) #36
   store i32 6447362, ptr %58, align 4
-  %1191 = getelementptr inbounds nuw i8, ptr %58, i64 1
-  %1192 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1193 = icmp eq i8 %1192, 0
-  br i1 %1193, label %1194, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit238, !prof !56
+  %1187 = getelementptr inbounds nuw i8, ptr %58, i64 1
+  %1188 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1189 = icmp eq i8 %1188, 0
+  br i1 %1189, label %1190, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit238, !prof !56
 
-1194:                                             ; preds = %_ZN5boost14static_stringsL11testEraseIfEv.exit
-  %1195 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i237 = icmp eq i32 %1195, 0
-  br i1 %.not.i.i237, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit238, label %1196
+1190:                                             ; preds = %_ZN5boost14static_stringsL11testEraseIfEv.exit
+  %1191 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i237 = icmp eq i32 %1191, 0
+  br i1 %.not.i.i237, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit238, label %1192
 
-1196:                                             ; preds = %1194
+1192:                                             ; preds = %1190
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1197 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1193 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit238
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit238:   ; preds = %_ZN5boost14static_stringsL11testEraseIfEv.exit, %1194, %1196
-  %bcmp.i23.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %1191, ptr noundef nonnull dereferenceable(2) @.str.4123, i64 2)
-  %1198 = icmp eq i32 %bcmp.i23.i, 0
-  %1199 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6069, ptr noundef nonnull @.str.13, i32 noundef 2044, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testPushBackEv, i1 noundef zeroext %1198)
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit238:   ; preds = %_ZN5boost14static_stringsL11testEraseIfEv.exit, %1190, %1192
+  %bcmp.i23.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %1187, ptr noundef nonnull dereferenceable(2) @.str.4123, i64 2)
+  %1194 = icmp eq i32 %bcmp.i23.i, 0
+  %1195 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6069, ptr noundef nonnull @.str.13, i32 noundef 2044, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testPushBackEv, i1 noundef zeroext %1194)
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.5) #35
-          to label %.noexc.i11 unwind label %1200
+          to label %.noexc.i11 unwind label %1196
 
 .noexc.i11:                                       ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit238
   unreachable
 
-1200:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit238
-  %1201 = landingpad { ptr, i32 }
+1196:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit238
+  %1197 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %1202 = extractvalue { ptr, i32 } %1201, 0
-  %1203 = extractvalue { ptr, i32 } %1201, 1
-  %1204 = icmp eq i32 %1203, %133
-  %1205 = call ptr @__cxa_begin_catch(ptr %1202) #36
-  br i1 %1204, label %1206, label %1215
+  %1198 = extractvalue { ptr, i32 } %1197, 0
+  %1199 = extractvalue { ptr, i32 } %1197, 1
+  %1200 = icmp eq i32 %1199, %132
+  %1201 = call ptr @__cxa_begin_catch(ptr %1198) #36
+  br i1 %1200, label %1202, label %1211
 
-1206:                                             ; preds = %1200
-  %1207 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1208 = icmp eq i8 %1207, 0
-  br i1 %1208, label %1209, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit.i, !prof !56
+1202:                                             ; preds = %1196
+  %1203 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1204 = icmp eq i8 %1203, 0
+  br i1 %1204, label %1205, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit.i, !prof !56
 
-1209:                                             ; preds = %1206
-  %1210 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i235 = icmp eq i32 %1210, 0
-  br i1 %.not.i235, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit.i, label %1211
+1205:                                             ; preds = %1202
+  %1206 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i235 = icmp eq i32 %1206, 0
+  br i1 %.not.i235, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit.i, label %1207
 
-1211:                                             ; preds = %1209
+1207:                                             ; preds = %1205
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1212 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1208 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit.i
 
-_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit.i: ; preds = %1211, %1209, %1206, %1215
+_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit.i: ; preds = %1207, %1205, %1202, %1211
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %58) #36
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %59) #36
   %scevgep.i.i.i = getelementptr inbounds nuw i8, ptr %59, i64 1
   store i32 3355185, ptr %scevgep.i.i.i, align 1
   %bcmp.i30.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %scevgep.i.i.i, ptr noundef nonnull dereferenceable(3) @.str.1293, i64 3)
-  %1213 = icmp eq i32 %bcmp.i30.i, 0
-  %1214 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5460, ptr noundef nonnull @.str.13, i32 noundef 2053, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testPushBackEv, i1 noundef zeroext %1213)
+  %1209 = icmp eq i32 %bcmp.i30.i, 0
+  %1210 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5460, ptr noundef nonnull @.str.13, i32 noundef 2053, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testPushBackEv, i1 noundef zeroext %1209)
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.5) #35
-          to label %.noexc32.i unwind label %1219
+          to label %.noexc32.i unwind label %1215
 
 .noexc32.i:                                       ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit.i
   unreachable
 
-1215:                                             ; preds = %1200
+1211:                                             ; preds = %1196
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6072, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2045, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testPushBackEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit.i unwind label %1216
+          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit.i unwind label %1212
 
-1216:                                             ; preds = %1215
-  %1217 = landingpad { ptr, i32 }
+1212:                                             ; preds = %1211
+  %1213 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1218 unwind label %1252
+          to label %1214 unwind label %1248
 
-1218:                                             ; preds = %1216
+1214:                                             ; preds = %1212
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %58) #36
   br label %common.resume
 
-1219:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit.i
-  %1220 = landingpad { ptr, i32 }
+1215:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit.i
+  %1216 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %1221 = extractvalue { ptr, i32 } %1220, 0
-  %1222 = extractvalue { ptr, i32 } %1220, 1
-  %1223 = icmp eq i32 %1222, %133
-  %1224 = call ptr @__cxa_begin_catch(ptr %1221) #36
-  br i1 %1223, label %1225, label %1232
+  %1217 = extractvalue { ptr, i32 } %1216, 0
+  %1218 = extractvalue { ptr, i32 } %1216, 1
+  %1219 = icmp eq i32 %1218, %132
+  %1220 = call ptr @__cxa_begin_catch(ptr %1217) #36
+  br i1 %1219, label %1221, label %1228
 
-1225:                                             ; preds = %1219
-  %1226 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1227 = icmp eq i8 %1226, 0
-  br i1 %1227, label %1228, label %_ZN5boost6detail12test_resultsEv.exit234, !prof !56
+1221:                                             ; preds = %1215
+  %1222 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1223 = icmp eq i8 %1222, 0
+  br i1 %1223, label %1224, label %_ZN5boost6detail12test_resultsEv.exit234, !prof !56
 
-1228:                                             ; preds = %1225
-  %1229 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i233 = icmp eq i32 %1229, 0
-  br i1 %.not.i233, label %_ZN5boost6detail12test_resultsEv.exit234, label %1230
+1224:                                             ; preds = %1221
+  %1225 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i233 = icmp eq i32 %1225, 0
+  br i1 %.not.i233, label %_ZN5boost6detail12test_resultsEv.exit234, label %1226
 
-1230:                                             ; preds = %1228
+1226:                                             ; preds = %1224
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1231 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1227 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail12test_resultsEv.exit234
 
-_ZN5boost6detail12test_resultsEv.exit234:         ; preds = %1230, %1228, %1225, %1232
+_ZN5boost6detail12test_resultsEv.exit234:         ; preds = %1226, %1224, %1221, %1228
   call void @__cxa_end_catch()
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.5) #35
-          to label %.noexc34.i unwind label %1235
+          to label %.noexc34.i unwind label %1231
 
 .noexc34.i:                                       ; preds = %_ZN5boost6detail12test_resultsEv.exit234
   unreachable
 
-1232:                                             ; preds = %1219
+1228:                                             ; preds = %1215
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6073, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2056, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testPushBackEv)
-          to label %_ZN5boost6detail12test_resultsEv.exit234 unwind label %1233
+          to label %_ZN5boost6detail12test_resultsEv.exit234 unwind label %1229
 
-1233:                                             ; preds = %1232
-  %1234 = landingpad { ptr, i32 }
+1229:                                             ; preds = %1228
+  %1230 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1251 unwind label %1252
+          to label %1247 unwind label %1248
 
-1235:                                             ; preds = %_ZN5boost6detail12test_resultsEv.exit234
-  %1236 = landingpad { ptr, i32 }
+1231:                                             ; preds = %_ZN5boost6detail12test_resultsEv.exit234
+  %1232 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %1237 = extractvalue { ptr, i32 } %1236, 0
-  %1238 = extractvalue { ptr, i32 } %1236, 1
-  %1239 = icmp eq i32 %1238, %133
-  %1240 = call ptr @__cxa_begin_catch(ptr %1237) #36
-  br i1 %1239, label %1241, label %1248
+  %1233 = extractvalue { ptr, i32 } %1232, 0
+  %1234 = extractvalue { ptr, i32 } %1232, 1
+  %1235 = icmp eq i32 %1234, %132
+  %1236 = call ptr @__cxa_begin_catch(ptr %1233) #36
+  br i1 %1235, label %1237, label %1244
 
-1241:                                             ; preds = %1235
-  %1242 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1243 = icmp eq i8 %1242, 0
-  br i1 %1243, label %1244, label %_ZN5boost14static_stringsL12testPushBackEv.exit, !prof !56
+1237:                                             ; preds = %1231
+  %1238 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1239 = icmp eq i8 %1238, 0
+  br i1 %1239, label %1240, label %_ZN5boost14static_stringsL12testPushBackEv.exit, !prof !56
 
-1244:                                             ; preds = %1241
-  %1245 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i231 = icmp eq i32 %1245, 0
-  br i1 %.not.i231, label %_ZN5boost14static_stringsL12testPushBackEv.exit, label %1246
+1240:                                             ; preds = %1237
+  %1241 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i231 = icmp eq i32 %1241, 0
+  br i1 %.not.i231, label %_ZN5boost14static_stringsL12testPushBackEv.exit, label %1242
 
-1246:                                             ; preds = %1244
+1242:                                             ; preds = %1240
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1247 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1243 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost14static_stringsL12testPushBackEv.exit
 
-1248:                                             ; preds = %1235
+1244:                                             ; preds = %1231
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6074, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2060, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL12testPushBackEv)
-          to label %_ZN5boost14static_stringsL12testPushBackEv.exit unwind label %1249
+          to label %_ZN5boost14static_stringsL12testPushBackEv.exit unwind label %1245
 
-1249:                                             ; preds = %1248
-  %1250 = landingpad { ptr, i32 }
+1245:                                             ; preds = %1244
+  %1246 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1251 unwind label %1252
+          to label %1247 unwind label %1248
 
-1251:                                             ; preds = %1249, %1233
-  %.pn15.pn.i = phi { ptr, i32 } [ %1234, %1233 ], [ %1250, %1249 ]
+1247:                                             ; preds = %1245, %1229
+  %.pn15.pn.i = phi { ptr, i32 } [ %1230, %1229 ], [ %1246, %1245 ]
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %59) #36
   br label %common.resume
 
-1252:                                             ; preds = %1249, %1233, %1216
-  %1253 = landingpad { ptr, i32 }
+1248:                                             ; preds = %1245, %1229, %1212
+  %1249 = landingpad { ptr, i32 }
           catch ptr null
-  %1254 = extractvalue { ptr, i32 } %1253, 0
-  call void @__clang_call_terminate(ptr %1254) #37
+  %1250 = extractvalue { ptr, i32 } %1249, 0
+  call void @__clang_call_terminate(ptr %1250) #37
   unreachable
 
-_ZN5boost14static_stringsL12testPushBackEv.exit:  ; preds = %1246, %1244, %1241, %1248
+_ZN5boost14static_stringsL12testPushBackEv.exit:  ; preds = %1242, %1240, %1237, %1244
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %59) #36
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %56) #36
   %scevgep.i.i.i13 = getelementptr inbounds nuw i8, ptr %56, i64 1
   store i16 25185, ptr %scevgep.i.i.i13, align 1
-  %1255 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1256 = icmp eq i8 %1255, 0
-  br i1 %1256, label %1257, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit260, !prof !56
+  %1251 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1252 = icmp eq i8 %1251, 0
+  br i1 %1252, label %1253, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit260, !prof !56
 
-1257:                                             ; preds = %_ZN5boost14static_stringsL12testPushBackEv.exit
-  %1258 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i259 = icmp eq i32 %1258, 0
-  br i1 %.not.i.i259, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit260, label %1259
+1253:                                             ; preds = %_ZN5boost14static_stringsL12testPushBackEv.exit
+  %1254 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i259 = icmp eq i32 %1254, 0
+  br i1 %.not.i.i259, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit260, label %1255
 
-1259:                                             ; preds = %1257
+1255:                                             ; preds = %1253
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1260 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1256 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit260
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit260:   ; preds = %_ZN5boost14static_stringsL12testPushBackEv.exit, %1257, %1259
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit260:   ; preds = %_ZN5boost14static_stringsL12testPushBackEv.exit, %1253, %1255
   %bcmp.i.i14 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %scevgep.i.i.i13, ptr noundef nonnull dereferenceable(2) @.str.4123, i64 2)
-  %1261 = icmp eq i32 %bcmp.i.i14, 0
-  %1262 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6069, ptr noundef nonnull @.str.13, i32 noundef 2074, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testPopBackEv, i1 noundef zeroext %1261)
-  %1263 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1264 = icmp eq i8 %1263, 0
-  br i1 %1264, label %1265, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit258, !prof !56
+  %1257 = icmp eq i32 %bcmp.i.i14, 0
+  %1258 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6069, ptr noundef nonnull @.str.13, i32 noundef 2074, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testPopBackEv, i1 noundef zeroext %1257)
+  %1259 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1260 = icmp eq i8 %1259, 0
+  br i1 %1260, label %1261, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit258, !prof !56
 
-1265:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit260
-  %1266 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i257 = icmp eq i32 %1266, 0
-  br i1 %.not.i.i257, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit258, label %1267
+1261:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit260
+  %1262 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i257 = icmp eq i32 %1262, 0
+  br i1 %.not.i.i257, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit258, label %1263
 
-1267:                                             ; preds = %1265
+1263:                                             ; preds = %1261
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1268 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1264 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit258
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit258:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit260, %1265, %1267
-  %1269 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1270 = icmp eq i8 %1269, 0
-  br i1 %1270, label %1271, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit256, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit258:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit260, %1261, %1263
+  %1265 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1266 = icmp eq i8 %1265, 0
+  br i1 %1266, label %1267, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit256, !prof !56
 
-1271:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit258
-  %1272 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i255 = icmp eq i32 %1272, 0
-  br i1 %.not.i.i255, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit256, label %1273
+1267:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit258
+  %1268 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i255 = icmp eq i32 %1268, 0
+  br i1 %.not.i.i255, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit256, label %1269
 
-1273:                                             ; preds = %1271
+1269:                                             ; preds = %1267
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1274 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1270 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit256
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit256:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit258, %1271, %1273
-  %1275 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1276 = icmp eq i8 %1275, 0
-  br i1 %1276, label %1277, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit254, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit256:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit258, %1267, %1269
+  %1271 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1272 = icmp eq i8 %1271, 0
+  br i1 %1272, label %1273, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit254, !prof !56
 
-1277:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit256
-  %1278 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i253 = icmp eq i32 %1278, 0
-  br i1 %.not.i.i253, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit254, label %1279
+1273:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit256
+  %1274 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i253 = icmp eq i32 %1274, 0
+  br i1 %.not.i.i253, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit254, label %1275
 
-1279:                                             ; preds = %1277
+1275:                                             ; preds = %1273
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1280 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1276 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit254
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit254:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit256, %1277, %1279
-  %1281 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1282 = icmp eq i8 %1281, 0
-  br i1 %1282, label %1283, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit252, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit254:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit256, %1273, %1275
+  %1277 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1278 = icmp eq i8 %1277, 0
+  br i1 %1278, label %1279, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit252, !prof !56
 
-1283:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit254
-  %1284 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i251 = icmp eq i32 %1284, 0
-  br i1 %.not.i.i251, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit252, label %1285
+1279:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit254
+  %1280 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i251 = icmp eq i32 %1280, 0
+  br i1 %.not.i.i251, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit252, label %1281
 
-1285:                                             ; preds = %1283
+1281:                                             ; preds = %1279
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1286 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1282 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit252
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit252:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit254, %1283, %1285
-  %1287 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1288 = icmp eq i8 %1287, 0
-  br i1 %1288, label %1289, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit250, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit252:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit254, %1279, %1281
+  %1283 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1284 = icmp eq i8 %1283, 0
+  br i1 %1284, label %1285, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit250, !prof !56
 
-1289:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit252
-  %1290 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i249 = icmp eq i32 %1290, 0
-  br i1 %.not.i.i249, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit250, label %1291
+1285:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit252
+  %1286 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i249 = icmp eq i32 %1286, 0
+  br i1 %.not.i.i249, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit250, label %1287
 
-1291:                                             ; preds = %1289
+1287:                                             ; preds = %1285
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1292 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1288 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit250
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit250:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit252, %1289, %1291
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit250:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit252, %1285, %1287
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %56) #36
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %57) #36
   %scevgep.i.i5.i = getelementptr inbounds nuw i8, ptr %57, i64 1
   store i16 12849, ptr %scevgep.i.i5.i, align 1
   %bcmp.i9.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %scevgep.i.i5.i, ptr noundef nonnull dereferenceable(2) @.str.4369, i64 2)
-  %1293 = icmp eq i32 %bcmp.i9.i, 0
-  %1294 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5526, ptr noundef nonnull @.str.13, i32 noundef 2089, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testPopBackEv, i1 noundef zeroext %1293)
-  %1295 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1296 = icmp eq i8 %1295, 0
-  br i1 %1296, label %1297, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit248, !prof !56
+  %1289 = icmp eq i32 %bcmp.i9.i, 0
+  %1290 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5526, ptr noundef nonnull @.str.13, i32 noundef 2089, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL11testPopBackEv, i1 noundef zeroext %1289)
+  %1291 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1292 = icmp eq i8 %1291, 0
+  br i1 %1292, label %1293, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit248, !prof !56
 
-1297:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit250
-  %1298 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i247 = icmp eq i32 %1298, 0
-  br i1 %.not.i.i247, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit248, label %1299
+1293:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit250
+  %1294 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i247 = icmp eq i32 %1294, 0
+  br i1 %.not.i.i247, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit248, label %1295
 
-1299:                                             ; preds = %1297
+1295:                                             ; preds = %1293
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1300 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1296 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit248
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit248:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit250, %1297, %1299
-  %1301 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1302 = icmp eq i8 %1301, 0
-  br i1 %1302, label %1303, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit246, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit248:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit250, %1293, %1295
+  %1297 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1298 = icmp eq i8 %1297, 0
+  br i1 %1298, label %1299, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit246, !prof !56
 
-1303:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit248
-  %1304 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i245 = icmp eq i32 %1304, 0
-  br i1 %.not.i.i245, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit246, label %1305
+1299:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit248
+  %1300 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i245 = icmp eq i32 %1300, 0
+  br i1 %.not.i.i245, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit246, label %1301
 
-1305:                                             ; preds = %1303
+1301:                                             ; preds = %1299
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1306 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1302 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit246
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit246:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit248, %1303, %1305
-  %1307 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1308 = icmp eq i8 %1307, 0
-  br i1 %1308, label %1309, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit244, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit246:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit248, %1299, %1301
+  %1303 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1304 = icmp eq i8 %1303, 0
+  br i1 %1304, label %1305, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit244, !prof !56
 
-1309:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit246
-  %1310 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i243 = icmp eq i32 %1310, 0
-  br i1 %.not.i.i243, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit244, label %1311
+1305:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit246
+  %1306 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i243 = icmp eq i32 %1306, 0
+  br i1 %.not.i.i243, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit244, label %1307
 
-1311:                                             ; preds = %1309
+1307:                                             ; preds = %1305
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1312 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1308 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit244
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit244:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit246, %1309, %1311
-  %1313 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1314 = icmp eq i8 %1313, 0
-  br i1 %1314, label %1315, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit242, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit244:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit246, %1305, %1307
+  %1309 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1310 = icmp eq i8 %1309, 0
+  br i1 %1310, label %1311, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit242, !prof !56
 
-1315:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit244
-  %1316 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i241 = icmp eq i32 %1316, 0
-  br i1 %.not.i.i241, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit242, label %1317
+1311:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit244
+  %1312 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i241 = icmp eq i32 %1312, 0
+  br i1 %.not.i.i241, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit242, label %1313
 
-1317:                                             ; preds = %1315
+1313:                                             ; preds = %1311
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1318 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1314 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit242
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit242:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit244, %1315, %1317
-  %1319 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1320 = icmp eq i8 %1319, 0
-  br i1 %1320, label %1321, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit240, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit242:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit244, %1311, %1313
+  %1315 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1316 = icmp eq i8 %1315, 0
+  br i1 %1316, label %1317, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit240, !prof !56
 
-1321:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit242
-  %1322 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i239 = icmp eq i32 %1322, 0
-  br i1 %.not.i.i239, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit240, label %1323
+1317:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit242
+  %1318 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i239 = icmp eq i32 %1318, 0
+  br i1 %.not.i.i239, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit240, label %1319
 
-1323:                                             ; preds = %1321
+1319:                                             ; preds = %1317
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1324 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1320 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit240
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit240:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit242, %1321, %1323
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit240:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit242, %1317, %1319
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %57) #36
   call void @llvm.lifetime.start.p0(i64 404, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 404, ptr nonnull %36)
@@ -83700,638 +83678,638 @@ _ZN5boost6detail9test_implEPKcS2_iS2_b.exit240:   ; preds = %_ZN5boost6detail9te
   call void @llvm.lifetime.start.p0(i64 404, ptr nonnull %52)
   call void @llvm.lifetime.start.p0(i64 404, ptr nonnull %53)
   call void @llvm.lifetime.start.p0(i64 404, ptr nonnull %54)
-  %1325 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1326 = icmp eq i8 %1325, 0
-  br i1 %1326, label %1327, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit280, !prof !56
+  %1321 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1322 = icmp eq i8 %1321, 0
+  br i1 %1322, label %1323, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit280, !prof !56
 
-1327:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit240
-  %1328 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i279 = icmp eq i32 %1328, 0
-  br i1 %.not.i.i279, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit280, label %1329
+1323:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit240
+  %1324 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i279 = icmp eq i32 %1324, 0
+  br i1 %.not.i.i279, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit280, label %1325
 
-1329:                                             ; preds = %1327
+1325:                                             ; preds = %1323
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1330 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1326 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit280
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit280:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit240, %1327, %1329
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit280:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit240, %1323, %1325
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #36
   store i32 6381826, ptr %11, align 4
-  %1331 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %bcmp.i176.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %1331, ptr noundef nonnull dereferenceable(2) @.str.5398, i64 2)
-  %1332 = icmp eq i32 %bcmp.i176.i, 0
-  %1333 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6077, ptr noundef nonnull @.str.13, i32 noundef 2110, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1332)
+  %1327 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  %bcmp.i176.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %1327, ptr noundef nonnull dereferenceable(2) @.str.5398, i64 2)
+  %1328 = icmp eq i32 %bcmp.i176.i, 0
+  %1329 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6077, ptr noundef nonnull @.str.13, i32 noundef 2110, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1328)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #36
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #36
   store i32 6447362, ptr %12, align 4
-  %1334 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %bcmp.i180.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %1334, ptr noundef nonnull dereferenceable(2) @.str.4123, i64 2)
-  %1335 = icmp eq i32 %bcmp.i180.i, 0
-  %1336 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6078, ptr noundef nonnull @.str.13, i32 noundef 2111, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1335)
+  %1330 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %bcmp.i180.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %1330, ptr noundef nonnull dereferenceable(2) @.str.4123, i64 2)
+  %1331 = icmp eq i32 %bcmp.i180.i, 0
+  %1332 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6078, ptr noundef nonnull @.str.13, i32 noundef 2111, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1331)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #36
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.6) #35
-          to label %.noexc183.i unwind label %1337
+          to label %.noexc183.i unwind label %1333
 
 .noexc183.i:                                      ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit280
   unreachable
 
-1337:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit280
-  %1338 = landingpad { ptr, i32 }
+1333:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit280
+  %1334 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %.0.i15 = extractvalue { ptr, i32 } %1338, 0
-  %.070.i = extractvalue { ptr, i32 } %1338, 1
-  %1339 = icmp eq i32 %.070.i, %133
-  %1340 = call ptr @__cxa_begin_catch(ptr %.0.i15) #36
-  br i1 %1339, label %1341, label %1352
+  %.0.i15 = extractvalue { ptr, i32 } %1334, 0
+  %.070.i = extractvalue { ptr, i32 } %1334, 1
+  %1335 = icmp eq i32 %.070.i, %132
+  %1336 = call ptr @__cxa_begin_catch(ptr %.0.i15) #36
+  br i1 %1335, label %1337, label %1348
 
-1341:                                             ; preds = %1337
-  %1342 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1343 = icmp eq i8 %1342, 0
-  br i1 %1343, label %1344, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit.i16, !prof !56
+1337:                                             ; preds = %1333
+  %1338 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1339 = icmp eq i8 %1338, 0
+  br i1 %1339, label %1340, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit.i16, !prof !56
 
-1344:                                             ; preds = %1341
-  %1345 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i277 = icmp eq i32 %1345, 0
-  br i1 %.not.i277, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit.i16, label %1346
+1340:                                             ; preds = %1337
+  %1341 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i277 = icmp eq i32 %1341, 0
+  br i1 %.not.i277, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit.i16, label %1342
 
-1346:                                             ; preds = %1344
+1342:                                             ; preds = %1340
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1347 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1343 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit.i16
 
-_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit.i16: ; preds = %1346, %1344, %1341, %1352
+_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit.i16: ; preds = %1342, %1340, %1337, %1348
   call void @__cxa_end_catch()
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %13) #36
   %scevgep.i.i185.i = getelementptr inbounds nuw i8, ptr %13, i64 1
   store i32 6513249, ptr %scevgep.i.i185.i, align 1
   store i8 3, ptr %13, align 1, !tbaa !1608
   %bcmp.i188.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %scevgep.i.i185.i, ptr noundef nonnull dereferenceable(3) @.str.5475, i64 3)
-  %1348 = icmp eq i32 %bcmp.i188.i, 0
-  %1349 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6080, ptr noundef nonnull @.str.13, i32 noundef 2115, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1348)
+  %1344 = icmp eq i32 %bcmp.i188.i, 0
+  %1345 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6080, ptr noundef nonnull @.str.13, i32 noundef 2115, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1344)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %13) #36
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %14) #36
   %scevgep.i.i189.i = getelementptr inbounds nuw i8, ptr %14, i64 1
   store i32 6513249, ptr %scevgep.i.i189.i, align 1
   store i8 3, ptr %14, align 1, !tbaa !1608
   %bcmp.i194.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %scevgep.i.i189.i, ptr noundef nonnull dereferenceable(3) @.str.5475, i64 3)
-  %1350 = icmp eq i32 %bcmp.i194.i, 0
-  %1351 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6081, ptr noundef nonnull @.str.13, i32 noundef 2116, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1350)
+  %1346 = icmp eq i32 %bcmp.i194.i, 0
+  %1347 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6081, ptr noundef nonnull @.str.13, i32 noundef 2116, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1346)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %14) #36
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.6) #35
-          to label %.noexc199.i unwind label %1355
+          to label %.noexc199.i unwind label %1351
 
 .noexc199.i:                                      ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit.i16
   unreachable
 
-1352:                                             ; preds = %1337
+1348:                                             ; preds = %1333
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6079, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2112, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit.i16 unwind label %1353
+          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit.i16 unwind label %1349
 
-1353:                                             ; preds = %1352
-  %1354 = landingpad { ptr, i32 }
+1349:                                             ; preds = %1348
+  %1350 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %1711
+          to label %common.resume unwind label %1707
 
-1355:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit.i16
-  %1356 = landingpad { ptr, i32 }
+1351:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit.i16
+  %1352 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %.3.i17 = extractvalue { ptr, i32 } %1356, 0
-  %.373.i = extractvalue { ptr, i32 } %1356, 1
-  %1357 = icmp eq i32 %.373.i, %133
-  %1358 = call ptr @__cxa_begin_catch(ptr %.3.i17) #36
-  br i1 %1357, label %1359, label %1370
+  %.3.i17 = extractvalue { ptr, i32 } %1352, 0
+  %.373.i = extractvalue { ptr, i32 } %1352, 1
+  %1353 = icmp eq i32 %.373.i, %132
+  %1354 = call ptr @__cxa_begin_catch(ptr %.3.i17) #36
+  br i1 %1353, label %1355, label %1366
 
-1359:                                             ; preds = %1355
-  %1360 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1361 = icmp eq i8 %1360, 0
-  br i1 %1361, label %1362, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit202.i, !prof !56
+1355:                                             ; preds = %1351
+  %1356 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1357 = icmp eq i8 %1356, 0
+  br i1 %1357, label %1358, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit202.i, !prof !56
 
-1362:                                             ; preds = %1359
-  %1363 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i275 = icmp eq i32 %1363, 0
-  br i1 %.not.i275, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit202.i, label %1364
+1358:                                             ; preds = %1355
+  %1359 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i275 = icmp eq i32 %1359, 0
+  br i1 %.not.i275, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit202.i, label %1360
 
-1364:                                             ; preds = %1362
+1360:                                             ; preds = %1358
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1365 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1361 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit202.i
 
-_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit202.i: ; preds = %1364, %1362, %1359, %1370
+_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit202.i: ; preds = %1360, %1358, %1355, %1366
   call void @__cxa_end_catch()
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %15) #36
   %scevgep.i.i201.i = getelementptr inbounds nuw i8, ptr %15, i64 1
   store i32 6513249, ptr %scevgep.i.i201.i, align 1
   store i8 3, ptr %15, align 1, !tbaa !1608
   %bcmp.i205.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %scevgep.i.i201.i, ptr noundef nonnull dereferenceable(3) @.str.5475, i64 3)
-  %1366 = icmp eq i32 %bcmp.i205.i, 0
-  %1367 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6083, ptr noundef nonnull @.str.13, i32 noundef 2120, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1366)
+  %1362 = icmp eq i32 %bcmp.i205.i, 0
+  %1363 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6083, ptr noundef nonnull @.str.13, i32 noundef 2120, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1362)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %15) #36
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %16) #36
   %scevgep.i.i207.i = getelementptr inbounds nuw i8, ptr %16, i64 1
   store i32 6513249, ptr %scevgep.i.i207.i, align 1
   store i8 3, ptr %16, align 1, !tbaa !1608
   %bcmp.i212.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %scevgep.i.i207.i, ptr noundef nonnull dereferenceable(3) @.str.5475, i64 3)
-  %1368 = icmp eq i32 %bcmp.i212.i, 0
-  %1369 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6084, ptr noundef nonnull @.str.13, i32 noundef 2121, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1368)
+  %1364 = icmp eq i32 %bcmp.i212.i, 0
+  %1365 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6084, ptr noundef nonnull @.str.13, i32 noundef 2121, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1364)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %16) #36
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12out_of_rangeEEvPKc(ptr noundef nonnull @.str.6149) #35
-          to label %.noexc218.i unwind label %1373
+          to label %.noexc218.i unwind label %1369
 
 .noexc218.i:                                      ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit202.i
   unreachable
 
-1370:                                             ; preds = %1355
+1366:                                             ; preds = %1351
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6082, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2117, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit202.i unwind label %1371
+          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit202.i unwind label %1367
 
-1371:                                             ; preds = %1370
-  %1372 = landingpad { ptr, i32 }
+1367:                                             ; preds = %1366
+  %1368 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %1711
+          to label %common.resume unwind label %1707
 
-1373:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit202.i
-  %1374 = landingpad { ptr, i32 }
+1369:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit202.i
+  %1370 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12out_of_range
           catch ptr null
-  %.5.i = extractvalue { ptr, i32 } %1374, 0
-  %.575.i = extractvalue { ptr, i32 } %1374, 1
-  %1375 = icmp eq i32 %.575.i, %211
-  %1376 = call ptr @__cxa_begin_catch(ptr %.5.i) #36
-  br i1 %1375, label %1377, label %1384
+  %.5.i = extractvalue { ptr, i32 } %1370, 0
+  %.575.i = extractvalue { ptr, i32 } %1370, 1
+  %1371 = icmp eq i32 %.575.i, %210
+  %1372 = call ptr @__cxa_begin_catch(ptr %.5.i) #36
+  br i1 %1371, label %1373, label %1380
 
-1377:                                             ; preds = %1373
-  %1378 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1379 = icmp eq i8 %1378, 0
-  br i1 %1379, label %1380, label %_ZN5boost6detail12test_resultsEv.exit274, !prof !56
+1373:                                             ; preds = %1369
+  %1374 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1375 = icmp eq i8 %1374, 0
+  br i1 %1375, label %1376, label %_ZN5boost6detail12test_resultsEv.exit274, !prof !56
 
-1380:                                             ; preds = %1377
-  %1381 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i273 = icmp eq i32 %1381, 0
-  br i1 %.not.i273, label %_ZN5boost6detail12test_resultsEv.exit274, label %1382
+1376:                                             ; preds = %1373
+  %1377 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i273 = icmp eq i32 %1377, 0
+  br i1 %.not.i273, label %_ZN5boost6detail12test_resultsEv.exit274, label %1378
 
-1382:                                             ; preds = %1380
+1378:                                             ; preds = %1376
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1383 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1379 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail12test_resultsEv.exit274
 
-_ZN5boost6detail12test_resultsEv.exit274:         ; preds = %1382, %1380, %1377, %1384
+_ZN5boost6detail12test_resultsEv.exit274:         ; preds = %1378, %1376, %1373, %1380
   call void @__cxa_end_catch()
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.6) #35
-          to label %.noexc226.i unwind label %1387
+          to label %.noexc226.i unwind label %1383
 
 .noexc226.i:                                      ; preds = %_ZN5boost6detail12test_resultsEv.exit274
   unreachable
 
-1384:                                             ; preds = %1373
+1380:                                             ; preds = %1369
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6085, ptr noundef nonnull @.str.1316, ptr noundef nonnull @.str.13, i32 noundef 2122, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv)
-          to label %_ZN5boost6detail12test_resultsEv.exit274 unwind label %1385
+          to label %_ZN5boost6detail12test_resultsEv.exit274 unwind label %1381
 
-1385:                                             ; preds = %1384
-  %1386 = landingpad { ptr, i32 }
+1381:                                             ; preds = %1380
+  %1382 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %1711
+          to label %common.resume unwind label %1707
 
-1387:                                             ; preds = %_ZN5boost6detail12test_resultsEv.exit274
-  %1388 = landingpad { ptr, i32 }
+1383:                                             ; preds = %_ZN5boost6detail12test_resultsEv.exit274
+  %1384 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %.7.i = extractvalue { ptr, i32 } %1388, 0
-  %.777.i = extractvalue { ptr, i32 } %1388, 1
-  %1389 = icmp eq i32 %.777.i, %133
-  %1390 = call ptr @__cxa_begin_catch(ptr %.7.i) #36
-  br i1 %1389, label %1391, label %1406
+  %.7.i = extractvalue { ptr, i32 } %1384, 0
+  %.777.i = extractvalue { ptr, i32 } %1384, 1
+  %1385 = icmp eq i32 %.777.i, %132
+  %1386 = call ptr @__cxa_begin_catch(ptr %.7.i) #36
+  br i1 %1385, label %1387, label %1402
 
-1391:                                             ; preds = %1387
-  %1392 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1393 = icmp eq i8 %1392, 0
-  br i1 %1393, label %1394, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit229.i, !prof !56
+1387:                                             ; preds = %1383
+  %1388 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1389 = icmp eq i8 %1388, 0
+  br i1 %1389, label %1390, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit229.i, !prof !56
 
-1394:                                             ; preds = %1391
-  %1395 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i271 = icmp eq i32 %1395, 0
-  br i1 %.not.i271, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit229.i, label %1396
+1390:                                             ; preds = %1387
+  %1391 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i271 = icmp eq i32 %1391, 0
+  br i1 %.not.i271, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit229.i, label %1392
 
-1396:                                             ; preds = %1394
+1392:                                             ; preds = %1390
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1397 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1393 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit229.i
 
-_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit229.i: ; preds = %1396, %1394, %1391, %1406
+_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit229.i: ; preds = %1392, %1390, %1387, %1402
   call void @__cxa_end_catch()
-  %1398 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1399 = icmp eq i8 %1398, 0
-  br i1 %1399, label %1400, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit270, !prof !56
+  %1394 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1395 = icmp eq i8 %1394, 0
+  br i1 %1395, label %1396, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit270, !prof !56
 
-1400:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit229.i
-  %1401 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i269 = icmp eq i32 %1401, 0
-  br i1 %.not.i.i269, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit270, label %1402
+1396:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit229.i
+  %1397 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i269 = icmp eq i32 %1397, 0
+  br i1 %.not.i.i269, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit270, label %1398
 
-1402:                                             ; preds = %1400
+1398:                                             ; preds = %1396
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1403 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1399 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit270
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit270:   ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit229.i, %1400, %1402
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit270:   ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit229.i, %1396, %1398
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %17) #36
   %scevgep.i.i234.i = getelementptr inbounds nuw i8, ptr %17, i64 1
   store i32 6513249, ptr %scevgep.i.i234.i, align 1
   store i8 3, ptr %17, align 1, !tbaa !1608
   %bcmp.i238.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %scevgep.i.i234.i, ptr noundef nonnull dereferenceable(3) @.str.5475, i64 3)
-  %1404 = icmp eq i32 %bcmp.i238.i, 0
-  %1405 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6088, ptr noundef nonnull @.str.13, i32 noundef 2127, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1404)
+  %1400 = icmp eq i32 %bcmp.i238.i, 0
+  %1401 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6088, ptr noundef nonnull @.str.13, i32 noundef 2127, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1400)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %17) #36
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.6) #35
-          to label %.noexc243.i unwind label %1409
+          to label %.noexc243.i unwind label %1405
 
 .noexc243.i:                                      ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit270
   unreachable
 
-1406:                                             ; preds = %1387
+1402:                                             ; preds = %1383
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6086, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2123, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit229.i unwind label %1407
+          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit229.i unwind label %1403
 
-1407:                                             ; preds = %1406
-  %1408 = landingpad { ptr, i32 }
+1403:                                             ; preds = %1402
+  %1404 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %1711
+          to label %common.resume unwind label %1707
 
-1409:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit270
-  %1410 = landingpad { ptr, i32 }
+1405:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit270
+  %1406 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %.8.i = extractvalue { ptr, i32 } %1410, 0
-  %.878.i = extractvalue { ptr, i32 } %1410, 1
-  %1411 = icmp eq i32 %.878.i, %133
-  %1412 = call ptr @__cxa_begin_catch(ptr %.8.i) #36
-  br i1 %1411, label %1413, label %1422
+  %.8.i = extractvalue { ptr, i32 } %1406, 0
+  %.878.i = extractvalue { ptr, i32 } %1406, 1
+  %1407 = icmp eq i32 %.878.i, %132
+  %1408 = call ptr @__cxa_begin_catch(ptr %.8.i) #36
+  br i1 %1407, label %1409, label %1418
 
-1413:                                             ; preds = %1409
-  %1414 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1415 = icmp eq i8 %1414, 0
-  br i1 %1415, label %1416, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit246.i, !prof !56
+1409:                                             ; preds = %1405
+  %1410 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1411 = icmp eq i8 %1410, 0
+  br i1 %1411, label %1412, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit246.i, !prof !56
 
-1416:                                             ; preds = %1413
-  %1417 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i267 = icmp eq i32 %1417, 0
-  br i1 %.not.i267, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit246.i, label %1418
+1412:                                             ; preds = %1409
+  %1413 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i267 = icmp eq i32 %1413, 0
+  br i1 %.not.i267, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit246.i, label %1414
 
-1418:                                             ; preds = %1416
+1414:                                             ; preds = %1412
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1419 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1415 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit246.i
 
-_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit246.i: ; preds = %1418, %1416, %1413, %1422
+_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit246.i: ; preds = %1414, %1412, %1409, %1418
   call void @__cxa_end_catch()
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %18) #36
   %scevgep.i.i245.i = getelementptr inbounds nuw i8, ptr %18, i64 1
   store i32 6513249, ptr %scevgep.i.i245.i, align 1
   store i8 3, ptr %18, align 1, !tbaa !1608
   %bcmp.i249.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %scevgep.i.i245.i, ptr noundef nonnull dereferenceable(3) @.str.5475, i64 3)
-  %1420 = icmp eq i32 %bcmp.i249.i, 0
-  %1421 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6090, ptr noundef nonnull @.str.13, i32 noundef 2131, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1420)
+  %1416 = icmp eq i32 %bcmp.i249.i, 0
+  %1417 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6090, ptr noundef nonnull @.str.13, i32 noundef 2131, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1416)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %18) #36
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.6) #35
-          to label %.noexc254.i unwind label %1425
+          to label %.noexc254.i unwind label %1421
 
 .noexc254.i:                                      ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit246.i
   unreachable
 
-1422:                                             ; preds = %1409
+1418:                                             ; preds = %1405
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6089, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2128, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit246.i unwind label %1423
+          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit246.i unwind label %1419
 
-1423:                                             ; preds = %1422
-  %1424 = landingpad { ptr, i32 }
+1419:                                             ; preds = %1418
+  %1420 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %1711
+          to label %common.resume unwind label %1707
 
-1425:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit246.i
-  %1426 = landingpad { ptr, i32 }
+1421:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit246.i
+  %1422 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %.9.i = extractvalue { ptr, i32 } %1426, 0
-  %.979.i = extractvalue { ptr, i32 } %1426, 1
-  %1427 = icmp eq i32 %.979.i, %133
-  %1428 = call ptr @__cxa_begin_catch(ptr %.9.i) #36
-  br i1 %1427, label %1429, label %1436
+  %.9.i = extractvalue { ptr, i32 } %1422, 0
+  %.979.i = extractvalue { ptr, i32 } %1422, 1
+  %1423 = icmp eq i32 %.979.i, %132
+  %1424 = call ptr @__cxa_begin_catch(ptr %.9.i) #36
+  br i1 %1423, label %1425, label %1432
 
-1429:                                             ; preds = %1425
-  %1430 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
-          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit.i unwind label %1439
+1425:                                             ; preds = %1421
+  %1426 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
+          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit.i unwind label %1435
 
-_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit.i: ; preds = %1436, %1429
+_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit.i: ; preds = %1432, %1425
   call void @__cxa_end_catch()
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %19) #36
-  %1431 = getelementptr inbounds nuw i8, ptr %19, i64 1
-  store i16 25185, ptr %1431, align 1
-  %1432 = getelementptr inbounds nuw i8, ptr %19, i64 3
-  store i16 25699, ptr %1432, align 1, !tbaa !9
+  %1427 = getelementptr inbounds nuw i8, ptr %19, i64 1
+  store i16 25185, ptr %1427, align 1
+  %1428 = getelementptr inbounds nuw i8, ptr %19, i64 3
+  store i16 25699, ptr %1428, align 1, !tbaa !9
   store i8 4, ptr %19, align 1, !tbaa !319
-  %1433 = getelementptr inbounds nuw i8, ptr %19, i64 5
-  store i8 0, ptr %1433, align 1, !tbaa !9
-  %bcmp.i260.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1431, ptr noundef nonnull dereferenceable(4) @.str.4138, i64 4)
-  %1434 = icmp eq i32 %bcmp.i260.i, 0
-  %1435 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6092, ptr noundef nonnull @.str.13, i32 noundef 2139, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1434)
+  %1429 = getelementptr inbounds nuw i8, ptr %19, i64 5
+  store i8 0, ptr %1429, align 1, !tbaa !9
+  %bcmp.i260.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1427, ptr noundef nonnull dereferenceable(4) @.str.4138, i64 4)
+  %1430 = icmp eq i32 %bcmp.i260.i, 0
+  %1431 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6092, ptr noundef nonnull @.str.13, i32 noundef 2139, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1430)
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %19) #36
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.6) #35
-          to label %.noexc269.i unwind label %1441
+          to label %.noexc269.i unwind label %1437
 
 .noexc269.i:                                      ; preds = %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit.i
   unreachable
 
-1436:                                             ; preds = %1425
+1432:                                             ; preds = %1421
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6091, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2132, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit.i unwind label %1437
+          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit.i unwind label %1433
 
-1437:                                             ; preds = %1436
+1433:                                             ; preds = %1432
+  %1434 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %common.resume unwind label %1707
+
+1435:                                             ; preds = %1425
+  %1436 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %common.resume unwind label %1707
+
+1437:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit.i
   %1438 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %1711
-
-1439:                                             ; preds = %1429
-  %1440 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %1711
-
-1441:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit.i
-  %1442 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %.10.i = extractvalue { ptr, i32 } %1442, 0
-  %.1080.i = extractvalue { ptr, i32 } %1442, 1
-  %1443 = icmp eq i32 %.1080.i, %133
-  %1444 = call ptr @__cxa_begin_catch(ptr %.10.i) #36
-  br i1 %1443, label %1445, label %1452
+  %.10.i = extractvalue { ptr, i32 } %1438, 0
+  %.1080.i = extractvalue { ptr, i32 } %1438, 1
+  %1439 = icmp eq i32 %.1080.i, %132
+  %1440 = call ptr @__cxa_begin_catch(ptr %.10.i) #36
+  br i1 %1439, label %1441, label %1448
 
-1445:                                             ; preds = %1441
-  %1446 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
-          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit270.i unwind label %1455
+1441:                                             ; preds = %1437
+  %1442 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
+          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit270.i unwind label %1451
 
-_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit270.i: ; preds = %1452, %1445
+_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit270.i: ; preds = %1448, %1441
   call void @__cxa_end_catch()
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %20) #36
-  %1447 = getelementptr inbounds nuw i8, ptr %20, i64 1
-  store i16 25185, ptr %1447, align 1
-  %1448 = getelementptr inbounds nuw i8, ptr %20, i64 3
-  store i8 99, ptr %1448, align 1
+  %1443 = getelementptr inbounds nuw i8, ptr %20, i64 1
+  store i16 25185, ptr %1443, align 1
+  %1444 = getelementptr inbounds nuw i8, ptr %20, i64 3
+  store i8 99, ptr %1444, align 1
   %.sroa.4545.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i8 100, ptr %.sroa.4545.0..sroa_idx.i, align 1
   store i8 4, ptr %20, align 1, !tbaa !319
-  %1449 = getelementptr inbounds nuw i8, ptr %20, i64 5
-  store i8 0, ptr %1449, align 1, !tbaa !9
-  %bcmp.i273.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1447, ptr noundef nonnull dereferenceable(4) @.str.4138, i64 4)
-  %1450 = icmp eq i32 %bcmp.i273.i, 0
-  %1451 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6094, ptr noundef nonnull @.str.13, i32 noundef 2146, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1450)
+  %1445 = getelementptr inbounds nuw i8, ptr %20, i64 5
+  store i8 0, ptr %1445, align 1, !tbaa !9
+  %bcmp.i273.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1443, ptr noundef nonnull dereferenceable(4) @.str.4138, i64 4)
+  %1446 = icmp eq i32 %bcmp.i273.i, 0
+  %1447 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6094, ptr noundef nonnull @.str.13, i32 noundef 2146, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1446)
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %20) #36
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.6) #35
-          to label %.noexc278.i unwind label %1457
+          to label %.noexc278.i unwind label %1453
 
 .noexc278.i:                                      ; preds = %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit270.i
   unreachable
 
-1452:                                             ; preds = %1441
+1448:                                             ; preds = %1437
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6093, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2141, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit270.i unwind label %1453
+          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit270.i unwind label %1449
 
-1453:                                             ; preds = %1452
+1449:                                             ; preds = %1448
+  %1450 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %common.resume unwind label %1707
+
+1451:                                             ; preds = %1441
+  %1452 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %common.resume unwind label %1707
+
+1453:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit270.i
   %1454 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %1711
-
-1455:                                             ; preds = %1445
-  %1456 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %1711
-
-1457:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit270.i
-  %1458 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %.13.i = extractvalue { ptr, i32 } %1458, 0
-  %.1383.i = extractvalue { ptr, i32 } %1458, 1
-  %1459 = icmp eq i32 %.1383.i, %133
-  %1460 = call ptr @__cxa_begin_catch(ptr %.13.i) #36
-  br i1 %1459, label %1461, label %1465
+  %.13.i = extractvalue { ptr, i32 } %1454, 0
+  %.1383.i = extractvalue { ptr, i32 } %1454, 1
+  %1455 = icmp eq i32 %.1383.i, %132
+  %1456 = call ptr @__cxa_begin_catch(ptr %.13.i) #36
+  br i1 %1455, label %1457, label %1461
 
-1461:                                             ; preds = %1457
-  %1462 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
-          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit280.i unwind label %1468
+1457:                                             ; preds = %1453
+  %1458 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
+          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit280.i unwind label %1464
 
-_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit280.i: ; preds = %1465, %1461
+_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit280.i: ; preds = %1461, %1457
   call void @__cxa_end_catch()
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %21) #36
   %scevgep.i.i279.i = getelementptr inbounds nuw i8, ptr %21, i64 1
   store i32 6513249, ptr %scevgep.i.i279.i, align 1
   store i8 3, ptr %21, align 1, !tbaa !1608
   %bcmp.i283.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %scevgep.i.i279.i, ptr noundef nonnull dereferenceable(3) @.str.5475, i64 3)
-  %1463 = icmp eq i32 %bcmp.i283.i, 0
-  %1464 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6096, ptr noundef nonnull @.str.13, i32 noundef 2175, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1463)
+  %1459 = icmp eq i32 %bcmp.i283.i, 0
+  %1460 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6096, ptr noundef nonnull @.str.13, i32 noundef 2175, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1459)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %21) #36
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.6) #35
-          to label %.noexc288.i unwind label %1470
+          to label %.noexc288.i unwind label %1466
 
 .noexc288.i:                                      ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit280.i
   unreachable
 
-1465:                                             ; preds = %1457
+1461:                                             ; preds = %1453
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6095, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2147, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit280.i unwind label %1466
+          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit280.i unwind label %1462
 
-1466:                                             ; preds = %1465
+1462:                                             ; preds = %1461
+  %1463 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %common.resume unwind label %1707
+
+1464:                                             ; preds = %1457
+  %1465 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %common.resume unwind label %1707
+
+1466:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit280.i
   %1467 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %1711
-
-1468:                                             ; preds = %1461
-  %1469 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %1711
-
-1470:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit280.i
-  %1471 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %.15.i = extractvalue { ptr, i32 } %1471, 0
-  %.1585.i = extractvalue { ptr, i32 } %1471, 1
-  %1472 = icmp eq i32 %.1585.i, %133
-  %1473 = call ptr @__cxa_begin_catch(ptr %.15.i) #36
-  br i1 %1472, label %1474, label %1483
+  %.15.i = extractvalue { ptr, i32 } %1467, 0
+  %.1585.i = extractvalue { ptr, i32 } %1467, 1
+  %1468 = icmp eq i32 %.1585.i, %132
+  %1469 = call ptr @__cxa_begin_catch(ptr %.15.i) #36
+  br i1 %1468, label %1470, label %1479
 
-1474:                                             ; preds = %1470
-  %1475 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
-          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit290.i unwind label %1486
+1470:                                             ; preds = %1466
+  %1471 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
+          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit290.i unwind label %1482
 
-_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit290.i: ; preds = %1483, %1474
+_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit290.i: ; preds = %1479, %1470
   call void @__cxa_end_catch()
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %22) #36
-  %1476 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  store i16 25185, ptr %1476, align 1
-  %1477 = getelementptr inbounds nuw i8, ptr %22, i64 3
-  store i16 25699, ptr %1477, align 1
+  %1472 = getelementptr inbounds nuw i8, ptr %22, i64 1
+  store i16 25185, ptr %1472, align 1
+  %1473 = getelementptr inbounds nuw i8, ptr %22, i64 3
+  store i16 25699, ptr %1473, align 1
   store i8 4, ptr %22, align 1, !tbaa !319
-  %1478 = getelementptr inbounds nuw i8, ptr %22, i64 5
-  store i8 0, ptr %1478, align 1, !tbaa !9
-  %bcmp.i293.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1476, ptr noundef nonnull dereferenceable(4) @.str.4138, i64 4)
-  %1479 = icmp eq i32 %bcmp.i293.i, 0
-  %1480 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6098, ptr noundef nonnull @.str.13, i32 noundef 2205, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1479)
+  %1474 = getelementptr inbounds nuw i8, ptr %22, i64 5
+  store i8 0, ptr %1474, align 1, !tbaa !9
+  %bcmp.i293.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1472, ptr noundef nonnull dereferenceable(4) @.str.4138, i64 4)
+  %1475 = icmp eq i32 %bcmp.i293.i, 0
+  %1476 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6098, ptr noundef nonnull @.str.13, i32 noundef 2205, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1475)
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %22) #36
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %23) #36
   %scevgep.i.i295.i = getelementptr inbounds nuw i8, ptr %23, i64 1
   store i32 6513249, ptr %scevgep.i.i295.i, align 1
   store i8 3, ptr %23, align 1, !tbaa !1608
   %bcmp.i299.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %scevgep.i.i295.i, ptr noundef nonnull dereferenceable(3) @.str.5475, i64 3)
-  %1481 = icmp eq i32 %bcmp.i299.i, 0
-  %1482 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6099, ptr noundef nonnull @.str.13, i32 noundef 2206, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1481)
+  %1477 = icmp eq i32 %bcmp.i299.i, 0
+  %1478 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6099, ptr noundef nonnull @.str.13, i32 noundef 2206, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1477)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %23) #36
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12out_of_rangeEEvPKc(ptr noundef nonnull @.str.6149) #35
-          to label %.noexc303.i unwind label %1488
+          to label %.noexc303.i unwind label %1484
 
 .noexc303.i:                                      ; preds = %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit290.i
   unreachable
 
-1483:                                             ; preds = %1470
+1479:                                             ; preds = %1466
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6097, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2176, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit290.i unwind label %1484
+          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit290.i unwind label %1480
 
-1484:                                             ; preds = %1483
+1480:                                             ; preds = %1479
+  %1481 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %common.resume unwind label %1707
+
+1482:                                             ; preds = %1470
+  %1483 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %common.resume unwind label %1707
+
+1484:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit290.i
   %1485 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %1711
-
-1486:                                             ; preds = %1474
-  %1487 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %1711
-
-1488:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit290.i
-  %1489 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12out_of_range
           catch ptr null
-  %.17.i = extractvalue { ptr, i32 } %1489, 0
-  %.1787.i = extractvalue { ptr, i32 } %1489, 1
-  %1490 = icmp eq i32 %.1787.i, %211
-  %1491 = call ptr @__cxa_begin_catch(ptr %.17.i) #36
-  br i1 %1490, label %1492, label %1495
+  %.17.i = extractvalue { ptr, i32 } %1485, 0
+  %.1787.i = extractvalue { ptr, i32 } %1485, 1
+  %1486 = icmp eq i32 %.1787.i, %210
+  %1487 = call ptr @__cxa_begin_catch(ptr %.17.i) #36
+  br i1 %1486, label %1488, label %1491
 
-1492:                                             ; preds = %1488
-  %1493 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
-          to label %1494 unwind label %1498
+1488:                                             ; preds = %1484
+  %1489 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
+          to label %1490 unwind label %1494
 
-1494:                                             ; preds = %1495, %1492
+1490:                                             ; preds = %1491, %1488
   call void @__cxa_end_catch()
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.6) #35
-          to label %.noexc308.i unwind label %1500
+          to label %.noexc308.i unwind label %1496
 
-.noexc308.i:                                      ; preds = %1494
+.noexc308.i:                                      ; preds = %1490
   unreachable
 
-1495:                                             ; preds = %1488
+1491:                                             ; preds = %1484
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6100, ptr noundef nonnull @.str.1316, ptr noundef nonnull @.str.13, i32 noundef 2207, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv)
-          to label %1494 unwind label %1496
+          to label %1490 unwind label %1492
 
-1496:                                             ; preds = %1495
+1492:                                             ; preds = %1491
+  %1493 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %common.resume unwind label %1707
+
+1494:                                             ; preds = %1488
+  %1495 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %common.resume unwind label %1707
+
+1496:                                             ; preds = %1490
   %1497 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %1711
-
-1498:                                             ; preds = %1492
-  %1499 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %1711
-
-1500:                                             ; preds = %1494
-  %1501 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %.19.i = extractvalue { ptr, i32 } %1501, 0
-  %.1989.i = extractvalue { ptr, i32 } %1501, 1
-  %1502 = icmp eq i32 %.1989.i, %133
-  %1503 = call ptr @__cxa_begin_catch(ptr %.19.i) #36
-  br i1 %1502, label %1504, label %1509
+  %.19.i = extractvalue { ptr, i32 } %1497, 0
+  %.1989.i = extractvalue { ptr, i32 } %1497, 1
+  %1498 = icmp eq i32 %.1989.i, %132
+  %1499 = call ptr @__cxa_begin_catch(ptr %.19.i) #36
+  br i1 %1498, label %1500, label %1505
 
-1504:                                             ; preds = %1500
-  %1505 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
-          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit311.i unwind label %1512
+1500:                                             ; preds = %1496
+  %1501 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
+          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit311.i unwind label %1508
 
-_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit311.i: ; preds = %1509, %1504
+_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit311.i: ; preds = %1505, %1500
   call void @__cxa_end_catch()
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %24) #36
   %scevgep.i.i310.i = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i32 6250289, ptr %scevgep.i.i310.i, align 1
   store i8 3, ptr %24, align 1, !tbaa !1608
   %bcmp.i314.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %scevgep.i.i310.i, ptr noundef nonnull dereferenceable(3) @.str.6103, i64 3)
-  %1506 = icmp eq i32 %bcmp.i314.i, 0
-  %1507 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6102, ptr noundef nonnull @.str.13, i32 noundef 2216, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1506)
-  %1508 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1296, ptr noundef nonnull @.str.13, i32 noundef 2217, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext true)
+  %1502 = icmp eq i32 %bcmp.i314.i, 0
+  %1503 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6102, ptr noundef nonnull @.str.13, i32 noundef 2216, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1502)
+  %1504 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1296, ptr noundef nonnull @.str.13, i32 noundef 2217, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext true)
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.6) #35
-          to label %.noexc317.i unwind label %1514
+          to label %.noexc317.i unwind label %1510
 
 .noexc317.i:                                      ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit311.i
   unreachable
 
-1509:                                             ; preds = %1500
+1505:                                             ; preds = %1496
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6101, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2208, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit311.i unwind label %1510
+          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit311.i unwind label %1506
 
-1510:                                             ; preds = %1509
+1506:                                             ; preds = %1505
+  %1507 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %common.resume unwind label %1707
+
+1508:                                             ; preds = %1500
+  %1509 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %common.resume unwind label %1707
+
+1510:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit311.i
   %1511 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %1711
-
-1512:                                             ; preds = %1504
-  %1513 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %1711
-
-1514:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit311.i
-  %1515 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %1516 = extractvalue { ptr, i32 } %1515, 0
-  %1517 = extractvalue { ptr, i32 } %1515, 1
-  %1518 = icmp eq i32 %1517, %133
-  %1519 = call ptr @__cxa_begin_catch(ptr %1516) #36
-  br i1 %1518, label %1520, label %1525
+  %1512 = extractvalue { ptr, i32 } %1511, 0
+  %1513 = extractvalue { ptr, i32 } %1511, 1
+  %1514 = icmp eq i32 %1513, %132
+  %1515 = call ptr @__cxa_begin_catch(ptr %1512) #36
+  br i1 %1514, label %1516, label %1521
 
-1520:                                             ; preds = %1514
-  %1521 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
-          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit321.i unwind label %1528
+1516:                                             ; preds = %1510
+  %1517 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
+          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit321.i unwind label %1524
 
-_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit321.i: ; preds = %1525, %1520
+_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit321.i: ; preds = %1521, %1516
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %24) #36
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %25) #36
@@ -84339,704 +84317,704 @@ _ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.ex
   store i32 6250289, ptr %scevgep.i.i320.i, align 1
   store i8 3, ptr %25, align 1, !tbaa !1608
   %bcmp.i324.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %scevgep.i.i320.i, ptr noundef nonnull dereferenceable(3) @.str.6103, i64 3)
-  %1522 = icmp eq i32 %bcmp.i324.i, 0
-  %1523 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6105, ptr noundef nonnull @.str.13, i32 noundef 2227, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1522)
-  %1524 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1298, ptr noundef nonnull @.str.13, i32 noundef 2228, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext true)
+  %1518 = icmp eq i32 %bcmp.i324.i, 0
+  %1519 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6105, ptr noundef nonnull @.str.13, i32 noundef 2227, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1518)
+  %1520 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1298, ptr noundef nonnull @.str.13, i32 noundef 2228, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext true)
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.6) #35
-          to label %.noexc327.i unwind label %1531
+          to label %.noexc327.i unwind label %1527
 
 .noexc327.i:                                      ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit321.i
   unreachable
 
-1525:                                             ; preds = %1514
+1521:                                             ; preds = %1510
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6104, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2221, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit321.i unwind label %1526
+          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit321.i unwind label %1522
 
-1526:                                             ; preds = %1525
-  %1527 = landingpad { ptr, i32 }
+1522:                                             ; preds = %1521
+  %1523 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1530 unwind label %1711
+          to label %1526 unwind label %1707
 
-1528:                                             ; preds = %1520
-  %1529 = landingpad { ptr, i32 }
+1524:                                             ; preds = %1516
+  %1525 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1530 unwind label %1711
+          to label %1526 unwind label %1707
 
-1530:                                             ; preds = %1528, %1526
-  %.pn143.i = phi { ptr, i32 } [ %1527, %1526 ], [ %1529, %1528 ]
+1526:                                             ; preds = %1524, %1522
+  %.pn143.i = phi { ptr, i32 } [ %1523, %1522 ], [ %1525, %1524 ]
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %24) #36
   br label %common.resume
 
-1531:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit321.i
-  %1532 = landingpad { ptr, i32 }
+1527:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit321.i
+  %1528 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %1533 = extractvalue { ptr, i32 } %1532, 0
-  %1534 = extractvalue { ptr, i32 } %1532, 1
-  %1535 = icmp eq i32 %1534, %133
-  %1536 = call ptr @__cxa_begin_catch(ptr %1533) #36
-  br i1 %1535, label %1537, label %1548
+  %1529 = extractvalue { ptr, i32 } %1528, 0
+  %1530 = extractvalue { ptr, i32 } %1528, 1
+  %1531 = icmp eq i32 %1530, %132
+  %1532 = call ptr @__cxa_begin_catch(ptr %1529) #36
+  br i1 %1531, label %1533, label %1544
 
-1537:                                             ; preds = %1531
-  %1538 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
-          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit329.i unwind label %1551
+1533:                                             ; preds = %1527
+  %1534 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
+          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit329.i unwind label %1547
 
-_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit329.i: ; preds = %1548, %1537
+_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit329.i: ; preds = %1544, %1533
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %25) #36
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %26) #36
-  %1539 = getelementptr inbounds nuw i8, ptr %26, i64 1
-  store i16 12849, ptr %1539, align 1
-  %1540 = getelementptr inbounds nuw i8, ptr %26, i64 3
-  store i16 23129, ptr %1540, align 1
+  %1535 = getelementptr inbounds nuw i8, ptr %26, i64 1
+  store i16 12849, ptr %1535, align 1
+  %1536 = getelementptr inbounds nuw i8, ptr %26, i64 3
+  store i16 23129, ptr %1536, align 1
   store i8 4, ptr %26, align 1, !tbaa !319
-  %1541 = getelementptr inbounds nuw i8, ptr %26, i64 5
-  store i8 0, ptr %1541, align 1, !tbaa !9
-  %bcmp.i333.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1539, ptr noundef nonnull dereferenceable(4) @.str.6108, i64 4)
-  %1542 = icmp eq i32 %bcmp.i333.i, 0
-  %1543 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6107, ptr noundef nonnull @.str.13, i32 noundef 2238, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1542)
-  %1544 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1298, ptr noundef nonnull @.str.13, i32 noundef 2239, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext true)
+  %1537 = getelementptr inbounds nuw i8, ptr %26, i64 5
+  store i8 0, ptr %1537, align 1, !tbaa !9
+  %bcmp.i333.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1535, ptr noundef nonnull dereferenceable(4) @.str.6108, i64 4)
+  %1538 = icmp eq i32 %bcmp.i333.i, 0
+  %1539 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6107, ptr noundef nonnull @.str.13, i32 noundef 2238, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1538)
+  %1540 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1298, ptr noundef nonnull @.str.13, i32 noundef 2239, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %27) #36
   %scevgep.i.i335.i = getelementptr inbounds nuw i8, ptr %27, i64 1
   store i32 5845553, ptr %scevgep.i.i335.i, align 1
   store i8 3, ptr %27, align 1, !tbaa !1608
   %bcmp.i340.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %scevgep.i.i335.i, ptr noundef nonnull dereferenceable(3) @.str.6110, i64 3)
-  %1545 = icmp eq i32 %bcmp.i340.i, 0
-  %1546 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6109, ptr noundef nonnull @.str.13, i32 noundef 2242, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1545)
-  %1547 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1302, ptr noundef nonnull @.str.13, i32 noundef 2243, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext true)
+  %1541 = icmp eq i32 %bcmp.i340.i, 0
+  %1542 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6109, ptr noundef nonnull @.str.13, i32 noundef 2242, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1541)
+  %1543 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1302, ptr noundef nonnull @.str.13, i32 noundef 2243, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext true)
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12out_of_rangeEEvPKc(ptr noundef nonnull @.str.3) #35
-          to label %.noexc346.i unwind label %1554
+          to label %.noexc346.i unwind label %1550
 
 .noexc346.i:                                      ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit329.i
   unreachable
 
-1548:                                             ; preds = %1531
+1544:                                             ; preds = %1527
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6106, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2232, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit329.i unwind label %1549
+          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit329.i unwind label %1545
 
-1549:                                             ; preds = %1548
-  %1550 = landingpad { ptr, i32 }
+1545:                                             ; preds = %1544
+  %1546 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1553 unwind label %1711
+          to label %1549 unwind label %1707
 
-1551:                                             ; preds = %1537
-  %1552 = landingpad { ptr, i32 }
+1547:                                             ; preds = %1533
+  %1548 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1553 unwind label %1711
+          to label %1549 unwind label %1707
 
-1553:                                             ; preds = %1551, %1549
-  %.pn145.i = phi { ptr, i32 } [ %1550, %1549 ], [ %1552, %1551 ]
+1549:                                             ; preds = %1547, %1545
+  %.pn145.i = phi { ptr, i32 } [ %1546, %1545 ], [ %1548, %1547 ]
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %25) #36
   br label %common.resume
 
-1554:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit329.i
-  %1555 = landingpad { ptr, i32 }
+1550:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit329.i
+  %1551 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12out_of_range
           catch ptr null
-  %1556 = extractvalue { ptr, i32 } %1555, 0
-  %1557 = extractvalue { ptr, i32 } %1555, 1
-  %1558 = icmp eq i32 %1557, %211
-  %1559 = call ptr @__cxa_begin_catch(ptr %1556) #36
-  br i1 %1558, label %1560, label %1562
+  %1552 = extractvalue { ptr, i32 } %1551, 0
+  %1553 = extractvalue { ptr, i32 } %1551, 1
+  %1554 = icmp eq i32 %1553, %210
+  %1555 = call ptr @__cxa_begin_catch(ptr %1552) #36
+  br i1 %1554, label %1556, label %1558
 
-1560:                                             ; preds = %1554
-  %1561 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
-          to label %_ZNK5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE13capped_lengthEmm.exit.i351.i unwind label %1565
+1556:                                             ; preds = %1550
+  %1557 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
+          to label %_ZNK5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE13capped_lengthEmm.exit.i351.i unwind label %1561
 
-_ZNK5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE13capped_lengthEmm.exit.i351.i: ; preds = %1562, %1560
+_ZNK5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE13capped_lengthEmm.exit.i351.i: ; preds = %1558, %1556
   call void @__cxa_end_catch()
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.6) #35
-          to label %.noexc354.i unwind label %1567
+          to label %.noexc354.i unwind label %1563
 
 .noexc354.i:                                      ; preds = %_ZNK5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE13capped_lengthEmm.exit.i351.i
   unreachable
 
-1562:                                             ; preds = %1554
+1558:                                             ; preds = %1550
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6111, ptr noundef nonnull @.str.1316, ptr noundef nonnull @.str.13, i32 noundef 2247, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv)
-          to label %_ZNK5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE13capped_lengthEmm.exit.i351.i unwind label %1563
+          to label %_ZNK5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE13capped_lengthEmm.exit.i351.i unwind label %1559
 
-1563:                                             ; preds = %1562
+1559:                                             ; preds = %1558
+  %1560 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %1582 unwind label %1707
+
+1561:                                             ; preds = %1556
+  %1562 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %1582 unwind label %1707
+
+1563:                                             ; preds = %_ZNK5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE13capped_lengthEmm.exit.i351.i
   %1564 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %1586 unwind label %1711
-
-1565:                                             ; preds = %1560
-  %1566 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %1586 unwind label %1711
-
-1567:                                             ; preds = %_ZNK5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE13capped_lengthEmm.exit.i351.i
-  %1568 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %1569 = extractvalue { ptr, i32 } %1568, 0
-  %1570 = extractvalue { ptr, i32 } %1568, 1
-  %1571 = icmp eq i32 %1570, %133
-  %1572 = call ptr @__cxa_begin_catch(ptr %1569) #36
-  br i1 %1571, label %1573, label %1581
+  %1565 = extractvalue { ptr, i32 } %1564, 0
+  %1566 = extractvalue { ptr, i32 } %1564, 1
+  %1567 = icmp eq i32 %1566, %132
+  %1568 = call ptr @__cxa_begin_catch(ptr %1565) #36
+  br i1 %1567, label %1569, label %1577
 
-1573:                                             ; preds = %1567
-  %1574 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
-          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit356.i unwind label %1584
+1569:                                             ; preds = %1563
+  %1570 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
+          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit356.i unwind label %1580
 
-_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit356.i: ; preds = %1581, %1573
+_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit356.i: ; preds = %1577, %1569
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %27) #36
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %26) #36
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %28) #36
-  %1575 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store i16 12849, ptr %1575, align 1
-  %1576 = getelementptr inbounds nuw i8, ptr %28, i64 3
-  store i16 22872, ptr %1576, align 1
+  %1571 = getelementptr inbounds nuw i8, ptr %28, i64 1
+  store i16 12849, ptr %1571, align 1
+  %1572 = getelementptr inbounds nuw i8, ptr %28, i64 3
+  store i16 22872, ptr %1572, align 1
   store i8 4, ptr %28, align 1, !tbaa !319
-  %1577 = getelementptr inbounds nuw i8, ptr %28, i64 5
-  store i8 0, ptr %1577, align 1, !tbaa !9
-  %bcmp.i359.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1575, ptr noundef nonnull dereferenceable(4) @.str.6114, i64 4)
-  %1578 = icmp eq i32 %bcmp.i359.i, 0
-  %1579 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6113, ptr noundef nonnull @.str.13, i32 noundef 2256, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1578)
-  %1580 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1296, ptr noundef nonnull @.str.13, i32 noundef 2257, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext true)
+  %1573 = getelementptr inbounds nuw i8, ptr %28, i64 5
+  store i8 0, ptr %1573, align 1, !tbaa !9
+  %bcmp.i359.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1571, ptr noundef nonnull dereferenceable(4) @.str.6114, i64 4)
+  %1574 = icmp eq i32 %bcmp.i359.i, 0
+  %1575 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6113, ptr noundef nonnull @.str.13, i32 noundef 2256, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1574)
+  %1576 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1296, ptr noundef nonnull @.str.13, i32 noundef 2257, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext true)
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.6) #35
-          to label %.noexc363.i unwind label %1587
+          to label %.noexc363.i unwind label %1583
 
 .noexc363.i:                                      ; preds = %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit356.i
   unreachable
 
-1581:                                             ; preds = %1567
+1577:                                             ; preds = %1563
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6112, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2251, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit356.i unwind label %1582
+          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit356.i unwind label %1578
 
-1582:                                             ; preds = %1581
-  %1583 = landingpad { ptr, i32 }
+1578:                                             ; preds = %1577
+  %1579 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1586 unwind label %1711
+          to label %1582 unwind label %1707
 
-1584:                                             ; preds = %1573
-  %1585 = landingpad { ptr, i32 }
+1580:                                             ; preds = %1569
+  %1581 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1586 unwind label %1711
+          to label %1582 unwind label %1707
 
-1586:                                             ; preds = %1584, %1582, %1565, %1563
-  %.pn147.pn.i = phi { ptr, i32 } [ %1564, %1563 ], [ %1566, %1565 ], [ %1583, %1582 ], [ %1585, %1584 ]
+1582:                                             ; preds = %1580, %1578, %1561, %1559
+  %.pn147.pn.i = phi { ptr, i32 } [ %1560, %1559 ], [ %1562, %1561 ], [ %1579, %1578 ], [ %1581, %1580 ]
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %27) #36
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %26) #36
   br label %common.resume
 
-1587:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit356.i
-  %1588 = landingpad { ptr, i32 }
+1583:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit356.i
+  %1584 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %1589 = extractvalue { ptr, i32 } %1588, 0
-  %1590 = extractvalue { ptr, i32 } %1588, 1
-  %1591 = icmp eq i32 %1590, %133
-  %1592 = call ptr @__cxa_begin_catch(ptr %1589) #36
-  br i1 %1591, label %1593, label %1601
+  %1585 = extractvalue { ptr, i32 } %1584, 0
+  %1586 = extractvalue { ptr, i32 } %1584, 1
+  %1587 = icmp eq i32 %1586, %132
+  %1588 = call ptr @__cxa_begin_catch(ptr %1585) #36
+  br i1 %1587, label %1589, label %1597
 
-1593:                                             ; preds = %1587
-  %1594 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
-          to label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit.i19 unwind label %1604
+1589:                                             ; preds = %1583
+  %1590 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
+          to label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit.i19 unwind label %1600
 
-_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit.i19: ; preds = %1601, %1593
+_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit.i19: ; preds = %1597, %1589
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %28) #36
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %29) #36
-  %1595 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store i16 12849, ptr %1595, align 1
-  %1596 = getelementptr inbounds nuw i8, ptr %29, i64 3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1596, ptr noundef nonnull align 1 dereferenceable(3) @.str.1294, i64 3, i1 false)
+  %1591 = getelementptr inbounds nuw i8, ptr %29, i64 1
+  store i16 12849, ptr %1591, align 1
+  %1592 = getelementptr inbounds nuw i8, ptr %29, i64 3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1592, ptr noundef nonnull align 1 dereferenceable(3) @.str.1294, i64 3, i1 false)
   store i8 5, ptr %29, align 1, !tbaa !317
-  %1597 = getelementptr inbounds nuw i8, ptr %29, i64 6
-  store i8 0, ptr %1597, align 1, !tbaa !9
-  %bcmp.i367.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1595, ptr noundef nonnull dereferenceable(5) @.str.6117, i64 5)
-  %1598 = icmp eq i32 %bcmp.i367.i, 0
-  %1599 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6116, ptr noundef nonnull @.str.13, i32 noundef 2266, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1598)
-  %1600 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1296, ptr noundef nonnull @.str.13, i32 noundef 2267, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext true)
+  %1593 = getelementptr inbounds nuw i8, ptr %29, i64 6
+  store i8 0, ptr %1593, align 1, !tbaa !9
+  %bcmp.i367.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1591, ptr noundef nonnull dereferenceable(5) @.str.6117, i64 5)
+  %1594 = icmp eq i32 %bcmp.i367.i, 0
+  %1595 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6116, ptr noundef nonnull @.str.13, i32 noundef 2266, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1594)
+  %1596 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1296, ptr noundef nonnull @.str.13, i32 noundef 2267, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext true)
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.6) #35
-          to label %.noexc369.i unwind label %1607
+          to label %.noexc369.i unwind label %1603
 
 .noexc369.i:                                      ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit.i19
   unreachable
 
-1601:                                             ; preds = %1587
+1597:                                             ; preds = %1583
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6115, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2261, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit.i19 unwind label %1602
+          to label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit.i19 unwind label %1598
 
-1602:                                             ; preds = %1601
-  %1603 = landingpad { ptr, i32 }
+1598:                                             ; preds = %1597
+  %1599 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1606 unwind label %1711
+          to label %1602 unwind label %1707
 
-1604:                                             ; preds = %1593
-  %1605 = landingpad { ptr, i32 }
+1600:                                             ; preds = %1589
+  %1601 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1606 unwind label %1711
+          to label %1602 unwind label %1707
 
-1606:                                             ; preds = %1604, %1602
-  %.pn150.i = phi { ptr, i32 } [ %1603, %1602 ], [ %1605, %1604 ]
+1602:                                             ; preds = %1600, %1598
+  %.pn150.i = phi { ptr, i32 } [ %1599, %1598 ], [ %1601, %1600 ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %28) #36
   br label %common.resume
 
-1607:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit.i19
-  %1608 = landingpad { ptr, i32 }
+1603:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit.i19
+  %1604 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %1609 = extractvalue { ptr, i32 } %1608, 0
-  %1610 = extractvalue { ptr, i32 } %1608, 1
-  %1611 = icmp eq i32 %1610, %133
-  %1612 = call ptr @__cxa_begin_catch(ptr %1609) #36
-  br i1 %1611, label %1613, label %1621
+  %1605 = extractvalue { ptr, i32 } %1604, 0
+  %1606 = extractvalue { ptr, i32 } %1604, 1
+  %1607 = icmp eq i32 %1606, %132
+  %1608 = call ptr @__cxa_begin_catch(ptr %1605) #36
+  br i1 %1607, label %1609, label %1617
 
-1613:                                             ; preds = %1607
-  %1614 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
-          to label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit372.i unwind label %1624
+1609:                                             ; preds = %1603
+  %1610 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
+          to label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit372.i unwind label %1620
 
-_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit372.i: ; preds = %1621, %1613
+_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit372.i: ; preds = %1617, %1609
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %29) #36
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %30) #36
-  %1615 = getelementptr inbounds nuw i8, ptr %30, i64 1
-  store i16 12849, ptr %1615, align 1
-  %1616 = getelementptr inbounds nuw i8, ptr %30, i64 3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1616, ptr noundef nonnull align 1 dereferenceable(3) @.str.1294, i64 3, i1 false), !tbaa !9
+  %1611 = getelementptr inbounds nuw i8, ptr %30, i64 1
+  store i16 12849, ptr %1611, align 1
+  %1612 = getelementptr inbounds nuw i8, ptr %30, i64 3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1612, ptr noundef nonnull align 1 dereferenceable(3) @.str.1294, i64 3, i1 false), !tbaa !9
   store i8 5, ptr %30, align 1, !tbaa !317
-  %1617 = getelementptr inbounds nuw i8, ptr %30, i64 6
-  store i8 0, ptr %1617, align 1, !tbaa !9
-  %bcmp.i381.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1615, ptr noundef nonnull dereferenceable(5) @.str.6117, i64 5)
-  %1618 = icmp eq i32 %bcmp.i381.i, 0
-  %1619 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6119, ptr noundef nonnull @.str.13, i32 noundef 2277, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1618)
-  %1620 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1298, ptr noundef nonnull @.str.13, i32 noundef 2278, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext true)
+  %1613 = getelementptr inbounds nuw i8, ptr %30, i64 6
+  store i8 0, ptr %1613, align 1, !tbaa !9
+  %bcmp.i381.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1611, ptr noundef nonnull dereferenceable(5) @.str.6117, i64 5)
+  %1614 = icmp eq i32 %bcmp.i381.i, 0
+  %1615 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6119, ptr noundef nonnull @.str.13, i32 noundef 2277, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1614)
+  %1616 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1298, ptr noundef nonnull @.str.13, i32 noundef 2278, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext true)
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.6) #35
-          to label %.noexc392.i unwind label %1627
+          to label %.noexc392.i unwind label %1623
 
 .noexc392.i:                                      ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit372.i
   unreachable
 
-1621:                                             ; preds = %1607
+1617:                                             ; preds = %1603
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6118, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2271, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit372.i unwind label %1622
+          to label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit372.i unwind label %1618
 
-1622:                                             ; preds = %1621
-  %1623 = landingpad { ptr, i32 }
+1618:                                             ; preds = %1617
+  %1619 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1626 unwind label %1711
+          to label %1622 unwind label %1707
 
-1624:                                             ; preds = %1613
-  %1625 = landingpad { ptr, i32 }
+1620:                                             ; preds = %1609
+  %1621 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1626 unwind label %1711
+          to label %1622 unwind label %1707
 
-1626:                                             ; preds = %1624, %1622
-  %.pn152.i = phi { ptr, i32 } [ %1623, %1622 ], [ %1625, %1624 ]
+1622:                                             ; preds = %1620, %1618
+  %.pn152.i = phi { ptr, i32 } [ %1619, %1618 ], [ %1621, %1620 ]
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %29) #36
   br label %common.resume
 
-1627:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit372.i
-  %1628 = landingpad { ptr, i32 }
+1623:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit372.i
+  %1624 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %1629 = extractvalue { ptr, i32 } %1628, 0
-  %1630 = extractvalue { ptr, i32 } %1628, 1
-  %1631 = icmp eq i32 %1630, %133
-  %1632 = call ptr @__cxa_begin_catch(ptr %1629) #36
-  br i1 %1631, label %1633, label %1641
+  %1625 = extractvalue { ptr, i32 } %1624, 0
+  %1626 = extractvalue { ptr, i32 } %1624, 1
+  %1627 = icmp eq i32 %1626, %132
+  %1628 = call ptr @__cxa_begin_catch(ptr %1625) #36
+  br i1 %1627, label %1629, label %1637
 
-1633:                                             ; preds = %1627
-  %1634 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
-          to label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit393.i unwind label %1644
+1629:                                             ; preds = %1623
+  %1630 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
+          to label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit393.i unwind label %1640
 
-_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit393.i: ; preds = %1641, %1633
+_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit393.i: ; preds = %1637, %1629
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %30) #36
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %31) #36
-  %1635 = getelementptr inbounds nuw i8, ptr %31, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1635, ptr noundef nonnull align 1 dereferenceable(3) @.str.1293, i64 3, i1 false)
-  %1636 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  store i8 88, ptr %1636, align 1
+  %1631 = getelementptr inbounds nuw i8, ptr %31, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1631, ptr noundef nonnull align 1 dereferenceable(3) @.str.1293, i64 3, i1 false)
+  %1632 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  store i8 88, ptr %1632, align 1
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 5
   store i8 89, ptr %.sroa.4.0..sroa_idx.i, align 1
   store i8 5, ptr %31, align 1, !tbaa !317
-  %1637 = getelementptr inbounds nuw i8, ptr %31, i64 6
-  store i8 0, ptr %1637, align 1, !tbaa !9
-  %bcmp.i396.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1635, ptr noundef nonnull dereferenceable(5) @.str.6122, i64 5)
-  %1638 = icmp eq i32 %bcmp.i396.i, 0
-  %1639 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6121, ptr noundef nonnull @.str.13, i32 noundef 2287, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1638)
-  %1640 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1296, ptr noundef nonnull @.str.13, i32 noundef 2288, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext true)
+  %1633 = getelementptr inbounds nuw i8, ptr %31, i64 6
+  store i8 0, ptr %1633, align 1, !tbaa !9
+  %bcmp.i396.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1631, ptr noundef nonnull dereferenceable(5) @.str.6122, i64 5)
+  %1634 = icmp eq i32 %bcmp.i396.i, 0
+  %1635 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6121, ptr noundef nonnull @.str.13, i32 noundef 2287, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1634)
+  %1636 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1296, ptr noundef nonnull @.str.13, i32 noundef 2288, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext true)
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.6) #35
-          to label %.noexc399.i unwind label %1647
+          to label %.noexc399.i unwind label %1643
 
 .noexc399.i:                                      ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit393.i
   unreachable
 
-1641:                                             ; preds = %1627
+1637:                                             ; preds = %1623
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6120, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2282, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit393.i unwind label %1642
+          to label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit393.i unwind label %1638
 
-1642:                                             ; preds = %1641
-  %1643 = landingpad { ptr, i32 }
+1638:                                             ; preds = %1637
+  %1639 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1646 unwind label %1711
+          to label %1642 unwind label %1707
 
-1644:                                             ; preds = %1633
-  %1645 = landingpad { ptr, i32 }
+1640:                                             ; preds = %1629
+  %1641 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1646 unwind label %1711
+          to label %1642 unwind label %1707
 
-1646:                                             ; preds = %1644, %1642
-  %.pn154.i = phi { ptr, i32 } [ %1643, %1642 ], [ %1645, %1644 ]
+1642:                                             ; preds = %1640, %1638
+  %.pn154.i = phi { ptr, i32 } [ %1639, %1638 ], [ %1641, %1640 ]
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %30) #36
   br label %common.resume
 
-1647:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit393.i
-  %1648 = landingpad { ptr, i32 }
+1643:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit393.i
+  %1644 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %.27.i = extractvalue { ptr, i32 } %1648, 0
-  %.2797.i = extractvalue { ptr, i32 } %1648, 1
-  %1649 = icmp eq i32 %.2797.i, %133
-  %1650 = call ptr @__cxa_begin_catch(ptr %.27.i) #36
-  br i1 %1649, label %1651, label %1659
+  %.27.i = extractvalue { ptr, i32 } %1644, 0
+  %.2797.i = extractvalue { ptr, i32 } %1644, 1
+  %1645 = icmp eq i32 %.2797.i, %132
+  %1646 = call ptr @__cxa_begin_catch(ptr %.27.i) #36
+  br i1 %1645, label %1647, label %1655
 
-1651:                                             ; preds = %1647
-  %1652 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
-          to label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit401.i unwind label %1662
+1647:                                             ; preds = %1643
+  %1648 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
+          to label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit401.i unwind label %1658
 
-_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit401.i: ; preds = %1659, %1651
+_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit401.i: ; preds = %1655, %1647
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %31) #36
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %32) #36
-  %1653 = getelementptr inbounds nuw i8, ptr %32, i64 1
-  store i16 12849, ptr %1653, align 1
-  %1654 = getelementptr inbounds nuw i8, ptr %32, i64 3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1654, ptr noundef nonnull align 1 dereferenceable(3) @.str.1294, i64 3, i1 false)
+  %1649 = getelementptr inbounds nuw i8, ptr %32, i64 1
+  store i16 12849, ptr %1649, align 1
+  %1650 = getelementptr inbounds nuw i8, ptr %32, i64 3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1650, ptr noundef nonnull align 1 dereferenceable(3) @.str.1294, i64 3, i1 false)
   store i8 5, ptr %32, align 1, !tbaa !317
-  %1655 = getelementptr inbounds nuw i8, ptr %32, i64 6
-  store i8 0, ptr %1655, align 1, !tbaa !9
-  %bcmp.i404.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1653, ptr noundef nonnull dereferenceable(5) @.str.6117, i64 5)
-  %1656 = icmp eq i32 %bcmp.i404.i, 0
-  %1657 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6119, ptr noundef nonnull @.str.13, i32 noundef 2298, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1656)
-  %1658 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1298, ptr noundef nonnull @.str.13, i32 noundef 2299, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext true)
+  %1651 = getelementptr inbounds nuw i8, ptr %32, i64 6
+  store i8 0, ptr %1651, align 1, !tbaa !9
+  %bcmp.i404.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1649, ptr noundef nonnull dereferenceable(5) @.str.6117, i64 5)
+  %1652 = icmp eq i32 %bcmp.i404.i, 0
+  %1653 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6119, ptr noundef nonnull @.str.13, i32 noundef 2298, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1652)
+  %1654 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1298, ptr noundef nonnull @.str.13, i32 noundef 2299, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext true)
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.6) #35
-          to label %.noexc407.i unwind label %1665
+          to label %.noexc407.i unwind label %1661
 
 .noexc407.i:                                      ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit401.i
   unreachable
 
-1659:                                             ; preds = %1647
+1655:                                             ; preds = %1643
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6123, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2292, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit401.i unwind label %1660
+          to label %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit401.i unwind label %1656
 
-1660:                                             ; preds = %1659
-  %1661 = landingpad { ptr, i32 }
+1656:                                             ; preds = %1655
+  %1657 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1664 unwind label %1711
+          to label %1660 unwind label %1707
 
-1662:                                             ; preds = %1651
-  %1663 = landingpad { ptr, i32 }
+1658:                                             ; preds = %1647
+  %1659 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1664 unwind label %1711
+          to label %1660 unwind label %1707
 
-1664:                                             ; preds = %1662, %1660
-  %.pn158.i = phi { ptr, i32 } [ %1661, %1660 ], [ %1663, %1662 ]
+1660:                                             ; preds = %1658, %1656
+  %.pn158.i = phi { ptr, i32 } [ %1657, %1656 ], [ %1659, %1658 ]
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %31) #36
   br label %common.resume
 
-1665:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit401.i
-  %1666 = landingpad { ptr, i32 }
+1661:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.exit401.i
+  %1662 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %1667 = extractvalue { ptr, i32 } %1666, 0
-  %1668 = extractvalue { ptr, i32 } %1666, 1
-  %1669 = icmp eq i32 %1668, %133
-  %1670 = call ptr @__cxa_begin_catch(ptr %1667) #36
-  br i1 %1669, label %1671, label %1686
+  %1663 = extractvalue { ptr, i32 } %1662, 0
+  %1664 = extractvalue { ptr, i32 } %1662, 1
+  %1665 = icmp eq i32 %1664, %132
+  %1666 = call ptr @__cxa_begin_catch(ptr %1663) #36
+  br i1 %1665, label %1667, label %1682
 
-1671:                                             ; preds = %1665
-  %1672 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
-          to label %1673 unwind label %1689
+1667:                                             ; preds = %1661
+  %1668 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
+          to label %1669 unwind label %1685
 
-1673:                                             ; preds = %1686, %1671
+1669:                                             ; preds = %1682, %1667
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %32) #36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #36
   store i64 97126390431749, ptr %33, align 8
-  %1674 = getelementptr inbounds nuw i8, ptr %33, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1674, ptr noundef nonnull align 1 dereferenceable(3) @.str.1293, i64 3, i1 false)
-  %1675 = getelementptr inbounds nuw i8, ptr %33, i64 6
-  %bcmp.i414.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1674, ptr noundef nonnull dereferenceable(5) @.str.6125, i64 5)
-  %1676 = icmp eq i32 %bcmp.i414.i, 0
-  %1677 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6124, ptr noundef nonnull @.str.13, i32 noundef 2308, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1676)
-  %1678 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1296, ptr noundef nonnull @.str.13, i32 noundef 2309, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext true)
-  store i8 81, ptr %1675, align 2
+  %1670 = getelementptr inbounds nuw i8, ptr %33, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1670, ptr noundef nonnull align 1 dereferenceable(3) @.str.1293, i64 3, i1 false)
+  %1671 = getelementptr inbounds nuw i8, ptr %33, i64 6
+  %bcmp.i414.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1670, ptr noundef nonnull dereferenceable(5) @.str.6125, i64 5)
+  %1672 = icmp eq i32 %bcmp.i414.i, 0
+  %1673 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6124, ptr noundef nonnull @.str.13, i32 noundef 2308, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1672)
+  %1674 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1296, ptr noundef nonnull @.str.13, i32 noundef 2309, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext true)
+  store i8 81, ptr %1671, align 2
   store i8 6, ptr %33, align 8, !tbaa !1615
-  %1679 = getelementptr inbounds nuw i8, ptr %33, i64 7
-  store i8 0, ptr %1679, align 1, !tbaa !9
-  %bcmp.i428.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1674, ptr noundef nonnull dereferenceable(6) @.str.6127, i64 6)
-  %1680 = icmp eq i32 %bcmp.i428.i, 0
-  %1681 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6126, ptr noundef nonnull @.str.13, i32 noundef 2311, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1680)
-  %1682 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1296, ptr noundef nonnull @.str.13, i32 noundef 2312, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext true)
+  %1675 = getelementptr inbounds nuw i8, ptr %33, i64 7
+  store i8 0, ptr %1675, align 1, !tbaa !9
+  %bcmp.i428.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1670, ptr noundef nonnull dereferenceable(6) @.str.6127, i64 6)
+  %1676 = icmp eq i32 %bcmp.i428.i, 0
+  %1677 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6126, ptr noundef nonnull @.str.13, i32 noundef 2311, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1676)
+  %1678 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.1296, ptr noundef nonnull @.str.13, i32 noundef 2312, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34) #36
-  %1683 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store ptr %1683, ptr %34, align 8, !tbaa !1559
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %1683, ptr noundef nonnull align 1 dereferenceable(3) @.str.5714, i64 3, i1 false)
-  %1684 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i64 3, ptr %1684, align 8, !tbaa !249
-  %1685 = getelementptr inbounds nuw i8, ptr %34, i64 19
-  store i8 0, ptr %1685, align 1, !tbaa !9
+  %1679 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  store ptr %1679, ptr %34, align 8, !tbaa !1559
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %1679, ptr noundef nonnull align 1 dereferenceable(3) @.str.5714, i64 3, i1 false)
+  %1680 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store i64 3, ptr %1680, align 8, !tbaa !249
+  %1681 = getelementptr inbounds nuw i8, ptr %34, i64 19
+  store i8 0, ptr %1681, align 1, !tbaa !9
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.6) #35
-          to label %.noexc438.i unwind label %1692
+          to label %.noexc438.i unwind label %1688
 
-.noexc438.i:                                      ; preds = %1673
+.noexc438.i:                                      ; preds = %1669
   unreachable
 
-1686:                                             ; preds = %1665
+1682:                                             ; preds = %1661
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6106, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2303, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv)
-          to label %1673 unwind label %1687
+          to label %1669 unwind label %1683
 
-1687:                                             ; preds = %1686
-  %1688 = landingpad { ptr, i32 }
+1683:                                             ; preds = %1682
+  %1684 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1691 unwind label %1711
+          to label %1687 unwind label %1707
 
-1689:                                             ; preds = %1671
-  %1690 = landingpad { ptr, i32 }
+1685:                                             ; preds = %1667
+  %1686 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1691 unwind label %1711
+          to label %1687 unwind label %1707
 
-1691:                                             ; preds = %1689, %1687
-  %.pn160.i = phi { ptr, i32 } [ %1688, %1687 ], [ %1690, %1689 ]
+1687:                                             ; preds = %1685, %1683
+  %.pn160.i = phi { ptr, i32 } [ %1684, %1683 ], [ %1686, %1685 ]
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %32) #36
   br label %common.resume
 
-1692:                                             ; preds = %1673
-  %1693 = landingpad { ptr, i32 }
+1688:                                             ; preds = %1669
+  %1689 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %1694 = load ptr, ptr %34, align 8, !tbaa !246
-  %1695 = icmp eq ptr %1694, %1683
-  br i1 %1695, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i449.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i448.i
+  %1690 = load ptr, ptr %34, align 8, !tbaa !246
+  %1691 = icmp eq ptr %1690, %1679
+  br i1 %1691, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i449.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i448.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i449.i: ; preds = %1692
-  %1696 = load i64, ptr %1684, align 8, !tbaa !249
-  %1697 = icmp ult i64 %1696, 16
-  call void @llvm.assume(i1 %1697)
-  br label %1700
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i449.i: ; preds = %1688
+  %1692 = load i64, ptr %1680, align 8, !tbaa !249
+  %1693 = icmp ult i64 %1692, 16
+  call void @llvm.assume(i1 %1693)
+  br label %1696
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i448.i: ; preds = %1692
-  %1698 = load i64, ptr %1683, align 8, !tbaa !9
-  %1699 = add i64 %1698, 1
-  call void @_ZdlPvm(ptr noundef %1694, i64 noundef %1699) #39
-  br label %1700
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i448.i: ; preds = %1688
+  %1694 = load i64, ptr %1679, align 8, !tbaa !9
+  %1695 = add i64 %1694, 1
+  call void @_ZdlPvm(ptr noundef %1690, i64 noundef %1695) #39
+  br label %1696
 
-1700:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i448.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i449.i
+1696:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i448.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i449.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34) #36
-  %.34.i = extractvalue { ptr, i32 } %1693, 0
-  %.34104.i = extractvalue { ptr, i32 } %1693, 1
-  %1701 = icmp eq i32 %.34104.i, %133
-  %1702 = call ptr @__cxa_begin_catch(ptr %.34.i) #36
-  br i1 %1701, label %1703, label %1705
+  %.34.i = extractvalue { ptr, i32 } %1689, 0
+  %.34104.i = extractvalue { ptr, i32 } %1689, 1
+  %1697 = icmp eq i32 %.34104.i, %132
+  %1698 = call ptr @__cxa_begin_catch(ptr %.34.i) #36
+  br i1 %1697, label %1699, label %1701
 
-1703:                                             ; preds = %1700
-  %1704 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
-          to label %_ZN5boost14static_stringsL10testAppendEv.exit unwind label %1708
+1699:                                             ; preds = %1696
+  %1700 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
+          to label %_ZN5boost14static_stringsL10testAppendEv.exit unwind label %1704
 
-1705:                                             ; preds = %1700
+1701:                                             ; preds = %1696
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6128, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2316, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv)
-          to label %_ZN5boost14static_stringsL10testAppendEv.exit unwind label %1706
+          to label %_ZN5boost14static_stringsL10testAppendEv.exit unwind label %1702
 
-1706:                                             ; preds = %1705
-  %1707 = landingpad { ptr, i32 }
+1702:                                             ; preds = %1701
+  %1703 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1710 unwind label %1711
+          to label %1706 unwind label %1707
 
-1708:                                             ; preds = %1703
-  %1709 = landingpad { ptr, i32 }
+1704:                                             ; preds = %1699
+  %1705 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1710 unwind label %1711
+          to label %1706 unwind label %1707
 
-1710:                                             ; preds = %1708, %1706
-  %.pn170.pn.i = phi { ptr, i32 } [ %1707, %1706 ], [ %1709, %1708 ]
+1706:                                             ; preds = %1704, %1702
+  %.pn170.pn.i = phi { ptr, i32 } [ %1703, %1702 ], [ %1705, %1704 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #36
   br label %common.resume
 
-1711:                                             ; preds = %1708, %1706, %1689, %1687, %1662, %1660, %1644, %1642, %1624, %1622, %1604, %1602, %1584, %1582, %1565, %1563, %1551, %1549, %1528, %1526, %1512, %1510, %1498, %1496, %1486, %1484, %1468, %1466, %1455, %1453, %1439, %1437, %1423, %1407, %1385, %1371, %1353
-  %1712 = landingpad { ptr, i32 }
+1707:                                             ; preds = %1704, %1702, %1685, %1683, %1658, %1656, %1640, %1638, %1620, %1618, %1600, %1598, %1580, %1578, %1561, %1559, %1547, %1545, %1524, %1522, %1508, %1506, %1494, %1492, %1482, %1480, %1464, %1462, %1451, %1449, %1435, %1433, %1419, %1403, %1381, %1367, %1349
+  %1708 = landingpad { ptr, i32 }
           catch ptr null
-  %1713 = extractvalue { ptr, i32 } %1712, 0
-  call void @__clang_call_terminate(ptr %1713) #37
+  %1709 = extractvalue { ptr, i32 } %1708, 0
+  call void @__clang_call_terminate(ptr %1709) #37
   unreachable
 
-_ZN5boost14static_stringsL10testAppendEv.exit:    ; preds = %1703, %1705
+_ZN5boost14static_stringsL10testAppendEv.exit:    ; preds = %1699, %1701
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #36
-  %1714 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1715 = icmp eq i8 %1714, 0
-  br i1 %1715, label %1716, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit266, !prof !56
+  %1710 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1711 = icmp eq i8 %1710, 0
+  br i1 %1711, label %1712, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit266, !prof !56
 
-1716:                                             ; preds = %_ZN5boost14static_stringsL10testAppendEv.exit
-  %1717 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i265 = icmp eq i32 %1717, 0
-  br i1 %.not.i.i265, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit266, label %1718
+1712:                                             ; preds = %_ZN5boost14static_stringsL10testAppendEv.exit
+  %1713 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i265 = icmp eq i32 %1713, 0
+  br i1 %.not.i.i265, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit266, label %1714
 
-1718:                                             ; preds = %1716
+1714:                                             ; preds = %1712
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1719 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1715 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit266
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit266:   ; preds = %_ZN5boost14static_stringsL10testAppendEv.exit, %1716, %1718
-  %1720 = getelementptr inbounds nuw i8, ptr %36, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(3) %1720, ptr noundef nonnull align 1 dereferenceable(3) @.str.1293, i64 3, i1 false)
-  %1721 = getelementptr inbounds nuw i8, ptr %35, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(3) %1721, ptr noundef nonnull align 1 dereferenceable(3) @.str.1303, i64 3, i1 false)
-  %bcmp.i.i453.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %1721, ptr noundef nonnull dereferenceable(3) %1720, i64 3)
-  %1722 = icmp eq i32 %bcmp.i.i453.i, 0
-  %1723 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6130, ptr noundef nonnull @.str.13, i32 noundef 2319, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1722)
-  %1724 = getelementptr inbounds nuw i8, ptr %38, i64 2
-  store i32 875770417, ptr %1724, align 2
-  %1725 = getelementptr inbounds nuw i8, ptr %37, i64 2
-  store i32 875770417, ptr %1725, align 2
-  %bcmp.i.i458.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1725, ptr noundef nonnull dereferenceable(4) %1724, i64 4)
-  %1726 = icmp eq i32 %bcmp.i.i458.i, 0
-  %1727 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6131, ptr noundef nonnull @.str.13, i32 noundef 2320, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1726)
-  %1728 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1729 = icmp eq i8 %1728, 0
-  br i1 %1729, label %1730, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit264, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit266:   ; preds = %_ZN5boost14static_stringsL10testAppendEv.exit, %1712, %1714
+  %1716 = getelementptr inbounds nuw i8, ptr %36, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(3) %1716, ptr noundef nonnull align 1 dereferenceable(3) @.str.1293, i64 3, i1 false)
+  %1717 = getelementptr inbounds nuw i8, ptr %35, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(3) %1717, ptr noundef nonnull align 1 dereferenceable(3) @.str.1303, i64 3, i1 false)
+  %bcmp.i.i453.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %1717, ptr noundef nonnull dereferenceable(3) %1716, i64 3)
+  %1718 = icmp eq i32 %bcmp.i.i453.i, 0
+  %1719 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6130, ptr noundef nonnull @.str.13, i32 noundef 2319, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1718)
+  %1720 = getelementptr inbounds nuw i8, ptr %38, i64 2
+  store i32 875770417, ptr %1720, align 2
+  %1721 = getelementptr inbounds nuw i8, ptr %37, i64 2
+  store i32 875770417, ptr %1721, align 2
+  %bcmp.i.i458.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1721, ptr noundef nonnull dereferenceable(4) %1720, i64 4)
+  %1722 = icmp eq i32 %bcmp.i.i458.i, 0
+  %1723 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6131, ptr noundef nonnull @.str.13, i32 noundef 2320, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1722)
+  %1724 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1725 = icmp eq i8 %1724, 0
+  br i1 %1725, label %1726, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit264, !prof !56
 
-1730:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit266
-  %1731 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i263 = icmp eq i32 %1731, 0
-  br i1 %.not.i.i263, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit264, label %1732
+1726:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit266
+  %1727 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i263 = icmp eq i32 %1727, 0
+  br i1 %.not.i.i263, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit264, label %1728
 
-1732:                                             ; preds = %1730
+1728:                                             ; preds = %1726
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1733 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1729 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit264
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit264:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit266, %1730, %1732
-  %1734 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1735 = icmp eq i8 %1734, 0
-  br i1 %1735, label %1736, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit262, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit264:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit266, %1726, %1728
+  %1730 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1731 = icmp eq i8 %1730, 0
+  br i1 %1731, label %1732, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit262, !prof !56
 
-1736:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit264
-  %1737 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i261 = icmp eq i32 %1737, 0
-  br i1 %.not.i.i261, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit262, label %1738
+1732:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit264
+  %1733 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i261 = icmp eq i32 %1733, 0
+  br i1 %.not.i.i261, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit262, label %1734
 
-1738:                                             ; preds = %1736
+1734:                                             ; preds = %1732
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1739 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1735 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit262
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit262:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit264, %1736, %1738
-  %1740 = getelementptr inbounds nuw i8, ptr %40, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(3) %1740, ptr noundef nonnull align 1 dereferenceable(3) @.str.1293, i64 3, i1 false)
-  %1741 = getelementptr inbounds nuw i8, ptr %39, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(3) %1741, ptr noundef nonnull align 1 dereferenceable(3) @.str.4024, i64 3, i1 false)
-  %bcmp.i.i472.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %1741, ptr noundef nonnull dereferenceable(3) %1740, i64 3)
-  %1742 = icmp eq i32 %bcmp.i.i472.i, 0
-  %1743 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6134, ptr noundef nonnull @.str.13, i32 noundef 2323, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1742)
-  %1744 = getelementptr inbounds nuw i8, ptr %42, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %1744, ptr noundef nonnull align 1 dereferenceable(20) @.str.4024, i64 20, i1 false)
-  %1745 = getelementptr inbounds nuw i8, ptr %41, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %1745, ptr noundef nonnull align 1 dereferenceable(20) @.str.4024, i64 20, i1 false)
-  %bcmp.i.i477.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %1745, ptr noundef nonnull dereferenceable(20) %1744, i64 20)
-  %1746 = icmp eq i32 %bcmp.i.i477.i, 0
-  %1747 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6135, ptr noundef nonnull @.str.13, i32 noundef 2324, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1746)
-  %1748 = getelementptr inbounds nuw i8, ptr %43, i64 2
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit262:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit264, %1732, %1734
+  %1736 = getelementptr inbounds nuw i8, ptr %40, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(3) %1736, ptr noundef nonnull align 1 dereferenceable(3) @.str.1293, i64 3, i1 false)
+  %1737 = getelementptr inbounds nuw i8, ptr %39, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(3) %1737, ptr noundef nonnull align 1 dereferenceable(3) @.str.4024, i64 3, i1 false)
+  %bcmp.i.i472.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %1737, ptr noundef nonnull dereferenceable(3) %1736, i64 3)
+  %1738 = icmp eq i32 %bcmp.i.i472.i, 0
+  %1739 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6134, ptr noundef nonnull @.str.13, i32 noundef 2323, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1738)
+  %1740 = getelementptr inbounds nuw i8, ptr %42, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %1740, ptr noundef nonnull align 1 dereferenceable(20) @.str.4024, i64 20, i1 false)
+  %1741 = getelementptr inbounds nuw i8, ptr %41, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %1741, ptr noundef nonnull align 1 dereferenceable(20) @.str.4024, i64 20, i1 false)
+  %bcmp.i.i477.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %1741, ptr noundef nonnull dereferenceable(20) %1740, i64 20)
+  %1742 = icmp eq i32 %bcmp.i.i477.i, 0
+  %1743 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6135, ptr noundef nonnull @.str.13, i32 noundef 2324, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1742)
+  %1744 = getelementptr inbounds nuw i8, ptr %43, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %1744, ptr noundef nonnull align 1 dereferenceable(5) @.str.1303, i64 5, i1 false)
+  %1745 = getelementptr inbounds nuw i8, ptr %44, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %1745, ptr noundef nonnull align 1 dereferenceable(5) @.str.1303, i64 5, i1 false)
+  %bcmp.i.i483.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1744, ptr noundef nonnull dereferenceable(5) %1745, i64 5)
+  %1746 = icmp eq i32 %bcmp.i.i483.i, 0
+  %1747 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6136, ptr noundef nonnull @.str.13, i32 noundef 2326, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1746)
+  %1748 = getelementptr inbounds nuw i8, ptr %45, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %1748, ptr noundef nonnull align 1 dereferenceable(5) @.str.1303, i64 5, i1 false)
-  %1749 = getelementptr inbounds nuw i8, ptr %44, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %1749, ptr noundef nonnull align 1 dereferenceable(5) @.str.1303, i64 5, i1 false)
-  %bcmp.i.i483.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1748, ptr noundef nonnull dereferenceable(5) %1749, i64 5)
-  %1750 = icmp eq i32 %bcmp.i.i483.i, 0
-  %1751 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6136, ptr noundef nonnull @.str.13, i32 noundef 2326, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1750)
-  %1752 = getelementptr inbounds nuw i8, ptr %45, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %1752, ptr noundef nonnull align 1 dereferenceable(5) @.str.1303, i64 5, i1 false)
-  %1753 = getelementptr inbounds nuw i8, ptr %45, i64 7
-  %1754 = getelementptr inbounds nuw i8, ptr %46, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %1754, ptr noundef nonnull align 1 dereferenceable(10) @.str.6138, i64 10, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %1753, ptr noundef nonnull align 1 dereferenceable(5) @.str.1303, i64 5, i1 false)
-  %bcmp.i.i489.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %1752, ptr noundef nonnull dereferenceable(10) %1754, i64 10)
-  %1755 = icmp eq i32 %bcmp.i.i489.i, 0
-  %1756 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6137, ptr noundef nonnull @.str.13, i32 noundef 2327, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1755)
-  %1757 = getelementptr inbounds nuw i8, ptr %47, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %1757, ptr noundef nonnull align 1 dereferenceable(5) @.str.1303, i64 5, i1 false)
-  %1758 = getelementptr inbounds nuw i8, ptr %47, i64 7
-  %1759 = getelementptr inbounds nuw i8, ptr %48, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(15) %1759, ptr noundef nonnull align 1 dereferenceable(15) @.str.6140, i64 15, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %1758, ptr noundef nonnull align 1 dereferenceable(10) @.str.4022, i64 10, i1 false)
-  %bcmp.i.i495.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %1757, ptr noundef nonnull dereferenceable(15) %1759, i64 15)
-  %1760 = icmp eq i32 %bcmp.i.i495.i, 0
-  %1761 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6139, ptr noundef nonnull @.str.13, i32 noundef 2328, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1760)
-  %1762 = getelementptr inbounds nuw i8, ptr %49, i64 2
+  %1749 = getelementptr inbounds nuw i8, ptr %45, i64 7
+  %1750 = getelementptr inbounds nuw i8, ptr %46, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %1750, ptr noundef nonnull align 1 dereferenceable(10) @.str.6138, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %1749, ptr noundef nonnull align 1 dereferenceable(5) @.str.1303, i64 5, i1 false)
+  %bcmp.i.i489.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %1748, ptr noundef nonnull dereferenceable(10) %1750, i64 10)
+  %1751 = icmp eq i32 %bcmp.i.i489.i, 0
+  %1752 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6137, ptr noundef nonnull @.str.13, i32 noundef 2327, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1751)
+  %1753 = getelementptr inbounds nuw i8, ptr %47, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %1753, ptr noundef nonnull align 1 dereferenceable(5) @.str.1303, i64 5, i1 false)
+  %1754 = getelementptr inbounds nuw i8, ptr %47, i64 7
+  %1755 = getelementptr inbounds nuw i8, ptr %48, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(15) %1755, ptr noundef nonnull align 1 dereferenceable(15) @.str.6140, i64 15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %1754, ptr noundef nonnull align 1 dereferenceable(10) @.str.4022, i64 10, i1 false)
+  %bcmp.i.i495.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %1753, ptr noundef nonnull dereferenceable(15) %1755, i64 15)
+  %1756 = icmp eq i32 %bcmp.i.i495.i, 0
+  %1757 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6139, ptr noundef nonnull @.str.13, i32 noundef 2328, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1756)
+  %1758 = getelementptr inbounds nuw i8, ptr %49, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %1758, ptr noundef nonnull align 1 dereferenceable(20) @.str.4024, i64 20, i1 false)
+  %1759 = getelementptr inbounds nuw i8, ptr %50, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %1759, ptr noundef nonnull align 1 dereferenceable(20) @.str.4024, i64 20, i1 false)
+  %bcmp.i.i501.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %1758, ptr noundef nonnull dereferenceable(20) %1759, i64 20)
+  %1760 = icmp eq i32 %bcmp.i.i501.i, 0
+  %1761 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6141, ptr noundef nonnull @.str.13, i32 noundef 2330, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1760)
+  %1762 = getelementptr inbounds nuw i8, ptr %51, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %1762, ptr noundef nonnull align 1 dereferenceable(20) @.str.4024, i64 20, i1 false)
-  %1763 = getelementptr inbounds nuw i8, ptr %50, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %1763, ptr noundef nonnull align 1 dereferenceable(20) @.str.4024, i64 20, i1 false)
-  %bcmp.i.i501.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %1762, ptr noundef nonnull dereferenceable(20) %1763, i64 20)
-  %1764 = icmp eq i32 %bcmp.i.i501.i, 0
-  %1765 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6141, ptr noundef nonnull @.str.13, i32 noundef 2330, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1764)
-  %1766 = getelementptr inbounds nuw i8, ptr %51, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %1766, ptr noundef nonnull align 1 dereferenceable(20) @.str.4024, i64 20, i1 false)
-  %1767 = getelementptr inbounds nuw i8, ptr %51, i64 22
-  %1768 = getelementptr inbounds nuw i8, ptr %52, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(25) %1768, ptr noundef nonnull align 1 dereferenceable(25) @.str.6143, i64 25, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %1767, ptr noundef nonnull align 1 dereferenceable(5) @.str.1303, i64 5, i1 false)
-  %bcmp.i.i507.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(25) %1766, ptr noundef nonnull dereferenceable(25) %1768, i64 25)
-  %1769 = icmp eq i32 %bcmp.i.i507.i, 0
-  %1770 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6142, ptr noundef nonnull @.str.13, i32 noundef 2331, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1769)
-  %1771 = getelementptr inbounds nuw i8, ptr %53, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %1771, ptr noundef nonnull align 1 dereferenceable(20) @.str.4024, i64 20, i1 false)
-  %1772 = getelementptr inbounds nuw i8, ptr %53, i64 22
-  %1773 = getelementptr inbounds nuw i8, ptr %54, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(40) %1773, ptr noundef nonnull align 1 dereferenceable(40) @.str.6145, i64 40, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %1772, ptr noundef nonnull align 1 dereferenceable(20) @.str.4024, i64 20, i1 false)
-  %bcmp.i.i513.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(40) %1771, ptr noundef nonnull dereferenceable(40) %1773, i64 40)
-  %1774 = icmp eq i32 %bcmp.i.i513.i, 0
-  %1775 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6144, ptr noundef nonnull @.str.13, i32 noundef 2333, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1774)
+  %1763 = getelementptr inbounds nuw i8, ptr %51, i64 22
+  %1764 = getelementptr inbounds nuw i8, ptr %52, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(25) %1764, ptr noundef nonnull align 1 dereferenceable(25) @.str.6143, i64 25, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %1763, ptr noundef nonnull align 1 dereferenceable(5) @.str.1303, i64 5, i1 false)
+  %bcmp.i.i507.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(25) %1762, ptr noundef nonnull dereferenceable(25) %1764, i64 25)
+  %1765 = icmp eq i32 %bcmp.i.i507.i, 0
+  %1766 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6142, ptr noundef nonnull @.str.13, i32 noundef 2331, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1765)
+  %1767 = getelementptr inbounds nuw i8, ptr %53, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %1767, ptr noundef nonnull align 1 dereferenceable(20) @.str.4024, i64 20, i1 false)
+  %1768 = getelementptr inbounds nuw i8, ptr %53, i64 22
+  %1769 = getelementptr inbounds nuw i8, ptr %54, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(40) %1769, ptr noundef nonnull align 1 dereferenceable(40) @.str.6145, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %1768, ptr noundef nonnull align 1 dereferenceable(20) @.str.4024, i64 20, i1 false)
+  %bcmp.i.i513.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(40) %1767, ptr noundef nonnull dereferenceable(40) %1769, i64 40)
+  %1770 = icmp eq i32 %bcmp.i.i513.i, 0
+  %1771 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6144, ptr noundef nonnull @.str.13, i32 noundef 2333, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1770)
   call void @llvm.lifetime.start.p0(i64 404, ptr nonnull %55) #36
-  %1776 = getelementptr inbounds nuw i8, ptr %55, i64 10
-  %1777 = getelementptr inbounds nuw i8, ptr %55, i64 18
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(385) %1777, i8 0, i64 385, i1 false)
-  %1778 = getelementptr inbounds nuw i8, ptr %55, i64 2
-  store i32 791884337, ptr %1778, align 2
-  %1779 = getelementptr inbounds nuw i8, ptr %55, i64 6
-  store i32 791884337, ptr %1779, align 2
-  %bcmp.i518.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %1778, ptr noundef nonnull dereferenceable(8) @.str.4012, i64 8)
-  %1780 = icmp eq i32 %bcmp.i518.i, 0
-  %1781 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6146, ptr noundef nonnull @.str.13, i32 noundef 2338, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1780)
-  %1782 = load i64, ptr %1778, align 2
-  store i64 %1782, ptr %1776, align 2
-  %1783 = getelementptr inbounds nuw i8, ptr %55, i64 18
-  %bcmp.i522.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %1778, ptr noundef nonnull dereferenceable(16) @.str.4014, i64 16)
-  %1784 = icmp eq i32 %bcmp.i522.i, 0
-  %1785 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6147, ptr noundef nonnull @.str.13, i32 noundef 2340, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1784)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %1783, ptr noundef nonnull align 2 dereferenceable(16) %1778, i64 16, i1 false)
-  %bcmp.i527.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %1778, ptr noundef nonnull dereferenceable(32) @.str.4016, i64 32)
-  %1786 = icmp eq i32 %bcmp.i527.i, 0
-  %1787 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6148, ptr noundef nonnull @.str.13, i32 noundef 2342, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1786)
+  %1772 = getelementptr inbounds nuw i8, ptr %55, i64 10
+  %1773 = getelementptr inbounds nuw i8, ptr %55, i64 18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(385) %1773, i8 0, i64 385, i1 false)
+  %1774 = getelementptr inbounds nuw i8, ptr %55, i64 2
+  store i32 791884337, ptr %1774, align 2
+  %1775 = getelementptr inbounds nuw i8, ptr %55, i64 6
+  store i32 791884337, ptr %1775, align 2
+  %bcmp.i518.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %1774, ptr noundef nonnull dereferenceable(8) @.str.4012, i64 8)
+  %1776 = icmp eq i32 %bcmp.i518.i, 0
+  %1777 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6146, ptr noundef nonnull @.str.13, i32 noundef 2338, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1776)
+  %1778 = load i64, ptr %1774, align 2
+  store i64 %1778, ptr %1772, align 2
+  %1779 = getelementptr inbounds nuw i8, ptr %55, i64 18
+  %bcmp.i522.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %1774, ptr noundef nonnull dereferenceable(16) @.str.4014, i64 16)
+  %1780 = icmp eq i32 %bcmp.i522.i, 0
+  %1781 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6147, ptr noundef nonnull @.str.13, i32 noundef 2340, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1780)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %1779, ptr noundef nonnull align 2 dereferenceable(16) %1774, i64 16, i1 false)
+  %bcmp.i527.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %1774, ptr noundef nonnull dereferenceable(32) @.str.4016, i64 32)
+  %1782 = icmp eq i32 %bcmp.i527.i, 0
+  %1783 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6148, ptr noundef nonnull @.str.13, i32 noundef 2342, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testAppendEv, i1 noundef zeroext %1782)
   call void @llvm.lifetime.end.p0(i64 404, ptr nonnull %55) #36
   call void @llvm.lifetime.end.p0(i64 404, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 404, ptr nonnull %36)
@@ -85063,588 +85041,588 @@ _ZN5boost6detail9test_implEPKcS2_iS2_b.exit262:   ; preds = %_ZN5boost6detail9te
   store i32 6513249, ptr %scevgep.i.i.i21, align 1
   store i8 3, ptr %2, align 1, !tbaa !1608
   %bcmp.i.i22 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %scevgep.i.i.i21, ptr noundef nonnull dereferenceable(3) @.str.5475, i64 3)
-  %1788 = icmp eq i32 %bcmp.i.i22, 0
-  %1789 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6150, ptr noundef nonnull @.str.13, i32 noundef 2353, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testPlusEqualsEv, i1 noundef zeroext %1788)
+  %1784 = icmp eq i32 %bcmp.i.i22, 0
+  %1785 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6150, ptr noundef nonnull @.str.13, i32 noundef 2353, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testPlusEqualsEv, i1 noundef zeroext %1784)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %2) #36
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.5) #35
-          to label %.noexc68.i33 unwind label %1790
+          to label %.noexc68.i33 unwind label %1786
 
 .noexc68.i33:                                     ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit262
   unreachable
 
-1790:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit262
-  %1791 = landingpad { ptr, i32 }
+1786:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit262
+  %1787 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %.0.i23 = extractvalue { ptr, i32 } %1791, 0
-  %.034.i = extractvalue { ptr, i32 } %1791, 1
-  %1792 = icmp eq i32 %.034.i, %133
-  %1793 = call ptr @__cxa_begin_catch(ptr %.0.i23) #36
-  br i1 %1792, label %1794, label %1803
+  %.0.i23 = extractvalue { ptr, i32 } %1787, 0
+  %.034.i = extractvalue { ptr, i32 } %1787, 1
+  %1788 = icmp eq i32 %.034.i, %132
+  %1789 = call ptr @__cxa_begin_catch(ptr %.0.i23) #36
+  br i1 %1788, label %1790, label %1799
 
-1794:                                             ; preds = %1790
-  %1795 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1796 = icmp eq i8 %1795, 0
-  br i1 %1796, label %1797, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit71.i, !prof !56
+1790:                                             ; preds = %1786
+  %1791 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1792 = icmp eq i8 %1791, 0
+  br i1 %1792, label %1793, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit71.i, !prof !56
 
-1797:                                             ; preds = %1794
-  %1798 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i291 = icmp eq i32 %1798, 0
-  br i1 %.not.i291, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit71.i, label %1799
+1793:                                             ; preds = %1790
+  %1794 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i291 = icmp eq i32 %1794, 0
+  br i1 %.not.i291, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit71.i, label %1795
 
-1799:                                             ; preds = %1797
+1795:                                             ; preds = %1793
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1800 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1796 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit71.i
 
-_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit71.i: ; preds = %1799, %1797, %1794, %1803
+_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit71.i: ; preds = %1795, %1793, %1790, %1799
   call void @__cxa_end_catch()
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %3) #36
   %scevgep.i.i70.i = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i32 6513249, ptr %scevgep.i.i70.i, align 1
   %bcmp.i74.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %scevgep.i.i70.i, ptr noundef nonnull dereferenceable(3) @.str.5475, i64 3)
-  %1801 = icmp eq i32 %bcmp.i74.i, 0
-  %1802 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6152, ptr noundef nonnull @.str.13, i32 noundef 2357, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testPlusEqualsEv, i1 noundef zeroext %1801)
+  %1797 = icmp eq i32 %bcmp.i74.i, 0
+  %1798 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6152, ptr noundef nonnull @.str.13, i32 noundef 2357, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testPlusEqualsEv, i1 noundef zeroext %1797)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %3) #36
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.6) #35
-          to label %.noexc79.i unwind label %1806
+          to label %.noexc79.i unwind label %1802
 
 .noexc79.i:                                       ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit71.i
   unreachable
 
-1803:                                             ; preds = %1790
+1799:                                             ; preds = %1786
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6151, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2354, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testPlusEqualsEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit71.i unwind label %1804
+          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit71.i unwind label %1800
 
-1804:                                             ; preds = %1803
-  %1805 = landingpad { ptr, i32 }
+1800:                                             ; preds = %1799
+  %1801 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %1945
+          to label %common.resume unwind label %1941
 
-1806:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit71.i
-  %1807 = landingpad { ptr, i32 }
+1802:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit71.i
+  %1803 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %.2.i24 = extractvalue { ptr, i32 } %1807, 0
-  %.236.i = extractvalue { ptr, i32 } %1807, 1
-  %1808 = icmp eq i32 %.236.i, %133
-  %1809 = call ptr @__cxa_begin_catch(ptr %.2.i24) #36
-  br i1 %1808, label %1810, label %1819
+  %.2.i24 = extractvalue { ptr, i32 } %1803, 0
+  %.236.i = extractvalue { ptr, i32 } %1803, 1
+  %1804 = icmp eq i32 %.236.i, %132
+  %1805 = call ptr @__cxa_begin_catch(ptr %.2.i24) #36
+  br i1 %1804, label %1806, label %1815
 
-1810:                                             ; preds = %1806
-  %1811 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1812 = icmp eq i8 %1811, 0
-  br i1 %1812, label %1813, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit82.i, !prof !56
+1806:                                             ; preds = %1802
+  %1807 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1808 = icmp eq i8 %1807, 0
+  br i1 %1808, label %1809, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit82.i, !prof !56
 
-1813:                                             ; preds = %1810
-  %1814 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i289 = icmp eq i32 %1814, 0
-  br i1 %.not.i289, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit82.i, label %1815
+1809:                                             ; preds = %1806
+  %1810 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i289 = icmp eq i32 %1810, 0
+  br i1 %.not.i289, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit82.i, label %1811
 
-1815:                                             ; preds = %1813
+1811:                                             ; preds = %1809
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1816 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1812 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit82.i
 
-_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit82.i: ; preds = %1815, %1813, %1810, %1819
+_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit82.i: ; preds = %1811, %1809, %1806, %1815
   call void @__cxa_end_catch()
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %4) #36
   %scevgep.i.i81.i = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i32 6513249, ptr %scevgep.i.i81.i, align 1
   %bcmp.i85.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %scevgep.i.i81.i, ptr noundef nonnull dereferenceable(3) @.str.5475, i64 3)
-  %1817 = icmp eq i32 %bcmp.i85.i, 0
-  %1818 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6154, ptr noundef nonnull @.str.13, i32 noundef 2361, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testPlusEqualsEv, i1 noundef zeroext %1817)
+  %1813 = icmp eq i32 %bcmp.i85.i, 0
+  %1814 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6154, ptr noundef nonnull @.str.13, i32 noundef 2361, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testPlusEqualsEv, i1 noundef zeroext %1813)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4) #36
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.6) #35
-          to label %.noexc90.i unwind label %1822
+          to label %.noexc90.i unwind label %1818
 
 .noexc90.i:                                       ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit82.i
   unreachable
 
-1819:                                             ; preds = %1806
+1815:                                             ; preds = %1802
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6153, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2358, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testPlusEqualsEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit82.i unwind label %1820
+          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit82.i unwind label %1816
 
-1820:                                             ; preds = %1819
-  %1821 = landingpad { ptr, i32 }
+1816:                                             ; preds = %1815
+  %1817 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %1945
+          to label %common.resume unwind label %1941
 
-1822:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit82.i
-  %1823 = landingpad { ptr, i32 }
+1818:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit82.i
+  %1819 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %.3.i25 = extractvalue { ptr, i32 } %1823, 0
-  %.337.i = extractvalue { ptr, i32 } %1823, 1
-  %1824 = icmp eq i32 %.337.i, %133
-  %1825 = call ptr @__cxa_begin_catch(ptr %.3.i25) #36
-  br i1 %1824, label %1826, label %1835
+  %.3.i25 = extractvalue { ptr, i32 } %1819, 0
+  %.337.i = extractvalue { ptr, i32 } %1819, 1
+  %1820 = icmp eq i32 %.337.i, %132
+  %1821 = call ptr @__cxa_begin_catch(ptr %.3.i25) #36
+  br i1 %1820, label %1822, label %1831
 
-1826:                                             ; preds = %1822
-  %1827 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1828 = icmp eq i8 %1827, 0
-  br i1 %1828, label %1829, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit93.i, !prof !56
+1822:                                             ; preds = %1818
+  %1823 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1824 = icmp eq i8 %1823, 0
+  br i1 %1824, label %1825, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit93.i, !prof !56
 
-1829:                                             ; preds = %1826
-  %1830 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i287 = icmp eq i32 %1830, 0
-  br i1 %.not.i287, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit93.i, label %1831
+1825:                                             ; preds = %1822
+  %1826 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i287 = icmp eq i32 %1826, 0
+  br i1 %.not.i287, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit93.i, label %1827
 
-1831:                                             ; preds = %1829
+1827:                                             ; preds = %1825
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1832 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1828 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit93.i
 
-_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit93.i: ; preds = %1831, %1829, %1826, %1835
+_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit93.i: ; preds = %1827, %1825, %1822, %1831
   call void @__cxa_end_catch()
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %5) #36
   %scevgep.i.i92.i26 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i32 6513249, ptr %scevgep.i.i92.i26, align 1
   %bcmp.i96.i27 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %scevgep.i.i92.i26, ptr noundef nonnull dereferenceable(3) @.str.5475, i64 3)
-  %1833 = icmp eq i32 %bcmp.i96.i27, 0
-  %1834 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6156, ptr noundef nonnull @.str.13, i32 noundef 2365, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testPlusEqualsEv, i1 noundef zeroext %1833)
+  %1829 = icmp eq i32 %bcmp.i96.i27, 0
+  %1830 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6156, ptr noundef nonnull @.str.13, i32 noundef 2365, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testPlusEqualsEv, i1 noundef zeroext %1829)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5) #36
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.6) #35
-          to label %.noexc101.i unwind label %1838
+          to label %.noexc101.i unwind label %1834
 
 .noexc101.i:                                      ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit93.i
   unreachable
 
-1835:                                             ; preds = %1822
+1831:                                             ; preds = %1818
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6155, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2362, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testPlusEqualsEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit93.i unwind label %1836
+          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit93.i unwind label %1832
 
-1836:                                             ; preds = %1835
-  %1837 = landingpad { ptr, i32 }
+1832:                                             ; preds = %1831
+  %1833 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %1945
+          to label %common.resume unwind label %1941
 
-1838:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit93.i
-  %1839 = landingpad { ptr, i32 }
+1834:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit93.i
+  %1835 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %.4.i28 = extractvalue { ptr, i32 } %1839, 0
-  %.438.i = extractvalue { ptr, i32 } %1839, 1
-  %1840 = icmp eq i32 %.438.i, %133
-  %1841 = call ptr @__cxa_begin_catch(ptr %.4.i28) #36
-  br i1 %1840, label %1842, label %1857
+  %.4.i28 = extractvalue { ptr, i32 } %1835, 0
+  %.438.i = extractvalue { ptr, i32 } %1835, 1
+  %1836 = icmp eq i32 %.438.i, %132
+  %1837 = call ptr @__cxa_begin_catch(ptr %.4.i28) #36
+  br i1 %1836, label %1838, label %1853
 
-1842:                                             ; preds = %1838
-  %1843 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1844 = icmp eq i8 %1843, 0
-  br i1 %1844, label %1845, label %_ZN5boost14static_strings19basic_static_stringILm2EcSt11char_traitsIcEEC2EPKc.exit.i, !prof !56
+1838:                                             ; preds = %1834
+  %1839 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1840 = icmp eq i8 %1839, 0
+  br i1 %1840, label %1841, label %_ZN5boost14static_strings19basic_static_stringILm2EcSt11char_traitsIcEEC2EPKc.exit.i, !prof !56
 
-1845:                                             ; preds = %1842
-  %1846 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i285 = icmp eq i32 %1846, 0
-  br i1 %.not.i285, label %_ZN5boost14static_strings19basic_static_stringILm2EcSt11char_traitsIcEEC2EPKc.exit.i, label %1847
+1841:                                             ; preds = %1838
+  %1842 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i285 = icmp eq i32 %1842, 0
+  br i1 %.not.i285, label %_ZN5boost14static_strings19basic_static_stringILm2EcSt11char_traitsIcEEC2EPKc.exit.i, label %1843
 
-1847:                                             ; preds = %1845
+1843:                                             ; preds = %1841
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1848 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1844 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost14static_strings19basic_static_stringILm2EcSt11char_traitsIcEEC2EPKc.exit.i
 
-_ZN5boost14static_strings19basic_static_stringILm2EcSt11char_traitsIcEEC2EPKc.exit.i: ; preds = %1847, %1845, %1842, %1857
+_ZN5boost14static_strings19basic_static_stringILm2EcSt11char_traitsIcEEC2EPKc.exit.i: ; preds = %1843, %1841, %1838, %1853
   call void @__cxa_end_catch()
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %6) #36
   %scevgep.i.i103.i = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i32 6250289, ptr %scevgep.i.i103.i, align 1
   %bcmp.i107.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %scevgep.i.i103.i, ptr noundef nonnull dereferenceable(3) @.str.6103, i64 3)
-  %1849 = icmp eq i32 %bcmp.i107.i, 0
-  %1850 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6105, ptr noundef nonnull @.str.13, i32 noundef 2374, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testPlusEqualsEv, i1 noundef zeroext %1849)
-  %1851 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1852 = icmp eq i8 %1851, 0
-  br i1 %1852, label %1853, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit284, !prof !56
+  %1845 = icmp eq i32 %bcmp.i107.i, 0
+  %1846 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6105, ptr noundef nonnull @.str.13, i32 noundef 2374, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testPlusEqualsEv, i1 noundef zeroext %1845)
+  %1847 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1848 = icmp eq i8 %1847, 0
+  br i1 %1848, label %1849, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit284, !prof !56
 
-1853:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm2EcSt11char_traitsIcEEC2EPKc.exit.i
-  %1854 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i283 = icmp eq i32 %1854, 0
-  br i1 %.not.i.i283, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit284, label %1855
+1849:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm2EcSt11char_traitsIcEEC2EPKc.exit.i
+  %1850 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i283 = icmp eq i32 %1850, 0
+  br i1 %.not.i.i283, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit284, label %1851
 
-1855:                                             ; preds = %1853
+1851:                                             ; preds = %1849
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1856 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1852 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit284
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit284:   ; preds = %_ZN5boost14static_strings19basic_static_stringILm2EcSt11char_traitsIcEEC2EPKc.exit.i, %1853, %1855
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit284:   ; preds = %_ZN5boost14static_strings19basic_static_stringILm2EcSt11char_traitsIcEEC2EPKc.exit.i, %1849, %1851
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.6) #35
-          to label %.noexc110.i32 unwind label %1860
+          to label %.noexc110.i32 unwind label %1856
 
 .noexc110.i32:                                    ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit284
   unreachable
 
-1857:                                             ; preds = %1838
+1853:                                             ; preds = %1834
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6157, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2366, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testPlusEqualsEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm2EcSt11char_traitsIcEEC2EPKc.exit.i unwind label %1858
+          to label %_ZN5boost14static_strings19basic_static_stringILm2EcSt11char_traitsIcEEC2EPKc.exit.i unwind label %1854
 
-1858:                                             ; preds = %1857
-  %1859 = landingpad { ptr, i32 }
+1854:                                             ; preds = %1853
+  %1855 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %1945
+          to label %common.resume unwind label %1941
 
-1860:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit284
-  %1861 = landingpad { ptr, i32 }
+1856:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit284
+  %1857 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %1862 = extractvalue { ptr, i32 } %1861, 0
-  %1863 = extractvalue { ptr, i32 } %1861, 1
-  %1864 = icmp eq i32 %1863, %133
-  %1865 = call ptr @__cxa_begin_catch(ptr %1862) #36
-  br i1 %1864, label %1866, label %1875
+  %1858 = extractvalue { ptr, i32 } %1857, 0
+  %1859 = extractvalue { ptr, i32 } %1857, 1
+  %1860 = icmp eq i32 %1859, %132
+  %1861 = call ptr @__cxa_begin_catch(ptr %1858) #36
+  br i1 %1860, label %1862, label %1871
 
-1866:                                             ; preds = %1860
-  %1867 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1868 = icmp eq i8 %1867, 0
-  br i1 %1868, label %1869, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit112.i, !prof !56
+1862:                                             ; preds = %1856
+  %1863 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1864 = icmp eq i8 %1863, 0
+  br i1 %1864, label %1865, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit112.i, !prof !56
 
-1869:                                             ; preds = %1866
-  %1870 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i281 = icmp eq i32 %1870, 0
-  br i1 %.not.i281, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit112.i, label %1871
+1865:                                             ; preds = %1862
+  %1866 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i281 = icmp eq i32 %1866, 0
+  br i1 %.not.i281, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit112.i, label %1867
 
-1871:                                             ; preds = %1869
+1867:                                             ; preds = %1865
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1872 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1868 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit112.i
 
-_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit112.i: ; preds = %1871, %1869, %1866, %1875
+_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit112.i: ; preds = %1867, %1865, %1862, %1871
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %6) #36
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %7) #36
   %scevgep.i.i111.i = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i32 3355185, ptr %scevgep.i.i111.i, align 1
   %bcmp.i117.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %scevgep.i.i111.i, ptr noundef nonnull dereferenceable(3) @.str.1293, i64 3)
-  %1873 = icmp eq i32 %bcmp.i117.i, 0
-  %1874 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5460, ptr noundef nonnull @.str.13, i32 noundef 2384, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testPlusEqualsEv, i1 noundef zeroext %1873)
+  %1869 = icmp eq i32 %bcmp.i117.i, 0
+  %1870 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5460, ptr noundef nonnull @.str.13, i32 noundef 2384, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testPlusEqualsEv, i1 noundef zeroext %1869)
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.5) #35
-          to label %.noexc120.i unwind label %1879
+          to label %.noexc120.i unwind label %1875
 
 .noexc120.i:                                      ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit112.i
   unreachable
 
-1875:                                             ; preds = %1860
+1871:                                             ; preds = %1856
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6158, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2379, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testPlusEqualsEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit112.i unwind label %1876
+          to label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit112.i unwind label %1872
 
-1876:                                             ; preds = %1875
-  %1877 = landingpad { ptr, i32 }
+1872:                                             ; preds = %1871
+  %1873 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1878 unwind label %1945
+          to label %1874 unwind label %1941
 
-1878:                                             ; preds = %1876
+1874:                                             ; preds = %1872
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %6) #36
   br label %common.resume
 
-1879:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit112.i
-  %1880 = landingpad { ptr, i32 }
+1875:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEEC2EPKc.exit112.i
+  %1876 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %1881 = extractvalue { ptr, i32 } %1880, 0
-  %1882 = extractvalue { ptr, i32 } %1880, 1
-  %1883 = icmp eq i32 %1882, %133
-  %1884 = call ptr @__cxa_begin_catch(ptr %1881) #36
-  br i1 %1883, label %1885, label %1891
+  %1877 = extractvalue { ptr, i32 } %1876, 0
+  %1878 = extractvalue { ptr, i32 } %1876, 1
+  %1879 = icmp eq i32 %1878, %132
+  %1880 = call ptr @__cxa_begin_catch(ptr %1877) #36
+  br i1 %1879, label %1881, label %1887
 
-1885:                                             ; preds = %1879
-  %1886 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
-          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit.i29 unwind label %1894
+1881:                                             ; preds = %1875
+  %1882 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
+          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit.i29 unwind label %1890
 
-_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit.i29: ; preds = %1891, %1885
+_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit.i29: ; preds = %1887, %1881
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %7) #36
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %8) #36
-  %1887 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store i16 12849, ptr %1887, align 1
-  %1888 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  store i16 13363, ptr %1888, align 1
-  %bcmp.i124.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1887, ptr noundef nonnull dereferenceable(4) @.str.4371, i64 4)
-  %1889 = icmp eq i32 %bcmp.i124.i, 0
-  %1890 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6160, ptr noundef nonnull @.str.13, i32 noundef 2392, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testPlusEqualsEv, i1 noundef zeroext %1889)
+  %1883 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  store i16 12849, ptr %1883, align 1
+  %1884 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  store i16 13363, ptr %1884, align 1
+  %bcmp.i124.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1883, ptr noundef nonnull dereferenceable(4) @.str.4371, i64 4)
+  %1885 = icmp eq i32 %bcmp.i124.i, 0
+  %1886 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6160, ptr noundef nonnull @.str.13, i32 noundef 2392, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testPlusEqualsEv, i1 noundef zeroext %1885)
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.6) #35
-          to label %.noexc125.i unwind label %1897
+          to label %.noexc125.i unwind label %1893
 
 .noexc125.i:                                      ; preds = %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit.i29
   unreachable
 
-1891:                                             ; preds = %1879
+1887:                                             ; preds = %1875
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6159, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2387, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testPlusEqualsEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit.i29 unwind label %1892
+          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit.i29 unwind label %1888
 
-1892:                                             ; preds = %1891
-  %1893 = landingpad { ptr, i32 }
+1888:                                             ; preds = %1887
+  %1889 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1896 unwind label %1945
+          to label %1892 unwind label %1941
 
-1894:                                             ; preds = %1885
-  %1895 = landingpad { ptr, i32 }
+1890:                                             ; preds = %1881
+  %1891 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1896 unwind label %1945
+          to label %1892 unwind label %1941
 
-1896:                                             ; preds = %1894, %1892
-  %.pn54.i = phi { ptr, i32 } [ %1893, %1892 ], [ %1895, %1894 ]
+1892:                                             ; preds = %1890, %1888
+  %.pn54.i = phi { ptr, i32 } [ %1889, %1888 ], [ %1891, %1890 ]
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %7) #36
   br label %common.resume
 
-1897:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit.i29
-  %1898 = landingpad { ptr, i32 }
+1893:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit.i29
+  %1894 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %1899 = extractvalue { ptr, i32 } %1898, 0
-  %1900 = extractvalue { ptr, i32 } %1898, 1
-  %1901 = icmp eq i32 %1900, %133
-  %1902 = call ptr @__cxa_begin_catch(ptr %1899) #36
-  br i1 %1901, label %1903, label %1909
+  %1895 = extractvalue { ptr, i32 } %1894, 0
+  %1896 = extractvalue { ptr, i32 } %1894, 1
+  %1897 = icmp eq i32 %1896, %132
+  %1898 = call ptr @__cxa_begin_catch(ptr %1895) #36
+  br i1 %1897, label %1899, label %1905
 
-1903:                                             ; preds = %1897
-  %1904 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
-          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit127.i unwind label %1912
+1899:                                             ; preds = %1893
+  %1900 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
+          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit127.i unwind label %1908
 
-_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit127.i: ; preds = %1909, %1903
+_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit127.i: ; preds = %1905, %1899
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %8) #36
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %9) #36
-  %1905 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  store i16 12849, ptr %1905, align 1
-  %1906 = getelementptr inbounds nuw i8, ptr %9, i64 3
-  store i8 51, ptr %1906, align 1
+  %1901 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  store i16 12849, ptr %1901, align 1
+  %1902 = getelementptr inbounds nuw i8, ptr %9, i64 3
+  store i8 51, ptr %1902, align 1
   %.sroa.4.0..sroa_idx.i30 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i8 52, ptr %.sroa.4.0..sroa_idx.i30, align 1
-  %bcmp.i130.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1905, ptr noundef nonnull dereferenceable(4) @.str.4371, i64 4)
-  %1907 = icmp eq i32 %bcmp.i130.i, 0
-  %1908 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6160, ptr noundef nonnull @.str.13, i32 noundef 2400, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testPlusEqualsEv, i1 noundef zeroext %1907)
+  %bcmp.i130.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1901, ptr noundef nonnull dereferenceable(4) @.str.4371, i64 4)
+  %1903 = icmp eq i32 %bcmp.i130.i, 0
+  %1904 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6160, ptr noundef nonnull @.str.13, i32 noundef 2400, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testPlusEqualsEv, i1 noundef zeroext %1903)
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.6) #35
-          to label %.noexc132.i unwind label %1915
+          to label %.noexc132.i unwind label %1911
 
 .noexc132.i:                                      ; preds = %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit127.i
   unreachable
 
-1909:                                             ; preds = %1897
+1905:                                             ; preds = %1893
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6162, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2395, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testPlusEqualsEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit127.i unwind label %1910
+          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit127.i unwind label %1906
 
-1910:                                             ; preds = %1909
-  %1911 = landingpad { ptr, i32 }
+1906:                                             ; preds = %1905
+  %1907 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1914 unwind label %1945
+          to label %1910 unwind label %1941
 
-1912:                                             ; preds = %1903
-  %1913 = landingpad { ptr, i32 }
+1908:                                             ; preds = %1899
+  %1909 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1914 unwind label %1945
+          to label %1910 unwind label %1941
 
-1914:                                             ; preds = %1912, %1910
-  %.pn56.i = phi { ptr, i32 } [ %1911, %1910 ], [ %1913, %1912 ]
+1910:                                             ; preds = %1908, %1906
+  %.pn56.i = phi { ptr, i32 } [ %1907, %1906 ], [ %1909, %1908 ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %8) #36
   br label %common.resume
 
-1915:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit127.i
-  %1916 = landingpad { ptr, i32 }
+1911:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.exit127.i
+  %1912 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %.8.i31 = extractvalue { ptr, i32 } %1916, 0
-  %.842.i = extractvalue { ptr, i32 } %1916, 1
-  %1917 = icmp eq i32 %.842.i, %133
-  %1918 = call ptr @__cxa_begin_catch(ptr %.8.i31) #36
-  br i1 %1917, label %1919, label %1925
+  %.8.i31 = extractvalue { ptr, i32 } %1912, 0
+  %.842.i = extractvalue { ptr, i32 } %1912, 1
+  %1913 = icmp eq i32 %.842.i, %132
+  %1914 = call ptr @__cxa_begin_catch(ptr %.8.i31) #36
+  br i1 %1913, label %1915, label %1921
 
-1919:                                             ; preds = %1915
-  %1920 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
-          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEpLINS_17basic_string_viewIcS3_EEvEERS4_RKT_.exit.i unwind label %1928
+1915:                                             ; preds = %1911
+  %1916 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
+          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEpLINS_17basic_string_viewIcS3_EEvEERS4_RKT_.exit.i unwind label %1924
 
-_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEpLINS_17basic_string_viewIcS3_EEvEERS4_RKT_.exit.i: ; preds = %1925, %1919
+_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEpLINS_17basic_string_viewIcS3_EEvEERS4_RKT_.exit.i: ; preds = %1921, %1915
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %9) #36
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %10) #36
-  %1921 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  store i16 12849, ptr %1921, align 1
-  %1922 = getelementptr inbounds nuw i8, ptr %10, i64 3
-  store i16 13363, ptr %1922, align 1
-  %bcmp.i137.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1921, ptr noundef nonnull dereferenceable(4) @.str.4371, i64 4)
-  %1923 = icmp eq i32 %bcmp.i137.i, 0
-  %1924 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6164, ptr noundef nonnull @.str.13, i32 noundef 2409, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testPlusEqualsEv, i1 noundef zeroext %1923)
+  %1917 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  store i16 12849, ptr %1917, align 1
+  %1918 = getelementptr inbounds nuw i8, ptr %10, i64 3
+  store i16 13363, ptr %1918, align 1
+  %bcmp.i137.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1917, ptr noundef nonnull dereferenceable(4) @.str.4371, i64 4)
+  %1919 = icmp eq i32 %bcmp.i137.i, 0
+  %1920 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.6164, ptr noundef nonnull @.str.13, i32 noundef 2409, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testPlusEqualsEv, i1 noundef zeroext %1919)
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12length_errorEEvPKc(ptr noundef nonnull @.str.6) #35
-          to label %.noexc139.i unwind label %1931
+          to label %.noexc139.i unwind label %1927
 
 .noexc139.i:                                      ; preds = %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEpLINS_17basic_string_viewIcS3_EEvEERS4_RKT_.exit.i
   unreachable
 
-1925:                                             ; preds = %1915
+1921:                                             ; preds = %1911
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6163, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2403, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testPlusEqualsEv)
-          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEpLINS_17basic_string_viewIcS3_EEvEERS4_RKT_.exit.i unwind label %1926
+          to label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEpLINS_17basic_string_viewIcS3_EEvEERS4_RKT_.exit.i unwind label %1922
 
-1926:                                             ; preds = %1925
-  %1927 = landingpad { ptr, i32 }
+1922:                                             ; preds = %1921
+  %1923 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1930 unwind label %1945
+          to label %1926 unwind label %1941
 
-1928:                                             ; preds = %1919
-  %1929 = landingpad { ptr, i32 }
+1924:                                             ; preds = %1915
+  %1925 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1930 unwind label %1945
+          to label %1926 unwind label %1941
 
-1930:                                             ; preds = %1928, %1926
-  %.pn60.i = phi { ptr, i32 } [ %1927, %1926 ], [ %1929, %1928 ]
+1926:                                             ; preds = %1924, %1922
+  %.pn60.i = phi { ptr, i32 } [ %1923, %1922 ], [ %1925, %1924 ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %9) #36
   br label %common.resume
 
-1931:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEpLINS_17basic_string_viewIcS3_EEvEERS4_RKT_.exit.i
-  %1932 = landingpad { ptr, i32 }
+1927:                                             ; preds = %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEpLINS_17basic_string_viewIcS3_EEvEERS4_RKT_.exit.i
+  %1928 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12length_error
           catch ptr null
-  %1933 = extractvalue { ptr, i32 } %1932, 0
-  %1934 = extractvalue { ptr, i32 } %1932, 1
-  %1935 = icmp eq i32 %1934, %133
-  %1936 = call ptr @__cxa_begin_catch(ptr %1933) #36
-  br i1 %1935, label %1937, label %1939
+  %1929 = extractvalue { ptr, i32 } %1928, 0
+  %1930 = extractvalue { ptr, i32 } %1928, 1
+  %1931 = icmp eq i32 %1930, %132
+  %1932 = call ptr @__cxa_begin_catch(ptr %1929) #36
+  br i1 %1931, label %1933, label %1935
 
-1937:                                             ; preds = %1931
-  %1938 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
-          to label %_ZN5boost14static_stringsL14testPlusEqualsEv.exit unwind label %1942
+1933:                                             ; preds = %1927
+  %1934 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
+          to label %_ZN5boost14static_stringsL14testPlusEqualsEv.exit unwind label %1938
 
-1939:                                             ; preds = %1931
+1935:                                             ; preds = %1927
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6165, ptr noundef nonnull @.str.1305, ptr noundef nonnull @.str.13, i32 noundef 2412, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testPlusEqualsEv)
-          to label %_ZN5boost14static_stringsL14testPlusEqualsEv.exit unwind label %1940
+          to label %_ZN5boost14static_stringsL14testPlusEqualsEv.exit unwind label %1936
 
-1940:                                             ; preds = %1939
-  %1941 = landingpad { ptr, i32 }
+1936:                                             ; preds = %1935
+  %1937 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1944 unwind label %1945
+          to label %1940 unwind label %1941
 
-1942:                                             ; preds = %1937
-  %1943 = landingpad { ptr, i32 }
+1938:                                             ; preds = %1933
+  %1939 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1944 unwind label %1945
+          to label %1940 unwind label %1941
 
-1944:                                             ; preds = %1942, %1940
-  %.pn62.i = phi { ptr, i32 } [ %1941, %1940 ], [ %1943, %1942 ]
+1940:                                             ; preds = %1938, %1936
+  %.pn62.i = phi { ptr, i32 } [ %1937, %1936 ], [ %1939, %1938 ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %10) #36
   br label %common.resume
 
-1945:                                             ; preds = %1942, %1940, %1928, %1926, %1912, %1910, %1894, %1892, %1876, %1858, %1836, %1820, %1804
-  %1946 = landingpad { ptr, i32 }
+1941:                                             ; preds = %1938, %1936, %1924, %1922, %1908, %1906, %1890, %1888, %1872, %1854, %1832, %1816, %1800
+  %1942 = landingpad { ptr, i32 }
           catch ptr null
-  %1947 = extractvalue { ptr, i32 } %1946, 0
-  call void @__clang_call_terminate(ptr %1947) #37
+  %1943 = extractvalue { ptr, i32 } %1942, 0
+  call void @__clang_call_terminate(ptr %1943) #37
   unreachable
 
-_ZN5boost14static_stringsL14testPlusEqualsEv.exit: ; preds = %1937, %1939
+_ZN5boost14static_stringsL14testPlusEqualsEv.exit: ; preds = %1933, %1935
   call void @__cxa_end_catch()
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %10) #36
   call void @_ZN5boost14static_strings11testCompareEv()
   call void @_ZN5boost14static_strings8testSwapEv()
   call void @_ZN5boost14static_strings11testGeneralEv()
   call void @_ZN5boost14static_strings18testToStaticStringEv()
-  %1948 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1949 = icmp eq i8 %1948, 0
-  br i1 %1949, label %1950, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit296, !prof !56
+  %1944 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1945 = icmp eq i8 %1944, 0
+  br i1 %1945, label %1946, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit296, !prof !56
 
-1950:                                             ; preds = %_ZN5boost14static_stringsL14testPlusEqualsEv.exit
-  %1951 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i295 = icmp eq i32 %1951, 0
-  br i1 %.not.i.i295, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit296, label %1952
+1946:                                             ; preds = %_ZN5boost14static_stringsL14testPlusEqualsEv.exit
+  %1947 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i295 = icmp eq i32 %1947, 0
+  br i1 %.not.i.i295, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit296, label %1948
 
-1952:                                             ; preds = %1950
+1948:                                             ; preds = %1946
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1953 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1949 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit296
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit296:   ; preds = %_ZN5boost14static_stringsL14testPlusEqualsEv.exit, %1950, %1952
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit296:   ; preds = %_ZN5boost14static_stringsL14testPlusEqualsEv.exit, %1946, %1948
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %1) #36
-  %1954 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 97, ptr %1954, align 1
-  %1955 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 97, ptr %1955, align 1
-  %bcmp.i.i34 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %1954, ptr noundef nonnull dereferenceable(2) @.str.5398, i64 2)
-  %1956 = icmp eq i32 %bcmp.i.i34, 0
-  %1957 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5397, ptr noundef nonnull @.str.13, i32 noundef 7367, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_strings10testResizeEv, i1 noundef zeroext %1956)
-  %1958 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1959 = icmp eq i8 %1958, 0
-  br i1 %1959, label %1960, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit294, !prof !56
+  %1950 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 97, ptr %1950, align 1
+  %1951 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  store i8 97, ptr %1951, align 1
+  %bcmp.i.i34 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %1950, ptr noundef nonnull dereferenceable(2) @.str.5398, i64 2)
+  %1952 = icmp eq i32 %bcmp.i.i34, 0
+  %1953 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5397, ptr noundef nonnull @.str.13, i32 noundef 7367, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_strings10testResizeEv, i1 noundef zeroext %1952)
+  %1954 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1955 = icmp eq i8 %1954, 0
+  br i1 %1955, label %1956, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit294, !prof !56
 
-1960:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit296
-  %1961 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i293 = icmp eq i32 %1961, 0
-  br i1 %.not.i.i293, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit294, label %1962
+1956:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit296
+  %1957 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i293 = icmp eq i32 %1957, 0
+  br i1 %.not.i.i293, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit294, label %1958
 
-1962:                                             ; preds = %1960
+1958:                                             ; preds = %1956
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1963 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1959 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit294
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit294:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit296, %1960, %1962
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit294:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit296, %1956, %1958
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %1) #36
   call void @_ZN5boost14static_strings8testFindEv()
   call void @_ZN5boost14static_strings11testReplaceEv()
   call void @_ZN5boost14static_strings10testSubstrEv()
   call void @_ZN5boost14static_strings14testStartsEndsEv()
-  %1964 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1965 = icmp eq i8 %1964, 0
-  br i1 %1965, label %1966, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit300, !prof !56
+  %1960 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1961 = icmp eq i8 %1960, 0
+  br i1 %1961, label %1962, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit300, !prof !56
 
-1966:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit294
-  %1967 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i299 = icmp eq i32 %1967, 0
-  br i1 %.not.i.i299, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit300, label %1968
+1962:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit294
+  %1963 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i299 = icmp eq i32 %1963, 0
+  br i1 %.not.i.i299, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit300, label %1964
 
-1968:                                             ; preds = %1966
+1964:                                             ; preds = %1962
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1969 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1965 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit300
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit300:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit294, %1966, %1968
-  %1970 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
-  %1971 = icmp eq i8 %1970, 0
-  br i1 %1971, label %1972, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit298, !prof !56
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit300:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit294, %1962, %1964
+  %1966 = load atomic i8, ptr @_ZGVZN5boost6detail12test_resultsEvE8instance acquire, align 8
+  %1967 = icmp eq i8 %1966, 0
+  br i1 %1967, label %1968, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit298, !prof !56
 
-1972:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit300
-  %1973 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
-  %.not.i.i297 = icmp eq i32 %1973, 0
-  br i1 %.not.i.i297, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit298, label %1974
+1968:                                             ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit300
+  %1969 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
+  %.not.i.i297 = icmp eq i32 %1969, 0
+  br i1 %.not.i.i297, label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit298, label %1970
 
-1974:                                             ; preds = %1972
+1970:                                             ; preds = %1968
   store i8 0, ptr @_ZZN5boost6detail12test_resultsEvE8instance, align 4, !tbaa !57
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6detail12test_resultsEvE8instance, i64 4), align 4, !tbaa !60
-  %1975 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
+  %1971 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6detail11test_resultD2Ev, ptr nonnull @_ZZN5boost6detail12test_resultsEvE8instance, ptr nonnull @__dso_handle) #36
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6detail12test_resultsEvE8instance) #36
   br label %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit298
 
-_ZN5boost6detail9test_implEPKcS2_iS2_b.exit298:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit300, %1972, %1974
+_ZN5boost6detail9test_implEPKcS2_iS2_b.exit298:   ; preds = %_ZN5boost6detail9test_implEPKcS2_iS2_b.exit300, %1968, %1970
   call void @_ZN5boost14static_strings9testEmptyEv()
   call void @_ZN5boost14static_strings10testStreamEv()
   call void @_ZN5boost14static_strings16testOperatorPlusEv()
-  %1976 = call noundef i32 @_ZN5boost13report_errorsEv()
-  ret i32 %1976
+  %1972 = call noundef i32 @_ZN5boost13report_errorsEv()
+  ret i32 %1972
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -86949,8 +86927,8 @@ _ZN5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEEC2EPKc.ex
   %479 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store i8 5, ptr %38, align 1, !tbaa !317
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %479, ptr noundef nonnull align 1 dereferenceable(5) @.str.1303, i64 5, i1 false)
-  %.sroa.6919.1..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 6
-  store i8 0, ptr %.sroa.6919.1..sroa_idx, align 1
+  %.sroa.6.1..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 6
+  store i8 0, ptr %.sroa.6.1..sroa_idx, align 1
   %bcmp.i464 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %479, ptr noundef nonnull dereferenceable(5) @.str.1303, i64 5)
   %480 = icmp eq i32 %bcmp.i464, 0
   %481 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5457, ptr noundef nonnull @.str.13, i32 noundef 606, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL14testAssignmentEv, i1 noundef zeroext %480)
@@ -89440,12 +89418,12 @@ _ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.ex
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %16) #36
   %scevgep.i.i409 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store i32 25441, ptr %scevgep.i.i409, align 1
+  store i8 2, ptr %16, align 1, !tbaa !1608
   %1167 = getelementptr inbounds nuw i8, ptr %16, i64 3
   %1168 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %1169 = load i16, ptr %1168, align 1
   store i16 %1169, ptr %1167, align 1
   store i8 98, ptr %1168, align 1
-  store i8 3, ptr %16, align 1, !tbaa !1608
   %1170 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5656, ptr noundef nonnull @.str.13, i32 noundef 1037, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testInsertEv, i1 noundef zeroext true)
   %bcmp.i413 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %scevgep.i.i409, ptr noundef nonnull dereferenceable(3) @.str.5475, i64 3)
   %1171 = icmp eq i32 %bcmp.i413, 0
@@ -89493,6 +89471,7 @@ _ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.ex
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %17) #36
   %1188 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i16 0, ptr %1188, align 1
+  store i8 2, ptr %17, align 1, !tbaa !319
   %1189 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store i16 25441, ptr %1189, align 1
   %1190 = getelementptr inbounds nuw i8, ptr %17, i64 3
@@ -89502,7 +89481,6 @@ _ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEEC2EPKc.ex
   %1193 = load i16, ptr %1191, align 1
   store i16 %1193, ptr %1192, align 1
   store i16 25186, ptr %1191, align 1
-  store i8 4, ptr %17, align 1, !tbaa !319
   %1194 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.5659, ptr noundef nonnull @.str.13, i32 noundef 1045, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_stringsL10testInsertEv, i1 noundef zeroext true)
   %bcmp.i420 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1189, ptr noundef nonnull dereferenceable(4) @.str.5661, i64 4)
   %1195 = icmp eq i32 %bcmp.i420, 0

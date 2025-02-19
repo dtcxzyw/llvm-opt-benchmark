@@ -1650,7 +1650,6 @@ for.body.i.i.i49:                                 ; preds = %for.body.i.i.i49, %
 invoke.cont26:                                    ; preds = %for.body.i.i.i49, %invoke.cont23.thread, %invoke.cont23
   store ptr %occurs1, ptr %visitor1, align 8
   %i.i = getelementptr inbounds nuw i8, ptr %visitor1, i64 8
-  store i32 0, ptr %i.i, align 8
   %sz.i = getelementptr inbounds nuw i8, ptr %visitor1, i64 12
   store ptr %occurs2, ptr %visitor2, align 8
   %i.i57 = getelementptr inbounds nuw i8, ptr %visitor2, i64 8

@@ -685,7 +685,7 @@ invoke.cont6:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont6
   %_M_engaged.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
-  br label %cleanup21
+  br label %if.then.i
 
 lpad:                                             ; preds = %entry
   %3 = landingpad { ptr, i32 }
@@ -727,25 +727,20 @@ cleanup:                                          ; preds = %invoke.cont14, %if.
   %9 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store i8 %.sink, ptr %9, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %result) #19
-  br label %cleanup21
+  br label %if.then.i
 
-cleanup21:                                        ; preds = %cleanup, %if.then
-  %10 = load ptr, ptr %error_field, align 8
-  %cmp.not.i = icmp eq ptr %10, null
-  br i1 %cmp.not.i, label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %cleanup21
-  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %10)
+if.then.i:                                        ; preds = %if.then, %cleanup
+  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %errors)
           to label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #22
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #22
   unreachable
 
-_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit: ; preds = %cleanup21, %if.then.i
+_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit: ; preds = %if.then.i
   ret void
 
 ehcleanup:                                        ; preds = %lpad9, %lpad5

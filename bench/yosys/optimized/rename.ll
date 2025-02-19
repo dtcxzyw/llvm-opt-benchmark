@@ -1638,7 +1638,7 @@ _ZN5Yosys7hashlib12hash_obj_ops4hashINS_5RTLIL4WireEEEjPKT_.exit.i.i: ; preds = 
   %618 = landingpad { ptr, i32 }
           catch ptr null
   %619 = extractvalue { ptr, i32 } %618, 0
-  call void @__clang_call_terminate(ptr %619) #30
+  call void @__clang_call_terminate(ptr %619) #30, !noalias !12
   unreachable
 
 .loopexit1241:                                    ; preds = %496, %594, %535
@@ -2379,7 +2379,7 @@ _ZN5Yosys7hashlib12hash_obj_ops4hashINS_5RTLIL4CellEEEjPKT_.exit.i.i: ; preds = 
   %942 = landingpad { ptr, i32 }
           catch ptr null
   %943 = extractvalue { ptr, i32 } %942, 0
-  call void @__clang_call_terminate(ptr %943) #30
+  call void @__clang_call_terminate(ptr %943) #30, !noalias !28
   unreachable
 
 .loopexit1224:                                    ; preds = %820, %918, %859

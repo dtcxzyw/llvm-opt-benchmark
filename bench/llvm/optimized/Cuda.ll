@@ -12684,9 +12684,7 @@ _ZN4llvm15SmallVectorImplIPKcE6appendESt16initializer_listIS2_E.exit31: ; preds 
   %77 = load ptr, ptr %76, align 8, !tbaa !387
   %78 = load ptr, ptr %77, align 8, !tbaa !27, !noalias !566
   call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %7, ptr noundef nonnull align 8 dereferenceable(15248) %78, i32 0, i32 noundef 429) #18
-  %.sroa.0.0.copyload.i = load ptr, ptr %5, align 8, !tbaa !131
-  %.sroa.2.0.copyload.i = load i64, ptr %20, align 8, !tbaa !22
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %7, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %7, ptr %19, i64 %21)
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %80 = load i8, ptr %79, align 8, !tbaa !106, !range !109, !noundef !110
   %81 = trunc nuw i8 %80 to i1

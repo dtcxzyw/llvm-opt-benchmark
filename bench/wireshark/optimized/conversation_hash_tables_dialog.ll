@@ -2965,7 +2965,7 @@ _ZN7QStringD2Ev.exit347:                          ; preds = %467, %_ZN17QArrayDa
   %488 = landingpad { ptr, i32 }
           catch ptr null
   %489 = extractvalue { ptr, i32 } %488, 0
-  call void @__clang_call_terminate(ptr %489) #21
+  call void @__clang_call_terminate(ptr %489) #21, !noalias !19
   unreachable
 
 _ZN7QStringD2Ev.exit.i:                           ; preds = %485

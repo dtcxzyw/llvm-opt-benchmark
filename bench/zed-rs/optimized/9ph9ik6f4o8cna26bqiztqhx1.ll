@@ -8549,7 +8549,7 @@ define hidden void @_ZN8language6buffer6Buffer4edit17hed272cf5ff36ddf0E.llvm.781
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !1693
   %242 = extractvalue { ptr, i64 } %238, 0
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %243, ptr nonnull readonly align 1 %.sroa.9.sroa.0.0.copyload426, i64 %.sroa.9.sroa.5.0.copyload427, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %243, ptr nonnull readonly align 1 %.sroa.9.sroa.0.0.copyload426, i64 %.sroa.9.sroa.5.0.copyload427, i1 false), !noalias !1700
   %244 = icmp eq i64 %.sroa.6.0.copyload425, 0
   br i1 %244, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h9b9d58a410e0ecf1E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.4688597536446920865.exit.i.i1.i.i4.i.i"
 
@@ -8762,7 +8762,7 @@ define hidden void @_ZN8language6buffer6Buffer4edit17hed272cf5ff36ddf0E.llvm.781
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !1764
   %305 = extractvalue { ptr, i64 } %300, 0
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %306, ptr nonnull readonly align 1 %293, i64 %294, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %306, ptr nonnull readonly align 1 %293, i64 %294, i1 false), !noalias !1761
   call void @llvm.experimental.noalias.scope.decl(metadata !1785)
   call void @llvm.experimental.noalias.scope.decl(metadata !1788)
   call void @llvm.experimental.noalias.scope.decl(metadata !1791)
@@ -11189,7 +11189,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr59drop
   %413 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h323d15a0659a4362E"(i64 %392, ptr %395) #35
-          to label %.body102.i unwind label %414
+          to label %.body102.i unwind label %414, !noalias !2200
 
 414:                                              ; preds = %412
   %415 = landingpad { ptr, i32 }

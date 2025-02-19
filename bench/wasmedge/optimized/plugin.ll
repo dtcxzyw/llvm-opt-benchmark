@@ -2717,7 +2717,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #28
+  call void @__clang_call_terminate(ptr %49) #28, !noalias !27
   unreachable
 
 _ZN8WasmEdge6Loader13SharedLibrary3getIFPKNS_6Plugin6Plugin16PluginDescriptorEvEEENS_6SymbolIT_EEPKc.exit: ; preds = %41
@@ -2841,7 +2841,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
   %103 = landingpad { ptr, i32 }
           catch ptr null
   %104 = extractvalue { ptr, i32 } %103, 0
-  call void @__clang_call_terminate(ptr %104) #28
+  call void @__clang_call_terminate(ptr %104) #28, !noalias !36
   unreachable
 
 _ZN8WasmEdge6Loader13SharedLibrary3getIFPK25WasmEdge_PluginDescriptorvEEENS_6SymbolIT_EEPKc.exit: ; preds = %96
@@ -4119,7 +4119,7 @@ _ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDesc
 .loopexit.split-lp.i.i:                           ; preds = %.loopexit.split-lp.loopexit.split-lp.i.i, %.loopexit.split-lp.loopexit.i.i, %.loopexit.i.i
   %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit242.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.split-lp243.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i ]
   %655 = extractvalue { ptr, i32 } %lpad.phi.i.i, 0
-  call void @__clang_call_terminate(ptr %655) #28
+  call void @__clang_call_terminate(ptr %655) #28, !noalias !37
   unreachable
 
 .loopexit:                                        ; preds = %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPaNSE_6ParserIaEEEEEaKaEEDaS6_S8_SA_.exit.i.i, %._crit_edge.i.i
@@ -32900,7 +32900,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #28
+  tail call void @__clang_call_terminate(ptr %19) #28, !noalias !329
   unreachable
 
 _ZN8WasmEdge6Loader13SharedLibrary3getIPA23_KPvEENS_6SymbolIT_EEPKc.exit: ; preds = %11
@@ -32998,7 +32998,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #28
+  call void @__clang_call_terminate(ptr %38) #28, !noalias !342
   unreachable
 
 _ZN8WasmEdge6Loader13SharedLibrary3getIFvPvS3_PKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEPSH_EEENS_6SymbolIT_EEPKc.exit: ; preds = %30
@@ -33223,7 +33223,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #28
+  call void @__clang_call_terminate(ptr %40) #28, !noalias !356
   unreachable
 
 _ZN8WasmEdge6Loader13SharedLibrary3getIvEENS_6SymbolIT_EEPKc.exit: ; preds = %32
@@ -47058,7 +47058,7 @@ _ZSt8__copy_nIPcmS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i.i: ; preds
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #28
+  call void @__clang_call_terminate(ptr %18) #28, !noalias !847
   unreachable
 
 19:                                               ; preds = %3, %12, %_ZSt8__copy_nIPcmS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i.i

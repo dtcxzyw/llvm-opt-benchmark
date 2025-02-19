@@ -2079,7 +2079,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i:               ; preds = %invoke.cont.i.i.i.i
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #36
+  call void @__clang_call_terminate(ptr %1) #36, !noalias !23
   unreachable
 
 _ZNSt13__future_base7_ResultIlEC2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %invoke.cont.i.i.i.i.i.i.i.i.i
@@ -2187,7 +2187,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %ehcleanup.
 
 catch.i:                                          ; preds = %lpad.body.i
   %16 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
-  %17 = call ptr @__cxa_begin_catch(ptr %16) #31
+  %17 = call ptr @__cxa_begin_catch(ptr %16) #31, !noalias !20
   %_M_code.i.i = getelementptr inbounds nuw i8, ptr %17, i64 16
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #35
   store i32 11, ptr %ref.tmp9.i, align 8, !noalias !20
@@ -2334,7 +2334,7 @@ terminate.lpad.i:                                 ; preds = %lpad14.i
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #36
+  call void @__clang_call_terminate(ptr %39) #36, !noalias !20
   unreachable
 
 unreachable.i:                                    ; preds = %catch.i
@@ -6443,7 +6443,7 @@ lpad.i.i.i:                                       ; preds = %entry
   %5 = extractvalue { ptr, i32 } %3, 1
   %6 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #31
   %matches.i.i.i = icmp eq i32 %5, %6
-  %7 = tail call ptr @__cxa_begin_catch(ptr %4) #31
+  %7 = tail call ptr @__cxa_begin_catch(ptr %4) #31, !noalias !61
   br i1 %matches.i.i.i, label %catch8.i.i.i, label %catch.i.i.i
 
 catch8.i.i.i:                                     ; preds = %lpad.i.i.i
@@ -6496,7 +6496,7 @@ terminate.lpad.i.i.i:                             ; preds = %lpad10.i.i.i
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #36
+  tail call void @__clang_call_terminate(ptr %14) #36, !noalias !61
   unreachable
 
 unreachable.i.i.i:                                ; preds = %catch8.i.i.i

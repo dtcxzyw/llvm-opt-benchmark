@@ -439,7 +439,6 @@ _ZN14justified_exprD2Ev.exit:                     ; preds = %.noexc13, %lor.lhs.
   %27 = load i32, ptr %arrayidx10.i, align 4
   %inc.i = add i32 %27, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_fml.i, i8 0, i64 16, i1 false)
   %.pre58 = load ptr, ptr %new_r, align 8
   br label %cleanup
 

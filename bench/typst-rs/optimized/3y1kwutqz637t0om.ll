@@ -5957,7 +5957,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   %125 = icmp ne ptr %.sroa.05.0.i, null
   call void @llvm.assume(i1 %125)
   invoke void @_ZN10ttf_parser7RawFace5parse17hc3efdacb53f95075E(ptr noalias noundef nonnull sret({ ptr, [3 x i64] }) align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull readonly align 1 %.sroa.05.0.i, i64 noundef %.sroa.57.0.i, i32 noundef 0)
-          to label %126 unwind label %119
+          to label %126 unwind label %119, !noalias !1059
 
 126:                                              ; preds = %121
   call void @llvm.experimental.noalias.scope.decl(metadata !1062)
@@ -5991,7 +5991,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   %spec.select14.i = select i1 %.not.i, i64 %.sroa.57.0.i, i64 %136
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !1059
   invoke void @_ZN11miniz_oxide7deflate20compress_to_vec_zlib17he85615b097dd1484E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 1 %spec.select.i47, i64 noundef %spec.select14.i, i8 noundef 6)
-          to label %_ZN9typst_pdf7deflate17h92d94c5f2a53d74bE.exit.i unwind label %119
+          to label %_ZN9typst_pdf7deflate17h92d94c5f2a53d74bE.exit.i unwind label %119, !noalias !1059
 
 _ZN9typst_pdf7deflate17h92d94c5f2a53d74bE.exit.i: ; preds = %134
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !1059
@@ -7866,7 +7866,7 @@ attributes #30 = { cold noreturn nounwind }
 !18 = !{!19, !15}
 !19 = distinct !{!19, !20, !"_ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17h13f38082cbfa5598E.llvm.12347738516519586362: argument 2"}
 !20 = distinct !{!20, !"_ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17h13f38082cbfa5598E.llvm.12347738516519586362"}
-!21 = !{!22, !24, !25, !11, !13, !14}
+!21 = !{!22, !24, !25, !11, !13, !14, !5, !9}
 !22 = distinct !{!22, !23, !"_ZN9typst_pdf13write_catalog28_$u7b$$u7b$closure$u7d$$u7d$17h686b437add469334E.llvm.12347738516519586362: argument 0"}
 !23 = distinct !{!23, !"_ZN9typst_pdf13write_catalog28_$u7b$$u7b$closure$u7d$$u7d$17h686b437add469334E.llvm.12347738516519586362"}
 !24 = distinct !{!24, !20, !"_ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17h13f38082cbfa5598E.llvm.12347738516519586362: argument 0"}

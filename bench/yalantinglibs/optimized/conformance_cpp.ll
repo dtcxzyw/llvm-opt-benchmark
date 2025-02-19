@@ -2183,7 +2183,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %cleanup.done184.i.i
   %157 = landingpad { ptr, i32 }
           catch ptr null
   %158 = extractvalue { ptr, i32 } %157, 0
-  call void @__clang_call_terminate(ptr %158) #28
+  call void @__clang_call_terminate(ptr %158) #28, !noalias !14
   unreachable
 
 _ZNSt3mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS1_10TextFormat14MessagePrinterESt14default_deleteIS8_EESt4lessIS4_ESaISt4pairIKS4_SB_EEED2Ev.exit.i.i.i: ; preds = %cleanup.done184.i.i
@@ -2195,7 +2195,7 @@ terminate.lpad.i.i2.i.i.i:                        ; preds = %_ZNSt3mapIPKN6googl
   %160 = landingpad { ptr, i32 }
           catch ptr null
   %161 = extractvalue { ptr, i32 } %160, 0
-  call void @__clang_call_terminate(ptr %161) #28
+  call void @__clang_call_terminate(ptr %161) #28, !noalias !14
   unreachable
 
 _ZNSt3mapIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS1_10TextFormat21FastFieldValuePrinterESt14default_deleteIS8_EESt4lessIS4_ESaISt4pairIKS4_SB_EEED2Ev.exit.i.i.i: ; preds = %_ZNSt3mapIPKN6google8protobuf10DescriptorESt10unique_ptrIKNS1_10TextFormat14MessagePrinterESt14default_deleteIS8_EESt4lessIS4_ESaISt4pairIKS4_SB_EEED2Ev.exit.i.i.i

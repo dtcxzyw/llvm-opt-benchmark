@@ -879,13 +879,13 @@ common.resume:                                    ; preds = %11, %14, %18
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc2rc11Rc$LT$T$GT$3new17h081041f233ca159cE.exit": ; preds = %.noexc.i
-  store i64 1, ptr %.fca.0.extract.i.i, align 8
+  store i64 1, ptr %.fca.0.extract.i.i, align 8, !noalias !114
   %.sroa.4.0..fca.0.extract.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 8
-  store i64 1, ptr %.sroa.4.0..fca.0.extract.i.i.sroa_idx, align 8
+  store i64 1, ptr %.sroa.4.0..fca.0.extract.i.i.sroa_idx, align 8, !noalias !114
   %.sroa.5.0..fca.0.extract.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 16
-  store i32 0, ptr %.sroa.5.0..fca.0.extract.i.i.sroa_idx, align 8
+  store i32 0, ptr %.sroa.5.0..fca.0.extract.i.i.sroa_idx, align 8, !noalias !114
   %.sroa.6.0..fca.0.extract.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.0..fca.0.extract.i.i.sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.0..fca.0.extract.i.i.sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6, i64 12, i1 false), !noalias !114
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24

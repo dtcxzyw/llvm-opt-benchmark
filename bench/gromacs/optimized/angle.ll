@@ -2830,7 +2830,6 @@ _ZNSt6vectorIS_IN3gmx11BasicVectorIfEESaIS2_EESaIS4_EE6resizeEm.exit: ; preds = 
 282:                                              ; preds = %281
   store ptr %279, ptr %24, align 8
   %283 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store ptr null, ptr %283, align 8
   %284 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %_ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit unwind label %285
 
@@ -3126,7 +3125,6 @@ _ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEED2Ev.exit: ; preds = %_ZNSt16_S
 410:                                              ; preds = %409
   store ptr %407, ptr %26, align 8
   %411 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr null, ptr %411, align 8
   %412 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %_ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit44 unwind label %413
 
@@ -3389,7 +3387,6 @@ _ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEED2Ev.exit61: ; preds = %_ZNSt16
 524:                                              ; preds = %523
   store ptr %521, ptr %28, align 8
   %525 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr null, ptr %525, align 8
   %526 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %_ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit62 unwind label %527
 

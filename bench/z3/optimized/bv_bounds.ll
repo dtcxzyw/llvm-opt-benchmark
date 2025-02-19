@@ -2952,7 +2952,6 @@ land.lhs.true.i167:                               ; preds = %_ZNK11ast_manager5i
 land.lhs.true29:                                  ; preds = %land.lhs.true.i167
   %m_args.i.i = getelementptr inbounds nuw i8, ptr %e.addr.0, i64 32
   %34 = load ptr, ptr %m_args.i.i, align 8
-  store ptr %34, ptr %lhs, align 8
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %e.addr.0, i64 40
   %35 = load ptr, ptr %arrayidx.i.i, align 8
   %m_bv_util = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -4772,7 +4771,6 @@ land.lhs.true.i644:                               ; preds = %_ZNK14bv_recognizer
 if.then487:                                       ; preds = %land.lhs.true.i644
   %m_args.i.i648 = getelementptr inbounds nuw i8, ptr %e.addr.0, i64 32
   %241 = load ptr, ptr %m_args.i.i648, align 8
-  store ptr %241, ptr %lhs, align 8
   %arrayidx.i.i649 = getelementptr inbounds nuw i8, ptr %e.addr.0, i64 40
   %242 = load ptr, ptr %arrayidx.i.i649, align 8
   %call.i658 = invoke noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %241)

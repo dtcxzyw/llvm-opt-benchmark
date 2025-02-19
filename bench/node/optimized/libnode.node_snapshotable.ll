@@ -2134,10 +2134,10 @@ if.then.i.i.i.i:                                  ; preds = %entry, %if.then.i
   %3 = extractvalue { i64, ptr } %call.i, 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #23, !noalias !40
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i), !noalias !40
-  %call.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %2, ptr %3) #23
+  %call.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %2, ptr %3) #23, !noalias !40
   %4 = extractvalue { i64, ptr } %call.i.i, 0
   %5 = extractvalue { i64, ptr } %call.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, i64 %4, ptr %5) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, i64 %4, ptr %5) #23, !noalias !40
   %6 = load i64, ptr %agg.tmp.i.i, align 8, !noalias !40
   %7 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
   %8 = load ptr, ptr %7, align 8, !noalias !40
@@ -2691,10 +2691,10 @@ _ZNK4node26BlobSerializerDeserializer5DebugIJEEEvPKcDpOT_.exit: ; preds = %entry
   %3 = extractvalue { i64, ptr } %call.i, 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #23, !noalias !88
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i), !noalias !88
-  %call.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %2, ptr %3) #23
+  %call.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %2, ptr %3) #23, !noalias !88
   %4 = extractvalue { i64, ptr } %call.i.i, 0
   %5 = extractvalue { i64, ptr } %call.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, i64 %4, ptr %5) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, i64 %4, ptr %5) #23, !noalias !88
   %6 = load i64, ptr %agg.tmp.i.i, align 8, !noalias !88
   %7 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
   %8 = load ptr, ptr %7, align 8, !noalias !88
@@ -4846,10 +4846,10 @@ _ZNK4node26BlobSerializerDeserializer5DebugIJEEEvPKcDpOT_.exit: ; preds = %entry
   %4 = extractvalue { i64, ptr } %call.i, 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #23, !noalias !200
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i), !noalias !200
-  %call.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %3, ptr %4) #23
+  %call.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %3, ptr %4) #23, !noalias !200
   %5 = extractvalue { i64, ptr } %call.i.i, 0
   %6 = extractvalue { i64, ptr } %call.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, i64 %5, ptr %6) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, i64 %5, ptr %6) #23, !noalias !200
   %7 = load i64, ptr %agg.tmp.i.i, align 8, !noalias !200
   %8 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
   %9 = load ptr, ptr %8, align 8, !noalias !200
@@ -4865,10 +4865,10 @@ _ZNK4node26BlobSerializerDeserializer5DebugIJEEEvPKcDpOT_.exit: ; preds = %entry
   %11 = extractvalue { i64, ptr } %call.i3, 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i2) #23, !noalias !203
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i1), !noalias !203
-  %call.i.i4 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %10, ptr %11) #23
+  %call.i.i4 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %10, ptr %11) #23, !noalias !203
   %12 = extractvalue { i64, ptr } %call.i.i4, 0
   %13 = extractvalue { i64, ptr } %call.i.i4, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i1, i64 %12, ptr %13) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i1, i64 %12, ptr %13) #23, !noalias !203
   %14 = load i64, ptr %agg.tmp.i.i1, align 8, !noalias !203
   %15 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i1, i64 8
   %16 = load ptr, ptr %15, align 8, !noalias !203
@@ -4884,10 +4884,10 @@ _ZNK4node26BlobSerializerDeserializer5DebugIJEEEvPKcDpOT_.exit: ; preds = %entry
   %18 = extractvalue { i64, ptr } %call.i7, 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i6) #23, !noalias !206
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i5), !noalias !206
-  %call.i.i8 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %17, ptr %18) #23
+  %call.i.i8 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %17, ptr %18) #23, !noalias !206
   %19 = extractvalue { i64, ptr } %call.i.i8, 0
   %20 = extractvalue { i64, ptr } %call.i.i8, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i5, i64 %19, ptr %20) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i5, i64 %19, ptr %20) #23, !noalias !206
   %21 = load i64, ptr %agg.tmp.i.i5, align 8, !noalias !206
   %22 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i5, i64 8
   %23 = load ptr, ptr %22, align 8, !noalias !206
@@ -8143,15 +8143,13 @@ _ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic
   %call2.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %builder_script_content) #23
   %.sink.i = extractvalue { i64, ptr } %call2.i, 1
   %.sink2.i = extractvalue { i64, ptr } %call2.i, 0
-  %.pre = load ptr, ptr %out_path.addr, align 8
   br label %if.end12
 
 if.end12:                                         ; preds = %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit, %entry
-  %5 = phi ptr [ %.pre, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit ], [ %out_path, %entry ]
   %builder_script_optional.sroa.3.0 = phi i8 [ 1, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit ], [ 0, %entry ]
   %builder_script_optional.sroa.2.0 = phi ptr [ %.sink.i, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit ], [ undef, %entry ]
   %builder_script_optional.sroa.0.0 = phi i64 [ %.sink2.i, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit ], [ undef, %entry ]
-  call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(248) %out, ptr noundef %5, i32 noundef 20) #23
+  call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(248) %out, ptr noundef %out_path, i32 noundef 20) #23
   %vtable = load ptr, ptr %out, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -8160,8 +8158,8 @@ if.end12:                                         ; preds = %_ZNSt8optionalISt17
   br i1 %call14, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.end12
-  %6 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRPKcEEEvP8_IO_FILES2_DpOT_(ptr noundef %6, ptr noundef nonnull @.str.148, ptr noundef nonnull align 8 dereferenceable(8) %out_path.addr) #24
+  %5 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRPKcEEEvP8_IO_FILES2_DpOT_(ptr noundef %5, ptr noundef nonnull @.str.148, ptr noundef nonnull align 8 dereferenceable(8) %out_path.addr) #24
   br label %cleanup31
 
 if.end16:                                         ; preds = %if.end12
@@ -8199,8 +8197,8 @@ _ZN4node15SnapshotBuilder8GenerateEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112b
   br label %cleanup
 
 if.end.i13:                                       ; preds = %if.end16
-  %7 = load i32, ptr %config, align 8
-  %and.i.i.i.i = and i32 %7, 1
+  %6 = load i32, ptr %config, align 8
+  %and.i.i.i.i = and i32 %6, 1
   %tobool.i.i.not.i = icmp eq i32 %and.i.i.i.i, 0
   br i1 %tobool.i.i.not.i, label %_ZN4node15SnapshotBuilder8GenerateEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_St8optionalISt17basic_string_viewIcS7_EERKNS_14SnapshotConfigE.exit, label %_ZN4node15SnapshotBuilder8GenerateEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_St8optionalISt17basic_string_viewIcS7_EERKNS_14SnapshotConfigE.exit.thread
 
@@ -8225,7 +8223,7 @@ if.end20:                                         ; preds = %_ZN4node15SnapshotB
 
 if.then26:                                        ; preds = %if.end20
   %call27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.149) #23
-  %call28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call27, ptr noundef %5) #23
+  %call28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call27, ptr noundef %out_path) #23
   %call29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call28, ptr noundef nonnull @.str.150) #23
   br label %cleanup
 
@@ -15514,7 +15512,7 @@ sw.bb12:                                          ; preds = %while.cond, %while.
   %call.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %agg.tmp.sroa.0.0.copyload.i, ptr %agg.tmp.sroa.2.0.copyload.i) #23, !noalias !800
   %1 = extractvalue { i64, ptr } %call.i.i.i, 0
   %2 = extractvalue { i64, ptr } %call.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %1, ptr %2) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %1, ptr %2) #23, !noalias !800
   %3 = load i64, ptr %agg.tmp.i.i.i, align 8, !noalias !800
   %4 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   %5 = load ptr, ptr %4, align 8, !noalias !800
@@ -15535,7 +15533,7 @@ sw.bb15:                                          ; preds = %while.cond
   %call.i.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %agg.tmp.sroa.0.0.copyload.i15, ptr %agg.tmp.sroa.2.0.copyload.i17) #23, !noalias !809
   %6 = extractvalue { i64, ptr } %call.i.i.i.i, 0
   %7 = extractvalue { i64, ptr } %call.i.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i, i64 %6, ptr %7) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i, i64 %6, ptr %7) #23, !noalias !809
   %8 = load i64, ptr %agg.tmp.i.i.i.i, align 8, !noalias !809
   %9 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i, i64 8
   %10 = load ptr, ptr %9, align 8, !noalias !809
@@ -15556,7 +15554,7 @@ sw.bb18:                                          ; preds = %while.cond
   %call.i.i.i.i23 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %agg.tmp.sroa.0.0.copyload.i20, ptr %agg.tmp.sroa.2.0.copyload.i22) #23, !noalias !818
   %11 = extractvalue { i64, ptr } %call.i.i.i.i23, 0
   %12 = extractvalue { i64, ptr } %call.i.i.i.i23, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i18, i64 %11, ptr %12) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i18, i64 %11, ptr %12) #23, !noalias !818
   %13 = load i64, ptr %agg.tmp.i.i.i.i18, align 8, !noalias !818
   %14 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i18, i64 8
   %15 = load ptr, ptr %14, align 8, !noalias !818
@@ -15577,7 +15575,7 @@ sw.bb21:                                          ; preds = %while.cond
   %call.i.i.i.i29 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %agg.tmp.sroa.0.0.copyload.i26, ptr %agg.tmp.sroa.2.0.copyload.i28) #23, !noalias !827
   %16 = extractvalue { i64, ptr } %call.i.i.i.i29, 0
   %17 = extractvalue { i64, ptr } %call.i.i.i.i29, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i24, i64 %16, ptr %17) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i24, i64 %16, ptr %17) #23, !noalias !827
   %18 = load i64, ptr %agg.tmp.i.i.i.i24, align 8, !noalias !827
   %19 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i24, i64 8
   %20 = load ptr, ptr %19, align 8, !noalias !827
@@ -17929,10 +17927,10 @@ if.end:                                           ; preds = %_ZNK4node26BlobSeri
   %5 = extractvalue { i64, ptr } %call.i.i, 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #23, !noalias !1153
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i), !noalias !1153
-  %call.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %4, ptr %5) #23
+  %call.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %4, ptr %5) #23, !noalias !1153
   %6 = extractvalue { i64, ptr } %call.i.i.i, 0
   %7 = extractvalue { i64, ptr } %call.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %6, ptr %7) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %6, ptr %7) #23, !noalias !1153
   %8 = load i64, ptr %agg.tmp.i.i.i, align 8, !noalias !1153
   %9 = load ptr, ptr %1, align 8, !noalias !1153
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 %8, ptr %9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #23
@@ -19885,7 +19883,7 @@ sw.bb14:                                          ; preds = %while.cond, %while.
   %call.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %agg.tmp.sroa.0.0.copyload.i, ptr %agg.tmp.sroa.2.0.copyload.i) #23, !noalias !1353
   %1 = extractvalue { i64, ptr } %call.i.i.i, 0
   %2 = extractvalue { i64, ptr } %call.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %1, ptr %2) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %1, ptr %2) #23, !noalias !1353
   %3 = load i64, ptr %agg.tmp.i.i.i, align 8, !noalias !1353
   %4 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   %5 = load ptr, ptr %4, align 8, !noalias !1353
@@ -19906,7 +19904,7 @@ sw.bb17:                                          ; preds = %while.cond
   %call.i.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %agg.tmp.sroa.0.0.copyload.i34, ptr %agg.tmp.sroa.2.0.copyload.i36) #23, !noalias !1362
   %6 = extractvalue { i64, ptr } %call.i.i.i.i, 0
   %7 = extractvalue { i64, ptr } %call.i.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i, i64 %6, ptr %7) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i, i64 %6, ptr %7) #23, !noalias !1362
   %8 = load i64, ptr %agg.tmp.i.i.i.i, align 8, !noalias !1362
   %9 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i, i64 8
   %10 = load ptr, ptr %9, align 8, !noalias !1362
@@ -19927,7 +19925,7 @@ sw.bb20:                                          ; preds = %while.cond
   %call.i.i.i.i42 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %agg.tmp.sroa.0.0.copyload.i39, ptr %agg.tmp.sroa.2.0.copyload.i41) #23, !noalias !1371
   %11 = extractvalue { i64, ptr } %call.i.i.i.i42, 0
   %12 = extractvalue { i64, ptr } %call.i.i.i.i42, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i37, i64 %11, ptr %12) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i37, i64 %11, ptr %12) #23, !noalias !1371
   %13 = load i64, ptr %agg.tmp.i.i.i.i37, align 8, !noalias !1371
   %14 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i37, i64 8
   %15 = load ptr, ptr %14, align 8, !noalias !1371
@@ -19948,7 +19946,7 @@ sw.bb23:                                          ; preds = %while.cond
   %call.i.i.i.i48 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %agg.tmp.sroa.0.0.copyload.i45, ptr %agg.tmp.sroa.2.0.copyload.i47) #23, !noalias !1380
   %16 = extractvalue { i64, ptr } %call.i.i.i.i48, 0
   %17 = extractvalue { i64, ptr } %call.i.i.i.i48, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i43, i64 %16, ptr %17) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i43, i64 %16, ptr %17) #23, !noalias !1380
   %18 = load i64, ptr %agg.tmp.i.i.i.i43, align 8, !noalias !1380
   %19 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i43, i64 8
   %20 = load ptr, ptr %19, align 8, !noalias !1380

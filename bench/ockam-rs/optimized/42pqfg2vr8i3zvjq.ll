@@ -666,9 +666,9 @@ common.resume:                                    ; preds = %.body, %21
   %.fca.1.extract.i = extractvalue { ptr, ptr } %51, 1
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.fca.1.extract.i, ptr %.fca.1.gep.i, align 8, !noalias !118
-  %52 = load ptr, ptr %.fca.0.extract.i, align 8, !nonnull !4, !noundef !4
+  %52 = load ptr, ptr %.fca.0.extract.i, align 8, !noalias !118, !nonnull !4, !noundef !4
   %53 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 16
-  %54 = load i64, ptr %53, align 8, !noundef !4
+  %54 = load i64, ptr %53, align 8, !noalias !118, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !120)
   %55 = icmp eq i64 %54, 0
   br i1 %55, label %"_ZN4core3ptr157drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$17h2267aed2b9a057d7E.exit.i.i", label %.lr.ph.i.i.i.i.i

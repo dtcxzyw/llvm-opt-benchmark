@@ -2350,9 +2350,9 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.13346703328537446882.e
 128:                                              ; preds = %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.13346703328537446882.exit.i
   %129 = extractvalue { i32, i1 } %125, 0
   store i32 %129, ptr %123, align 4, !noalias !533
-  store i64 1, ptr %120, align 8
+  store i64 1, ptr %120, align 8, !noalias !529
   %130 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  store ptr %103, ptr %130, align 8
+  store ptr %103, ptr %130, align 8, !noalias !529
   store i64 1, ptr %3, align 8, !alias.scope !538, !noalias !541
   store ptr %120, ptr %28, align 8, !alias.scope !538, !noalias !541
   store i64 1, ptr %29, align 8, !alias.scope !538, !noalias !541
@@ -3413,9 +3413,9 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.13346703328537446882.e
 388:                                              ; preds = %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.13346703328537446882.exit.i
   %389 = extractvalue { i32, i1 } %385, 0
   store i32 %389, ptr %383, align 4, !noalias !765
-  store i64 1, ptr %380, align 8
+  store i64 1, ptr %380, align 8, !noalias !761
   %390 = getelementptr inbounds nuw i8, ptr %380, i64 8
-  store ptr %354, ptr %390, align 8
+  store ptr %354, ptr %390, align 8, !noalias !761
   store i64 1, ptr %4, align 8, !alias.scope !770, !noalias !773
   store ptr %380, ptr %32, align 8, !alias.scope !770, !noalias !773
   store i64 1, ptr %33, align 8, !alias.scope !770, !noalias !773
@@ -5620,7 +5620,7 @@ attributes #27 = { nounwind }
 !540 = distinct !{!540, !"_ZN5alloc5slice4hack8into_vec17hd119480f0e3457efE.llvm.13346703328537446882"}
 !541 = !{!542, !530, !532}
 !542 = distinct !{!542, !540, !"_ZN5alloc5slice4hack8into_vec17hd119480f0e3457efE.llvm.13346703328537446882: argument 1"}
-!543 = !{!544}
+!543 = !{!544, !530, !532}
 !544 = distinct !{!544, !545, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0fcc033870526233E.llvm.13346703328537446882: argument 0"}
 !545 = distinct !{!545, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0fcc033870526233E.llvm.13346703328537446882"}
 !546 = !{!547, !549, !551}
@@ -5852,7 +5852,7 @@ attributes #27 = { nounwind }
 !772 = distinct !{!772, !"_ZN5alloc5slice4hack8into_vec17hd119480f0e3457efE.llvm.13346703328537446882"}
 !773 = !{!774, !762, !764}
 !774 = distinct !{!774, !772, !"_ZN5alloc5slice4hack8into_vec17hd119480f0e3457efE.llvm.13346703328537446882: argument 1"}
-!775 = !{!776}
+!775 = !{!776, !762, !764}
 !776 = distinct !{!776, !777, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0fcc033870526233E.llvm.13346703328537446882: argument 0"}
 !777 = distinct !{!777, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0fcc033870526233E.llvm.13346703328537446882"}
 !778 = !{!779, !781, !783}

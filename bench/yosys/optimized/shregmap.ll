@@ -10431,7 +10431,7 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit.th
   %2811 = landingpad { ptr, i32 }
           catch ptr null
   %2812 = extractvalue { ptr, i32 } %2811, 0
-  call void @__clang_call_terminate(ptr %2812) #26
+  call void @__clang_call_terminate(ptr %2812) #26, !noalias !88
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i79:            ; preds = %2809, %2802, %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit.thread27.i

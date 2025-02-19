@@ -30,7 +30,7 @@ define dso_local void @_ZN5clang7CodeGen17SanitizerMetadataC2ERNS0_13CodeGenModu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen17SanitizerMetadata12reportGlobalEPN4llvm14GlobalVariableENS_14SourceLocationENS2_9StringRefENS_8QualTypeENS_13SanitizerMaskEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, i32 %2, ptr readnone captures(none) %3, i64 %4, i64 %5, ptr noundef byval(%"class.clang::SanitizerMask") align 8 captures(none) %6, i1 noundef zeroext %7) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang7CodeGen17SanitizerMetadata12reportGlobalEPN4llvm14GlobalVariableENS_14SourceLocationENS2_9StringRefENS_8QualTypeENS_13SanitizerMaskEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, i32 %2, ptr readnone captures(none) %3, i64 %4, i64 %5, ptr noundef readonly byval(%"class.clang::SanitizerMask") align 8 captures(none) %6, i1 noundef zeroext %7) local_unnamed_addr #1 align 2 {
   %9 = alloca %"class.llvm::StringRef", align 8
   %10 = alloca %"class.llvm::StringRef", align 8
   %11 = alloca %"class.llvm::StringRef", align 8
@@ -55,7 +55,6 @@ define dso_local void @_ZN5clang7CodeGen17SanitizerMetadata12reportGlobalEPN4llv
   %.not.i.not.i79 = icmp eq i64 %22, 0
   %23 = or i64 %.sroa.046.0.copyload, 9
   %spec.select.i80 = select i1 %.not.i.not.i79, i64 %.sroa.046.0.copyload, i64 %23
-  store i64 %spec.select.i80, ptr %6, align 8
   %24 = and i64 %spec.select.i80, %spec.select.i
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %26 = load i32, ptr %25, align 8

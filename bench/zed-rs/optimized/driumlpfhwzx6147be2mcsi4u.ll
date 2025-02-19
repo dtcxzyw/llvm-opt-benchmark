@@ -3837,11 +3837,11 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17hbf2000e87be6a78
 40:                                               ; preds = %39
   %41 = add nuw nsw i32 %.sroa.09.0.i.i, 1
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i, i64 8960
-  %43 = load i64, ptr %42, align 8, !noundef !4
+  %43 = load i64, ptr %42, align 8, !noalias !998, !noundef !4
   %44 = add i64 %43, 32
   store i64 %44, ptr %37, align 8, !noalias !998
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i, i64 8968
-  %46 = cmpxchg ptr %45, ptr null, ptr %22 acq_rel acquire, align 8
+  %46 = cmpxchg ptr %45, ptr null, ptr %22 acq_rel acquire, align 8, !noalias !998
   %.sroa.08.0.i.i.i.i = extractvalue { ptr, i1 } %46, 0
   %47 = extractvalue { ptr, i1 } %46, 1
   br i1 %47, label %"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$13reclaim_block17hd8f1038a02c284b7E.llvm.9814727790501108674.exit.i", label %39

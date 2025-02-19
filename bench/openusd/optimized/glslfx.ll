@@ -2274,7 +2274,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7JsValueD2Ev.exit.i.i.i.i.i.i: ; preds = %_
   %221 = landingpad { ptr, i32 }
           catch ptr null
   %222 = extractvalue { ptr, i32 } %221, 0
-  call void @__clang_call_terminate(ptr %222) #23
+  call void @__clang_call_terminate(ptr %222) #23, !noalias !8
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7JsValueESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7JsValueD2Ev.exit.i.i.i.i.i.i

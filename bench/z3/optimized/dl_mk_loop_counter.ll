@@ -2302,7 +2302,6 @@ invoke.cont61:                                    ; preds = %for.end55
   %90 = load ptr, ptr %head, align 8
   %91 = load ptr, ptr %ref.tmp56, align 8
   store ptr %91, ptr %head, align 8
-  store ptr %90, ptr %ref.tmp56, align 8
   %tobool.not.i.i.i = icmp eq ptr %90, null
   br i1 %tobool.not.i.i.i, label %_ZN7obj_refI3app11ast_managerED2Ev.exit171, label %if.then.i.i.i.i159
 

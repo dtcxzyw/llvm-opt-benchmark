@@ -1101,7 +1101,7 @@ select.unfold.i.i.i:                              ; preds = %.noexc13.i, %._crit
   %47 = landingpad { ptr, i32 }
           catch ptr null
   %48 = extractvalue { ptr, i32 } %47, 0
-  %49 = call ptr @__cxa_begin_catch(ptr %48) #27
+  %49 = call ptr @__cxa_begin_catch(ptr %48) #27, !noalias !5
   call void @_ZdlPv(ptr noundef nonnull %44) #28, !noalias !5
   invoke void @__cxa_rethrow() #23
           to label %55 unwind label %50, !noalias !5
@@ -1116,7 +1116,7 @@ select.unfold.i.i.i:                              ; preds = %.noexc13.i, %._crit
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #24
+  call void @__clang_call_terminate(ptr %54) #24, !noalias !5
   unreachable
 
 55:                                               ; preds = %46
@@ -1318,7 +1318,7 @@ _ZNSt12_Vector_baseIN5vcpkg11PackageSpecESaIS1_EE11_M_allocateEm.exit.i.i.i: ; p
   %97 = landingpad { ptr, i32 }
           catch ptr null
   %98 = extractvalue { ptr, i32 } %97, 0
-  call void @__clang_call_terminate(ptr %98) #24
+  call void @__clang_call_terminate(ptr %98) #24, !noalias !5
   unreachable
 
 .body20.i:                                        ; preds = %92, %91, %.thread.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %50
@@ -4090,7 +4090,7 @@ _ZN5vcpkg9ExpectedTIRKNS_28SourceControlFileAndLocationENS_15LocalizedStringEED2
 .body.i.i.i.i.i.i.i:                              ; preds = %150, %.body.i.i.i.i.i.i.i.i.i.i.i
   %eh.lpad-body.i.i.i.i.i.i.i = phi { ptr, i32 } [ %151, %150 ], [ %eh.lpad-body.i.i.i.i.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i.i.i.i.i.i ]
   %152 = extractvalue { ptr, i32 } %eh.lpad-body.i.i.i.i.i.i.i, 0
-  %153 = call ptr @__cxa_begin_catch(ptr %152) #27
+  %153 = call ptr @__cxa_begin_catch(ptr %152) #27, !noalias !46
   call void @_ZdlPv(ptr noundef nonnull %53) #28, !noalias !46
   invoke void @__cxa_rethrow() #23
           to label %159 unwind label %154, !noalias !46
@@ -4105,7 +4105,7 @@ _ZN5vcpkg9ExpectedTIRKNS_28SourceControlFileAndLocationENS_15LocalizedStringEED2
   %157 = landingpad { ptr, i32 }
           catch ptr null
   %158 = extractvalue { ptr, i32 } %157, 0
-  call void @__clang_call_terminate(ptr %158) #24
+  call void @__clang_call_terminate(ptr %158) #24, !noalias !46
   unreachable
 
 159:                                              ; preds = %.body.i.i.i.i.i.i.i
@@ -12169,7 +12169,7 @@ _ZSt8_DestroyIPN5vcpkg11PackageSpecES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt
   %1159 = extractvalue { ptr, i64 } %1158, 0
   %1160 = extractvalue { ptr, i64 } %1158, 1
   invoke void @_ZN5vcpkg7Strings7details15append_internalERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr %1159, i64 %1160)
-          to label %_ZN5vcpkg7Strings6appendIJNS_15LocalizedStringEEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_DpRKT_.exit.i.i.i unwind label %1163
+          to label %_ZN5vcpkg7Strings6appendIJNS_15LocalizedStringEEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_DpRKT_.exit.i.i.i unwind label %1163, !noalias !155
 
 _ZN5vcpkg7Strings6appendIJNS_15LocalizedStringEEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_DpRKT_.exit.i.i.i: ; preds = %.preheader.i.i.i
   %1161 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.i.i.i, i64 32
@@ -12457,7 +12457,7 @@ _ZNSt6vectorIN5vcpkg12_GLOBAL__N_121VersionedPackageGraph7DepSpecESaIS3_EE8pop_b
   %1262 = landingpad { ptr, i32 }
           catch ptr null
   %1263 = extractvalue { ptr, i32 } %1262, 0
-  call void @__clang_call_terminate(ptr %1263) #24
+  call void @__clang_call_terminate(ptr %1263) #24, !noalias !155
   unreachable
 
 _ZNR5vcpkg8OptionalIRKNS_28SourceControlFileAndLocationEE13value_or_exitERKNS_8LineInfoE.exit.i: ; preds = %_ZNSt6vectorIN5vcpkg12_GLOBAL__N_121VersionedPackageGraph7DepSpecESaIS3_EE8pop_backEv.exit.i
@@ -12833,7 +12833,7 @@ _ZNSt6vectorIN5vcpkg11PackageSpecESaIS1_EED2Ev.exit.i: ; preds = %1366, %_ZSt8_D
   %1381 = landingpad { ptr, i32 }
           catch ptr null
   %1382 = extractvalue { ptr, i32 } %1381, 0
-  call void @__clang_call_terminate(ptr %1382) #24
+  call void @__clang_call_terminate(ptr %1382) #24, !noalias !155
   unreachable
 
 _ZNR5vcpkg8OptionalIRKNS_28SourceControlFileAndLocationEE13value_or_exitERKNS_8LineInfoE.exit105.i: ; preds = %1376
@@ -12901,7 +12901,7 @@ _ZNSt3mapIN5vcpkg11FeatureSpecENS0_18PlatformExpression4ExprESt4lessIS1_ESaISt4p
   %1411 = landingpad { ptr, i32 }
           catch ptr null
   %1412 = extractvalue { ptr, i32 } %1411, 0
-  call void @__clang_call_terminate(ptr %1412) #24
+  call void @__clang_call_terminate(ptr %1412) #24, !noalias !155
   unreachable
 
 _ZNO5vcpkg8OptionalIRKNS_16FeatureParagraphEE13value_or_exitERKNS_8LineInfoE.exit.i: ; preds = %1408
@@ -13060,7 +13060,7 @@ _ZNSt3mapIN5vcpkg11FeatureSpecENS0_18PlatformExpression4ExprESt4lessIS1_ESaISt4p
   %1473 = landingpad { ptr, i32 }
           catch ptr null
   %1474 = extractvalue { ptr, i32 } %1473, 0
-  call void @__clang_call_terminate(ptr %1474) #24
+  call void @__clang_call_terminate(ptr %1474) #24, !noalias !155
   unreachable
 
 _ZNK5vcpkg3msg9triplet_taSINS_7TripletEEENS0_6TagArgIS1_NSt11conditionalIXsr3std16is_constructibleINS_10StringViewET_EE5valueES6_S7_E4typeEEERKS7_.exit.i: ; preds = %1470
@@ -35595,7 +35595,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %740 = landingpad { ptr, i32 }
           catch ptr null
   %741 = extractvalue { ptr, i32 } %740, 0
-  call void @__clang_call_terminate(ptr %741) #24
+  call void @__clang_call_terminate(ptr %741) #24, !noalias !535
   unreachable
 
 _ZNKR5vcpkg8OptionalIRKNS_28SourceControlFileAndLocationEE13value_or_exitERKNS_8LineInfoE.exit.i.i.i: ; preds = %735

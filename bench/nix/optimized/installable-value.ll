@@ -785,7 +785,6 @@ define void @_ZN3nix16InstallableValue10getCursorsERNS_9EvalStateE(ptr dead_on_u
   %5 = alloca %"class.std::shared_ptr", align 8
   %6 = alloca [1 x %"class.nix::ref.108"], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  store ptr null, ptr %5, align 8, !alias.scope !4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #28, !noalias !7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -818,7 +817,7 @@ define void @_ZN3nix16InstallableValue10getCursorsERNS_9EvalStateE(ptr dead_on_u
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #30
+  call void @__clang_call_terminate(ptr %20) #30, !noalias !4
   unreachable
 
 21:                                               ; preds = %3
@@ -836,7 +835,7 @@ define void @_ZN3nix16InstallableValue10getCursorsERNS_9EvalStateE(ptr dead_on_u
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #30
+  call void @__clang_call_terminate(ptr %28) #30, !noalias !4
   unreachable
 
 common.resume:                                    ; preds = %.loopexit, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix10eval_cache9EvalCacheESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i

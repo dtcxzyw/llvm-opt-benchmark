@@ -16482,7 +16482,7 @@ _ZN3std4sync4once4Once9call_once17h107497205d3a627dE.exit: ; preds = %.noexc, %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !3112
   %40 = extractvalue { ptr, i64 } %36, 0
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull readonly align 1 %28, i64 %30, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull readonly align 1 %28, i64 %30, i1 false), !noalias !3109
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !3115
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7c46ad277230ed04E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
           to label %.noexc6 unwind label %15

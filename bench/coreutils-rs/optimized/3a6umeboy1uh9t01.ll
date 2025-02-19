@@ -132,7 +132,7 @@ define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4int
   %7 = extractvalue { i64, ptr } %5, 1
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !9
   store i64 %6, ptr %0, align 8, !alias.scope !9, !noalias !14
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !9, !noalias !14
@@ -337,7 +337,7 @@ define hidden { ptr, ptr } @_ZN6uucore4mods5error12USimpleError3new17hbd28063a7e
   %7 = extractvalue { i64, ptr } %5, 1
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !27
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %0, ptr %9, align 8
   store i64 %6, ptr %4, align 8
@@ -345,8 +345,8 @@ define hidden { ptr, ptr } @_ZN6uucore4mods5error12USimpleError3new17hbd28063a7e
   store ptr %7, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %2, ptr %.sroa.5.0..sroa_idx, align 8
-  %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !27
-  %11 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #18, !noalias !27
+  %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !28
+  %11 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #18, !noalias !28
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h4dad26717c9a4a79E.llvm.17833407357621508087.exit"
 
@@ -689,6 +689,7 @@ attributes #21 = { cold noreturn nounwind }
 !24 = distinct !{!24, !25, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h59c166e23d89ecb5E.llvm.17833407357621508087: argument 0"}
 !25 = distinct !{!25, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h59c166e23d89ecb5E.llvm.17833407357621508087"}
 !26 = distinct !{!26, !25, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h59c166e23d89ecb5E.llvm.17833407357621508087: argument 1"}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h4dad26717c9a4a79E.llvm.17833407357621508087: argument 0"}
-!29 = distinct !{!29, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h4dad26717c9a4a79E.llvm.17833407357621508087"}
+!27 = !{!21, !24}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h4dad26717c9a4a79E.llvm.17833407357621508087: argument 0"}
+!30 = distinct !{!30, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h4dad26717c9a4a79E.llvm.17833407357621508087"}

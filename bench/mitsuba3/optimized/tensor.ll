@@ -217,13 +217,13 @@ define void @_ZN7mitsuba10TensorFileC2ERKNS_10filesystem4pathE(ptr noundef nonnu
 32:                                               ; preds = %36, %28, %2
   %33 = landingpad { ptr, i32 }
           cleanup
-  br label %224
+  br label %223
 
 34:                                               ; preds = %30
   %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #22
-  br label %224
+  br label %223
 
 36:                                               ; preds = %26
   %37 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #23
@@ -298,7 +298,7 @@ _ZN7mitsuba6Stream4readIjEEvRT_.exit:             ; preds = %.lr.ph.i.preheader.
   %66 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %37) #24
-  br label %224
+  br label %223
 
 .loopexit:                                        ; preds = %117, %_ZN7mitsuba6Stream4readItEEvRT_.exit
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -440,7 +440,7 @@ _ZN7mitsuba10filesystem4pathD2Ev.exit:            ; preds = %102, %_ZNSt3__16vec
   br label %117
 
 117:                                              ; preds = %.lr.ph128, %_ZNSt3__16vectorImNS_9allocatorImEEED2B8ne190000Ev.exit
-  %.030127 = phi i32 [ 0, %.lr.ph128 ], [ %214, %_ZNSt3__16vectorImNS_9allocatorImEEED2B8ne190000Ev.exit ]
+  %.030127 = phi i32 [ 0, %.lr.ph128 ], [ %213, %_ZNSt3__16vectorImNS_9allocatorImEEED2B8ne190000Ev.exit ]
   %118 = load i32, ptr %54, align 4
   %119 = load ptr, ptr %37, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 88
@@ -628,7 +628,7 @@ _ZN7mitsuba6Stream4readImEEvRT_.exit70:           ; preds = %.lr.ph.i.preheader.
 .body72.thread:                                   ; preds = %.lr.ph
   %181 = landingpad { ptr, i32 }
           cleanup
-  br label %223
+  br label %222
 
 ._crit_edge.loopexit:                             ; preds = %_ZN7mitsuba6Stream4readImEEvRT_.exit70
   %.pre139 = load i8, ptr %15, align 1
@@ -693,7 +693,7 @@ _ZNSt3__16vectorImNS_9allocatorImEEEC2ERKS3_.exit: ; preds = %_ZNSt3__16vectorIm
   %195 = phi ptr [ %192, %_ZNSt3__16vectorImNS_9allocatorImEEE18__construct_at_endIPmS5_EEvT_T0_m.exit.i.i ], [ null, %._crit_edge ]
   %196 = phi ptr [ %191, %_ZNSt3__16vectorImNS_9allocatorImEEE18__construct_at_endIPmS5_EEvT_T0_m.exit.i.i ], [ null, %._crit_edge ]
   %197 = invoke noundef ptr @_ZN7mitsuba16MemoryMappedFile4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-          to label %198 unwind label %217
+          to label %198 unwind label %216
 
 198:                                              ; preds = %_ZNSt3__16vectorImNS_9allocatorImEEEC2ERKS3_.exit
   %199 = load i64, ptr %18, align 8
@@ -703,7 +703,7 @@ _ZNSt3__16vectorImNS_9allocatorImEEEC2ERKS3_.exit: ; preds = %_ZNSt3__16vectorIm
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store ptr %19, ptr %3, align 8
   %201 = invoke { ptr, i8 } @_ZNSt3__112__hash_tableINS_17__hash_value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba10TensorFile5FieldEEENS_22__unordered_map_hasherIS7_SB_NS_4hashIS7_EENS_8equal_toIS7_EELb1EEENS_21__unordered_map_equalIS7_SB_SG_SE_Lb1EEENS5_ISB_EEE25__emplace_unique_key_argsIS7_JRKNS_21piecewise_construct_tENS_5tupleIJRKS7_EEENSQ_IJEEEEEENS_4pairINS_15__hash_iteratorIPNS_11__hash_nodeISB_PvEEEEbEERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 1 dereferenceable(1) @_ZNSt3__119piecewise_constructE, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %202 unwind label %220
+          to label %202 unwind label %219
 
 202:                                              ; preds = %198
   %203 = extractvalue { ptr, i8 } %201, 0
@@ -730,58 +730,57 @@ _ZN7mitsuba10TensorFile5FieldD2Ev.exit:           ; preds = %207, %202
   %210 = getelementptr inbounds nuw i8, ptr %203, i64 72
   store ptr %195, ptr %210, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %113, i8 0, i64 24, i1 false)
-  %211 = load ptr, ptr %116, align 8
-  %212 = getelementptr inbounds nuw i8, ptr %203, i64 80
-  store ptr %211, ptr %212, align 8
+  %211 = getelementptr inbounds nuw i8, ptr %203, i64 80
+  store ptr %200, ptr %211, align 8
   %.not.i.i77 = icmp eq ptr %.sroa.0.1143, null
-  br i1 %.not.i.i77, label %_ZNSt3__16vectorImNS_9allocatorImEEED2B8ne190000Ev.exit, label %213
+  br i1 %.not.i.i77, label %_ZNSt3__16vectorImNS_9allocatorImEEED2B8ne190000Ev.exit, label %212
 
-213:                                              ; preds = %_ZN7mitsuba10TensorFile5FieldD2Ev.exit
+212:                                              ; preds = %_ZN7mitsuba10TensorFile5FieldD2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1143) #24
   br label %_ZNSt3__16vectorImNS_9allocatorImEEED2B8ne190000Ev.exit
 
-_ZNSt3__16vectorImNS_9allocatorImEEED2B8ne190000Ev.exit: ; preds = %_ZN7mitsuba10TensorFile5FieldD2Ev.exit, %213
+_ZNSt3__16vectorImNS_9allocatorImEEED2B8ne190000Ev.exit: ; preds = %_ZN7mitsuba10TensorFile5FieldD2Ev.exit, %212
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #22
-  %214 = add nuw i32 %.030127, 1
-  %215 = load i32, ptr %9, align 4
-  %216 = icmp ult i32 %214, %215
-  br i1 %216, label %117, label %_ZN7mitsuba3refINS_12MemoryStreamEED2Ev.exit, !llvm.loop !6
+  %213 = add nuw i32 %.030127, 1
+  %214 = load i32, ptr %9, align 4
+  %215 = icmp ult i32 %213, %214
+  br i1 %215, label %117, label %_ZN7mitsuba3refINS_12MemoryStreamEED2Ev.exit, !llvm.loop !6
 
-217:                                              ; preds = %_ZNSt3__16vectorImNS_9allocatorImEEEC2ERKS3_.exit
-  %218 = landingpad { ptr, i32 }
+216:                                              ; preds = %_ZNSt3__16vectorImNS_9allocatorImEEEC2ERKS3_.exit
+  %217 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i78 = icmp eq ptr %196, null
-  br i1 %.not.i.i78, label %.body72, label %219
+  br i1 %.not.i.i78, label %.body72, label %218
 
-219:                                              ; preds = %217
+218:                                              ; preds = %216
   store ptr %196, ptr %114, align 8
   call void @_ZdlPv(ptr noundef nonnull %196) #24
   br label %.body72
 
-220:                                              ; preds = %198
-  %221 = landingpad { ptr, i32 }
+219:                                              ; preds = %198
+  %220 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i80 = icmp eq ptr %196, null
-  br i1 %.not.i.i.i80, label %.body72, label %222
+  br i1 %.not.i.i.i80, label %.body72, label %221
 
-222:                                              ; preds = %220
+221:                                              ; preds = %219
   store ptr %196, ptr %114, align 8
   call void @_ZdlPv(ptr noundef nonnull %196) #24
   br label %.body72
 
-.body72:                                          ; preds = %.thread, %222, %220, %219, %217, %193, %194
-  %.pn41 = phi { ptr, i32 } [ %lpad.loopexit.split-lp111, %194 ], [ %lpad.loopexit.split-lp111, %193 ], [ %218, %217 ], [ %218, %219 ], [ %221, %220 ], [ %221, %222 ], [ %lpad.loopexit110, %.thread ]
+.body72:                                          ; preds = %.thread, %221, %219, %218, %216, %193, %194
+  %.pn41 = phi { ptr, i32 } [ %lpad.loopexit.split-lp111, %194 ], [ %lpad.loopexit.split-lp111, %193 ], [ %217, %216 ], [ %217, %218 ], [ %220, %219 ], [ %220, %221 ], [ %lpad.loopexit110, %.thread ]
   %.not.i.i82 = icmp eq ptr %.sroa.0.1143, null
-  br i1 %.not.i.i82, label %.body, label %223
+  br i1 %.not.i.i82, label %.body, label %222
 
-223:                                              ; preds = %.body72.thread, %.body72
+222:                                              ; preds = %.body72.thread, %.body72
   %.pn41152 = phi { ptr, i32 } [ %181, %.body72.thread ], [ %.pn41, %.body72 ]
   %.sroa.0.1144151 = phi ptr [ %168, %.body72.thread ], [ %.sroa.0.1143, %.body72 ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1144151) #24
   br label %.body
 
-.body:                                            ; preds = %.loopexit103, %.loopexit.split-lp104, %223, %.body72, %_ZNSt3__128__exception_guard_exceptionsINS_6vectorImNS_9allocatorImEEE16__destroy_vectorEED2B8ne190000Ev.exit.i, %161
-  %.pn43 = phi { ptr, i32 } [ %162, %161 ], [ %169, %_ZNSt3__128__exception_guard_exceptionsINS_6vectorImNS_9allocatorImEEE16__destroy_vectorEED2B8ne190000Ev.exit.i ], [ %.pn41, %.body72 ], [ %.pn41152, %223 ], [ %lpad.loopexit105, %.loopexit103 ], [ %lpad.loopexit.split-lp106, %.loopexit.split-lp104 ]
+.body:                                            ; preds = %.loopexit103, %.loopexit.split-lp104, %222, %.body72, %_ZNSt3__128__exception_guard_exceptionsINS_6vectorImNS_9allocatorImEEE16__destroy_vectorEED2B8ne190000Ev.exit.i, %161
+  %.pn43 = phi { ptr, i32 } [ %162, %161 ], [ %169, %_ZNSt3__128__exception_guard_exceptionsINS_6vectorImNS_9allocatorImEEE16__destroy_vectorEED2B8ne190000Ev.exit.i ], [ %.pn41, %.body72 ], [ %.pn41152, %222 ], [ %lpad.loopexit105, %.loopexit103 ], [ %lpad.loopexit.split-lp106, %.loopexit.split-lp104 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #22
   br label %_ZN7mitsuba3refINS_12MemoryStreamEED2Ev.exit86
 
@@ -792,9 +791,9 @@ _ZN7mitsuba3refINS_12MemoryStreamEED2Ev.exit:     ; preds = %_ZNSt3__16vectorImN
 _ZN7mitsuba3refINS_12MemoryStreamEED2Ev.exit86:   ; preds = %.loopexit, %.loopexit.split-lp, %.body, %160, %76, %67
   %.pn45 = phi { ptr, i32 } [ %68, %67 ], [ %77, %76 ], [ %.pn43, %.body ], [ %.pn, %160 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNK7mitsuba6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12) %37, i1 noundef zeroext true) #22
-  br label %224
+  br label %223
 
-224:                                              ; preds = %_ZN7mitsuba3refINS_12MemoryStreamEED2Ev.exit86, %65, %34, %32
+223:                                              ; preds = %_ZN7mitsuba3refINS_12MemoryStreamEED2Ev.exit86, %65, %34, %32
   %.pn47 = phi { ptr, i32 } [ %35, %34 ], [ %33, %32 ], [ %.pn45, %_ZN7mitsuba3refINS_12MemoryStreamEED2Ev.exit86 ], [ %66, %65 ]
   call void @_ZNSt3__113unordered_mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba10TensorFile5FieldENS_4hashIS6_EENS_8equal_toIS6_EENS4_INS_4pairIKS6_S9_EEEEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(40) %23) #22
   call void @_ZN7mitsuba16MemoryMappedFileD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #22

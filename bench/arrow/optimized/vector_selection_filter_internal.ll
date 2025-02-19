@@ -11578,7 +11578,7 @@ _ZN5arrow6StatusD2Ev.exit81._crit_edge.i:         ; preds = %_ZN5arrow6StatusD2E
   %193 = landingpad { ptr, i32 }
           catch ptr null
   %194 = extractvalue { ptr, i32 } %193, 0
-  call void @__clang_call_terminate(ptr %194) #27
+  call void @__clang_call_terminate(ptr %194) #27, !noalias !373
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %190, %188
@@ -11610,7 +11610,7 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %190, %188
   %205 = landingpad { ptr, i32 }
           catch ptr null
   %206 = extractvalue { ptr, i32 } %205, 0
-  call void @__clang_call_terminate(ptr %206) #27
+  call void @__clang_call_terminate(ptr %206) #27, !noalias !373
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit87.i:               ; preds = %202, %199, %197
@@ -12227,7 +12227,7 @@ _ZN5arrow6StatusD2Ev.exit81._crit_edge.i166:      ; preds = %_ZN5arrow6StatusD2E
   %446 = landingpad { ptr, i32 }
           catch ptr null
   %447 = extractvalue { ptr, i32 } %446, 0
-  call void @__clang_call_terminate(ptr %447) #27
+  call void @__clang_call_terminate(ptr %447) #27, !noalias !452
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i160:              ; preds = %443, %441
@@ -12259,7 +12259,7 @@ _ZNSt14_Function_baseD2Ev.exit.i160:              ; preds = %443, %441
   %458 = landingpad { ptr, i32 }
           catch ptr null
   %459 = extractvalue { ptr, i32 } %458, 0
-  call void @__clang_call_terminate(ptr %459) #27
+  call void @__clang_call_terminate(ptr %459) #27, !noalias !452
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit87.i148:            ; preds = %455, %452, %450
@@ -13086,7 +13086,7 @@ _ZN5arrow6StatusD2Ev.exit350._crit_edge.i:        ; preds = %_ZN5arrow6StatusD2E
   %783 = landingpad { ptr, i32 }
           catch ptr null
   %784 = extractvalue { ptr, i32 } %783, 0
-  call void @__clang_call_terminate(ptr %784) #27
+  call void @__clang_call_terminate(ptr %784) #27, !noalias !522
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i200:              ; preds = %780, %778
@@ -13123,7 +13123,7 @@ _ZNSt14_Function_baseD2Ev.exit.i200:              ; preds = %780, %778
   %797 = landingpad { ptr, i32 }
           catch ptr null
   %798 = extractvalue { ptr, i32 } %797, 0
-  call void @__clang_call_terminate(ptr %798) #27
+  call void @__clang_call_terminate(ptr %798) #27, !noalias !522
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit356.i:              ; preds = %794, %791, %789
@@ -14884,7 +14884,7 @@ _ZN5arrow6StatusD2Ev.exit350._crit_edge.i427:     ; preds = %_ZN5arrow6StatusD2E
   %1635 = landingpad { ptr, i32 }
           catch ptr null
   %1636 = extractvalue { ptr, i32 } %1635, 0
-  call void @__clang_call_terminate(ptr %1636) #27
+  call void @__clang_call_terminate(ptr %1636) #27, !noalias !587
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i421:              ; preds = %1632, %1630
@@ -14921,7 +14921,7 @@ _ZNSt14_Function_baseD2Ev.exit.i421:              ; preds = %1632, %1630
   %1649 = landingpad { ptr, i32 }
           catch ptr null
   %1650 = extractvalue { ptr, i32 } %1649, 0
-  call void @__clang_call_terminate(ptr %1650) #27
+  call void @__clang_call_terminate(ptr %1650) #27, !noalias !587
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit356.i403:           ; preds = %1646, %1643, %1641
@@ -16691,7 +16691,7 @@ _ZN5arrow6ResultINS_5DatumEE15MoveValueUnsafeEv.exit.i: ; preds = %.sink.split.i
   %79 = landingpad { ptr, i32 }
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #27
+  call void @__clang_call_terminate(ptr %80) #27, !noalias !662
   unreachable
 
 _ZN5arrow5DatumaSEOS0_.exit.i:                    ; preds = %_ZN5arrow6ResultINS_5DatumEE15MoveValueUnsafeEv.exit.i
@@ -16704,7 +16704,7 @@ _ZN5arrow5DatumaSEOS0_.exit.i:                    ; preds = %_ZN5arrow6ResultINS
   %82 = landingpad { ptr, i32 }
           catch ptr null
   %83 = extractvalue { ptr, i32 } %82, 0
-  call void @__clang_call_terminate(ptr %83) #27
+  call void @__clang_call_terminate(ptr %83) #27, !noalias !662
   unreachable
 
 _ZN5arrow5DatumD2Ev.exit.i:                       ; preds = %_ZN5arrow5DatumaSEOS0_.exit.i
@@ -17173,7 +17173,7 @@ _ZN5arrow6ResultINS_5DatumEE15MoveValueUnsafeEv.exit.i: ; preds = %.sink.split.i
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #27
+  call void @__clang_call_terminate(ptr %79) #27, !noalias !682
   unreachable
 
 _ZN5arrow5DatumaSEOS0_.exit.i:                    ; preds = %_ZN5arrow6ResultINS_5DatumEE15MoveValueUnsafeEv.exit.i
@@ -17186,7 +17186,7 @@ _ZN5arrow5DatumaSEOS0_.exit.i:                    ; preds = %_ZN5arrow6ResultINS
   %81 = landingpad { ptr, i32 }
           catch ptr null
   %82 = extractvalue { ptr, i32 } %81, 0
-  call void @__clang_call_terminate(ptr %82) #27
+  call void @__clang_call_terminate(ptr %82) #27, !noalias !682
   unreachable
 
 _ZN5arrow5DatumD2Ev.exit.i:                       ; preds = %_ZN5arrow5DatumaSEOS0_.exit.i

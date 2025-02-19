@@ -14650,7 +14650,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal12
   %328 = landingpad { ptr, i32 }
           catch ptr null
   %329 = extractvalue { ptr, i32 } %328, 0
-  call void @__clang_call_terminate(ptr %329) #25
+  call void @__clang_call_terminate(ptr %329) #25, !noalias !390
   unreachable
 
 _ZN4cvc58internal6theory20TrustRewriteResponseD2Ev.exit.i: ; preds = %326, %320, %316
@@ -15972,7 +15972,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit479: ; preds = %912, %921, %927
   %965 = landingpad { ptr, i32 }
           catch ptr null
   %966 = extractvalue { ptr, i32 } %965, 0
-  call void @__clang_call_terminate(ptr %966) #25
+  call void @__clang_call_terminate(ptr %966) #25, !noalias !411
   unreachable
 
 _ZN4cvc58internal6theory20TrustRewriteResponseD2Ev.exit.i482: ; preds = %963, %957, %953

@@ -9242,7 +9242,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i.i: ; preds = %48
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  tail call void @__clang_call_terminate(ptr %55) #37
+  tail call void @__clang_call_terminate(ptr %55) #37, !noalias !54
   unreachable
 
 _Z25qSharedPointerDynamicCastI15QCPAxisTickerSi13QCPAxisTickerE14QSharedPointerIT_ERKS2_IT0_E.exit: ; preds = %52, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i.i, %43, %.thread.i
@@ -13734,7 +13734,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i.i: ; preds = %23
   %236 = landingpad { ptr, i32 }
           catch ptr null
   %237 = extractvalue { ptr, i32 } %236, 0
-  call void @__clang_call_terminate(ptr %237) #37
+  call void @__clang_call_terminate(ptr %237) #37, !noalias !136
   unreachable
 
 _Z25qSharedPointerDynamicCastI15QCPAxisTickerSi13QCPAxisTickerE14QSharedPointerIT_ERKS2_IT0_E.exit: ; preds = %234, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i.i, %225, %.thread.i
@@ -30201,7 +30201,7 @@ _ZNO7QString6toUtf8Ev.exit:                       ; preds = %_ZNK7IOGraph4nameEv
   %117 = landingpad { ptr, i32 }
           catch ptr null
   %118 = extractvalue { ptr, i32 } %117, 0
-  call void @__clang_call_terminate(ptr %118) #37
+  call void @__clang_call_terminate(ptr %118) #37, !noalias !222
   unreachable
 
 _ZN7QStringD2Ev.exit.i:                           ; preds = %_ZNO7QString6toUtf8Ev.exit

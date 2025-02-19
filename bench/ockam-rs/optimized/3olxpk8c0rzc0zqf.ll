@@ -11141,7 +11141,7 @@ define internal noundef i64 @_ZN7openssl3ssl3bio4ctrl17h898c454a355a7744E(ptr no
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @_ZN3std9panicking3try8do_catch17h352e3e33d366029fE.llvm.16952266373119996706(ptr nonnull %6, ptr %19)
+  call void @_ZN3std9panicking3try8do_catch17h352e3e33d366029fE.llvm.16952266373119996706(ptr nonnull %6, ptr %19), !noalias !2378
   %20 = load ptr, ptr %6, align 8, !noalias !2374, !nonnull !13, !align !90, !noundef !13
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = load ptr, ptr %21, align 8, !noalias !2374, !nonnull !13, !align !40, !noundef !13
@@ -11301,7 +11301,7 @@ define internal noundef i32 @_ZN7openssl3ssl3bio5bread17hbc9982b1fdeac74aE(ptr n
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @_ZN3std9panicking3try8do_catch17h6f5080f94f6cc71dE.llvm.16952266373119996706(ptr nonnull %5, ptr %16)
+  call void @_ZN3std9panicking3try8do_catch17h6f5080f94f6cc71dE.llvm.16952266373119996706(ptr nonnull %5, ptr %16), !noalias !2405
   %17 = load ptr, ptr %5, align 8, !noalias !2400, !nonnull !13, !align !90, !noundef !13
   %18 = load ptr, ptr %12, align 8, !noalias !2400, !nonnull !13, !align !40, !noundef !13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !2400
@@ -11488,7 +11488,7 @@ define internal noundef i32 @_ZN7openssl3ssl3bio6bwrite17hfe71de824c8c3750E(ptr 
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @_ZN3std9panicking3try8do_catch17h092015c90a7f2021E.llvm.16952266373119996706(ptr nonnull %5, ptr %16)
+  call void @_ZN3std9panicking3try8do_catch17h092015c90a7f2021E.llvm.16952266373119996706(ptr nonnull %5, ptr %16), !noalias !2425
   %17 = load ptr, ptr %5, align 8, !noalias !2420, !nonnull !13, !align !90, !noundef !13
   %18 = load ptr, ptr %12, align 8, !noalias !2420, !nonnull !13, !align !40, !noundef !13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !2420

@@ -11386,15 +11386,15 @@ define dso_local noundef nonnull ptr @LLVMGetOperandBundleAtIndex(ptr noundef %0
   %15 = sub nsw i64 0, %14
   %16 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %18 = load i32, ptr %17, align 8, !tbaa !368, !noalias !364
+  %18 = load i32, ptr %17, align 8, !tbaa !368, !noalias !367
   %19 = zext i32 %18 to i64
   %.idx6.i.i = shl nuw nsw i64 %19, 5
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx6.i.i
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %22 = load i32, ptr %21, align 4, !tbaa !371, !noalias !364
+  %22 = load i32, ptr %21, align 4, !tbaa !371, !noalias !367
   %23 = zext i32 %22 to i64
   %24 = sub nsw i64 %23, %19
-  %25 = load ptr, ptr %11, align 8, !tbaa !372, !noalias !364
+  %25 = load ptr, ptr %11, align 8, !tbaa !372, !noalias !367
   store ptr %20, ptr %3, align 8, !tbaa !263, !alias.scope !367
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %24, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !37, !alias.scope !367

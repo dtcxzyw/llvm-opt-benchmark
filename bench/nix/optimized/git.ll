@@ -16328,7 +16328,7 @@ define internal void @"_ZNSt17_Function_handlerIFN3nix3git9TreeEntryERKNS0_9Cano
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  call void @__clang_call_terminate(ptr %47) #30
+  call void @__clang_call_terminate(ptr %47) #30, !noalias !165
   unreachable
 
 _ZNSt8functionIFN3nix3git9TreeEntryERKNS0_9CanonPathEEEC2ERKS7_.exit.i.i.i: ; preds = %36, %17
@@ -16350,7 +16350,7 @@ _ZNSt8functionIFN3nix3git9TreeEntryERKNS0_9CanonPathEEEC2ERKS7_.exit.i.i.i: ; pr
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #30
+  call void @__clang_call_terminate(ptr %57) #30, !noalias !165
   unreachable
 
 _ZNSt8functionIFN3nix3git9TreeEntryERKNS0_9CanonPathEEED2Ev.exit.i.i.i: ; preds = %53, %51
@@ -16409,7 +16409,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #30
+  call void @__clang_call_terminate(ptr %79) #30, !noalias !165
   unreachable
 
 .body.i.i.i:                                      ; preds = %75, %72, %70, %43, %40

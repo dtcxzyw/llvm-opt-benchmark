@@ -7437,7 +7437,6 @@ _ZN7openvdb5v11_04mathmlIddEENS1_4Mat4INS1_7promoteIT_T0_E4typeEEERKNS3_IS5_EERK
 invoke.cont10:                                    ; preds = %_ZN7openvdb5v11_04mathmlIddEENS1_4Mat4INS1_7promoteIT_T0_E4typeEEERKNS3_IS5_EERKNS3_IS6_EE.exit
   store ptr %call8, ptr %affineMap, align 8
   %_M_refcount.i.i7 = getelementptr inbounds nuw i8, ptr %affineMap, i64 8
-  store ptr null, ptr %_M_refcount.i.i7, align 8
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
           to label %if.then.i.i.i11 unwind label %lpad.i.i.i.i
 
@@ -9461,7 +9460,6 @@ _ZN7openvdb5v11_04mathmlIddEENS1_4Mat4INS1_7promoteIT_T0_E4typeEEERKNS3_IS5_EERK
 invoke.cont10:                                    ; preds = %_ZN7openvdb5v11_04mathmlIddEENS1_4Mat4INS1_7promoteIT_T0_E4typeEEERKNS3_IS5_EERKNS3_IS6_EE.exit
   store ptr %call8, ptr %affineMap, align 8
   %_M_refcount.i.i7 = getelementptr inbounds nuw i8, ptr %affineMap, i64 8
-  store ptr null, ptr %_M_refcount.i.i7, align 8
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
           to label %if.then.i.i.i11 unwind label %lpad.i.i.i.i
 

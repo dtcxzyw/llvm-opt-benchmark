@@ -225,9 +225,9 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   br label %32
 
 32:                                               ; preds = %"_ZN5folly3f146detail16F14VectorSetImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_23HeterogeneousAccessHashIS8_vEENS_26HeterogeneousAccessEqualToIS8_vEESaIS8_ESt17integral_constantIbLb1EEE15eraseUnderlyingIRZZNS_8settings16freezeImmutablesENS_10F14FastSetIS8_SA_SC_SD_EEENK3$_0clISK_EEDaRT_EUlOSN_E_EEvNS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESP_.exit.i.i.i", %.lr.ph.i.i.i
-  %.pn.i.i = phi ptr [ %29, %.lr.ph.i.i.i ], [ %.sroa.012.050.i.i.i, %"_ZN5folly3f146detail16F14VectorSetImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_23HeterogeneousAccessHashIS8_vEENS_26HeterogeneousAccessEqualToIS8_vEESaIS8_ESt17integral_constantIbLb1EEE15eraseUnderlyingIRZZNS_8settings16freezeImmutablesENS_10F14FastSetIS8_SA_SC_SD_EEENK3$_0clISK_EEDaRT_EUlOSN_E_EEvNS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESP_.exit.i.i.i" ]
-  %.sroa.012.050.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 -32
-  %33 = ptrtoint ptr %.sroa.012.050.i.i.i to i64
+  %.pn.i.i = phi ptr [ %29, %.lr.ph.i.i.i ], [ %.sroa.01.039.i.i.i, %"_ZN5folly3f146detail16F14VectorSetImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_23HeterogeneousAccessHashIS8_vEENS_26HeterogeneousAccessEqualToIS8_vEESaIS8_ESt17integral_constantIbLb1EEE15eraseUnderlyingIRZZNS_8settings16freezeImmutablesENS_10F14FastSetIS8_SA_SC_SD_EEENK3$_0clISK_EEDaRT_EUlOSN_E_EEvNS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESP_.exit.i.i.i" ]
+  %.sroa.01.039.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 -32
+  %33 = ptrtoint ptr %.sroa.01.039.i.i.i to i64
   %34 = sub i64 %33, %30
   %35 = ashr exact i64 %34, 5
   %36 = icmp ult i64 %35, 4294967296
@@ -353,14 +353,14 @@ _ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char
   br label %.critedge.i.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %106, %95
-  %.sroa.018.0.i.i.i = phi i32 [ %102, %95 ], [ %109, %106 ]
-  %.not37.i.i.i = icmp eq i32 %.sroa.018.0.i.i.i, 0
-  br i1 %.not37.i.i.i, label %114, label %106
+  %.sroa.07.0.i.i.i = phi i32 [ %102, %95 ], [ %109, %106 ]
+  %.not26.i.i.i = icmp eq i32 %.sroa.07.0.i.i.i, 0
+  br i1 %.not26.i.i.i, label %114, label %106
 
 106:                                              ; preds = %.critedge.i.i.i.i
-  %107 = call noundef range(i32 0, 32) i32 @llvm.cttz.i32(i32 %.sroa.018.0.i.i.i, i1 true)
-  %108 = add nsw i32 %.sroa.018.0.i.i.i, -1
-  %109 = and i32 %108, %.sroa.018.0.i.i.i
+  %107 = call noundef range(i32 0, 32) i32 @llvm.cttz.i32(i32 %.sroa.07.0.i.i.i, i1 true)
+  %108 = add nsw i32 %.sroa.07.0.i.i.i, -1
+  %109 = and i32 %108, %.sroa.07.0.i.i.i
   %110 = zext nneg i32 %107 to i64
   call void @llvm.assume(i1 %103)
   %111 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %104, i64 0, i64 %110
@@ -740,7 +740,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br label %"_ZN5folly3f146detail16F14VectorSetImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_23HeterogeneousAccessHashIS8_vEENS_26HeterogeneousAccessEqualToIS8_vEESaIS8_ESt17integral_constantIbLb1EEE15eraseUnderlyingIRZZNS_8settings16freezeImmutablesENS_10F14FastSetIS8_SA_SC_SD_EEENK3$_0clISK_EEDaRT_EUlOSN_E_EEvNS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESP_.exit.i.i.i"
 
 "_ZN5folly3f146detail16F14VectorSetImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_23HeterogeneousAccessHashIS8_vEENS_26HeterogeneousAccessEqualToIS8_vEESaIS8_ESt17integral_constantIbLb1EEE15eraseUnderlyingIRZZNS_8settings16freezeImmutablesENS_10F14FastSetIS8_SA_SC_SD_EEENK3$_0clISK_EEDaRT_EUlOSN_E_EEvNS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESP_.exit.i.i.i": ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i.i.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i.i.i.i
-  %297 = icmp eq ptr %27, %.sroa.012.050.i.i.i
+  %297 = icmp eq ptr %27, %.sroa.01.039.i.i.i
   br i1 %297, label %"_ZZN5folly8settings16freezeImmutablesENS_10F14FastSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_23HeterogeneousAccessHashIS7_vEENS_26HeterogeneousAccessEqualToIS7_vEESaIS7_EEEENK3$_0clISD_EEDaRT_.exit.i", label %32, !llvm.loop !49
 
 "_ZZN5folly8settings16freezeImmutablesENS_10F14FastSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_23HeterogeneousAccessHashIS7_vEENS_26HeterogeneousAccessEqualToIS7_vEESaIS7_EEEENK3$_0clISD_EEDaRT_.exit.i": ; preds = %"_ZN5folly3f146detail16F14VectorSetImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_23HeterogeneousAccessHashIS8_vEENS_26HeterogeneousAccessEqualToIS8_vEESaIS8_ESt17integral_constantIbLb1EEE15eraseUnderlyingIRZZNS_8settings16freezeImmutablesENS_10F14FastSetIS8_SA_SC_SD_EEENK3$_0clISK_EEDaRT_EUlOSN_E_EEvNS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESP_.exit.i.i.i", %22

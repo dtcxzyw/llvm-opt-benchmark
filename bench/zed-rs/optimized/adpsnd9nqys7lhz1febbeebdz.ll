@@ -2752,7 +2752,7 @@ default.unreachable:                              ; preds = %310, %267, %.backed
 
 297:                                              ; preds = %"_ZN4core3ptr104drop_in_place$LT$async_fs..create_dir_all$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf62add1e2819c4beE.exit.i.i"
   %298 = invoke noundef nonnull ptr @"_ZN52_$LT$E$u20$as$u20$anyhow..context..ext..StdError$GT$11ext_context17he38aa14e5ec687f1E"(ptr noundef nonnull %278, ptr noalias noundef nonnull readonly align 1 @anon.28b6abe1c8975fe75e9106fd1def0251.78, i64 noundef 29)
-          to label %299 unwind label %294
+          to label %299 unwind label %294, !noalias !613
 
 299:                                              ; preds = %297
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17), !noalias !640
@@ -4871,7 +4871,7 @@ default.unreachable:                              ; preds = %310, %267, %.backed
 
 297:                                              ; preds = %"_ZN4core3ptr104drop_in_place$LT$async_fs..create_dir_all$LT$$RF$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf62add1e2819c4beE.exit.i.i"
   %298 = invoke noundef nonnull ptr @"_ZN52_$LT$E$u20$as$u20$anyhow..context..ext..StdError$GT$11ext_context17he38aa14e5ec687f1E"(ptr noundef nonnull %278, ptr noalias noundef nonnull readonly align 1 @anon.28b6abe1c8975fe75e9106fd1def0251.78, i64 noundef 29)
-          to label %299 unwind label %294
+          to label %299 unwind label %294, !noalias !938
 
 299:                                              ; preds = %297
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17), !noalias !965

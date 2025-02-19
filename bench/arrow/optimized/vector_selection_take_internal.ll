@@ -9377,7 +9377,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i.i81: ; preds = %819, %816
   %862 = add nsw i64 %861, %806
   %863 = lshr i64 %862, 3
   %864 = getelementptr inbounds nuw i8, ptr %805, i64 %863
-  %865 = load i8, ptr %864, align 1, !tbaa !98
+  %865 = load i8, ptr %864, align 1, !tbaa !98, !noalias !575
   %866 = zext i8 %865 to i32
   %867 = trunc i64 %862 to i32
   %868 = and i32 %867, 7
@@ -9441,7 +9441,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i.i88:        ; preds = %.preheader31.i.i, %
   %909 = add nsw i64 %908, %806
   %910 = lshr i64 %909, 3
   %911 = getelementptr inbounds nuw i8, ptr %805, i64 %910
-  %912 = load i8, ptr %911, align 1, !tbaa !98
+  %912 = load i8, ptr %911, align 1, !tbaa !98, !noalias !575
   %913 = zext i8 %912 to i32
   %914 = trunc i64 %909 to i32
   %915 = and i32 %914, 7
@@ -9505,7 +9505,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit26.i.i:        ; preds = %.preheader.i.i90, %
   %950 = add nsw i64 %938, %806
   %951 = lshr i64 %950, 3
   %952 = getelementptr inbounds nuw i8, ptr %805, i64 %951
-  %953 = load i8, ptr %952, align 1, !tbaa !98
+  %953 = load i8, ptr %952, align 1, !tbaa !98, !noalias !575
   %954 = zext i8 %953 to i32
   %955 = trunc i64 %950 to i32
   %956 = and i32 %955, 7
@@ -9586,7 +9586,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit30.i.i:        ; preds = %.preheader28.i.i, %
   %1006 = add nsw i64 %995, %806
   %1007 = lshr i64 %1006, 3
   %1008 = getelementptr inbounds nuw i8, ptr %805, i64 %1007
-  %1009 = load i8, ptr %1008, align 1, !tbaa !98
+  %1009 = load i8, ptr %1008, align 1, !tbaa !98, !noalias !575
   %1010 = zext i8 %1009 to i32
   %1011 = trunc i64 %1006 to i32
   %1012 = and i32 %1011, 7
@@ -9641,7 +9641,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi1EhLb0EEEE16ExecuteWithNullsILb
   %1038 = add nsw i64 %1037, %806
   %1039 = lshr i64 %1038, 3
   %1040 = getelementptr inbounds nuw i8, ptr %805, i64 %1039
-  %1041 = load i8, ptr %1040, align 1, !tbaa !98
+  %1041 = load i8, ptr %1040, align 1, !tbaa !98, !noalias !575
   %1042 = zext i8 %1041 to i32
   %1043 = trunc i64 %1038 to i32
   %1044 = and i32 %1043, 7
@@ -9778,7 +9778,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i29.i: ; preds = %1084, %1081
   %1127 = add nsw i64 %1126, %1071
   %1128 = lshr i64 %1127, 3
   %1129 = getelementptr inbounds nuw i8, ptr %1070, i64 %1128
-  %1130 = load i8, ptr %1129, align 1, !tbaa !98
+  %1130 = load i8, ptr %1129, align 1, !tbaa !98, !noalias !584
   %1131 = zext i8 %1130 to i32
   %1132 = trunc i64 %1127 to i32
   %1133 = and i32 %1132, 7
@@ -9842,7 +9842,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i45.i:        ; preds = %.preheader31.i44.i,
   %1174 = add nsw i64 %1173, %1071
   %1175 = lshr i64 %1174, 3
   %1176 = getelementptr inbounds nuw i8, ptr %1070, i64 %1175
-  %1177 = load i8, ptr %1176, align 1, !tbaa !98
+  %1177 = load i8, ptr %1176, align 1, !tbaa !98, !noalias !584
   %1178 = zext i8 %1177 to i32
   %1179 = trunc i64 %1174 to i32
   %1180 = and i32 %1179, 7
@@ -9906,7 +9906,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit26.i69.i:      ; preds = %.preheader.i68.i, %
   %1215 = add nsw i64 %1203, %1071
   %1216 = lshr i64 %1215, 3
   %1217 = getelementptr inbounds nuw i8, ptr %1070, i64 %1216
-  %1218 = load i8, ptr %1217, align 1, !tbaa !98
+  %1218 = load i8, ptr %1217, align 1, !tbaa !98, !noalias !584
   %1219 = zext i8 %1218 to i32
   %1220 = trunc i64 %1215 to i32
   %1221 = and i32 %1220, 7
@@ -9987,7 +9987,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit30.i58.i:      ; preds = %.preheader28.i57.i,
   %1271 = add nsw i64 %1260, %1071
   %1272 = lshr i64 %1271, 3
   %1273 = getelementptr inbounds nuw i8, ptr %1070, i64 %1272
-  %1274 = load i8, ptr %1273, align 1, !tbaa !98
+  %1274 = load i8, ptr %1273, align 1, !tbaa !98, !noalias !584
   %1275 = zext i8 %1274 to i32
   %1276 = trunc i64 %1271 to i32
   %1277 = and i32 %1276, 7
@@ -10042,7 +10042,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi1EtLb0EEEE16ExecuteWithNullsILb
   %1303 = add nsw i64 %1302, %1071
   %1304 = lshr i64 %1303, 3
   %1305 = getelementptr inbounds nuw i8, ptr %1070, i64 %1304
-  %1306 = load i8, ptr %1305, align 1, !tbaa !98
+  %1306 = load i8, ptr %1305, align 1, !tbaa !98, !noalias !584
   %1307 = zext i8 %1306 to i32
   %1308 = trunc i64 %1303 to i32
   %1309 = and i32 %1308, 7
@@ -10179,7 +10179,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i86.i: ; preds = %1349, %1346
   %1392 = add nsw i64 %1391, %1336
   %1393 = lshr i64 %1392, 3
   %1394 = getelementptr inbounds nuw i8, ptr %1335, i64 %1393
-  %1395 = load i8, ptr %1394, align 1, !tbaa !98
+  %1395 = load i8, ptr %1394, align 1, !tbaa !98, !noalias !593
   %1396 = zext i8 %1395 to i32
   %1397 = trunc i64 %1392 to i32
   %1398 = and i32 %1397, 7
@@ -10243,7 +10243,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i102.i:       ; preds = %.preheader31.i101.i
   %1439 = add nsw i64 %1438, %1336
   %1440 = lshr i64 %1439, 3
   %1441 = getelementptr inbounds nuw i8, ptr %1335, i64 %1440
-  %1442 = load i8, ptr %1441, align 1, !tbaa !98
+  %1442 = load i8, ptr %1441, align 1, !tbaa !98, !noalias !593
   %1443 = zext i8 %1442 to i32
   %1444 = trunc i64 %1439 to i32
   %1445 = and i32 %1444, 7
@@ -10307,7 +10307,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit26.i126.i:     ; preds = %.preheader.i125.i, 
   %1480 = add nsw i64 %1468, %1336
   %1481 = lshr i64 %1480, 3
   %1482 = getelementptr inbounds nuw i8, ptr %1335, i64 %1481
-  %1483 = load i8, ptr %1482, align 1, !tbaa !98
+  %1483 = load i8, ptr %1482, align 1, !tbaa !98, !noalias !593
   %1484 = zext i8 %1483 to i32
   %1485 = trunc i64 %1480 to i32
   %1486 = and i32 %1485, 7
@@ -10388,7 +10388,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit30.i115.i:     ; preds = %.preheader28.i114.i
   %1536 = add nsw i64 %1525, %1336
   %1537 = lshr i64 %1536, 3
   %1538 = getelementptr inbounds nuw i8, ptr %1335, i64 %1537
-  %1539 = load i8, ptr %1538, align 1, !tbaa !98
+  %1539 = load i8, ptr %1538, align 1, !tbaa !98, !noalias !593
   %1540 = zext i8 %1539 to i32
   %1541 = trunc i64 %1536 to i32
   %1542 = and i32 %1541, 7
@@ -10443,7 +10443,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi1EjLb0EEEE16ExecuteWithNullsILb
   %1568 = add nsw i64 %1567, %1336
   %1569 = lshr i64 %1568, 3
   %1570 = getelementptr inbounds nuw i8, ptr %1335, i64 %1569
-  %1571 = load i8, ptr %1570, align 1, !tbaa !98
+  %1571 = load i8, ptr %1570, align 1, !tbaa !98, !noalias !593
   %1572 = zext i8 %1571 to i32
   %1573 = trunc i64 %1568 to i32
   %1574 = and i32 %1573, 7
@@ -10579,7 +10579,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i143.i: ; preds = %1614, %161
   %1656 = add i64 %1655, %1601
   %1657 = lshr i64 %1656, 3
   %1658 = getelementptr inbounds nuw i8, ptr %1600, i64 %1657
-  %1659 = load i8, ptr %1658, align 1, !tbaa !98
+  %1659 = load i8, ptr %1658, align 1, !tbaa !98, !noalias !602
   %1660 = zext i8 %1659 to i32
   %1661 = trunc i64 %1656 to i32
   %1662 = and i32 %1661, 7
@@ -10642,7 +10642,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i159.i:       ; preds = %.preheader31.i158.i
   %1702 = add i64 %1701, %1601
   %1703 = lshr i64 %1702, 3
   %1704 = getelementptr inbounds nuw i8, ptr %1600, i64 %1703
-  %1705 = load i8, ptr %1704, align 1, !tbaa !98
+  %1705 = load i8, ptr %1704, align 1, !tbaa !98, !noalias !602
   %1706 = zext i8 %1705 to i32
   %1707 = trunc i64 %1702 to i32
   %1708 = and i32 %1707, 7
@@ -10705,7 +10705,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit26.i183.i:     ; preds = %.preheader.i182.i, 
   %1742 = add i64 %1730, %1601
   %1743 = lshr i64 %1742, 3
   %1744 = getelementptr inbounds nuw i8, ptr %1600, i64 %1743
-  %1745 = load i8, ptr %1744, align 1, !tbaa !98
+  %1745 = load i8, ptr %1744, align 1, !tbaa !98, !noalias !602
   %1746 = zext i8 %1745 to i32
   %1747 = trunc i64 %1742 to i32
   %1748 = and i32 %1747, 7
@@ -10785,7 +10785,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit30.i172.i:     ; preds = %.preheader28.i171.i
   %1797 = add i64 %1786, %1601
   %1798 = lshr i64 %1797, 3
   %1799 = getelementptr inbounds nuw i8, ptr %1600, i64 %1798
-  %1800 = load i8, ptr %1799, align 1, !tbaa !98
+  %1800 = load i8, ptr %1799, align 1, !tbaa !98, !noalias !602
   %1801 = zext i8 %1800 to i32
   %1802 = trunc i64 %1797 to i32
   %1803 = and i32 %1802, 7
@@ -10839,7 +10839,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi1EmLb0EEEE16ExecuteWithNullsILb
   %1828 = add i64 %1827, %1601
   %1829 = lshr i64 %1828, 3
   %1830 = getelementptr inbounds nuw i8, ptr %1600, i64 %1829
-  %1831 = load i8, ptr %1830, align 1, !tbaa !98
+  %1831 = load i8, ptr %1830, align 1, !tbaa !98, !noalias !602
   %1832 = zext i8 %1831 to i32
   %1833 = trunc i64 %1828 to i32
   %1834 = and i32 %1833, 7
@@ -11002,7 +11002,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i.i114: ; preds = %1887, %188
   %1929 = load i8, ptr %1928, align 1, !tbaa !98, !noalias !614
   %1930 = zext i8 %1929 to i64
   %1931 = getelementptr inbounds nuw i8, ptr %1873, i64 %1930
-  %1932 = load i8, ptr %1931, align 1
+  %1932 = load i8, ptr %1931, align 1, !noalias !614
   store i8 %1932, ptr %1927, align 1, !noalias !614
   %1933 = add nsw i64 %.1.i37.i.i133, 1
   %1934 = add nuw nsw i64 %.080.i38.i.i, 1
@@ -11048,7 +11048,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i.i128:       ; preds = %.preheader31.i.i127
   %1959 = load i8, ptr %1958, align 1, !tbaa !98, !noalias !614
   %1960 = zext i8 %1959 to i64
   %1961 = getelementptr inbounds nuw i8, ptr %1873, i64 %1960
-  %1962 = load i8, ptr %1961, align 1
+  %1962 = load i8, ptr %1961, align 1, !noalias !614
   br label %1963
 
 1963:                                             ; preds = %1950, %_ZNK5arrow9ArraySpan7IsValidEl.exit.i.i128
@@ -11096,7 +11096,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i.i146:     ; preds = %.preheader.i.i145, 
 
 1988:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit25.i.i146
   %1989 = getelementptr inbounds nuw i8, ptr %1873, i64 %1976
-  %1990 = load i8, ptr %1989, align 1
+  %1990 = load i8, ptr %1989, align 1, !noalias !614
   store i8 %1990, ptr %1987, align 1, !noalias !614
   %1991 = srem i64 %.4.i47.i.i147, 8
   %1992 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %1991
@@ -11168,7 +11168,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i.i137:     ; preds = %.preheader28.i.i136
 ._crit_edge71.i.i142:                             ; preds = %2018
   %2033 = getelementptr inbounds i8, ptr %1874, i64 %.5.i42.i.i139
   %2034 = getelementptr inbounds nuw i8, ptr %1873, i64 %2022
-  %2035 = load i8, ptr %2034, align 1
+  %2035 = load i8, ptr %2034, align 1, !noalias !614
   store i8 %2035, ptr %2033, align 1, !noalias !614
   %2036 = srem i64 %.5.i42.i.i139, 8
   %2037 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %2036
@@ -11219,7 +11219,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EhLb0EEEE16ExecuteWithNullsILb
   %2054 = load i8, ptr %2053, align 1, !tbaa !98, !noalias !614
   %2055 = zext i8 %2054 to i64
   %2056 = getelementptr inbounds nuw i8, ptr %1873, i64 %2055
-  %2057 = load i8, ptr %2056, align 1
+  %2057 = load i8, ptr %2056, align 1, !noalias !614
   store i8 %2057, ptr %2052, align 1, !noalias !614
   %2058 = add nuw nsw i64 %.0.i1834.i.i111, 1
   %exitcond.not.i.i112 = icmp eq i64 %2058, %1875
@@ -11338,7 +11338,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i28.i: ; preds = %2084, %2080
   %2126 = load i16, ptr %2125, align 2, !tbaa !313, !noalias !623
   %2127 = zext i16 %2126 to i64
   %2128 = getelementptr inbounds nuw i8, ptr %2070, i64 %2127
-  %2129 = load i8, ptr %2128, align 1
+  %2129 = load i8, ptr %2128, align 1, !noalias !623
   store i8 %2129, ptr %2124, align 1, !noalias !623
   %2130 = add nsw i64 %.1.i37.i55.i, 1
   %2131 = add nuw nsw i64 %.080.i38.i54.i, 1
@@ -11384,7 +11384,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i47.i:        ; preds = %.preheader31.i46.i,
   %2156 = load i16, ptr %2155, align 2, !tbaa !313, !noalias !623
   %2157 = zext i16 %2156 to i64
   %2158 = getelementptr inbounds nuw i8, ptr %2070, i64 %2157
-  %2159 = load i8, ptr %2158, align 1
+  %2159 = load i8, ptr %2158, align 1, !noalias !623
   br label %2160
 
 2160:                                             ; preds = %2147, %_ZNK5arrow9ArraySpan7IsValidEl.exit.i47.i
@@ -11432,7 +11432,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i69.i:      ; preds = %.preheader.i68.i104
 
 2185:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit25.i69.i
   %2186 = getelementptr inbounds nuw i8, ptr %2070, i64 %2173
-  %2187 = load i8, ptr %2186, align 1
+  %2187 = load i8, ptr %2186, align 1, !noalias !623
   store i8 %2187, ptr %2184, align 1, !noalias !623
   %2188 = srem i64 %.4.i47.i71.i105, 8
   %2189 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %2188
@@ -11504,7 +11504,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i59.i:      ; preds = %.preheader28.i58.i,
 ._crit_edge71.i65.i:                              ; preds = %2215
   %2230 = getelementptr inbounds i8, ptr %2071, i64 %.5.i42.i61.i
   %2231 = getelementptr inbounds nuw i8, ptr %2070, i64 %2219
-  %2232 = load i8, ptr %2231, align 1
+  %2232 = load i8, ptr %2231, align 1, !noalias !623
   store i8 %2232, ptr %2230, align 1, !noalias !623
   %2233 = srem i64 %.5.i42.i61.i, 8
   %2234 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %2233
@@ -11555,7 +11555,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EtLb0EEEE16ExecuteWithNullsILb
   %2251 = load i16, ptr %2250, align 2, !tbaa !313, !noalias !623
   %2252 = zext i16 %2251 to i64
   %2253 = getelementptr inbounds nuw i8, ptr %2070, i64 %2252
-  %2254 = load i8, ptr %2253, align 1
+  %2254 = load i8, ptr %2253, align 1, !noalias !623
   store i8 %2254, ptr %2249, align 1, !noalias !623
   %2255 = add nuw nsw i64 %.0.i1834.i25.i102, 1
   %exitcond.not.i26.i = icmp eq i64 %2255, %2072
@@ -11674,7 +11674,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i84.i: ; preds = %2281, %2277
   %2323 = load i32, ptr %2322, align 4, !tbaa !99, !noalias !632
   %2324 = zext i32 %2323 to i64
   %2325 = getelementptr inbounds nuw i8, ptr %2267, i64 %2324
-  %2326 = load i8, ptr %2325, align 1
+  %2326 = load i8, ptr %2325, align 1, !noalias !632
   store i8 %2326, ptr %2321, align 1, !noalias !632
   %2327 = add nsw i64 %.1.i37.i111.i, 1
   %2328 = add nuw nsw i64 %.080.i38.i110.i, 1
@@ -11720,7 +11720,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i103.i:       ; preds = %.preheader31.i102.i
   %2353 = load i32, ptr %2352, align 4, !tbaa !99, !noalias !632
   %2354 = zext i32 %2353 to i64
   %2355 = getelementptr inbounds nuw i8, ptr %2267, i64 %2354
-  %2356 = load i8, ptr %2355, align 1
+  %2356 = load i8, ptr %2355, align 1, !noalias !632
   br label %2357
 
 2357:                                             ; preds = %2344, %_ZNK5arrow9ArraySpan7IsValidEl.exit.i103.i
@@ -11768,7 +11768,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i125.i:     ; preds = %.preheader.i124.i, 
 
 2382:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit25.i125.i
   %2383 = getelementptr inbounds nuw i8, ptr %2267, i64 %2370
-  %2384 = load i8, ptr %2383, align 1
+  %2384 = load i8, ptr %2383, align 1, !noalias !632
   store i8 %2384, ptr %2381, align 1, !noalias !632
   %2385 = srem i64 %.4.i47.i127.i, 8
   %2386 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %2385
@@ -11840,7 +11840,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i115.i:     ; preds = %.preheader28.i114.i
 ._crit_edge71.i121.i97:                           ; preds = %2412
   %2427 = getelementptr inbounds i8, ptr %2268, i64 %.5.i42.i117.i94
   %2428 = getelementptr inbounds nuw i8, ptr %2267, i64 %2416
-  %2429 = load i8, ptr %2428, align 1
+  %2429 = load i8, ptr %2428, align 1, !noalias !632
   store i8 %2429, ptr %2427, align 1, !noalias !632
   %2430 = srem i64 %.5.i42.i117.i94, 8
   %2431 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %2430
@@ -11891,7 +11891,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EjLb0EEEE16ExecuteWithNullsILb
   %2448 = load i32, ptr %2447, align 4, !tbaa !99, !noalias !632
   %2449 = zext i32 %2448 to i64
   %2450 = getelementptr inbounds nuw i8, ptr %2267, i64 %2449
-  %2451 = load i8, ptr %2450, align 1
+  %2451 = load i8, ptr %2450, align 1, !noalias !632
   store i8 %2451, ptr %2446, align 1, !noalias !632
   %2452 = add nuw nsw i64 %.0.i1834.i81.i, 1
   %exitcond.not.i82.i = icmp eq i64 %2452, %2269
@@ -12009,7 +12009,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i140.i: ; preds = %2478, %247
   %2519 = getelementptr inbounds i64, ptr %2472, i64 %.1.i37.i167.i159
   %2520 = load i64, ptr %2519, align 8, !tbaa !139, !noalias !641
   %2521 = getelementptr inbounds nuw i8, ptr %2464, i64 %2520
-  %2522 = load i8, ptr %2521, align 1
+  %2522 = load i8, ptr %2521, align 1, !noalias !641
   store i8 %2522, ptr %2518, align 1, !noalias !641
   %2523 = add nsw i64 %.1.i37.i167.i159, 1
   %2524 = add nuw nsw i64 %.080.i38.i166.i, 1
@@ -12054,7 +12054,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i159.i154:    ; preds = %.preheader31.i158.i
   %2548 = getelementptr inbounds i64, ptr %2472, i64 %.2.i35.i161.i155
   %2549 = load i64, ptr %2548, align 8, !tbaa !139, !noalias !641
   %2550 = getelementptr inbounds nuw i8, ptr %2464, i64 %2549
-  %2551 = load i8, ptr %2550, align 1
+  %2551 = load i8, ptr %2550, align 1, !noalias !641
   br label %2552
 
 2552:                                             ; preds = %2540, %_ZNK5arrow9ArraySpan7IsValidEl.exit.i159.i154
@@ -12101,7 +12101,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i181.i:     ; preds = %.preheader.i180.i, 
 
 2576:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit25.i181.i
   %2577 = getelementptr inbounds nuw i8, ptr %2464, i64 %2564
-  %2578 = load i8, ptr %2577, align 1
+  %2578 = load i8, ptr %2577, align 1, !noalias !641
   store i8 %2578, ptr %2575, align 1, !noalias !641
   %2579 = srem i64 %.4.i47.i183.i, 8
   %2580 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %2579
@@ -12172,7 +12172,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i171.i:     ; preds = %.preheader28.i170.i
 ._crit_edge71.i177.i:                             ; preds = %2606
   %2620 = getelementptr inbounds i8, ptr %2465, i64 %.5.i42.i173.i
   %2621 = getelementptr inbounds nuw i8, ptr %2464, i64 %2609
-  %2622 = load i8, ptr %2621, align 1
+  %2622 = load i8, ptr %2621, align 1, !noalias !641
   store i8 %2622, ptr %2620, align 1, !noalias !641
   %2623 = srem i64 %.5.i42.i173.i, 8
   %2624 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %2623
@@ -12222,7 +12222,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EmLb0EEEE16ExecuteWithNullsILb
   %2640 = getelementptr inbounds nuw i64, ptr %2472, i64 %.0.i1834.i137.i
   %2641 = load i64, ptr %2640, align 8, !tbaa !139, !noalias !641
   %2642 = getelementptr inbounds nuw i8, ptr %2464, i64 %2641
-  %2643 = load i8, ptr %2642, align 1
+  %2643 = load i8, ptr %2642, align 1, !noalias !641
   store i8 %2643, ptr %2639, align 1, !noalias !641
   %2644 = add nuw nsw i64 %.0.i1834.i137.i, 1
   %exitcond.not.i138.i = icmp eq i64 %2644, %2466
@@ -12371,7 +12371,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i.i210: ; preds = %2684, %268
   %2728 = zext i8 %2727 to i64
   %2729 = shl nuw nsw i64 %2728, 1
   %2730 = getelementptr inbounds nuw i8, ptr %2670, i64 %2729
-  %2731 = load i16, ptr %2730, align 1
+  %2731 = load i16, ptr %2730, align 1, !noalias !653
   store i16 %2731, ptr %2725, align 1, !noalias !653
   %2732 = add nsw i64 %.1.i37.i.i236, 1
   %2733 = add nuw nsw i64 %.080.i38.i.i235, 1
@@ -12420,7 +12420,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i.i229:       ; preds = %.preheader31.i.i228
   %2761 = zext i8 %2760 to i64
   %2762 = shl nuw nsw i64 %2761, 1
   %2763 = getelementptr inbounds nuw i8, ptr %2670, i64 %2762
-  %2764 = load i16, ptr %2763, align 1
+  %2764 = load i16, ptr %2763, align 1, !noalias !653
   store i16 %2764, ptr %2758, align 1, !noalias !653
   br label %2768
 
@@ -12474,7 +12474,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i.i250:     ; preds = %.preheader.i.i249, 
 2793:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit25.i.i250
   %2794 = shl nuw nsw i64 %2780, 1
   %2795 = getelementptr inbounds nuw i8, ptr %2670, i64 %2794
-  %2796 = load i16, ptr %2795, align 1
+  %2796 = load i16, ptr %2795, align 1, !noalias !653
   store i16 %2796, ptr %2792, align 1, !noalias !653
   %2797 = srem i64 %.4.i47.i.i252, 8
   %2798 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %2797
@@ -12548,7 +12548,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i.i240:     ; preds = %.preheader28.i.i239
   %2840 = getelementptr inbounds i8, ptr %2671, i64 %2839
   %2841 = shl nuw nsw i64 %2828, 1
   %2842 = getelementptr inbounds nuw i8, ptr %2670, i64 %2841
-  %2843 = load i16, ptr %2842, align 1
+  %2843 = load i16, ptr %2842, align 1, !noalias !653
   store i16 %2843, ptr %2840, align 1, !noalias !653
   %2844 = srem i64 %.5.i42.i.i242, 8
   %2845 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %2844
@@ -12604,7 +12604,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi16EhLb0EEEE16ExecuteWithNullsIL
   %2867 = zext i8 %2866 to i64
   %2868 = shl nuw nsw i64 %2867, 1
   %2869 = getelementptr inbounds nuw i8, ptr %2670, i64 %2868
-  %2870 = load i16, ptr %2869, align 1
+  %2870 = load i16, ptr %2869, align 1, !noalias !653
   store i16 %2870, ptr %2864, align 1, !noalias !653
   %2871 = add nuw nsw i64 %.0.i1834.i.i207, 1
   %exitcond.not.i.i208 = icmp eq i64 %2871, %2672
@@ -12725,7 +12725,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i28.i173: ; preds = %2897, %2
   %2941 = zext i16 %2940 to i64
   %2942 = shl nuw nsw i64 %2941, 1
   %2943 = getelementptr inbounds nuw i8, ptr %2883, i64 %2942
-  %2944 = load i16, ptr %2943, align 1
+  %2944 = load i16, ptr %2943, align 1, !noalias !662
   store i16 %2944, ptr %2938, align 1, !noalias !662
   %2945 = add nsw i64 %.1.i37.i54.i, 1
   %2946 = add nuw nsw i64 %.080.i38.i53.i, 1
@@ -12774,7 +12774,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i47.i192:     ; preds = %.preheader31.i46.i1
   %2974 = zext i16 %2973 to i64
   %2975 = shl nuw nsw i64 %2974, 1
   %2976 = getelementptr inbounds nuw i8, ptr %2883, i64 %2975
-  %2977 = load i16, ptr %2976, align 1
+  %2977 = load i16, ptr %2976, align 1, !noalias !662
   store i16 %2977, ptr %2971, align 1, !noalias !662
   br label %2981
 
@@ -12828,7 +12828,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i68.i:      ; preds = %.preheader.i67.i, %
 3006:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit25.i68.i
   %3007 = shl nuw nsw i64 %2993, 1
   %3008 = getelementptr inbounds nuw i8, ptr %2883, i64 %3007
-  %3009 = load i16, ptr %3008, align 1
+  %3009 = load i16, ptr %3008, align 1, !noalias !662
   store i16 %3009, ptr %3005, align 1, !noalias !662
   %3010 = srem i64 %.4.i47.i70.i, 8
   %3011 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %3010
@@ -12902,7 +12902,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i58.i:      ; preds = %.preheader28.i57.i1
   %3053 = getelementptr inbounds i8, ptr %2884, i64 %3052
   %3054 = shl nuw nsw i64 %3041, 1
   %3055 = getelementptr inbounds nuw i8, ptr %2883, i64 %3054
-  %3056 = load i16, ptr %3055, align 1
+  %3056 = load i16, ptr %3055, align 1, !noalias !662
   store i16 %3056, ptr %3053, align 1, !noalias !662
   %3057 = srem i64 %.5.i42.i60.i199, 8
   %3058 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %3057
@@ -12958,7 +12958,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi16EtLb0EEEE16ExecuteWithNullsIL
   %3080 = zext i16 %3079 to i64
   %3081 = shl nuw nsw i64 %3080, 1
   %3082 = getelementptr inbounds nuw i8, ptr %2883, i64 %3081
-  %3083 = load i16, ptr %3082, align 1
+  %3083 = load i16, ptr %3082, align 1, !noalias !662
   store i16 %3083, ptr %3077, align 1, !noalias !662
   %3084 = add nuw nsw i64 %.0.i1834.i25.i170, 1
   %exitcond.not.i26.i171 = icmp eq i64 %3084, %2885
@@ -13079,7 +13079,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i83.i: ; preds = %3110, %3106
   %3154 = shl i32 %3153, 1
   %3155 = zext i32 %3154 to i64
   %3156 = getelementptr inbounds nuw i8, ptr %3096, i64 %3155
-  %3157 = load i16, ptr %3156, align 1
+  %3157 = load i16, ptr %3156, align 1, !noalias !671
   store i16 %3157, ptr %3151, align 1, !noalias !671
   %3158 = add nsw i64 %.1.i37.i109.i, 1
   %3159 = add nuw nsw i64 %.080.i38.i108.i, 1
@@ -13128,7 +13128,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i102.i163:    ; preds = %.preheader31.i101.i
   %3187 = shl i32 %3186, 1
   %3188 = zext i32 %3187 to i64
   %3189 = getelementptr inbounds nuw i8, ptr %3096, i64 %3188
-  %3190 = load i16, ptr %3189, align 1
+  %3190 = load i16, ptr %3189, align 1, !noalias !671
   store i16 %3190, ptr %3184, align 1, !noalias !671
   br label %3194
 
@@ -13183,7 +13183,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i123.i:     ; preds = %.preheader.i122.i, 
   %3220 = shl i32 %3205, 1
   %3221 = zext i32 %3220 to i64
   %3222 = getelementptr inbounds nuw i8, ptr %3096, i64 %3221
-  %3223 = load i16, ptr %3222, align 1
+  %3223 = load i16, ptr %3222, align 1, !noalias !671
   store i16 %3223, ptr %3218, align 1, !noalias !671
   %3224 = srem i64 %.4.i47.i125.i, 8
   %3225 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %3224
@@ -13258,7 +13258,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i113.i:     ; preds = %.preheader28.i112.i
   %3268 = shl i32 %3254, 1
   %3269 = zext i32 %3268 to i64
   %3270 = getelementptr inbounds nuw i8, ptr %3096, i64 %3269
-  %3271 = load i16, ptr %3270, align 1
+  %3271 = load i16, ptr %3270, align 1, !noalias !671
   store i16 %3271, ptr %3267, align 1, !noalias !671
   %3272 = srem i64 %.5.i42.i115.i, 8
   %3273 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %3272
@@ -13314,7 +13314,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi16EjLb0EEEE16ExecuteWithNullsIL
   %3295 = shl i32 %3294, 1
   %3296 = zext i32 %3295 to i64
   %3297 = getelementptr inbounds nuw i8, ptr %3096, i64 %3296
-  %3298 = load i16, ptr %3297, align 1
+  %3298 = load i16, ptr %3297, align 1, !noalias !671
   store i16 %3298, ptr %3292, align 1, !noalias !671
   %3299 = add nuw nsw i64 %.0.i1834.i80.i, 1
   %exitcond.not.i81.i = icmp eq i64 %3299, %3098
@@ -13434,7 +13434,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i138.i: ; preds = %3325, %332
   %3368 = load i64, ptr %3367, align 8, !tbaa !139, !noalias !680
   %3369 = shl i64 %3368, 1
   %3370 = getelementptr inbounds nuw i8, ptr %3311, i64 %3369
-  %3371 = load i16, ptr %3370, align 1
+  %3371 = load i16, ptr %3370, align 1, !noalias !680
   store i16 %3371, ptr %3366, align 1, !noalias !680
   %3372 = add nsw i64 %.1.i37.i164.i, 1
   %3373 = add nuw nsw i64 %.080.i38.i163.i, 1
@@ -13482,7 +13482,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i157.i:       ; preds = %.preheader31.i156.i
   %3400 = load i64, ptr %3399, align 8, !tbaa !139, !noalias !680
   %3401 = shl i64 %3400, 1
   %3402 = getelementptr inbounds nuw i8, ptr %3311, i64 %3401
-  %3403 = load i16, ptr %3402, align 1
+  %3403 = load i16, ptr %3402, align 1, !noalias !680
   store i16 %3403, ptr %3398, align 1, !noalias !680
   br label %3407
 
@@ -13535,7 +13535,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i178.i:     ; preds = %.preheader.i177.i, 
 3431:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit25.i178.i
   %3432 = shl i64 %3418, 1
   %3433 = getelementptr inbounds nuw i8, ptr %3311, i64 %3432
-  %3434 = load i16, ptr %3433, align 1
+  %3434 = load i16, ptr %3433, align 1, !noalias !680
   store i16 %3434, ptr %3430, align 1, !noalias !680
   %3435 = srem i64 %.4.i47.i180.i, 8
   %3436 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %3435
@@ -13608,7 +13608,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i168.i:     ; preds = %.preheader28.i167.i
   %3477 = getelementptr inbounds i8, ptr %3312, i64 %3476
   %3478 = shl i64 %3465, 1
   %3479 = getelementptr inbounds nuw i8, ptr %3311, i64 %3478
-  %3480 = load i16, ptr %3479, align 1
+  %3480 = load i16, ptr %3479, align 1, !noalias !680
   store i16 %3480, ptr %3477, align 1, !noalias !680
   %3481 = srem i64 %.5.i42.i170.i, 8
   %3482 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %3481
@@ -13663,7 +13663,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi16EmLb0EEEE16ExecuteWithNullsIL
   %3503 = load i64, ptr %3502, align 8, !tbaa !139, !noalias !680
   %3504 = shl i64 %3503, 1
   %3505 = getelementptr inbounds nuw i8, ptr %3311, i64 %3504
-  %3506 = load i16, ptr %3505, align 1
+  %3506 = load i16, ptr %3505, align 1, !noalias !680
   store i16 %3506, ptr %3501, align 1, !noalias !680
   %3507 = add nuw nsw i64 %.0.i1834.i135.i, 1
   %exitcond.not.i136.i = icmp eq i64 %3507, %3313
@@ -13812,7 +13812,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i.i373: ; preds = %3547, %354
   %3591 = zext i8 %3590 to i64
   %3592 = shl nuw nsw i64 %3591, 2
   %3593 = getelementptr inbounds nuw i8, ptr %3533, i64 %3592
-  %3594 = load i32, ptr %3593, align 1
+  %3594 = load i32, ptr %3593, align 1, !noalias !692
   store i32 %3594, ptr %3588, align 1, !noalias !692
   %3595 = add nsw i64 %.1.i37.i.i399, 1
   %3596 = add nuw nsw i64 %.080.i38.i.i398, 1
@@ -13861,7 +13861,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i.i392:       ; preds = %.preheader31.i.i391
   %3624 = zext i8 %3623 to i64
   %3625 = shl nuw nsw i64 %3624, 2
   %3626 = getelementptr inbounds nuw i8, ptr %3533, i64 %3625
-  %3627 = load i32, ptr %3626, align 1
+  %3627 = load i32, ptr %3626, align 1, !noalias !692
   store i32 %3627, ptr %3621, align 1, !noalias !692
   br label %3631
 
@@ -13915,7 +13915,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i.i413:     ; preds = %.preheader.i.i412, 
 3656:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit25.i.i413
   %3657 = shl nuw nsw i64 %3643, 2
   %3658 = getelementptr inbounds nuw i8, ptr %3533, i64 %3657
-  %3659 = load i32, ptr %3658, align 1
+  %3659 = load i32, ptr %3658, align 1, !noalias !692
   store i32 %3659, ptr %3655, align 1, !noalias !692
   %3660 = srem i64 %.4.i47.i.i415, 8
   %3661 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %3660
@@ -13989,7 +13989,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i.i403:     ; preds = %.preheader28.i.i402
   %3703 = getelementptr inbounds i8, ptr %3534, i64 %3702
   %3704 = shl nuw nsw i64 %3691, 2
   %3705 = getelementptr inbounds nuw i8, ptr %3533, i64 %3704
-  %3706 = load i32, ptr %3705, align 1
+  %3706 = load i32, ptr %3705, align 1, !noalias !692
   store i32 %3706, ptr %3703, align 1, !noalias !692
   %3707 = srem i64 %.5.i42.i.i405, 8
   %3708 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %3707
@@ -14045,7 +14045,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi32EhLb0EEEE16ExecuteWithNullsIL
   %3730 = zext i8 %3729 to i64
   %3731 = shl nuw nsw i64 %3730, 2
   %3732 = getelementptr inbounds nuw i8, ptr %3533, i64 %3731
-  %3733 = load i32, ptr %3732, align 1
+  %3733 = load i32, ptr %3732, align 1, !noalias !692
   store i32 %3733, ptr %3727, align 1, !noalias !692
   %3734 = add nuw nsw i64 %.0.i1834.i.i370, 1
   %exitcond.not.i.i371 = icmp eq i64 %3734, %3535
@@ -14166,7 +14166,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i28.i319: ; preds = %3760, %3
   %3804 = zext i16 %3803 to i64
   %3805 = shl nuw nsw i64 %3804, 2
   %3806 = getelementptr inbounds nuw i8, ptr %3746, i64 %3805
-  %3807 = load i32, ptr %3806, align 1
+  %3807 = load i32, ptr %3806, align 1, !noalias !701
   store i32 %3807, ptr %3801, align 1, !noalias !701
   %3808 = add nsw i64 %.1.i37.i54.i345, 1
   %3809 = add nuw nsw i64 %.080.i38.i53.i344, 1
@@ -14215,7 +14215,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i47.i338:     ; preds = %.preheader31.i46.i3
   %3837 = zext i16 %3836 to i64
   %3838 = shl nuw nsw i64 %3837, 2
   %3839 = getelementptr inbounds nuw i8, ptr %3746, i64 %3838
-  %3840 = load i32, ptr %3839, align 1
+  %3840 = load i32, ptr %3839, align 1, !noalias !701
   store i32 %3840, ptr %3834, align 1, !noalias !701
   br label %3844
 
@@ -14269,7 +14269,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i68.i359:   ; preds = %.preheader.i67.i358
 3869:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit25.i68.i359
   %3870 = shl nuw nsw i64 %3856, 2
   %3871 = getelementptr inbounds nuw i8, ptr %3746, i64 %3870
-  %3872 = load i32, ptr %3871, align 1
+  %3872 = load i32, ptr %3871, align 1, !noalias !701
   store i32 %3872, ptr %3868, align 1, !noalias !701
   %3873 = srem i64 %.4.i47.i70.i361, 8
   %3874 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %3873
@@ -14343,7 +14343,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i58.i349:   ; preds = %.preheader28.i57.i3
   %3916 = getelementptr inbounds i8, ptr %3747, i64 %3915
   %3917 = shl nuw nsw i64 %3904, 2
   %3918 = getelementptr inbounds nuw i8, ptr %3746, i64 %3917
-  %3919 = load i32, ptr %3918, align 1
+  %3919 = load i32, ptr %3918, align 1, !noalias !701
   store i32 %3919, ptr %3916, align 1, !noalias !701
   %3920 = srem i64 %.5.i42.i60.i351, 8
   %3921 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %3920
@@ -14399,7 +14399,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi32EtLb0EEEE16ExecuteWithNullsIL
   %3943 = zext i16 %3942 to i64
   %3944 = shl nuw nsw i64 %3943, 2
   %3945 = getelementptr inbounds nuw i8, ptr %3746, i64 %3944
-  %3946 = load i32, ptr %3945, align 1
+  %3946 = load i32, ptr %3945, align 1, !noalias !701
   store i32 %3946, ptr %3940, align 1, !noalias !701
   %3947 = add nuw nsw i64 %.0.i1834.i25.i316, 1
   %exitcond.not.i26.i317 = icmp eq i64 %3947, %3748
@@ -14520,7 +14520,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i83.i265: ; preds = %3973, %3
   %4017 = shl i32 %4016, 2
   %4018 = zext i32 %4017 to i64
   %4019 = getelementptr inbounds nuw i8, ptr %3959, i64 %4018
-  %4020 = load i32, ptr %4019, align 1
+  %4020 = load i32, ptr %4019, align 1, !noalias !710
   store i32 %4020, ptr %4014, align 1, !noalias !710
   %4021 = add nsw i64 %.1.i37.i109.i291, 1
   %4022 = add nuw nsw i64 %.080.i38.i108.i290, 1
@@ -14569,7 +14569,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i102.i284:    ; preds = %.preheader31.i101.i
   %4050 = shl i32 %4049, 2
   %4051 = zext i32 %4050 to i64
   %4052 = getelementptr inbounds nuw i8, ptr %3959, i64 %4051
-  %4053 = load i32, ptr %4052, align 1
+  %4053 = load i32, ptr %4052, align 1, !noalias !710
   store i32 %4053, ptr %4047, align 1, !noalias !710
   br label %4057
 
@@ -14624,7 +14624,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i123.i305:  ; preds = %.preheader.i122.i30
   %4083 = shl i32 %4068, 2
   %4084 = zext i32 %4083 to i64
   %4085 = getelementptr inbounds nuw i8, ptr %3959, i64 %4084
-  %4086 = load i32, ptr %4085, align 1
+  %4086 = load i32, ptr %4085, align 1, !noalias !710
   store i32 %4086, ptr %4081, align 1, !noalias !710
   %4087 = srem i64 %.4.i47.i125.i307, 8
   %4088 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %4087
@@ -14699,7 +14699,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i113.i295:  ; preds = %.preheader28.i112.i
   %4131 = shl i32 %4117, 2
   %4132 = zext i32 %4131 to i64
   %4133 = getelementptr inbounds nuw i8, ptr %3959, i64 %4132
-  %4134 = load i32, ptr %4133, align 1
+  %4134 = load i32, ptr %4133, align 1, !noalias !710
   store i32 %4134, ptr %4130, align 1, !noalias !710
   %4135 = srem i64 %.5.i42.i115.i297, 8
   %4136 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %4135
@@ -14755,7 +14755,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi32EjLb0EEEE16ExecuteWithNullsIL
   %4158 = shl i32 %4157, 2
   %4159 = zext i32 %4158 to i64
   %4160 = getelementptr inbounds nuw i8, ptr %3959, i64 %4159
-  %4161 = load i32, ptr %4160, align 1
+  %4161 = load i32, ptr %4160, align 1, !noalias !710
   store i32 %4161, ptr %4155, align 1, !noalias !710
   %4162 = add nuw nsw i64 %.0.i1834.i80.i262, 1
   %exitcond.not.i81.i263 = icmp eq i64 %4162, %3961
@@ -14875,7 +14875,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i138.i427: ; preds = %4188, %
   %4231 = load i64, ptr %4230, align 8, !tbaa !139, !noalias !719
   %4232 = shl i64 %4231, 2
   %4233 = getelementptr inbounds nuw i8, ptr %4174, i64 %4232
-  %4234 = load i32, ptr %4233, align 1
+  %4234 = load i32, ptr %4233, align 1, !noalias !719
   store i32 %4234, ptr %4229, align 1, !noalias !719
   %4235 = add nsw i64 %.1.i37.i164.i453, 1
   %4236 = add nuw nsw i64 %.080.i38.i163.i452, 1
@@ -14923,7 +14923,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i157.i446:    ; preds = %.preheader31.i156.i
   %4263 = load i64, ptr %4262, align 8, !tbaa !139, !noalias !719
   %4264 = shl i64 %4263, 2
   %4265 = getelementptr inbounds nuw i8, ptr %4174, i64 %4264
-  %4266 = load i32, ptr %4265, align 1
+  %4266 = load i32, ptr %4265, align 1, !noalias !719
   store i32 %4266, ptr %4261, align 1, !noalias !719
   br label %4270
 
@@ -14976,7 +14976,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i178.i467:  ; preds = %.preheader.i177.i46
 4294:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit25.i178.i467
   %4295 = shl i64 %4281, 2
   %4296 = getelementptr inbounds nuw i8, ptr %4174, i64 %4295
-  %4297 = load i32, ptr %4296, align 1
+  %4297 = load i32, ptr %4296, align 1, !noalias !719
   store i32 %4297, ptr %4293, align 1, !noalias !719
   %4298 = srem i64 %.4.i47.i180.i469, 8
   %4299 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %4298
@@ -15049,7 +15049,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i168.i457:  ; preds = %.preheader28.i167.i
   %4340 = getelementptr inbounds i8, ptr %4175, i64 %4339
   %4341 = shl i64 %4328, 2
   %4342 = getelementptr inbounds nuw i8, ptr %4174, i64 %4341
-  %4343 = load i32, ptr %4342, align 1
+  %4343 = load i32, ptr %4342, align 1, !noalias !719
   store i32 %4343, ptr %4340, align 1, !noalias !719
   %4344 = srem i64 %.5.i42.i170.i459, 8
   %4345 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %4344
@@ -15104,7 +15104,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi32EmLb0EEEE16ExecuteWithNullsIL
   %4366 = load i64, ptr %4365, align 8, !tbaa !139, !noalias !719
   %4367 = shl i64 %4366, 2
   %4368 = getelementptr inbounds nuw i8, ptr %4174, i64 %4367
-  %4369 = load i32, ptr %4368, align 1
+  %4369 = load i32, ptr %4368, align 1, !noalias !719
   store i32 %4369, ptr %4364, align 1, !noalias !719
   %4370 = add nuw nsw i64 %.0.i1834.i135.i424, 1
   %exitcond.not.i136.i425 = icmp eq i64 %4370, %4176
@@ -15253,7 +15253,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i.i590: ; preds = %4410, %440
   %4454 = zext i8 %4453 to i64
   %4455 = shl nuw nsw i64 %4454, 3
   %4456 = getelementptr inbounds nuw i8, ptr %4396, i64 %4455
-  %4457 = load i64, ptr %4456, align 1
+  %4457 = load i64, ptr %4456, align 1, !noalias !731
   store i64 %4457, ptr %4451, align 1, !noalias !731
   %4458 = add nsw i64 %.1.i37.i.i616, 1
   %4459 = add nuw nsw i64 %.080.i38.i.i615, 1
@@ -15302,7 +15302,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i.i609:       ; preds = %.preheader31.i.i608
   %4487 = zext i8 %4486 to i64
   %4488 = shl nuw nsw i64 %4487, 3
   %4489 = getelementptr inbounds nuw i8, ptr %4396, i64 %4488
-  %4490 = load i64, ptr %4489, align 1
+  %4490 = load i64, ptr %4489, align 1, !noalias !731
   store i64 %4490, ptr %4484, align 1, !noalias !731
   br label %4494
 
@@ -15356,7 +15356,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i.i630:     ; preds = %.preheader.i.i629, 
 4519:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit25.i.i630
   %4520 = shl nuw nsw i64 %4506, 3
   %4521 = getelementptr inbounds nuw i8, ptr %4396, i64 %4520
-  %4522 = load i64, ptr %4521, align 1
+  %4522 = load i64, ptr %4521, align 1, !noalias !731
   store i64 %4522, ptr %4518, align 1, !noalias !731
   %4523 = srem i64 %.4.i47.i.i632, 8
   %4524 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %4523
@@ -15430,7 +15430,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i.i620:     ; preds = %.preheader28.i.i619
   %4566 = getelementptr inbounds i8, ptr %4397, i64 %4565
   %4567 = shl nuw nsw i64 %4554, 3
   %4568 = getelementptr inbounds nuw i8, ptr %4396, i64 %4567
-  %4569 = load i64, ptr %4568, align 1
+  %4569 = load i64, ptr %4568, align 1, !noalias !731
   store i64 %4569, ptr %4566, align 1, !noalias !731
   %4570 = srem i64 %.5.i42.i.i622, 8
   %4571 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %4570
@@ -15486,7 +15486,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi64EhLb0EEEE16ExecuteWithNullsIL
   %4593 = zext i8 %4592 to i64
   %4594 = shl nuw nsw i64 %4593, 3
   %4595 = getelementptr inbounds nuw i8, ptr %4396, i64 %4594
-  %4596 = load i64, ptr %4595, align 1
+  %4596 = load i64, ptr %4595, align 1, !noalias !731
   store i64 %4596, ptr %4590, align 1, !noalias !731
   %4597 = add nuw nsw i64 %.0.i1834.i.i587, 1
   %exitcond.not.i.i588 = icmp eq i64 %4597, %4398
@@ -15607,7 +15607,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i28.i536: ; preds = %4623, %4
   %4667 = zext i16 %4666 to i64
   %4668 = shl nuw nsw i64 %4667, 3
   %4669 = getelementptr inbounds nuw i8, ptr %4609, i64 %4668
-  %4670 = load i64, ptr %4669, align 1
+  %4670 = load i64, ptr %4669, align 1, !noalias !740
   store i64 %4670, ptr %4664, align 1, !noalias !740
   %4671 = add nsw i64 %.1.i37.i54.i562, 1
   %4672 = add nuw nsw i64 %.080.i38.i53.i561, 1
@@ -15656,7 +15656,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i47.i555:     ; preds = %.preheader31.i46.i5
   %4700 = zext i16 %4699 to i64
   %4701 = shl nuw nsw i64 %4700, 3
   %4702 = getelementptr inbounds nuw i8, ptr %4609, i64 %4701
-  %4703 = load i64, ptr %4702, align 1
+  %4703 = load i64, ptr %4702, align 1, !noalias !740
   store i64 %4703, ptr %4697, align 1, !noalias !740
   br label %4707
 
@@ -15710,7 +15710,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i68.i576:   ; preds = %.preheader.i67.i575
 4732:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit25.i68.i576
   %4733 = shl nuw nsw i64 %4719, 3
   %4734 = getelementptr inbounds nuw i8, ptr %4609, i64 %4733
-  %4735 = load i64, ptr %4734, align 1
+  %4735 = load i64, ptr %4734, align 1, !noalias !740
   store i64 %4735, ptr %4731, align 1, !noalias !740
   %4736 = srem i64 %.4.i47.i70.i578, 8
   %4737 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %4736
@@ -15784,7 +15784,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i58.i566:   ; preds = %.preheader28.i57.i5
   %4779 = getelementptr inbounds i8, ptr %4610, i64 %4778
   %4780 = shl nuw nsw i64 %4767, 3
   %4781 = getelementptr inbounds nuw i8, ptr %4609, i64 %4780
-  %4782 = load i64, ptr %4781, align 1
+  %4782 = load i64, ptr %4781, align 1, !noalias !740
   store i64 %4782, ptr %4779, align 1, !noalias !740
   %4783 = srem i64 %.5.i42.i60.i568, 8
   %4784 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %4783
@@ -15840,7 +15840,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi64EtLb0EEEE16ExecuteWithNullsIL
   %4806 = zext i16 %4805 to i64
   %4807 = shl nuw nsw i64 %4806, 3
   %4808 = getelementptr inbounds nuw i8, ptr %4609, i64 %4807
-  %4809 = load i64, ptr %4808, align 1
+  %4809 = load i64, ptr %4808, align 1, !noalias !740
   store i64 %4809, ptr %4803, align 1, !noalias !740
   %4810 = add nuw nsw i64 %.0.i1834.i25.i533, 1
   %exitcond.not.i26.i534 = icmp eq i64 %4810, %4611
@@ -15961,7 +15961,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i83.i482: ; preds = %4836, %4
   %4880 = shl i32 %4879, 3
   %4881 = zext i32 %4880 to i64
   %4882 = getelementptr inbounds nuw i8, ptr %4822, i64 %4881
-  %4883 = load i64, ptr %4882, align 1
+  %4883 = load i64, ptr %4882, align 1, !noalias !749
   store i64 %4883, ptr %4877, align 1, !noalias !749
   %4884 = add nsw i64 %.1.i37.i109.i508, 1
   %4885 = add nuw nsw i64 %.080.i38.i108.i507, 1
@@ -16010,7 +16010,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i102.i501:    ; preds = %.preheader31.i101.i
   %4913 = shl i32 %4912, 3
   %4914 = zext i32 %4913 to i64
   %4915 = getelementptr inbounds nuw i8, ptr %4822, i64 %4914
-  %4916 = load i64, ptr %4915, align 1
+  %4916 = load i64, ptr %4915, align 1, !noalias !749
   store i64 %4916, ptr %4910, align 1, !noalias !749
   br label %4920
 
@@ -16065,7 +16065,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i123.i522:  ; preds = %.preheader.i122.i52
   %4946 = shl i32 %4931, 3
   %4947 = zext i32 %4946 to i64
   %4948 = getelementptr inbounds nuw i8, ptr %4822, i64 %4947
-  %4949 = load i64, ptr %4948, align 1
+  %4949 = load i64, ptr %4948, align 1, !noalias !749
   store i64 %4949, ptr %4944, align 1, !noalias !749
   %4950 = srem i64 %.4.i47.i125.i524, 8
   %4951 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %4950
@@ -16140,7 +16140,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i113.i512:  ; preds = %.preheader28.i112.i
   %4994 = shl i32 %4980, 3
   %4995 = zext i32 %4994 to i64
   %4996 = getelementptr inbounds nuw i8, ptr %4822, i64 %4995
-  %4997 = load i64, ptr %4996, align 1
+  %4997 = load i64, ptr %4996, align 1, !noalias !749
   store i64 %4997, ptr %4993, align 1, !noalias !749
   %4998 = srem i64 %.5.i42.i115.i514, 8
   %4999 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %4998
@@ -16196,7 +16196,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi64EjLb0EEEE16ExecuteWithNullsIL
   %5021 = shl i32 %5020, 3
   %5022 = zext i32 %5021 to i64
   %5023 = getelementptr inbounds nuw i8, ptr %4822, i64 %5022
-  %5024 = load i64, ptr %5023, align 1
+  %5024 = load i64, ptr %5023, align 1, !noalias !749
   store i64 %5024, ptr %5018, align 1, !noalias !749
   %5025 = add nuw nsw i64 %.0.i1834.i80.i479, 1
   %exitcond.not.i81.i480 = icmp eq i64 %5025, %4824
@@ -16316,7 +16316,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i138.i644: ; preds = %5051, %
   %5094 = load i64, ptr %5093, align 8, !tbaa !139, !noalias !758
   %5095 = shl i64 %5094, 3
   %5096 = getelementptr inbounds nuw i8, ptr %5037, i64 %5095
-  %5097 = load i64, ptr %5096, align 1
+  %5097 = load i64, ptr %5096, align 1, !noalias !758
   store i64 %5097, ptr %5092, align 1, !noalias !758
   %5098 = add nsw i64 %.1.i37.i164.i670, 1
   %5099 = add nuw nsw i64 %.080.i38.i163.i669, 1
@@ -16364,7 +16364,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i157.i663:    ; preds = %.preheader31.i156.i
   %5126 = load i64, ptr %5125, align 8, !tbaa !139, !noalias !758
   %5127 = shl i64 %5126, 3
   %5128 = getelementptr inbounds nuw i8, ptr %5037, i64 %5127
-  %5129 = load i64, ptr %5128, align 1
+  %5129 = load i64, ptr %5128, align 1, !noalias !758
   store i64 %5129, ptr %5124, align 1, !noalias !758
   br label %5133
 
@@ -16417,7 +16417,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i178.i684:  ; preds = %.preheader.i177.i68
 5157:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit25.i178.i684
   %5158 = shl i64 %5144, 3
   %5159 = getelementptr inbounds nuw i8, ptr %5037, i64 %5158
-  %5160 = load i64, ptr %5159, align 1
+  %5160 = load i64, ptr %5159, align 1, !noalias !758
   store i64 %5160, ptr %5156, align 1, !noalias !758
   %5161 = srem i64 %.4.i47.i180.i686, 8
   %5162 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %5161
@@ -16490,7 +16490,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i168.i674:  ; preds = %.preheader28.i167.i
   %5203 = getelementptr inbounds i8, ptr %5038, i64 %5202
   %5204 = shl i64 %5191, 3
   %5205 = getelementptr inbounds nuw i8, ptr %5037, i64 %5204
-  %5206 = load i64, ptr %5205, align 1
+  %5206 = load i64, ptr %5205, align 1, !noalias !758
   store i64 %5206, ptr %5203, align 1, !noalias !758
   %5207 = srem i64 %.5.i42.i170.i676, 8
   %5208 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %5207
@@ -16545,7 +16545,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi64EmLb0EEEE16ExecuteWithNullsIL
   %5229 = load i64, ptr %5228, align 8, !tbaa !139, !noalias !758
   %5230 = shl i64 %5229, 3
   %5231 = getelementptr inbounds nuw i8, ptr %5037, i64 %5230
-  %5232 = load i64, ptr %5231, align 1
+  %5232 = load i64, ptr %5231, align 1, !noalias !758
   store i64 %5232, ptr %5227, align 1, !noalias !758
   %5233 = add nuw nsw i64 %.0.i1834.i135.i641, 1
   %exitcond.not.i136.i642 = icmp eq i64 %5233, %5039
@@ -16694,7 +16694,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i.i807: ; preds = %5273, %526
   %5317 = zext i8 %5316 to i64
   %5318 = shl nuw nsw i64 %5317, 4
   %5319 = getelementptr inbounds nuw i8, ptr %5259, i64 %5318
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5314, ptr noundef nonnull align 1 dereferenceable(16) %5319, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5314, ptr noundef nonnull align 1 dereferenceable(16) %5319, i64 16, i1 false), !noalias !770
   %5320 = add nsw i64 %.1.i37.i.i833, 1
   %5321 = add nuw nsw i64 %.080.i38.i.i832, 1
   %exitcond62.not.i.i834 = icmp eq i64 %5321, %5311
@@ -16742,7 +16742,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i.i826:       ; preds = %.preheader31.i.i825
   %5349 = zext i8 %5348 to i64
   %5350 = shl nuw nsw i64 %5349, 4
   %5351 = getelementptr inbounds nuw i8, ptr %5259, i64 %5350
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5346, ptr noundef nonnull align 1 dereferenceable(16) %5351, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5346, ptr noundef nonnull align 1 dereferenceable(16) %5351, i64 16, i1 false), !noalias !770
   br label %5355
 
 5352:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit.i.i826
@@ -16795,7 +16795,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i.i847:     ; preds = %.preheader.i.i846, 
 5380:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit25.i.i847
   %5381 = shl nuw nsw i64 %5367, 4
   %5382 = getelementptr inbounds nuw i8, ptr %5259, i64 %5381
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5379, ptr noundef nonnull align 1 dereferenceable(16) %5382, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5379, ptr noundef nonnull align 1 dereferenceable(16) %5382, i64 16, i1 false), !noalias !770
   %5383 = srem i64 %.4.i47.i.i849, 8
   %5384 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %5383
   %5385 = load i8, ptr %5384, align 1, !tbaa !98, !noalias !770
@@ -16868,7 +16868,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i.i837:     ; preds = %.preheader28.i.i836
   %5426 = getelementptr inbounds i8, ptr %5260, i64 %5425
   %5427 = shl nuw nsw i64 %5414, 4
   %5428 = getelementptr inbounds nuw i8, ptr %5259, i64 %5427
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5426, ptr noundef nonnull align 1 dereferenceable(16) %5428, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5426, ptr noundef nonnull align 1 dereferenceable(16) %5428, i64 16, i1 false), !noalias !770
   %5429 = srem i64 %.5.i42.i.i839, 8
   %5430 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %5429
   %5431 = load i8, ptr %5430, align 1, !tbaa !98, !noalias !770
@@ -16923,7 +16923,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi128EhLb0EEEE16ExecuteWithNullsI
   %5452 = zext i8 %5451 to i64
   %5453 = shl nuw nsw i64 %5452, 4
   %5454 = getelementptr inbounds nuw i8, ptr %5259, i64 %5453
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5449, ptr noundef nonnull align 1 dereferenceable(16) %5454, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5449, ptr noundef nonnull align 1 dereferenceable(16) %5454, i64 16, i1 false), !noalias !770
   %5455 = add nuw nsw i64 %.0.i1834.i.i804, 1
   %exitcond.not.i.i805 = icmp eq i64 %5455, %5261
   br i1 %exitcond.not.i.i805, label %_ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi128EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESC_PNS_9ArrayDataEl.exit, label %.lr.ph.i.i803, !llvm.loop !778
@@ -17043,7 +17043,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i28.i753: ; preds = %5481, %5
   %5525 = zext i16 %5524 to i64
   %5526 = shl nuw nsw i64 %5525, 4
   %5527 = getelementptr inbounds nuw i8, ptr %5467, i64 %5526
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5522, ptr noundef nonnull align 1 dereferenceable(16) %5527, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5522, ptr noundef nonnull align 1 dereferenceable(16) %5527, i64 16, i1 false), !noalias !779
   %5528 = add nsw i64 %.1.i37.i54.i779, 1
   %5529 = add nuw nsw i64 %.080.i38.i53.i778, 1
   %exitcond62.not.i55.i780 = icmp eq i64 %5529, %5519
@@ -17091,7 +17091,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i47.i772:     ; preds = %.preheader31.i46.i7
   %5557 = zext i16 %5556 to i64
   %5558 = shl nuw nsw i64 %5557, 4
   %5559 = getelementptr inbounds nuw i8, ptr %5467, i64 %5558
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5554, ptr noundef nonnull align 1 dereferenceable(16) %5559, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5554, ptr noundef nonnull align 1 dereferenceable(16) %5559, i64 16, i1 false), !noalias !779
   br label %5563
 
 5560:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit.i47.i772
@@ -17144,7 +17144,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i68.i793:   ; preds = %.preheader.i67.i792
 5588:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit25.i68.i793
   %5589 = shl nuw nsw i64 %5575, 4
   %5590 = getelementptr inbounds nuw i8, ptr %5467, i64 %5589
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5587, ptr noundef nonnull align 1 dereferenceable(16) %5590, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5587, ptr noundef nonnull align 1 dereferenceable(16) %5590, i64 16, i1 false), !noalias !779
   %5591 = srem i64 %.4.i47.i70.i795, 8
   %5592 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %5591
   %5593 = load i8, ptr %5592, align 1, !tbaa !98, !noalias !779
@@ -17217,7 +17217,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i58.i783:   ; preds = %.preheader28.i57.i7
   %5634 = getelementptr inbounds i8, ptr %5468, i64 %5633
   %5635 = shl nuw nsw i64 %5622, 4
   %5636 = getelementptr inbounds nuw i8, ptr %5467, i64 %5635
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5634, ptr noundef nonnull align 1 dereferenceable(16) %5636, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5634, ptr noundef nonnull align 1 dereferenceable(16) %5636, i64 16, i1 false), !noalias !779
   %5637 = srem i64 %.5.i42.i60.i785, 8
   %5638 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %5637
   %5639 = load i8, ptr %5638, align 1, !tbaa !98, !noalias !779
@@ -17272,7 +17272,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi128EtLb0EEEE16ExecuteWithNullsI
   %5660 = zext i16 %5659 to i64
   %5661 = shl nuw nsw i64 %5660, 4
   %5662 = getelementptr inbounds nuw i8, ptr %5467, i64 %5661
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5657, ptr noundef nonnull align 1 dereferenceable(16) %5662, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5657, ptr noundef nonnull align 1 dereferenceable(16) %5662, i64 16, i1 false), !noalias !779
   %5663 = add nuw nsw i64 %.0.i1834.i25.i750, 1
   %exitcond.not.i26.i751 = icmp eq i64 %5663, %5469
   br i1 %exitcond.not.i26.i751, label %_ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi128EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESC_PNS_9ArrayDataEl.exit, label %.lr.ph.i24.i749, !llvm.loop !787
@@ -17392,7 +17392,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i83.i699: ; preds = %5689, %5
   %5733 = shl i32 %5732, 4
   %5734 = zext i32 %5733 to i64
   %5735 = getelementptr inbounds nuw i8, ptr %5675, i64 %5734
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5730, ptr noundef nonnull align 1 dereferenceable(16) %5735, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5730, ptr noundef nonnull align 1 dereferenceable(16) %5735, i64 16, i1 false), !noalias !788
   %5736 = add nsw i64 %.1.i37.i109.i725, 1
   %5737 = add nuw nsw i64 %.080.i38.i108.i724, 1
   %exitcond62.not.i110.i726 = icmp eq i64 %5737, %5727
@@ -17440,7 +17440,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i102.i718:    ; preds = %.preheader31.i101.i
   %5765 = shl i32 %5764, 4
   %5766 = zext i32 %5765 to i64
   %5767 = getelementptr inbounds nuw i8, ptr %5675, i64 %5766
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5762, ptr noundef nonnull align 1 dereferenceable(16) %5767, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5762, ptr noundef nonnull align 1 dereferenceable(16) %5767, i64 16, i1 false), !noalias !788
   br label %5771
 
 5768:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit.i102.i718
@@ -17494,7 +17494,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i123.i739:  ; preds = %.preheader.i122.i73
   %5797 = shl i32 %5782, 4
   %5798 = zext i32 %5797 to i64
   %5799 = getelementptr inbounds nuw i8, ptr %5675, i64 %5798
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5795, ptr noundef nonnull align 1 dereferenceable(16) %5799, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5795, ptr noundef nonnull align 1 dereferenceable(16) %5799, i64 16, i1 false), !noalias !788
   %5800 = srem i64 %.4.i47.i125.i741, 8
   %5801 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %5800
   %5802 = load i8, ptr %5801, align 1, !tbaa !98, !noalias !788
@@ -17568,7 +17568,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i113.i729:  ; preds = %.preheader28.i112.i
   %5844 = shl i32 %5830, 4
   %5845 = zext i32 %5844 to i64
   %5846 = getelementptr inbounds nuw i8, ptr %5675, i64 %5845
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5843, ptr noundef nonnull align 1 dereferenceable(16) %5846, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5843, ptr noundef nonnull align 1 dereferenceable(16) %5846, i64 16, i1 false), !noalias !788
   %5847 = srem i64 %.5.i42.i115.i731, 8
   %5848 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %5847
   %5849 = load i8, ptr %5848, align 1, !tbaa !98, !noalias !788
@@ -17623,7 +17623,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi128EjLb0EEEE16ExecuteWithNullsI
   %5870 = shl i32 %5869, 4
   %5871 = zext i32 %5870 to i64
   %5872 = getelementptr inbounds nuw i8, ptr %5675, i64 %5871
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5867, ptr noundef nonnull align 1 dereferenceable(16) %5872, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5867, ptr noundef nonnull align 1 dereferenceable(16) %5872, i64 16, i1 false), !noalias !788
   %5873 = add nuw nsw i64 %.0.i1834.i80.i696, 1
   %exitcond.not.i81.i697 = icmp eq i64 %5873, %5677
   br i1 %exitcond.not.i81.i697, label %_ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi128EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESC_PNS_9ArrayDataEl.exit, label %.lr.ph.i79.i695, !llvm.loop !796
@@ -17742,7 +17742,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i138.i861: ; preds = %5899, %
   %5942 = load i64, ptr %5941, align 8, !tbaa !139, !noalias !797
   %5943 = shl i64 %5942, 4
   %5944 = getelementptr inbounds nuw i8, ptr %5885, i64 %5943
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5940, ptr noundef nonnull align 1 dereferenceable(16) %5944, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5940, ptr noundef nonnull align 1 dereferenceable(16) %5944, i64 16, i1 false), !noalias !797
   %5945 = add nsw i64 %.1.i37.i164.i887, 1
   %5946 = add nuw nsw i64 %.080.i38.i163.i886, 1
   %exitcond62.not.i165.i888 = icmp eq i64 %5946, %5937
@@ -17789,7 +17789,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i157.i880:    ; preds = %.preheader31.i156.i
   %5973 = load i64, ptr %5972, align 8, !tbaa !139, !noalias !797
   %5974 = shl i64 %5973, 4
   %5975 = getelementptr inbounds nuw i8, ptr %5885, i64 %5974
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5971, ptr noundef nonnull align 1 dereferenceable(16) %5975, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5971, ptr noundef nonnull align 1 dereferenceable(16) %5975, i64 16, i1 false), !noalias !797
   br label %5979
 
 5976:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit.i157.i880
@@ -17841,7 +17841,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i178.i901:  ; preds = %.preheader.i177.i90
 6003:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit25.i178.i901
   %6004 = shl i64 %5990, 4
   %6005 = getelementptr inbounds nuw i8, ptr %5885, i64 %6004
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6002, ptr noundef nonnull align 1 dereferenceable(16) %6005, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6002, ptr noundef nonnull align 1 dereferenceable(16) %6005, i64 16, i1 false), !noalias !797
   %6006 = srem i64 %.4.i47.i180.i903, 8
   %6007 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %6006
   %6008 = load i8, ptr %6007, align 1, !tbaa !98, !noalias !797
@@ -17913,7 +17913,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i168.i891:  ; preds = %.preheader28.i167.i
   %6048 = getelementptr inbounds i8, ptr %5886, i64 %6047
   %6049 = shl i64 %6036, 4
   %6050 = getelementptr inbounds nuw i8, ptr %5885, i64 %6049
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6048, ptr noundef nonnull align 1 dereferenceable(16) %6050, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6048, ptr noundef nonnull align 1 dereferenceable(16) %6050, i64 16, i1 false), !noalias !797
   %6051 = srem i64 %.5.i42.i170.i893, 8
   %6052 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %6051
   %6053 = load i8, ptr %6052, align 1, !tbaa !98, !noalias !797
@@ -17967,7 +17967,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi128EmLb0EEEE16ExecuteWithNullsI
   %6073 = load i64, ptr %6072, align 8, !tbaa !139, !noalias !797
   %6074 = shl i64 %6073, 4
   %6075 = getelementptr inbounds nuw i8, ptr %5885, i64 %6074
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6071, ptr noundef nonnull align 1 dereferenceable(16) %6075, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6071, ptr noundef nonnull align 1 dereferenceable(16) %6075, i64 16, i1 false), !noalias !797
   %6076 = add nuw nsw i64 %.0.i1834.i135.i858, 1
   %exitcond.not.i136.i859 = icmp eq i64 %6076, %5887
   br i1 %exitcond.not.i136.i859, label %_ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi128EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESC_PNS_9ArrayDataEl.exit, label %.lr.ph.i134.i857, !llvm.loop !805
@@ -18115,7 +18115,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i.i1024: ; preds = %6116, %61
   %6160 = zext i8 %6159 to i64
   %6161 = shl nuw nsw i64 %6160, 5
   %6162 = getelementptr inbounds nuw i8, ptr %6102, i64 %6161
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6157, ptr noundef nonnull align 1 dereferenceable(32) %6162, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6157, ptr noundef nonnull align 1 dereferenceable(32) %6162, i64 32, i1 false), !noalias !809
   %6163 = add nsw i64 %.1.i37.i.i1050, 1
   %6164 = add nuw nsw i64 %.080.i38.i.i1049, 1
   %exitcond62.not.i.i1051 = icmp eq i64 %6164, %6154
@@ -18163,7 +18163,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i.i1043:      ; preds = %.preheader31.i.i104
   %6192 = zext i8 %6191 to i64
   %6193 = shl nuw nsw i64 %6192, 5
   %6194 = getelementptr inbounds nuw i8, ptr %6102, i64 %6193
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6189, ptr noundef nonnull align 1 dereferenceable(32) %6194, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6189, ptr noundef nonnull align 1 dereferenceable(32) %6194, i64 32, i1 false), !noalias !809
   br label %6198
 
 6195:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit.i.i1043
@@ -18216,7 +18216,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i.i1064:    ; preds = %.preheader.i.i1063,
 6223:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit25.i.i1064
   %6224 = shl nuw nsw i64 %6210, 5
   %6225 = getelementptr inbounds nuw i8, ptr %6102, i64 %6224
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6222, ptr noundef nonnull align 1 dereferenceable(32) %6225, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6222, ptr noundef nonnull align 1 dereferenceable(32) %6225, i64 32, i1 false), !noalias !809
   %6226 = srem i64 %.4.i47.i.i1066, 8
   %6227 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %6226
   %6228 = load i8, ptr %6227, align 1, !tbaa !98, !noalias !809
@@ -18289,7 +18289,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i.i1054:    ; preds = %.preheader28.i.i105
   %6269 = getelementptr inbounds i8, ptr %6103, i64 %6268
   %6270 = shl nuw nsw i64 %6257, 5
   %6271 = getelementptr inbounds nuw i8, ptr %6102, i64 %6270
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6269, ptr noundef nonnull align 1 dereferenceable(32) %6271, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6269, ptr noundef nonnull align 1 dereferenceable(32) %6271, i64 32, i1 false), !noalias !809
   %6272 = srem i64 %.5.i42.i.i1056, 8
   %6273 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %6272
   %6274 = load i8, ptr %6273, align 1, !tbaa !98, !noalias !809
@@ -18344,7 +18344,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi256EhLb0EEEE16ExecuteWithNullsI
   %6295 = zext i8 %6294 to i64
   %6296 = shl nuw nsw i64 %6295, 5
   %6297 = getelementptr inbounds nuw i8, ptr %6102, i64 %6296
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6292, ptr noundef nonnull align 1 dereferenceable(32) %6297, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6292, ptr noundef nonnull align 1 dereferenceable(32) %6297, i64 32, i1 false), !noalias !809
   %6298 = add nuw nsw i64 %.0.i1834.i.i1021, 1
   %exitcond.not.i.i1022 = icmp eq i64 %6298, %6104
   br i1 %exitcond.not.i.i1022, label %_ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi256EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESC_PNS_9ArrayDataEl.exit, label %.lr.ph.i.i1020, !llvm.loop !817
@@ -18464,7 +18464,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i28.i970: ; preds = %6324, %6
   %6368 = zext i16 %6367 to i64
   %6369 = shl nuw nsw i64 %6368, 5
   %6370 = getelementptr inbounds nuw i8, ptr %6310, i64 %6369
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6365, ptr noundef nonnull align 1 dereferenceable(32) %6370, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6365, ptr noundef nonnull align 1 dereferenceable(32) %6370, i64 32, i1 false), !noalias !818
   %6371 = add nsw i64 %.1.i37.i54.i996, 1
   %6372 = add nuw nsw i64 %.080.i38.i53.i995, 1
   %exitcond62.not.i55.i997 = icmp eq i64 %6372, %6362
@@ -18512,7 +18512,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i47.i989:     ; preds = %.preheader31.i46.i9
   %6400 = zext i16 %6399 to i64
   %6401 = shl nuw nsw i64 %6400, 5
   %6402 = getelementptr inbounds nuw i8, ptr %6310, i64 %6401
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6397, ptr noundef nonnull align 1 dereferenceable(32) %6402, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6397, ptr noundef nonnull align 1 dereferenceable(32) %6402, i64 32, i1 false), !noalias !818
   br label %6406
 
 6403:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit.i47.i989
@@ -18565,7 +18565,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i68.i1010:  ; preds = %.preheader.i67.i100
 6431:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit25.i68.i1010
   %6432 = shl nuw nsw i64 %6418, 5
   %6433 = getelementptr inbounds nuw i8, ptr %6310, i64 %6432
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6430, ptr noundef nonnull align 1 dereferenceable(32) %6433, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6430, ptr noundef nonnull align 1 dereferenceable(32) %6433, i64 32, i1 false), !noalias !818
   %6434 = srem i64 %.4.i47.i70.i1012, 8
   %6435 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %6434
   %6436 = load i8, ptr %6435, align 1, !tbaa !98, !noalias !818
@@ -18638,7 +18638,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i58.i1000:  ; preds = %.preheader28.i57.i9
   %6477 = getelementptr inbounds i8, ptr %6311, i64 %6476
   %6478 = shl nuw nsw i64 %6465, 5
   %6479 = getelementptr inbounds nuw i8, ptr %6310, i64 %6478
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6477, ptr noundef nonnull align 1 dereferenceable(32) %6479, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6477, ptr noundef nonnull align 1 dereferenceable(32) %6479, i64 32, i1 false), !noalias !818
   %6480 = srem i64 %.5.i42.i60.i1002, 8
   %6481 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %6480
   %6482 = load i8, ptr %6481, align 1, !tbaa !98, !noalias !818
@@ -18693,7 +18693,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi256EtLb0EEEE16ExecuteWithNullsI
   %6503 = zext i16 %6502 to i64
   %6504 = shl nuw nsw i64 %6503, 5
   %6505 = getelementptr inbounds nuw i8, ptr %6310, i64 %6504
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6500, ptr noundef nonnull align 1 dereferenceable(32) %6505, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6500, ptr noundef nonnull align 1 dereferenceable(32) %6505, i64 32, i1 false), !noalias !818
   %6506 = add nuw nsw i64 %.0.i1834.i25.i967, 1
   %exitcond.not.i26.i968 = icmp eq i64 %6506, %6312
   br i1 %exitcond.not.i26.i968, label %_ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi256EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESC_PNS_9ArrayDataEl.exit, label %.lr.ph.i24.i966, !llvm.loop !826
@@ -18813,7 +18813,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i83.i916: ; preds = %6532, %6
   %6576 = shl i32 %6575, 5
   %6577 = zext i32 %6576 to i64
   %6578 = getelementptr inbounds nuw i8, ptr %6518, i64 %6577
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6573, ptr noundef nonnull align 1 dereferenceable(32) %6578, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6573, ptr noundef nonnull align 1 dereferenceable(32) %6578, i64 32, i1 false), !noalias !827
   %6579 = add nsw i64 %.1.i37.i109.i942, 1
   %6580 = add nuw nsw i64 %.080.i38.i108.i941, 1
   %exitcond62.not.i110.i943 = icmp eq i64 %6580, %6570
@@ -18861,7 +18861,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i102.i935:    ; preds = %.preheader31.i101.i
   %6608 = shl i32 %6607, 5
   %6609 = zext i32 %6608 to i64
   %6610 = getelementptr inbounds nuw i8, ptr %6518, i64 %6609
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6605, ptr noundef nonnull align 1 dereferenceable(32) %6610, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6605, ptr noundef nonnull align 1 dereferenceable(32) %6610, i64 32, i1 false), !noalias !827
   br label %6614
 
 6611:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit.i102.i935
@@ -18915,7 +18915,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i123.i956:  ; preds = %.preheader.i122.i95
   %6640 = shl i32 %6625, 5
   %6641 = zext i32 %6640 to i64
   %6642 = getelementptr inbounds nuw i8, ptr %6518, i64 %6641
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6638, ptr noundef nonnull align 1 dereferenceable(32) %6642, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6638, ptr noundef nonnull align 1 dereferenceable(32) %6642, i64 32, i1 false), !noalias !827
   %6643 = srem i64 %.4.i47.i125.i958, 8
   %6644 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %6643
   %6645 = load i8, ptr %6644, align 1, !tbaa !98, !noalias !827
@@ -18989,7 +18989,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i113.i946:  ; preds = %.preheader28.i112.i
   %6687 = shl i32 %6673, 5
   %6688 = zext i32 %6687 to i64
   %6689 = getelementptr inbounds nuw i8, ptr %6518, i64 %6688
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6686, ptr noundef nonnull align 1 dereferenceable(32) %6689, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6686, ptr noundef nonnull align 1 dereferenceable(32) %6689, i64 32, i1 false), !noalias !827
   %6690 = srem i64 %.5.i42.i115.i948, 8
   %6691 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %6690
   %6692 = load i8, ptr %6691, align 1, !tbaa !98, !noalias !827
@@ -19044,7 +19044,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi256EjLb0EEEE16ExecuteWithNullsI
   %6713 = shl i32 %6712, 5
   %6714 = zext i32 %6713 to i64
   %6715 = getelementptr inbounds nuw i8, ptr %6518, i64 %6714
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6710, ptr noundef nonnull align 1 dereferenceable(32) %6715, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6710, ptr noundef nonnull align 1 dereferenceable(32) %6715, i64 32, i1 false), !noalias !827
   %6716 = add nuw nsw i64 %.0.i1834.i80.i913, 1
   %exitcond.not.i81.i914 = icmp eq i64 %6716, %6520
   br i1 %exitcond.not.i81.i914, label %_ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi256EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESC_PNS_9ArrayDataEl.exit, label %.lr.ph.i79.i912, !llvm.loop !835
@@ -19163,7 +19163,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i138.i1078: ; preds = %6742, 
   %6785 = load i64, ptr %6784, align 8, !tbaa !139, !noalias !836
   %6786 = shl i64 %6785, 5
   %6787 = getelementptr inbounds nuw i8, ptr %6728, i64 %6786
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6783, ptr noundef nonnull align 1 dereferenceable(32) %6787, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6783, ptr noundef nonnull align 1 dereferenceable(32) %6787, i64 32, i1 false), !noalias !836
   %6788 = add nsw i64 %.1.i37.i164.i1104, 1
   %6789 = add nuw nsw i64 %.080.i38.i163.i1103, 1
   %exitcond62.not.i165.i1105 = icmp eq i64 %6789, %6780
@@ -19210,7 +19210,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i157.i1097:   ; preds = %.preheader31.i156.i
   %6816 = load i64, ptr %6815, align 8, !tbaa !139, !noalias !836
   %6817 = shl i64 %6816, 5
   %6818 = getelementptr inbounds nuw i8, ptr %6728, i64 %6817
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6814, ptr noundef nonnull align 1 dereferenceable(32) %6818, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6814, ptr noundef nonnull align 1 dereferenceable(32) %6818, i64 32, i1 false), !noalias !836
   br label %6822
 
 6819:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit.i157.i1097
@@ -19262,7 +19262,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i178.i1118: ; preds = %.preheader.i177.i11
 6846:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit25.i178.i1118
   %6847 = shl i64 %6833, 5
   %6848 = getelementptr inbounds nuw i8, ptr %6728, i64 %6847
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6845, ptr noundef nonnull align 1 dereferenceable(32) %6848, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6845, ptr noundef nonnull align 1 dereferenceable(32) %6848, i64 32, i1 false), !noalias !836
   %6849 = srem i64 %.4.i47.i180.i1120, 8
   %6850 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %6849
   %6851 = load i8, ptr %6850, align 1, !tbaa !98, !noalias !836
@@ -19334,7 +19334,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i168.i1108: ; preds = %.preheader28.i167.i
   %6891 = getelementptr inbounds i8, ptr %6729, i64 %6890
   %6892 = shl i64 %6879, 5
   %6893 = getelementptr inbounds nuw i8, ptr %6728, i64 %6892
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6891, ptr noundef nonnull align 1 dereferenceable(32) %6893, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6891, ptr noundef nonnull align 1 dereferenceable(32) %6893, i64 32, i1 false), !noalias !836
   %6894 = srem i64 %.5.i42.i170.i1110, 8
   %6895 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %6894
   %6896 = load i8, ptr %6895, align 1, !tbaa !98, !noalias !836
@@ -19388,7 +19388,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi256EmLb0EEEE16ExecuteWithNullsI
   %6916 = load i64, ptr %6915, align 8, !tbaa !139, !noalias !836
   %6917 = shl i64 %6916, 5
   %6918 = getelementptr inbounds nuw i8, ptr %6728, i64 %6917
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6914, ptr noundef nonnull align 1 dereferenceable(32) %6918, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6914, ptr noundef nonnull align 1 dereferenceable(32) %6918, i64 32, i1 false), !noalias !836
   %6919 = add nuw nsw i64 %.0.i1834.i135.i1075, 1
   %exitcond.not.i136.i1076 = icmp eq i64 %6919, %6730
   br i1 %exitcond.not.i136.i1076, label %_ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi256EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESC_PNS_9ArrayDataEl.exit, label %.lr.ph.i134.i1074, !llvm.loop !844
@@ -19546,7 +19546,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i.i1185: ; preds = %6963, %69
   %7007 = zext i8 %7006 to i64
   %7008 = mul nsw i64 %6928, %7007
   %7009 = getelementptr inbounds i8, ptr %6949, i64 %7008
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7004, ptr align 1 %7009, i64 %6928, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7004, ptr align 1 %7009, i64 %6928, i1 false), !noalias !849
   %7010 = add nsw i64 %.1.i46.i.i, 1
   %7011 = add nuw nsw i64 %.080.i47.i.i, 1
   %exitcond71.not.i.i = icmp eq i64 %7011, %7001
@@ -19594,7 +19594,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i.i1199:      ; preds = %.preheader40.i.i, %
   %7039 = zext i8 %7038 to i64
   %7040 = mul nsw i64 %6928, %7039
   %7041 = getelementptr inbounds i8, ptr %6949, i64 %7040
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7036, ptr align 1 %7041, i64 %6928, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7036, ptr align 1 %7041, i64 %6928, i1 false), !noalias !849
   br label %7045
 
 7042:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit.i.i1199
@@ -19647,7 +19647,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i.i1205:    ; preds = %.preheader.i.i1204,
 7070:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit25.i.i1205
   %7071 = mul nsw i64 %6928, %7057
   %7072 = getelementptr inbounds i8, ptr %6949, i64 %7071
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7069, ptr align 1 %7072, i64 %6928, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7069, ptr align 1 %7072, i64 %6928, i1 false), !noalias !849
   %7073 = srem i64 %.4.i56.i.i, 8
   %7074 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %7073
   %7075 = load i8, ptr %7074, align 1, !tbaa !98, !noalias !849
@@ -19720,7 +19720,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i.i1202:    ; preds = %.preheader37.i.i, %
   %7116 = getelementptr inbounds i8, ptr %6950, i64 %7115
   %7117 = mul nsw i64 %6928, %7104
   %7118 = getelementptr inbounds i8, ptr %6949, i64 %7117
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7116, ptr align 1 %7118, i64 %6928, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7116, ptr align 1 %7118, i64 %6928, i1 false), !noalias !849
   %7119 = srem i64 %.5.i51.i.i, 8
   %7120 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %7119
   %7121 = load i8, ptr %7120, align 1, !tbaa !98, !noalias !849
@@ -19775,7 +19775,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EhLb1EEEE16ExecuteWithNullsILb
   %7142 = zext i8 %7141 to i64
   %7143 = mul nsw i64 %6928, %7142
   %7144 = getelementptr inbounds i8, ptr %6949, i64 %7143
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7139, ptr align 1 %7144, i64 %6928, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7139, ptr align 1 %7144, i64 %6928, i1 false), !noalias !849
   %7145 = add nuw nsw i64 %.0.i1843.i.i, 1
   %exitcond.not.i.i1183 = icmp eq i64 %7145, %6951
   br i1 %exitcond.not.i.i1183, label %_ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi8EES5_IbLb0EES5_IbLb1EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESE_PNS_9ArrayDataEl.exit, label %.lr.ph.i.i1182, !llvm.loop !857
@@ -19895,7 +19895,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i28.i1158: ; preds = %7171, %
   %7215 = zext i16 %7214 to i64
   %7216 = mul nsw i64 %6928, %7215
   %7217 = getelementptr inbounds i8, ptr %7157, i64 %7216
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7212, ptr align 1 %7217, i64 %6928, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7212, ptr align 1 %7217, i64 %6928, i1 false), !noalias !858
   %7218 = add nsw i64 %.1.i46.i54.i, 1
   %7219 = add nuw nsw i64 %.080.i47.i53.i, 1
   %exitcond71.not.i55.i = icmp eq i64 %7219, %7209
@@ -19943,7 +19943,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i47.i1172:    ; preds = %.preheader40.i46.i,
   %7247 = zext i16 %7246 to i64
   %7248 = mul nsw i64 %6928, %7247
   %7249 = getelementptr inbounds i8, ptr %7157, i64 %7248
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7244, ptr align 1 %7249, i64 %6928, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7244, ptr align 1 %7249, i64 %6928, i1 false), !noalias !858
   br label %7253
 
 7250:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit.i47.i1172
@@ -19996,7 +19996,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i68.i1178:  ; preds = %.preheader.i67.i117
 7278:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit25.i68.i1178
   %7279 = mul nsw i64 %6928, %7265
   %7280 = getelementptr inbounds i8, ptr %7157, i64 %7279
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7277, ptr align 1 %7280, i64 %6928, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7277, ptr align 1 %7280, i64 %6928, i1 false), !noalias !858
   %7281 = srem i64 %.4.i56.i70.i, 8
   %7282 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %7281
   %7283 = load i8, ptr %7282, align 1, !tbaa !98, !noalias !858
@@ -20069,7 +20069,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i58.i1175:  ; preds = %.preheader37.i57.i,
   %7324 = getelementptr inbounds i8, ptr %7158, i64 %7323
   %7325 = mul nsw i64 %6928, %7312
   %7326 = getelementptr inbounds i8, ptr %7157, i64 %7325
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7324, ptr align 1 %7326, i64 %6928, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7324, ptr align 1 %7326, i64 %6928, i1 false), !noalias !858
   %7327 = srem i64 %.5.i51.i60.i, 8
   %7328 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %7327
   %7329 = load i8, ptr %7328, align 1, !tbaa !98, !noalias !858
@@ -20124,7 +20124,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EtLb1EEEE16ExecuteWithNullsILb
   %7350 = zext i16 %7349 to i64
   %7351 = mul nsw i64 %6928, %7350
   %7352 = getelementptr inbounds i8, ptr %7157, i64 %7351
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7347, ptr align 1 %7352, i64 %6928, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7347, ptr align 1 %7352, i64 %6928, i1 false), !noalias !858
   %7353 = add nuw nsw i64 %.0.i1843.i25.i, 1
   %exitcond.not.i26.i1156 = icmp eq i64 %7353, %7159
   br i1 %exitcond.not.i26.i1156, label %_ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi8EES5_IbLb0EES5_IbLb1EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESE_PNS_9ArrayDataEl.exit, label %.lr.ph.i24.i1155, !llvm.loop !866
@@ -20244,7 +20244,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i83.i1131: ; preds = %7379, %
   %7423 = zext i32 %7422 to i64
   %7424 = mul nsw i64 %6928, %7423
   %7425 = getelementptr inbounds i8, ptr %7365, i64 %7424
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7420, ptr align 1 %7425, i64 %6928, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7420, ptr align 1 %7425, i64 %6928, i1 false), !noalias !867
   %7426 = add nsw i64 %.1.i46.i109.i, 1
   %7427 = add nuw nsw i64 %.080.i47.i108.i, 1
   %exitcond71.not.i110.i = icmp eq i64 %7427, %7417
@@ -20292,7 +20292,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i102.i1145:   ; preds = %.preheader40.i101.i
   %7455 = zext i32 %7454 to i64
   %7456 = mul nsw i64 %6928, %7455
   %7457 = getelementptr inbounds i8, ptr %7365, i64 %7456
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7452, ptr align 1 %7457, i64 %6928, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7452, ptr align 1 %7457, i64 %6928, i1 false), !noalias !867
   br label %7461
 
 7458:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit.i102.i1145
@@ -20345,7 +20345,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i123.i1151: ; preds = %.preheader.i122.i11
 7486:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit25.i123.i1151
   %7487 = mul nsw i64 %6928, %7473
   %7488 = getelementptr inbounds i8, ptr %7365, i64 %7487
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7485, ptr align 1 %7488, i64 %6928, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7485, ptr align 1 %7488, i64 %6928, i1 false), !noalias !867
   %7489 = srem i64 %.4.i56.i125.i, 8
   %7490 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %7489
   %7491 = load i8, ptr %7490, align 1, !tbaa !98, !noalias !867
@@ -20418,7 +20418,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i113.i1148: ; preds = %.preheader37.i112.i
   %7532 = getelementptr inbounds i8, ptr %7366, i64 %7531
   %7533 = mul nsw i64 %6928, %7520
   %7534 = getelementptr inbounds i8, ptr %7365, i64 %7533
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7532, ptr align 1 %7534, i64 %6928, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7532, ptr align 1 %7534, i64 %6928, i1 false), !noalias !867
   %7535 = srem i64 %.5.i51.i115.i, 8
   %7536 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %7535
   %7537 = load i8, ptr %7536, align 1, !tbaa !98, !noalias !867
@@ -20473,7 +20473,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EjLb1EEEE16ExecuteWithNullsILb
   %7558 = zext i32 %7557 to i64
   %7559 = mul nsw i64 %6928, %7558
   %7560 = getelementptr inbounds i8, ptr %7365, i64 %7559
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7555, ptr align 1 %7560, i64 %6928, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7555, ptr align 1 %7560, i64 %6928, i1 false), !noalias !867
   %7561 = add nuw nsw i64 %.0.i1843.i80.i, 1
   %exitcond.not.i81.i1129 = icmp eq i64 %7561, %7367
   br i1 %exitcond.not.i81.i1129, label %_ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi8EES5_IbLb0EES5_IbLb1EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESE_PNS_9ArrayDataEl.exit, label %.lr.ph.i79.i1128, !llvm.loop !875
@@ -20592,7 +20592,7 @@ _ZN5arrow9ArrayData16GetMutableValuesIhEEPT_i.exit.i138.i1212: ; preds = %7587, 
   %7630 = load i64, ptr %7629, align 8, !tbaa !139, !noalias !876
   %7631 = mul i64 %7630, %6928
   %7632 = getelementptr inbounds nuw i8, ptr %7573, i64 %7631
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7628, ptr align 1 %7632, i64 %6928, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7628, ptr align 1 %7632, i64 %6928, i1 false), !noalias !876
   %7633 = add nsw i64 %.1.i46.i164.i, 1
   %7634 = add nuw nsw i64 %.080.i47.i163.i, 1
   %exitcond71.not.i165.i = icmp eq i64 %7634, %7625
@@ -20639,7 +20639,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit.i157.i1226:   ; preds = %.preheader40.i156.i
   %7661 = load i64, ptr %7660, align 8, !tbaa !139, !noalias !876
   %7662 = mul i64 %7661, %6928
   %7663 = getelementptr inbounds nuw i8, ptr %7573, i64 %7662
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7659, ptr align 1 %7663, i64 %6928, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7659, ptr align 1 %7663, i64 %6928, i1 false), !noalias !876
   br label %7667
 
 7664:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit.i157.i1226
@@ -20691,7 +20691,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit25.i178.i1232: ; preds = %.preheader.i177.i12
 7691:                                             ; preds = %_ZNK5arrow9ArraySpan7IsValidEl.exit25.i178.i1232
   %7692 = mul i64 %7678, %6928
   %7693 = getelementptr inbounds nuw i8, ptr %7573, i64 %7692
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7690, ptr align 1 %7693, i64 %6928, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7690, ptr align 1 %7693, i64 %6928, i1 false), !noalias !876
   %7694 = srem i64 %.4.i56.i180.i, 8
   %7695 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %7694
   %7696 = load i8, ptr %7695, align 1, !tbaa !98, !noalias !876
@@ -20763,7 +20763,7 @@ _ZNK5arrow9ArraySpan7IsValidEl.exit28.i168.i1229: ; preds = %.preheader37.i167.i
   %7736 = getelementptr inbounds i8, ptr %7574, i64 %7735
   %7737 = mul i64 %7724, %6928
   %7738 = getelementptr inbounds nuw i8, ptr %7573, i64 %7737
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7736, ptr align 1 %7738, i64 %6928, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7736, ptr align 1 %7738, i64 %6928, i1 false), !noalias !876
   %7739 = srem i64 %.5.i51.i170.i, 8
   %7740 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %7739
   %7741 = load i8, ptr %7740, align 1, !tbaa !98, !noalias !876
@@ -20817,7 +20817,7 @@ _ZN5arrow8internal14GatherBaseCRTPINS0_6GatherILi8EmLb1EEEE16ExecuteWithNullsILb
   %7761 = load i64, ptr %7760, align 8, !tbaa !139, !noalias !876
   %7762 = mul i64 %7761, %6928
   %7763 = getelementptr inbounds nuw i8, ptr %7573, i64 %7762
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7759, ptr align 1 %7763, i64 %6928, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7759, ptr align 1 %7763, i64 %6928, i1 false), !noalias !876
   %7764 = add nuw nsw i64 %.0.i1843.i135.i, 1
   %exitcond.not.i136.i1210 = icmp eq i64 %7764, %7575
   br i1 %exitcond.not.i136.i1210, label %_ZN5arrow7compute8internal12_GLOBAL__N_117TakeIndexDispatchITtTpTyENS2_18FixedWidthTakeImplEJSt17integral_constantIiLi8EES5_IbLb0EES5_IbLb1EEEEENS_6StatusEPNS0_13KernelContextERKNS_9ArraySpanESE_PNS_9ArrayDataEl.exit, label %.lr.ph.i134.i1209, !llvm.loop !884
@@ -23939,7 +23939,7 @@ _ZN5arrow6ResultINS_5DatumEE15MoveValueUnsafeEv.exit.i: ; preds = %.sink.split.i
   %79 = landingpad { ptr, i32 }
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #28
+  call void @__clang_call_terminate(ptr %80) #28, !noalias !925
   unreachable
 
 _ZN5arrow5DatumaSEOS0_.exit.i:                    ; preds = %_ZN5arrow6ResultINS_5DatumEE15MoveValueUnsafeEv.exit.i
@@ -23952,7 +23952,7 @@ _ZN5arrow5DatumaSEOS0_.exit.i:                    ; preds = %_ZN5arrow6ResultINS
   %82 = landingpad { ptr, i32 }
           catch ptr null
   %83 = extractvalue { ptr, i32 } %82, 0
-  call void @__clang_call_terminate(ptr %83) #28
+  call void @__clang_call_terminate(ptr %83) #28, !noalias !925
   unreachable
 
 _ZN5arrow5DatumD2Ev.exit.i:                       ; preds = %_ZN5arrow5DatumaSEOS0_.exit.i
@@ -24421,7 +24421,7 @@ _ZN5arrow6ResultINS_5DatumEE15MoveValueUnsafeEv.exit.i: ; preds = %.sink.split.i
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #28
+  call void @__clang_call_terminate(ptr %79) #28, !noalias !947
   unreachable
 
 _ZN5arrow5DatumaSEOS0_.exit.i:                    ; preds = %_ZN5arrow6ResultINS_5DatumEE15MoveValueUnsafeEv.exit.i
@@ -24434,7 +24434,7 @@ _ZN5arrow5DatumaSEOS0_.exit.i:                    ; preds = %_ZN5arrow6ResultINS
   %81 = landingpad { ptr, i32 }
           catch ptr null
   %82 = extractvalue { ptr, i32 } %81, 0
-  call void @__clang_call_terminate(ptr %82) #28
+  call void @__clang_call_terminate(ptr %82) #28, !noalias !947
   unreachable
 
 _ZN5arrow5DatumD2Ev.exit.i:                       ; preds = %_ZN5arrow5DatumaSEOS0_.exit.i

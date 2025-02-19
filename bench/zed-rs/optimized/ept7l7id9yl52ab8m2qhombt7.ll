@@ -7062,8 +7062,8 @@ define hidden void @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$a
 
 29:                                               ; preds = %9
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %31 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
-  tail call void %31(ptr noundef %17)
+  %31 = load ptr, ptr %30, align 8, !noalias !1340, !nonnull !4, !noundef !4
+  tail call void %31(ptr noundef %17), !noalias !1340
   br label %37
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h064b24a35dff698cE.exit.i": ; preds = %25, %23
@@ -7161,8 +7161,8 @@ define hidden { i64, ptr } @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$G
 
 28:                                               ; preds = %8
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %30 = load ptr, ptr %29, align 8, !nonnull !4, !noundef !4
-  tail call void %30(ptr noundef %16)
+  %30 = load ptr, ptr %29, align 8, !noalias !1361, !nonnull !4, !noundef !4
+  tail call void %30(ptr noundef %16), !noalias !1361
   br label %36
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h064b24a35dff698cE.exit.i": ; preds = %24, %22

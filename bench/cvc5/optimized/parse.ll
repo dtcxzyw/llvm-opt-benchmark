@@ -1251,7 +1251,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i: ; preds = %356, %354, %349
   %361 = landingpad { ptr, i32 }
           catch ptr null
   %362 = extractvalue { ptr, i32 } %361, 0
-  call void @__clang_call_terminate(ptr %362) #21
+  call void @__clang_call_terminate(ptr %362) #21, !noalias !34
   unreachable
 
 _ZN4cvc58internal16FiniteFieldValueC2ERKS1_.exit.i: ; preds = %.noexc29.i
@@ -1272,7 +1272,7 @@ _ZN4cvc58internal16FiniteFieldValueC2ERKS1_.exit.i: ; preds = %.noexc29.i
   %366 = landingpad { ptr, i32 }
           catch ptr null
   %367 = extractvalue { ptr, i32 } %366, 0
-  call void @__clang_call_terminate(ptr %367) #21
+  call void @__clang_call_terminate(ptr %367) #21, !noalias !34
   unreachable
 
 _ZN4cvc58internal16FiniteFieldValueC2ERKS1_.exit34.i: ; preds = %.noexc31.i
@@ -1711,7 +1711,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i179: ; preds = %526, %524, %
   %535 = landingpad { ptr, i32 }
           catch ptr null
   %536 = extractvalue { ptr, i32 } %535, 0
-  call void @__clang_call_terminate(ptr %536) #21
+  call void @__clang_call_terminate(ptr %536) #21, !noalias !45
   unreachable
 
 _ZN4cvc58internal16FiniteFieldValueC2ERKS1_.exit.i184: ; preds = %.noexc29.i183
@@ -1735,7 +1735,7 @@ _ZN4cvc58internal16FiniteFieldValueC2ERKS1_.exit.i184: ; preds = %.noexc29.i183
   %543 = landingpad { ptr, i32 }
           catch ptr null
   %544 = extractvalue { ptr, i32 } %543, 0
-  call void @__clang_call_terminate(ptr %544) #21
+  call void @__clang_call_terminate(ptr %544) #21, !noalias !45
   unreachable
 
 _ZN4cvc58internal16FiniteFieldValueC2ERKS1_.exit34.i188: ; preds = %.noexc31.i187
@@ -2267,7 +2267,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i221: ; preds = %756, %754, %
   %761 = landingpad { ptr, i32 }
           catch ptr null
   %762 = extractvalue { ptr, i32 } %761, 0
-  call void @__clang_call_terminate(ptr %762) #21
+  call void @__clang_call_terminate(ptr %762) #21, !noalias !54
   unreachable
 
 _ZN4cvc58internal16FiniteFieldValueC2ERKS1_.exit.i226: ; preds = %.noexc31.i225
@@ -2288,7 +2288,7 @@ _ZN4cvc58internal16FiniteFieldValueC2ERKS1_.exit.i226: ; preds = %.noexc31.i225
   %766 = landingpad { ptr, i32 }
           catch ptr null
   %767 = extractvalue { ptr, i32 } %766, 0
-  call void @__clang_call_terminate(ptr %767) #21
+  call void @__clang_call_terminate(ptr %767) #21, !noalias !54
   unreachable
 
 _ZN4cvc58internal16FiniteFieldValueC2ERKS1_.exit36.i: ; preds = %.noexc33.i

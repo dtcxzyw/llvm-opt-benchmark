@@ -7961,7 +7961,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt6vectorIN32pxrInternal_v0_24_
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #23, !noalias !64
+  call void @__clang_call_terminate(ptr %19) #23, !noalias !68
   unreachable
 
 20:                                               ; preds = %.noexc37.i.i.i
@@ -8150,7 +8150,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS
   %98 = landingpad { ptr, i32 }
           catch ptr null
   %99 = extractvalue { ptr, i32 } %98, 0
-  call void @__clang_call_terminate(ptr %99) #23
+  call void @__clang_call_terminate(ptr %99) #23, !noalias !68
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i: ; preds = %96, %83, %78
@@ -8236,7 +8236,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i.i.i: ;
   %141 = landingpad { ptr, i32 }
           catch ptr null
   %142 = extractvalue { ptr, i32 } %141, 0
-  call void @__clang_call_terminate(ptr %142) #23
+  call void @__clang_call_terminate(ptr %142) #23, !noalias !68
   unreachable
 
 143:                                              ; preds = %.noexc.i.i.i, %3

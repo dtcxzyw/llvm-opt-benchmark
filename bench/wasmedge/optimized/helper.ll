@@ -1508,7 +1508,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i: ; preds = %338
   %354 = landingpad { ptr, i32 }
           catch ptr null
   %355 = extractvalue { ptr, i32 } %354, 0
-  call void @__clang_call_terminate(ptr %355) #29
+  call void @__clang_call_terminate(ptr %355) #29, !noalias !19
   unreachable
 
 _ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj.exit: ; preds = %347, %350
@@ -3181,7 +3181,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i: ; preds = %20
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #29
+  tail call void @__clang_call_terminate(ptr %37) #29, !noalias !45
   unreachable
 
 _ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i, %32

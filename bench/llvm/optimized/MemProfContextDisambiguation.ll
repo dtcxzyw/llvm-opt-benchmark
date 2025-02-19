@@ -31305,10 +31305,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i: ; preds = %_Z
   store i32 17, ptr %35, align 8, !tbaa !76, !noalias !1448
   %.sroa.41.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %167, ptr %.sroa.41.0..sroa_idx.i.i, align 8, !tbaa !967, !noalias !1448
-  %168 = load ptr, ptr %166, align 8, !tbaa !3
+  %168 = load ptr, ptr %166, align 8, !tbaa !3, !noalias !1448
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 48
   %170 = load ptr, ptr %169, align 8, !noalias !1448
-  %171 = call noundef zeroext i1 %170(ptr noundef nonnull align 8 dereferenceable(8) %166, i32 noundef %164, ptr noundef nonnull align 8 dereferenceable(16) %35) #28
+  %171 = call noundef zeroext i1 %170(ptr noundef nonnull align 8 dereferenceable(8) %166, i32 noundef %164, ptr noundef nonnull align 8 dereferenceable(16) %35) #28, !noalias !1448
   br i1 %171, label %_ZSteqRKSt10error_codeRKSt15error_condition.exit.thread.i, label %_ZSteqRKSt10error_codeRKSt15error_condition.exit.i
 
 _ZSteqRKSt10error_codeRKSt15error_condition.exit.thread.i: ; preds = %160
@@ -56121,10 +56121,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i: ; preds = %_Z
   store i32 17, ptr %35, align 8, !tbaa !76, !noalias !2005
   %.sroa.41.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %167, ptr %.sroa.41.0..sroa_idx.i.i, align 8, !tbaa !967, !noalias !2005
-  %168 = load ptr, ptr %166, align 8, !tbaa !3
+  %168 = load ptr, ptr %166, align 8, !tbaa !3, !noalias !2005
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 48
   %170 = load ptr, ptr %169, align 8, !noalias !2005
-  %171 = call noundef zeroext i1 %170(ptr noundef nonnull align 8 dereferenceable(8) %166, i32 noundef %164, ptr noundef nonnull align 8 dereferenceable(16) %35) #28
+  %171 = call noundef zeroext i1 %170(ptr noundef nonnull align 8 dereferenceable(8) %166, i32 noundef %164, ptr noundef nonnull align 8 dereferenceable(16) %35) #28, !noalias !2005
   br i1 %171, label %_ZSteqRKSt10error_codeRKSt15error_condition.exit.thread.i, label %_ZSteqRKSt10error_codeRKSt15error_condition.exit.i
 
 _ZSteqRKSt10error_codeRKSt15error_condition.exit.thread.i: ; preds = %160
@@ -81446,8 +81446,6 @@ _ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraph
   call fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESt4pairIKS8_S8_ESt10_Select1stISB_ESt4lessIS8_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef %477)
   %484 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8FuncInfoEPNS7_11ContextNodeESt4lessIS8_ESaISt4pairIKS8_SA_EEEixERSE_(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %15)
   store ptr %417, ptr %484, align 8, !tbaa !624
-  %.val7.i1040 = load ptr, ptr %15, align 8
-  %.val8.i1041 = load i32, ptr %37, align 8
   %.val.i.i.i1042 = load ptr, ptr %39, align 8, !tbaa !233
   %.not2.i.i.i.i1043 = icmp eq ptr %.val.i.i.i1042, null
   br i1 %.not2.i.i.i.i1043, label %.critedge.i1061, label %.lr.ph.i.i.i.i1044
@@ -81457,14 +81455,14 @@ _ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraph
   %.083.i.i.i.i1046 = phi ptr [ %.19.i.i.i.i1052, %490 ], [ %38, %_ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoES8_St4lessIS8_ESaISt4pairIKS8_S8_EEEaSESt16initializer_listISD_E.exit ]
   %485 = getelementptr inbounds nuw i8, ptr %.04.i.i.i.i1045, i64 32
   %.val.i.i.i.i1047 = load ptr, ptr %485, align 8, !tbaa !845
-  %486 = icmp ult ptr %.val.i.i.i.i1047, %.val7.i1040
+  %486 = icmp ult ptr %.val.i.i.i.i1047, %.val7.i
   br i1 %486, label %_ZNKSt4lessIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8FuncInfoEEclERKS8_SB_.exit.thread.i.i.i.i1072, label %_ZNKSt4lessIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8FuncInfoEEclERKS8_SB_.exit.i.i.i.i1048
 
 _ZNKSt4lessIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8FuncInfoEEclERKS8_SB_.exit.i.i.i.i1048: ; preds = %.lr.ph.i.i.i.i1044
   %487 = getelementptr i8, ptr %.04.i.i.i.i1045, i64 40
   %.val11.i.i.i.i1049 = load i32, ptr %487, align 8
-  %488 = icmp uge ptr %.val7.i1040, %.val.i.i.i.i1047
-  %489 = icmp ult i32 %.val11.i.i.i.i1049, %.val8.i1041
+  %488 = icmp uge ptr %.val7.i, %.val.i.i.i.i1047
+  %489 = icmp ult i32 %.val11.i.i.i.i1049, %.val8.i
   %spec.select.i.i.i.i.i1050 = select i1 %488, i1 %489, i1 false
   br i1 %spec.select.i.i.i.i.i1050, label %_ZNKSt4lessIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8FuncInfoEEclERKS8_SB_.exit.thread.i.i.i.i1072, label %490
 
@@ -81486,14 +81484,14 @@ _ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraph
 493:                                              ; preds = %_ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8FuncInfoES_INS7_8CallInfoES9_St4lessIS9_ESaISt4pairIKS9_S9_EEESA_IS8_ESaISC_IKS8_SG_EEE11lower_boundERSI_.exit.i1055
   %494 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i1052, i64 32
   %.val5.i1056 = load ptr, ptr %494, align 8, !tbaa !845
-  %495 = icmp ult ptr %.val7.i1040, %.val5.i1056
+  %495 = icmp ult ptr %.val7.i, %.val5.i1056
   br i1 %495, label %.critedge.i1061, label %_ZNKSt4lessIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8FuncInfoEEclERKS8_SB_.exit.i1057
 
 _ZNKSt4lessIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8FuncInfoEEclERKS8_SB_.exit.i1057: ; preds = %493
   %496 = getelementptr i8, ptr %.19.i.i.i.i1052, i64 40
   %.val6.i1058 = load i32, ptr %496, align 8
-  %497 = icmp uge ptr %.val5.i1056, %.val7.i1040
-  %498 = icmp ult i32 %.val8.i1041, %.val6.i1058
+  %497 = icmp uge ptr %.val5.i1056, %.val7.i
+  %498 = icmp ult i32 %.val8.i, %.val6.i1058
   %spec.select.i.i1059 = select i1 %497, i1 %498, i1 false
   br i1 %spec.select.i.i1059, label %.critedge.i1061, label %_ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8FuncInfoES_INS7_8CallInfoES9_St4lessIS9_ESaISt4pairIKS9_S9_EEESA_IS8_ESaISC_IKS8_SG_EEEixERSI_.exit1073
 
@@ -83220,8 +83218,6 @@ _ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraph
 _ZNK4llvm9MapVectorIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoEPNS7_11ContextNodeENS_8DenseMapIS8_jNS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_jEEEENS_11SmallVectorISt4pairIS8_SA_ELj0EEEE5countERKS8_.exit413: ; preds = %_ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8FuncInfoES_INS7_8CallInfoES9_St4lessIS9_ESaISt4pairIKS9_S9_EEESA_IS8_ESaISC_IKS8_SG_EEE7emplaceIJRS8_SG_EEESC_ISt17_Rb_tree_iteratorISJ_EbEDpOT_.exit
   %1167 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8FuncInfoEPNS7_11ContextNodeESt4lessIS8_ESaISt4pairIKS8_SA_EEEixERSE_(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %20)
   store ptr %417, ptr %1167, align 8, !tbaa !624
-  %.val7.i1123 = load ptr, ptr %20, align 8
-  %.val8.i1124 = load i32, ptr %.sroa.268.0..sroa_idx, align 8
   %.val.i.i.i1125 = load ptr, ptr %39, align 8, !tbaa !233
   %.not2.i.i.i.i1126 = icmp eq ptr %.val.i.i.i1125, null
   br i1 %.not2.i.i.i.i1126, label %.critedge.i1144, label %.lr.ph.i.i.i.i1127
@@ -83231,14 +83227,14 @@ _ZNK4llvm9MapVectorIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteCo
   %.083.i.i.i.i1129 = phi ptr [ %.19.i.i.i.i1135, %1173 ], [ %38, %_ZNK4llvm9MapVectorIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoEPNS7_11ContextNodeENS_8DenseMapIS8_jNS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_jEEEENS_11SmallVectorISt4pairIS8_SA_ELj0EEEE5countERKS8_.exit413 ]
   %1168 = getelementptr inbounds nuw i8, ptr %.04.i.i.i.i1128, i64 32
   %.val.i.i.i.i1130 = load ptr, ptr %1168, align 8, !tbaa !845
-  %1169 = icmp ult ptr %.val.i.i.i.i1130, %.val7.i1123
+  %1169 = icmp ult ptr %.val.i.i.i.i1130, %892
   br i1 %1169, label %_ZNKSt4lessIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8FuncInfoEEclERKS8_SB_.exit.thread.i.i.i.i1155, label %_ZNKSt4lessIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8FuncInfoEEclERKS8_SB_.exit.i.i.i.i1131
 
 _ZNKSt4lessIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8FuncInfoEEclERKS8_SB_.exit.i.i.i.i1131: ; preds = %.lr.ph.i.i.i.i1127
   %1170 = getelementptr i8, ptr %.04.i.i.i.i1128, i64 40
   %.val11.i.i.i.i1132 = load i32, ptr %1170, align 8
-  %1171 = icmp uge ptr %.val7.i1123, %.val.i.i.i.i1130
-  %1172 = icmp ult i32 %.val11.i.i.i.i1132, %.val8.i1124
+  %1171 = icmp uge ptr %892, %.val.i.i.i.i1130
+  %1172 = icmp ult i32 %.val11.i.i.i.i1132, %891
   %spec.select.i.i.i.i.i1133 = select i1 %1171, i1 %1172, i1 false
   br i1 %spec.select.i.i.i.i.i1133, label %_ZNKSt4lessIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8FuncInfoEEclERKS8_SB_.exit.thread.i.i.i.i1155, label %1173
 
@@ -83260,14 +83256,14 @@ _ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraph
 1176:                                             ; preds = %_ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8FuncInfoES_INS7_8CallInfoES9_St4lessIS9_ESaISt4pairIKS9_S9_EEESA_IS8_ESaISC_IKS8_SG_EEE11lower_boundERSI_.exit.i1138
   %1177 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i1135, i64 32
   %.val5.i1139 = load ptr, ptr %1177, align 8, !tbaa !845
-  %1178 = icmp ult ptr %.val7.i1123, %.val5.i1139
+  %1178 = icmp ult ptr %892, %.val5.i1139
   br i1 %1178, label %.critedge.i1144, label %_ZNKSt4lessIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8FuncInfoEEclERKS8_SB_.exit.i1140
 
 _ZNKSt4lessIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8FuncInfoEEclERKS8_SB_.exit.i1140: ; preds = %1176
   %1179 = getelementptr i8, ptr %.19.i.i.i.i1135, i64 40
   %.val6.i1141 = load i32, ptr %1179, align 8
-  %1180 = icmp uge ptr %.val5.i1139, %.val7.i1123
-  %1181 = icmp ult i32 %.val8.i1124, %.val6.i1141
+  %1180 = icmp uge ptr %.val5.i1139, %892
+  %1181 = icmp ugt i32 %.val6.i1141, %891
   %spec.select.i.i1142 = select i1 %1180, i1 %1181, i1 false
   br i1 %spec.select.i.i1142, label %.critedge.i1144, label %_ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8FuncInfoES_INS7_8CallInfoES9_St4lessIS9_ESaISt4pairIKS9_S9_EEESA_IS8_ESaISC_IKS8_SG_EEEixERSI_.exit1156
 
@@ -100673,8 +100669,6 @@ _ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphE
   call fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESt4pairIKS7_S7_ESt10_Select1stISA_ESt4lessIS7_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef %398)
   %405 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8FuncInfoEPNS6_11ContextNodeESt4lessIS7_ESaISt4pairIKS7_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull readonly align 8 dereferenceable(16) %3)
   store ptr %338, ptr %405, align 8, !tbaa !1002
-  %.val7.i1049 = load ptr, ptr %3, align 8
-  %.val8.i1050 = load i32, ptr %25, align 8
   %.val.i.i.i1051 = load ptr, ptr %27, align 8, !tbaa !233
   %.not2.i.i.i.i1052 = icmp eq ptr %.val.i.i.i1051, null
   br i1 %.not2.i.i.i.i1052, label %.critedge.i1070, label %.lr.ph.i.i.i.i1053
@@ -100684,14 +100678,14 @@ _ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphE
   %.083.i.i.i.i1055 = phi ptr [ %.19.i.i.i.i1061, %411 ], [ %26, %_ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoES7_St4lessIS7_ESaISt4pairIKS7_S7_EEEaSESt16initializer_listISC_E.exit ]
   %406 = getelementptr inbounds nuw i8, ptr %.04.i.i.i.i1054, i64 32
   %.val.i.i.i.i1056 = load ptr, ptr %406, align 8, !tbaa !2682
-  %407 = icmp ult ptr %.val.i.i.i.i1056, %.val7.i1049
+  %407 = icmp ult ptr %.val.i.i.i.i1056, %.val7.i
   br i1 %407, label %_ZNKSt4lessIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8FuncInfoEEclERKS7_SA_.exit.thread.i.i.i.i1081, label %_ZNKSt4lessIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8FuncInfoEEclERKS7_SA_.exit.i.i.i.i1057
 
 _ZNKSt4lessIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8FuncInfoEEclERKS7_SA_.exit.i.i.i.i1057: ; preds = %.lr.ph.i.i.i.i1053
   %408 = getelementptr i8, ptr %.04.i.i.i.i1054, i64 40
   %.val11.i.i.i.i1058 = load i32, ptr %408, align 8
-  %409 = icmp uge ptr %.val7.i1049, %.val.i.i.i.i1056
-  %410 = icmp ult i32 %.val11.i.i.i.i1058, %.val8.i1050
+  %409 = icmp uge ptr %.val7.i, %.val.i.i.i.i1056
+  %410 = icmp ult i32 %.val11.i.i.i.i1058, %.val8.i
   %spec.select.i.i.i.i.i1059 = select i1 %409, i1 %410, i1 false
   br i1 %spec.select.i.i.i.i.i1059, label %_ZNKSt4lessIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8FuncInfoEEclERKS7_SA_.exit.thread.i.i.i.i1081, label %411
 
@@ -100713,14 +100707,14 @@ _ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphE
 414:                                              ; preds = %_ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8FuncInfoES_INS6_8CallInfoES8_St4lessIS8_ESaISt4pairIKS8_S8_EEES9_IS7_ESaISB_IKS7_SF_EEE11lower_boundERSH_.exit.i1064
   %415 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i1061, i64 32
   %.val5.i1065 = load ptr, ptr %415, align 8, !tbaa !2682
-  %416 = icmp ult ptr %.val7.i1049, %.val5.i1065
+  %416 = icmp ult ptr %.val7.i, %.val5.i1065
   br i1 %416, label %.critedge.i1070, label %_ZNKSt4lessIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8FuncInfoEEclERKS7_SA_.exit.i1066
 
 _ZNKSt4lessIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8FuncInfoEEclERKS7_SA_.exit.i1066: ; preds = %414
   %417 = getelementptr i8, ptr %.19.i.i.i.i1061, i64 40
   %.val6.i1067 = load i32, ptr %417, align 8
-  %418 = icmp uge ptr %.val5.i1065, %.val7.i1049
-  %419 = icmp ult i32 %.val8.i1050, %.val6.i1067
+  %418 = icmp uge ptr %.val5.i1065, %.val7.i
+  %419 = icmp ult i32 %.val8.i, %.val6.i1067
   %spec.select.i.i1068 = select i1 %418, i1 %419, i1 false
   br i1 %spec.select.i.i1068, label %.critedge.i1070, label %_ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8FuncInfoES_INS6_8CallInfoES8_St4lessIS8_ESaISt4pairIKS8_S8_EEES9_IS7_ESaISB_IKS7_SF_EEEixERSH_.exit1082
 
@@ -101833,8 +101827,6 @@ _ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphE
 _ZNK4llvm9MapVectorIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphENS_15FunctionSummaryENS1_9IndexCallEE8CallInfoEPNS6_11ContextNodeENS_8DenseMapIS7_jNS_12DenseMapInfoIS7_vEENS_6detail12DenseMapPairIS7_jEEEENS_11SmallVectorISt4pairIS7_S9_ELj0EEEE5countERKS7_.exit431: ; preds = %_ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8FuncInfoES_INS6_8CallInfoES8_St4lessIS8_ESaISt4pairIKS8_S8_EEES9_IS7_ESaISB_IKS7_SF_EEE7emplaceIJRS7_SF_EEESB_ISt17_Rb_tree_iteratorISI_EbEDpOT_.exit
   %892 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8FuncInfoEPNS6_11ContextNodeESt4lessIS7_ESaISt4pairIKS7_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull readonly align 8 dereferenceable(16) %8)
   store ptr %338, ptr %892, align 8, !tbaa !1002
-  %.val7.i1119 = load ptr, ptr %8, align 8
-  %.val8.i1120 = load i32, ptr %.sroa.268.0..sroa_idx, align 8
   %.val.i.i.i1121 = load ptr, ptr %27, align 8, !tbaa !233
   %.not2.i.i.i.i1122 = icmp eq ptr %.val.i.i.i1121, null
   br i1 %.not2.i.i.i.i1122, label %.critedge.i1140, label %.lr.ph.i.i.i.i1123
@@ -101844,14 +101836,14 @@ _ZNK4llvm9MapVectorIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteCon
   %.083.i.i.i.i1125 = phi ptr [ %.19.i.i.i.i1131, %898 ], [ %26, %_ZNK4llvm9MapVectorIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphENS_15FunctionSummaryENS1_9IndexCallEE8CallInfoEPNS6_11ContextNodeENS_8DenseMapIS7_jNS_12DenseMapInfoIS7_vEENS_6detail12DenseMapPairIS7_jEEEENS_11SmallVectorISt4pairIS7_S9_ELj0EEEE5countERKS7_.exit431 ]
   %893 = getelementptr inbounds nuw i8, ptr %.04.i.i.i.i1124, i64 32
   %.val.i.i.i.i1126 = load ptr, ptr %893, align 8, !tbaa !2682
-  %894 = icmp ult ptr %.val.i.i.i.i1126, %.val7.i1119
+  %894 = icmp ult ptr %.val.i.i.i.i1126, %.val304
   br i1 %894, label %_ZNKSt4lessIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8FuncInfoEEclERKS7_SA_.exit.thread.i.i.i.i1151, label %_ZNKSt4lessIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8FuncInfoEEclERKS7_SA_.exit.i.i.i.i1127
 
 _ZNKSt4lessIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8FuncInfoEEclERKS7_SA_.exit.i.i.i.i1127: ; preds = %.lr.ph.i.i.i.i1123
   %895 = getelementptr i8, ptr %.04.i.i.i.i1124, i64 40
   %.val11.i.i.i.i1128 = load i32, ptr %895, align 8
-  %896 = icmp uge ptr %.val7.i1119, %.val.i.i.i.i1126
-  %897 = icmp ult i32 %.val11.i.i.i.i1128, %.val8.i1120
+  %896 = icmp uge ptr %.val304, %.val.i.i.i.i1126
+  %897 = icmp ult i32 %.val11.i.i.i.i1128, %809
   %spec.select.i.i.i.i.i1129 = select i1 %896, i1 %897, i1 false
   br i1 %spec.select.i.i.i.i.i1129, label %_ZNKSt4lessIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8FuncInfoEEclERKS7_SA_.exit.thread.i.i.i.i1151, label %898
 
@@ -101873,14 +101865,14 @@ _ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphE
 901:                                              ; preds = %_ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8FuncInfoES_INS6_8CallInfoES8_St4lessIS8_ESaISt4pairIKS8_S8_EEES9_IS7_ESaISB_IKS7_SF_EEE11lower_boundERSH_.exit.i1134
   %902 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i1131, i64 32
   %.val5.i1135 = load ptr, ptr %902, align 8, !tbaa !2682
-  %903 = icmp ult ptr %.val7.i1119, %.val5.i1135
+  %903 = icmp ult ptr %.val304, %.val5.i1135
   br i1 %903, label %.critedge.i1140, label %_ZNKSt4lessIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8FuncInfoEEclERKS7_SA_.exit.i1136
 
 _ZNKSt4lessIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8FuncInfoEEclERKS7_SA_.exit.i1136: ; preds = %901
   %904 = getelementptr i8, ptr %.19.i.i.i.i1131, i64 40
   %.val6.i1137 = load i32, ptr %904, align 8
-  %905 = icmp uge ptr %.val5.i1135, %.val7.i1119
-  %906 = icmp ult i32 %.val8.i1120, %.val6.i1137
+  %905 = icmp uge ptr %.val5.i1135, %.val304
+  %906 = icmp ugt i32 %.val6.i1137, %809
   %spec.select.i.i1138 = select i1 %905, i1 %906, i1 false
   br i1 %spec.select.i.i1138, label %.critedge.i1140, label %_ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8FuncInfoES_INS6_8CallInfoES8_St4lessIS8_ESaISt4pairIKS8_S8_EEES9_IS7_ESaISB_IKS7_SF_EEEixERSH_.exit1152
 

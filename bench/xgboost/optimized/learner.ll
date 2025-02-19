@@ -30221,7 +30221,7 @@ _ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNK
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #35
+  call void @__clang_call_terminate(ptr %39) #35, !noalias !211
   unreachable
 
 40:                                               ; preds = %.lr.ph.i.i.i
@@ -30270,7 +30270,7 @@ _ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds =
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #35
+  call void @__clang_call_terminate(ptr %57) #35, !noalias !218
   unreachable
 
 58:                                               ; preds = %.lr.ph.i.i.i27
@@ -39855,7 +39855,7 @@ define linkonce_odr void @_ZN7xgboost10collective6detail18TryApplyWithLabelsIRZN
   %30 = extractvalue { ptr, i32 } %29, 1
   %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4dmlc5ErrorE) #15
   %32 = icmp eq i32 %30, %31
-  br i1 %32, label %33, label %72
+  br i1 %32, label %33, label %71
 
 33:                                               ; preds = %28
   %34 = extractvalue { ptr, i32 } %29, 0
@@ -39869,92 +39869,87 @@ define linkonce_odr void @_ZN7xgboost10collective6detail18TryApplyWithLabelsIRZN
 
 41:                                               ; preds = %33
   invoke void @__cxa_end_catch()
-          to label %._ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv.exit.i_crit_edge unwind label %44
-
-._ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv.exit.i_crit_edge: ; preds = %41
-  %.pre = load ptr, ptr %5, align 8, !noalias !332
-  br label %_ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv.exit.i
+          to label %_ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv.exit.i unwind label %44
 
 42:                                               ; preds = %33
   %43 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %72 unwind label %73
+          to label %71 unwind label %72
 
 44:                                               ; preds = %41
   %45 = landingpad { ptr, i32 }
           cleanup
-  br label %72
+  br label %71
 
-_ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv.exit.i: ; preds = %._ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv.exit.i_crit_edge, %.noexc, %3
-  %46 = phi ptr [ %.pre, %._ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv.exit.i_crit_edge ], [ %1, %.noexc ], [ %1, %3 ]
-  %47 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
-  store i64 %47, ptr %7, align 8
-  store ptr null, ptr %10, align 8, !alias.scope !337
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !332
-  %48 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
-          to label %.noexc13 unwind label %64
+_ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv.exit.i: ; preds = %.noexc, %41, %3
+  %46 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
+  store i64 %46, ptr %7, align 8
+  store ptr null, ptr %10, align 8, !alias.scope !332
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !335
+  %47 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
+          to label %.noexc13 unwind label %63
 
 .noexc13:                                         ; preds = %_ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv.exit.i
-  %49 = load ptr, ptr %48, align 8, !noalias !340
+  %48 = load ptr, ptr %47, align 8, !noalias !340
   store i64 1, ptr %4, align 8, !noalias !340
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !340
-  %50 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 1, ptr %50, align 8, !noalias !340
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 1, ptr %49, align 8, !noalias !340
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %7, ptr %50, align 8, !noalias !340
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %7, ptr %51, align 8, !noalias !340
-  %52 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %7, ptr %52, align 8, !noalias !340
   %.sroa.9.32..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 1, ptr %.sroa.9.32..sroa_idx.i.i, align 8, !noalias !340
   %.sroa.10.32..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 -65536, ptr %.sroa.10.32..sroa_idx.i.i, align 8, !noalias !340
-  invoke void @_ZN7xgboost10collective9BroadcastImEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_Li1EEEi(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %9, ptr noundef %46, ptr noundef nonnull align 8 dereferenceable(64) %49, ptr noundef nonnull %4, i32 noundef 0)
-          to label %53 unwind label %64
+  invoke void @_ZN7xgboost10collective9BroadcastImEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_Li1EEEi(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %9, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %48, ptr noundef nonnull %4, i32 noundef 0)
+          to label %52 unwind label %63
 
-53:                                               ; preds = %.noexc13
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !332
+52:                                               ; preds = %.noexc13
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !335
   store ptr %7, ptr %11, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %6, ptr %54, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %5, ptr %55, align 8
-  %56 = load ptr, ptr %9, align 8, !noalias !343
-  %.not.i.i15 = icmp eq ptr %56, null
-  br i1 %.not.i.i15, label %58, label %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_.exit.thread
+  %53 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %6, ptr %53, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr %5, ptr %54, align 8
+  %55 = load ptr, ptr %9, align 8, !noalias !343
+  %.not.i.i15 = icmp eq ptr %55, null
+  br i1 %.not.i.i15, label %57, label %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_.exit.thread
 
-_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_.exit.thread: ; preds = %53
+_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_.exit.thread: ; preds = %52
   store ptr null, ptr %9, align 8, !noalias !343
   store ptr %7, ptr %12, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %6, ptr %57, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %6, ptr %56, align 8
   br label %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE1_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_.exit.thread
 
-58:                                               ; preds = %53
+57:                                               ; preds = %52
   invoke void @_ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE0_clEv(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_.exit unwind label %66
+          to label %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_.exit unwind label %65
 
-_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_.exit: ; preds = %58
+_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_.exit: ; preds = %57
   %.pr = load ptr, ptr %8, align 8, !noalias !346
   store ptr %7, ptr %12, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %6, ptr %59, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %6, ptr %58, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !346)
   %.not.i.i17 = icmp eq ptr %.pr, null
-  br i1 %.not.i.i17, label %62, label %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE1_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_.exit.thread
+  br i1 %.not.i.i17, label %61, label %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE1_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_.exit.thread
 
 _ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE1_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_.exit.thread: ; preds = %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_.exit.thread, %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_.exit
-  %60 = phi ptr [ %56, %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_.exit.thread ], [ %.pr, %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_.exit ]
-  %61 = ptrtoint ptr %60 to i64
-  store i64 %61, ptr %0, align 8, !alias.scope !346
+  %59 = phi ptr [ %55, %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_.exit.thread ], [ %.pr, %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_.exit ]
+  %60 = ptrtoint ptr %59 to i64
+  store i64 %60, ptr %0, align 8, !alias.scope !346
   br label %_ZN7xgboost10collective6ResultD2Ev.exit
 
-62:                                               ; preds = %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_.exit
+61:                                               ; preds = %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_.exit
   invoke void @_ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE1_clEv(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %12)
-          to label %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE1_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_.exit unwind label %68
+          to label %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE1_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_.exit unwind label %67
 
-_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE1_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_.exit: ; preds = %62
+_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE1_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_.exit: ; preds = %61
   %.pr26 = load ptr, ptr %8, align 8
   %.not.i.i19 = icmp eq ptr %.pr26, null
   br i1 %.not.i.i19, label %_ZN7xgboost10collective6ResultD2Ev.exit, label %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i
@@ -39966,13 +39961,13 @@ _ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.
 
 _ZN7xgboost10collective6ResultD2Ev.exit:          ; preds = %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE1_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_.exit.thread, %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE1_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_.exit, %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i
   store ptr null, ptr %8, align 8
-  %63 = load ptr, ptr %9, align 8
-  %.not.i.i20 = icmp eq ptr %63, null
+  %62 = load ptr, ptr %9, align 8
+  %.not.i.i20 = icmp eq ptr %62, null
   br i1 %.not.i.i20, label %_ZN7xgboost10collective6ResultD2Ev.exit25, label %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i21
 
 _ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i21: ; preds = %_ZN7xgboost10collective6ResultD2Ev.exit
-  call void @_ZN7xgboost10collective6detail10ResultImplD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %63) #15
-  call void @_ZdlPvm(ptr noundef nonnull %63, i64 noundef 56) #34
+  call void @_ZN7xgboost10collective6detail10ResultImplD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %62) #15
+  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef 56) #34
   br label %_ZN7xgboost10collective6ResultD2Ev.exit25
 
 _ZN7xgboost10collective6ResultD2Ev.exit25:        ; preds = %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i21, %_ZN7xgboost10collective6ResultD2Ev.exit
@@ -39980,42 +39975,42 @@ _ZN7xgboost10collective6ResultD2Ev.exit25:        ; preds = %_ZNKSt14default_del
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   ret void
 
-64:                                               ; preds = %.noexc13, %_ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv.exit.i
-  %65 = landingpad { ptr, i32 }
-          cleanup
-  br label %71
-
-66:                                               ; preds = %58
-  %67 = landingpad { ptr, i32 }
+63:                                               ; preds = %.noexc13, %_ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv.exit.i
+  %64 = landingpad { ptr, i32 }
           cleanup
   br label %70
 
-68:                                               ; preds = %62
-  %69 = landingpad { ptr, i32 }
+65:                                               ; preds = %57
+  %66 = landingpad { ptr, i32 }
+          cleanup
+  br label %69
+
+67:                                               ; preds = %61
+  %68 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7xgboost10collective6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
+  br label %69
+
+69:                                               ; preds = %67, %65
+  %.pn = phi { ptr, i32 } [ %68, %67 ], [ %66, %65 ]
+  call void @_ZN7xgboost10collective6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #15
   br label %70
 
-70:                                               ; preds = %68, %66
-  %.pn = phi { ptr, i32 } [ %69, %68 ], [ %67, %66 ]
-  call void @_ZN7xgboost10collective6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #15
+70:                                               ; preds = %69, %63
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %69 ], [ %64, %63 ]
+  call void @_ZN7xgboost10collective6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #15
   br label %71
 
-71:                                               ; preds = %70, %64
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %70 ], [ %65, %64 ]
-  call void @_ZN7xgboost10collective6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #15
-  br label %72
-
-72:                                               ; preds = %42, %71, %44, %28
-  %.merged = phi { ptr, i32 } [ %.pn.pn, %71 ], [ %45, %44 ], [ %43, %42 ], [ %29, %28 ]
+71:                                               ; preds = %42, %70, %44, %28
+  %.merged = phi { ptr, i32 } [ %.pn.pn, %70 ], [ %45, %44 ], [ %43, %42 ], [ %29, %28 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   resume { ptr, i32 } %.merged
 
-73:                                               ; preds = %42
-  %74 = landingpad { ptr, i32 }
+72:                                               ; preds = %42
+  %73 = landingpad { ptr, i32 }
           catch ptr null
-  %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #35
+  %74 = extractvalue { ptr, i32 } %73, 0
+  call void @__clang_call_terminate(ptr %74) #35
   unreachable
 }
 
@@ -41291,7 +41286,7 @@ define linkonce_odr void @_ZN7xgboost10collective6detail18TryApplyWithLabelsIRZN
   %34 = extractvalue { ptr, i32 } %33, 1
   %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4dmlc5ErrorE) #15
   %36 = icmp eq i32 %34, %35
-  br i1 %36, label %37, label %76
+  br i1 %36, label %37, label %75
 
 37:                                               ; preds = %32
   %38 = extractvalue { ptr, i32 } %33, 0
@@ -41305,92 +41300,87 @@ define linkonce_odr void @_ZN7xgboost10collective6detail18TryApplyWithLabelsIRZN
 
 45:                                               ; preds = %37
   invoke void @__cxa_end_catch()
-          to label %._ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv.exit.i_crit_edge unwind label %48
-
-._ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv.exit.i_crit_edge: ; preds = %45
-  %.pre = load ptr, ptr %5, align 8, !noalias !406
-  br label %_ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv.exit.i
+          to label %_ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv.exit.i unwind label %48
 
 46:                                               ; preds = %37
   %47 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %76 unwind label %77
+          to label %75 unwind label %76
 
 48:                                               ; preds = %45
   %49 = landingpad { ptr, i32 }
           cleanup
-  br label %76
+  br label %75
 
-_ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv.exit.i: ; preds = %._ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv.exit.i_crit_edge, %15, %3
-  %50 = phi ptr [ %.pre, %._ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv.exit.i_crit_edge ], [ %1, %15 ], [ %1, %3 ]
-  %51 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
-  store i64 %51, ptr %7, align 8
-  store ptr null, ptr %10, align 8, !alias.scope !411
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !406
-  %52 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
-          to label %.noexc unwind label %68
+_ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv.exit.i: ; preds = %15, %45, %3
+  %50 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
+  store i64 %50, ptr %7, align 8
+  store ptr null, ptr %10, align 8, !alias.scope !406
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !409
+  %51 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
+          to label %.noexc unwind label %67
 
 .noexc:                                           ; preds = %_ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv.exit.i
-  %53 = load ptr, ptr %52, align 8, !noalias !414
+  %52 = load ptr, ptr %51, align 8, !noalias !414
   store i64 1, ptr %4, align 8, !noalias !414
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !414
-  %54 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 1, ptr %54, align 8, !noalias !414
-  %55 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 1, ptr %53, align 8, !noalias !414
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %7, ptr %54, align 8, !noalias !414
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %7, ptr %55, align 8, !noalias !414
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %7, ptr %56, align 8, !noalias !414
   %.sroa.9.32..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 1, ptr %.sroa.9.32..sroa_idx.i.i, align 8, !noalias !414
   %.sroa.10.32..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 -65536, ptr %.sroa.10.32..sroa_idx.i.i, align 8, !noalias !414
-  invoke void @_ZN7xgboost10collective9BroadcastImEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_Li1EEEi(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %9, ptr noundef %50, ptr noundef nonnull align 8 dereferenceable(64) %53, ptr noundef nonnull %4, i32 noundef 0)
-          to label %57 unwind label %68
+  invoke void @_ZN7xgboost10collective9BroadcastImEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_Li1EEEi(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %9, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %52, ptr noundef nonnull %4, i32 noundef 0)
+          to label %56 unwind label %67
 
-57:                                               ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !406
+56:                                               ; preds = %.noexc
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !409
   store ptr %7, ptr %11, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %6, ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %5, ptr %59, align 8
-  %60 = load ptr, ptr %9, align 8, !noalias !417
-  %.not.i.i13 = icmp eq ptr %60, null
-  br i1 %.not.i.i13, label %62, label %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_.exit.thread
+  %57 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %6, ptr %57, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr %5, ptr %58, align 8
+  %59 = load ptr, ptr %9, align 8, !noalias !417
+  %.not.i.i13 = icmp eq ptr %59, null
+  br i1 %.not.i.i13, label %61, label %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_.exit.thread
 
-_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_.exit.thread: ; preds = %57
+_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_.exit.thread: ; preds = %56
   store ptr null, ptr %9, align 8, !noalias !417
   store ptr %7, ptr %12, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %6, ptr %61, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %6, ptr %60, align 8
   br label %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE1_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_.exit.thread
 
-62:                                               ; preds = %57
+61:                                               ; preds = %56
   invoke void @_ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE0_clEv(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_.exit unwind label %70
+          to label %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_.exit unwind label %69
 
-_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_.exit: ; preds = %62
+_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_.exit: ; preds = %61
   %.pr = load ptr, ptr %8, align 8, !noalias !420
   store ptr %7, ptr %12, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %6, ptr %63, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %6, ptr %62, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !420)
   %.not.i.i15 = icmp eq ptr %.pr, null
-  br i1 %.not.i.i15, label %66, label %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE1_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_.exit.thread
+  br i1 %.not.i.i15, label %65, label %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE1_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_.exit.thread
 
 _ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE1_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_.exit.thread: ; preds = %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_.exit.thread, %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_.exit
-  %64 = phi ptr [ %60, %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_.exit.thread ], [ %.pr, %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_.exit ]
-  %65 = ptrtoint ptr %64 to i64
-  store i64 %65, ptr %0, align 8, !alias.scope !420
+  %63 = phi ptr [ %59, %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_.exit.thread ], [ %.pr, %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_.exit ]
+  %64 = ptrtoint ptr %63 to i64
+  store i64 %64, ptr %0, align 8, !alias.scope !420
   br label %_ZN7xgboost10collective6ResultD2Ev.exit
 
-66:                                               ; preds = %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_.exit
+65:                                               ; preds = %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_.exit
   invoke void @_ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE1_clEv(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %12)
-          to label %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE1_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_.exit unwind label %72
+          to label %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE1_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_.exit unwind label %71
 
-_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE1_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_.exit: ; preds = %66
+_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE1_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_.exit: ; preds = %65
   %.pr24 = load ptr, ptr %8, align 8
   %.not.i.i17 = icmp eq ptr %.pr24, null
   br i1 %.not.i.i17, label %_ZN7xgboost10collective6ResultD2Ev.exit, label %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i
@@ -41402,13 +41392,13 @@ _ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.
 
 _ZN7xgboost10collective6ResultD2Ev.exit:          ; preds = %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE1_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_.exit.thread, %_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE1_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_.exit, %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i
   store ptr null, ptr %8, align 8
-  %67 = load ptr, ptr %9, align 8
-  %.not.i.i18 = icmp eq ptr %67, null
+  %66 = load ptr, ptr %9, align 8
+  %.not.i.i18 = icmp eq ptr %66, null
   br i1 %.not.i.i18, label %_ZN7xgboost10collective6ResultD2Ev.exit23, label %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i19
 
 _ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i19: ; preds = %_ZN7xgboost10collective6ResultD2Ev.exit
-  call void @_ZN7xgboost10collective6detail10ResultImplD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %67) #15
-  call void @_ZdlPvm(ptr noundef nonnull %67, i64 noundef 56) #34
+  call void @_ZN7xgboost10collective6detail10ResultImplD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %66) #15
+  call void @_ZdlPvm(ptr noundef nonnull %66, i64 noundef 56) #34
   br label %_ZN7xgboost10collective6ResultD2Ev.exit23
 
 _ZN7xgboost10collective6ResultD2Ev.exit23:        ; preds = %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i19, %_ZN7xgboost10collective6ResultD2Ev.exit
@@ -41416,42 +41406,42 @@ _ZN7xgboost10collective6ResultD2Ev.exit23:        ; preds = %_ZNKSt14default_del
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   ret void
 
-68:                                               ; preds = %.noexc, %_ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv.exit.i
-  %69 = landingpad { ptr, i32 }
-          cleanup
-  br label %75
-
-70:                                               ; preds = %62
-  %71 = landingpad { ptr, i32 }
+67:                                               ; preds = %.noexc, %_ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv.exit.i
+  %68 = landingpad { ptr, i32 }
           cleanup
   br label %74
 
-72:                                               ; preds = %66
-  %73 = landingpad { ptr, i32 }
+69:                                               ; preds = %61
+  %70 = landingpad { ptr, i32 }
+          cleanup
+  br label %73
+
+71:                                               ; preds = %65
+  %72 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7xgboost10collective6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
+  br label %73
+
+73:                                               ; preds = %71, %69
+  %.pn = phi { ptr, i32 } [ %72, %71 ], [ %70, %69 ]
+  call void @_ZN7xgboost10collective6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #15
   br label %74
 
-74:                                               ; preds = %72, %70
-  %.pn = phi { ptr, i32 } [ %73, %72 ], [ %71, %70 ]
-  call void @_ZN7xgboost10collective6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #15
+74:                                               ; preds = %73, %67
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %73 ], [ %68, %67 ]
+  call void @_ZN7xgboost10collective6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #15
   br label %75
 
-75:                                               ; preds = %74, %68
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %74 ], [ %69, %68 ]
-  call void @_ZN7xgboost10collective6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #15
-  br label %76
-
-76:                                               ; preds = %46, %75, %48, %32
-  %.merged = phi { ptr, i32 } [ %.pn.pn, %75 ], [ %49, %48 ], [ %47, %46 ], [ %33, %32 ]
+75:                                               ; preds = %46, %74, %48, %32
+  %.merged = phi { ptr, i32 } [ %.pn.pn, %74 ], [ %49, %48 ], [ %47, %46 ], [ %33, %32 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   resume { ptr, i32 } %.merged
 
-77:                                               ; preds = %46
-  %78 = landingpad { ptr, i32 }
+76:                                               ; preds = %46
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #35
+  %78 = extractvalue { ptr, i32 } %77, 0
+  call void @__clang_call_terminate(ptr %78) #35
   unreachable
 }
 
@@ -55096,15 +55086,15 @@ attributes #39 = { nounwind willreturn memory(none) }
 !329 = !{!330, !324}
 !330 = distinct !{!330, !331, !"_ZN7xgboost10collective9BroadcastIfEENS0_6ResultEPKNS_7ContextENS_6linalg10TensorViewIT_Li1EEEi: argument 0"}
 !331 = distinct !{!331, !"_ZN7xgboost10collective9BroadcastIfEENS0_6ResultEPKNS_7ContextENS_6linalg10TensorViewIT_Li1EEEi"}
-!332 = !{!333, !335}
-!333 = distinct !{!333, !334, !"_ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv: argument 0"}
-!334 = distinct !{!334, !"_ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv"}
-!335 = distinct !{!335, !336, !"_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_: argument 0"}
-!336 = distinct !{!336, !"_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_"}
-!337 = !{!338}
-!338 = distinct !{!338, !339, !"_ZN7xgboost10collective7SuccessEv: argument 0"}
-!339 = distinct !{!339, !"_ZN7xgboost10collective7SuccessEv"}
-!340 = !{!341, !333, !335}
+!332 = !{!333}
+!333 = distinct !{!333, !334, !"_ZN7xgboost10collective7SuccessEv: argument 0"}
+!334 = distinct !{!334, !"_ZN7xgboost10collective7SuccessEv"}
+!335 = !{!336, !338}
+!336 = distinct !{!336, !337, !"_ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv: argument 0"}
+!337 = distinct !{!337, !"_ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv"}
+!338 = distinct !{!338, !339, !"_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_: argument 0"}
+!339 = distinct !{!339, !"_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_20LearnerConfiguration14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE_EENSt9enable_ifIXsr3stdE14is_invocable_vISI_EESE_E4typeEOSE_SJ_"}
+!340 = !{!341, !336, !338}
 !341 = distinct !{!341, !342, !"_ZN7xgboost10collective9BroadcastImEENS0_6ResultEPKNS_7ContextENS_6linalg10TensorViewIT_Li1EEEi: argument 0"}
 !342 = distinct !{!342, !"_ZN7xgboost10collective9BroadcastImEENS0_6ResultEPKNS_7ContextENS_6linalg10TensorViewIT_Li1EEEi"}
 !343 = !{!344}
@@ -55170,15 +55160,15 @@ attributes #39 = { nounwind willreturn memory(none) }
 !403 = !{!404, !398}
 !404 = distinct !{!404, !405, !"_ZN7xgboost10collective9BroadcastINS_6detail20GradientPairInternalIfEEEENS0_6ResultEPKNS_7ContextENS_6linalg10TensorViewIT_Li1EEEi: argument 0"}
 !405 = distinct !{!405, !"_ZN7xgboost10collective9BroadcastINS_6detail20GradientPairInternalIfEEEENS0_6ResultEPKNS_7ContextENS_6linalg10TensorViewIT_Li1EEEi"}
-!406 = !{!407, !409}
-!407 = distinct !{!407, !408, !"_ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv: argument 0"}
-!408 = distinct !{!408, !"_ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv"}
-!409 = distinct !{!409, !410, !"_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_: argument 0"}
-!410 = distinct !{!410, !"_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_"}
-!411 = !{!412}
-!412 = distinct !{!412, !413, !"_ZN7xgboost10collective7SuccessEv: argument 0"}
-!413 = distinct !{!413, !"_ZN7xgboost10collective7SuccessEv"}
-!414 = !{!415, !407, !409}
+!406 = !{!407}
+!407 = distinct !{!407, !408, !"_ZN7xgboost10collective7SuccessEv: argument 0"}
+!408 = distinct !{!408, !"_ZN7xgboost10collective7SuccessEv"}
+!409 = !{!410, !412}
+!410 = distinct !{!410, !411, !"_ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv: argument 0"}
+!411 = distinct !{!411, !"_ZZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_ENKUlvE_clEv"}
+!412 = distinct !{!412, !413, !"_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_: argument 0"}
+!413 = distinct !{!413, !"_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_11LearnerImpl11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlvE_EENS0_6ResultEPKNS_7ContextEOT_EUlvE_EENSt9enable_ifIXsr3stdE14is_invocable_vISP_EESL_E4typeEOSL_SQ_"}
+!414 = !{!415, !410, !412}
 !415 = distinct !{!415, !416, !"_ZN7xgboost10collective9BroadcastImEENS0_6ResultEPKNS_7ContextENS_6linalg10TensorViewIT_Li1EEEi: argument 0"}
 !416 = distinct !{!416, !"_ZN7xgboost10collective9BroadcastImEENS0_6ResultEPKNS_7ContextENS_6linalg10TensorViewIT_Li1EEEi"}
 !417 = !{!418}

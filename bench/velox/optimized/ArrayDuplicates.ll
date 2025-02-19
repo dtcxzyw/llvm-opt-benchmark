@@ -45740,7 +45740,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %cond.true.i.i.i.i.i
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #31
+  call void @__clang_call_terminate(ptr %56) #31, !noalias !533
   unreachable
 
 _ZN5folly3f146detail11F14BasicMapINS1_20ValueContainerPolicyIfbvvvEEEixERKf.exit: ; preds = %if.then16, %cond.true.i.i.i.i.i
@@ -51331,7 +51331,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %cond.true.i.i.i.i.i
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #31
+  call void @__clang_call_terminate(ptr %56) #31, !noalias !604
   unreachable
 
 _ZN5folly3f146detail11F14BasicMapINS1_20ValueContainerPolicyIdbvvvEEEixERKd.exit: ; preds = %if.then16, %cond.true.i.i.i.i.i

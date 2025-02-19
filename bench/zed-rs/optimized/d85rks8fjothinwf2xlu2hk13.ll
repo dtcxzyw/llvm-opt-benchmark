@@ -3886,7 +3886,6 @@ define hidden void @"_ZN15futures_channel4mpsc23UnboundedInner$LT$T$GT$10set_clo
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN15futures_channel4mpsc24UnboundedSender$LT$T$GT$10do_send_nb17h66873f26bf8dd4a3E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.sroa.4.i.i = alloca [12 x i8], align 8
   %4 = load ptr, ptr %1, align 8, !noundef !4
   %5 = icmp eq ptr %4, null
   br i1 %5, label %"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$16inc_num_messages17hc1060a472e3ce65eE.llvm.5131139489994582956.exit", label %6
@@ -3925,24 +3924,21 @@ define hidden void @"_ZN15futures_channel4mpsc24UnboundedSender$LT$T$GT$10do_sen
   br label %25
 
 17:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.4.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.4.i.i, ptr noundef nonnull readonly align 4 dereferenceable(12) %2, i64 12, i1 false), !noalias !783
-  %18 = tail call { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hca4f2c3ea5fa8ec1E.llvm.13693790587411163698(ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 8, i64 noundef 24, i1 noundef zeroext false), !noalias !786
+  %18 = tail call { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hca4f2c3ea5fa8ec1E.llvm.13693790587411163698(ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 8, i64 noundef 24, i1 noundef zeroext false), !noalias !783
   %19 = extractvalue { ptr, i64 } %18, 0
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$21queue_push_and_signal17h8a9b21031f6feacfE.llvm.5131139489994582956.exit"
 
 21:                                               ; preds = %17
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h6d7f2bdbc63ffea9E(i64 noundef 8, i64 noundef 24) #37, !noalias !786
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h6d7f2bdbc63ffea9E(i64 noundef 8, i64 noundef 24) #37, !noalias !783
   unreachable
 
 "_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$21queue_push_and_signal17h8a9b21031f6feacfE.llvm.5131139489994582956.exit": ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr null, ptr %19, align 8
+  store ptr null, ptr %19, align 8, !noalias !791
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.4.i.i, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.4.i.i)
-  %23 = atomicrmw xchg ptr %22, ptr %19 acq_rel, align 8, !noalias !792
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull readonly align 4 dereferenceable(12) %2, i64 12, i1 false), !noalias !792
+  %23 = atomicrmw xchg ptr %22, ptr %19 acq_rel, align 8, !noalias !791
   store atomic ptr %19, ptr %23 release, align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 48
   tail call void @_ZN12futures_core4task10__internal12atomic_waker11AtomicWaker4wake17h251c193126d5370dE(ptr noundef nonnull align 8 %24), !noalias !793
@@ -4224,10 +4220,7 @@ define hidden { i64, i64 } @"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$21queue_push_and_signal17h8a9b21031f6feacfE.llvm.5131139489994582956"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.sroa.4.i = alloca [12 x i8], align 8
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.4.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.4.i, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %4 = tail call { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hca4f2c3ea5fa8ec1E.llvm.13693790587411163698(ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 8, i64 noundef 24, i1 noundef zeroext false), !noalias !824
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = icmp eq ptr %5, null
@@ -4239,10 +4232,9 @@ define hidden void @"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$21q
 
 "_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$4push17h6a1da7b54c761a7aE.exit": ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr null, ptr %5, align 8
+  store ptr null, ptr %5, align 8, !noalias !829
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.4.i, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.4.i)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %9 = atomicrmw xchg ptr %8, ptr %5 acq_rel, align 8, !noalias !829
   store atomic ptr %5, ptr %9 release, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -16897,17 +16889,17 @@ attributes #37 = { noreturn }
 !780 = !{!781}
 !781 = distinct !{!781, !782, !"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$16inc_num_messages17hc1060a472e3ce65eE.llvm.5131139489994582956: argument 0"}
 !782 = distinct !{!782, !"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$16inc_num_messages17hc1060a472e3ce65eE.llvm.5131139489994582956"}
-!783 = !{!784}
-!784 = distinct !{!784, !785, !"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$21queue_push_and_signal17h8a9b21031f6feacfE.llvm.5131139489994582956: argument 0"}
-!785 = distinct !{!785, !"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$21queue_push_and_signal17h8a9b21031f6feacfE.llvm.5131139489994582956"}
-!786 = !{!787, !789, !784, !791}
-!787 = distinct !{!787, !788, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hecc216394da5b39dE.llvm.13693790587411163698: argument 0"}
-!788 = distinct !{!788, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hecc216394da5b39dE.llvm.13693790587411163698"}
-!789 = distinct !{!789, !790, !"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$4push17h6a1da7b54c761a7aE: argument 0"}
-!790 = distinct !{!790, !"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$4push17h6a1da7b54c761a7aE"}
-!791 = distinct !{!791, !785, !"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$21queue_push_and_signal17h8a9b21031f6feacfE.llvm.5131139489994582956: argument 1"}
-!792 = !{!789, !784, !791}
-!793 = !{!784, !791}
+!783 = !{!784, !786, !788, !790}
+!784 = distinct !{!784, !785, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hecc216394da5b39dE.llvm.13693790587411163698: argument 0"}
+!785 = distinct !{!785, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hecc216394da5b39dE.llvm.13693790587411163698"}
+!786 = distinct !{!786, !787, !"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$4push17h6a1da7b54c761a7aE: argument 0"}
+!787 = distinct !{!787, !"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$4push17h6a1da7b54c761a7aE"}
+!788 = distinct !{!788, !789, !"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$21queue_push_and_signal17h8a9b21031f6feacfE.llvm.5131139489994582956: argument 0"}
+!789 = distinct !{!789, !"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$21queue_push_and_signal17h8a9b21031f6feacfE.llvm.5131139489994582956"}
+!790 = distinct !{!790, !789, !"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$21queue_push_and_signal17h8a9b21031f6feacfE.llvm.5131139489994582956: argument 1"}
+!791 = !{!786, !788, !790}
+!792 = !{!788}
+!793 = !{!788, !790}
 !794 = !{!795}
 !795 = distinct !{!795, !796, !"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$8pop_spin17hf7b68c5544fa1950E: argument 0"}
 !796 = distinct !{!796, !"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$8pop_spin17hf7b68c5544fa1950E"}

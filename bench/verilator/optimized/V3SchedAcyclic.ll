@@ -2113,7 +2113,7 @@ _ZN7AstNode12user1SetOnceEv.exit.i:               ; preds = %366, %_ZNSt6vectorI
   %398 = landingpad { ptr, i32 }
           catch ptr null
   %399 = extractvalue { ptr, i32 } %398, 0
-  call void @__clang_call_terminate(ptr %399) #28
+  call void @__clang_call_terminate(ptr %399) #28, !noalias !12
   unreachable
 
 400:                                              ; preds = %.loopexit.split-lp.i49, %.loopexit39.i

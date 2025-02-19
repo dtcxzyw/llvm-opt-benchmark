@@ -3681,7 +3681,6 @@ cleanup.action:                                   ; preds = %cond.true
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cond.false, %if.then.i.i21, %cleanup.action
-  call void @llvm.experimental.noalias.scope.decl(metadata !48)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   %call.i2225 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
           to label %call.i22.noexc unwind label %lpad41
@@ -3713,7 +3712,6 @@ if.then.i.i4.i:                                   ; preds = %.noexc.i
   %sub.i.i.i.i.i = add nsw i64 %31, -1
   %34 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %35 = atomicrmw add ptr %34, i32 1 monotonic, align 4, !noalias !48
-  store ptr %call.i2225, ptr %ref.tmp40, align 8, !alias.scope !48
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %31)
           to label %invoke.cont42 unwind label %terminate.lpad.i.i, !noalias !48
 
@@ -3721,7 +3719,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i4.i
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #34
+  call void @__clang_call_terminate(ptr %37) #34, !noalias !48
   unreachable
 
 lpad1.i:                                          ; preds = %invoke.cont.i
@@ -6919,7 +6917,6 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i75.i
 _ZN4absl12lts_202308026StatusD2Ev.exit.i:         ; preds = %if.then.i.i75.i, %invoke.cont104.i, %if.then.i67.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp91.i) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp94.i) #32
-  call void @llvm.experimental.noalias.scope.decl(metadata !99)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   %call.i49 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
           to label %call.i.noexc unwind label %lpad.loopexit.split-lp
@@ -6951,7 +6948,6 @@ if.then.i.i4.i:                                   ; preds = %.noexc.i
   %sub.i.i.i.i.i = add nsw i64 %57, -1
   %60 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %61 = atomicrmw add ptr %60, i32 1 monotonic, align 4, !noalias !99
-  store ptr %call.i49, ptr %ref.tmp108.i, align 8, !alias.scope !99
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %57)
           to label %.noexc14 unwind label %terminate.lpad.i.i47, !noalias !99
 
@@ -6959,7 +6955,7 @@ terminate.lpad.i.i47:                             ; preds = %if.then.i.i4.i
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
-  call void @__clang_call_terminate(ptr %63) #34
+  call void @__clang_call_terminate(ptr %63) #34, !noalias !99
   unreachable
 
 lpad1.i:                                          ; preds = %invoke.cont.i46
@@ -9011,7 +9007,6 @@ invoke.cont52:                                    ; preds = %if.then46
 invoke.cont55:                                    ; preds = %invoke.cont52
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51) #32
-  call void @llvm.experimental.noalias.scope.decl(metadata !128)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   %call.i3536 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
           to label %call.i35.noexc unwind label %lpad58
@@ -9043,7 +9038,6 @@ if.then.i.i4.i:                                   ; preds = %.noexc.i
   %sub.i.i.i.i.i = add nsw i64 %33, -1
   %36 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %37 = atomicrmw add ptr %36, i32 1 monotonic, align 4, !noalias !128
-  store ptr %call.i3536, ptr %ref.tmp57, align 8, !alias.scope !128
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %33)
           to label %invoke.cont59 unwind label %terminate.lpad.i.i, !noalias !128
 
@@ -9051,7 +9045,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i4.i
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #34
+  call void @__clang_call_terminate(ptr %39) #34, !noalias !128
   unreachable
 
 lpad1.i:                                          ; preds = %invoke.cont.i
@@ -9790,7 +9784,6 @@ invoke.cont45:                                    ; preds = %invoke.cont42
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp41) #32
   %policy_6.val9 = load ptr, ptr %policy_6, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !138)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   %call.i2122 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
           to label %call.i21.noexc unwind label %lpad50
@@ -9822,7 +9815,6 @@ if.then.i.i4.i:                                   ; preds = %.noexc.i
   %sub.i.i.i.i.i = add nsw i64 %24, -1
   %27 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %28 = atomicrmw add ptr %27, i32 1 monotonic, align 4, !noalias !138
-  store ptr %call.i2122, ptr %ref.tmp49, align 8, !alias.scope !138
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %24)
           to label %invoke.cont51 unwind label %terminate.lpad.i.i, !noalias !138
 
@@ -9830,7 +9822,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i4.i
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #34
+  call void @__clang_call_terminate(ptr %30) #34, !noalias !138
   unreachable
 
 lpad1.i:                                          ; preds = %invoke.cont.i

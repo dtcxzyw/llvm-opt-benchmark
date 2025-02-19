@@ -809,7 +809,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_ElementTypeConversionDataS
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  %55 = call ptr @__cxa_begin_catch(ptr %54) #21
+  %55 = call ptr @__cxa_begin_catch(ptr %54) #21, !noalias !4
   %56 = load ptr, ptr %36, align 8, !noalias !4
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8, !noalias !4
@@ -827,7 +827,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_ElementTypeConversionDataS
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
-  call void @__clang_call_terminate(ptr %63) #24
+  call void @__clang_call_terminate(ptr %63) #24, !noalias !4
   unreachable
 
 64:                                               ; preds = %52

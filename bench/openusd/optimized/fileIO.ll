@@ -17988,7 +17988,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA3_KcJRA13_S3_EEEOT_D
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #24
+  tail call void @__clang_call_terminate(ptr %11) #24, !noalias !258
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__21Vt_DefaultValueHolder6CreateINS_12VtDictionaryEEES0_v.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA3_KcJRA13_S3_EEEOT_DpOT0_.exit.thread.i.i.i, %6

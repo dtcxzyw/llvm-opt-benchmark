@@ -28539,11 +28539,11 @@ define void @_ZN8language5proto21deserialize_operation17h99e20880dca53c84E(ptr d
   unreachable
 
 "_ZN5alloc4sync12Arc$LT$T$GT$19allocate_for_layout17hcf113b257d6444f9E.exit.i": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h78cef3780e7efb40E.exit.i"
-  store i64 1, ptr %60, align 8
+  store i64 1, ptr %60, align 8, !noalias !5708
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store i64 1, ptr %63, align 8
+  store i64 1, ptr %63, align 8, !noalias !5708
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %64, ptr nonnull align 8 %.sroa.4.0.copyload.i178, i64 %54, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %64, ptr nonnull align 8 %.sroa.4.0.copyload.i178, i64 %54, i1 false), !noalias !5701
   %65 = icmp eq i64 %.sroa.04.0.copyload.i, 0
   br i1 %65, label %"_ZN115_$LT$alloc..sync..Arc$LT$$u5b$T$u5d$$C$A$GT$$u20$as$u20$core..convert..From$LT$alloc..vec..Vec$LT$T$C$A$GT$$GT$$GT$4from17h7f9f9ae5aebe2ef0E.exit", label %66
 
@@ -29096,11 +29096,11 @@ define { ptr, i64 } @_ZN8language5proto22deserialize_selections17h1d8eb1c1dddeb6
   unreachable
 
 "_ZN5alloc4sync12Arc$LT$T$GT$19allocate_for_layout17hcf113b257d6444f9E.exit.i": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h78cef3780e7efb40E.exit.i"
-  store i64 1, ptr %13, align 8
+  store i64 1, ptr %13, align 8, !noalias !5854
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 1, ptr %16, align 8
+  store i64 1, ptr %16, align 8, !noalias !5854
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr nonnull align 8 %.sroa.4.0.copyload.i2, i64 %7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr nonnull align 8 %.sroa.4.0.copyload.i2, i64 %7, i1 false), !noalias !5847
   %18 = icmp eq i64 %.sroa.04.0.copyload.i, 0
   br i1 %18, label %"_ZN115_$LT$alloc..sync..Arc$LT$$u5b$T$u5d$$C$A$GT$$u20$as$u20$core..convert..From$LT$alloc..vec..Vec$LT$T$C$A$GT$$GT$$GT$4from17h7f9f9ae5aebe2ef0E.exit", label %19
 

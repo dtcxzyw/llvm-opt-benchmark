@@ -3135,7 +3135,6 @@ invoke.cont4:                                     ; preds = %if.else.i.i.i.i.i, 
   store i64 %3, ptr %retval.0.i.i.i.i.i, align 16
   %next_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %next_.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) %next_.i.i, i64 32, i1 false)
-  store ptr @_ZN9grpc_core20arena_promise_detail4NullISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE6vtableE, ptr %next_.i.i, align 16
   store ptr %retval.0.i.i.i.i.i, ptr %arg.i, align 16
   %6 = load ptr, ptr %agg.tmp1, align 16
   %destroy.i = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -4137,7 +4136,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %delete.notnull.i.i.
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #25
+  call void @__clang_call_terminate(ptr %6) #25, !noalias !25
   unreachable
 
 _ZN9grpc_core7MessageD2Ev.exit.i.i.i.i:           ; preds = %delete.notnull.i.i.i.i
@@ -4239,7 +4238,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %delete.notnull.i.i.
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #25
+  tail call void @__clang_call_terminate(ptr %11) #25, !noalias !41
   unreachable
 
 _ZN9grpc_core7MessageD2Ev.exit.i.i.i:             ; preds = %delete.notnull.i.i.i
@@ -4553,7 +4552,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %delete.notnull.i.i.
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #25
+  call void @__clang_call_terminate(ptr %6) #25, !noalias !74
   unreachable
 
 _ZN9grpc_core7MessageD2Ev.exit.i.i.i.i:           ; preds = %delete.notnull.i.i.i.i
@@ -4675,7 +4674,6 @@ lpad.i:                                           ; preds = %entry
 
 invoke.cont3:                                     ; preds = %invoke.cont.i, %if.then.i.i, %_ZN9grpc_core7MessageD2Ev.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
-  store ptr null, ptr %2, align 8
   %12 = load i64, ptr %r, align 8
   %cmp.i.i = icmp eq i64 %12, 0
   br i1 %cmp.i.i, label %cleanup.thread, label %if.end
@@ -6034,7 +6032,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %delete.notnull.i.i.
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #25
+  call void @__clang_call_terminate(ptr %6) #25, !noalias !128
   unreachable
 
 _ZN9grpc_core7MessageD2Ev.exit.i.i.i.i:           ; preds = %delete.notnull.i.i.i.i
@@ -6155,7 +6153,6 @@ lpad.i:                                           ; preds = %entry
 
 invoke.cont3:                                     ; preds = %invoke.cont.i, %if.then.i.i, %_ZN9grpc_core7MessageD2Ev.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
-  store ptr null, ptr %2, align 8
   %12 = load i64, ptr %r, align 8
   %cmp.i.i = icmp eq i64 %12, 0
   br i1 %cmp.i.i, label %cleanup.thread, label %if.end
@@ -6556,7 +6553,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %delete.notnull.i.i.
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #25
+  call void @__clang_call_terminate(ptr %6) #25, !noalias !174
   unreachable
 
 _ZN9grpc_core7MessageD2Ev.exit.i.i.i.i:           ; preds = %delete.notnull.i.i.i.i
@@ -6659,7 +6656,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %delete.notnull.i.i.
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #25
+  tail call void @__clang_call_terminate(ptr %11) #25, !noalias !190
   unreachable
 
 _ZN9grpc_core7MessageD2Ev.exit.i.i.i:             ; preds = %delete.notnull.i.i.i
@@ -7921,7 +7918,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %delete.notnull.i.i.
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #25
+  call void @__clang_call_terminate(ptr %6) #25, !noalias !229
   unreachable
 
 _ZN9grpc_core7MessageD2Ev.exit.i.i.i.i:           ; preds = %delete.notnull.i.i.i.i
@@ -8005,7 +8002,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %delete.notnull.i.i.
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #25
+  tail call void @__clang_call_terminate(ptr %11) #25, !noalias !245
   unreachable
 
 _ZN9grpc_core7MessageD2Ev.exit.i.i.i:             ; preds = %delete.notnull.i.i.i
@@ -8285,7 +8282,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %delete.notnull.i.i.
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #25
+  call void @__clang_call_terminate(ptr %6) #25, !noalias !278
   unreachable
 
 _ZN9grpc_core7MessageD2Ev.exit.i.i.i.i:           ; preds = %delete.notnull.i.i.i.i
@@ -8406,7 +8403,6 @@ lpad.i:                                           ; preds = %entry
 
 invoke.cont3:                                     ; preds = %invoke.cont.i, %if.then.i.i, %_ZN9grpc_core7MessageD2Ev.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
-  store ptr null, ptr %2, align 8
   %12 = load i64, ptr %r, align 8
   %cmp.i.i = icmp eq i64 %12, 0
   br i1 %cmp.i.i, label %cleanup.thread, label %if.end
@@ -9855,7 +9851,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %delete.notnull.i.i.
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #25
+  call void @__clang_call_terminate(ptr %6) #25, !noalias !336
   unreachable
 
 _ZN9grpc_core7MessageD2Ev.exit.i.i.i.i:           ; preds = %delete.notnull.i.i.i.i
@@ -9975,7 +9971,6 @@ lpad.i:                                           ; preds = %entry
 
 invoke.cont3:                                     ; preds = %invoke.cont.i, %if.then.i.i, %_ZN9grpc_core7MessageD2Ev.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
-  store ptr null, ptr %2, align 8
   %12 = load i64, ptr %r, align 8
   %cmp.i.i = icmp eq i64 %12, 0
   br i1 %cmp.i.i, label %cleanup.thread, label %if.end
@@ -10323,7 +10318,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %delete.notnull.i.i.
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #25
+  call void @__clang_call_terminate(ptr %6) #25, !noalias !382
   unreachable
 
 _ZN9grpc_core7MessageD2Ev.exit.i.i.i.i:           ; preds = %delete.notnull.i.i.i.i
@@ -10408,7 +10403,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %delete.notnull.i.i.
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #25
+  tail call void @__clang_call_terminate(ptr %11) #25, !noalias !398
   unreachable
 
 _ZN9grpc_core7MessageD2Ev.exit.i.i.i:             ; preds = %delete.notnull.i.i.i

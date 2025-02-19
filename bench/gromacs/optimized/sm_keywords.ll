@@ -28124,7 +28124,7 @@ _ZN3gmx24SelectionParserParameterD2Ev.exit:       ; preds = %24, %_ZNKSt14defaul
   %70 = landingpad { ptr, i32 }
           catch ptr null
   %71 = extractvalue { ptr, i32 } %70, 0
-  %72 = call ptr @__cxa_begin_catch(ptr %71) #30
+  %72 = call ptr @__cxa_begin_catch(ptr %71) #30, !noalias !239
   call void @_ZN3gmx20SelectionTreeElementD1Ev(ptr noundef nonnull align 8 dereferenceable(168) %63) #30, !noalias !239
   call void @_ZdlPv(ptr noundef nonnull %63) #29, !noalias !239
   invoke void @__cxa_rethrow() #28
@@ -28140,7 +28140,7 @@ _ZN3gmx24SelectionParserParameterD2Ev.exit:       ; preds = %24, %_ZNKSt14defaul
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #31
+  call void @__clang_call_terminate(ptr %77) #31, !noalias !239
   unreachable
 
 78:                                               ; preds = %69
@@ -28455,7 +28455,7 @@ _ZL20init_evaluator_groupP19gmx_ana_selmethod_tRKNSt7__cxx114listIN3gmx24Selecti
   %226 = landingpad { ptr, i32 }
           catch ptr null
   %227 = extractvalue { ptr, i32 } %226, 0
-  %228 = call ptr @__cxa_begin_catch(ptr %227) #30
+  %228 = call ptr @__cxa_begin_catch(ptr %227) #30, !noalias !242
   call void @_ZN3gmx20SelectionTreeElementD1Ev(ptr noundef nonnull align 8 dereferenceable(168) %219) #30, !noalias !242
   call void @_ZdlPv(ptr noundef nonnull %219) #29, !noalias !242
   invoke void @__cxa_rethrow() #28
@@ -28471,7 +28471,7 @@ _ZL20init_evaluator_groupP19gmx_ana_selmethod_tRKNSt7__cxx114listIN3gmx24Selecti
   %232 = landingpad { ptr, i32 }
           catch ptr null
   %233 = extractvalue { ptr, i32 } %232, 0
-  call void @__clang_call_terminate(ptr %233) #31
+  call void @__clang_call_terminate(ptr %233) #31, !noalias !242
   unreachable
 
 234:                                              ; preds = %225

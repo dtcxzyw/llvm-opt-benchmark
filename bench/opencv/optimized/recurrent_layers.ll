@@ -2040,7 +2040,7 @@ _ZN2cv3dnn14dnn4_v202405219DictValueC2ERKNSt7__cxx1112basic_stringIcSt11char_tra
   %564 = landingpad { ptr, i32 }
           catch ptr null
   %565 = extractvalue { ptr, i32 } %564, 0
-  call void @__clang_call_terminate(ptr %565) #25
+  call void @__clang_call_terminate(ptr %565) #25, !noalias !9
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i313: ; preds = %.lr.ph.i.i.i.i310
@@ -2065,7 +2065,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   %572 = landingpad { ptr, i32 }
           catch ptr null
   %573 = extractvalue { ptr, i32 } %572, 0
-  call void @__clang_call_terminate(ptr %573) #25
+  call void @__clang_call_terminate(ptr %573) #25, !noalias !9
   unreachable
 
 _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v202405219DictValueESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.i320: ; preds = %568

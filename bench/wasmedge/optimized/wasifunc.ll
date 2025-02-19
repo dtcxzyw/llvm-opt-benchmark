@@ -504,7 +504,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread139: ; preds 
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #18
+  tail call void @__clang_call_terminate(ptr %24) #18, !noalias !4
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -2051,7 +2051,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread139: ; preds 
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #18
+  tail call void @__clang_call_terminate(ptr %24) #18, !noalias !9
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -2816,7 +2816,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33: ; preds =
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #18
+  tail call void @__clang_call_terminate(ptr %21) #18, !noalias !13
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -3068,7 +3068,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread19: ; preds =
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #18
+  tail call void @__clang_call_terminate(ptr %21) #18, !noalias !19
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -3179,7 +3179,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33: ; preds =
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #18
+  tail call void @__clang_call_terminate(ptr %21) #18, !noalias !22
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -3347,7 +3347,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread19: ; preds =
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #18
+  tail call void @__clang_call_terminate(ptr %21) #18, !noalias !25
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -3458,7 +3458,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread16: ; preds =
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #18
+  tail call void @__clang_call_terminate(ptr %21) #18, !noalias !28
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -3542,7 +3542,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread18: ; preds =
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #18
+  tail call void @__clang_call_terminate(ptr %22) #18, !noalias !31
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -4262,7 +4262,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13: ; preds =
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #18
+  tail call void @__clang_call_terminate(ptr %21) #18, !noalias !37
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -4773,7 +4773,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13: ; preds =
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #18
+  tail call void @__clang_call_terminate(ptr %21) #18, !noalias !40
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -5278,7 +5278,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread56: ; preds =
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #18
+  tail call void @__clang_call_terminate(ptr %25) #18, !noalias !43
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -5542,7 +5542,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15: ; preds =
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #18
+  tail call void @__clang_call_terminate(ptr %22) #18, !noalias !46
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -5753,7 +5753,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13: ; preds =
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #18
+  tail call void @__clang_call_terminate(ptr %21) #18, !noalias !49
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -5948,7 +5948,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread56: ; preds =
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #18
+  tail call void @__clang_call_terminate(ptr %25) #18, !noalias !52
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -6213,7 +6213,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread54: ; preds =
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #18
+  tail call void @__clang_call_terminate(ptr %24) #18, !noalias !55
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -6477,7 +6477,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread25: ; preds =
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #18
+  tail call void @__clang_call_terminate(ptr %24) #18, !noalias !58
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -7156,7 +7156,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread21: ; preds =
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  tail call void @__clang_call_terminate(ptr %23) #18
+  tail call void @__clang_call_terminate(ptr %23) #18, !noalias !72
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -7497,7 +7497,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13: ; preds =
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #18
+  tail call void @__clang_call_terminate(ptr %21) #18, !noalias !75
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -7702,7 +7702,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread54: ; preds =
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #18
+  tail call void @__clang_call_terminate(ptr %24) #18, !noalias !78
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -7966,7 +7966,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15: ; preds =
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #18
+  tail call void @__clang_call_terminate(ptr %22) #18, !noalias !81
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -8248,7 +8248,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread28: ; preds =
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #18
+  tail call void @__clang_call_terminate(ptr %24) #18, !noalias !84
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -8543,7 +8543,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread31: ; preds =
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #18
+  tail call void @__clang_call_terminate(ptr %26) #18, !noalias !87
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -8860,7 +8860,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread36: ; preds =
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #18
+  tail call void @__clang_call_terminate(ptr %27) #18, !noalias !90
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -9348,7 +9348,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread77: ; preds =
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #18
+  tail call void @__clang_call_terminate(ptr %28) #18, !noalias !93
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -10035,7 +10035,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread37: ; preds =
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #18
+  tail call void @__clang_call_terminate(ptr %25) #18, !noalias !96
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -10337,7 +10337,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15: ; preds =
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #18
+  tail call void @__clang_call_terminate(ptr %22) #18, !noalias !99
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -10620,7 +10620,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread30: ; preds =
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #18
+  tail call void @__clang_call_terminate(ptr %26) #18, !noalias !102
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -11104,7 +11104,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread34: ; preds =
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #18
+  tail call void @__clang_call_terminate(ptr %24) #18, !noalias !105
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -11425,7 +11425,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15: ; preds =
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #18
+  tail call void @__clang_call_terminate(ptr %22) #18, !noalias !108
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -11762,7 +11762,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread14: ; preds =
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #18
+  tail call void @__clang_call_terminate(ptr %21) #18, !noalias !111
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -11916,7 +11916,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread37: ; preds =
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #18
+  tail call void @__clang_call_terminate(ptr %22) #18, !noalias !115
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -12356,7 +12356,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread27: ; preds =
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #18
+  tail call void @__clang_call_terminate(ptr %22) #18, !noalias !118
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -12695,7 +12695,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15: ; preds =
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #18
+  tail call void @__clang_call_terminate(ptr %21) #18, !noalias !121
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -13178,7 +13178,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread22: ; preds =
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #18
+  tail call void @__clang_call_terminate(ptr %22) #18, !noalias !124
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -13294,7 +13294,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread29: ; preds =
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #18
+  tail call void @__clang_call_terminate(ptr %22) #18, !noalias !127
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -13511,7 +13511,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread67: ; preds =
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #18
+  tail call void @__clang_call_terminate(ptr %26) #18, !noalias !130
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -13778,7 +13778,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread87: ; preds =
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #18
+  tail call void @__clang_call_terminate(ptr %28) #18, !noalias !133
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -14077,7 +14077,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62: ; preds =
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #18
+  tail call void @__clang_call_terminate(ptr %25) #18, !noalias !136
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -14336,7 +14336,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread88: ; preds =
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #18
+  tail call void @__clang_call_terminate(ptr %28) #18, !noalias !139
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -14770,7 +14770,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread31: ; preds =
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #18
+  tail call void @__clang_call_terminate(ptr %24) #18, !noalias !142
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -14985,7 +14985,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread168: ; preds 
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #18
+  tail call void @__clang_call_terminate(ptr %43) #18, !noalias !145
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -15698,7 +15698,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread41: ; preds =
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #18
+  tail call void @__clang_call_terminate(ptr %25) #18, !noalias !155
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -15937,7 +15937,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread41: ; preds =
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #18
+  tail call void @__clang_call_terminate(ptr %25) #18, !noalias !158
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -16174,7 +16174,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread37: ; preds =
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #18
+  tail call void @__clang_call_terminate(ptr %22) #18, !noalias !161
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -16319,7 +16319,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33: ; preds =
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #18
+  tail call void @__clang_call_terminate(ptr %22) #18, !noalias !164
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -16449,7 +16449,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33: ; preds =
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #18
+  tail call void @__clang_call_terminate(ptr %22) #18, !noalias !167
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -16566,7 +16566,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread67: ; preds =
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #18
+  tail call void @__clang_call_terminate(ptr %26) #18, !noalias !170
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -16725,7 +16725,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread105: ; preds 
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #18
+  tail call void @__clang_call_terminate(ptr %30) #18, !noalias !173
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -16939,7 +16939,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62: ; preds =
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #18
+  tail call void @__clang_call_terminate(ptr %25) #18, !noalias !176
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -17089,7 +17089,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread92: ; preds =
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #18
+  tail call void @__clang_call_terminate(ptr %28) #18, !noalias !179
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -17282,7 +17282,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread34: ; preds =
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #18
+  tail call void @__clang_call_terminate(ptr %25) #18, !noalias !182
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -17504,7 +17504,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread39: ; preds =
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #18
+  tail call void @__clang_call_terminate(ptr %24) #18, !noalias !185
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
@@ -17625,7 +17625,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread39: ; preds =
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #18
+  tail call void @__clang_call_terminate(ptr %24) #18, !noalias !188
   unreachable
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i

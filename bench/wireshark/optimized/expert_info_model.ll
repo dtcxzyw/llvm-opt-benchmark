@@ -812,7 +812,7 @@ define void @_ZN16ExpertPacketItem8groupKeyEb(ptr dead_on_unwind noalias writabl
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #28
+  tail call void @__clang_call_terminate(ptr %14) #28, !noalias !8
   unreachable
 
 _ZN7QStringC2ERK10QByteArray.exit:                ; preds = %3
@@ -2903,7 +2903,7 @@ define linkonce_odr void @_ZNK16ExpertPacketItem7summaryEv(ptr dead_on_unwind no
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #28
+  tail call void @__clang_call_terminate(ptr %8) #28, !noalias !39
   unreachable
 
 _ZN7QStringC2ERK10QByteArray.exit:                ; preds = %2
@@ -2941,7 +2941,7 @@ define linkonce_odr void @_ZNK16ExpertPacketItem7colInfoEv(ptr dead_on_unwind no
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #28
+  tail call void @__clang_call_terminate(ptr %8) #28, !noalias !42
   unreachable
 
 _ZN7QStringC2ERK10QByteArray.exit:                ; preds = %2
@@ -3040,7 +3040,7 @@ define linkonce_odr void @_ZNK16ExpertPacketItem8protocolEv(ptr dead_on_unwind n
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #28
+  tail call void @__clang_call_terminate(ptr %8) #28, !noalias !45
   unreachable
 
 _ZN7QStringC2ERK10QByteArray.exit:                ; preds = %2

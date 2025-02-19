@@ -1570,7 +1570,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
 
 491:                                              ; preds = %486
   %492 = extractvalue { i64, ptr } %485, 0
-  %493 = load i64, ptr %487, align 8, !noundef !9
+  %493 = load i64, ptr %487, align 8, !noalias !6, !noundef !9
   store i64 %492, ptr %40, align 8, !noalias !6
   %494 = load ptr, ptr %110, align 8, !noalias !6, !nonnull !9, !align !10, !noundef !9
   %495 = invoke i64 @_ZN14cranelift_isle4sema6TypeId5index17hb85470f904f9f20dE(i64 %493)

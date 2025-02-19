@@ -673,7 +673,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
 
 128:                                              ; preds = %125
   %129 = getelementptr inbounds nuw ptr, ptr %115, i64 %indvars.iv
-  %130 = load ptr, ptr %129, align 8, !tbaa !113
+  %130 = load ptr, ptr %129, align 8, !tbaa !113, !noalias !84
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 28
   %132 = load i32, ptr %131, align 4, !noalias !84
   %133 = and i32 %132, 256

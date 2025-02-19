@@ -3450,7 +3450,7 @@ define hidden void @_ZN2io15file_operations16atomic_save_json17hadb8ae6aedf4f01a
   call void @_ZN3std4path4Path11to_path_buf17h244d289ac0030e02E(ptr noalias noundef nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !923
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !919
   invoke void @_ZN3std4path4Path11to_path_buf17h244d289ac0030e02E(ptr noalias noundef nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %.sroa.02.0.i, i64 noundef %.sroa.3.0.i)
-          to label %_ZN12atomicwrites10AtomicFile3new17h5263b10b77bdfdd2E.exit unwind label %14, !noalias !916
+          to label %_ZN12atomicwrites10AtomicFile3new17h5263b10b77bdfdd2E.exit unwind label %14, !noalias !924
 
 14:                                               ; preds = %4
   %15 = landingpad { ptr, i32 }

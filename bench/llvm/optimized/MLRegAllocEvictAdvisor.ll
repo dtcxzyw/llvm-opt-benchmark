@@ -3035,7 +3035,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114MLEvictAdvisorESt14default_deleteIS1_EED2Ev.e
   %159 = load ptr, ptr %93, align 8, !tbaa !10, !noalias !347
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %161 = load ptr, ptr %160, align 8, !noalias !347
-  call void %161(ptr noundef nonnull align 8 dereferenceable(72) %93, ptr %157, i64 %158) #26
+  call void %161(ptr noundef nonnull align 8 dereferenceable(72) %93, ptr %157, i64 %158) #26, !noalias !347
   %162 = load i64, ptr %128, align 8, !tbaa !53, !noalias !347
   %163 = or i64 %162, 1835059
   store i64 %163, ptr %128, align 8, !tbaa !53, !noalias !347

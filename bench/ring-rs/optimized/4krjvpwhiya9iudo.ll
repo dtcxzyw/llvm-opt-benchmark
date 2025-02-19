@@ -394,7 +394,7 @@ define hidden void @_ZN9untrusted5input5Input8read_all17h43ed9def5937e2b1E(ptr n
 
 _ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i.i.i.i: ; preds = %14
   %.fca.1.extract4.i.i.i.i.i = extractvalue { ptr, i64 } %17, 1
-  %19 = call { ptr, i64 } @_ZN4ring2io8positive8Positive13from_be_bytes17h245754108107dbf5E.llvm.6801758991666044160(ptr noalias noundef nonnull readonly align 1 %.fca.0.extract3.i.i.i.i.i, i64 noundef %.fca.1.extract4.i.i.i.i.i)
+  %19 = call { ptr, i64 } @_ZN4ring2io8positive8Positive13from_be_bytes17h245754108107dbf5E.llvm.6801758991666044160(ptr noalias noundef nonnull readonly align 1 %.fca.0.extract3.i.i.i.i.i, i64 noundef %.fca.1.extract4.i.i.i.i.i), !noalias !58
   %.fca.0.extract.i.i.i.i.i = extractvalue { ptr, i64 } %19, 0
   %.fca.1.extract.i.i.i.i.i = extractvalue { ptr, i64 } %19, 1
   %20 = icmp eq ptr %.fca.0.extract.i.i.i.i.i, null
@@ -408,7 +408,7 @@ _ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i.i.i.i: ; preds = %1
 
 _ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit20.i.i.i.i: ; preds = %21
   %.fca.1.extract4.i15.i.i.i.i = extractvalue { ptr, i64 } %22, 1
-  %24 = call { ptr, i64 } @_ZN4ring2io8positive8Positive13from_be_bytes17h245754108107dbf5E.llvm.6801758991666044160(ptr noalias noundef nonnull readonly align 1 %.fca.0.extract3.i14.i.i.i.i, i64 noundef %.fca.1.extract4.i15.i.i.i.i)
+  %24 = call { ptr, i64 } @_ZN4ring2io8positive8Positive13from_be_bytes17h245754108107dbf5E.llvm.6801758991666044160(ptr noalias noundef nonnull readonly align 1 %.fca.0.extract3.i14.i.i.i.i, i64 noundef %.fca.1.extract4.i15.i.i.i.i), !noalias !58
   %.fca.0.extract.i16.i.i.i.i = extractvalue { ptr, i64 } %24, 0
   %25 = icmp eq ptr %.fca.0.extract.i16.i.i.i.i, null
   br i1 %25, label %"_ZN4ring3rsa16parse_public_key28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c743844ec4b44E.exit.thread19", label %26
@@ -615,7 +615,7 @@ define hidden void @_ZN9untrusted5input5Input8read_all17h8ec3260fcf1a50f7E.llvm.
 
 _ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i: ; preds = %2
   %.fca.1.extract4.i.i = extractvalue { ptr, i64 } %9, 1
-  %11 = call { ptr, i64 } @_ZN4ring2io8positive8Positive13from_be_bytes17h245754108107dbf5E.llvm.6801758991666044160(ptr noalias noundef nonnull readonly align 1 %.fca.0.extract3.i.i, i64 noundef %.fca.1.extract4.i.i)
+  %11 = call { ptr, i64 } @_ZN4ring2io8positive8Positive13from_be_bytes17h245754108107dbf5E.llvm.6801758991666044160(ptr noalias noundef nonnull readonly align 1 %.fca.0.extract3.i.i, i64 noundef %.fca.1.extract4.i.i), !noalias !88
   %.fca.0.extract.i.i = extractvalue { ptr, i64 } %11, 0
   %.fca.1.extract.i.i = extractvalue { ptr, i64 } %11, 1
   %12 = icmp eq ptr %.fca.0.extract.i.i, null
@@ -629,7 +629,7 @@ _ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i: ; preds = %2
 
 _ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i: ; preds = %13
   %.fca.1.extract4.i19.i = extractvalue { ptr, i64 } %14, 1
-  %16 = call { ptr, i64 } @_ZN4ring2io8positive8Positive13from_be_bytes17h245754108107dbf5E.llvm.6801758991666044160(ptr noalias noundef nonnull readonly align 1 %.fca.0.extract3.i18.i, i64 noundef %.fca.1.extract4.i19.i)
+  %16 = call { ptr, i64 } @_ZN4ring2io8positive8Positive13from_be_bytes17h245754108107dbf5E.llvm.6801758991666044160(ptr noalias noundef nonnull readonly align 1 %.fca.0.extract3.i18.i, i64 noundef %.fca.1.extract4.i19.i), !noalias !88
   %.fca.0.extract.i20.i = extractvalue { ptr, i64 } %16, 0
   %17 = icmp eq ptr %.fca.0.extract.i20.i, null
   br i1 %17, label %23, label %18
@@ -1182,7 +1182,7 @@ define hidden void @_ZN4ring2io3der6nested17h2b89b9586a9703eaE(ptr noalias nound
 
 _ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i.i: ; preds = %12
   %.fca.1.extract4.i.i.i = extractvalue { ptr, i64 } %15, 1
-  %17 = call { ptr, i64 } @_ZN4ring2io8positive8Positive13from_be_bytes17h245754108107dbf5E.llvm.6801758991666044160(ptr noalias noundef nonnull readonly align 1 %.fca.0.extract3.i.i.i, i64 noundef %.fca.1.extract4.i.i.i)
+  %17 = call { ptr, i64 } @_ZN4ring2io8positive8Positive13from_be_bytes17h245754108107dbf5E.llvm.6801758991666044160(ptr noalias noundef nonnull readonly align 1 %.fca.0.extract3.i.i.i, i64 noundef %.fca.1.extract4.i.i.i), !noalias !185
   %.fca.0.extract.i.i.i = extractvalue { ptr, i64 } %17, 0
   %.fca.1.extract.i.i.i = extractvalue { ptr, i64 } %17, 1
   %18 = icmp eq ptr %.fca.0.extract.i.i.i, null
@@ -1196,7 +1196,7 @@ _ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i.i: ; preds = %12
 
 _ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i.i: ; preds = %19
   %.fca.1.extract4.i19.i.i = extractvalue { ptr, i64 } %20, 1
-  %22 = call { ptr, i64 } @_ZN4ring2io8positive8Positive13from_be_bytes17h245754108107dbf5E.llvm.6801758991666044160(ptr noalias noundef nonnull readonly align 1 %.fca.0.extract3.i18.i.i, i64 noundef %.fca.1.extract4.i19.i.i)
+  %22 = call { ptr, i64 } @_ZN4ring2io8positive8Positive13from_be_bytes17h245754108107dbf5E.llvm.6801758991666044160(ptr noalias noundef nonnull readonly align 1 %.fca.0.extract3.i18.i.i, i64 noundef %.fca.1.extract4.i19.i.i), !noalias !185
   %.fca.0.extract.i20.i.i = extractvalue { ptr, i64 } %22, 0
   %23 = icmp eq ptr %.fca.0.extract.i20.i.i, null
   br i1 %23, label %_ZN9untrusted5input5Input8read_all17h8ec3260fcf1a50f7E.llvm.4525565709555364834.exit, label %24

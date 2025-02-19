@@ -13883,7 +13883,7 @@ _ZN7polling6Poller16modify_with_mode17hec5c4d984a4b4be6E.exit.i: ; preds = %199
   %209 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %210 = load ptr, ptr %209, align 8, !noalias !2764, !nonnull !4, !noundef !4
   invoke void %210(ptr noundef %143)
-          to label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h96fa3fd838363407E.llvm.18440006897943885896.exit57.i" unwind label %211
+          to label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h96fa3fd838363407E.llvm.18440006897943885896.exit57.i" unwind label %211, !noalias !2717
 
 211:                                              ; preds = %208, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h96fa3fd838363407E.llvm.18440006897943885896.exit57.i"
   %212 = landingpad { ptr, i32 }
@@ -18586,7 +18586,7 @@ attributes #39 = { cold noreturn nounwind }
 !2761 = distinct !{!2761, !"_ZN65_$LT$core..task..wake..Waker$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf9a0118e92c3996E.llvm.18440006897943885896"}
 !2762 = !{!2760, !2757, !2754, !2718}
 !2763 = !{!2760, !2757, !2754}
-!2764 = !{!2765, !2767, !2769}
+!2764 = !{!2765, !2767, !2769, !2718}
 !2765 = distinct !{!2765, !2766, !"_ZN65_$LT$core..task..wake..Waker$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf9a0118e92c3996E.llvm.18440006897943885896: argument 0"}
 !2766 = distinct !{!2766, !"_ZN65_$LT$core..task..wake..Waker$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf9a0118e92c3996E.llvm.18440006897943885896"}
 !2767 = distinct !{!2767, !2768, !"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h3cede82ad77ac7dbE.llvm.18440006897943885896: argument 0"}

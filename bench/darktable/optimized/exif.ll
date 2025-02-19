@@ -16998,14 +16998,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit107.i: ; preds = %
   %184 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN5Exiv28AnyErrorE
-  store ptr %158, ptr %11, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119.i
 
 185:                                              ; preds = %164
   %186 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN5Exiv28AnyErrorE
-  store ptr %158, ptr %11, align 8
   br label %227
 
 187:                                              ; preds = %167
@@ -17083,21 +17081,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113.i: ; preds = %
   %215 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN5Exiv28AnyErrorE
-  store ptr %158, ptr %11, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116.i
 
 216:                                              ; preds = %188
   %217 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN5Exiv28AnyErrorE
-  store ptr %158, ptr %11, align 8
   br label %220
 
 218:                                              ; preds = %197, %193, %191
   %219 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN5Exiv28AnyErrorE
-  store ptr %158, ptr %11, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #35
   br label %220
 

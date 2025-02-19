@@ -675,9 +675,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItdEEED2Ev.exit: ; preds = %.no
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %93 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %94 = load ptr, ptr %93, align 8
-  store ptr null, ptr %93, align 8
   store ptr %94, ptr %92, align 8
-  store ptr null, ptr %9, align 8
   call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIsiEEED2Ev(ptr null) #22
   br label %131
 
@@ -696,9 +694,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItdEEED2Ev.exit: ; preds = %.no
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %101 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %102 = load ptr, ptr %101, align 8
-  store ptr null, ptr %101, align 8
   store ptr %102, ptr %100, align 8
-  store ptr null, ptr %10, align 8
   call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIiiEEED2Ev(ptr null) #22
   br label %131
 
@@ -716,9 +712,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItdEEED2Ev.exit: ; preds = %.no
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %108 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %109 = load ptr, ptr %108, align 8
-  store ptr null, ptr %108, align 8
   store ptr %109, ptr %107, align 8
-  store ptr null, ptr %11, align 8
   call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIsdEEED2Ev(ptr null) #22
   br label %131
 
@@ -737,9 +731,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItdEEED2Ev.exit: ; preds = %.no
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %116 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %117 = load ptr, ptr %116, align 8
-  store ptr null, ptr %116, align 8
   store ptr %117, ptr %115, align 8
-  store ptr null, ptr %12, align 8
   call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIfdEEED2Ev(ptr null) #22
   br label %131
 
@@ -758,9 +750,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumItdEEED2Ev.exit: ; preds = %.no
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %124 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %125 = load ptr, ptr %124, align 8
-  store ptr null, ptr %124, align 8
   store ptr %125, ptr %123, align 8
-  store ptr null, ptr %13, align 8
   call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_16RowSumIddEEED2Ev(ptr null) #22
   br label %131
 
@@ -1700,9 +1690,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.exit: ; preds = %
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %130 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %131 = load ptr, ptr %130, align 8
-  store ptr null, ptr %130, align 8
   store ptr %131, ptr %129, align 8
-  store ptr null, ptr %10, align 8
   call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIisEEED2Ev(ptr null) #22
   br label %182
 
@@ -1720,9 +1708,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.exit: ; preds = %
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %137 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %138 = load ptr, ptr %137, align 8
-  store ptr null, ptr %137, align 8
   store ptr %138, ptr %136, align 8
-  store ptr null, ptr %11, align 8
   call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdsEEED2Ev(ptr null) #22
   br label %182
 
@@ -1741,9 +1727,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.exit: ; preds = %
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %145 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %146 = load ptr, ptr %145, align 8
-  store ptr null, ptr %145, align 8
   store ptr %146, ptr %144, align 8
-  store ptr null, ptr %12, align 8
   call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIiiEEED2Ev(ptr null) #22
   br label %182
 
@@ -1762,9 +1746,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.exit: ; preds = %
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %153 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %154 = load ptr, ptr %153, align 8
-  store ptr null, ptr %153, align 8
   store ptr %154, ptr %152, align 8
-  store ptr null, ptr %13, align 8
   call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIifEEED2Ev(ptr null) #22
   br label %182
 
@@ -1782,9 +1764,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.exit: ; preds = %
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %160 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %161 = load ptr, ptr %160, align 8
-  store ptr null, ptr %160, align 8
   store ptr %161, ptr %159, align 8
-  store ptr null, ptr %14, align 8
   call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdfEEED2Ev(ptr null) #22
   br label %182
 
@@ -1803,9 +1783,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.exit: ; preds = %
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %168 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %169 = load ptr, ptr %168, align 8
-  store ptr null, ptr %168, align 8
   store ptr %169, ptr %167, align 8
-  store ptr null, ptr %15, align 8
   call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIidEEED2Ev(ptr null) #22
   br label %182
 
@@ -1823,9 +1801,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIdtEEED2Ev.exit: ; preds = %
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %175 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %176 = load ptr, ptr %175, align 8
-  store ptr null, ptr %175, align 8
   store ptr %176, ptr %174, align 8
-  store ptr null, ptr %16, align 8
   call fastcc void @_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_19ColumnSumIddEEED2Ev(ptr null) #22
   br label %182
 
@@ -3784,7 +3760,7 @@ _ZNK2cv11_InputArray6getMatEi.exit55:             ; preds = %52, %55
   %86 = landingpad { ptr, i32 }
           catch ptr null
   %87 = extractvalue { ptr, i32 } %86, 0
-  call void @__clang_call_terminate(ptr %87) #26
+  call void @__clang_call_terminate(ptr %87) #26, !noalias !133
   unreachable
 
 88:                                               ; preds = %.noexc56
@@ -4202,7 +4178,7 @@ _ZNK2cv11_InputArray6getMatEi.exit46:             ; preds = %63, %66
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #26
+  call void @__clang_call_terminate(ptr %73) #26, !noalias !142
   unreachable
 
 74:                                               ; preds = %.noexc47
@@ -4239,7 +4215,7 @@ _ZNK2cv11_InputArray6getMatEi.exit46:             ; preds = %63, %66
   %86 = landingpad { ptr, i32 }
           catch ptr null
   %87 = extractvalue { ptr, i32 } %86, 0
-  call void @__clang_call_terminate(ptr %87) #26
+  call void @__clang_call_terminate(ptr %87) #26, !noalias !145
   unreachable
 
 88:                                               ; preds = %.noexc49

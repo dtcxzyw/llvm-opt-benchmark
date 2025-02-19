@@ -3291,7 +3291,6 @@ _ZSt4bindIRSt8functionIFvillEEJRKSt12_PlaceholderILi1EERlS8_EENSt12_Bind_helperI
   %10 = load i64, ptr %rest, align 8, !noalias !102
   store i64 %10, ptr %9, align 8, !alias.scope !102
   call void @llvm.experimental.noalias.scope.decl(metadata !105)
-  store ptr null, ptr %pck, align 8, !alias.scope !105
   %call5.i.i.i3.i.i.i.i3 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
           to label %call5.i.i.i3.i.i.i.i.noexc unwind label %lpad
 

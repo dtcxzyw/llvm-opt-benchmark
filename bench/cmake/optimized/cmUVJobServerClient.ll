@@ -816,7 +816,7 @@ define dso_local void @_ZN19cmUVJobServerClient7ConnectER9uv_loop_sSt8functionIF
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  tail call void @__clang_call_terminate(ptr %33) #26
+  tail call void @__clang_call_terminate(ptr %33) #26, !noalias !38
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %29, %25
@@ -833,7 +833,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %29, %25
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  tail call void @__clang_call_terminate(ptr %40) #26
+  tail call void @__clang_call_terminate(ptr %40) #26, !noalias !38
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit4.i.i.i:            ; preds = %36, %_ZNSt14_Function_baseD2Ev.exit.i.i.i
@@ -1390,7 +1390,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
   %249 = landingpad { ptr, i32 }
           catch ptr null
   %250 = extractvalue { ptr, i32 } %249, 0
-  call void @__clang_call_terminate(ptr %250) #26
+  call void @__clang_call_terminate(ptr %250) #26, !noalias !38
   unreachable
 
 _ZN2cm19uv_handle_ptr_base_I9uv_pipe_sED2Ev.exit.i.i.i.i: ; preds = %247, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %232, %224
@@ -1583,7 +1583,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i60.i.i.i: ; preds =
   %321 = landingpad { ptr, i32 }
           catch ptr null
   %322 = extractvalue { ptr, i32 } %321, 0
-  call void @__clang_call_terminate(ptr %322) #26
+  call void @__clang_call_terminate(ptr %322) #26, !noalias !38
   unreachable
 
 _ZN2cm19uv_handle_ptr_base_I9uv_pipe_sED2Ev.exit.i62.i.i.i: ; preds = %319, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i60.i.i.i, %304, %296
@@ -1645,7 +1645,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i9.i.i.i.i: ; preds = 
   %348 = landingpad { ptr, i32 }
           catch ptr null
   %349 = extractvalue { ptr, i32 } %348, 0
-  call void @__clang_call_terminate(ptr %349) #26
+  call void @__clang_call_terminate(ptr %349) #26, !noalias !38
   unreachable
 
 350:                                              ; preds = %290, %288

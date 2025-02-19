@@ -1212,7 +1212,7 @@ _ZN2cv4MatxIdLi3ELi3EE3eyeEv.exit:                ; preds = %366
   %376 = landingpad { ptr, i32 }
           catch ptr null
   %377 = extractvalue { ptr, i32 } %376, 0
-  call void @__clang_call_terminate(ptr %377) #26
+  call void @__clang_call_terminate(ptr %377) #26, !noalias !33
   unreachable
 
 378:                                              ; preds = %.noexc265

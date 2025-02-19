@@ -11363,7 +11363,7 @@ _ZN5ctrlc8platform4unix15init_os_handler17hc46dfb620e438475E.exit.i: ; preds = %
   %173 = extractvalue { i64, ptr } %167, 1
   %174 = icmp ne ptr %173, null
   call void @llvm.assume(i1 %174)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %173, ptr noundef nonnull align 1 dereferenceable(6) @anon.e0627c521608784a856d2cab53691a42.75, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %173, ptr noundef nonnull align 1 dereferenceable(6) @anon.e0627c521608784a856d2cab53691a42.75, i64 6, i1 false), !noalias !1750
   store i64 %172, ptr %36, align 8, !noalias !1750
   %.sroa.47.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %173, ptr %.sroa.47.0..sroa_idx.i, align 8, !noalias !1750

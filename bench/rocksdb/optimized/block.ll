@@ -2886,7 +2886,6 @@ invoke.cont11.thread:                             ; preds = %call3.i.noexc
   %18 = load i32, ptr %restarts_.i, align 8
   %current_.i = getelementptr inbounds nuw i8, ptr %this, i64 68
   store i32 %18, ptr %current_.i, align 4
-  store i8 0, ptr %prefix_may_exist, align 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %seek_key.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %block_ids.i)
   br label %invoke.cont16

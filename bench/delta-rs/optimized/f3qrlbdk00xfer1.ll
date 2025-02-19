@@ -720,7 +720,7 @@ define hidden void @_ZN12object_store5parse14parse_url_opts17h70cb359ebd8d3464E(
   %190 = extractvalue { ptr, i64 } %187, 0
   %191 = extractvalue { ptr, i64 } %187, 1
   invoke void @"_ZN92_$LT$object_store..aws..builder..AmazonS3ConfigKey$u20$as$u20$core..str..traits..FromStr$GT$8from_str17haeab0cc92a07b119E"(ptr noalias noundef nonnull sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %36, ptr noalias noundef nonnull readonly align 1 %190, i64 noundef %191)
-          to label %192 unwind label %.thread4.i.i.i
+          to label %192 unwind label %.thread4.i.i.i, !noalias !126
 
 192:                                              ; preds = %189
   %193 = load i64, ptr %36, align 8, !range !127, !noalias !120, !noundef !5
@@ -1157,7 +1157,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h98ff93958d9f58ebE.exit.i: ; preds 
   %311 = extractvalue { ptr, i64 } %308, 0
   %312 = extractvalue { ptr, i64 } %308, 1
   invoke void @"_ZN90_$LT$object_store..gcp..builder..GoogleConfigKey$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h69946efc5da2a88bE"(ptr noalias noundef nonnull sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %22, ptr noalias noundef nonnull readonly align 1 %311, i64 noundef %312)
-          to label %313 unwind label %.thread4.i.i.i242
+          to label %313 unwind label %.thread4.i.i.i242, !noalias !210
 
 313:                                              ; preds = %310
   %314 = load i64, ptr %22, align 8, !range !127, !noalias !204, !noundef !5
@@ -1564,7 +1564,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h4d4cb2437c8d6904E.exit.i: ; preds 
   %420 = extractvalue { ptr, i64 } %417, 0
   %421 = extractvalue { ptr, i64 } %417, 1
   invoke void @"_ZN91_$LT$object_store..azure..builder..AzureConfigKey$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h1e703ac6c9f28b17E"(ptr noalias noundef nonnull sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %9, ptr noalias noundef nonnull readonly align 1 %420, i64 noundef %421)
-          to label %422 unwind label %.thread4.i.i.i289
+          to label %422 unwind label %.thread4.i.i.i289, !noalias !281
 
 422:                                              ; preds = %419
   %423 = load i64, ptr %9, align 8, !range !127, !noalias !275, !noundef !5

@@ -1925,7 +1925,6 @@ define linkonce_odr hidden void @_ZN2cv8datasets11TR_charsImp7convertERSt6vector
   %37 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(36) %37) #17
   store ptr %37, ptr %6, align 8
-  store ptr null, ptr %13, align 8
   %38 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
           to label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv8datasets11TR_charsObjEEET_.exit unwind label %39
 

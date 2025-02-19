@@ -2861,7 +2861,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %78
   %129 = extractvalue { i64, ptr } %94, 1
   %130 = icmp ne ptr %129, null
   call void @llvm.assume(i1 %130)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %129, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.i, i64 %93, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %129, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.i, i64 %93, i1 false), !noalias !557
   store i64 %128, ptr %5, align 8, !alias.scope !557
   store ptr %129, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !557
   store i64 %93, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !557

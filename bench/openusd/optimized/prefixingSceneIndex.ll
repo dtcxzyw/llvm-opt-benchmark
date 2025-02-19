@@ -623,7 +623,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %114 = landingpad { ptr, i32 }
           catch ptr null
   %115 = extractvalue { ptr, i32 } %114, 0
-  %116 = call ptr @__cxa_begin_catch(ptr %115) #22
+  %116 = call ptr @__cxa_begin_catch(ptr %115) #22, !noalias !7
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #22, !noalias !7
   call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 32) #23, !noalias !7
   invoke void @__cxa_rethrow() #20
@@ -639,7 +639,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %120 = landingpad { ptr, i32 }
           catch ptr null
   %121 = extractvalue { ptr, i32 } %120, 0
-  call void @__clang_call_terminate(ptr %121) #24
+  call void @__clang_call_terminate(ptr %121) #24, !noalias !7
   unreachable
 
 122:                                              ; preds = %113
@@ -889,7 +889,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexConta
   %237 = landingpad { ptr, i32 }
           catch ptr null
   %238 = extractvalue { ptr, i32 } %237, 0
-  %239 = call ptr @__cxa_begin_catch(ptr %238) #22
+  %239 = call ptr @__cxa_begin_catch(ptr %238) #22, !noalias !10
   %240 = load ptr, ptr %197, align 8, !noalias !10
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
   %242 = load ptr, ptr %241, align 8, !noalias !10
@@ -907,7 +907,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexConta
   %246 = landingpad { ptr, i32 }
           catch ptr null
   %247 = extractvalue { ptr, i32 } %246, 0
-  call void @__clang_call_terminate(ptr %247) #24
+  call void @__clang_call_terminate(ptr %247) #24, !noalias !10
   unreachable
 
 248:                                              ; preds = %236
@@ -4035,7 +4035,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexConta
   %66 = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %66, 0
-  %68 = call ptr @__cxa_begin_catch(ptr %67) #22
+  %68 = call ptr @__cxa_begin_catch(ptr %67) #22, !noalias !34
   %69 = load ptr, ptr %33, align 8, !noalias !34
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !noalias !34
@@ -4053,7 +4053,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexConta
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #24
+  call void @__clang_call_terminate(ptr %76) #24, !noalias !34
   unreachable
 
 77:                                               ; preds = %65
@@ -4438,7 +4438,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_PrefixingSceneIndexPathD
   %249 = landingpad { ptr, i32 }
           catch ptr null
   %250 = extractvalue { ptr, i32 } %249, 0
-  %251 = call ptr @__cxa_begin_catch(ptr %250) #22
+  %251 = call ptr @__cxa_begin_catch(ptr %250) #22, !noalias !44
   %252 = load ptr, ptr %209, align 8, !noalias !44
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 8
   %254 = load ptr, ptr %253, align 8, !noalias !44
@@ -4456,7 +4456,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_PrefixingSceneIndexPathD
   %258 = landingpad { ptr, i32 }
           catch ptr null
   %259 = extractvalue { ptr, i32 } %258, 0
-  call void @__clang_call_terminate(ptr %259) #24
+  call void @__clang_call_terminate(ptr %259) #24, !noalias !44
   unreachable
 
 260:                                              ; preds = %248
@@ -4841,7 +4841,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexPathA
   %432 = landingpad { ptr, i32 }
           catch ptr null
   %433 = extractvalue { ptr, i32 } %432, 0
-  %434 = call ptr @__cxa_begin_catch(ptr %433) #22
+  %434 = call ptr @__cxa_begin_catch(ptr %433) #22, !noalias !54
   %435 = load ptr, ptr %392, align 8, !noalias !54
   %436 = getelementptr inbounds nuw i8, ptr %435, i64 8
   %437 = load ptr, ptr %436, align 8, !noalias !54
@@ -4859,7 +4859,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexPathA
   %441 = landingpad { ptr, i32 }
           catch ptr null
   %442 = extractvalue { ptr, i32 } %441, 0
-  call void @__clang_call_terminate(ptr %442) #24
+  call void @__clang_call_terminate(ptr %442) #24, !noalias !54
   unreachable
 
 443:                                              ; preds = %431

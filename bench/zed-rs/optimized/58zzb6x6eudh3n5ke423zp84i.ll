@@ -100040,7 +100040,7 @@ default.unreachable11:                            ; preds = %1
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 49
   store i8 0, ptr %31, align 1, !noalias !29226
   invoke void @_ZN8tempfile4util13create_helper17hde79906f1743f734E.llvm.146862654082438089(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 1 %spec.select.i, i64 noundef %spec.select54.i, ptr noalias noundef nonnull readonly align 1 @anon.93859cdba13ac6463e1a810cb1e820b6.195, i64 noundef 4, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0, i64 noundef 6, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %5)
-          to label %_ZN8tempfile7Builder11tempfile_in17h1081eee5ce1c9570E.exit.i unwind label %13
+          to label %_ZN8tempfile7Builder11tempfile_in17h1081eee5ce1c9570E.exit.i unwind label %13, !noalias !29226
 
 _ZN8tempfile7Builder11tempfile_in17h1081eee5ce1c9570E.exit.i: ; preds = %17
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5), !noalias !29226

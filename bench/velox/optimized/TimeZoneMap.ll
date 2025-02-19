@@ -430,7 +430,7 @@ if.end:                                           ; preds = %if.end20.i.i, %whil
   br i1 %cmp.not.i.i.i.i, label %if.end.i, label %_ZN8facebook5velox4util12_GLOBAL__N_110startsWithESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit.i
 
 _ZN8facebook5velox4util12_GLOBAL__N_110startsWithESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit.i: ; preds = %if.end
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %25, ptr noundef nonnull dereferenceable(4) @.str.10, i64 4)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %25, ptr noundef nonnull dereferenceable(4) @.str.10, i64 4), !noalias !12
   %cmp4.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %cmp4.i.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i, label %if.end.i
 
@@ -652,7 +652,7 @@ while.body.i.i.i:                                 ; preds = %_ZNK5folly3f146deta
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEE14keyMatchesItemISt17basic_string_viewIcS6_EEEbRKT_RKj.exit.i.i
 
 land.rhs.i.i.i.i.i:                               ; preds = %while.body.i.i.i
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr %zoneId.sroa.9.0.i, ptr %call.i.i.i.i.i, i64 %zone.coerce0.fr.i.i)
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr %zoneId.sroa.9.0.i, ptr %call.i.i.i.i.i, i64 %zone.coerce0.fr.i.i), !noalias !12
   %cmp.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %if.then5.i, label %_ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEE14keyMatchesItemISt17basic_string_viewIcS6_EEEbRKT_RKj.exit.i.i
 
@@ -879,13 +879,13 @@ if.end7.i:                                        ; preds = %if.end20.i.i.i, %wh
   br i1 %or.cond.i, label %_ZN8facebook5velox4util12_GLOBAL__N_110startsWithESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit27.i, label %if.end61.i
 
 _ZN8facebook5velox4util12_GLOBAL__N_110startsWithESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit27.i: ; preds = %if.end7.i
-  %bcmp.i.i.i24.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %zoneId.sroa.9.0.i, ptr noundef nonnull dereferenceable(3) @.str.11, i64 3)
+  %bcmp.i.i.i24.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %zoneId.sroa.9.0.i, ptr noundef nonnull dereferenceable(3) @.str.11, i64 3), !noalias !12
   %cmp4.i.i.i25.i = icmp eq i32 %bcmp.i.i.i24.i, 0
   br i1 %cmp4.i.i.i25.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit35.i, label %if.end61.i
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit35.i: ; preds = %_ZN8facebook5velox4util12_GLOBAL__N_110startsWithESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit27.i
   %add.ptr.i31.i = getelementptr inbounds nuw i8, ptr %zoneId.sroa.9.0.i, i64 3
-  %66 = load i8, ptr %add.ptr.i31.i, align 1
+  %66 = load i8, ptr %add.ptr.i31.i, align 1, !noalias !12
   switch i8 %66, label %if.end61.i [
     i8 45, label %if.then20.i
     i8 43, label %if.then20.i
@@ -899,14 +899,14 @@ if.then20.i:                                      ; preds = %_ZNKSt17basic_strin
   br i1 %cmp24.i, label %if.end29.i, label %if.else.i51
 
 if.else.i51:                                      ; preds = %if.then20.i
-  %67 = load i8, ptr %add.ptr.i39.i, align 1
+  %67 = load i8, ptr %add.ptr.i39.i, align 1, !noalias !12
   %add.ptr.i43.i = getelementptr inbounds nuw i8, ptr %zoneId.sroa.9.0.i, i64 5
   br label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.else.i51, %if.then20.i
   %hourTens.0.i = phi i8 [ %67, %if.else.i51 ], [ 48, %if.then20.i ]
   %hourOnes.0.in.i = phi ptr [ %add.ptr.i43.i, %if.else.i51 ], [ %add.ptr.i39.i, %if.then20.i ]
-  %hourOnes.0.i = load i8, ptr %hourOnes.0.in.i, align 1
+  %hourOnes.0.i = load i8, ptr %hourOnes.0.in.i, align 1, !noalias !12
   %cmp31.i = icmp eq i8 %hourTens.0.i, 48
   %cmp34.i = icmp eq i8 %hourOnes.0.i, 48
   %or.cond1.i = select i1 %cmp31.i, i1 %cmp34.i, i1 false
@@ -1199,7 +1199,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %invoke.cont11
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #24
+  call void @__clang_call_terminate(ptr %2) #24, !noalias !17
   unreachable
 
 _ZN5folly6detail20callWithExtractedKeyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElNS_3f146detail11F14BasicMapINS9_21VectorContainerPolicyIS7_lvvvSt17integral_constantIbLb1EEEEE11UsableAsKeyESaISt4pairIKS7_lEEZNSF_7emplaceIJS7_RKlEEESH_INS9_23VectorContainerIteratorIPSJ_EEbEDpOT_EUlSU_E_S7_SN_EEDaRT2_OT3_OT4_OT5_.exit.i: ; preds = %invoke.cont11
@@ -3152,7 +3152,7 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %while.body.i
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #24
+  call void @__clang_call_terminate(ptr %1) #24, !noalias !50
   unreachable
 
 _ZN5folly6detail22callWithConstructedKeyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3f146detail11F14BasicSetINS9_21VectorContainerPolicyIS7_vvvvSt17integral_constantIbLb1EEEEE11UsableAsKeyESaIS7_EZNSF_7emplaceIJRKS7_EEESt4pairINS9_23VectorContainerIteratorIPSJ_EEbEDpOT_EUlSS_E_SK_TnNSt9enable_ifIXoosr3std7is_sameINS_12remove_cvrefIT3_E4typeET_EE5valuesrT0_ISY_E5valueEiE4typeELi0EEEDaRT1_OT2_OSW_.exit.i.i: ; preds = %while.body.i

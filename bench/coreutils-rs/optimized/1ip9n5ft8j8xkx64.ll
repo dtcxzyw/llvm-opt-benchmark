@@ -975,7 +975,7 @@ define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4int
   %7 = extractvalue { i64, ptr } %5, 1
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !107
   store i64 %6, ptr %0, align 8, !alias.scope !107, !noalias !112
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !107, !noalias !112
@@ -1238,7 +1238,7 @@ define hidden { ptr, ptr } @_ZN6uucore4mods5error12USimpleError3new17hf3eb000dfe
   %7 = extractvalue { i64, ptr } %5, 1
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !131
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %0, ptr %9, align 8
   store i64 %6, ptr %4, align 8
@@ -1246,8 +1246,8 @@ define hidden { ptr, ptr } @_ZN6uucore4mods5error12USimpleError3new17hf3eb000dfe
   store ptr %7, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %2, ptr %.sroa.5.0..sroa_idx, align 8
-  %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !131
-  %11 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #22, !noalias !131
+  %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !132
+  %11 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #22, !noalias !132
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h4d2726a999e777d0E.llvm.15234885945043149955.exit"
 
@@ -1309,8 +1309,8 @@ define hidden { ptr, ptr } @_ZN6uucore4mods5error8UIoError3new17h37152dc8e187a1f
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %8, ptr %9, align 8
-  %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !134
-  %11 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #22, !noalias !134
+  %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !135
+  %11 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #22, !noalias !135
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7b564efa0321e552E.llvm.15234885945043149955.exit"
 
@@ -1350,7 +1350,7 @@ define hidden void @_ZN6uucore8features2fs15FileInformation9from_file17h3ed4fd1b
   %3 = alloca { i32, [37 x i32] }, align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3)
   call void @_ZN3nix3sys4stat5fstat17hdfb1d0de2803e090E(ptr noalias noundef nonnull sret({ i32, [37 x i32] }) align 8 captures(none) dereferenceable(152) %3, i32 noundef 0)
-  %4 = load i32, ptr %3, align 8, !range !137, !noundef !5
+  %4 = load i32, ptr %3, align 8, !range !138, !noundef !5
   %trunc = trunc nuw i32 %4 to i1
   br i1 %trunc, label %8, label %5
 
@@ -1366,7 +1366,7 @@ define hidden void @_ZN6uucore8features2fs15FileInformation9from_file17h3ed4fd1b
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %10 = load i32, ptr %9, align 4, !range !138, !noundef !5
+  %10 = load i32, ptr %9, align 4, !range !139, !noundef !5
   %11 = zext nneg i32 %10 to i64
   %12 = shl nuw nsw i64 %11, 32
   %13 = or disjoint i64 %12, 2
@@ -1396,7 +1396,7 @@ define hidden void @_ZN6uucore8features2fs15FileInformation9from_path17h499ec79b
   br label %8
 
 8:                                                ; preds = %6, %7
-  %9 = load i32, ptr %5, align 8, !range !137, !noundef !5
+  %9 = load i32, ptr %5, align 8, !range !138, !noundef !5
   %trunc = trunc nuw i32 %9 to i1
   br i1 %trunc, label %13, label %10
 
@@ -1408,7 +1408,7 @@ define hidden void @_ZN6uucore8features2fs15FileInformation9from_path17h499ec79b
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %15 = load i32, ptr %14, align 4, !range !138, !noundef !5
+  %15 = load i32, ptr %14, align 4, !range !139, !noundef !5
   %16 = zext nneg i32 %15 to i64
   %17 = shl nuw nsw i64 %16, 32
   %18 = or disjoint i64 %17, 2
@@ -1762,11 +1762,12 @@ attributes #22 = { nounwind }
 !128 = distinct !{!128, !129, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h105aea6c5e592a17E.llvm.15234885945043149955: argument 0"}
 !129 = distinct !{!129, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h105aea6c5e592a17E.llvm.15234885945043149955"}
 !130 = distinct !{!130, !129, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h105aea6c5e592a17E.llvm.15234885945043149955: argument 1"}
-!131 = !{!132}
-!132 = distinct !{!132, !133, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h4d2726a999e777d0E.llvm.15234885945043149955: argument 0"}
-!133 = distinct !{!133, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h4d2726a999e777d0E.llvm.15234885945043149955"}
-!134 = !{!135}
-!135 = distinct !{!135, !136, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7b564efa0321e552E.llvm.15234885945043149955: argument 0"}
-!136 = distinct !{!136, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7b564efa0321e552E.llvm.15234885945043149955"}
-!137 = !{i32 0, i32 2}
-!138 = !{i32 0, i32 134}
+!131 = !{!125, !128}
+!132 = !{!133}
+!133 = distinct !{!133, !134, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h4d2726a999e777d0E.llvm.15234885945043149955: argument 0"}
+!134 = distinct !{!134, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h4d2726a999e777d0E.llvm.15234885945043149955"}
+!135 = !{!136}
+!136 = distinct !{!136, !137, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7b564efa0321e552E.llvm.15234885945043149955: argument 0"}
+!137 = distinct !{!137, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7b564efa0321e552E.llvm.15234885945043149955"}
+!138 = !{i32 0, i32 2}
+!139 = !{i32 0, i32 134}

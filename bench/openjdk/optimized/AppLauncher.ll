@@ -1418,7 +1418,6 @@ _ZN3Jvm11addArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZNSt10unique_ptrI3JvmSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZN3Jvm11addArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit51, %297, %312
   %315 = phi ptr [ %.pre62, %297 ], [ %313, %312 ], [ %.pre62, %_ZN3Jvm11addArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit51 ]
-  store ptr null, ptr %32, align 8
   %316 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %317 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %318 = load ptr, ptr %317, align 8

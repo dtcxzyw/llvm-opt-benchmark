@@ -7528,7 +7528,7 @@ define internal void @_ZN5arrow4util18AsyncTaskScheduler10SimpleTaskIZNS0_12_GLO
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #30
+  call void @__clang_call_terminate(ptr %35) #30, !noalias !314
   unreachable
 
 36:                                               ; preds = %16
@@ -7546,7 +7546,7 @@ define internal void @_ZN5arrow4util18AsyncTaskScheduler10SimpleTaskIZNS0_12_GLO
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #30
+  call void @__clang_call_terminate(ptr %43) #30, !noalias !314
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6.i.i:              ; preds = %39, %36

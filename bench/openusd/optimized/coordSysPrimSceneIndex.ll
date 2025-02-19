@@ -2548,7 +2548,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123_CoordSysPrimDataSourceC2ER
   %194 = landingpad { ptr, i32 }
           catch ptr null
   %195 = extractvalue { ptr, i32 } %194, 0
-  %196 = call ptr @__cxa_begin_catch(ptr %195) #21
+  %196 = call ptr @__cxa_begin_catch(ptr %195) #21, !noalias !17
   %197 = load ptr, ptr %147, align 8, !noalias !17
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %199 = load ptr, ptr %198, align 8, !noalias !17
@@ -2566,7 +2566,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123_CoordSysPrimDataSourceC2ER
   %203 = landingpad { ptr, i32 }
           catch ptr null
   %204 = extractvalue { ptr, i32 } %203, 0
-  call void @__clang_call_terminate(ptr %204) #22
+  call void @__clang_call_terminate(ptr %204) #22, !noalias !17
   unreachable
 
 205:                                              ; preds = %193
@@ -3232,7 +3232,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceC2ERKSt10sha
   %109 = landingpad { ptr, i32 }
           catch ptr null
   %110 = extractvalue { ptr, i32 } %109, 0
-  %111 = tail call ptr @__cxa_begin_catch(ptr %110) #21
+  %111 = tail call ptr @__cxa_begin_catch(ptr %110) #21, !noalias !21
   %112 = load ptr, ptr %96, align 8, !noalias !21
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load ptr, ptr %113, align 8, !noalias !21
@@ -3250,7 +3250,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceC2ERKSt10sha
   %118 = landingpad { ptr, i32 }
           catch ptr null
   %119 = extractvalue { ptr, i32 } %118, 0
-  tail call void @__clang_call_terminate(ptr %119) #22
+  tail call void @__clang_call_terminate(ptr %119) #22, !noalias !21
   unreachable
 
 120:                                              ; preds = %108
@@ -12257,7 +12257,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_CoordSysBindingDataSourceC
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  %55 = call ptr @__cxa_begin_catch(ptr %54) #21
+  %55 = call ptr @__cxa_begin_catch(ptr %54) #21, !noalias !64
   %56 = load ptr, ptr %40, align 8, !noalias !64
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8, !noalias !64
@@ -12275,7 +12275,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_CoordSysBindingDataSourceC
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
-  call void @__clang_call_terminate(ptr %63) #22
+  call void @__clang_call_terminate(ptr %63) #22, !noalias !64
   unreachable
 
 64:                                               ; preds = %52

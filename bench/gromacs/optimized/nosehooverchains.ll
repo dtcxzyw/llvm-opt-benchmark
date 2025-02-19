@@ -8771,7 +8771,6 @@ _ZNKSt14default_deleteIN3gmx23NoseHooverChainsElementEEclEPS1_.exit.i.i: ; preds
 
 _ZNSt10unique_ptrIN3gmx23NoseHooverChainsElementESt14default_deleteIS1_EED2Ev.exit: ; preds = %70, %_ZNKSt14default_deleteIN3gmx23NoseHooverChainsElementEEclEPS1_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  store ptr null, ptr %19, align 8
   %82 = icmp eq i32 %7, 0
   br i1 %82, label %83, label %114
 

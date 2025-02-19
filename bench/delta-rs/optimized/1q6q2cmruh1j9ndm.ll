@@ -1190,7 +1190,7 @@ define hidden void @_ZN5tokio7runtime4task3raw21drop_join_handle_slow17h5a6caa56
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %21, %20 ], [ %19, %18 ], [ %15, %.body.i.i.i.i.i.i.i ]
   %22 = extractvalue { ptr, i32 } %eh.lpad-body.i.i, 0
   %23 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %22)
-          to label %26 unwind label %24
+          to label %26 unwind label %24, !noalias !233
 
 24:                                               ; preds = %.body.i.i
   %25 = landingpad { ptr, i32 }
@@ -1486,7 +1486,7 @@ default.unreachable:                              ; preds = %124, %1
 .body.i.i.i.i:                                    ; preds = %.body.i.i.i.i.i.i.i
   %69 = extractvalue { ptr, i32 } %eh.lpad-body.i.i.i.i.i.i.i, 0
   %70 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %69)
-          to label %_ZN3std9panicking3try17habd4ed2eebe96cd8E.exit.thread.i.i.i unwind label %71
+          to label %_ZN3std9panicking3try17habd4ed2eebe96cd8E.exit.thread.i.i.i unwind label %71, !noalias !267
 
 71:                                               ; preds = %.body.i.i.i.i
   %72 = landingpad { ptr, i32 }
@@ -1613,7 +1613,7 @@ _ZN3std9panicking3try17habd4ed2eebe96cd8E.exit.i.i.i: ; preds = %62, %.noexc2.i.
   %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %94, %93 ], [ %92, %91 ], [ %88, %.body.i.i.i.i.i19.i.i.i ]
   %95 = extractvalue { ptr, i32 } %eh.lpad-body.i.i.i.i, 0
   %96 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %95)
-          to label %99 unwind label %97
+          to label %99 unwind label %97, !noalias !278
 
 97:                                               ; preds = %.body.i18.i.i.i
   %98 = landingpad { ptr, i32 }
@@ -2336,7 +2336,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   %eh.lpad-body.i = phi { ptr, i32 } [ %25, %24 ], [ %19, %18 ], [ %15, %.body.i.i.i.i.i.i ]
   %26 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %27 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %26)
-          to label %30 unwind label %28
+          to label %30 unwind label %28, !noalias !421
 
 28:                                               ; preds = %.body.i
   %29 = landingpad { ptr, i32 }

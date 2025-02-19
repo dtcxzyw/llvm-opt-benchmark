@@ -930,7 +930,6 @@ define internal noundef zeroext i1 @_ZN5clang4ento4eval4Call9_evalCallIN12_GLOBA
   %19 = alloca %"class.clang::ento::SVal", align 8
   %20 = alloca %"struct.std::pair.597", align 8
   %21 = alloca %"struct.std::pair.597", align 8
-  %.sroa.9.i = alloca [7 x i8], align 1
   %22 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %23 = alloca %"class.clang::ento::SVal", align 8
   %24 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
@@ -1599,7 +1598,6 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i4: ; pr
   %303 = tail call { ptr, i8 } %302(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 0) #16
   %.fca.0.extract80.i = extractvalue { ptr, i8 } %303, 0
   %.fca.1.extract81.i = extractvalue { ptr, i8 } %303, 1
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.9.i)
   %304 = load ptr, ptr %1, align 8, !tbaa !7
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 88
   %306 = load ptr, ptr %305, align 8
@@ -1655,8 +1653,6 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit120.i: ; 
   store ptr %.fca.0.extract66.i, ptr %25, align 8, !tbaa !3
   %.sroa.773.0..sroa_idx74.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i8 %.fca.1.extract67.i, ptr %.sroa.773.0..sroa_idx74.i, align 8, !tbaa !292
-  %.sroa.9.0..sroa_idx78.i = getelementptr inbounds nuw i8, ptr %25, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx78.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.i, i64 7, i1 false), !tbaa.struct !147
   %326 = call { ptr, i8 } @_ZN5clang4ento11SValBuilder9evalBinOpEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS_18BinaryOperatorKindENS0_4SValES8_NS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(412) %286, ptr noundef nonnull %24, i32 noundef range(i32 2, 7) %.sink.i, ptr %.fca.0.extract80.i, i8 %.fca.1.extract81.i, ptr noundef nonnull byval(%"class.clang::ento::SVal") align 8 %25, i64 %.sroa.0.0.i) #16
   %.fca.0.extract46.i = extractvalue { ptr, i8 } %326, 0
   %.fca.1.extract47.i = extractvalue { ptr, i8 } %326, 1
@@ -2380,19 +2376,14 @@ _ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %579) #16
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit166.thread.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit166.thread.i: ; preds = %580, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit164.i
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.9.i)
-  br label %581
-
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit166.i: ; preds = %543
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.9.i)
-  br i1 %.not.i.i.i3, label %_ZNK12_GLOBAL__N_122BuiltinFunctionChecker21handleOverflowBuiltinERKN5clang4ento9CallEventERNS2_14CheckerContextENS1_18BinaryOperatorKindENS1_8QualTypeE.exit, label %581
+  br i1 %.not.i.i.i3, label %_ZNK12_GLOBAL__N_122BuiltinFunctionChecker21handleOverflowBuiltinERKN5clang4ento9CallEventERNS2_14CheckerContextENS1_18BinaryOperatorKindENS1_8QualTypeE.exit, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit166.thread.i
 
-581:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit166.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit166.thread.i
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit166.thread.i: ; preds = %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit164.i, %580, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit166.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %282) #16
   br label %_ZNK12_GLOBAL__N_122BuiltinFunctionChecker21handleOverflowBuiltinERKN5clang4ento9CallEventERNS2_14CheckerContextENS1_18BinaryOperatorKindENS1_8QualTypeE.exit
 
-_ZNK12_GLOBAL__N_122BuiltinFunctionChecker21handleOverflowBuiltinERKN5clang4ento9CallEventERNS2_14CheckerContextENS1_18BinaryOperatorKindENS1_8QualTypeE.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit166.i, %581
+_ZNK12_GLOBAL__N_122BuiltinFunctionChecker21handleOverflowBuiltinERKN5clang4ento9CallEventERNS2_14CheckerContextENS1_18BinaryOperatorKindENS1_8QualTypeE.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit166.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit166.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)

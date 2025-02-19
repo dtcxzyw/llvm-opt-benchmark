@@ -294,7 +294,7 @@ define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h0de
   %27 = extractvalue { i64, ptr } %21, 1
   %28 = icmp ne ptr %27, null
   tail call void @llvm.assume(i1 %28)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull align 1 %18, i64 %20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull align 1 %18, i64 %20, i1 false), !noalias !67
   store i64 %26, ptr %7, align 8, !noalias !67
   %.sroa.46.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %27, ptr %.sroa.46.0..sroa_idx.i.i, align 8, !noalias !67

@@ -1983,7 +1983,7 @@ define hidden void @"_ZN12rustc_errors7emitter7Emitter30fix_multispan_in_extern_
   br i1 %or.cond55, label %35, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd33dd31eca47a831E.llvm.17476841346288807550.exit.i.i"
-  call void @"_ZN10rustc_span13span_encoding18with_span_interner28_$u7b$$u7b$closure$u7d$$u7d$17h710a0edc6b87c277E.llvm.17476841346288807550"(ptr noalias noundef nonnull sret({ i32, i32, i32, i32 }) align 4 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 %11)
+  call void @"_ZN10rustc_span13span_encoding18with_span_interner28_$u7b$$u7b$closure$u7d$$u7d$17h710a0edc6b87c277E.llvm.17476841346288807550"(ptr noalias noundef nonnull sret({ i32, i32, i32, i32 }) align 4 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 %11), !noalias !299
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %20 = load i32, ptr %19, align 4, !noundef !5
   %21 = icmp eq i32 %20, 0
@@ -2084,7 +2084,7 @@ define hidden void @"_ZN12rustc_errors7emitter7Emitter30fix_multispan_in_extern_
   br i1 %or.cond55, label %35, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd33dd31eca47a831E.llvm.17476841346288807550.exit.i.i"
-  call void @"_ZN10rustc_span13span_encoding18with_span_interner28_$u7b$$u7b$closure$u7d$$u7d$17h710a0edc6b87c277E.llvm.17476841346288807550"(ptr noalias noundef nonnull sret({ i32, i32, i32, i32 }) align 4 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 %11)
+  call void @"_ZN10rustc_span13span_encoding18with_span_interner28_$u7b$$u7b$closure$u7d$$u7d$17h710a0edc6b87c277E.llvm.17476841346288807550"(ptr noalias noundef nonnull sret({ i32, i32, i32, i32 }) align 4 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 %11), !noalias !306
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %20 = load i32, ptr %19, align 4, !noundef !5
   %21 = icmp eq i32 %20, 0
@@ -2185,7 +2185,7 @@ define hidden void @"_ZN12rustc_errors7emitter7Emitter30fix_multispan_in_extern_
   br i1 %or.cond55, label %35, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd33dd31eca47a831E.llvm.17476841346288807550.exit.i.i"
-  call void @"_ZN10rustc_span13span_encoding18with_span_interner28_$u7b$$u7b$closure$u7d$$u7d$17h710a0edc6b87c277E.llvm.17476841346288807550"(ptr noalias noundef nonnull sret({ i32, i32, i32, i32 }) align 4 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 %11)
+  call void @"_ZN10rustc_span13span_encoding18with_span_interner28_$u7b$$u7b$closure$u7d$$u7d$17h710a0edc6b87c277E.llvm.17476841346288807550"(ptr noalias noundef nonnull sret({ i32, i32, i32, i32 }) align 4 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 %11), !noalias !313
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %20 = load i32, ptr %19, align 4, !noundef !5
   %21 = icmp eq i32 %20, 0

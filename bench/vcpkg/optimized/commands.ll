@@ -1680,20 +1680,20 @@ define dso_local void @_ZN5vcpkg23print_full_command_listEv() local_unnamed_addr
   store ptr %18, ptr %.sroa.04.0.lcssa.i.i.i.i.i.i, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %27, %.val6
-  br i1 %.not.i.i.i.i.i, label %"_ZN5vcpkg4Util4sortISt6vectorIPKNS_15CommandMetadataESaIS5_EEZNS_23print_full_command_listEvE3$_0EEvRT_T0_.exit.loopexit", label %.lr.ph.i.i.i.i.i, !llvm.loop !7
+  br i1 %.not.i.i.i.i.i, label %"_ZN5vcpkg4Util4sortISt6vectorIPKNS_15CommandMetadataESaIS5_EEZNS_23print_full_command_listEvE3$_0EEvRT_T0_.exitthread-pre-split.loopexit", label %.lr.ph.i.i.i.i.i, !llvm.loop !7
 
 28:                                               ; preds = %7
   call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_23print_full_command_listEvE3$_0EEEvT_SF_T0_"(ptr %.val, ptr %.val6)
   br label %"_ZN5vcpkg4Util4sortISt6vectorIPKNS_15CommandMetadataESaIS5_EEZNS_23print_full_command_listEvE3$_0EEvRT_T0_.exit"
 
-"_ZN5vcpkg4Util4sortISt6vectorIPKNS_15CommandMetadataESaIS5_EEZNS_23print_full_command_listEvE3$_0EEvRT_T0_.exit.loopexit": ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_23print_full_command_listEvE3$_0EEEvT_T0_.exit.i.i.i.i.i"
-  %.pre = load ptr, ptr %3, align 8
-  %.pre15 = load ptr, ptr %6, align 8
+"_ZN5vcpkg4Util4sortISt6vectorIPKNS_15CommandMetadataESaIS5_EEZNS_23print_full_command_listEvE3$_0EEvRT_T0_.exitthread-pre-split.loopexit": ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_23print_full_command_listEvE3$_0EEEvT_T0_.exit.i.i.i.i.i"
+  %.pr.pre = load ptr, ptr %3, align 8
+  %.pre.pre = load ptr, ptr %6, align 8
   br label %"_ZN5vcpkg4Util4sortISt6vectorIPKNS_15CommandMetadataESaIS5_EEZNS_23print_full_command_listEvE3$_0EEvRT_T0_.exit"
 
-"_ZN5vcpkg4Util4sortISt6vectorIPKNS_15CommandMetadataESaIS5_EEZNS_23print_full_command_listEvE3$_0EEvRT_T0_.exit": ; preds = %"_ZN5vcpkg4Util4sortISt6vectorIPKNS_15CommandMetadataESaIS5_EEZNS_23print_full_command_listEvE3$_0EEvRT_T0_.exit.loopexit", %28, %16
-  %29 = phi ptr [ %.pre15, %"_ZN5vcpkg4Util4sortISt6vectorIPKNS_15CommandMetadataESaIS5_EEZNS_23print_full_command_listEvE3$_0EEvRT_T0_.exit.loopexit" ], [ %.val6, %28 ], [ %.val6, %16 ]
-  %30 = phi ptr [ %.pre, %"_ZN5vcpkg4Util4sortISt6vectorIPKNS_15CommandMetadataESaIS5_EEZNS_23print_full_command_listEvE3$_0EEvRT_T0_.exit.loopexit" ], [ %.val, %28 ], [ %.val, %16 ]
+"_ZN5vcpkg4Util4sortISt6vectorIPKNS_15CommandMetadataESaIS5_EEZNS_23print_full_command_listEvE3$_0EEvRT_T0_.exit": ; preds = %28, %16, %"_ZN5vcpkg4Util4sortISt6vectorIPKNS_15CommandMetadataESaIS5_EEZNS_23print_full_command_listEvE3$_0EEvRT_T0_.exitthread-pre-split.loopexit"
+  %29 = phi ptr [ %.pre.pre, %"_ZN5vcpkg4Util4sortISt6vectorIPKNS_15CommandMetadataESaIS5_EEZNS_23print_full_command_listEvE3$_0EEvRT_T0_.exitthread-pre-split.loopexit" ], [ %.val6, %16 ], [ %.val6, %28 ]
+  %30 = phi ptr [ %.pr.pre, %"_ZN5vcpkg4Util4sortISt6vectorIPKNS_15CommandMetadataESaIS5_EEZNS_23print_full_command_listEvE3$_0EEvRT_T0_.exitthread-pre-split.loopexit" ], [ %.val, %16 ], [ %.val, %28 ]
   %.not13 = icmp eq ptr %30, %29
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
@@ -1745,14 +1745,14 @@ define dso_local void @_ZN5vcpkg23print_full_command_listEv() local_unnamed_addr
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %._crit_edge, %47
+.loopexit.split-lp:                               ; preds = %._crit_edge, %48
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %39
+  %45 = phi ptr [ %30, %39 ], [ %30, %.loopexit ], [ %47, %.loopexit.split-lp ]
   %eh.lpad-body = phi { ptr, i32 } [ %40, %39 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %45 = load ptr, ptr %3, align 8
   %.not.i.i.i7 = icmp eq ptr %45, null
   br i1 %.not.i.i.i7, label %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EED2Ev.exit, label %46
 
@@ -1761,27 +1761,27 @@ define dso_local void @_ZN5vcpkg23print_full_command_listEv() local_unnamed_addr
   br label %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EED2Ev.exit
 
 ._crit_edge:                                      ; preds = %41, %5, %"_ZN5vcpkg4Util4sortISt6vectorIPKNS_15CommandMetadataESaIS5_EEZNS_23print_full_command_listEvE3$_0EEvRT_T0_.exit"
+  %47 = phi ptr [ %30, %"_ZN5vcpkg4Util4sortISt6vectorIPKNS_15CommandMetadataESaIS5_EEZNS_23print_full_command_listEvE3$_0EEvRT_T0_.exit" ], [ %.val, %5 ], [ %30, %41 ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 noundef signext 10)
-          to label %47 unwind label %.loopexit.split-lp
+          to label %48 unwind label %.loopexit.split-lp
 
-47:                                               ; preds = %._crit_edge
+48:                                               ; preds = %._crit_edge
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %2) #16
-  %48 = load ptr, ptr %4, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %50 = load i64, ptr %49, align 8
-  invoke void @_ZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewE(i8 noundef signext 0, ptr %48, i64 %50)
-          to label %51 unwind label %.loopexit.split-lp
+  %49 = load ptr, ptr %4, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %51 = load i64, ptr %50, align 8
+  invoke void @_ZN5vcpkg3msg32write_unlocalized_text_to_stderrENS_5ColorENS_10StringViewE(i8 noundef signext 0, ptr %49, i64 %51)
+          to label %52 unwind label %.loopexit.split-lp
 
-51:                                               ; preds = %47
-  %52 = load ptr, ptr %3, align 8
-  %.not.i.i.i8 = icmp eq ptr %52, null
+52:                                               ; preds = %48
+  %.not.i.i.i8 = icmp eq ptr %47, null
   br i1 %.not.i.i.i8, label %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EED2Ev.exit9, label %53
 
-53:                                               ; preds = %51
-  call void @_ZdlPv(ptr noundef nonnull %52) #15
+53:                                               ; preds = %52
+  call void @_ZdlPv(ptr noundef nonnull %47) #15
   br label %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EED2Ev.exit9
 
-_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EED2Ev.exit9: ; preds = %51, %53
+_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EED2Ev.exit9: ; preds = %52, %53
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   ret void
 

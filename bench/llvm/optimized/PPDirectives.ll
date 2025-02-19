@@ -13071,22 +13071,15 @@ _ZN5clang12Preprocessor26DiscardUntilEndOfDirectiveEv.exit: ; preds = %.lr.ph.i.
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 40
   %205 = load ptr, ptr %204, align 8
   %206 = call noundef zeroext i1 %205(ptr noundef nonnull align 8 dereferenceable(8) %201, ptr %193, i64 %195) #18
-  br i1 %206, label %347, label %._crit_edge
+  br i1 %206, label %347, label %207
 
-._crit_edge:                                      ; preds = %202
-  %.sroa.0.0.copyload.i.pre = load ptr, ptr %13, align 8, !tbaa !323
-  %.sroa.2.0.copyload.i.pre = load i64, ptr %194, align 8, !tbaa !306
-  br label %207
-
-207:                                              ; preds = %._crit_edge, %199
-  %.sroa.2.0.copyload.i = phi i64 [ %.sroa.2.0.copyload.i.pre, %._crit_edge ], [ %.sroa.213.0.copyload, %199 ]
-  %.sroa.0.0.copyload.i = phi ptr [ %.sroa.0.0.copyload.i.pre, %._crit_edge ], [ %.sroa.012.0.copyload, %199 ]
+207:                                              ; preds = %202, %199
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %14) #18
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %209 = load ptr, ptr %208, align 8, !tbaa !39, !noalias !801
   %210 = load i32, ptr %8, align 8, !tbaa !32, !noalias !801
   call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %14, ptr noundef nonnull align 8 dereferenceable(15248) %209, i32 %210, i32 noundef 1129) #18
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %14, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %14, ptr %.sroa.012.0.copyload, i64 %.sroa.213.0.copyload)
   %211 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %212 = load i8, ptr %211, align 8, !tbaa !264, !range !269, !noundef !270
   %213 = trunc nuw i8 %212 to i1
@@ -19278,8 +19271,6 @@ _ZNK4llvm9StringRef10drop_untilENS_12function_refIFbcEEE.exit.i148: ; preds = %3
 
 "_ZZN5clang12Preprocessor27LookupHeaderIncludeOrImportEPNS_6detail21SearchDirIteratorImplILb1EEERN4llvm9StringRefENS_14SourceLocationENS_15CharSourceRangeERKNS_5TokenERbbSD_S3_PKNS_9FileEntryES7_RNS5_15SmallVectorImplIcEESJ_RNS_9ModuleMap11KnownHeaderEbENK3$_0clENS_12FileEntryRefE.exit169": ; preds = %325, %329
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %26) #18
-  %.sroa.022.0.copyload = load i64, ptr %19, align 8
-  %.sroa.223.0.copyload = load i8, ptr %.sroa.292.0..sroa_idx, align 8, !tbaa !310
   br i1 %16, label %.critedge114.critedge, label %.critedge
 
 .critedge:                                        ; preds = %"_ZZN5clang12Preprocessor27LookupHeaderIncludeOrImportEPNS_6detail21SearchDirIteratorImplILb1EEERN4llvm9StringRefENS_14SourceLocationENS_15CharSourceRangeERKNS_5TokenERbbSD_S3_PKNS_9FileEntryES7_RNS5_15SmallVectorImplIcEESJ_RNS_9ModuleMap11KnownHeaderEbENK3$_0clENS_12FileEntryRefE.exit169"
@@ -19292,7 +19283,7 @@ _ZNK4llvm9StringRef10drop_untilENS_12function_refIFbcEEE.exit.i148: ; preds = %3
   %343 = load ptr, ptr %30, align 8, !tbaa !273
   %344 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %345 = load i64, ptr %344, align 8, !tbaa !274
-  call void @_ZN5clang9FixItHint17CreateReplacementENS_15CharSourceRangeEN4llvm9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.clang::FixItHint") align 8 %26, i64 %.sroa.022.0.copyload, i8 %.sroa.223.0.copyload, ptr %343, i64 %345)
+  call void @_ZN5clang9FixItHint17CreateReplacementENS_15CharSourceRangeEN4llvm9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.clang::FixItHint") align 8 %26, i64 %4, i8 %5, ptr %343, i64 %345)
   %346 = load ptr, ptr %30, align 8, !tbaa !273
   %347 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %348 = icmp eq ptr %346, %347
@@ -19364,7 +19355,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178: ; preds = %_Z
   %369 = load ptr, ptr %27, align 8, !tbaa !273
   %370 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %371 = load i64, ptr %370, align 8, !tbaa !274
-  call void @_ZN5clang9FixItHint17CreateReplacementENS_15CharSourceRangeEN4llvm9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.clang::FixItHint") align 8 %26, i64 %.sroa.022.0.copyload, i8 %.sroa.223.0.copyload, ptr %369, i64 %371)
+  call void @_ZN5clang9FixItHint17CreateReplacementENS_15CharSourceRangeEN4llvm9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.clang::FixItHint") align 8 %26, i64 %4, i8 %5, ptr %369, i64 %371)
   %372 = load ptr, ptr %27, align 8, !tbaa !273
   %373 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %374 = icmp eq ptr %372, %373

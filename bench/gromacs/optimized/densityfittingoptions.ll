@@ -5560,7 +5560,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 93:                                               ; preds = %.body.i.i.i.i
   %94 = extractvalue { ptr, i32 } %eh.lpad-body.i.i.i.i, 0
-  %95 = call ptr @__cxa_begin_catch(ptr %94) #24
+  %95 = call ptr @__cxa_begin_catch(ptr %94) #24, !noalias !79
   %96 = load ptr, ptr %95, align 8, !noalias !79
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load ptr, ptr %97, align 8, !noalias !79
@@ -5696,7 +5696,7 @@ _ZN3gmx17InvalidInputErrorC2ERKS0_.exit.i.i.i.i:  ; preds = %119, %116, %105
   %140 = landingpad { ptr, i32 }
           catch ptr null
   %141 = extractvalue { ptr, i32 } %140, 0
-  call void @__clang_call_terminate(ptr %141) #25
+  call void @__clang_call_terminate(ptr %141) #25, !noalias !79
   unreachable
 
 142:                                              ; preds = %122
@@ -6459,7 +6459,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 93:                                               ; preds = %.body.i.i.i.i
   %94 = extractvalue { ptr, i32 } %eh.lpad-body.i.i.i.i, 0
-  %95 = call ptr @__cxa_begin_catch(ptr %94) #24
+  %95 = call ptr @__cxa_begin_catch(ptr %94) #24, !noalias !92
   %96 = load ptr, ptr %95, align 8, !noalias !92
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load ptr, ptr %97, align 8, !noalias !92
@@ -6595,7 +6595,7 @@ _ZN3gmx17InvalidInputErrorC2ERKS0_.exit.i.i.i.i:  ; preds = %119, %116, %105
   %140 = landingpad { ptr, i32 }
           catch ptr null
   %141 = extractvalue { ptr, i32 } %140, 0
-  call void @__clang_call_terminate(ptr %141) #25
+  call void @__clang_call_terminate(ptr %141) #25, !noalias !92
   unreachable
 
 142:                                              ; preds = %122

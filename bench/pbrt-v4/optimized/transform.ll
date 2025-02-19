@@ -696,31 +696,27 @@ if.end:                                           ; preds = %entry
   %27 = extractvalue { ptr, i64 } %call81, 0
   %arrayidx.i103 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store float 0.000000e+00, ptr %arrayidx.i103, align 4
-  %28 = load float, ptr %dir, align 8
   %call85 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %worldFromCamera, i32 noundef 0)
-  %29 = extractvalue { ptr, i64 } %call85, 0
-  %arrayidx.i104 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store float %28, ptr %arrayidx.i104, align 4
-  %y87 = getelementptr inbounds nuw i8, ptr %dir, i64 4
-  %30 = load float, ptr %y87, align 4
+  %28 = extractvalue { ptr, i64 } %call85, 0
+  %arrayidx.i104 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store float %div.i.i, ptr %arrayidx.i104, align 4
   %call89 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %worldFromCamera, i32 noundef 1)
-  %31 = extractvalue { ptr, i64 } %call89, 0
-  %arrayidx.i105 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store float %30, ptr %arrayidx.i105, align 4
-  %32 = load float, ptr %tmp.coerce17.sroa.2.0.coerce.dive16.sroa_idx, align 8
+  %29 = extractvalue { ptr, i64 } %call89, 0
+  %arrayidx.i105 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store float %div2.i.i, ptr %arrayidx.i105, align 4
   %call93 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %worldFromCamera, i32 noundef 2)
-  %33 = extractvalue { ptr, i64 } %call93, 0
-  %arrayidx.i106 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store float %32, ptr %arrayidx.i106, align 4
+  %30 = extractvalue { ptr, i64 } %call93, 0
+  %arrayidx.i106 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store float %div3.i.i, ptr %arrayidx.i106, align 4
   %call96 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %worldFromCamera, i32 noundef 3)
-  %34 = extractvalue { ptr, i64 } %call96, 0
-  %arrayidx.i107 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %31 = extractvalue { ptr, i64 } %call96, 0
+  %arrayidx.i107 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store float 0.000000e+00, ptr %arrayidx.i107, align 4
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %inv.i)
   call void @_ZN4pbrt7InverseILi4EEEN4pstd8optionalINS_12SquareMatrixIXT_EEEEERKS4_(ptr nonnull sret(%"class.pstd::optional") align 4 %inv.i, ptr noundef nonnull align 4 dereferenceable(64) %worldFromCamera), !noalias !8
   %set.i.i = getelementptr inbounds nuw i8, ptr %inv.i, i64 64
-  %35 = load i8, ptr %set.i.i, align 4, !noalias !8
-  %tobool.i.i = trunc i8 %35 to i1
+  %32 = load i8, ptr %set.i.i, align 4, !noalias !8
+  %tobool.i.i = trunc i8 %32 to i1
   br i1 %tobool.i.i, label %_ZN4pbrt12InvertOrExitILi4EEENS_12SquareMatrixIXT_EEERKS2_.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end

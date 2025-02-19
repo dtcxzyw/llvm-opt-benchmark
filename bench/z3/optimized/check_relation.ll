@@ -2604,7 +2604,6 @@ entry:
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %entry
   %3 = load ptr, ptr %ref.tmp, align 8
   store ptr %3, ptr %fml1, align 8
-  store ptr null, ptr %ref.tmp, align 8
   %4 = load ptr, ptr %m, align 8
   %m_fml = getelementptr inbounds nuw i8, ptr %this, i64 48
   %5 = load ptr, ptr %m_fml, align 8

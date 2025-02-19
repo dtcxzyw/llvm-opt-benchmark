@@ -8365,7 +8365,6 @@ _ZNK4llvm8Function10hasOptSizeEv.exit:            ; preds = %55, %62
   %123 = and i8 %122, %120
   store i8 %123, ptr %121, align 2, !tbaa !84
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %30) #21
-  store i8 0, ptr %30, align 1, !tbaa !47
   %124 = call noundef zeroext i1 @_ZN4llvm18computeUnrollCountEPNS_4LoopERKNS_19TargetTransformInfoERNS_13DominatorTreeEPNS_8LoopInfoEPNS_15AssumptionCacheERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEEPNS_25OptimizationRemarkEmitterEjjbjRKNS_19UnrollCostEstimatorERNS2_20UnrollingPreferencesERNS2_18PeelingPreferencesERb(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(124) %1, ptr poison, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(1344) %3, ptr noundef nonnull align 8 dereferenceable(21) %27, ptr noundef nonnull %6, i32 noundef %.1108, i32 noundef 0, i1 noundef zeroext false, i32 noundef %.1110, ptr noundef nonnull align 8 dereferenceable(29) %28, ptr noundef nonnull align 4 dereferenceable(69) %25, ptr noundef nonnull align 4 dereferenceable(8) %26, ptr noundef nonnull align 1 dereferenceable(1) %30)
   br label %133
 
@@ -8380,7 +8379,6 @@ _ZNK4llvm8Function10hasOptSizeEv.exit:            ; preds = %55, %62
   %130 = call noundef i32 @_ZN4llvm15ScalarEvolution28getSmallConstantMaxTripCountEPKNS_4LoopEPNS_15SmallVectorImplIPKNS_13SCEVPredicateEEE(ptr noundef nonnull align 8 dereferenceable(1344) %3, ptr noundef nonnull %0, ptr noundef null) #21
   %131 = call noundef zeroext i1 @_ZN4llvm15ScalarEvolution29isBackedgeTakenCountMaxOrZeroEPKNS_4LoopE(ptr noundef nonnull align 8 dereferenceable(1344) %3, ptr noundef nonnull %0) #21
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %30) #21
-  store i8 0, ptr %30, align 1, !tbaa !47
   %132 = call noundef zeroext i1 @_ZN4llvm18computeUnrollCountEPNS_4LoopERKNS_19TargetTransformInfoERNS_13DominatorTreeEPNS_8LoopInfoEPNS_15AssumptionCacheERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEEPNS_25OptimizationRemarkEmitterEjjbjRKNS_19UnrollCostEstimatorERNS2_20UnrollingPreferencesERNS2_18PeelingPreferencesERb(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(124) %1, ptr poison, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(1344) %3, ptr noundef nonnull align 8 dereferenceable(21) %27, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %130, i1 noundef zeroext %131, i32 noundef %.2111.ph, ptr noundef nonnull align 8 dereferenceable(29) %28, ptr noundef nonnull align 4 dereferenceable(69) %25, ptr noundef nonnull align 4 dereferenceable(8) %26, ptr noundef nonnull align 1 dereferenceable(1) %30)
   br label %133
 

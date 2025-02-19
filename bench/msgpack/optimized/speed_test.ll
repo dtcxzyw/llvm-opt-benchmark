@@ -1842,7 +1842,6 @@ define linkonce_odr dso_local void @_ZN7msgpack2v36unpackERNS_2v113object_handle
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %70, ptr noundef nonnull align 4 dereferenceable(20) %10, i64 20, i1 false)
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %11, align 8, !tbaa !34
   %72 = load ptr, ptr %71, align 8, !tbaa !34
   store ptr %12, ptr %71, align 8, !tbaa !34
   %73 = icmp eq ptr %72, null
@@ -1897,7 +1896,6 @@ define linkonce_odr dso_local void @_ZN7msgpack2v36unpackERNS_2v113object_handle
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %99, ptr noundef nonnull align 4 dereferenceable(20) %10, i64 20, i1 false)
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %11, align 8, !tbaa !34
   %101 = load ptr, ptr %100, align 8, !tbaa !34
   store ptr %12, ptr %100, align 8, !tbaa !34
   %102 = icmp eq ptr %101, null

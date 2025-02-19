@@ -6551,7 +6551,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h1cf2e90be0009b20E.exit133.i: ; preds =
           to label %.body141.i unwind label %782, !noalias !2242
 
 387:                                              ; preds = %.noexc.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %380, ptr noundef nonnull align 8 dereferenceable(720) %35, i64 720, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %380, ptr noundef nonnull align 8 dereferenceable(720) %35, i64 720, i1 false), !noalias !2242
   call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %35), !noalias !2241
   %388 = load ptr, ptr %96, align 8, !alias.scope !2232, !noalias !2239, !nonnull !9, !noundef !9
   store ptr %388, ptr %73, align 8, !noalias !2241
@@ -7920,7 +7920,7 @@ tailrecurse.i.i.i:                                ; preds = %.lr.ph.i.i240.i
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h211ff91deb3380f6E.llvm.2299517138537098547.exit.i.i": ; preds = %.noexc.i254.i
   %839 = getelementptr inbounds nuw i8, ptr %169, i64 728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %832, ptr noundef nonnull align 8 dereferenceable(64) %54, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %832, ptr noundef nonnull align 8 dereferenceable(64) %54, i64 64, i1 false), !noalias !2758
   %840 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i32 %828, ptr %840, align 8, !noalias !2753
   %841 = getelementptr inbounds nuw i8, ptr %16, i64 28
@@ -7975,7 +7975,7 @@ tailrecurse.i.i.i:                                ; preds = %.lr.ph.i.i240.i
   unreachable
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h211ff91deb3380f6E.llvm.2299517138537098547.exit.i259.i": ; preds = %.noexc.i258.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %850, ptr noundef nonnull align 8 dereferenceable(64) %53, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %850, ptr noundef nonnull align 8 dereferenceable(64) %53, i64 64, i1 false), !noalias !2765
   %857 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 %828, ptr %857, align 8, !noalias !2760
   %858 = getelementptr inbounds nuw i8, ptr %15, i64 28
@@ -9188,7 +9188,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h1cf2e90be0009b20E.exit124.i: ; preds =
           to label %.body133.i unwind label %761, !noalias !2933
 
 383:                                              ; preds = %.noexc.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %376, ptr noundef nonnull align 8 dereferenceable(720) %36, i64 720, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %376, ptr noundef nonnull align 8 dereferenceable(720) %36, i64 720, i1 false), !noalias !2933
   call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %36), !noalias !2932
   %384 = load ptr, ptr %94, align 8, !alias.scope !2923, !noalias !2930, !nonnull !9, !noundef !9
   store ptr %384, ptr %74, align 8, !noalias !2932
@@ -10506,7 +10506,7 @@ tailrecurse.i.i.i:                                ; preds = %.lr.ph.i.i249.i
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h211ff91deb3380f6E.llvm.2299517138537098547.exit.i.i": ; preds = %.noexc.i263.i
   %818 = getelementptr inbounds nuw i8, ptr %164, i64 728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %811, ptr noundef nonnull align 8 dereferenceable(64) %55, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %811, ptr noundef nonnull align 8 dereferenceable(64) %55, i64 64, i1 false), !noalias !3413
   %819 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 %807, ptr %819, align 8, !noalias !3408
   %820 = getelementptr inbounds nuw i8, ptr %17, i64 28
@@ -10561,7 +10561,7 @@ tailrecurse.i.i.i:                                ; preds = %.lr.ph.i.i249.i
   unreachable
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h211ff91deb3380f6E.llvm.2299517138537098547.exit.i268.i": ; preds = %.noexc.i267.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %829, ptr noundef nonnull align 8 dereferenceable(64) %54, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %829, ptr noundef nonnull align 8 dereferenceable(64) %54, i64 64, i1 false), !noalias !3420
   %836 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i32 %807, ptr %836, align 8, !noalias !3415
   %837 = getelementptr inbounds nuw i8, ptr %16, i64 28

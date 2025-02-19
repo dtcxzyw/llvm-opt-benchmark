@@ -3554,7 +3554,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h0
   store i64 %.sroa.730.0.copyload, ptr %.sroa.19.0..sroa_idx, align 8, !noalias !686
   %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 128
   store ptr %6, ptr %.sroa.20.0..sroa_idx, align 8, !noalias !686
-  call void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h49fa68a23927cb1eE.llvm.12150801376095413471"(ptr noalias noundef nonnull sret({ { ptr, ptr, i64, {}, {} }, { ptr, ptr, i64, {}, {} } }) align 8 captures(none) dereferenceable(48) %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(136) %10, ptr noundef nonnull align 128 %37, i1 noundef zeroext false)
+  call void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h49fa68a23927cb1eE.llvm.12150801376095413471"(ptr noalias noundef nonnull sret({ { ptr, ptr, i64, {}, {} }, { ptr, ptr, i64, {}, {} } }) align 8 captures(none) dereferenceable(48) %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(136) %10, ptr noundef nonnull align 128 %37, i1 noundef zeroext false), !noalias !687
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %10), !noalias !682
   br label %_ZN10rayon_core8registry9in_worker17h769c961bf005d763E.exit
 
@@ -3779,7 +3779,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h2
   store ptr %.sroa.451.0.copyload, ptr %.sroa.23.0..sroa_idx, align 8, !noalias !710
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 160
   store i64 %19, ptr %.sroa.24.0..sroa_idx, align 8, !noalias !710
-  call void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h28f6a2bdf5b0da00E.llvm.12150801376095413471"(ptr noalias noundef nonnull sret({ { ptr, i64, i64, {} }, { ptr, i64, i64, {} } }) align 8 captures(none) dereferenceable(48) %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(168) %10, ptr noundef nonnull align 128 %40, i1 noundef zeroext false)
+  call void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17h28f6a2bdf5b0da00E.llvm.12150801376095413471"(ptr noalias noundef nonnull sret({ { ptr, i64, i64, {} }, { ptr, i64, i64, {} } }) align 8 captures(none) dereferenceable(48) %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(168) %10, ptr noundef nonnull align 128 %40, i1 noundef zeroext false), !noalias !711
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %10), !noalias !706
   br label %_ZN10rayon_core8registry9in_worker17h62aed3435f8edab6E.exit
 
@@ -5124,7 +5124,7 @@ _ZN5rayon5slice9quicksort15partition_equal17h267b70a346461d56E.exit: ; preds = %
   store ptr %15, ptr %.sroa.12.0..sroa_idx, align 8
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 72
   store ptr %.0.ph235, ptr %.sroa.13.0..sroa_idx, align 8
-  call void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17hb08e05e143e277f8E.llvm.12150801376095413471"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %8, ptr noundef nonnull align 128 %320, i1 noundef zeroext false)
+  call void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d$$u7d$17hb08e05e143e277f8E.llvm.12150801376095413471"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %8, ptr noundef nonnull align 128 %320, i1 noundef zeroext false), !noalias !1067
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8), !noalias !1067
   br label %_ZN5rayon5slice9quicksort14insertion_sort17h812b286db68fd398E.exit
 
@@ -8172,7 +8172,7 @@ attributes #34 = { noreturn }
 !253 = distinct !{!253, !"_ZN7uu_sort6chunks5Chunk16borrow_dependent17h2237750e99f325ccE.llvm.15399028824041462682"}
 !254 = distinct !{!254, !255, !"_ZN7uu_sort6chunks5Chunk9line_data17h0628a27dc2ad7ff5E: argument 0"}
 !255 = distinct !{!255, !"_ZN7uu_sort6chunks5Chunk9line_data17h0628a27dc2ad7ff5E"}
-!256 = !{!257, !259, !260, !261, !263, !264, !265, !266, !267, !268, !244, !245, !246, !247}
+!256 = !{!257, !259, !260, !261, !263, !264, !265, !266, !267, !268, !244, !245, !246, !247, !225, !222, !228, !229}
 !257 = distinct !{!257, !258, !"_ZN7uu_sort8ext_sort13reader_writer28_$u7b$$u7b$closure$u7d$$u7d$17hbaf614fdf4bb6a83E.llvm.10133238638926455853: argument 0"}
 !258 = distinct !{!258, !"_ZN7uu_sort8ext_sort13reader_writer28_$u7b$$u7b$closure$u7d$$u7d$17hbaf614fdf4bb6a83E.llvm.10133238638926455853"}
 !259 = distinct !{!259, !258, !"_ZN7uu_sort8ext_sort13reader_writer28_$u7b$$u7b$closure$u7d$$u7d$17hbaf614fdf4bb6a83E.llvm.10133238638926455853: argument 1"}
@@ -8186,7 +8186,7 @@ attributes #34 = { noreturn }
 !267 = distinct !{!267, !250, !"_ZN145_$LT$itertools..adaptors..coalesce..DedupPred2CoalescePred$LT$DP$GT$$u20$as$u20$itertools..adaptors..coalesce..CoalescePredicate$LT$T$C$T$GT$$GT$13coalesce_pair17hdac7ae33f97c371fE: argument 2"}
 !268 = distinct !{!268, !250, !"_ZN145_$LT$itertools..adaptors..coalesce..DedupPred2CoalescePred$LT$DP$GT$$u20$as$u20$itertools..adaptors..coalesce..CoalescePredicate$LT$T$C$T$GT$$GT$13coalesce_pair17hdac7ae33f97c371fE: argument 3"}
 !269 = !{i8 -1, i8 2}
-!270 = !{!257, !259, !260, !261, !263, !264, !265, !267, !249, !244, !246, !232}
+!270 = !{!257, !259, !260, !261, !263, !264, !265, !267, !249, !244, !246, !232, !225, !222, !228, !229}
 !271 = !{!244, !246, !232, !225, !222, !228, !229}
 !272 = !{!273}
 !273 = distinct !{!273, !274, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha7f8b4c2315f99f3E.llvm.687266931824691263: argument 0"}
@@ -8259,7 +8259,7 @@ attributes #34 = { noreturn }
 !340 = distinct !{!340, !"_ZN7uu_sort6chunks5Chunk16borrow_dependent17h2237750e99f325ccE.llvm.15399028824041462682"}
 !341 = distinct !{!341, !342, !"_ZN7uu_sort6chunks5Chunk9line_data17h0628a27dc2ad7ff5E: argument 0"}
 !342 = distinct !{!342, !"_ZN7uu_sort6chunks5Chunk9line_data17h0628a27dc2ad7ff5E"}
-!343 = !{!344, !346, !347, !348, !350, !351, !352, !353, !354, !355, !331, !332, !333, !334}
+!343 = !{!344, !346, !347, !348, !350, !351, !352, !353, !354, !355, !331, !332, !333, !334, !312, !309, !315, !316}
 !344 = distinct !{!344, !345, !"_ZN7uu_sort8ext_sort13reader_writer28_$u7b$$u7b$closure$u7d$$u7d$17h483f24920d64e219E.llvm.10133238638926455853: argument 0"}
 !345 = distinct !{!345, !"_ZN7uu_sort8ext_sort13reader_writer28_$u7b$$u7b$closure$u7d$$u7d$17h483f24920d64e219E.llvm.10133238638926455853"}
 !346 = distinct !{!346, !345, !"_ZN7uu_sort8ext_sort13reader_writer28_$u7b$$u7b$closure$u7d$$u7d$17h483f24920d64e219E.llvm.10133238638926455853: argument 1"}
@@ -8272,7 +8272,7 @@ attributes #34 = { noreturn }
 !353 = distinct !{!353, !337, !"_ZN145_$LT$itertools..adaptors..coalesce..DedupPred2CoalescePred$LT$DP$GT$$u20$as$u20$itertools..adaptors..coalesce..CoalescePredicate$LT$T$C$T$GT$$GT$13coalesce_pair17hd1056834db6db04cE: argument 1"}
 !354 = distinct !{!354, !337, !"_ZN145_$LT$itertools..adaptors..coalesce..DedupPred2CoalescePred$LT$DP$GT$$u20$as$u20$itertools..adaptors..coalesce..CoalescePredicate$LT$T$C$T$GT$$GT$13coalesce_pair17hd1056834db6db04cE: argument 2"}
 !355 = distinct !{!355, !337, !"_ZN145_$LT$itertools..adaptors..coalesce..DedupPred2CoalescePred$LT$DP$GT$$u20$as$u20$itertools..adaptors..coalesce..CoalescePredicate$LT$T$C$T$GT$$GT$13coalesce_pair17hd1056834db6db04cE: argument 3"}
-!356 = !{!344, !346, !347, !348, !350, !351, !352, !354, !336, !331, !333, !319}
+!356 = !{!344, !346, !347, !348, !350, !351, !352, !354, !336, !331, !333, !319, !312, !309, !315, !316}
 !357 = !{!331, !333, !319, !312, !309, !315, !316}
 !358 = !{!359}
 !359 = distinct !{!359, !360, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha7f8b4c2315f99f3E.llvm.687266931824691263: argument 0"}

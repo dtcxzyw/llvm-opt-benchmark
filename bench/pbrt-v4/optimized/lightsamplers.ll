@@ -1366,7 +1366,6 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i78
   unreachable
 
 _ZN4pbrt10AliasTableD2Ev.exit:                    ; preds = %invoke.cont72, %if.end.i.i.i.i.i78
-  store i64 0, ptr %nStored.i63, align 8
   %47 = load ptr, ptr %ptr.i12, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %47, null
   br i1 %tobool.not.i.i.i.i, label %return, label %if.end.i.i.i.i

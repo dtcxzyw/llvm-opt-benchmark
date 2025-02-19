@@ -28097,7 +28097,6 @@ _ZNSt10shared_ptrIN2cv5gimpl17GIslandExecutableEED2Ev.exit: ; preds = %_ZN12_GLO
 300:                                              ; preds = %296
   %301 = landingpad { ptr, i32 }
           catch ptr null
-  store ptr inttoptr (i64 1 to ptr), ptr %22, align 8
   %302 = extractvalue { ptr, i32 } %301, 0
   call void @__clang_call_terminate(ptr %302) #31
   unreachable
@@ -28163,7 +28162,6 @@ _ZN2cv4util7variantIJNS_5gimpl11EndOfStreamESt6vectorINS_7GRunArgESaIS5_EENS2_9E
 324:                                              ; preds = %323
   %325 = landingpad { ptr, i32 }
           catch ptr null
-  store ptr inttoptr (i64 1 to ptr), ptr %22, align 8
   %326 = extractvalue { ptr, i32 } %325, 0
   call void @__clang_call_terminate(ptr %326) #31
   unreachable
@@ -28765,7 +28763,7 @@ _ZSt8_DestroyIPN2cv7GRunArgEEvT_S3_.exit.i.i.i.i.i: ; preds = %165
   %195 = landingpad { ptr, i32 }
           catch ptr null
   %196 = extractvalue { ptr, i32 } %195, 0
-  call void @__clang_call_terminate(ptr %196) #31
+  call void @__clang_call_terminate(ptr %196) #31, !noalias !561
   unreachable
 
 _ZSt8_DestroyIN2cv4util7variantIJNS1_9monostateENS0_5gimpl6stream5StartENS5_4StopENS0_7GRunArgENS5_6ResultENS4_9ExceptionEEEEEvPT_.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
@@ -28976,7 +28974,7 @@ _ZN2cv4util13make_optionalIRNS_5gimpl9ExceptionEEENS0_8optionalINSt5decayIT_E4ty
   %266 = landingpad { ptr, i32 }
           catch ptr null
   %267 = extractvalue { ptr, i32 } %266, 0
-  call void @__clang_call_terminate(ptr %267) #31
+  call void @__clang_call_terminate(ptr %267) #31, !noalias !561
   unreachable
 
 _ZN2cv4util7variantIJNS0_8optionalINS_5gimpl9ExceptionEE7nothingES4_EEaSEOS7_.exit.i.i.i: ; preds = %._ZN2cv4util7variantIJNS0_8optionalINS_5gimpl9ExceptionEE7nothingES4_EEaSEOS7_.exit_crit_edge.i.i.i, %260
@@ -29014,7 +29012,7 @@ _ZN2cv4util8optionalINS_5gimpl9ExceptionEEaSEOS4_.exit.i.i: ; preds = %_ZN2cv4ut
   %276 = landingpad { ptr, i32 }
           catch ptr null
   %277 = extractvalue { ptr, i32 } %276, 0
-  call void @__clang_call_terminate(ptr %277) #31
+  call void @__clang_call_terminate(ptr %277) #31, !noalias !561
   unreachable
 
 _ZN2cv4util8optionalINS_5gimpl9ExceptionEED2Ev.exit.i.i: ; preds = %_ZN2cv4util8optionalINS_5gimpl9ExceptionEEaSEOS4_.exit.i.i
@@ -33040,7 +33038,7 @@ _ZN2cv4util8optionalINS_6detail9VectorRefEED2Ev.exit.i: ; preds = %_ZNSt6vectorI
   %230 = landingpad { ptr, i32 }
           catch ptr null
   %231 = extractvalue { ptr, i32 } %230, 0
-  %232 = call ptr @__cxa_begin_catch(ptr %231) #27
+  %232 = call ptr @__cxa_begin_catch(ptr %231) #27, !noalias !615
   call void @_ZdlPv(ptr noundef nonnull %225) #30, !noalias !615
   invoke void @__cxa_rethrow() #28
           to label %238 unwind label %233, !noalias !615
@@ -33055,7 +33053,7 @@ _ZN2cv4util8optionalINS_6detail9VectorRefEED2Ev.exit.i: ; preds = %_ZNSt6vectorI
   %236 = landingpad { ptr, i32 }
           catch ptr null
   %237 = extractvalue { ptr, i32 } %236, 0
-  call void @__clang_call_terminate(ptr %237) #31
+  call void @__clang_call_terminate(ptr %237) #31, !noalias !615
   unreachable
 
 238:                                              ; preds = %229
@@ -33369,7 +33367,7 @@ _ZN2cv4util8optionalINS_6detail9OpaqueRefEED2Ev.exit.i: ; preds = %_ZNSt6vectorI
   %354 = landingpad { ptr, i32 }
           catch ptr null
   %355 = extractvalue { ptr, i32 } %354, 0
-  %356 = call ptr @__cxa_begin_catch(ptr %355) #27
+  %356 = call ptr @__cxa_begin_catch(ptr %355) #27, !noalias !621
   call void @_ZdlPv(ptr noundef nonnull %349) #30, !noalias !621
   invoke void @__cxa_rethrow() #28
           to label %362 unwind label %357, !noalias !621
@@ -33384,7 +33382,7 @@ _ZN2cv4util8optionalINS_6detail9OpaqueRefEED2Ev.exit.i: ; preds = %_ZNSt6vectorI
   %360 = landingpad { ptr, i32 }
           catch ptr null
   %361 = extractvalue { ptr, i32 } %360, 0
-  call void @__clang_call_terminate(ptr %361) #31
+  call void @__clang_call_terminate(ptr %361) #31, !noalias !621
   unreachable
 
 362:                                              ; preds = %353
@@ -42513,8 +42511,8 @@ define linkonce_odr hidden void @_ZSt16__do_uninit_copyISt15_Deque_iteratorIN2cv
   store ptr %16, ptr %14, align 8
   %17 = load ptr, ptr %1, align 8
   %18 = load ptr, ptr %2, align 8
-  %.not12 = icmp eq ptr %17, %18
-  br i1 %.not12, label %._crit_edge, label %.lr.ph
+  %.not13 = icmp eq ptr %17, %18
+  br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -42597,52 +42595,48 @@ _ZNSt15_Deque_iteratorIN2cv4util7variantIJNS1_9monostateENS0_5gimpl6stream5Start
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %64 = load ptr, ptr %15, align 8
   store ptr %64, ptr %63, align 8
-  %65 = load ptr, ptr %0, align 8
-  store ptr %65, ptr %6, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %67 = load ptr, ptr %8, align 8
-  store ptr %67, ptr %66, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %69 = load ptr, ptr %11, align 8
-  store ptr %69, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %71 = load ptr, ptr %14, align 8
-  store ptr %71, ptr %70, align 8
+  store ptr %24, ptr %6, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %27, ptr %65, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %25, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr %26, ptr %67, align 8
   invoke void @_ZSt8_DestroyISt15_Deque_iteratorIN2cv4util7variantIJNS2_9monostateENS1_5gimpl6stream5StartENS6_4StopENS1_7GRunArgENS6_6ResultENS5_9ExceptionEEEERSC_PSC_EEvT_SG_(ptr noundef nonnull %5, ptr noundef nonnull %6)
-          to label %72 unwind label %73
+          to label %68 unwind label %69
 
-72:                                               ; preds = %54
+68:                                               ; preds = %54
   invoke void @__cxa_rethrow() #28
-          to label %79 unwind label %73
+          to label %75 unwind label %69
 
 ._crit_edge:                                      ; preds = %_ZNSt15_Deque_iteratorIN2cv4util7variantIJNS1_9monostateENS0_5gimpl6stream5StartENS5_4StopENS0_7GRunArgENS5_6ResultENS4_9ExceptionEEEERSB_PSB_EppEv.exit, %4
-  %.lcssa10 = phi ptr [ %10, %4 ], [ %49, %_ZNSt15_Deque_iteratorIN2cv4util7variantIJNS1_9monostateENS0_5gimpl6stream5StartENS5_4StopENS0_7GRunArgENS5_6ResultENS4_9ExceptionEEEERSB_PSB_EppEv.exit ]
-  %.lcssa7 = phi ptr [ %16, %4 ], [ %50, %_ZNSt15_Deque_iteratorIN2cv4util7variantIJNS1_9monostateENS0_5gimpl6stream5StartENS5_4StopENS0_7GRunArgENS5_6ResultENS4_9ExceptionEEEERSB_PSB_EppEv.exit ]
-  %.lcssa4 = phi ptr [ %13, %4 ], [ %51, %_ZNSt15_Deque_iteratorIN2cv4util7variantIJNS1_9monostateENS0_5gimpl6stream5StartENS5_4StopENS0_7GRunArgENS5_6ResultENS4_9ExceptionEEEERSB_PSB_EppEv.exit ]
-  %.lcssa = phi ptr [ %7, %4 ], [ %52, %_ZNSt15_Deque_iteratorIN2cv4util7variantIJNS1_9monostateENS0_5gimpl6stream5StartENS5_4StopENS0_7GRunArgENS5_6ResultENS4_9ExceptionEEEERSB_PSB_EppEv.exit ]
-  store ptr %.lcssa, ptr %0, align 8
-  store ptr %.lcssa4, ptr %11, align 8
-  store ptr %.lcssa7, ptr %14, align 8
-  store ptr %.lcssa10, ptr %8, align 8
+  %.lcssa11 = phi ptr [ %10, %4 ], [ %49, %_ZNSt15_Deque_iteratorIN2cv4util7variantIJNS1_9monostateENS0_5gimpl6stream5StartENS5_4StopENS0_7GRunArgENS5_6ResultENS4_9ExceptionEEEERSB_PSB_EppEv.exit ]
+  %.lcssa8 = phi ptr [ %16, %4 ], [ %50, %_ZNSt15_Deque_iteratorIN2cv4util7variantIJNS1_9monostateENS0_5gimpl6stream5StartENS5_4StopENS0_7GRunArgENS5_6ResultENS4_9ExceptionEEEERSB_PSB_EppEv.exit ]
+  %.lcssa5 = phi ptr [ %13, %4 ], [ %51, %_ZNSt15_Deque_iteratorIN2cv4util7variantIJNS1_9monostateENS0_5gimpl6stream5StartENS5_4StopENS0_7GRunArgENS5_6ResultENS4_9ExceptionEEEERSB_PSB_EppEv.exit ]
+  %.lcssa2 = phi ptr [ %7, %4 ], [ %52, %_ZNSt15_Deque_iteratorIN2cv4util7variantIJNS1_9monostateENS0_5gimpl6stream5StartENS5_4StopENS0_7GRunArgENS5_6ResultENS4_9ExceptionEEEERSB_PSB_EppEv.exit ]
+  store ptr %.lcssa2, ptr %0, align 8
+  store ptr %.lcssa5, ptr %11, align 8
+  store ptr %.lcssa8, ptr %14, align 8
+  store ptr %.lcssa11, ptr %8, align 8
   ret void
 
-73:                                               ; preds = %72, %54
-  %74 = landingpad { ptr, i32 }
+69:                                               ; preds = %68, %54
+  %70 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %75 unwind label %76
+          to label %71 unwind label %72
 
-75:                                               ; preds = %73
-  resume { ptr, i32 } %74
+71:                                               ; preds = %69
+  resume { ptr, i32 } %70
 
-76:                                               ; preds = %73
-  %77 = landingpad { ptr, i32 }
+72:                                               ; preds = %69
+  %73 = landingpad { ptr, i32 }
           catch ptr null
-  %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #31
+  %74 = extractvalue { ptr, i32 } %73, 0
+  call void @__clang_call_terminate(ptr %74) #31
   unreachable
 
-79:                                               ; preds = %72
+75:                                               ; preds = %68
   unreachable
 }
 
@@ -45028,7 +45022,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN12_GL
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  tail call void @__clang_call_terminate(ptr %64) #31
+  tail call void @__clang_call_terminate(ptr %64) #31, !noalias !772
   unreachable
 
 _ZSt8_DestroyIN2cv4util7variantIJNS1_9monostateENS0_5gimpl6stream5StartENS5_4StopENS0_7GRunArgENS5_6ResultENS4_9ExceptionEEEEEvPT_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -45084,7 +45078,7 @@ _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_5gimpl6stream5StartENS5_4Stop
   %90 = landingpad { ptr, i32 }
           catch ptr null
   %91 = extractvalue { ptr, i32 } %90, 0
-  tail call void @__clang_call_terminate(ptr %91) #31
+  tail call void @__clang_call_terminate(ptr %91) #31, !noalias !772
   unreachable
 
 _ZSt8_DestroyIN2cv4util7variantIJNS1_9monostateENS0_5gimpl6stream5StartENS5_4StopENS0_7GRunArgENS5_6ResultENS4_9ExceptionEEEEEvPT_.exit.i.i.i.i.i63.i: ; preds = %.lr.ph.i.i.i.i.i61.i
@@ -45260,7 +45254,7 @@ _ZSt8_DestroyIPN2cv7GRunArgES1_EvT_S3_RSaIT0_E.exit.i.i.i: ; preds = %163
   %165 = landingpad { ptr, i32 }
           catch ptr null
   %166 = extractvalue { ptr, i32 } %165, 0
-  call void @__clang_call_terminate(ptr %166) #31
+  call void @__clang_call_terminate(ptr %166) #31, !noalias !772
   unreachable
 
 _ZNSt6vectorIN2cv7GRunArgESaIS1_EE6resizeEm.exit.i: ; preds = %_ZSt8_DestroyIPN2cv7GRunArgES1_EvT_S3_RSaIT0_E.exit.i.i.i, %161, %159, %157
@@ -45379,7 +45373,7 @@ _ZN2cv4util13make_optionalIRNS_5gimpl9ExceptionEEENS0_8optionalINSt5decayIT_E4ty
   %206 = landingpad { ptr, i32 }
           catch ptr null
   %207 = extractvalue { ptr, i32 } %206, 0
-  call void @__clang_call_terminate(ptr %207) #31
+  call void @__clang_call_terminate(ptr %207) #31, !noalias !772
   unreachable
 
 _ZN2cv4util7variantIJNS0_8optionalINS_5gimpl9ExceptionEE7nothingES4_EEaSEOS7_.exit.i.i: ; preds = %._ZN2cv4util7variantIJNS0_8optionalINS_5gimpl9ExceptionEE7nothingES4_EEaSEOS7_.exit_crit_edge.i.i, %200
@@ -45417,7 +45411,7 @@ _ZN2cv4util8optionalINS_5gimpl9ExceptionEEaSEOS4_.exit.i: ; preds = %_ZN2cv4util
   %216 = landingpad { ptr, i32 }
           catch ptr null
   %217 = extractvalue { ptr, i32 } %216, 0
-  call void @__clang_call_terminate(ptr %217) #31
+  call void @__clang_call_terminate(ptr %217) #31, !noalias !772
   unreachable
 
 _ZN2cv4util8optionalINS_5gimpl9ExceptionEED2Ev.exit.i: ; preds = %_ZN2cv4util8optionalINS_5gimpl9ExceptionEEaSEOS4_.exit.i
@@ -45691,7 +45685,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5gimpl9RMatOnMatESaIvE
   %313 = landingpad { ptr, i32 }
           catch ptr null
   %314 = extractvalue { ptr, i32 } %313, 0
-  call void @__clang_call_terminate(ptr %314) #31
+  call void @__clang_call_terminate(ptr %314) #31, !noalias !772
   unreachable
 
 315:                                              ; preds = %300
@@ -45752,7 +45746,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4ut
   %336 = landingpad { ptr, i32 }
           catch ptr null
   %337 = extractvalue { ptr, i32 } %336, 0
-  call void @__clang_call_terminate(ptr %337) #31
+  call void @__clang_call_terminate(ptr %337) #31, !noalias !772
   unreachable
 
 _ZN2cv7GRunArgD2Ev.exit.i:                        ; preds = %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4util3anyESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i.i
@@ -45924,7 +45918,7 @@ _ZSt8_DestroyIPN2cv7GRunArgES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZN2cv4util8
   %405 = landingpad { ptr, i32 }
           catch ptr null
   %406 = extractvalue { ptr, i32 } %405, 0
-  call void @__clang_call_terminate(ptr %406) #31
+  call void @__clang_call_terminate(ptr %406) #31, !noalias !772
   unreachable
 
 _ZN2cv4util8optionalINS_5gimpl9ExceptionEED2Ev.exit94.i: ; preds = %.body.i
@@ -46278,7 +46272,6 @@ _ZN2cv4util7variantIJNS0_8optionalINS1_IJNS_5gimpl11EndOfStreamESt6vectorINS_7GR
   br label %_ZN2cv4util8optionalINS0_7variantIJNS_5gimpl11EndOfStreamESt6vectorINS_7GRunArgESaIS6_EENS3_9ExceptionEEEEEaSEOSB_.exit
 
 53:                                               ; preds = %_ZN2cv4util7variantIJNS_5gimpl11EndOfStreamESt6vectorINS_7GRunArgESaIS5_EENS2_9ExceptionEEEC2EOS9_.exit
-  store ptr @_ZN2cv4util7variantIJNS0_8optionalINS1_IJNS_5gimpl11EndOfStreamESt6vectorINS_7GRunArgESaIS6_EENS3_9ExceptionEEEEE7nothingESA_EE6dtor_hISC_E4helpEPNSt15aligned_storageILm32ELm8EE4typeE, ptr %4, align 8
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @_ZN2cv4util7variantIJNS0_8optionalINS1_IJNS_5gimpl11EndOfStreamESt6vectorINS_7GRunArgESaIS6_EENS3_9ExceptionEEEEE7nothingESA_EE6dtor_hISA_E4helpEPNSt15aligned_storageILm32ELm8EE4typeE, ptr %54, align 8
   %55 = getelementptr inbounds [2 x ptr], ptr %4, i64 0, i64 %52

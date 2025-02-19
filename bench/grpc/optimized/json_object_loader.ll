@@ -943,43 +943,38 @@ invoke.cont14:                                    ; preds = %invoke.cont
   %vtable17 = load ptr, ptr %call3, align 8
   %10 = load ptr, ptr %vtable17, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(8) %call3, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef %call15, ptr noundef nonnull %errors)
-          to label %invoke.cont19 unwind label %lpad13
+          to label %if.then.i unwind label %lpad13
 
-invoke.cont19:                                    ; preds = %invoke.cont14
-  %11 = load ptr, ptr %field, align 8
-  %cmp.not.i = icmp eq ptr %11, null
-  br i1 %cmp.not.i, label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %invoke.cont19
-  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %11)
+if.then.i:                                        ; preds = %invoke.cont14
+  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %errors)
           to label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #22
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #22
   unreachable
 
-_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit: ; preds = %invoke.cont19, %if.then.i
+_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit: ; preds = %if.then.i
   %inc = add nuw i64 %i.021, 1
-  %14 = load ptr, ptr %_M_finish.i, align 8
-  %15 = load ptr, ptr %json, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %15 to i64
+  %13 = load ptr, ptr %_M_finish.i, align 8
+  %14 = load ptr, ptr %json, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 56
   %cmp5 = icmp ult i64 %inc, %sub.ptr.div.i
   br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !11
 
 lpad:                                             ; preds = %for.body
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   br label %eh.resume
 
 lpad13:                                           ; preds = %invoke.cont14, %invoke.cont
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %field) #20
   br label %eh.resume
@@ -988,7 +983,7 @@ for.end:                                          ; preds = %_ZN9grpc_core16Vali
   ret void
 
 eh.resume:                                        ; preds = %lpad13, %lpad
-  %.pn = phi { ptr, i32 } [ %17, %lpad13 ], [ %16, %lpad ]
+  %.pn = phi { ptr, i32 } [ %16, %lpad13 ], [ %15, %lpad ]
   resume { ptr, i32 } %.pn
 }
 
@@ -1128,58 +1123,53 @@ _ZNSt13_Bit_iteratorppEi.exit.i:                  ; preds = %if.then.i.i.i16, %i
 if.then.i.i15:                                    ; preds = %_ZNSt13_Bit_iteratorppEi.exit.i
   %12 = load i64, ptr %10, align 8
   %or.i.i = or i64 %12, %shl.i.i
-  br label %invoke.cont14.sink.split
+  br label %if.then.i18.sink.split
 
 if.else.i.i:                                      ; preds = %_ZNSt13_Bit_iteratorppEi.exit.i
   %not.i.i = xor i64 %shl.i.i, -1
   %13 = load i64, ptr %10, align 8
   %and.i.i = and i64 %13, %not.i.i
-  br label %invoke.cont14.sink.split
+  br label %if.then.i18.sink.split
 
 if.else.i:                                        ; preds = %invoke.cont13
   invoke void @_ZNSt6vectorIbSaIbEE13_M_insert_auxESt13_Bit_iteratorb(ptr noundef nonnull align 8 dereferenceable(40) %dst, ptr %10, i32 %retval.sroa.2.0.copyload.i5.i, i1 noundef zeroext %tobool)
-          to label %invoke.cont14 unwind label %lpad12
+          to label %if.then.i18 unwind label %lpad12
 
-invoke.cont14.sink.split:                         ; preds = %if.then.i.i15, %if.else.i.i
-  %and.i.i.sink = phi i64 [ %and.i.i, %if.else.i.i ], [ %or.i.i, %if.then.i.i15 ]
-  store i64 %and.i.i.sink, ptr %10, align 8
-  br label %invoke.cont14
+if.then.i18.sink.split:                           ; preds = %if.else.i.i, %if.then.i.i15
+  %or.i.i.sink = phi i64 [ %or.i.i, %if.then.i.i15 ], [ %and.i.i, %if.else.i.i ]
+  store i64 %or.i.i.sink, ptr %10, align 8
+  br label %if.then.i18
 
-invoke.cont14:                                    ; preds = %invoke.cont14.sink.split, %if.else.i
-  %14 = load ptr, ptr %field, align 8
-  %cmp.not.i17 = icmp eq ptr %14, null
-  br i1 %cmp.not.i17, label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit, label %if.then.i18
-
-if.then.i18:                                      ; preds = %invoke.cont14
-  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %14)
+if.then.i18:                                      ; preds = %if.then.i18.sink.split, %if.else.i
+  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %errors)
           to label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i18
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #22
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #22
   unreachable
 
-_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit: ; preds = %invoke.cont14, %if.then.i18
+_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit: ; preds = %if.then.i18
   %inc = add nuw i64 %i.026, 1
-  %17 = load ptr, ptr %_M_finish.i, align 8
-  %18 = load ptr, ptr %json, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %17 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %18 to i64
+  %16 = load ptr, ptr %_M_finish.i, align 8
+  %17 = load ptr, ptr %json, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %16 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 56
   %cmp5 = icmp ult i64 %inc, %sub.ptr.div.i
   br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !12
 
 lpad:                                             ; preds = %for.body
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   br label %eh.resume
 
 lpad12:                                           ; preds = %if.else.i, %invoke.cont
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %field) #20
   br label %eh.resume
@@ -1188,7 +1178,7 @@ for.end:                                          ; preds = %_ZN9grpc_core16Vali
   ret void
 
 eh.resume:                                        ; preds = %lpad12, %lpad
-  %.pn = phi { ptr, i32 } [ %20, %lpad12 ], [ %19, %lpad ]
+  %.pn = phi { ptr, i32 } [ %19, %lpad12 ], [ %18, %lpad ]
   resume { ptr, i32 } %.pn
 }
 

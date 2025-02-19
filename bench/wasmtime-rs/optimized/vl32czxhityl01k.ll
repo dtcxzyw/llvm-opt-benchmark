@@ -1255,7 +1255,7 @@ _ZN14cranelift_isle6parser6Parser13expect_symbol17hc08cc33b83a81184E.exit.i: ; p
   %322 = extractvalue { i64, ptr } %320, 1
   %323 = icmp ne ptr %322, null
   call void @llvm.assume(i1 %323)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %322, ptr noundef nonnull align 1 dereferenceable(23) @anon.e2bdb67530b1810651fe7f9ceb2ed41b.30, i64 23, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %322, ptr noundef nonnull align 1 dereferenceable(23) @anon.e2bdb67530b1810651fe7f9ceb2ed41b.30, i64 23, i1 false), !noalias !19
   store i64 %321, ptr %122, align 8, !noalias !19
   %.sroa.2108.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %122, i64 8
   store ptr %322, ptr %.sroa.2108.0..sroa_idx.i.i.i, align 8, !noalias !19
@@ -3569,7 +3569,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   %660 = extractvalue { i64, ptr } %658, 1
   %661 = icmp ne ptr %660, null
   call void @llvm.assume(i1 %661), !noalias !6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(74) %660, ptr noundef nonnull align 1 dereferenceable(74) @anon.e2bdb67530b1810651fe7f9ceb2ed41b.36, i64 74, i1 false), !noalias !6
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(74) %660, ptr noundef nonnull align 1 dereferenceable(74) @anon.e2bdb67530b1810651fe7f9ceb2ed41b.36, i64 74, i1 false), !noalias !77
   store i64 %659, ptr %51, align 8, !noalias !77
   %.sroa.2202.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %660, ptr %.sroa.2202.0..sroa_idx.i, align 8, !noalias !77
@@ -4911,7 +4911,7 @@ switch.early.test.i:                              ; preds = %.noexc23
   %70 = extractvalue { i64, ptr } %68, 1
   %71 = icmp ne ptr %70, null
   call void @llvm.assume(i1 %71)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr nonnull align 1 %66, i64 %67, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr nonnull align 1 %66, i64 %67, i1 false), !noalias !101
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %69, ptr %72, align 8, !alias.scope !101
   %.sroa.247.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16

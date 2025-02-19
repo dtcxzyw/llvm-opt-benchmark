@@ -671,7 +671,7 @@ define void @_ZN6gmxapi11fromTprFileERKNSt7__cxx1112basic_stringIcSt11char_trait
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #16
+  call void @__clang_call_terminate(ptr %14) #16, !noalias !5
   unreachable
 
 _ZNKSt14default_deleteIN6gmxapi8WorkflowEEclEPS1_.exit.i.i: ; preds = %9

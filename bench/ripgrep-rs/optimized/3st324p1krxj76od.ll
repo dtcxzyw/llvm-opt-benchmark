@@ -230,7 +230,7 @@ _ZN8grep_cli7pattern18pattern_from_bytes17hac5fbb6ec38b0a6eE.exit.i: ; preds = %
   %33 = extractvalue { i64, ptr } %31, 1
   %34 = icmp ne ptr %33, null
   call void @llvm.assume(i1 %34)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull align 1 %.sroa.6.013.i, i64 %.sroa.8.012.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull align 1 %.sroa.6.013.i, i64 %.sroa.8.012.i, i1 false), !noalias !19
   store i64 %32, ptr %11, align 8, !noalias !22
   %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %33, ptr %.sroa.46.0..sroa_idx.i, align 8, !noalias !22

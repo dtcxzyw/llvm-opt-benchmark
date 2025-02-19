@@ -3152,7 +3152,7 @@ _ZN4cvc58internal13preprocessing4util17ITECareSimplifier9getNewSetEv.exit.thread
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  call void @__clang_call_terminate(ptr %72) #30
+  call void @__clang_call_terminate(ptr %72) #30, !noalias !147
   unreachable
 
 _ZN4cvc58internal13preprocessing4util17ITECareSimplifier9getNewSetEv.exit: ; preds = %63
@@ -3956,7 +3956,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKNS1_ILb0EEE.exit178: ; preds = %360, %
   %425 = landingpad { ptr, i32 }
           catch ptr null
   %426 = extractvalue { ptr, i32 } %425, 0
-  call void @__clang_call_terminate(ptr %426) #30
+  call void @__clang_call_terminate(ptr %426) #30, !noalias !210
   unreachable
 
 _ZNSt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS3_ESaIS3_EE5clearEv.exit.i185: ; preds = %417
@@ -4135,7 +4135,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit197: ; preds = %_ZNSt3setIN4cvc58i
   %517 = landingpad { ptr, i32 }
           catch ptr null
   %518 = extractvalue { ptr, i32 } %517, 0
-  call void @__clang_call_terminate(ptr %518) #30
+  call void @__clang_call_terminate(ptr %518) #30, !noalias !227
   unreachable
 
 _ZNSt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS3_ESaIS3_EE5clearEv.exit.i201: ; preds = %509
@@ -4670,7 +4670,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %613
   %762 = landingpad { ptr, i32 }
           catch ptr null
   %763 = extractvalue { ptr, i32 } %762, 0
-  call void @__clang_call_terminate(ptr %763) #30
+  call void @__clang_call_terminate(ptr %763) #30, !noalias !260
   unreachable
 
 _ZNSt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS3_ESaIS3_EE5clearEv.exit.i253: ; preds = %754
@@ -5145,7 +5145,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit303: ; preds = %881
   %1010 = landingpad { ptr, i32 }
           catch ptr null
   %1011 = extractvalue { ptr, i32 } %1010, 0
-  call void @__clang_call_terminate(ptr %1011) #30
+  call void @__clang_call_terminate(ptr %1011) #30, !noalias !285
   unreachable
 
 _ZNSt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS3_ESaIS3_EE5clearEv.exit.i307: ; preds = %1002
@@ -33582,7 +33582,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb0EEENS1_13preprocessing4util17ITECareS
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  tail call void @__clang_call_terminate(ptr %54) #30
+  tail call void @__clang_call_terminate(ptr %54) #30, !noalias !847
   unreachable
 
 _ZNSt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS3_ESaIS3_EE5clearEv.exit.i: ; preds = %45

@@ -814,7 +814,7 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit688: ; preds = %.noexc687
   %370 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %373 unwind label %3105
+          to label %373 unwind label %3103
 
 371:                                              ; preds = %275, %274
   %372 = landingpad { ptr, i32 }
@@ -900,7 +900,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit690:          ; preds = %379, %383
   %404 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %407 unwind label %3105
+          to label %407 unwind label %3103
 
 405:                                              ; preds = %378, %377
   %406 = landingpad { ptr, i32 }
@@ -1003,7 +1003,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit692:          ; preds = %413, %417
   %446 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %449 unwind label %3105
+          to label %449 unwind label %3103
 
 447:                                              ; preds = %412, %411
   %448 = landingpad { ptr, i32 }
@@ -1116,7 +1116,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit696:          ; preds = %458, %462
   %492 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %495 unwind label %3105
+          to label %495 unwind label %3103
 
 493:                                              ; preds = %457, %456
   %494 = landingpad { ptr, i32 }
@@ -1248,7 +1248,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit701:          ; preds = %504, %508
   %541 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %544 unwind label %3105
+          to label %544 unwind label %3103
 
 542:                                              ; preds = %503, %502
   %543 = landingpad { ptr, i32 }
@@ -1351,7 +1351,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit710:          ; preds = %550, %554
   %583 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %586 unwind label %3105
+          to label %586 unwind label %3103
 
 584:                                              ; preds = %549, %548
   %585 = landingpad { ptr, i32 }
@@ -1483,7 +1483,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit716:          ; preds = %595, %599
   %632 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %635 unwind label %3105
+          to label %635 unwind label %3103
 
 633:                                              ; preds = %594, %593
   %634 = landingpad { ptr, i32 }
@@ -1574,7 +1574,7 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE6resizeElRKi.exit: ; preds = %_ZN5Catch16Ass
   %666 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %669 unwind label %3105
+          to label %669 unwind label %3103
 
 667:                                              ; preds = %640, %639
   %668 = landingpad { ptr, i32 }
@@ -1696,7 +1696,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit730:          ; preds = %675, %679
   %720 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %723 unwind label %3105
+          to label %723 unwind label %3103
 
 721:                                              ; preds = %674, %673
   %722 = landingpad { ptr, i32 }
@@ -1782,7 +1782,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit736:          ; preds = %732, %735
   %753 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %756 unwind label %3105
+          to label %756 unwind label %3103
 
 754:                                              ; preds = %731, %730
   %755 = landingpad { ptr, i32 }
@@ -1893,7 +1893,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit746:          ; preds = %781, %784
   %793 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %796 unwind label %3105
+          to label %796 unwind label %3103
 
 794:                                              ; preds = %780, %779
   %795 = landingpad { ptr, i32 }
@@ -2071,7 +2071,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit749:          ; preds = %832, %836
   %857 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %860 unwind label %3105
+          to label %860 unwind label %3103
 
 858:                                              ; preds = %831, %830
   %859 = landingpad { ptr, i32 }
@@ -2157,7 +2157,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit751:          ; preds = %866, %870
   %891 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %894 unwind label %3105
+          to label %894 unwind label %3103
 
 892:                                              ; preds = %865, %864
   %893 = landingpad { ptr, i32 }
@@ -2253,7 +2253,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit753:          ; preds = %900, %904
   %930 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %933 unwind label %3105
+          to label %933 unwind label %3103
 
 931:                                              ; preds = %899, %898
   %932 = landingpad { ptr, i32 }
@@ -2347,7 +2347,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit755:          ; preds = %943, %947
   %968 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %971 unwind label %3105
+          to label %971 unwind label %3103
 
 969:                                              ; preds = %942, %941
   %970 = landingpad { ptr, i32 }
@@ -2453,7 +2453,7 @@ _ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE6resizeEl.exit: ; preds = %_ZN12
   %1006 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1009 unwind label %3105
+          to label %1009 unwind label %3103
 
 1007:                                             ; preds = %976, %975
   %1008 = landingpad { ptr, i32 }
@@ -2539,7 +2539,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit760:          ; preds = %1015, %1019
   %1040 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1043 unwind label %3105
+          to label %1043 unwind label %3103
 
 1041:                                             ; preds = %1014, %1013
   %1042 = landingpad { ptr, i32 }
@@ -2625,7 +2625,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit762:          ; preds = %1049, %1053
   %1074 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1077 unwind label %3105
+          to label %1077 unwind label %3103
 
 1075:                                             ; preds = %1048, %1047
   %1076 = landingpad { ptr, i32 }
@@ -2720,7 +2720,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit764:          ; preds = %1083, %1087
   %1111 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1114 unwind label %3105
+          to label %1114 unwind label %3103
 
 1112:                                             ; preds = %1082, %1081
   %1113 = landingpad { ptr, i32 }
@@ -2818,7 +2818,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit766:          ; preds = %1120, %1123
   %1147 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1150 unwind label %3105
+          to label %1150 unwind label %3103
 
 1148:                                             ; preds = %1119, %1118
   %1149 = landingpad { ptr, i32 }
@@ -2935,7 +2935,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit776:          ; preds = %1168, %1172
   %1193 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1196 unwind label %3105
+          to label %1196 unwind label %3103
 
 1194:                                             ; preds = %1167, %1166
   %1195 = landingpad { ptr, i32 }
@@ -3021,7 +3021,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit778:          ; preds = %1202, %1206
   %1227 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1230 unwind label %3105
+          to label %1230 unwind label %3103
 
 1228:                                             ; preds = %1201, %1200
   %1229 = landingpad { ptr, i32 }
@@ -3125,7 +3125,7 @@ _ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE5clearEv.exit785: ; preds = %_ZN
   %1264 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1267 unwind label %3105
+          to label %1267 unwind label %3103
 
 1265:                                             ; preds = %1235, %1234
   %1266 = landingpad { ptr, i32 }
@@ -3211,7 +3211,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit787:          ; preds = %1273, %1277
   %1298 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1301 unwind label %3105
+          to label %1301 unwind label %3103
 
 1299:                                             ; preds = %1272, %1271
   %1300 = landingpad { ptr, i32 }
@@ -3297,7 +3297,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit789:          ; preds = %1307, %1311
   %1332 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1335 unwind label %3105
+          to label %1335 unwind label %3103
 
 1333:                                             ; preds = %1306, %1305
   %1334 = landingpad { ptr, i32 }
@@ -3393,7 +3393,7 @@ _ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE6resizeElRKS0_.exit: ; preds = %
   %1368 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1371 unwind label %3105
+          to label %1371 unwind label %3103
 
 1369:                                             ; preds = %1340, %1339
   %1370 = landingpad { ptr, i32 }
@@ -3487,7 +3487,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit794:          ; preds = %1381, %1385
   %1406 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1409 unwind label %3105
+          to label %1409 unwind label %3103
 
 1407:                                             ; preds = %1380, %1379
   %1408 = landingpad { ptr, i32 }
@@ -3573,7 +3573,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit796:          ; preds = %1415, %1419
   %1440 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1443 unwind label %3105
+          to label %1443 unwind label %3103
 
 1441:                                             ; preds = %1414, %1413
   %1442 = landingpad { ptr, i32 }
@@ -3653,7 +3653,7 @@ _ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit.i.i: ; p
   %1472 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1475 unwind label %3105
+          to label %1475 unwind label %3103
 
 1473:                                             ; preds = %1448, %1447
   %1474 = landingpad { ptr, i32 }
@@ -3809,7 +3809,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit802:          ; preds = %1504, %1508
   %1529 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1532 unwind label %3105
+          to label %1532 unwind label %3103
 
 1530:                                             ; preds = %1503, %1502
   %1531 = landingpad { ptr, i32 }
@@ -3895,7 +3895,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit804:          ; preds = %1538, %1542
   %1563 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1566 unwind label %3105
+          to label %1566 unwind label %3103
 
 1564:                                             ; preds = %1537, %1536
   %1565 = landingpad { ptr, i32 }
@@ -3990,7 +3990,7 @@ _ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE6resizeEl.exit808: ; preds = %_Z
   %1599 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1602 unwind label %3105
+          to label %1602 unwind label %3103
 
 1600:                                             ; preds = %1571, %1570
   %1601 = landingpad { ptr, i32 }
@@ -4076,7 +4076,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit810:          ; preds = %1608, %1612
   %1633 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1636 unwind label %3105
+          to label %1636 unwind label %3103
 
 1634:                                             ; preds = %1607, %1606
   %1635 = landingpad { ptr, i32 }
@@ -4162,7 +4162,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit812:          ; preds = %1642, %1646
   %1667 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1670 unwind label %3105
+          to label %1670 unwind label %3103
 
 1668:                                             ; preds = %1641, %1640
   %1669 = landingpad { ptr, i32 }
@@ -4248,7 +4248,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit814:          ; preds = %1676, %1680
   %1701 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1704 unwind label %3105
+          to label %1704 unwind label %3103
 
 1702:                                             ; preds = %1675, %1674
   %1703 = landingpad { ptr, i32 }
@@ -4328,7 +4328,7 @@ _ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit.i.i817: 
   %1733 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1736 unwind label %3105
+          to label %1736 unwind label %3103
 
 1734:                                             ; preds = %1709, %1708
   %1735 = landingpad { ptr, i32 }
@@ -4487,7 +4487,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit823:          ; preds = %1768, %1772
   %1792 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1795 unwind label %3105
+          to label %1795 unwind label %3103
 
 1793:                                             ; preds = %1767, %1766
   %1794 = landingpad { ptr, i32 }
@@ -4587,7 +4587,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit825:          ; preds = %1801, %1805
   %1831 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1834 unwind label %3105
+          to label %1834 unwind label %3103
 
 1832:                                             ; preds = %1800, %1799
   %1833 = landingpad { ptr, i32 }
@@ -4697,7 +4697,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit831:          ; preds = %1843, %1847
   %1874 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1877 unwind label %3105
+          to label %1877 unwind label %3103
 
 1875:                                             ; preds = %1842, %1841
   %1876 = landingpad { ptr, i32 }
@@ -4795,7 +4795,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit837:          ; preds = %1886, %1890
   %1912 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1915 unwind label %3105
+          to label %1915 unwind label %3103
 
 1913:                                             ; preds = %1885, %1884
   %1914 = landingpad { ptr, i32 }
@@ -4883,7 +4883,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit839:          ; preds = %1921, %1925
   %1946 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1949 unwind label %3105
+          to label %1949 unwind label %3103
 
 1947:                                             ; preds = %1920, %1919
   %1948 = landingpad { ptr, i32 }
@@ -4961,7 +4961,7 @@ _ZN12rcTempVectorIiED2Ev.exit842:                 ; preds = %_ZN5Catch16Assertio
   %1976 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1979 unwind label %3105
+          to label %1979 unwind label %3103
 
 1977:                                             ; preds = %1954, %1953
   %1978 = landingpad { ptr, i32 }
@@ -5139,7 +5139,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit848:          ; preds = %2018, %2022
   %2043 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %2046 unwind label %3105
+          to label %2046 unwind label %3103
 
 2044:                                             ; preds = %2017, %2016
   %2045 = landingpad { ptr, i32 }
@@ -5226,7 +5226,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit850:          ; preds = %2052, %2056
   %2078 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %2081 unwind label %3105
+          to label %2081 unwind label %3103
 
 2079:                                             ; preds = %2051, %2050
   %2080 = landingpad { ptr, i32 }
@@ -5332,7 +5332,7 @@ _ZN12rcVectorBaseI6CopierL11rcAllocHint1EE13destroy_rangeEll.exit.i.i: ; preds =
   %2120 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %2123 unwind label %3105
+          to label %2123 unwind label %3103
 
 2121:                                             ; preds = %2086, %2085
   %2122 = landingpad { ptr, i32 }
@@ -5481,7 +5481,7 @@ _ZN12rcTempVectorI11IncrementorED2Ev.exit863:     ; preds = %_ZN12rcVectorBaseI1
   %2174 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %2177 unwind label %3105
+          to label %2177 unwind label %3103
 
 2175:                                             ; preds = %2159, %2158
   %2176 = landingpad { ptr, i32 }
@@ -5653,7 +5653,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit870:          ; preds = %2205, %2209
   %2238 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %2241 unwind label %3105
+          to label %2241 unwind label %3103
 
 2239:                                             ; preds = %2204, %2203
   %2240 = landingpad { ptr, i32 }
@@ -5766,7 +5766,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit876:          ; preds = %2250, %2254
   %2284 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %2287 unwind label %3105
+          to label %2287 unwind label %3103
 
 2285:                                             ; preds = %2249, %2248
   %2286 = landingpad { ptr, i32 }
@@ -5867,7 +5867,7 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE6assignElRKi.exit884: ; preds = %_ZN5Catch16
   %2321 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %2324 unwind label %3105
+          to label %2324 unwind label %3103
 
 2322:                                             ; preds = %2295, %2294
   %2323 = landingpad { ptr, i32 }
@@ -5970,7 +5970,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit886:          ; preds = %2330, %2334
   %2363 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %2366 unwind label %3105
+          to label %2366 unwind label %3103
 
 2364:                                             ; preds = %2329, %2328
   %2365 = landingpad { ptr, i32 }
@@ -6083,7 +6083,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit892:          ; preds = %2375, %2379
   %2409 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %2412 unwind label %3105
+          to label %2412 unwind label %3103
 
 2410:                                             ; preds = %2374, %2373
   %2411 = landingpad { ptr, i32 }
@@ -6216,7 +6216,7 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE6assignEPKiS3_.exit: ; preds = %.lr.ph.i.i, 
   %2456 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %2459 unwind label %3105
+          to label %2459 unwind label %3103
 
 2457:                                             ; preds = %2420, %2419
   %2458 = landingpad { ptr, i32 }
@@ -6338,7 +6338,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit904:          ; preds = %2467, %2471
   %2504 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %2507 unwind label %3105
+          to label %2507 unwind label %3103
 
 2505:                                             ; preds = %2466, %2465
   %2506 = landingpad { ptr, i32 }
@@ -6425,7 +6425,7 @@ _ZN12rcTempVectorIiED2Ev.exit915:                 ; preds = %_ZN5Catch16Assertio
   %2537 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %2540 unwind label %3105
+          to label %2540 unwind label %3103
 
 2538:                                             ; preds = %2515, %2514
   %2539 = landingpad { ptr, i32 }
@@ -6644,7 +6644,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit929:          ; preds = %2589, %2593
   %2614 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %2617 unwind label %3105
+          to label %2617 unwind label %3103
 
 2615:                                             ; preds = %2588, %2587
   %2616 = landingpad { ptr, i32 }
@@ -6760,7 +6760,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit931:          ; preds = %2623, %2627
   %2660 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %2663 unwind label %3105
+          to label %2663 unwind label %3103
 
 2661:                                             ; preds = %2622, %2621
   %2662 = landingpad { ptr, i32 }
@@ -6857,7 +6857,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit941:          ; preds = %2672, %2676
   %2697 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %2700 unwind label %3105
+          to label %2700 unwind label %3103
 
 2698:                                             ; preds = %2671, %2670
   %2699 = landingpad { ptr, i32 }
@@ -6980,7 +6980,7 @@ _ZN12rcTempVectorIiEC2EPKiS2_.exit:               ; preds = %.lr.ph.i.i.i.i950, 
   %2740 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %2743 unwind label %3105
+          to label %2743 unwind label %3103
 
 2741:                                             ; preds = %2705, %2704
   %2742 = landingpad { ptr, i32 }
@@ -6995,7 +6995,7 @@ _ZN12rcTempVectorIiEC2EPKiS2_.exit:               ; preds = %.lr.ph.i.i.i.i950, 
 2744:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit972, %_ZN5Catch16AssertionHandlerD2Ev.exit962, %_ZN12rcTempVectorIiEC2EPKiS2_.exit
   %2745 = landingpad { ptr, i32 }
           cleanup
-  br label %3082
+  br label %3080
 
 2746:                                             ; preds = %2729
   %2747 = landingpad { ptr, i32 }
@@ -7101,7 +7101,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit962:          ; preds = %2751, %2755
   %2788 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %2791 unwind label %3105
+          to label %2791 unwind label %3103
 
 2789:                                             ; preds = %2750, %2749
   %2790 = landingpad { ptr, i32 }
@@ -7111,7 +7111,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit962:          ; preds = %2751, %2755
 2791:                                             ; preds = %2787, %2789
   %.pn620 = phi { ptr, i32 } [ %2790, %2789 ], [ %2788, %2787 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %221) #15
-  br label %3082
+  br label %3080
 
 2792:                                             ; preds = %2775, %2769, %2768, %2765
   %2793 = landingpad { ptr, i32 }
@@ -7245,7 +7245,7 @@ _ZN12rcTempVectorI11IncrementorEC2ERKS1_.exit:    ; preds = %.lr.ph.preheader.i.
   %2833 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %2836 unwind label %3105
+          to label %2836 unwind label %3103
 
 2834:                                             ; preds = %2799, %2798
   %2835 = landingpad { ptr, i32 }
@@ -7255,17 +7255,17 @@ _ZN12rcTempVectorI11IncrementorEC2ERKS1_.exit:    ; preds = %.lr.ph.preheader.i.
 2836:                                             ; preds = %2832, %2834
   %.pn623 = phi { ptr, i32 } [ %2835, %2834 ], [ %2833, %2832 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %224) #15
-  br label %3082
+  br label %3080
 
 2837:                                             ; preds = %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit.i.i.i.i, %.noexc976, %2816
   %2838 = landingpad { ptr, i32 }
           cleanup
-  br label %3081
+  br label %3079
 
 2839:                                             ; preds = %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit.i.i.i.i988, %.noexc994, %2931, %_ZN5Catch16AssertionHandlerD2Ev.exit982, %_ZN5Catch16AssertionHandlerD2Ev.exit980, %_ZN12rcTempVectorI11IncrementorEC2ERKS1_.exit
   %2840 = landingpad { ptr, i32 }
           cleanup
-  br label %3080
+  br label %3078
 
 2841:                                             ; preds = %2822
   %2842 = landingpad { ptr, i32 }
@@ -7341,7 +7341,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit980:          ; preds = %2846, %2850
   %2871 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %2874 unwind label %3105
+          to label %2874 unwind label %3103
 
 2872:                                             ; preds = %2845, %2844
   %2873 = landingpad { ptr, i32 }
@@ -7351,7 +7351,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit980:          ; preds = %2846, %2850
 2874:                                             ; preds = %2870, %2872
   %.pn626 = phi { ptr, i32 } [ %2873, %2872 ], [ %2871, %2870 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %229) #15
-  br label %3080
+  br label %3078
 
 2875:                                             ; preds = %2860
   %2876 = landingpad { ptr, i32 }
@@ -7427,7 +7427,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit982:          ; preds = %2880, %2884
   %2905 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %2908 unwind label %3105
+          to label %2908 unwind label %3103
 
 2906:                                             ; preds = %2879, %2878
   %2907 = landingpad { ptr, i32 }
@@ -7437,7 +7437,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit982:          ; preds = %2880, %2884
 2908:                                             ; preds = %2904, %2906
   %.pn629 = phi { ptr, i32 } [ %2907, %2906 ], [ %2905, %2904 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %232) #15
-  br label %3080
+  br label %3078
 
 2909:                                             ; preds = %2894
   %2910 = landingpad { ptr, i32 }
@@ -7446,15 +7446,15 @@ _ZN5Catch16AssertionHandlerD2Ev.exit982:          ; preds = %2880, %2884
   %.146 = extractvalue { ptr, i32 } %2910, 0
   %2911 = call ptr @__cxa_begin_catch(ptr %.146) #15
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %235)
-          to label %2912 unwind label %2947
+          to label %2912 unwind label %2948
 
 2912:                                             ; preds = %2909
   invoke void @__cxa_end_catch()
-          to label %2913 unwind label %2949
+          to label %2913 unwind label %2950
 
 2913:                                             ; preds = %2912, %2903
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %235)
-          to label %2914 unwind label %2949
+          to label %2914 unwind label %2950
 
 2914:                                             ; preds = %2913
   %2915 = getelementptr inbounds nuw i8, ptr %235, i64 59
@@ -7524,489 +7524,487 @@ _ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE7reserveEl.exit.i.i.i986: ; pred
   br label %_ZN12rcTempVectorI11IncrementorEC2EPKS0_S3_.exit
 
 _ZN12rcTempVectorI11IncrementorEC2EPKS0_S3_.exit: ; preds = %.lr.ph.preheader.i.i.i.i989, %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE7reserveEl.exit.i.i.i986
+  %2936 = phi ptr [ %2933, %.lr.ph.preheader.i.i.i.i989 ], [ null, %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE7reserveEl.exit.i.i.i986 ]
   store ptr @.str.1, ptr %240, align 8
-  %2936 = getelementptr inbounds nuw i8, ptr %240, i64 8
-  store i64 245, ptr %2936, align 8
+  %2937 = getelementptr inbounds nuw i8, ptr %240, i64 8
+  store i64 245, ptr %2937, align 8
   invoke void @_ZN5Catch16AssertionHandlerC1ENS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %239, ptr nonnull @.str.6, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %240, ptr nonnull @.str.17, i64 31, i32 noundef 1)
-          to label %2937 unwind label %2952
+          to label %2938 unwind label %2953
 
-2937:                                             ; preds = %_ZN12rcTempVectorI11IncrementorEC2EPKS0_S3_.exit
-  %2938 = load i32, ptr @_ZN11Incrementor13constructionsE, align 4
-  %2939 = icmp eq i32 %2938, 0
-  %2940 = zext i1 %2939 to i8
-  %2941 = getelementptr inbounds nuw i8, ptr %241, i64 8
-  store i8 1, ptr %2941, align 8, !alias.scope !200
-  %2942 = getelementptr inbounds nuw i8, ptr %241, i64 9
-  store i8 %2940, ptr %2942, align 1, !alias.scope !200
+2938:                                             ; preds = %_ZN12rcTempVectorI11IncrementorEC2EPKS0_S3_.exit
+  %2939 = load i32, ptr @_ZN11Incrementor13constructionsE, align 4
+  %2940 = icmp eq i32 %2939, 0
+  %2941 = zext i1 %2940 to i8
+  %2942 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  store i8 1, ptr %2942, align 8, !alias.scope !200
+  %2943 = getelementptr inbounds nuw i8, ptr %241, i64 9
+  store i8 %2941, ptr %2943, align 1, !alias.scope !200
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %241, align 8, !alias.scope !200
-  %2943 = getelementptr inbounds nuw i8, ptr %241, i64 12
-  store i32 %2938, ptr %2943, align 4, !alias.scope !200
-  %2944 = getelementptr inbounds nuw i8, ptr %241, i64 16
-  store ptr @.str.59, ptr %2944, align 8, !alias.scope !200
+  %2944 = getelementptr inbounds nuw i8, ptr %241, i64 12
+  store i32 %2939, ptr %2944, align 4, !alias.scope !200
+  %2945 = getelementptr inbounds nuw i8, ptr %241, i64 16
+  store ptr @.str.59, ptr %2945, align 8, !alias.scope !200
   %.sroa.2.0..sroa_idx.i.i997 = getelementptr inbounds nuw i8, ptr %241, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i997, align 8, !alias.scope !200
-  %2945 = getelementptr inbounds nuw i8, ptr %241, i64 32
-  store i32 0, ptr %2945, align 8, !alias.scope !200
+  %2946 = getelementptr inbounds nuw i8, ptr %241, i64 32
+  store i32 0, ptr %2946, align 8, !alias.scope !200
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %239, ptr noundef nonnull align 8 dereferenceable(10) %241)
-          to label %2946 unwind label %2954
+          to label %2947 unwind label %2955
 
-2946:                                             ; preds = %2937
+2947:                                             ; preds = %2938
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %241) #15
-  br label %2958
+  br label %2959
 
-2947:                                             ; preds = %2909
-  %2948 = landingpad { ptr, i32 }
+2948:                                             ; preds = %2909
+  %2949 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %2951 unwind label %3105
+          to label %2952 unwind label %3103
 
-2949:                                             ; preds = %2913, %2912
-  %2950 = landingpad { ptr, i32 }
+2950:                                             ; preds = %2913, %2912
+  %2951 = landingpad { ptr, i32 }
           cleanup
-  br label %2951
+  br label %2952
 
-2951:                                             ; preds = %2947, %2949
-  %.pn632 = phi { ptr, i32 } [ %2950, %2949 ], [ %2948, %2947 ]
+2952:                                             ; preds = %2948, %2950
+  %.pn632 = phi { ptr, i32 } [ %2951, %2950 ], [ %2949, %2948 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %235) #15
-  br label %3080
+  br label %3078
 
-2952:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit1000, %_ZN5Catch16AssertionHandlerD2Ev.exit998, %_ZN12rcTempVectorI11IncrementorEC2EPKS0_S3_.exit
-  %2953 = landingpad { ptr, i32 }
+2953:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit1000, %_ZN5Catch16AssertionHandlerD2Ev.exit998, %_ZN12rcTempVectorI11IncrementorEC2EPKS0_S3_.exit
+  %2954 = landingpad { ptr, i32 }
           cleanup
-  br label %3079
+  br label %3077
 
-2954:                                             ; preds = %2937
-  %2955 = landingpad { ptr, i32 }
+2955:                                             ; preds = %2938
+  %2956 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %241) #15
-  %.149 = extractvalue { ptr, i32 } %2955, 0
-  %2956 = call ptr @__cxa_begin_catch(ptr %.149) #15
+  %.149 = extractvalue { ptr, i32 } %2956, 0
+  %2957 = call ptr @__cxa_begin_catch(ptr %.149) #15
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %239)
-          to label %2957 unwind label %2983
+          to label %2958 unwind label %2984
 
-2957:                                             ; preds = %2954
+2958:                                             ; preds = %2955
   invoke void @__cxa_end_catch()
-          to label %2958 unwind label %2985
+          to label %2959 unwind label %2986
 
-2958:                                             ; preds = %2957, %2946
+2959:                                             ; preds = %2958, %2947
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %239)
-          to label %2959 unwind label %2985
+          to label %2960 unwind label %2986
 
-2959:                                             ; preds = %2958
-  %2960 = getelementptr inbounds nuw i8, ptr %239, i64 59
-  %2961 = load i8, ptr %2960, align 1
-  %2962 = trunc i8 %2961 to i1
-  br i1 %2962, label %_ZN5Catch16AssertionHandlerD2Ev.exit998, label %2963
+2960:                                             ; preds = %2959
+  %2961 = getelementptr inbounds nuw i8, ptr %239, i64 59
+  %2962 = load i8, ptr %2961, align 1
+  %2963 = trunc i8 %2962 to i1
+  br i1 %2963, label %_ZN5Catch16AssertionHandlerD2Ev.exit998, label %2964
 
-2963:                                             ; preds = %2959
-  %2964 = getelementptr inbounds nuw i8, ptr %239, i64 64
-  %2965 = load ptr, ptr %2964, align 8
+2964:                                             ; preds = %2960
+  %2965 = getelementptr inbounds nuw i8, ptr %239, i64 64
   %2966 = load ptr, ptr %2965, align 8
-  %2967 = getelementptr inbounds nuw i8, ptr %2966, i64 160
-  %2968 = load ptr, ptr %2967, align 8
-  invoke void %2968(ptr noundef nonnull align 8 dereferenceable(8) %2965, ptr noundef nonnull align 8 dereferenceable(72) %239)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit998 unwind label %2969
+  %2967 = load ptr, ptr %2966, align 8
+  %2968 = getelementptr inbounds nuw i8, ptr %2967, i64 160
+  %2969 = load ptr, ptr %2968, align 8
+  invoke void %2969(ptr noundef nonnull align 8 dereferenceable(8) %2966, ptr noundef nonnull align 8 dereferenceable(72) %239)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit998 unwind label %2970
 
-2969:                                             ; preds = %2963
-  %2970 = landingpad { ptr, i32 }
+2970:                                             ; preds = %2964
+  %2971 = landingpad { ptr, i32 }
           catch ptr null
-  %2971 = extractvalue { ptr, i32 } %2970, 0
-  call void @__clang_call_terminate(ptr %2971) #16
+  %2972 = extractvalue { ptr, i32 } %2971, 0
+  call void @__clang_call_terminate(ptr %2972) #16
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit998:          ; preds = %2959, %2963
+_ZN5Catch16AssertionHandlerD2Ev.exit998:          ; preds = %2960, %2964
   store ptr @.str.1, ptr %243, align 8
-  %2972 = getelementptr inbounds nuw i8, ptr %243, i64 8
-  store i64 246, ptr %2972, align 8
+  %2973 = getelementptr inbounds nuw i8, ptr %243, i64 8
+  store i64 246, ptr %2973, align 8
   invoke void @_ZN5Catch16AssertionHandlerC1ENS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %242, ptr nonnull @.str.6, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %243, ptr nonnull @.str.18, i64 30, i32 noundef 1)
-          to label %2973 unwind label %2952
+          to label %2974 unwind label %2953
 
-2973:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit998
-  %2974 = load i32, ptr @_ZN11Incrementor12destructionsE, align 4
-  %2975 = icmp eq i32 %2974, 0
-  %2976 = zext i1 %2975 to i8
-  %2977 = getelementptr inbounds nuw i8, ptr %244, i64 8
-  store i8 1, ptr %2977, align 8, !alias.scope !203
-  %2978 = getelementptr inbounds nuw i8, ptr %244, i64 9
-  store i8 %2976, ptr %2978, align 1, !alias.scope !203
+2974:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit998
+  %2975 = load i32, ptr @_ZN11Incrementor12destructionsE, align 4
+  %2976 = icmp eq i32 %2975, 0
+  %2977 = zext i1 %2976 to i8
+  %2978 = getelementptr inbounds nuw i8, ptr %244, i64 8
+  store i8 1, ptr %2978, align 8, !alias.scope !203
+  %2979 = getelementptr inbounds nuw i8, ptr %244, i64 9
+  store i8 %2977, ptr %2979, align 1, !alias.scope !203
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %244, align 8, !alias.scope !203
-  %2979 = getelementptr inbounds nuw i8, ptr %244, i64 12
-  store i32 %2974, ptr %2979, align 4, !alias.scope !203
-  %2980 = getelementptr inbounds nuw i8, ptr %244, i64 16
-  store ptr @.str.59, ptr %2980, align 8, !alias.scope !203
+  %2980 = getelementptr inbounds nuw i8, ptr %244, i64 12
+  store i32 %2975, ptr %2980, align 4, !alias.scope !203
+  %2981 = getelementptr inbounds nuw i8, ptr %244, i64 16
+  store ptr @.str.59, ptr %2981, align 8, !alias.scope !203
   %.sroa.2.0..sroa_idx.i.i999 = getelementptr inbounds nuw i8, ptr %244, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i999, align 8, !alias.scope !203
-  %2981 = getelementptr inbounds nuw i8, ptr %244, i64 32
-  store i32 0, ptr %2981, align 8, !alias.scope !203
+  %2982 = getelementptr inbounds nuw i8, ptr %244, i64 32
+  store i32 0, ptr %2982, align 8, !alias.scope !203
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %242, ptr noundef nonnull align 8 dereferenceable(10) %244)
-          to label %2982 unwind label %2988
+          to label %2983 unwind label %2989
 
-2982:                                             ; preds = %2973
+2983:                                             ; preds = %2974
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %244) #15
-  br label %2992
+  br label %2993
 
-2983:                                             ; preds = %2954
-  %2984 = landingpad { ptr, i32 }
+2984:                                             ; preds = %2955
+  %2985 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %2987 unwind label %3105
+          to label %2988 unwind label %3103
 
-2985:                                             ; preds = %2958, %2957
-  %2986 = landingpad { ptr, i32 }
+2986:                                             ; preds = %2959, %2958
+  %2987 = landingpad { ptr, i32 }
           cleanup
-  br label %2987
+  br label %2988
 
-2987:                                             ; preds = %2983, %2985
-  %.pn635 = phi { ptr, i32 } [ %2986, %2985 ], [ %2984, %2983 ]
+2988:                                             ; preds = %2984, %2986
+  %.pn635 = phi { ptr, i32 } [ %2987, %2986 ], [ %2985, %2984 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %239) #15
-  br label %3079
+  br label %3077
 
-2988:                                             ; preds = %2973
-  %2989 = landingpad { ptr, i32 }
+2989:                                             ; preds = %2974
+  %2990 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %244) #15
-  %.151 = extractvalue { ptr, i32 } %2989, 0
-  %2990 = call ptr @__cxa_begin_catch(ptr %.151) #15
+  %.151 = extractvalue { ptr, i32 } %2990, 0
+  %2991 = call ptr @__cxa_begin_catch(ptr %.151) #15
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %242)
-          to label %2991 unwind label %3017
+          to label %2992 unwind label %3018
 
-2991:                                             ; preds = %2988
+2992:                                             ; preds = %2989
   invoke void @__cxa_end_catch()
-          to label %2992 unwind label %3019
+          to label %2993 unwind label %3020
 
-2992:                                             ; preds = %2991, %2982
+2993:                                             ; preds = %2992, %2983
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %242)
-          to label %2993 unwind label %3019
+          to label %2994 unwind label %3020
 
-2993:                                             ; preds = %2992
-  %2994 = getelementptr inbounds nuw i8, ptr %242, i64 59
-  %2995 = load i8, ptr %2994, align 1
-  %2996 = trunc i8 %2995 to i1
-  br i1 %2996, label %_ZN5Catch16AssertionHandlerD2Ev.exit1000, label %2997
+2994:                                             ; preds = %2993
+  %2995 = getelementptr inbounds nuw i8, ptr %242, i64 59
+  %2996 = load i8, ptr %2995, align 1
+  %2997 = trunc i8 %2996 to i1
+  br i1 %2997, label %_ZN5Catch16AssertionHandlerD2Ev.exit1000, label %2998
 
-2997:                                             ; preds = %2993
-  %2998 = getelementptr inbounds nuw i8, ptr %242, i64 64
-  %2999 = load ptr, ptr %2998, align 8
+2998:                                             ; preds = %2994
+  %2999 = getelementptr inbounds nuw i8, ptr %242, i64 64
   %3000 = load ptr, ptr %2999, align 8
-  %3001 = getelementptr inbounds nuw i8, ptr %3000, i64 160
-  %3002 = load ptr, ptr %3001, align 8
-  invoke void %3002(ptr noundef nonnull align 8 dereferenceable(8) %2999, ptr noundef nonnull align 8 dereferenceable(72) %242)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit1000 unwind label %3003
+  %3001 = load ptr, ptr %3000, align 8
+  %3002 = getelementptr inbounds nuw i8, ptr %3001, i64 160
+  %3003 = load ptr, ptr %3002, align 8
+  invoke void %3003(ptr noundef nonnull align 8 dereferenceable(8) %3000, ptr noundef nonnull align 8 dereferenceable(72) %242)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit1000 unwind label %3004
 
-3003:                                             ; preds = %2997
-  %3004 = landingpad { ptr, i32 }
+3004:                                             ; preds = %2998
+  %3005 = landingpad { ptr, i32 }
           catch ptr null
-  %3005 = extractvalue { ptr, i32 } %3004, 0
-  call void @__clang_call_terminate(ptr %3005) #16
+  %3006 = extractvalue { ptr, i32 } %3005, 0
+  call void @__clang_call_terminate(ptr %3006) #16
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit1000:         ; preds = %2993, %2997
+_ZN5Catch16AssertionHandlerD2Ev.exit1000:         ; preds = %2994, %2998
   store ptr @.str.1, ptr %246, align 8
-  %3006 = getelementptr inbounds nuw i8, ptr %246, i64 8
-  store i64 247, ptr %3006, align 8
+  %3007 = getelementptr inbounds nuw i8, ptr %246, i64 8
+  store i64 247, ptr %3007, align 8
   invoke void @_ZN5Catch16AssertionHandlerC1ENS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %245, ptr nonnull @.str.6, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %246, ptr nonnull @.str.57, i64 25, i32 noundef 1)
-          to label %3007 unwind label %2952
+          to label %3008 unwind label %2953
 
-3007:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit1000
-  %3008 = load i32, ptr @_ZN11Incrementor6copiesE, align 4
-  %3009 = icmp eq i32 %3008, 10
-  %3010 = zext i1 %3009 to i8
-  %3011 = getelementptr inbounds nuw i8, ptr %247, i64 8
-  store i8 1, ptr %3011, align 8, !alias.scope !206
-  %3012 = getelementptr inbounds nuw i8, ptr %247, i64 9
-  store i8 %3010, ptr %3012, align 1, !alias.scope !206
+3008:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit1000
+  %3009 = load i32, ptr @_ZN11Incrementor6copiesE, align 4
+  %3010 = icmp eq i32 %3009, 10
+  %3011 = zext i1 %3010 to i8
+  %3012 = getelementptr inbounds nuw i8, ptr %247, i64 8
+  store i8 1, ptr %3012, align 8, !alias.scope !206
+  %3013 = getelementptr inbounds nuw i8, ptr %247, i64 9
+  store i8 %3011, ptr %3013, align 1, !alias.scope !206
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %247, align 8, !alias.scope !206
-  %3013 = getelementptr inbounds nuw i8, ptr %247, i64 12
-  store i32 %3008, ptr %3013, align 4, !alias.scope !206
-  %3014 = getelementptr inbounds nuw i8, ptr %247, i64 16
-  store ptr @.str.59, ptr %3014, align 8, !alias.scope !206
+  %3014 = getelementptr inbounds nuw i8, ptr %247, i64 12
+  store i32 %3009, ptr %3014, align 4, !alias.scope !206
+  %3015 = getelementptr inbounds nuw i8, ptr %247, i64 16
+  store ptr @.str.59, ptr %3015, align 8, !alias.scope !206
   %.sroa.2.0..sroa_idx.i.i1001 = getelementptr inbounds nuw i8, ptr %247, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i1001, align 8, !alias.scope !206
-  %3015 = getelementptr inbounds nuw i8, ptr %247, i64 32
-  store i32 10, ptr %3015, align 8, !alias.scope !206
+  %3016 = getelementptr inbounds nuw i8, ptr %247, i64 32
+  store i32 10, ptr %3016, align 8, !alias.scope !206
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %245, ptr noundef nonnull align 8 dereferenceable(10) %247)
-          to label %3016 unwind label %3022
+          to label %3017 unwind label %3023
 
-3016:                                             ; preds = %3007
+3017:                                             ; preds = %3008
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %247) #15
-  br label %3026
+  br label %3027
 
-3017:                                             ; preds = %2988
-  %3018 = landingpad { ptr, i32 }
+3018:                                             ; preds = %2989
+  %3019 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %3021 unwind label %3105
+          to label %3022 unwind label %3103
 
-3019:                                             ; preds = %2992, %2991
-  %3020 = landingpad { ptr, i32 }
+3020:                                             ; preds = %2993, %2992
+  %3021 = landingpad { ptr, i32 }
           cleanup
-  br label %3021
+  br label %3022
 
-3021:                                             ; preds = %3017, %3019
-  %.pn638 = phi { ptr, i32 } [ %3020, %3019 ], [ %3018, %3017 ]
+3022:                                             ; preds = %3018, %3020
+  %.pn638 = phi { ptr, i32 } [ %3021, %3020 ], [ %3019, %3018 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %242) #15
-  br label %3079
+  br label %3077
 
-3022:                                             ; preds = %3007
-  %3023 = landingpad { ptr, i32 }
+3023:                                             ; preds = %3008
+  %3024 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %247) #15
-  %.153 = extractvalue { ptr, i32 } %3023, 0
-  %3024 = call ptr @__cxa_begin_catch(ptr %.153) #15
+  %.153 = extractvalue { ptr, i32 } %3024, 0
+  %3025 = call ptr @__cxa_begin_catch(ptr %.153) #15
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %245)
-          to label %3025 unwind label %3074
+          to label %3026 unwind label %3072
 
-3025:                                             ; preds = %3022
+3026:                                             ; preds = %3023
   invoke void @__cxa_end_catch()
-          to label %3026 unwind label %3076
+          to label %3027 unwind label %3074
 
-3026:                                             ; preds = %3025, %3016
+3027:                                             ; preds = %3026, %3017
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %245)
-          to label %3027 unwind label %3076
+          to label %3028 unwind label %3074
 
-3027:                                             ; preds = %3026
-  %3028 = getelementptr inbounds nuw i8, ptr %245, i64 59
-  %3029 = load i8, ptr %3028, align 1
-  %3030 = trunc i8 %3029 to i1
-  br i1 %3030, label %_ZN5Catch16AssertionHandlerD2Ev.exit1002, label %3031
+3028:                                             ; preds = %3027
+  %3029 = getelementptr inbounds nuw i8, ptr %245, i64 59
+  %3030 = load i8, ptr %3029, align 1
+  %3031 = trunc i8 %3030 to i1
+  br i1 %3031, label %_ZN5Catch16AssertionHandlerD2Ev.exit1002, label %3032
 
-3031:                                             ; preds = %3027
-  %3032 = getelementptr inbounds nuw i8, ptr %245, i64 64
-  %3033 = load ptr, ptr %3032, align 8
+3032:                                             ; preds = %3028
+  %3033 = getelementptr inbounds nuw i8, ptr %245, i64 64
   %3034 = load ptr, ptr %3033, align 8
-  %3035 = getelementptr inbounds nuw i8, ptr %3034, i64 160
-  %3036 = load ptr, ptr %3035, align 8
-  invoke void %3036(ptr noundef nonnull align 8 dereferenceable(8) %3033, ptr noundef nonnull align 8 dereferenceable(72) %245)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit1002 unwind label %3037
+  %3035 = load ptr, ptr %3034, align 8
+  %3036 = getelementptr inbounds nuw i8, ptr %3035, i64 160
+  %3037 = load ptr, ptr %3036, align 8
+  invoke void %3037(ptr noundef nonnull align 8 dereferenceable(8) %3034, ptr noundef nonnull align 8 dereferenceable(72) %245)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit1002 unwind label %3038
 
-3037:                                             ; preds = %3031
-  %3038 = landingpad { ptr, i32 }
+3038:                                             ; preds = %3032
+  %3039 = landingpad { ptr, i32 }
           catch ptr null
-  %3039 = extractvalue { ptr, i32 } %3038, 0
-  call void @__clang_call_terminate(ptr %3039) #16
+  %3040 = extractvalue { ptr, i32 } %3039, 0
+  call void @__clang_call_terminate(ptr %3040) #16
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit1002:         ; preds = %3027, %3031
-  %3040 = load i64, ptr %238, align 8
-  %3041 = icmp sgt i64 %3040, 0
-  br i1 %3041, label %.lr.ph.preheader.i.i.i1004, label %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit.i.i1003
+_ZN5Catch16AssertionHandlerD2Ev.exit1002:         ; preds = %3028, %3032
+  br i1 %.not.i.i.i.i985, label %.lr.ph.preheader.i.i.i1004, label %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit.i.i1003
 
 .lr.ph.preheader.i.i.i1004:                       ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit1002
   %_ZN11Incrementor12destructionsE.promoted.i.i.i1005 = load i32, ptr @_ZN11Incrementor12destructionsE, align 4
-  %3042 = trunc i64 %3040 to i32
-  %3043 = add i32 %_ZN11Incrementor12destructionsE.promoted.i.i.i1005, %3042
-  store i32 %3043, ptr @_ZN11Incrementor12destructionsE, align 4
+  %3041 = trunc i64 %2928 to i32
+  %3042 = add i32 %_ZN11Incrementor12destructionsE.promoted.i.i.i1005, %3041
+  store i32 %3042, ptr @_ZN11Incrementor12destructionsE, align 4
   br label %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit.i.i1003
 
 _ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit.i.i1003: ; preds = %.lr.ph.preheader.i.i.i1004, %_ZN5Catch16AssertionHandlerD2Ev.exit1002
-  %3044 = load ptr, ptr %2930, align 8
-  invoke void @_Z6rcFreePv(ptr noundef %3044)
-          to label %_ZN12rcTempVectorI11IncrementorED2Ev.exit1006 unwind label %3045
+  invoke void @_Z6rcFreePv(ptr noundef %2936)
+          to label %_ZN12rcTempVectorI11IncrementorED2Ev.exit1006 unwind label %3043
 
-3045:                                             ; preds = %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit.i.i1003
-  %3046 = landingpad { ptr, i32 }
+3043:                                             ; preds = %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit.i.i1003
+  %3044 = landingpad { ptr, i32 }
           catch ptr null
-  %3047 = extractvalue { ptr, i32 } %3046, 0
-  call void @__clang_call_terminate(ptr %3047) #16
+  %3045 = extractvalue { ptr, i32 } %3044, 0
+  call void @__clang_call_terminate(ptr %3045) #16
   unreachable
 
 _ZN12rcTempVectorI11IncrementorED2Ev.exit1006:    ; preds = %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit.i.i1003
-  %3048 = load i64, ptr %228, align 8
-  %3049 = icmp sgt i64 %3048, 0
-  br i1 %3049, label %.lr.ph.preheader.i.i.i1008, label %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit.i.i1007
+  %3046 = load i64, ptr %228, align 8
+  %3047 = icmp sgt i64 %3046, 0
+  br i1 %3047, label %.lr.ph.preheader.i.i.i1008, label %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit.i.i1007
 
 .lr.ph.preheader.i.i.i1008:                       ; preds = %_ZN12rcTempVectorI11IncrementorED2Ev.exit1006
   %_ZN11Incrementor12destructionsE.promoted.i.i.i1009 = load i32, ptr @_ZN11Incrementor12destructionsE, align 4
-  %3050 = trunc i64 %3048 to i32
-  %3051 = add i32 %_ZN11Incrementor12destructionsE.promoted.i.i.i1009, %3050
-  store i32 %3051, ptr @_ZN11Incrementor12destructionsE, align 4
+  %3048 = trunc i64 %3046 to i32
+  %3049 = add i32 %_ZN11Incrementor12destructionsE.promoted.i.i.i1009, %3048
+  store i32 %3049, ptr @_ZN11Incrementor12destructionsE, align 4
   br label %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit.i.i1007
 
 _ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit.i.i1007: ; preds = %.lr.ph.preheader.i.i.i1008, %_ZN12rcTempVectorI11IncrementorED2Ev.exit1006
-  %3052 = load ptr, ptr %2814, align 8
-  invoke void @_Z6rcFreePv(ptr noundef %3052)
-          to label %_ZN12rcTempVectorI11IncrementorED2Ev.exit1010 unwind label %3053
+  %3050 = load ptr, ptr %2814, align 8
+  invoke void @_Z6rcFreePv(ptr noundef %3050)
+          to label %_ZN12rcTempVectorI11IncrementorED2Ev.exit1010 unwind label %3051
 
-3053:                                             ; preds = %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit.i.i1007
-  %3054 = landingpad { ptr, i32 }
+3051:                                             ; preds = %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit.i.i1007
+  %3052 = landingpad { ptr, i32 }
           catch ptr null
-  %3055 = extractvalue { ptr, i32 } %3054, 0
-  call void @__clang_call_terminate(ptr %3055) #16
+  %3053 = extractvalue { ptr, i32 } %3052, 0
+  call void @__clang_call_terminate(ptr %3053) #16
   unreachable
 
 _ZN12rcTempVectorI11IncrementorED2Ev.exit1010:    ; preds = %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit.i.i1007
-  %3056 = load i64, ptr %227, align 8
-  %3057 = icmp sgt i64 %3056, 0
-  br i1 %3057, label %.lr.ph.preheader.i.i.i1012, label %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit.i.i1011
+  %3054 = load i64, ptr %227, align 8
+  %3055 = icmp sgt i64 %3054, 0
+  br i1 %3055, label %.lr.ph.preheader.i.i.i1012, label %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit.i.i1011
 
 .lr.ph.preheader.i.i.i1012:                       ; preds = %_ZN12rcTempVectorI11IncrementorED2Ev.exit1010
   %_ZN11Incrementor12destructionsE.promoted.i.i.i1013 = load i32, ptr @_ZN11Incrementor12destructionsE, align 4
-  %3058 = trunc i64 %3056 to i32
-  %3059 = add i32 %_ZN11Incrementor12destructionsE.promoted.i.i.i1013, %3058
-  store i32 %3059, ptr @_ZN11Incrementor12destructionsE, align 4
+  %3056 = trunc i64 %3054 to i32
+  %3057 = add i32 %_ZN11Incrementor12destructionsE.promoted.i.i.i1013, %3056
+  store i32 %3057, ptr @_ZN11Incrementor12destructionsE, align 4
   br label %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit.i.i1011
 
 _ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit.i.i1011: ; preds = %.lr.ph.preheader.i.i.i1012, %_ZN12rcTempVectorI11IncrementorED2Ev.exit1010
-  %3060 = load ptr, ptr %2927, align 8
-  invoke void @_Z6rcFreePv(ptr noundef %3060)
-          to label %_ZN12rcTempVectorI11IncrementorED2Ev.exit1014 unwind label %3061
+  %3058 = load ptr, ptr %2927, align 8
+  invoke void @_Z6rcFreePv(ptr noundef %3058)
+          to label %_ZN12rcTempVectorI11IncrementorED2Ev.exit1014 unwind label %3059
 
-3061:                                             ; preds = %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit.i.i1011
-  %3062 = landingpad { ptr, i32 }
+3059:                                             ; preds = %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit.i.i1011
+  %3060 = landingpad { ptr, i32 }
           catch ptr null
-  %3063 = extractvalue { ptr, i32 } %3062, 0
-  call void @__clang_call_terminate(ptr %3063) #16
+  %3061 = extractvalue { ptr, i32 } %3060, 0
+  call void @__clang_call_terminate(ptr %3061) #16
   unreachable
 
 _ZN12rcTempVectorI11IncrementorED2Ev.exit1014:    ; preds = %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit.i.i1011
   invoke void @_Z6rcFreePv(ptr noundef %.sroa.7.1)
-          to label %_ZN12rcTempVectorIiED2Ev.exit1015 unwind label %3064
+          to label %_ZN12rcTempVectorIiED2Ev.exit1015 unwind label %3062
 
-3064:                                             ; preds = %_ZN12rcTempVectorI11IncrementorED2Ev.exit1014
-  %3065 = landingpad { ptr, i32 }
+3062:                                             ; preds = %_ZN12rcTempVectorI11IncrementorED2Ev.exit1014
+  %3063 = landingpad { ptr, i32 }
           catch ptr null
-  %3066 = extractvalue { ptr, i32 } %3065, 0
-  call void @__clang_call_terminate(ptr %3066) #16
+  %3064 = extractvalue { ptr, i32 } %3063, 0
+  call void @__clang_call_terminate(ptr %3064) #16
   unreachable
 
 _ZN12rcTempVectorIiED2Ev.exit1015:                ; preds = %_ZN12rcTempVectorI11IncrementorED2Ev.exit1014
   invoke void @_Z6rcFreePv(ptr noundef %.sroa.71047.1)
-          to label %_ZN12rcTempVectorIiED2Ev.exit1016 unwind label %3067
+          to label %_ZN12rcTempVectorIiED2Ev.exit1016 unwind label %3065
 
-3067:                                             ; preds = %_ZN12rcTempVectorIiED2Ev.exit1015
-  %3068 = landingpad { ptr, i32 }
+3065:                                             ; preds = %_ZN12rcTempVectorIiED2Ev.exit1015
+  %3066 = landingpad { ptr, i32 }
           catch ptr null
-  %3069 = extractvalue { ptr, i32 } %3068, 0
-  call void @__clang_call_terminate(ptr %3069) #16
+  %3067 = extractvalue { ptr, i32 } %3066, 0
+  call void @__clang_call_terminate(ptr %3067) #16
   unreachable
 
 _ZN12rcTempVectorIiED2Ev.exit1016:                ; preds = %_ZN12rcTempVectorIiED2Ev.exit1015
-  %3070 = load ptr, ptr %2557, align 8
-  invoke void @_Z6rcFreePv(ptr noundef %3070)
-          to label %_ZN12rcTempVectorIiED2Ev.exit1017 unwind label %3071
+  %3068 = load ptr, ptr %2557, align 8
+  invoke void @_Z6rcFreePv(ptr noundef %3068)
+          to label %_ZN12rcTempVectorIiED2Ev.exit1017 unwind label %3069
 
-3071:                                             ; preds = %_ZN12rcTempVectorIiED2Ev.exit1016
-  %3072 = landingpad { ptr, i32 }
+3069:                                             ; preds = %_ZN12rcTempVectorIiED2Ev.exit1016
+  %3070 = landingpad { ptr, i32 }
           catch ptr null
-  %3073 = extractvalue { ptr, i32 } %3072, 0
-  call void @__clang_call_terminate(ptr %3073) #16
+  %3071 = extractvalue { ptr, i32 } %3070, 0
+  call void @__clang_call_terminate(ptr %3071) #16
   unreachable
 
-3074:                                             ; preds = %3022
-  %3075 = landingpad { ptr, i32 }
+3072:                                             ; preds = %3023
+  %3073 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %3078 unwind label %3105
+          to label %3076 unwind label %3103
 
-3076:                                             ; preds = %3026, %3025
-  %3077 = landingpad { ptr, i32 }
+3074:                                             ; preds = %3027, %3026
+  %3075 = landingpad { ptr, i32 }
           cleanup
+  br label %3076
+
+3076:                                             ; preds = %3072, %3074
+  %.pn641 = phi { ptr, i32 } [ %3075, %3074 ], [ %3073, %3072 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %245) #15
+  br label %3077
+
+3077:                                             ; preds = %3076, %3022, %2988, %2953
+  %.pn641.pn = phi { ptr, i32 } [ %.pn641, %3076 ], [ %2954, %2953 ], [ %.pn638, %3022 ], [ %.pn635, %2988 ]
+  call void @_ZN12rcTempVectorI11IncrementorED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %238) #15
   br label %3078
 
-3078:                                             ; preds = %3074, %3076
-  %.pn641 = phi { ptr, i32 } [ %3077, %3076 ], [ %3075, %3074 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %245) #15
+3078:                                             ; preds = %3077, %2952, %2908, %2874, %2839
+  %.pn641.pn.pn = phi { ptr, i32 } [ %.pn641.pn, %3077 ], [ %2840, %2839 ], [ %.pn632, %2952 ], [ %.pn629, %2908 ], [ %.pn626, %2874 ]
+  call void @_ZN12rcTempVectorI11IncrementorED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %228) #15
   br label %3079
 
-3079:                                             ; preds = %3078, %3021, %2987, %2952
-  %.pn641.pn = phi { ptr, i32 } [ %.pn641, %3078 ], [ %2953, %2952 ], [ %.pn638, %3021 ], [ %.pn635, %2987 ]
-  call void @_ZN12rcTempVectorI11IncrementorED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %238) #15
+3079:                                             ; preds = %3078, %2837
+  %.pn641.pn.pn.pn = phi { ptr, i32 } [ %.pn641.pn.pn, %3078 ], [ %2838, %2837 ]
+  call void @_ZN12rcTempVectorI11IncrementorED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %227) #15
   br label %3080
 
-3080:                                             ; preds = %3079, %2951, %2908, %2874, %2839
-  %.pn641.pn.pn = phi { ptr, i32 } [ %.pn641.pn, %3079 ], [ %2840, %2839 ], [ %.pn632, %2951 ], [ %.pn629, %2908 ], [ %.pn626, %2874 ]
-  call void @_ZN12rcTempVectorI11IncrementorED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %228) #15
-  br label %3081
-
-3081:                                             ; preds = %3080, %2837
-  %.pn641.pn.pn.pn = phi { ptr, i32 } [ %.pn641.pn.pn, %3080 ], [ %2838, %2837 ]
-  call void @_ZN12rcTempVectorI11IncrementorED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %227) #15
-  br label %3082
-
-3082:                                             ; preds = %3081, %2836, %2791, %2744
-  %.pn641.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn641.pn.pn.pn, %3081 ], [ %2745, %2744 ], [ %.pn623, %2836 ], [ %.pn620, %2791 ]
+3080:                                             ; preds = %3079, %2836, %2791, %2744
+  %.pn641.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn641.pn.pn.pn, %3079 ], [ %2745, %2744 ], [ %.pn623, %2836 ], [ %.pn620, %2791 ]
   invoke void @_Z6rcFreePv(ptr noundef %.sroa.7.1)
-          to label %_ZN12rcTempVectorIiED2Ev.exit1018 unwind label %3083
+          to label %_ZN12rcTempVectorIiED2Ev.exit1018 unwind label %3081
 
-3083:                                             ; preds = %3082
-  %3084 = landingpad { ptr, i32 }
+3081:                                             ; preds = %3080
+  %3082 = landingpad { ptr, i32 }
           catch ptr null
-  %3085 = extractvalue { ptr, i32 } %3084, 0
-  call void @__clang_call_terminate(ptr %3085) #16
+  %3083 = extractvalue { ptr, i32 } %3082, 0
+  call void @__clang_call_terminate(ptr %3083) #16
   unreachable
 
-_ZN12rcTempVectorIiED2Ev.exit1018:                ; preds = %3082, %2743, %2700, %2663, %2617, %2582
-  %.pn641.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2583, %2582 ], [ %.pn617, %2743 ], [ %.pn614, %2700 ], [ %.pn611, %2663 ], [ %.pn608, %2617 ], [ %.pn641.pn.pn.pn.pn, %3082 ]
+_ZN12rcTempVectorIiED2Ev.exit1018:                ; preds = %3080, %2743, %2700, %2663, %2617, %2582
+  %.pn641.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2583, %2582 ], [ %.pn617, %2743 ], [ %.pn614, %2700 ], [ %.pn611, %2663 ], [ %.pn608, %2617 ], [ %.pn641.pn.pn.pn.pn, %3080 ]
   invoke void @_Z6rcFreePv(ptr noundef %.sroa.71047.1)
-          to label %_ZN12rcTempVectorIiED2Ev.exit1019 unwind label %3086
+          to label %_ZN12rcTempVectorIiED2Ev.exit1019 unwind label %3084
 
-3086:                                             ; preds = %_ZN12rcTempVectorIiED2Ev.exit1018
-  %3087 = landingpad { ptr, i32 }
+3084:                                             ; preds = %_ZN12rcTempVectorIiED2Ev.exit1018
+  %3085 = landingpad { ptr, i32 }
           catch ptr null
-  %3088 = extractvalue { ptr, i32 } %3087, 0
-  call void @__clang_call_terminate(ptr %3088) #16
+  %3086 = extractvalue { ptr, i32 } %3085, 0
+  call void @__clang_call_terminate(ptr %3086) #16
   unreachable
 
 _ZN12rcTempVectorIiED2Ev.exit1019:                ; preds = %_ZN12rcTempVectorIiED2Ev.exit1018, %2580
   %.pn641.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2581, %2580 ], [ %.pn641.pn.pn.pn.pn.pn, %_ZN12rcTempVectorIiED2Ev.exit1018 ]
-  %3089 = load ptr, ptr %2557, align 8
-  invoke void @_Z6rcFreePv(ptr noundef %3089)
-          to label %_ZN12rcTempVectorIiED2Ev.exit747 unwind label %3090
+  %3087 = load ptr, ptr %2557, align 8
+  invoke void @_Z6rcFreePv(ptr noundef %3087)
+          to label %_ZN12rcTempVectorIiED2Ev.exit747 unwind label %3088
 
-3090:                                             ; preds = %_ZN12rcTempVectorIiED2Ev.exit1019
-  %3091 = landingpad { ptr, i32 }
+3088:                                             ; preds = %_ZN12rcTempVectorIiED2Ev.exit1019
+  %3089 = landingpad { ptr, i32 }
           catch ptr null
-  %3092 = extractvalue { ptr, i32 } %3091, 0
-  call void @__clang_call_terminate(ptr %3092) #16
+  %3090 = extractvalue { ptr, i32 } %3089, 0
+  call void @__clang_call_terminate(ptr %3090) #16
   unreachable
 
 _ZN12rcTempVectorIiED2Ev.exit1017:                ; preds = %_ZN12rcTempVectorIiED2Ev.exit1016, %2555
   call void @_ZN5Catch7SectionD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %202) #15
   store ptr @.str.1, ptr %249, align 8
-  %3093 = getelementptr inbounds nuw i8, ptr %249, i64 8
-  store i64 250, ptr %3093, align 8
+  %3091 = getelementptr inbounds nuw i8, ptr %249, i64 8
+  store i64 250, ptr %3091, align 8
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %250, ptr noundef nonnull @.str.58) #15
-  %3094 = load ptr, ptr %250, align 8
-  %3095 = getelementptr inbounds nuw i8, ptr %250, i64 8
-  %3096 = load i64, ptr %3095, align 8
-  call void @_ZN5Catch7SectionC1ERKNS_14SourceLineInfoENS_9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(96) %248, ptr noundef nonnull align 8 dereferenceable(16) %249, ptr %3094, i64 %3096, ptr noundef null)
-  %3097 = invoke noundef zeroext i1 @_ZNK5Catch7SectioncvbEv(ptr noundef nonnull align 8 dereferenceable(96) %248)
-          to label %3098 unwind label %3103
+  %3092 = load ptr, ptr %250, align 8
+  %3093 = getelementptr inbounds nuw i8, ptr %250, i64 8
+  %3094 = load i64, ptr %3093, align 8
+  call void @_ZN5Catch7SectionC1ERKNS_14SourceLineInfoENS_9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(96) %248, ptr noundef nonnull align 8 dereferenceable(16) %249, ptr %3092, i64 %3094, ptr noundef null)
+  %3095 = invoke noundef zeroext i1 @_ZNK5Catch7SectioncvbEv(ptr noundef nonnull align 8 dereferenceable(96) %248)
+          to label %3096 unwind label %3101
 
-3098:                                             ; preds = %_ZN12rcTempVectorIiED2Ev.exit1017
-  br i1 %3097, label %3099, label %_ZN12rcTempVectorI23NotDefaultConstructibleED2Ev.exit
+3096:                                             ; preds = %_ZN12rcTempVectorIiED2Ev.exit1017
+  br i1 %3095, label %3097, label %_ZN12rcTempVectorI23NotDefaultConstructibleED2Ev.exit
 
-3099:                                             ; preds = %3098
+3097:                                             ; preds = %3096
   invoke void @_Z6rcFreePv(ptr noundef null)
-          to label %_ZN12rcTempVectorI23NotDefaultConstructibleED2Ev.exit unwind label %3100
+          to label %_ZN12rcTempVectorI23NotDefaultConstructibleED2Ev.exit unwind label %3098
 
-3100:                                             ; preds = %3099
-  %3101 = landingpad { ptr, i32 }
+3098:                                             ; preds = %3097
+  %3099 = landingpad { ptr, i32 }
           catch ptr null
-  %3102 = extractvalue { ptr, i32 } %3101, 0
-  call void @__clang_call_terminate(ptr %3102) #16
+  %3100 = extractvalue { ptr, i32 } %3099, 0
+  call void @__clang_call_terminate(ptr %3100) #16
   unreachable
 
-3103:                                             ; preds = %_ZN12rcTempVectorIiED2Ev.exit1017
-  %3104 = landingpad { ptr, i32 }
+3101:                                             ; preds = %_ZN12rcTempVectorIiED2Ev.exit1017
+  %3102 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN12rcTempVectorIiED2Ev.exit747
 
-_ZN12rcTempVectorI23NotDefaultConstructibleED2Ev.exit: ; preds = %3099, %3098
+_ZN12rcTempVectorI23NotDefaultConstructibleED2Ev.exit: ; preds = %3097, %3096
   call void @_ZN5Catch7SectionD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %248) #15
   ret void
 
-_ZN12rcTempVectorIiED2Ev.exit747:                 ; preds = %2578, %_ZN12rcTempVectorIiED2Ev.exit1019, %2196, %_ZN12rcTempVectorIiED2Ev.exit917, %2151, %2153, %2177, %2009, %2124, %1759, %_ZN12rcTempVectorIiED2Ev.exit844, %1495, %1737, %825, %1476, %269, %.loopexit.split-lp1178, %3103
-  %.sink = phi ptr [ %248, %3103 ], [ %1, %.loopexit.split-lp1178 ], [ %1, %269 ], [ %39, %1476 ], [ %39, %825 ], [ %99, %1737 ], [ %99, %1495 ], [ %124, %_ZN12rcTempVectorIiED2Ev.exit844 ], [ %124, %1759 ], [ %151, %2124 ], [ %151, %2009 ], [ %164, %2177 ], [ %164, %2153 ], [ %164, %2151 ], [ %171, %_ZN12rcTempVectorIiED2Ev.exit917 ], [ %171, %2196 ], [ %202, %_ZN12rcTempVectorIiED2Ev.exit1019 ], [ %202, %2578 ]
-  %.pn664.pn.pn = phi { ptr, i32 } [ %3104, %3103 ], [ %.pn664, %.loopexit.split-lp1178 ], [ %270, %269 ], [ %.pn655, %1476 ], [ %826, %825 ], [ %.pn539.pn, %1737 ], [ %1496, %1495 ], [ %.pn559.pn, %_ZN12rcTempVectorIiED2Ev.exit844 ], [ %1760, %1759 ], [ %.pn573, %2124 ], [ %2010, %2009 ], [ %.pn577, %2177 ], [ %2154, %2153 ], [ %2152, %2151 ], [ %.pn602.pn.pn, %_ZN12rcTempVectorIiED2Ev.exit917 ], [ %2197, %2196 ], [ %.pn641.pn.pn.pn.pn.pn.pn, %_ZN12rcTempVectorIiED2Ev.exit1019 ], [ %2579, %2578 ]
+_ZN12rcTempVectorIiED2Ev.exit747:                 ; preds = %2578, %_ZN12rcTempVectorIiED2Ev.exit1019, %2196, %_ZN12rcTempVectorIiED2Ev.exit917, %2151, %2153, %2177, %2009, %2124, %1759, %_ZN12rcTempVectorIiED2Ev.exit844, %1495, %1737, %825, %1476, %269, %.loopexit.split-lp1178, %3101
+  %.sink = phi ptr [ %248, %3101 ], [ %1, %.loopexit.split-lp1178 ], [ %1, %269 ], [ %39, %1476 ], [ %39, %825 ], [ %99, %1737 ], [ %99, %1495 ], [ %124, %_ZN12rcTempVectorIiED2Ev.exit844 ], [ %124, %1759 ], [ %151, %2124 ], [ %151, %2009 ], [ %164, %2177 ], [ %164, %2153 ], [ %164, %2151 ], [ %171, %_ZN12rcTempVectorIiED2Ev.exit917 ], [ %171, %2196 ], [ %202, %_ZN12rcTempVectorIiED2Ev.exit1019 ], [ %202, %2578 ]
+  %.pn664.pn.pn = phi { ptr, i32 } [ %3102, %3101 ], [ %.pn664, %.loopexit.split-lp1178 ], [ %270, %269 ], [ %.pn655, %1476 ], [ %826, %825 ], [ %.pn539.pn, %1737 ], [ %1496, %1495 ], [ %.pn559.pn, %_ZN12rcTempVectorIiED2Ev.exit844 ], [ %1760, %1759 ], [ %.pn573, %2124 ], [ %2010, %2009 ], [ %.pn577, %2177 ], [ %2154, %2153 ], [ %2152, %2151 ], [ %.pn602.pn.pn, %_ZN12rcTempVectorIiED2Ev.exit917 ], [ %2197, %2196 ], [ %.pn641.pn.pn.pn.pn.pn.pn, %_ZN12rcTempVectorIiED2Ev.exit1019 ], [ %2579, %2578 ]
   call void @_ZN5Catch7SectionD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink) #15
   resume { ptr, i32 } %.pn664.pn.pn
 
-3105:                                             ; preds = %3074, %3017, %2983, %2947, %2904, %2870, %2832, %2787, %2739, %2696, %2659, %2613, %2536, %2503, %2455, %2408, %2362, %2320, %2283, %2237, %2173, %2119, %2077, %2042, %1975, %1945, %1911, %1873, %1830, %1791, %1732, %1700, %1666, %1632, %1598, %1562, %1528, %1471, %1439, %1405, %1367, %1331, %1297, %1263, %1226, %1192, %1146, %1110, %1073, %1039, %1005, %967, %929, %890, %856, %792, %752, %719, %665, %631, %582, %540, %491, %445, %403, %369
-  %3106 = landingpad { ptr, i32 }
+3103:                                             ; preds = %3072, %3018, %2984, %2948, %2904, %2870, %2832, %2787, %2739, %2696, %2659, %2613, %2536, %2503, %2455, %2408, %2362, %2320, %2283, %2237, %2173, %2119, %2077, %2042, %1975, %1945, %1911, %1873, %1830, %1791, %1732, %1700, %1666, %1632, %1598, %1562, %1528, %1471, %1439, %1405, %1367, %1331, %1297, %1263, %1226, %1192, %1146, %1110, %1073, %1039, %1005, %967, %929, %890, %856, %792, %752, %719, %665, %631, %582, %540, %491, %445, %403, %369
+  %3104 = landingpad { ptr, i32 }
           catch ptr null
-  %3107 = extractvalue { ptr, i32 } %3106, 0
-  call void @__clang_call_terminate(ptr %3107) #16
+  %3105 = extractvalue { ptr, i32 } %3104, 0
+  call void @__clang_call_terminate(ptr %3105) #16
   unreachable
 }
 

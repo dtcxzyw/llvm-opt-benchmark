@@ -625,7 +625,7 @@ invoke.cont88:                                    ; preds = %if.end.i.i.i69, %in
 if.then.i:                                        ; preds = %invoke.cont88
   call void @_ZN7datalog8rule_setD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %call8) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %call8)
-          to label %cleanup.thread unwind label %lpad11.loopexit.split-lp.loopexit.split-lp
+          to label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit unwind label %lpad11.loopexit.split-lp.loopexit.split-lp
 
 land.lhs.true:                                    ; preds = %invoke.cont88
   %50 = load ptr, ptr %m_context, align 8
@@ -635,7 +635,7 @@ land.lhs.true:                                    ; preds = %invoke.cont88
   %52 = load i32, ptr %m_size.i.i, align 4
   %cmp.i79 = icmp eq i32 %52, 0
   %or.cond = select i1 %cmp.i78, i1 true, i1 %cmp.i79
-  br i1 %or.cond, label %cleanup.thread, label %if.then105
+  br i1 %or.cond, label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit, label %if.then105
 
 if.then105:                                       ; preds = %land.lhs.true
   %call107 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 80)
@@ -1358,17 +1358,12 @@ invoke.cont195:                                   ; preds = %if.then.i.i.i217, %
   store ptr %call2.i222, ptr %m_mc.i211, align 8
   call void @_ZN28horn_subsume_model_converterD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %hmc) #17
   %.pre309 = load ptr, ptr %res, align 8
-  br label %cleanup.thread
+  br label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit
 
 ehcleanup196:                                     ; preds = %lpad111.loopexit, %lpad111.loopexit.split-lp, %ehcleanup189
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup189 ], [ %lpad.loopexit258, %lpad111.loopexit ], [ %lpad.loopexit.split-lp259, %lpad111.loopexit.split-lp ]
   call void @_ZN28horn_subsume_model_converterD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %hmc) #17
   br label %ehcleanup200
-
-cleanup.thread:                                   ; preds = %if.then.i, %land.lhs.true, %invoke.cont195
-  %149 = phi ptr [ %call8, %land.lhs.true ], [ %.pre309, %invoke.cont195 ], [ null, %if.then.i ]
-  store ptr null, ptr %res, align 8
-  br label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit
 
 if.end.i.i225:                                    ; preds = %for.body48
   call void @_ZN7datalog8rule_setD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %call8) #17
@@ -1376,45 +1371,45 @@ if.end.i.i225:                                    ; preds = %for.body48
           to label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit unwind label %terminate.lpad.i226
 
 terminate.lpad.i226:                              ; preds = %if.end.i.i225
-  %150 = landingpad { ptr, i32 }
+  %149 = landingpad { ptr, i32 }
           catch ptr null
-  %151 = extractvalue { ptr, i32 } %150, 0
-  call void @__clang_call_terminate(ptr %151) #18
+  %150 = extractvalue { ptr, i32 } %149, 0
+  call void @__clang_call_terminate(ptr %150) #18
   unreachable
 
-_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit:    ; preds = %cleanup.thread, %if.end.i.i225
-  %retval.0254 = phi ptr [ %149, %cleanup.thread ], [ null, %if.end.i.i225 ]
+_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit:    ; preds = %invoke.cont195, %land.lhs.true, %if.then.i, %if.end.i.i225
+  %retval.0254 = phi ptr [ null, %if.end.i.i225 ], [ %call8, %land.lhs.true ], [ %.pre309, %invoke.cont195 ], [ null, %if.then.i ]
   call void @_ZN7datalog15dataflow_engineINS_17reachability_infoEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %engine) #17
-  %152 = load ptr, ptr %seen, align 8
-  %cmp.i.i.i.i227 = icmp eq ptr %152, null
+  %151 = load ptr, ptr %seen, align 8
+  %cmp.i.i.i.i227 = icmp eq ptr %151, null
   br i1 %cmp.i.i.i.i227, label %_ZN13obj_hashtableI9func_declED2Ev.exit, label %for.cond.preheader.i.i.i.i
 
 for.cond.preheader.i.i.i.i:                       ; preds = %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %152)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %151)
           to label %_ZN13obj_hashtableI9func_declED2Ev.exit unwind label %terminate.lpad.i.i228
 
 terminate.lpad.i.i228:                            ; preds = %for.cond.preheader.i.i.i.i
-  %153 = landingpad { ptr, i32 }
+  %152 = landingpad { ptr, i32 }
           catch ptr null
-  %154 = extractvalue { ptr, i32 } %153, 0
-  call void @__clang_call_terminate(ptr %154) #18
+  %153 = extractvalue { ptr, i32 } %152, 0
+  call void @__clang_call_terminate(ptr %153) #18
   unreachable
 
 _ZN13obj_hashtableI9func_declED2Ev.exit:          ; preds = %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit, %for.cond.preheader.i.i.i.i
   store ptr null, ptr %seen, align 8
-  %155 = load ptr, ptr %pruned_preds, align 8
-  %cmp.i.i.i.i229 = icmp eq ptr %155, null
+  %154 = load ptr, ptr %pruned_preds, align 8
+  %cmp.i.i.i.i229 = icmp eq ptr %154, null
   br i1 %cmp.i.i.i.i229, label %_ZN13obj_hashtableI9func_declED2Ev.exit232, label %for.cond.preheader.i.i.i.i230
 
 for.cond.preheader.i.i.i.i230:                    ; preds = %_ZN13obj_hashtableI9func_declED2Ev.exit
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %155)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %154)
           to label %_ZN13obj_hashtableI9func_declED2Ev.exit232 unwind label %terminate.lpad.i.i231
 
 terminate.lpad.i.i231:                            ; preds = %for.cond.preheader.i.i.i.i230
-  %156 = landingpad { ptr, i32 }
+  %155 = landingpad { ptr, i32 }
           catch ptr null
-  %157 = extractvalue { ptr, i32 } %156, 0
-  call void @__clang_call_terminate(ptr %157) #18
+  %156 = extractvalue { ptr, i32 } %155, 0
+  call void @__clang_call_terminate(ptr %156) #18
   unreachable
 
 _ZN13obj_hashtableI9func_declED2Ev.exit232:       ; preds = %_ZN13obj_hashtableI9func_declED2Ev.exit, %for.cond.preheader.i.i.i.i230
@@ -2201,7 +2196,7 @@ invoke.cont136:                                   ; preds = %if.end.i.i.i156, %i
 if.then.i160:                                     ; preds = %invoke.cont136
   call void @_ZN7datalog8rule_setD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %.pr) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %.pr)
-          to label %cleanup.thread unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.else142:                                       ; preds = %invoke.cont136
   %call146 = invoke noundef zeroext i1 @_ZN7datalog8rule_set5closeEv(ptr noundef nonnull align 8 dereferenceable(248) %.pr)
@@ -2212,7 +2207,7 @@ land.lhs.true:                                    ; preds = %if.else142
   %m_mc.i = getelementptr inbounds nuw i8, ptr %106, i64 3480
   %107 = load ptr, ptr %m_mc.i, align 8
   %cmp.i164.not = icmp eq ptr %107, null
-  br i1 %cmp.i164.not, label %cleanup.thread, label %if.then155
+  br i1 %cmp.i164.not, label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit, label %if.then155
 
 if.then155:                                       ; preds = %land.lhs.true
   %call157 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 80)
@@ -2349,12 +2344,7 @@ _ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE
 for.end198:                                       ; preds = %while.body.i.i.i, %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit, %invoke.cont183
   %122 = load ptr, ptr %m_context, align 8
   invoke void @_ZN7datalog7context19add_model_converterEP15model_converter(ptr noundef nonnull align 8 dereferenceable(3556) %122, ptr noundef nonnull %call157)
-          to label %cleanup.thread unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
-
-cleanup.thread:                                   ; preds = %if.then.i160, %land.lhs.true, %for.end198
-  %123 = phi ptr [ %.pr, %land.lhs.true ], [ %.pr, %for.end198 ], [ null, %if.then.i160 ]
-  store ptr null, ptr %res, align 8
-  br label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit
+          to label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 cleanup:                                          ; preds = %invoke.cont26
   %.pr242 = load ptr, ptr %res, align 8
@@ -2367,27 +2357,27 @@ if.end.i.i:                                       ; preds = %cleanup
           to label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.end.i.i
-  %124 = landingpad { ptr, i32 }
+  %123 = landingpad { ptr, i32 }
           catch ptr null
-  %125 = extractvalue { ptr, i32 } %124, 0
-  call void @__clang_call_terminate(ptr %125) #18
+  %124 = extractvalue { ptr, i32 } %123, 0
+  call void @__clang_call_terminate(ptr %124) #18
   unreachable
 
-_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit:    ; preds = %cleanup.thread, %cleanup, %if.end.i.i
-  %retval.0245 = phi ptr [ %123, %cleanup.thread ], [ null, %cleanup ], [ null, %if.end.i.i ]
-  %126 = load ptr, ptr %unreachable, align 8
-  %cmp.i.i.i.i = icmp eq ptr %126, null
+_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit:    ; preds = %for.end198, %land.lhs.true, %if.then.i160, %cleanup, %if.end.i.i
+  %retval.0245 = phi ptr [ null, %cleanup ], [ null, %if.end.i.i ], [ %.pr, %land.lhs.true ], [ %.pr, %for.end198 ], [ null, %if.then.i160 ]
+  %125 = load ptr, ptr %unreachable, align 8
+  %cmp.i.i.i.i = icmp eq ptr %125, null
   br i1 %cmp.i.i.i.i, label %_ZN13obj_hashtableI9func_declED2Ev.exit, label %for.cond.preheader.i.i.i.i
 
 for.cond.preheader.i.i.i.i:                       ; preds = %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %126)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %125)
           to label %_ZN13obj_hashtableI9func_declED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %for.cond.preheader.i.i.i.i
-  %127 = landingpad { ptr, i32 }
+  %126 = landingpad { ptr, i32 }
           catch ptr null
-  %128 = extractvalue { ptr, i32 } %127, 0
-  call void @__clang_call_terminate(ptr %128) #18
+  %127 = extractvalue { ptr, i32 } %126, 0
+  call void @__clang_call_terminate(ptr %127) #18
   unreachable
 
 _ZN13obj_hashtableI9func_declED2Ev.exit:          ; preds = %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit, %for.cond.preheader.i.i.i.i

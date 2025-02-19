@@ -10452,7 +10452,7 @@ _ZN5arrow6StatusD2Ev.exit46.i.i.i1116:            ; preds = %.noexc26.i1115, %34
   %3481 = extractvalue { i64, ptr } %3480, 0
   %3482 = extractvalue { i64, ptr } %3480, 1
   %3483 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3478, ptr noundef %3482, i64 noundef %3481)
-          to label %.noexc29.i1120 unwind label %.loopexit.split-lp47.loopexit.split-lp.loopexit.split-lp.i
+          to label %.noexc29.i1120 unwind label %.loopexit.split-lp47.loopexit.split-lp.loopexit.split-lp.i, !noalias !554
 
 .noexc29.i1120:                                   ; preds = %.noexc28.i1119
   %3484 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3483, ptr noundef nonnull @.str.16, i64 noundef 1)
@@ -11489,7 +11489,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit46.i.i.i: ; pre
   %3951 = extractvalue { i64, ptr } %3950, 0
   %3952 = extractvalue { i64, ptr } %3950, 1
   invoke void @_ZN5arrow9HexEncodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %75, i64 %3951, ptr %3952)
-          to label %.noexc28.i1277 unwind label %.loopexit.split-lp45.loopexit.split-lp.loopexit.split-lp.i
+          to label %.noexc28.i1277 unwind label %.loopexit.split-lp45.loopexit.split-lp.loopexit.split-lp.i, !noalias !584
 
 .noexc28.i1277:                                   ; preds = %.noexc27.i1276
   %3953 = load ptr, ptr %75, align 8, !tbaa !107, !noalias !592

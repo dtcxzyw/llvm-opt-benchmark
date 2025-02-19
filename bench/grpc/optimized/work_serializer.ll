@@ -2980,9 +2980,9 @@ entry:
   %ref.tmp.i.i5 = alloca %"class.std::function", align 8
   %__tmp.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i.i = alloca %"class.std::function", align 8
-  %__tmp.sroa.0 = alloca { i64, i64 }, align 8
+  %__tmp.sroa.0 = alloca %"class.std::_Function_base", align 8
   %_M_invoker2.i.i = getelementptr inbounds nuw i8, ptr %__a, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.0, i8 0, i64 24, i1 false)
   %0 = load ptr, ptr %_M_invoker2.i.i, align 8
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %__a, i64 16
   %1 = load ptr, ptr %_M_manager.i.i.i.i, align 8

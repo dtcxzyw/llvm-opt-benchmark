@@ -1464,7 +1464,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_19UsdRenderTokensTypeENS
   %379 = landingpad { ptr, i32 }
           catch ptr null
   %380 = extractvalue { ptr, i32 } %379, 0
-  %381 = call ptr @__cxa_begin_catch(ptr %380) #17
+  %381 = call ptr @__cxa_begin_catch(ptr %380) #17, !noalias !7
   %382 = load ptr, ptr %374, align 8, !noalias !7
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 8
   %384 = load ptr, ptr %383, align 8, !noalias !7
@@ -1482,7 +1482,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_19UsdRenderTokensTypeENS
   %388 = landingpad { ptr, i32 }
           catch ptr null
   %389 = extractvalue { ptr, i32 } %388, 0
-  call void @__clang_call_terminate(ptr %389) #19
+  call void @__clang_call_terminate(ptr %389) #19, !noalias !7
   unreachable
 
 390:                                              ; preds = %378
@@ -1550,7 +1550,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_19UsdRenderTokensTypeENS
   %412 = landingpad { ptr, i32 }
           catch ptr null
   %413 = extractvalue { ptr, i32 } %412, 0
-  %414 = call ptr @__cxa_begin_catch(ptr %413) #17
+  %414 = call ptr @__cxa_begin_catch(ptr %413) #17, !noalias !10
   %415 = load ptr, ptr %407, align 8, !noalias !10
   %416 = getelementptr inbounds nuw i8, ptr %415, i64 8
   %417 = load ptr, ptr %416, align 8, !noalias !10
@@ -1568,7 +1568,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_19UsdRenderTokensTypeENS
   %421 = landingpad { ptr, i32 }
           catch ptr null
   %422 = extractvalue { ptr, i32 } %421, 0
-  call void @__clang_call_terminate(ptr %422) #19
+  call void @__clang_call_terminate(ptr %422) #19, !noalias !10
   unreachable
 
 423:                                              ; preds = %411

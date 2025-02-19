@@ -5892,7 +5892,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr53drop
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !1874
   %280 = extractvalue { ptr, i64 } %275, 0
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %281, ptr nonnull readonly align 1 %.sroa.691.0.copyload, i64 %.sroa.792.0.copyload, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %281, ptr nonnull readonly align 1 %.sroa.691.0.copyload, i64 %.sroa.792.0.copyload, i1 false), !noalias !1881
   %282 = icmp eq i64 %.sroa.089.0.copyload, 0
   br i1 %282, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h67c75083ab318826E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.5005022800651993668.exit.i.i1.i.i4.i.i"
 

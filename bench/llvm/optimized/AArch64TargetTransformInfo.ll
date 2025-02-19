@@ -3368,7 +3368,7 @@ define dso_local { i64, i32 } @_ZN4llvm14AArch64TTIImpl21getIntrinsicInstrCostER
   %.sroa.1028.0.i = phi ptr [ %67, %59 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #30, !noalias !318
   %70 = load ptr, ptr %61, align 8, !tbaa !109, !noalias !318
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %11, ptr noundef nonnull align 8 dereferenceable(412423) %70, ptr noundef nonnull align 8 dereferenceable(8) %60, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %11, ptr noundef nonnull align 8 dereferenceable(412423) %70, ptr noundef nonnull align 8 dereferenceable(8) %60, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30, !noalias !318
   %71 = load i8, ptr %11, align 8, !tbaa !322, !noalias !318
   switch i8 %71, label %73 [
     i8 10, label %72
@@ -3502,7 +3502,7 @@ _ZN4llvmmlERKNS_15InstructionCostES2_.exit:       ; preds = %_ZNK4llvm16BasicTTI
   %.sroa.1028.0.i422 = phi ptr [ %109, %101 ], [ %.sroa.1028.0.copyload.pre.i434, %_ZNK4llvm3EVTeqES0_.exit.thread30.i435 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #30, !noalias !331
   %112 = load ptr, ptr %103, align 8, !tbaa !109, !noalias !331
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %10, ptr noundef nonnull align 8 dereferenceable(412423) %112, ptr noundef nonnull align 8 dereferenceable(8) %102, i16 %.sroa.026.0.i421, ptr %.sroa.1028.0.i422) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %10, ptr noundef nonnull align 8 dereferenceable(412423) %112, ptr noundef nonnull align 8 dereferenceable(8) %102, i16 %.sroa.026.0.i421, ptr %.sroa.1028.0.i422) #30, !noalias !331
   %113 = load i8, ptr %10, align 8, !tbaa !322, !noalias !331
   switch i8 %113, label %115 [
     i8 10, label %114
@@ -3611,7 +3611,7 @@ _ZN4llvmmlERKNS_15InstructionCostES2_.exit450:    ; preds = %_ZNK4llvm3MVT19getS
   %.sroa.1028.0.i454 = phi ptr [ %151, %143 ], [ %.sroa.1028.0.copyload.pre.i466, %_ZNK4llvm3EVTeqES0_.exit.thread30.i467 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #30, !noalias !334
   %154 = load ptr, ptr %145, align 8, !tbaa !109, !noalias !334
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %9, ptr noundef nonnull align 8 dereferenceable(412423) %154, ptr noundef nonnull align 8 dereferenceable(8) %144, i16 %.sroa.026.0.i453, ptr %.sroa.1028.0.i454) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %9, ptr noundef nonnull align 8 dereferenceable(412423) %154, ptr noundef nonnull align 8 dereferenceable(8) %144, i16 %.sroa.026.0.i453, ptr %.sroa.1028.0.i454) #30, !noalias !334
   %155 = load i8, ptr %9, align 8, !tbaa !322, !noalias !334
   switch i8 %155, label %157 [
     i8 10, label %156
@@ -3692,7 +3692,7 @@ _ZNK4llvm16BasicTTIImplBaseINS_14AArch64TTIImplEE23getTypeLegalizationCostEPNS_4
   %.sroa.1028.0.i475 = phi ptr [ %176, %168 ], [ %.sroa.1028.0.copyload.pre.i487, %_ZNK4llvm3EVTeqES0_.exit.thread30.i488 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #30, !noalias !337
   %179 = load ptr, ptr %170, align 8, !tbaa !109, !noalias !337
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %8, ptr noundef nonnull align 8 dereferenceable(412423) %179, ptr noundef nonnull align 8 dereferenceable(8) %169, i16 %.sroa.026.0.i474, ptr %.sroa.1028.0.i475) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %8, ptr noundef nonnull align 8 dereferenceable(412423) %179, ptr noundef nonnull align 8 dereferenceable(8) %169, i16 %.sroa.026.0.i474, ptr %.sroa.1028.0.i475) #30, !noalias !337
   %180 = load i8, ptr %8, align 8, !tbaa !322, !noalias !337
   switch i8 %180, label %182 [
     i8 10, label %181
@@ -3785,7 +3785,7 @@ _ZNK4llvm3MVT19getScalarSizeInBitsEv.exit497:     ; preds = %_ZNK4llvm16BasicTTI
   %.sroa.1028.0.i501 = phi ptr [ %211, %203 ], [ %.sroa.1028.0.copyload.pre.i513, %_ZNK4llvm3EVTeqES0_.exit.thread30.i514 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #30, !noalias !340
   %214 = load ptr, ptr %205, align 8, !tbaa !109, !noalias !340
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %7, ptr noundef nonnull align 8 dereferenceable(412423) %214, ptr noundef nonnull align 8 dereferenceable(8) %204, i16 %.sroa.026.0.i500, ptr %.sroa.1028.0.i501) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %7, ptr noundef nonnull align 8 dereferenceable(412423) %214, ptr noundef nonnull align 8 dereferenceable(8) %204, i16 %.sroa.026.0.i500, ptr %.sroa.1028.0.i501) #30, !noalias !340
   %215 = load i8, ptr %7, align 8, !tbaa !322, !noalias !340
   switch i8 %215, label %216 [
     i8 10, label %229
@@ -4004,7 +4004,7 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %292
   %.sroa.1028.0.i543 = phi ptr [ %313, %305 ], [ %.sroa.1028.0.copyload.pre.i555, %_ZNK4llvm3EVTeqES0_.exit.thread30.i556 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #30, !noalias !346
   %316 = load ptr, ptr %307, align 8, !tbaa !109, !noalias !346
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %6, ptr noundef nonnull align 8 dereferenceable(412423) %316, ptr noundef nonnull align 8 dereferenceable(8) %306, i16 %.sroa.026.0.i542, ptr %.sroa.1028.0.i543) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %6, ptr noundef nonnull align 8 dereferenceable(412423) %316, ptr noundef nonnull align 8 dereferenceable(8) %306, i16 %.sroa.026.0.i542, ptr %.sroa.1028.0.i543) #30, !noalias !346
   %317 = load i8, ptr %6, align 8, !tbaa !322, !noalias !346
   switch i8 %317, label %319 [
     i8 10, label %318
@@ -4360,7 +4360,7 @@ _ZSt9__find_ifIPKN4llvm13CostTblEntryTIjEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15C
   %.sroa.1028.0.i647 = phi ptr [ %486, %475 ], [ %.sroa.1028.0.copyload.pre.i659, %_ZNK4llvm3EVTeqES0_.exit.thread30.i660 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #30, !noalias !354
   %489 = load ptr, ptr %480, align 8, !tbaa !109, !noalias !354
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %5, ptr noundef nonnull align 8 dereferenceable(412423) %489, ptr noundef nonnull align 8 dereferenceable(8) %479, i16 %.sroa.026.0.i646, ptr %.sroa.1028.0.i647) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %5, ptr noundef nonnull align 8 dereferenceable(412423) %489, ptr noundef nonnull align 8 dereferenceable(8) %479, i16 %.sroa.026.0.i646, ptr %.sroa.1028.0.i647) #30, !noalias !354
   %490 = load i8, ptr %5, align 8, !tbaa !322, !noalias !354
   switch i8 %490, label %492 [
     i8 10, label %491
@@ -5472,7 +5472,7 @@ define dso_local { i64, i32 } @_ZN4llvm14AArch64TTIImpl22getArithmeticInstrCostE
   %.sroa.1028.0.i = phi ptr [ %46, %38 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #30, !noalias !362
   %49 = load ptr, ptr %40, align 8, !tbaa !109, !noalias !362
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %9, ptr noundef nonnull align 8 dereferenceable(412423) %49, ptr noundef nonnull align 8 dereferenceable(8) %39, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %9, ptr noundef nonnull align 8 dereferenceable(412423) %49, ptr noundef nonnull align 8 dereferenceable(8) %39, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30, !noalias !362
   %50 = load i8, ptr %9, align 8, !tbaa !322, !noalias !362
   switch i8 %50, label %52 [
     i8 10, label %51
@@ -7403,7 +7403,7 @@ switch.early.test:                                ; preds = %_ZN4llvm12PatternMa
   %.sroa.1028.0.i = phi ptr [ %62, %55 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #30, !noalias !381
   %65 = load ptr, ptr %16, align 8, !tbaa !109, !noalias !381
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %12, ptr noundef nonnull align 8 dereferenceable(412423) %65, ptr noundef nonnull align 8 dereferenceable(8) %56, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %12, ptr noundef nonnull align 8 dereferenceable(412423) %65, ptr noundef nonnull align 8 dereferenceable(8) %56, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30, !noalias !381
   %66 = load i8, ptr %12, align 8, !tbaa !322, !noalias !381
   switch i8 %66, label %68 [
     i8 10, label %67
@@ -7573,7 +7573,7 @@ switch.early.test.thread:                         ; preds = %31, %_ZNK4llvm4User
   %.sroa.1028.0.i113 = phi ptr [ %124, %117 ], [ %.sroa.1028.0.copyload.pre.i125, %_ZNK4llvm3EVTeqES0_.exit.thread30.i126 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #30, !noalias !385
   %127 = load ptr, ptr %16, align 8, !tbaa !109, !noalias !385
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %11, ptr noundef nonnull align 8 dereferenceable(412423) %127, ptr noundef nonnull align 8 dereferenceable(8) %118, i16 %.sroa.026.0.i112, ptr %.sroa.1028.0.i113) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %11, ptr noundef nonnull align 8 dereferenceable(412423) %127, ptr noundef nonnull align 8 dereferenceable(8) %118, i16 %.sroa.026.0.i112, ptr %.sroa.1028.0.i113) #30, !noalias !385
   %128 = load i8, ptr %11, align 8, !tbaa !322, !noalias !385
   switch i8 %128, label %130 [
     i8 10, label %129
@@ -17226,7 +17226,7 @@ _ZNK4llvm4User10getOperandEj.exit40:              ; preds = %93, %96
   %.sroa.1028.0.i = phi ptr [ %132, %124 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #30, !noalias !488
   %135 = load ptr, ptr %126, align 8, !tbaa !109, !noalias !488
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %8, ptr noundef nonnull align 8 dereferenceable(412423) %135, ptr noundef nonnull align 8 dereferenceable(8) %125, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %8, ptr noundef nonnull align 8 dereferenceable(412423) %135, ptr noundef nonnull align 8 dereferenceable(8) %125, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30, !noalias !488
   %136 = load i8, ptr %8, align 8, !tbaa !322, !noalias !488
   switch i8 %136, label %138 [
     i8 10, label %137
@@ -17302,7 +17302,7 @@ _ZNK4llvm16BasicTTIImplBaseINS_14AArch64TTIImplEE23getTypeLegalizationCostEPNS_4
   %.sroa.1028.0.i45 = phi ptr [ %158, %152 ], [ %.sroa.1028.0.copyload.pre.i57, %_ZNK4llvm3EVTeqES0_.exit.thread30.i58 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #30, !noalias !491
   %161 = load ptr, ptr %126, align 8, !tbaa !109, !noalias !491
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %7, ptr noundef nonnull align 8 dereferenceable(412423) %161, ptr noundef nonnull align 8 dereferenceable(8) %153, i16 %.sroa.026.0.i44, ptr %.sroa.1028.0.i45) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %7, ptr noundef nonnull align 8 dereferenceable(412423) %161, ptr noundef nonnull align 8 dereferenceable(8) %153, i16 %.sroa.026.0.i44, ptr %.sroa.1028.0.i45) #30, !noalias !491
   %162 = load i8, ptr %7, align 8, !tbaa !322, !noalias !491
   switch i8 %162, label %164 [
     i8 10, label %163
@@ -17793,7 +17793,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_14AArch64
   %.sroa.1028.0.i = phi ptr [ %26, %17 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #30, !noalias !501
   %29 = load ptr, ptr %18, align 8, !tbaa !109, !noalias !501
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %11, ptr noundef nonnull align 8 dereferenceable(412423) %29, ptr noundef nonnull align 8 dereferenceable(8) %21, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %11, ptr noundef nonnull align 8 dereferenceable(412423) %29, ptr noundef nonnull align 8 dereferenceable(8) %21, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30, !noalias !501
   %30 = load i8, ptr %11, align 8, !tbaa !322, !noalias !501
   switch i8 %30, label %32 [
     i8 10, label %31
@@ -17859,7 +17859,7 @@ _ZNK4llvm16BasicTTIImplBaseINS_14AArch64TTIImplEE23getTypeLegalizationCostEPNS_4
   %.sroa.1028.0.i184 = phi ptr [ %48, %_ZNK4llvm16BasicTTIImplBaseINS_14AArch64TTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit ], [ %.sroa.1028.0.copyload.pre.i196, %_ZNK4llvm3EVTeqES0_.exit.thread30.i197 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #30, !noalias !504
   %51 = load ptr, ptr %18, align 8, !tbaa !109, !noalias !504
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %10, ptr noundef nonnull align 8 dereferenceable(412423) %51, ptr noundef nonnull align 8 dereferenceable(8) %43, i16 %.sroa.026.0.i183, ptr %.sroa.1028.0.i184) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %10, ptr noundef nonnull align 8 dereferenceable(412423) %51, ptr noundef nonnull align 8 dereferenceable(8) %43, i16 %.sroa.026.0.i183, ptr %.sroa.1028.0.i184) #30, !noalias !504
   %52 = load i8, ptr %10, align 8, !tbaa !322, !noalias !504
   switch i8 %52, label %54 [
     i8 10, label %53
@@ -18496,7 +18496,7 @@ define dso_local { i64, i32 } @_ZN4llvm14AArch64TTIImpl24getExtractWithExtendCos
   %.sroa.1028.0.i = phi ptr [ %21, %5 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #30, !noalias !507
   %24 = load ptr, ptr %15, align 8, !tbaa !109, !noalias !507
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %6, ptr noundef nonnull align 8 dereferenceable(412423) %24, ptr noundef nonnull align 8 dereferenceable(8) %14, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %6, ptr noundef nonnull align 8 dereferenceable(412423) %24, ptr noundef nonnull align 8 dereferenceable(8) %14, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30, !noalias !507
   %25 = load i8, ptr %6, align 8, !tbaa !322, !noalias !507
   switch i8 %25, label %_ZN4llvm15InstructionCostmLEl.exit.i [
     i8 10, label %26
@@ -18761,7 +18761,7 @@ define dso_local { i64, i32 } @_ZN4llvm14AArch64TTIImpl24getVectorInstrCostHelpe
   %.sroa.1028.0.i = phi ptr [ %25, %17 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #30, !noalias !510
   %28 = load ptr, ptr %19, align 8, !tbaa !109, !noalias !510
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %16, ptr noundef nonnull align 8 dereferenceable(412423) %28, ptr noundef nonnull align 8 dereferenceable(8) %18, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %16, ptr noundef nonnull align 8 dereferenceable(412423) %28, ptr noundef nonnull align 8 dereferenceable(8) %18, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30, !noalias !510
   %29 = load i8, ptr %16, align 8, !tbaa !322, !noalias !510
   switch i8 %29, label %_ZN4llvm15InstructionCostmLEl.exit.i [
     i8 10, label %30
@@ -19737,7 +19737,7 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %_ZNK4llvm4Type13get
   %.sroa.1028.0.i = phi ptr [ %42, %35 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #30, !noalias !538
   %45 = load ptr, ptr %14, align 8, !tbaa !109, !noalias !538
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %9, ptr noundef nonnull align 8 dereferenceable(412423) %45, ptr noundef nonnull align 8 dereferenceable(8) %36, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %9, ptr noundef nonnull align 8 dereferenceable(412423) %45, ptr noundef nonnull align 8 dereferenceable(8) %36, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30, !noalias !538
   %46 = load i8, ptr %9, align 8, !tbaa !322, !noalias !538
   switch i8 %46, label %48 [
     i8 10, label %47
@@ -20268,7 +20268,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_14AArch64
   %.sroa.1028.0.i = phi ptr [ %28, %21 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #30, !noalias !552
   %31 = load ptr, ptr %11, align 8, !tbaa !109, !noalias !552
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %10, ptr noundef nonnull align 8 dereferenceable(412423) %31, ptr noundef nonnull align 8 dereferenceable(8) %22, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %10, ptr noundef nonnull align 8 dereferenceable(412423) %31, ptr noundef nonnull align 8 dereferenceable(8) %22, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30, !noalias !552
   %32 = load i8, ptr %10, align 8, !tbaa !322, !noalias !552
   switch i8 %32, label %34 [
     i8 10, label %33
@@ -20568,7 +20568,7 @@ _ZNK4llvm14AArch64TTIImpl13useNeonVectorEPKNS_4TypeE.exit.thread: ; preds = %32,
   %.sroa.1028.0.i = phi ptr [ %51, %_ZNK4llvm14AArch64TTIImpl13useNeonVectorEPKNS_4TypeE.exit.thread ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #30, !noalias !567
   %54 = load ptr, ptr %45, align 8, !tbaa !109, !noalias !567
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %7, ptr noundef nonnull align 8 dereferenceable(412423) %54, ptr noundef nonnull align 8 dereferenceable(8) %44, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %7, ptr noundef nonnull align 8 dereferenceable(412423) %54, ptr noundef nonnull align 8 dereferenceable(8) %44, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30, !noalias !567
   %55 = load i8, ptr %7, align 8, !tbaa !322, !noalias !567
   switch i8 %55, label %56 [
     i8 10, label %67
@@ -20722,7 +20722,7 @@ _ZNK4llvm14AArch64TTIImpl13useNeonVectorEPKNS_4TypeE.exit.thread94: ; preds = %_
   %.sroa.1028.0.i = phi ptr [ %55, %47 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #30, !noalias !570
   %58 = load ptr, ptr %49, align 8, !tbaa !109, !noalias !570
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %9, ptr noundef nonnull align 8 dereferenceable(412423) %58, ptr noundef nonnull align 8 dereferenceable(8) %48, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %9, ptr noundef nonnull align 8 dereferenceable(412423) %58, ptr noundef nonnull align 8 dereferenceable(8) %48, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30, !noalias !570
   %59 = load i8, ptr %9, align 8, !tbaa !322, !noalias !570
   switch i8 %59, label %60 [
     i8 10, label %71
@@ -21097,7 +21097,7 @@ _ZNK4llvm3EVTeqES0_.exit:                         ; preds = %8
   %.sroa.1028.0.i = phi ptr [ %29, %_ZNK4llvm3EVTeqES0_.exit ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #30, !noalias !574
   %32 = load ptr, ptr %14, align 8, !tbaa !109, !noalias !574
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %9, ptr noundef nonnull align 8 dereferenceable(412423) %32, ptr noundef nonnull align 8 dereferenceable(8) %24, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %9, ptr noundef nonnull align 8 dereferenceable(412423) %32, ptr noundef nonnull align 8 dereferenceable(8) %24, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30, !noalias !574
   %33 = load i8, ptr %9, align 8, !tbaa !322, !noalias !574
   switch i8 %33, label %34 [
     i8 10, label %45
@@ -21273,181 +21273,179 @@ _ZNK4llvm3MVT19getScalarSizeInBitsEv.exit:        ; preds = %102, %105
   %112 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %111
   %.sroa.0.0.copyload.i.i = load i64, ptr %112, align 16
   %.not81 = icmp eq i64 %.sroa.0.0.copyload.i.i, %104
-  br i1 %.not81, label %119, label %113
+  br i1 %.not81, label %118, label %113
 
 113:                                              ; preds = %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit
-  %114 = load i16, ptr %10, align 8, !tbaa !358
-  %.not.i.i105 = icmp eq i16 %114, 37
+  %.not.i.i105 = icmp eq i16 %19, 37
   br i1 %.not.i.i105, label %.critedge84, label %_ZNK4llvm3EVTeqES0_.exit107
 
 _ZNK4llvm3EVTeqES0_.exit107:                      ; preds = %113
-  %115 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %116 = load i32, ptr %115, align 8, !tbaa !284
-  %117 = shl i32 %116, 1
-  %118 = zext i32 %117 to i64
+  %114 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %115 = load i32, ptr %114, align 8, !tbaa !284
+  %116 = shl i32 %115, 1
+  %117 = zext i32 %116 to i64
   br label %.critedge84
 
-119:                                              ; preds = %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit
+118:                                              ; preds = %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #30
-  %120 = load i16, ptr %10, align 8, !tbaa !358
-  %.not.i108 = icmp eq i16 %120, 0
-  br i1 %.not.i108, label %128, label %121
+  %.not.i108 = icmp eq i16 %19, 0
+  br i1 %.not.i108, label %126, label %119
 
-121:                                              ; preds = %119
-  %122 = zext i16 %120 to i64
-  %123 = add nsw i64 %122, -1
-  %124 = getelementptr inbounds [241 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %123
-  %125 = load i16, ptr %124, align 2, !tbaa !328
-  %126 = insertvalue { i16, ptr } poison, i16 %125, 0
-  %127 = insertvalue { i16, ptr } %126, ptr null, 1
+119:                                              ; preds = %118
+  %120 = zext i16 %19 to i64
+  %121 = add nsw i64 %120, -1
+  %122 = getelementptr inbounds [241 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %121
+  %123 = load i16, ptr %122, align 2, !tbaa !328
+  %124 = insertvalue { i16, ptr } poison, i16 %123, 0
+  %125 = insertvalue { i16, ptr } %124, ptr null, 1
   br label %_ZNK4llvm3EVT20getVectorElementTypeEv.exit
 
-128:                                              ; preds = %119
-  %129 = call { i16, ptr } @_ZNK4llvm3EVT28getExtendedVectorElementTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #30
+126:                                              ; preds = %118
+  %127 = call { i16, ptr } @_ZNK4llvm3EVT28getExtendedVectorElementTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #30
   br label %_ZNK4llvm3EVT20getVectorElementTypeEv.exit
 
-_ZNK4llvm3EVT20getVectorElementTypeEv.exit:       ; preds = %121, %128
-  %.fca.1.insert.merged.i = phi { i16, ptr } [ %127, %121 ], [ %129, %128 ]
-  %130 = extractvalue { i16, ptr } %.fca.1.insert.merged.i, 0
-  store i16 %130, ptr %11, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %132 = extractvalue { i16, ptr } %.fca.1.insert.merged.i, 1
-  store ptr %132, ptr %131, align 8
-  %133 = call noundef i64 @_ZNK4llvm3EVT19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
-  %134 = trunc i64 %133 to i32
-  %.not.i.i109 = icmp eq i32 %134, 0
+_ZNK4llvm3EVT20getVectorElementTypeEv.exit:       ; preds = %119, %126
+  %.fca.1.insert.merged.i = phi { i16, ptr } [ %125, %119 ], [ %127, %126 ]
+  %128 = extractvalue { i16, ptr } %.fca.1.insert.merged.i, 0
+  store i16 %128, ptr %11, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %130 = extractvalue { i16, ptr } %.fca.1.insert.merged.i, 1
+  store ptr %130, ptr %129, align 8
+  %131 = call noundef i64 @_ZNK4llvm3EVT19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+  %132 = trunc i64 %131 to i32
+  %.not.i.i109 = icmp eq i32 %132, 0
   br i1 %.not.i.i109, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread, label %_ZN4llvm13isPowerOf2_32Ej.exit
 
 _ZN4llvm13isPowerOf2_32Ej.exit:                   ; preds = %_ZNK4llvm3EVT20getVectorElementTypeEv.exit
-  %135 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %134)
-  %136 = icmp samesign ult i32 %135, 2
-  %137 = add i32 %134, -8
-  %138 = icmp ult i32 %137, 57
-  %or.cond9.not = and i1 %138, %136
-  br i1 %or.cond9.not, label %139, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
+  %133 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %132)
+  %134 = icmp samesign ult i32 %133, 2
+  %135 = add i32 %132, -8
+  %136 = icmp ult i32 %135, 57
+  %or.cond9.not = and i1 %136, %134
+  br i1 %or.cond9.not, label %137, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
-139:                                              ; preds = %_ZN4llvm13isPowerOf2_32Ej.exit
-  %140 = call noundef i32 @_ZNK4llvm3EVT20getVectorNumElementsEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
-  %.rhs.trunc = trunc i64 %133 to i8
-  %141 = udiv i8 -128, %.rhs.trunc
-  %.zext = zext i8 %141 to i32
-  %.not = icmp ult i32 %140, %.zext
-  %142 = trunc i16 %.sroa.4164.0.extract.shift to i1
-  %143 = icmp eq i8 %.sroa.0163.0.extract.trunc, 0
-  %or.cond191.not = and i1 %143, %142
+137:                                              ; preds = %_ZN4llvm13isPowerOf2_32Ej.exit
+  %138 = call noundef i32 @_ZNK4llvm3EVT20getVectorNumElementsEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
+  %.rhs.trunc = trunc i64 %131 to i8
+  %139 = udiv i8 -128, %.rhs.trunc
+  %.zext = zext i8 %139 to i32
+  %.not = icmp ult i32 %138, %.zext
+  %140 = trunc i16 %.sroa.4164.0.extract.shift to i1
+  %141 = icmp eq i8 %.sroa.0163.0.extract.trunc, 0
+  %or.cond191.not = and i1 %141, %140
   %or.cond203 = select i1 %.not, i1 %or.cond191.not, i1 false
-  br i1 %or.cond203, label %144, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
+  br i1 %or.cond203, label %142, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
-144:                                              ; preds = %139
-  %145 = call noundef i32 @_ZNK4llvm3EVT20getVectorNumElementsEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
-  %146 = icmp eq i32 %145, 3
-  %147 = load i16, ptr %11, align 8
-  %.not.i.i110 = icmp eq i16 %147, 5
-  %or.cond192 = select i1 %146, i1 %.not.i.i110, i1 false
+142:                                              ; preds = %137
+  %143 = call noundef i32 @_ZNK4llvm3EVT20getVectorNumElementsEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
+  %144 = icmp eq i32 %143, 3
+  %145 = load i16, ptr %11, align 8
+  %.not.i.i110 = icmp eq i16 %145, 5
+  %or.cond192 = select i1 %144, i1 %.not.i.i110, i1 false
   br i1 %or.cond192, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread, label %_ZNK4llvm3EVTeqES0_.exit112
 
-_ZNK4llvm3EVTeqES0_.exit112:                      ; preds = %144
-  %148 = load ptr, ptr %2, align 8, !tbaa !317
+_ZNK4llvm3EVTeqES0_.exit112:                      ; preds = %142
+  %146 = load ptr, ptr %2, align 8, !tbaa !317
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #30
-  %149 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %149, ptr %12, align 8, !tbaa !25
-  %150 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 0, ptr %150, align 8, !tbaa !26
-  %151 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  store i32 3, ptr %151, align 4, !tbaa !27
+  %147 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr %147, ptr %12, align 8, !tbaa !25
+  %148 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i32 0, ptr %148, align 8, !tbaa !26
+  %149 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  store i32 3, ptr %149, align 4, !tbaa !27
   %.sroa.022.0.copyload = load i16, ptr %10, align 8, !tbaa !328
   %.sroa.224.0.copyload = load ptr, ptr %20, align 8, !tbaa !283
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_3EVTELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %12, i16 %.sroa.022.0.copyload, ptr %.sroa.224.0.copyload)
-  %152 = load i32, ptr %150, align 8, !tbaa !26
-  %.not.i113205 = icmp eq i32 %152, 0
+  %150 = load i32, ptr %148, align 8, !tbaa !26
+  %.not.i113205 = icmp eq i32 %150, 0
   br i1 %.not.i113205, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm3EVTeqES0_.exit112
-  %153 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  br label %154
+  %151 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  br label %152
 
-154:                                              ; preds = %.lr.ph, %185
-  %155 = phi i32 [ %152, %.lr.ph ], [ %186, %185 ]
-  %.sroa.0166.3206 = phi i64 [ 0, %.lr.ph ], [ %.sroa.0166.4, %185 ]
+152:                                              ; preds = %.lr.ph, %183
+  %153 = phi i32 [ %150, %.lr.ph ], [ %184, %183 ]
+  %.sroa.0166.3206 = phi i64 [ 0, %.lr.ph ], [ %.sroa.0166.4, %183 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #30
-  %156 = load ptr, ptr %12, align 8, !tbaa !25
-  %157 = zext i32 %155 to i64
-  %158 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %156, i64 %157
-  %159 = getelementptr inbounds i8, ptr %158, i64 -16
-  %.sroa.0.0.copyload.i114 = load i16, ptr %159, align 8, !tbaa !328
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %158, i64 -8
+  %154 = load ptr, ptr %12, align 8, !tbaa !25
+  %155 = zext i32 %153 to i64
+  %156 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %154, i64 %155
+  %157 = getelementptr inbounds i8, ptr %156, i64 -16
+  %.sroa.0.0.copyload.i114 = load i16, ptr %157, align 8, !tbaa !328
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %156, i64 -8
   %.sroa.21.0.copyload.i = load ptr, ptr %.sroa.21.0..sroa_idx.i, align 8, !tbaa !283
-  %160 = add i32 %155, -1
-  store i32 %160, ptr %150, align 8, !tbaa !26
+  %158 = add i32 %153, -1
+  store i32 %158, ptr %148, align 8, !tbaa !26
   store i16 %.sroa.0.0.copyload.i114, ptr %13, align 8
-  store ptr %.sroa.21.0.copyload.i, ptr %153, align 8
-  %161 = call noundef i32 @_ZNK4llvm3EVT20getVectorNumElementsEv(ptr noundef nonnull align 8 dereferenceable(16) %13)
-  %162 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %161)
-  %or.cond194 = icmp eq i32 %162, 1
-  br i1 %or.cond194, label %163, label %_ZN4llvm13isPowerOf2_32Ej.exit118.thread
+  store ptr %.sroa.21.0.copyload.i, ptr %151, align 8
+  %159 = call noundef i32 @_ZNK4llvm3EVT20getVectorNumElementsEv(ptr noundef nonnull align 8 dereferenceable(16) %13)
+  %160 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %159)
+  %or.cond194 = icmp eq i32 %160, 1
+  br i1 %or.cond194, label %161, label %_ZN4llvm13isPowerOf2_32Ej.exit118.thread
 
-163:                                              ; preds = %154
+161:                                              ; preds = %152
   %.0.i.i119 = call i64 @llvm.sadd.sat.i64(i64 %.sroa.0166.3206, i64 1)
-  br label %185, !llvm.loop !578
+  br label %183, !llvm.loop !578
 
-_ZN4llvm13isPowerOf2_32Ej.exit118.thread:         ; preds = %154
-  %164 = zext i32 %161 to i64
-  %165 = lshr i64 %164, 1
+_ZN4llvm13isPowerOf2_32Ej.exit118.thread:         ; preds = %152
+  %162 = zext i32 %159 to i64
+  %163 = lshr i64 %162, 1
+  %164 = or i64 %163, %162
+  %165 = lshr i64 %164, 2
   %166 = or i64 %165, %164
-  %167 = lshr i64 %166, 2
+  %167 = lshr i64 %166, 4
   %168 = or i64 %167, %166
-  %169 = lshr i64 %168, 4
+  %169 = lshr i64 %168, 8
   %170 = or i64 %169, %168
-  %171 = lshr i64 %170, 8
+  %171 = lshr i64 %170, 16
   %172 = or i64 %171, %170
-  %173 = lshr i64 %172, 16
-  %174 = or i64 %173, %172
-  %175 = add nuw nsw i64 %174, 1
-  %176 = lshr i64 %175, 1
-  %177 = trunc nuw i64 %176 to i32
+  %173 = add nuw nsw i64 %172, 1
+  %174 = lshr i64 %173, 1
+  %175 = trunc nuw i64 %174 to i32
   %.sroa.013.0.copyload = load i16, ptr %11, align 8, !tbaa !328
-  %.sroa.215.0.copyload = load ptr, ptr %131, align 8, !tbaa !283
-  %178 = call { i16, ptr } @_ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_jb(ptr noundef nonnull align 8 dereferenceable(8) %148, i16 %.sroa.013.0.copyload, ptr %.sroa.215.0.copyload, i32 noundef %177, i1 noundef zeroext false)
-  %179 = extractvalue { i16, ptr } %178, 0
-  %180 = extractvalue { i16, ptr } %178, 1
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_3EVTELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %12, i16 %179, ptr %180)
+  %.sroa.215.0.copyload = load ptr, ptr %129, align 8, !tbaa !283
+  %176 = call { i16, ptr } @_ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_jb(ptr noundef nonnull align 8 dereferenceable(8) %146, i16 %.sroa.013.0.copyload, ptr %.sroa.215.0.copyload, i32 noundef %175, i1 noundef zeroext false)
+  %177 = extractvalue { i16, ptr } %176, 0
+  %178 = extractvalue { i16, ptr } %176, 1
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_3EVTELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %12, i16 %177, ptr %178)
   %.sroa.0.0.copyload = load i16, ptr %11, align 8, !tbaa !328
-  %.sroa.210.0.copyload = load ptr, ptr %131, align 8, !tbaa !283
-  %181 = sub i32 %161, %177
-  %182 = call { i16, ptr } @_ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_jb(ptr noundef nonnull align 8 dereferenceable(8) %148, i16 %.sroa.0.0.copyload, ptr %.sroa.210.0.copyload, i32 noundef %181, i1 noundef zeroext false)
-  %183 = extractvalue { i16, ptr } %182, 0
-  %184 = extractvalue { i16, ptr } %182, 1
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_3EVTELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %12, i16 %183, ptr %184)
-  br label %185
+  %.sroa.210.0.copyload = load ptr, ptr %129, align 8, !tbaa !283
+  %179 = sub i32 %159, %175
+  %180 = call { i16, ptr } @_ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_jb(ptr noundef nonnull align 8 dereferenceable(8) %146, i16 %.sroa.0.0.copyload, ptr %.sroa.210.0.copyload, i32 noundef %179, i1 noundef zeroext false)
+  %181 = extractvalue { i16, ptr } %180, 0
+  %182 = extractvalue { i16, ptr } %180, 1
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_3EVTELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %12, i16 %181, ptr %182)
+  br label %183
 
-185:                                              ; preds = %_ZN4llvm13isPowerOf2_32Ej.exit118.thread, %163
-  %.sroa.0166.4 = phi i64 [ %.0.i.i119, %163 ], [ %.sroa.0166.3206, %_ZN4llvm13isPowerOf2_32Ej.exit118.thread ]
+183:                                              ; preds = %_ZN4llvm13isPowerOf2_32Ej.exit118.thread, %161
+  %.sroa.0166.4 = phi i64 [ %.0.i.i119, %161 ], [ %.sroa.0166.3206, %_ZN4llvm13isPowerOf2_32Ej.exit118.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #30
-  %186 = load i32, ptr %150, align 8, !tbaa !26
-  %.not.i113 = icmp eq i32 %186, 0
-  br i1 %.not.i113, label %._crit_edge, label %154
+  %184 = load i32, ptr %148, align 8, !tbaa !26
+  %.not.i113 = icmp eq i32 %184, 0
+  br i1 %.not.i113, label %._crit_edge, label %152
 
-._crit_edge:                                      ; preds = %185, %_ZNK4llvm3EVTeqES0_.exit112
-  %.sroa.0166.3.lcssa = phi i64 [ 0, %_ZNK4llvm3EVTeqES0_.exit112 ], [ %.sroa.0166.4, %185 ]
-  %187 = load ptr, ptr %12, align 8, !tbaa !25
-  %188 = icmp eq ptr %187, %149
-  br i1 %188, label %_ZN4llvm11SmallVectorINS_3EVTELj3EED2Ev.exit, label %189
+._crit_edge:                                      ; preds = %183, %_ZNK4llvm3EVTeqES0_.exit112
+  %.sroa.0166.3.lcssa = phi i64 [ 0, %_ZNK4llvm3EVTeqES0_.exit112 ], [ %.sroa.0166.4, %183 ]
+  %185 = load ptr, ptr %12, align 8, !tbaa !25
+  %186 = icmp eq ptr %185, %147
+  br i1 %186, label %_ZN4llvm11SmallVectorINS_3EVTELj3EED2Ev.exit, label %187
 
-189:                                              ; preds = %._crit_edge
-  call void @free(ptr noundef %187) #30
+187:                                              ; preds = %._crit_edge
+  call void @free(ptr noundef %185) #30
   br label %_ZN4llvm11SmallVectorINS_3EVTELj3EED2Ev.exit
 
-_ZN4llvm11SmallVectorINS_3EVTELj3EED2Ev.exit:     ; preds = %._crit_edge, %189
+_ZN4llvm11SmallVectorINS_3EVTELj3EED2Ev.exit:     ; preds = %._crit_edge, %187
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #30
   br label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
-_ZN4llvm13isPowerOf2_32Ej.exit.thread:            ; preds = %144, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit, %_ZN4llvm13isPowerOf2_32Ej.exit, %139, %_ZN4llvm11SmallVectorINS_3EVTELj3EED2Ev.exit
-  %.sroa.0166.2 = phi i64 [ %.sroa.0166.3.lcssa, %_ZN4llvm11SmallVectorINS_3EVTELj3EED2Ev.exit ], [ %.sroa.020.1.lcssa.sink.i.ph, %139 ], [ %.sroa.020.1.lcssa.sink.i.ph, %_ZN4llvm13isPowerOf2_32Ej.exit ], [ %.sroa.020.1.lcssa.sink.i.ph, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit ], [ %.sroa.020.1.lcssa.sink.i.ph, %144 ]
+_ZN4llvm13isPowerOf2_32Ej.exit.thread:            ; preds = %142, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit, %_ZN4llvm13isPowerOf2_32Ej.exit, %137, %_ZN4llvm11SmallVectorINS_3EVTELj3EED2Ev.exit
+  %.sroa.0166.2 = phi i64 [ %.sroa.0166.3.lcssa, %_ZN4llvm11SmallVectorINS_3EVTELj3EED2Ev.exit ], [ %.sroa.020.1.lcssa.sink.i.ph, %137 ], [ %.sroa.020.1.lcssa.sink.i.ph, %_ZN4llvm13isPowerOf2_32Ej.exit ], [ %.sroa.020.1.lcssa.sink.i.ph, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit ], [ %.sroa.020.1.lcssa.sink.i.ph, %142 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #30
   br label %.critedge84
 
 .critedge84:                                      ; preds = %_ZN4llvmmlERKNS_15InstructionCostES2_.exit, %85, %90, %58, %45, %_ZNK4llvm3EVTeqES0_.exit107, %_ZN4llvm13isPowerOf2_32Ej.exit.thread, %50, %.critedge2, %66, %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit, %113, %100, %22
-  %.sroa.0166.0 = phi i64 [ %.fca.0.extract51, %22 ], [ %.sroa.0166.2, %_ZN4llvm13isPowerOf2_32Ej.exit.thread ], [ %118, %_ZNK4llvm3EVTeqES0_.exit107 ], [ 0, %45 ], [ 0, %50 ], [ %.sroa.020.1.lcssa.sink.i.ph, %.critedge2 ], [ 1, %66 ], [ %.sroa.020.1.lcssa.sink.i.ph, %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit ], [ 2, %113 ], [ %.sroa.020.1.lcssa.sink.i.ph, %100 ], [ 0, %58 ], [ %89, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit ], [ -9223372036854775808, %85 ], [ %spec.select, %90 ]
+  %.sroa.0166.0 = phi i64 [ %.fca.0.extract51, %22 ], [ %.sroa.0166.2, %_ZN4llvm13isPowerOf2_32Ej.exit.thread ], [ %117, %_ZNK4llvm3EVTeqES0_.exit107 ], [ 0, %45 ], [ 0, %50 ], [ %.sroa.020.1.lcssa.sink.i.ph, %.critedge2 ], [ 1, %66 ], [ %.sroa.020.1.lcssa.sink.i.ph, %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit ], [ 2, %113 ], [ %.sroa.020.1.lcssa.sink.i.ph, %100 ], [ 0, %58 ], [ %89, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit ], [ -9223372036854775808, %85 ], [ %spec.select, %90 ]
   %.sroa.16.0 = phi i32 [ %.fca.1.extract52, %22 ], [ 0, %_ZN4llvm13isPowerOf2_32Ej.exit.thread ], [ 0, %_ZNK4llvm3EVTeqES0_.exit107 ], [ 1, %45 ], [ 1, %50 ], [ 0, %.critedge2 ], [ 0, %66 ], [ 0, %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit ], [ 0, %113 ], [ 0, %100 ], [ 1, %58 ], [ 0, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit ], [ 0, %85 ], [ 0, %90 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #30
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0166.0, 0
@@ -21484,7 +21482,7 @@ _ZNK4llvm3EVTeqES0_.exit:                         ; preds = %8
   %.sroa.1028.0.i = phi ptr [ %21, %_ZNK4llvm3EVTeqES0_.exit ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #30, !noalias !579
   %24 = load ptr, ptr %10, align 8, !tbaa !109, !noalias !579
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %9, ptr noundef nonnull align 8 dereferenceable(412423) %24, ptr noundef nonnull align 8 dereferenceable(8) %16, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %9, ptr noundef nonnull align 8 dereferenceable(412423) %24, ptr noundef nonnull align 8 dereferenceable(8) %16, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30, !noalias !579
   %25 = load i8, ptr %9, align 8, !tbaa !322, !noalias !579
   switch i8 %25, label %27 [
     i8 10, label %26
@@ -21845,7 +21843,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_14AArch64
   %.sroa.1028.0.i = phi ptr [ %47, %39 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #30, !noalias !582
   %50 = load ptr, ptr %41, align 8, !tbaa !109, !noalias !582
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %16, ptr noundef nonnull align 8 dereferenceable(412423) %50, ptr noundef nonnull align 8 dereferenceable(8) %40, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %16, ptr noundef nonnull align 8 dereferenceable(412423) %50, ptr noundef nonnull align 8 dereferenceable(8) %40, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30, !noalias !582
   %51 = load i8, ptr %16, align 8, !tbaa !322, !noalias !582
   switch i8 %51, label %_ZN4llvm15InstructionCostmLEl.exit.i [
     i8 10, label %52
@@ -24723,7 +24721,7 @@ define dso_local { i64, i32 } @_ZN4llvm14AArch64TTIImpl22getMinMaxReductionCostE
   %.sroa.1028.0.i = phi ptr [ %27, %19 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #30, !noalias !717
   %30 = load ptr, ptr %21, align 8, !tbaa !109, !noalias !717
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %6, ptr noundef nonnull align 8 dereferenceable(412423) %30, ptr noundef nonnull align 8 dereferenceable(8) %20, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %6, ptr noundef nonnull align 8 dereferenceable(412423) %30, ptr noundef nonnull align 8 dereferenceable(8) %20, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30, !noalias !717
   %31 = load i8, ptr %6, align 8, !tbaa !322, !noalias !717
   switch i8 %31, label %33 [
     i8 10, label %32
@@ -24938,7 +24936,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_14AArch64
   %.sroa.1028.0.i = phi ptr [ %33, %20 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #30, !noalias !720
   %36 = load ptr, ptr %27, align 8, !tbaa !109, !noalias !720
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %7, ptr noundef nonnull align 8 dereferenceable(412423) %36, ptr noundef nonnull align 8 dereferenceable(8) %26, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %7, ptr noundef nonnull align 8 dereferenceable(412423) %36, ptr noundef nonnull align 8 dereferenceable(8) %26, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30, !noalias !720
   %37 = load i8, ptr %7, align 8, !tbaa !322, !noalias !720
   switch i8 %37, label %_ZN4llvm15InstructionCostmLEl.exit.i [
     i8 10, label %38
@@ -25141,7 +25139,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit101:        ; preds = %_ZN4llvmmlERKNS_15I
   %.sroa.1028.0.i.i = phi ptr [ %98, %91 ], [ %.sroa.1028.0.copyload.pre.i.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #30, !noalias !724
   %101 = load ptr, ptr %27, align 8, !tbaa !109, !noalias !724
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %6, ptr noundef nonnull align 8 dereferenceable(412423) %101, ptr noundef nonnull align 8 dereferenceable(8) %93, i16 %.sroa.026.0.i.i, ptr %.sroa.1028.0.i.i) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %6, ptr noundef nonnull align 8 dereferenceable(412423) %101, ptr noundef nonnull align 8 dereferenceable(8) %93, i16 %.sroa.026.0.i.i, ptr %.sroa.1028.0.i.i) #30, !noalias !724
   %102 = load i8, ptr %6, align 8, !tbaa !322, !noalias !724
   switch i8 %102, label %_ZN4llvm15InstructionCostmLEl.exit.i.i [
     i8 10, label %_ZNK4llvm16BasicTTIImplBaseINS_14AArch64TTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit.i
@@ -25219,7 +25217,7 @@ define dso_local { i64, i32 } @_ZN4llvm14AArch64TTIImpl29getArithmeticReductionC
   %.sroa.1028.0.i = phi ptr [ %15, %4 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #30, !noalias !727
   %18 = load ptr, ptr %9, align 8, !tbaa !109, !noalias !727
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %5, ptr noundef nonnull align 8 dereferenceable(412423) %18, ptr noundef nonnull align 8 dereferenceable(8) %8, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %5, ptr noundef nonnull align 8 dereferenceable(412423) %18, ptr noundef nonnull align 8 dereferenceable(8) %8, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30, !noalias !727
   %19 = load i8, ptr %5, align 8, !tbaa !322, !noalias !727
   switch i8 %19, label %20 [
     i8 10, label %33
@@ -25468,7 +25466,7 @@ _ZNK4llvm14AArch64TTIImpl17getMaxNumElementsENS_12ElementCountE.exit: ; preds = 
   %.sroa.1028.0.i = phi ptr [ %72, %64 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #30, !noalias !730
   %75 = load ptr, ptr %66, align 8, !tbaa !109, !noalias !730
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %6, ptr noundef nonnull align 8 dereferenceable(412423) %75, ptr noundef nonnull align 8 dereferenceable(8) %65, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %6, ptr noundef nonnull align 8 dereferenceable(412423) %75, ptr noundef nonnull align 8 dereferenceable(8) %65, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30, !noalias !730
   %76 = load i8, ptr %6, align 8, !tbaa !322, !noalias !730
   switch i8 %76, label %78 [
     i8 10, label %77
@@ -25878,7 +25876,7 @@ define dso_local { i64, i32 } @_ZN4llvm14AArch64TTIImpl13getSpliceCostEPNS_10Vec
   %.sroa.1028.0.i = phi ptr [ %23, %15 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #30, !noalias !733
   %26 = load ptr, ptr %17, align 8, !tbaa !109, !noalias !733
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %4, ptr noundef nonnull align 8 dereferenceable(412423) %26, ptr noundef nonnull align 8 dereferenceable(8) %16, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %4, ptr noundef nonnull align 8 dereferenceable(412423) %26, ptr noundef nonnull align 8 dereferenceable(8) %16, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30, !noalias !733
   %27 = load i8, ptr %4, align 8, !tbaa !322, !noalias !733
   switch i8 %27, label %29 [
     i8 10, label %28
@@ -26313,7 +26311,7 @@ define dso_local { i64, i32 } @_ZN4llvm14AArch64TTIImpl14getShuffleCostENS_19Tar
   %.sroa.1028.0.i = phi ptr [ %27, %10 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #30, !noalias !740
   %30 = load ptr, ptr %21, align 8, !tbaa !109, !noalias !740
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %14, ptr noundef nonnull align 8 dereferenceable(412423) %30, ptr noundef nonnull align 8 dereferenceable(8) %20, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %14, ptr noundef nonnull align 8 dereferenceable(412423) %30, ptr noundef nonnull align 8 dereferenceable(8) %20, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30, !noalias !740
   %31 = load i8, ptr %14, align 8, !tbaa !322, !noalias !740
   switch i8 %31, label %33 [
     i8 10, label %32
@@ -43225,7 +43223,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit897:        ; preds = %228
   %.sroa.1028.0.i = phi ptr [ %316, %307 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #30, !noalias !1000
   %319 = load ptr, ptr %310, align 8, !tbaa !109, !noalias !1000
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %4, ptr noundef nonnull align 8 dereferenceable(412423) %319, ptr noundef nonnull align 8 dereferenceable(8) %309, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %4, ptr noundef nonnull align 8 dereferenceable(412423) %319, ptr noundef nonnull align 8 dereferenceable(8) %309, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30, !noalias !1000
   %320 = load i8, ptr %4, align 8, !tbaa !322, !noalias !1000
   switch i8 %320, label %322 [
     i8 10, label %321
@@ -47114,7 +47112,7 @@ _ZN4llvm7CmpInst17makeCmpResultTypeEPNS_4TypeE.exit: ; preds = %26, %36
   %.sroa.1028.0.i = phi ptr [ %54, %45 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #30, !noalias !1049
   %57 = load ptr, ptr %48, align 8, !tbaa !109, !noalias !1049
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %6, ptr noundef nonnull align 8 dereferenceable(412423) %57, ptr noundef nonnull align 8 dereferenceable(8) %47, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %6, ptr noundef nonnull align 8 dereferenceable(412423) %57, ptr noundef nonnull align 8 dereferenceable(8) %47, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #30, !noalias !1049
   %58 = load i8, ptr %6, align 8, !tbaa !322, !noalias !1049
   switch i8 %58, label %_ZN4llvm15InstructionCostmLEl.exit.i [
     i8 10, label %59
@@ -47273,7 +47271,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit128:        ; preds = %_ZN4llvmmlERKNS_15I
   %.sroa.1028.0.i.i = phi ptr [ %107, %100 ], [ %.sroa.1028.0.copyload.pre.i.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #30, !noalias !1053
   %110 = load ptr, ptr %48, align 8, !tbaa !109, !noalias !1053
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %5, ptr noundef nonnull align 8 dereferenceable(412423) %110, ptr noundef nonnull align 8 dereferenceable(8) %102, i16 %.sroa.026.0.i.i, ptr %.sroa.1028.0.i.i) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %5, ptr noundef nonnull align 8 dereferenceable(412423) %110, ptr noundef nonnull align 8 dereferenceable(8) %102, i16 %.sroa.026.0.i.i, ptr %.sroa.1028.0.i.i) #30, !noalias !1053
   %111 = load i8, ptr %5, align 8, !tbaa !322, !noalias !1053
   switch i8 %111, label %_ZN4llvm15InstructionCostmLEl.exit.i.i [
     i8 10, label %_ZNK4llvm16BasicTTIImplBaseINS_14AArch64TTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit.i
@@ -47328,7 +47326,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_14AArch64
   %.sroa.1028.0.i.i = phi ptr [ %13, %3 ], [ %.sroa.1028.0.copyload.pre.i.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #30, !noalias !1056
   %16 = load ptr, ptr %7, align 8, !tbaa !109, !noalias !1056
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %4, ptr noundef nonnull align 8 dereferenceable(412423) %16, ptr noundef nonnull align 8 dereferenceable(8) %6, i16 %.sroa.026.0.i.i, ptr %.sroa.1028.0.i.i) #30
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.163") align 8 %4, ptr noundef nonnull align 8 dereferenceable(412423) %16, ptr noundef nonnull align 8 dereferenceable(8) %6, i16 %.sroa.026.0.i.i, ptr %.sroa.1028.0.i.i) #30, !noalias !1056
   %17 = load i8, ptr %4, align 8, !tbaa !322, !noalias !1056
   switch i8 %17, label %_ZN4llvm15InstructionCostmLEl.exit.i.i [
     i8 10, label %_ZNK4llvm16BasicTTIImplBaseINS_14AArch64TTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit.i

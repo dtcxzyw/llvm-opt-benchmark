@@ -904,7 +904,7 @@ terminate.lpad.i21.i.i:                           ; preds = %if.end29.i.i
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #26
+  call void @__clang_call_terminate(ptr %36) #26, !noalias !7
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit22.i.i:  ; preds = %if.end29.i.i
@@ -944,7 +944,7 @@ terminate.lpad.i6.i.i.i.i:                        ; preds = %if.then.i.i5.i.i.i.
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #26
+  call void @__clang_call_terminate(ptr %43) #26, !noalias !7
   unreachable
 
 ehcleanup.i.i:                                    ; preds = %_ZNSt10unique_ptrIN9grpc_core28ServerConfigSelectorProvider27ServerConfigSelectorWatcherESt14default_deleteIS2_EED2Ev.exit.i.i
@@ -1045,7 +1045,7 @@ terminate.lpad.i14.i:                             ; preds = %if.then.i.i13.i
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #26
+  call void @__clang_call_terminate(ptr %60) #26, !noalias !7
   unreachable
 
 lpad3.i:                                          ; preds = %if.end.i
@@ -2533,7 +2533,7 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont5.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #26
+  tail call void @__clang_call_terminate(ptr %10) #26, !noalias !32
   unreachable
 
 lpad.i:                                           ; preds = %if.end.i.i
@@ -2546,7 +2546,7 @@ terminate.lpad.i2.i:                              ; preds = %lpad.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #26
+  tail call void @__clang_call_terminate(ptr %13) #26, !noalias !32
   unreachable
 
 common.resume:                                    ; preds = %lpad.i, %ehcleanup68

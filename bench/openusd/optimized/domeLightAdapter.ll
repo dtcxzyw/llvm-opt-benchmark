@@ -599,7 +599,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PortalsDataSourceC2ERKNS_7
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #18
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #18, !noalias !4
   %68 = load ptr, ptr %27, align 8, !noalias !4
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8, !noalias !4
@@ -617,7 +617,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PortalsDataSourceC2ERKNS_7
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  tail call void @__clang_call_terminate(ptr %75) #21
+  tail call void @__clang_call_terminate(ptr %75) #21, !noalias !4
   unreachable
 
 76:                                               ; preds = %64

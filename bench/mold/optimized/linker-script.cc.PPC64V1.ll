@@ -660,19 +660,14 @@ if.end81:                                         ; preds = %if.then17, %_ZNSt6v
   store ptr %.sink171, ptr %tok, align 8
   store i64 %.sink, ptr %_M_extent.i.i, align 8
   %cmp.i = icmp eq i64 %.sink, 0
-  br i1 %cmp.i, label %while.end.loopexit, label %while.body, !llvm.loop !11
+  br i1 %cmp.i, label %while.end, label %while.body, !llvm.loop !11
 
-while.end.loopexit:                               ; preds = %if.end81
-  %.pre = load ptr, ptr %vec, align 8
-  br label %while.end
-
-while.end:                                        ; preds = %while.end.loopexit, %entry
-  %24 = phi ptr [ %.pre, %while.end.loopexit ], [ %2, %entry ]
-  %tobool.not.i.i.i132 = icmp eq ptr %24, null
+while.end:                                        ; preds = %if.end81, %entry
+  %tobool.not.i.i.i132 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i132, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit, label %if.then.i.i.i133
 
 if.then.i.i.i133:                                 ; preds = %while.end
-  call void @_ZdlPv(ptr noundef nonnull %24) #24
+  call void @_ZdlPv(ptr noundef nonnull %2) #24
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit: ; preds = %while.end, %if.then.i.i.i133
@@ -2270,12 +2265,11 @@ for.body:                                         ; preds = %if.end, %for.body
   br i1 %cmp.i13, label %nrvo.skipdtor, label %for.body
 
 nrvo.skipdtor:                                    ; preds = %for.body, %if.end
-  %16 = load ptr, ptr %vec, align 8
-  %tobool.not.i.i.i = icmp eq ptr %16, null
+  %tobool.not.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %nrvo.skipdtor
-  call void @_ZdlPv(ptr noundef nonnull %16) #24
+  call void @_ZdlPv(ptr noundef nonnull %6) #24
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit: ; preds = %nrvo.skipdtor, %if.then.i.i.i

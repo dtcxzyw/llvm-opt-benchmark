@@ -8257,7 +8257,6 @@ _ZNKSt14default_deleteIN3gmx34VelocityScalingTemperatureCouplingEEclEPS1_.exit.i
 
 _ZNSt10unique_ptrIN3gmx34VelocityScalingTemperatureCouplingESt14default_deleteIS1_EED2Ev.exit: ; preds = %42, %_ZNKSt14default_deleteIN3gmx34VelocityScalingTemperatureCouplingEEclEPS1_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  store ptr null, ptr %13, align 8
   store ptr %41, ptr %15, align 8
   %45 = getelementptr inbounds nuw i8, ptr %15, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %10)

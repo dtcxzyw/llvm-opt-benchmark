@@ -1173,7 +1173,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i12.i
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #24
+  call void @__clang_call_terminate(ptr %49) #24, !noalias !15
   unreachable
 
 invoke.cont7.i.i:                                 ; preds = %_ZN7rocksdb13ConfigOptionsC2ERKS0_.exit.i.i.i.i.i.i
@@ -1218,7 +1218,7 @@ terminate.lpad.i.i15.i.i:                         ; preds = %if.then.i.i13.i.i
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #24
+  call void @__clang_call_terminate(ptr %58) #24, !noalias !15
   unreachable
 
 _ZNSt8functionIFN7rocksdb6StatusEPNS0_15MemoryAllocatorEEED2Ev.exit.i.i: ; preds = %if.then.i.i13.i.i, %_ZN7rocksdb6StatusD2Ev.exit.i.i
@@ -1263,7 +1263,7 @@ terminate.lpad.i.i21.i.i:                         ; preds = %if.then.i.i19.i.i
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #24
+  call void @__clang_call_terminate(ptr %65) #24, !noalias !15
   unreachable
 
 ehcleanup.i.i:                                    ; preds = %if.then.i.i19.i.i, %lpad8.i.i, %lpad6.i.i, %if.then.i.i.i12.i, %lpad.body.i.i.i

@@ -9805,7 +9805,7 @@ _ZN3std7process7Command6stderr17h399c53eaa376e396E.exit: ; preds = %_ZN3std7proc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !2035
   %171 = extractvalue { ptr, i64 } %166, 0
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %172, ptr nonnull readonly align 1 %150, i64 %152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %172, ptr nonnull readonly align 1 %150, i64 %152, i1 false), !noalias !2040
   %173 = icmp eq i64 %147, 0
   br i1 %173, label %"_ZN96_$LT$alloc..sync..Arc$LT$str$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17hbaaaf4219b455a3dE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8206341635091092976.exit.i.i1.i.i4.i"
 
@@ -13984,7 +13984,7 @@ common.ret:                                       ; preds = %114, %36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !3294
   %55 = extractvalue { ptr, i64 } %50, 0
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull readonly align 1 %.sroa.054.sroa.5.0.copyload, i64 %.sroa.054.sroa.6.0.copyload, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull readonly align 1 %.sroa.054.sroa.5.0.copyload, i64 %.sroa.054.sroa.6.0.copyload, i1 false), !noalias !3301
   %57 = icmp eq i64 %42, 0
   br i1 %57, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17he76bda5361b1afa7E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8206341635091092976.exit.i.i1.i.i4.i.i"
 
@@ -21587,7 +21587,7 @@ attributes #32 = { nounwind }
 !2734 = distinct !{!2734, !2735, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h58a3a2129e137d3eE.llvm.15942697686886759531: argument 0"}
 !2735 = distinct !{!2735, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h58a3a2129e137d3eE.llvm.15942697686886759531"}
 !2736 = distinct !{!2736, !2735, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h58a3a2129e137d3eE.llvm.15942697686886759531: argument 1"}
-!2737 = !{!2734}
+!2737 = !{!2734, !2730, !2732}
 !2738 = !{!2730}
 !2739 = !{!2740, !2742, !2744, !2746, !2730}
 !2740 = distinct !{!2740, !2741, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h26b99fed4332c4bbE.llvm.8206341635091092976: argument 0"}

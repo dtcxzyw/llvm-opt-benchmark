@@ -3187,7 +3187,7 @@ _ZL22prepareAndFilterRangesRKN4llvm15SmallVectorImplIN5clang15CharSourceRangeEEE
   %.sroa.3.0.extract.shift = lshr i64 %402, 32
   %403 = getelementptr inbounds nuw i8, ptr %56, i64 %.sroa.3.0.extract.shift
   %404 = icmp samesign eq i64 %.sroa.3.0.extract.shift, %57
-  br i1 %404, label %.thread274, label %.preheader
+  br i1 %404, label %.thread274.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %400, %407
   %.091 = phi ptr [ %408, %407 ], [ %403, %400 ]
@@ -4419,14 +4419,14 @@ _ZNK12_GLOBAL__N_115SourceColumnMap17startOfNextColumnEi.exit211.i: ; preds = %8
   br i1 %spec.select164.i, label %.outer.i, label %.critedge8.i..loopexit.i.loopexit356_crit_edge
 
 .critedge8.i..loopexit.i.loopexit356_crit_edge:   ; preds = %.critedge8.i
-  %.pre399 = sext i32 %spec.select165.i to i64
+  %.pre400 = sext i32 %spec.select165.i to i64
   br label %.loopexit.i.loopexit356
 
 901:                                              ; preds = %.critedge2.i173
   br i1 %.not158.i, label %812, label %.loopexit.i
 
 .loopexit.i.loopexit356:                          ; preds = %813, %.critedge8.i..loopexit.i.loopexit356_crit_edge
-  %.pre387.pre-phi = phi i64 [ %.pre399, %.critedge8.i..loopexit.i.loopexit356_crit_edge ], [ %809, %813 ]
+  %.pre387.pre-phi = phi i64 [ %.pre400, %.critedge8.i..loopexit.i.loopexit356_crit_edge ], [ %809, %813 ]
   %.1133.i.ph = phi i32 [ %spec.select165.i, %.critedge8.i..loopexit.i.loopexit356_crit_edge ], [ %.0132.ph.i, %813 ]
   %.1129.i.ph = phi i32 [ %.2.i271, %.critedge8.i..loopexit.i.loopexit356_crit_edge ], [ 0, %813 ]
   %.pre386 = sext i32 %.1129.i.ph to i64
@@ -5044,11 +5044,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
   %1181 = add i32 %.090349, 1
   %1182 = add i32 %.1255348, 1
   %.not102 = icmp eq i32 %.090349, %.sroa.9.0.lcssa
-  br i1 %.not102, label %.thread274, label %400, !llvm.loop !258
+  br i1 %.not102, label %.thread274.loopexit, label %400, !llvm.loop !258
 
-.thread274:                                       ; preds = %1180, %400, %_ZL22prepareAndFilterRangesRKN4llvm15SmallVectorImplIN5clang15CharSourceRangeEEERKNS1_13SourceManagerERKSt4pairIjjENS1_6FileIDERKNS1_11LangOptionsE.exit
+.thread274.loopexit:                              ; preds = %400, %1180
+  %.sroa.2.0.copyload.pre = load i64, ptr %45, align 8, !tbaa !30
+  br label %.thread274
+
+.thread274:                                       ; preds = %.thread274.loopexit, %_ZL22prepareAndFilterRangesRKN4llvm15SmallVectorImplIN5clang15CharSourceRangeEEERKNS1_13SourceManagerERKSt4pairIjjENS1_6FileIDERKNS1_11LangOptionsE.exit
+  %.sroa.2.0.copyload = phi i64 [ %.sroa.2.0.copyload.pre, %.thread274.loopexit ], [ %46, %_ZL22prepareAndFilterRangesRKN4llvm15SmallVectorImplIN5clang15CharSourceRangeEEERKNS1_13SourceManagerERKSt4pairIjjENS1_6FileIDERKNS1_11LangOptionsE.exit ]
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8, !tbaa !227
-  %.sroa.2.0.copyload = load i64, ptr %45, align 8, !tbaa !30
   call void @_ZN5clang14TextDiagnostic19emitParseableFixitsEN4llvm8ArrayRefINS_9FixItHintEEERKNS_13SourceManagerE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(696) %54)
   br label %.loopexit
 
@@ -5091,8 +5095,8 @@ _ZN4llvm11SmallVectorIN5clang14TextDiagnostic10StyleRangeELj4EED2Ev.exit.i.i: ; 
   br i1 %1192, label %_ZNSt10unique_ptrIA_N4llvm11SmallVectorIN5clang14TextDiagnostic10StyleRangeELj4EEESt14default_deleteIS6_EED2Ev.exit, label %.preheader.i.i
 
 _ZNSt10unique_ptrIA_N4llvm11SmallVectorIN5clang14TextDiagnostic10StyleRangeELj4EEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorIN5clang14TextDiagnostic10StyleRangeELj4EED2Ev.exit.i.i, %1186
-  %.pre-phi398 = phi i64 [ 8, %1186 ], [ %.add287, %_ZN4llvm11SmallVectorIN5clang14TextDiagnostic10StyleRangeELj4EED2Ev.exit.i.i ]
-  call void @_ZdaPvm(ptr noundef nonnull %146, i64 noundef %.pre-phi398) #18
+  %.pre-phi399 = phi i64 [ 8, %1186 ], [ %.add287, %_ZN4llvm11SmallVectorIN5clang14TextDiagnostic10StyleRangeELj4EED2Ev.exit.i.i ]
+  call void @_ZdaPvm(ptr noundef nonnull %146, i64 noundef %.pre-phi399) #18
   br label %1193
 
 1193:                                             ; preds = %_ZNSt10unique_ptrIA_N4llvm11SmallVectorIN5clang14TextDiagnostic10StyleRangeELj4EEESt14default_deleteIS6_EED2Ev.exit, %60, %52

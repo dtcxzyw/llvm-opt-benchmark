@@ -780,7 +780,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i.i: ; pr
 
 74:                                               ; preds = %69
   %75 = extractvalue { ptr, i32 } %70, 0
-  %76 = call ptr @__cxa_begin_catch(ptr %75) #20
+  %76 = call ptr @__cxa_begin_catch(ptr %75) #20, !noalias !69
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %77, align 8, !alias.scope !69
   call void @__cxa_end_catch(), !noalias !69

@@ -1193,7 +1193,7 @@ _ZN7testing7CombineINS_8internal11ValueArray4IN2cv5Size_IiEES5_S5_S5_EENS2_Iiiii
   %80 = landingpad { ptr, i32 }
           catch ptr null
   %81 = extractvalue { ptr, i32 } %80, 0
-  call void @__clang_call_terminate(ptr %81) #30
+  call void @__clang_call_terminate(ptr %81) #30, !noalias !21
   unreachable
 
 _ZN7testing8internal14ParamGeneratorIbEC2ERKS2_.exit.thread.i: ; preds = %69
@@ -1234,7 +1234,7 @@ _ZN7testing8internal14ParamGeneratorIbEC2ERKS2_.exit.i: ; preds = %77
   %91 = landingpad { ptr, i32 }
           catch ptr null
   %92 = extractvalue { ptr, i32 } %91, 0
-  call void @__clang_call_terminate(ptr %92) #30
+  call void @__clang_call_terminate(ptr %92) #30, !noalias !21
   unreachable
 
 93:                                               ; preds = %_ZN7testing8internal14ParamGeneratorIbEC2ERKS2_.exit.i
@@ -1271,7 +1271,7 @@ _ZN7testing8internal14ParamGeneratorIN2cv5Size_IiEEEC2ERKS5_.exit.i.i: ; preds =
   %102 = landingpad { ptr, i32 }
           catch ptr null
   %103 = extractvalue { ptr, i32 } %102, 0
-  call void @__clang_call_terminate(ptr %103) #30
+  call void @__clang_call_terminate(ptr %103) #30, !noalias !21
   unreachable
 
 104:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN2cv5Size_IiEEEC2ERKS5_.exit.i.i
@@ -1308,7 +1308,7 @@ _ZN7testing8internal14ParamGeneratorIN4perf12_GLOBAL__N_18MatDepthEEC2ERKS5_.exi
   %114 = landingpad { ptr, i32 }
           catch ptr null
   %115 = extractvalue { ptr, i32 } %114, 0
-  call void @__clang_call_terminate(ptr %115) #30
+  call void @__clang_call_terminate(ptr %115) #30, !noalias !21
   unreachable
 
 116:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN4perf12_GLOBAL__N_18MatDepthEEC2ERKS5_.exit.i.i

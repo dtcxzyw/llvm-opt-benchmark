@@ -2514,7 +2514,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i: ; preds = %_
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #30
   store ptr %117, ptr %10, align 8
   %133 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr null, ptr %133, align 8
   %134 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #34
           to label %151 unwind label %135
 

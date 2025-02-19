@@ -15768,7 +15768,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EE11_M_allocateEm.ex
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  %33 = tail call ptr @__cxa_begin_catch(ptr %32) #46
+  %33 = tail call ptr @__cxa_begin_catch(ptr %32) #46, !noalias !453
   %34 = load ptr, ptr %2, align 8, !tbaa !4, !noalias !453
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8, !noalias !453
@@ -15790,7 +15790,7 @@ common.resume.i:                                  ; preds = %.body.i, %37
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  tail call void @__clang_call_terminate(ptr %41) #50
+  tail call void @__clang_call_terminate(ptr %41) #50, !noalias !453
   unreachable
 
 42:                                               ; preds = %30

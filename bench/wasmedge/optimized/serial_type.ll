@@ -932,7 +932,7 @@ _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit15: ; preds = %106
   %121 = landingpad { ptr, i32 }
           catch ptr null
   %122 = extractvalue { ptr, i32 } %121, 0
-  call void @__clang_call_terminate(ptr %122) #19
+  call void @__clang_call_terminate(ptr %122) #19, !noalias !6
   unreachable
 
 _ZNK8WasmEdge6Loader10Serializer17logSerializeErrorENS_7ErrCodeENS_11ASTNodeAttrE.exit: ; preds = %.noexc2.i
@@ -972,7 +972,7 @@ _ZNK8WasmEdge6Loader10Serializer17logSerializeErrorENS_7ErrCodeENS_11ASTNodeAttr
   %130 = landingpad { ptr, i32 }
           catch ptr null
   %131 = extractvalue { ptr, i32 } %130, 0
-  call void @__clang_call_terminate(ptr %131) #19
+  call void @__clang_call_terminate(ptr %131) #19, !noalias !12
   unreachable
 
 _ZNK8WasmEdge6Loader10Serializer17logSerializeErrorENS_7ErrCodeENS_11ASTNodeAttrE.exit19: ; preds = %.noexc2.i18
@@ -1348,7 +1348,7 @@ _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit29: ; preds = %91
   %106 = landingpad { ptr, i32 }
           catch ptr null
   %107 = extractvalue { ptr, i32 } %106, 0
-  call void @__clang_call_terminate(ptr %107) #19
+  call void @__clang_call_terminate(ptr %107) #19, !noalias !21
   unreachable
 
 _ZNK8WasmEdge6Loader10Serializer17logSerializeErrorENS_7ErrCodeENS_11ASTNodeAttrE.exit: ; preds = %.noexc2.i
@@ -1388,7 +1388,7 @@ _ZNK8WasmEdge6Loader10Serializer17logSerializeErrorENS_7ErrCodeENS_11ASTNodeAttr
   %115 = landingpad { ptr, i32 }
           catch ptr null
   %116 = extractvalue { ptr, i32 } %115, 0
-  call void @__clang_call_terminate(ptr %116) #19
+  call void @__clang_call_terminate(ptr %116) #19, !noalias !27
   unreachable
 
 _ZNK8WasmEdge6Loader10Serializer17logSerializeErrorENS_7ErrCodeENS_11ASTNodeAttrE.exit33: ; preds = %.noexc2.i32
@@ -1646,7 +1646,7 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit22:         ; preds = %_ZNSt6vectorIhSaIhE
   %89 = landingpad { ptr, i32 }
           catch ptr null
   %90 = extractvalue { ptr, i32 } %89, 0
-  call void @__clang_call_terminate(ptr %90) #19
+  call void @__clang_call_terminate(ptr %90) #19, !noalias !33
   unreachable
 
 _ZNK8WasmEdge6Loader10Serializer17logSerializeErrorENS_7ErrCodeENS_11ASTNodeAttrE.exit: ; preds = %.noexc2.i
@@ -2303,7 +2303,7 @@ _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit58: ; preds = %175
   %193 = landingpad { ptr, i32 }
           catch ptr null
   %194 = extractvalue { ptr, i32 } %193, 0
-  call void @__clang_call_terminate(ptr %194) #19
+  call void @__clang_call_terminate(ptr %194) #19, !noalias !43
   unreachable
 
 _ZNK8WasmEdge6Loader10Serializer17logSerializeErrorENS_7ErrCodeENS_11ASTNodeAttrE.exit: ; preds = %.noexc2.i

@@ -10849,7 +10849,7 @@ _ZN3vim6motion5space17h9b55320c0e39d778E.exit:    ; preds = %_ZN3vim6motion14wra
 158:                                              ; preds = %144
   %159 = extractvalue { ptr, i64 } %152, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %55), !noalias !2220
-  call void @_ZN8language6buffer14BufferSnapshot17language_scope_at17h6df14d5e3960d4d1E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %153, i64 noundef %159)
+  call void @_ZN8language6buffer14BufferSnapshot17language_scope_at17h6df14d5e3960d4d1E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %153, i64 noundef %159), !noalias !2215
   call void @_ZN8language6buffer14CharClassifier3new17h168e0e2c10edea1dE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %57, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %55)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55), !noalias !2220
   br label %_ZN12multi_buffer19MultiBufferSnapshot18char_classifier_at17hcf0274fe65eef2a1E.exit.i
@@ -10991,7 +10991,7 @@ _ZN3vim6motion15next_word_start17hafa564a42869954aE.exit: ; preds = %.loopexit.i
 213:                                              ; preds = %199
   %214 = extractvalue { ptr, i64 } %207, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %52), !noalias !2263
-  call void @_ZN8language6buffer14BufferSnapshot17language_scope_at17h6df14d5e3960d4d1E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %52, ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %208, i64 noundef %214)
+  call void @_ZN8language6buffer14BufferSnapshot17language_scope_at17h6df14d5e3960d4d1E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %52, ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %208, i64 noundef %214), !noalias !2258
   call void @_ZN8language6buffer14CharClassifier3new17h168e0e2c10edea1dE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %53, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %52)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52), !noalias !2263
   br label %_ZN12multi_buffer19MultiBufferSnapshot18char_classifier_at17hcf0274fe65eef2a1E.exit.i185
@@ -11132,7 +11132,7 @@ _ZN3vim6motion19previous_word_start17h99c597b618c47337E.exit: ; preds = %217, %2
 271:                                              ; preds = %257
   %272 = extractvalue { ptr, i64 } %265, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %47), !noalias !2310
-  call void @_ZN8language6buffer14BufferSnapshot17language_scope_at17h6df14d5e3960d4d1E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %47, ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %266, i64 noundef %272)
+  call void @_ZN8language6buffer14BufferSnapshot17language_scope_at17h6df14d5e3960d4d1E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %47, ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %266, i64 noundef %272), !noalias !2305
   call void @_ZN8language6buffer14CharClassifier3new17h168e0e2c10edea1dE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %47)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47), !noalias !2310
   br label %_ZN12multi_buffer19MultiBufferSnapshot18char_classifier_at17hcf0274fe65eef2a1E.exit.i191
@@ -11299,7 +11299,7 @@ _ZN3vim6motion17previous_word_end17h9abb405e977c29daE.exit: ; preds = %309, %312
 338:                                              ; preds = %324
   %339 = extractvalue { ptr, i64 } %332, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43), !noalias !2353
-  call void @_ZN8language6buffer14BufferSnapshot17language_scope_at17h6df14d5e3960d4d1E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %43, ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %333, i64 noundef %339)
+  call void @_ZN8language6buffer14BufferSnapshot17language_scope_at17h6df14d5e3960d4d1E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %43, ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %333, i64 noundef %339), !noalias !2348
   call void @_ZN8language6buffer14CharClassifier3new17h168e0e2c10edea1dE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %45, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %43)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43), !noalias !2353
   br label %_ZN12multi_buffer19MultiBufferSnapshot18char_classifier_at17hcf0274fe65eef2a1E.exit.i197
@@ -11437,7 +11437,7 @@ _ZN3vim6motion18next_subword_start17h69671e40e3f45d8bE.exit: ; preds = %.loopexi
 393:                                              ; preds = %379
   %394 = extractvalue { ptr, i64 } %387, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39), !noalias !2396
-  call void @_ZN8language6buffer14BufferSnapshot17language_scope_at17h6df14d5e3960d4d1E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %388, i64 noundef %394)
+  call void @_ZN8language6buffer14BufferSnapshot17language_scope_at17h6df14d5e3960d4d1E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %388, i64 noundef %394), !noalias !2391
   call void @_ZN8language6buffer14CharClassifier3new17h168e0e2c10edea1dE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %41, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %39)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39), !noalias !2396
   br label %_ZN12multi_buffer19MultiBufferSnapshot18char_classifier_at17hcf0274fe65eef2a1E.exit.i210
@@ -11587,7 +11587,7 @@ _ZN3vim6motion22previous_subword_start17h364f7595b9773b3eE.exit: ; preds = %.loo
 450:                                              ; preds = %436
   %451 = extractvalue { ptr, i64 } %444, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34), !noalias !2444
-  call void @_ZN8language6buffer14BufferSnapshot17language_scope_at17h6df14d5e3960d4d1E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %445, i64 noundef %451)
+  call void @_ZN8language6buffer14BufferSnapshot17language_scope_at17h6df14d5e3960d4d1E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %445, i64 noundef %451), !noalias !2439
   call void @_ZN8language6buffer14CharClassifier3new17h168e0e2c10edea1dE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %36, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %34)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34), !noalias !2444
   br label %_ZN12multi_buffer19MultiBufferSnapshot18char_classifier_at17hcf0274fe65eef2a1E.exit.i221
@@ -14806,7 +14806,7 @@ define hidden { i32, i32 } @_ZN3vim6motion13next_word_end17h8e3fc4954ab79e18E(pt
 24:                                               ; preds = %6
   %25 = extractvalue { ptr, i64 } %18, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !2855
-  call void @_ZN8language6buffer14BufferSnapshot17language_scope_at17h6df14d5e3960d4d1E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %19, i64 noundef %25)
+  call void @_ZN8language6buffer14BufferSnapshot17language_scope_at17h6df14d5e3960d4d1E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %19, i64 noundef %25), !noalias !2850
   call void @_ZN8language6buffer14CharClassifier3new17h168e0e2c10edea1dE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !2855
   br label %_ZN12multi_buffer19MultiBufferSnapshot18char_classifier_at17hcf0274fe65eef2a1E.exit
@@ -14979,7 +14979,7 @@ define hidden { i32, i32 } @_ZN3vim6motion16next_subword_end17h376147a0d965cef4E
 26:                                               ; preds = %6
   %27 = extractvalue { ptr, i64 } %20, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !2895
-  call void @_ZN8language6buffer14BufferSnapshot17language_scope_at17h6df14d5e3960d4d1E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %21, i64 noundef %27)
+  call void @_ZN8language6buffer14BufferSnapshot17language_scope_at17h6df14d5e3960d4d1E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %21, i64 noundef %27), !noalias !2890
   call void @_ZN8language6buffer14CharClassifier3new17h168e0e2c10edea1dE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !2895
   br label %_ZN12multi_buffer19MultiBufferSnapshot18char_classifier_at17hcf0274fe65eef2a1E.exit
@@ -15192,7 +15192,7 @@ _ZN3vim6motion13start_of_line17h687701147029b972E.exit: ; preds = %11, %21
 40:                                               ; preds = %_ZN3vim6motion13start_of_line17h687701147029b972E.exit
   %41 = extractvalue { ptr, i64 } %34, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !2938
-  call void @_ZN8language6buffer14BufferSnapshot17language_scope_at17h6df14d5e3960d4d1E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %35, i64 noundef %41)
+  call void @_ZN8language6buffer14BufferSnapshot17language_scope_at17h6df14d5e3960d4d1E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %35, i64 noundef %41), !noalias !2933
   call void @_ZN8language6buffer14CharClassifier3new17h168e0e2c10edea1dE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !2938
   br label %_ZN12multi_buffer19MultiBufferSnapshot18char_classifier_at17hcf0274fe65eef2a1E.exit
@@ -15436,7 +15436,7 @@ define hidden { i32, i32 } @_ZN3vim6motion19last_non_whitespace17h07f7954b4b3d8c
 25:                                               ; preds = %4
   %26 = extractvalue { ptr, i64 } %19, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !3062
-  call void @_ZN8language6buffer14BufferSnapshot17language_scope_at17h6df14d5e3960d4d1E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %20, i64 noundef %26)
+  call void @_ZN8language6buffer14BufferSnapshot17language_scope_at17h6df14d5e3960d4d1E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %20, i64 noundef %26), !noalias !3057
   call void @_ZN8language6buffer14CharClassifier3new17h168e0e2c10edea1dE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !3062
   %.pre = load i64, ptr %10, align 8
@@ -18654,7 +18654,7 @@ define hidden void @_ZN3vim6object7in_word17h5969cae77315986eE.llvm.234548280118
 20:                                               ; preds = %5
   %21 = extractvalue { ptr, i64 } %14, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !4077
-  call void @_ZN8language6buffer14BufferSnapshot17language_scope_at17h6df14d5e3960d4d1E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %15, i64 noundef %21)
+  call void @_ZN8language6buffer14BufferSnapshot17language_scope_at17h6df14d5e3960d4d1E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %15, i64 noundef %21), !noalias !4072
   call void @_ZN8language6buffer14CharClassifier3new17h168e0e2c10edea1dE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !4077
   br label %_ZN12multi_buffer19MultiBufferSnapshot18char_classifier_at17hcf0274fe65eef2a1E.exit
@@ -19533,7 +19533,7 @@ define hidden void @_ZN3vim6object11around_word17h5f72e5e6dee38031E.llvm.2345482
 24:                                               ; preds = %5
   %25 = extractvalue { ptr, i64 } %18, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !4325
-  call void @_ZN8language6buffer14BufferSnapshot17language_scope_at17h6df14d5e3960d4d1E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %19, i64 noundef %25)
+  call void @_ZN8language6buffer14BufferSnapshot17language_scope_at17h6df14d5e3960d4d1E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %19, i64 noundef %25), !noalias !4320
   call void @_ZN8language6buffer14CharClassifier3new17h168e0e2c10edea1dE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !4325
   br label %_ZN12multi_buffer19MultiBufferSnapshot18char_classifier_at17hdca1852e9f1b03cfE.exit
@@ -20401,7 +20401,7 @@ _ZN3vim6object8argument24comma_delimited_range_at17hcc811bcd4b0ff429E.exit.threa
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit.i": ; preds = %221
   %223 = extractvalue { ptr, i64 } %220, 0
-  %lhsc.i = load i8, ptr %223, align 1
+  %lhsc.i = load i8, ptr %223, align 1, !noalias !4489
   %224 = icmp eq i8 %lhsc.i, 44
   br i1 %224, label %226, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit.thread.i"
 
@@ -20454,7 +20454,7 @@ _ZN3vim6object8argument24comma_delimited_range_at17hcc811bcd4b0ff429E.exit.threa
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit45.i": ; preds = %239
   %241 = extractvalue { ptr, i64 } %238, 0
-  %lhsc113.i = load i8, ptr %241, align 1
+  %lhsc113.i = load i8, ptr %241, align 1, !noalias !4489
   %242 = icmp eq i8 %lhsc113.i, 44
   br i1 %242, label %244, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit45.thread.i"
 
@@ -20520,7 +20520,7 @@ _ZN3vim6object8argument24comma_delimited_range_at17hcc811bcd4b0ff429E.exit.threa
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit49.i": ; preds = %262
   %264 = extractvalue { ptr, i64 } %261, 0
-  %lhsc114.i = load i8, ptr %264, align 1
+  %lhsc114.i = load i8, ptr %264, align 1, !noalias !4489
   %265 = icmp eq i8 %lhsc114.i, 44
   br i1 %265, label %267, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit49.thread.i"
 

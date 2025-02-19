@@ -14416,7 +14416,7 @@ terminate.lpad.i26.i:                             ; preds = %cleanup30.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #28
+  tail call void @__clang_call_terminate(ptr %6) #28, !noalias !183
   unreachable
 
 nrvo.skipdtor:                                    ; preds = %cleanup30.i
@@ -14673,7 +14673,7 @@ terminate.lpad.i26.i:                             ; preds = %cleanup30.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #28
+  tail call void @__clang_call_terminate(ptr %5) #28, !noalias !198
   unreachable
 
 if.else:                                          ; preds = %entry
@@ -14717,7 +14717,7 @@ terminate.lpad.i26.i22:                           ; preds = %cleanup30.i18
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #28
+  tail call void @__clang_call_terminate(ptr %9) #28, !noalias !201
   unreachable
 
 return:                                           ; preds = %cleanup30.i18, %cleanup30.i
@@ -15114,7 +15114,7 @@ terminate.lpad.i26.i:                             ; preds = %cleanup30.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #28
+  tail call void @__clang_call_terminate(ptr %4) #28, !noalias !217
   unreachable
 
 _ZNK7rocksdb7MemFile4ReadEmmRKNS_9IOOptionsEPNS_5SliceEPcPNS_14IODebugContextE.exit: ; preds = %cleanup30.i
@@ -16782,7 +16782,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %.noexc.i.i.i
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #28, !noalias !295
+  call void @__clang_call_terminate(ptr %1) #28, !noalias !299
   unreachable
 
 if.end.i.i.i:                                     ; preds = %.noexc.i.i.i
@@ -17472,7 +17472,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %.noexc.i.i.i
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #28, !noalias !327
+  call void @__clang_call_terminate(ptr %1) #28, !noalias !331
   unreachable
 
 if.end.i.i.i:                                     ; preds = %.noexc.i.i.i

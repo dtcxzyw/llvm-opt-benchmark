@@ -1912,7 +1912,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %_ZNSt10lock_guardIS
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #29
+  tail call void @__clang_call_terminate(ptr %1) #29, !noalias !10
   unreachable
 
 _ZN5folly3f146detail11F14BasicMapINS1_19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEvvvEEE11try_emplaceIJEEESt4pairINS1_21NodeContainerIteratorIPSQ_IKS9_SM_EEEbERSS_DpOT_.exit.i: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit

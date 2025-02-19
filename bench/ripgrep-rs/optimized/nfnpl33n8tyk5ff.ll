@@ -1615,7 +1615,7 @@ define void @_ZN10grep_regex7literal13InnerLiterals9one_regex17hfaeb3caad31f75e1
 
 .noexc:                                           ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfb9086cb3925cc85E.llvm.16979978850130570624.exit"
   %48 = extractvalue { i64, ptr } %45, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull readonly align 1 %42, i64 %44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull readonly align 1 %42, i64 %44, i1 false), !noalias !230
   %49 = icmp ne ptr %48, null
   call void @llvm.assume(i1 %49)
   %50 = icmp eq i64 %44, 0
@@ -5117,7 +5117,7 @@ attributes #32 = { "function-inline-cost-multiplier"="2" }
 !233 = !{!234}
 !234 = distinct !{!234, !232, !"_ZN12regex_syntax3hir3Hir7literal17h01fb2dff5d6815b1E: argument 1"}
 !235 = !{!231, !234}
-!236 = !{!237, !239, !241}
+!236 = !{!237, !239, !241, !231, !234}
 !237 = distinct !{!237, !238, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf851cd81d9bebd7dE.llvm.8519985026491776260: argument 0"}
 !238 = distinct !{!238, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf851cd81d9bebd7dE.llvm.8519985026491776260"}
 !239 = distinct !{!239, !240, !"_ZN4core3ptr58drop_in_place$LT$alloc..boxed..Box$LT$$u5b$u8$u5d$$GT$$GT$17hf82b76fa0a8846a6E.llvm.8519985026491776260: argument 0"}

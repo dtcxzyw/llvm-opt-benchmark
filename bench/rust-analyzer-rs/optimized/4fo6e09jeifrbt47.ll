@@ -1791,7 +1791,7 @@ _ZN10rayon_core8registry12WorkerThread4push17h603e64a884dcfe7aE.exit: ; preds = 
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
   %45 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %44)
-          to label %__rust_try.llvm.18263967998570167583.exit.i unwind label %46
+          to label %__rust_try.llvm.18263967998570167583.exit.i unwind label %46, !noalias !440
 
 46:                                               ; preds = %42
   %47 = landingpad { ptr, i32 }
@@ -2076,7 +2076,7 @@ _ZN10rayon_core8registry12WorkerThread4push17h603e64a884dcfe7aE.exit: ; preds = 
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
   %43 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %42)
-          to label %__rust_try.llvm.18263967998570167583.exit.i unwind label %44
+          to label %__rust_try.llvm.18263967998570167583.exit.i unwind label %44, !noalias !443
 
 44:                                               ; preds = %40
   %45 = landingpad { ptr, i32 }
@@ -2361,7 +2361,7 @@ _ZN10rayon_core8registry12WorkerThread4push17h603e64a884dcfe7aE.exit: ; preds = 
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
   %55 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %54)
-          to label %63 unwind label %56
+          to label %63 unwind label %56, !noalias !459
 
 56:                                               ; preds = %52
   %57 = landingpad { ptr, i32 }
@@ -2798,7 +2798,7 @@ _ZN10rayon_core8registry12WorkerThread4push17h603e64a884dcfe7aE.exit: ; preds = 
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
   %53 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %52)
-          to label %61 unwind label %54
+          to label %61 unwind label %54, !noalias !502
 
 54:                                               ; preds = %50
   %55 = landingpad { ptr, i32 }
@@ -3200,7 +3200,7 @@ _ZN10rayon_core8registry12WorkerThread4push17h603e64a884dcfe7aE.exit: ; preds = 
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
   %51 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %50)
-          to label %58 unwind label %52
+          to label %58 unwind label %52, !noalias !532
 
 52:                                               ; preds = %48
   %53 = landingpad { ptr, i32 }
@@ -3502,7 +3502,7 @@ _ZN10rayon_core8registry12WorkerThread4push17h603e64a884dcfe7aE.exit: ; preds = 
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
   %55 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %54)
-          to label %63 unwind label %56
+          to label %63 unwind label %56, !noalias !546
 
 56:                                               ; preds = %52
   %57 = landingpad { ptr, i32 }
@@ -3940,7 +3940,7 @@ _ZN10rayon_core8registry12WorkerThread4push17h603e64a884dcfe7aE.exit: ; preds = 
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
   %52 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %51)
-          to label %59 unwind label %53
+          to label %59 unwind label %53, !noalias !589
 
 53:                                               ; preds = %49
   %54 = landingpad { ptr, i32 }
@@ -4280,7 +4280,7 @@ _ZN10rayon_core8registry12WorkerThread4push17h603e64a884dcfe7aE.exit: ; preds = 
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
   %53 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %52)
-          to label %61 unwind label %54
+          to label %61 unwind label %54, !noalias !603
 
 54:                                               ; preds = %50
   %55 = landingpad { ptr, i32 }
@@ -8242,7 +8242,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hc3a63b22a9d815d1E.exit.i.i.i
   %122 = extractvalue { ptr, ptr } %118, 0
   %123 = extractvalue { ptr, ptr } %118, 1
   %124 = invoke noundef align 8 dereferenceable(24) ptr @_ZN10hir_expand4name4Name7display17h3ea2abcc2242cd7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, ptr noundef nonnull align 1 %122, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %123)
-          to label %125 unwind label %119
+          to label %125 unwind label %119, !noalias !1354
 
 125:                                              ; preds = %121
   store ptr %124, ptr %11, align 8, !noalias !1352
@@ -34670,7 +34670,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i.i: ; preds = %203, %198, %
   br i1 %or.cond.i.i.i, label %208, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd1baa3e44b43f5a3E.exit
 
 208:                                              ; preds = %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %188, ptr nonnull readonly align 1 %.pn5.i.i.i.i, i64 %189), !alias.scope !8106
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %188, ptr nonnull readonly align 1 %.pn5.i.i.i.i, i64 %189), !alias.scope !8106, !noalias !8099
   %bcmp.i.fr.i.i.i = freeze i32 %bcmp.i.i.i.i
   %209 = icmp eq i32 %bcmp.i.fr.i.i.i, 0
   br i1 %209, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h498b4a6aaccce087E.exit.i", label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd1baa3e44b43f5a3E.exit

@@ -583,7 +583,7 @@ default.unreachable1.i.i.i.i.i.i.i:               ; preds = %34
   %eh.lpad-body31.i = phi { ptr, i32 } [ %73, %72 ], [ %eh.lpad-body.i.i.i.i.i.i, %.body.i.i.i.i.i.i ]
   %74 = extractvalue { ptr, i32 } %eh.lpad-body31.i, 0
   %75 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h772e0283c130983aE(ptr noundef %74)
-          to label %78 unwind label %76
+          to label %78 unwind label %76, !noalias !61
 
 76:                                               ; preds = %.body30.i
   %77 = landingpad { ptr, i32 }

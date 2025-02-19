@@ -1503,7 +1503,7 @@ _ZN12_GLOBAL__N_19IsHoldingISt6vectorISt3anySaIS2_EEEEbRKS2_.exit: ; preds = %43
   %464 = landingpad { ptr, i32 }
           catch ptr null
   %465 = extractvalue { ptr, i32 } %464, 0
-  call void @__clang_call_terminate(ptr %465) #25
+  call void @__clang_call_terminate(ptr %465) #25, !noalias !12
   unreachable
 
 _ZNKSt3any4typeEv.exit.i.i.i.i:                   ; preds = %461, %459
@@ -1623,7 +1623,7 @@ _ZNSt6vectorISt3anySaIS0_EED2Ev.exit:             ; preds = %_ZSt8_DestroyIPSt3a
   %501 = landingpad { ptr, i32 }
           catch ptr null
   %502 = extractvalue { ptr, i32 } %501, 0
-  call void @__clang_call_terminate(ptr %502) #25
+  call void @__clang_call_terminate(ptr %502) #25, !noalias !16
   unreachable
 
 _ZNKSt3any4typeEv.exit.i.i.i.i280:                ; preds = %498, %496
@@ -2187,7 +2187,7 @@ _ZN12_GLOBAL__N_19IsHoldingISt6vectorISt3anySaIS2_EEEEbRKS2_.exit359: ; preds = 
   %680 = landingpad { ptr, i32 }
           catch ptr null
   %681 = extractvalue { ptr, i32 } %680, 0
-  call void @__clang_call_terminate(ptr %681) #25
+  call void @__clang_call_terminate(ptr %681) #25, !noalias !19
   unreachable
 
 _ZNKSt3any4typeEv.exit.i.i.i.i363:                ; preds = %677, %675
@@ -2300,7 +2300,7 @@ _ZNSt6vectorISt3anySaIS0_EED2Ev.exit384:          ; preds = %_ZSt8_DestroyIPSt3a
   %717 = landingpad { ptr, i32 }
           catch ptr null
   %718 = extractvalue { ptr, i32 } %717, 0
-  call void @__clang_call_terminate(ptr %718) #25
+  call void @__clang_call_terminate(ptr %718) #25, !noalias !22
   unreachable
 
 _ZNKSt3any4typeEv.exit.i.i.i.i386:                ; preds = %714, %712
@@ -2846,7 +2846,7 @@ _ZN12_GLOBAL__N_19IsHoldingISt6vectorISt3anySaIS2_EEEEbRKS2_.exit433: ; preds = 
   %910 = landingpad { ptr, i32 }
           catch ptr null
   %911 = extractvalue { ptr, i32 } %910, 0
-  call void @__clang_call_terminate(ptr %911) #25
+  call void @__clang_call_terminate(ptr %911) #25, !noalias !27
   unreachable
 
 _ZNKSt3any4typeEv.exit.i.i.i.i437:                ; preds = %907, %905
@@ -2959,7 +2959,7 @@ _ZNSt6vectorISt3anySaIS0_EED2Ev.exit458:          ; preds = %_ZSt8_DestroyIPSt3a
   %947 = landingpad { ptr, i32 }
           catch ptr null
   %948 = extractvalue { ptr, i32 } %947, 0
-  call void @__clang_call_terminate(ptr %948) #25
+  call void @__clang_call_terminate(ptr %948) #25, !noalias !30
   unreachable
 
 _ZNKSt3any4typeEv.exit.i.i.i.i460:                ; preds = %944, %942
@@ -3530,7 +3530,7 @@ _ZN12_GLOBAL__N_19IsHoldingISt6vectorISt3anySaIS2_EEEEbRKS2_.exit527: ; preds = 
   %1136 = landingpad { ptr, i32 }
           catch ptr null
   %1137 = extractvalue { ptr, i32 } %1136, 0
-  call void @__clang_call_terminate(ptr %1137) #25
+  call void @__clang_call_terminate(ptr %1137) #25, !noalias !38
   unreachable
 
 _ZNKSt3any4typeEv.exit.i.i.i.i531:                ; preds = %1133, %1131
@@ -3643,7 +3643,7 @@ _ZNSt6vectorISt3anySaIS0_EED2Ev.exit552:          ; preds = %_ZSt8_DestroyIPSt3a
   %1173 = landingpad { ptr, i32 }
           catch ptr null
   %1174 = extractvalue { ptr, i32 } %1173, 0
-  call void @__clang_call_terminate(ptr %1174) #25
+  call void @__clang_call_terminate(ptr %1174) #25, !noalias !41
   unreachable
 
 _ZNKSt3any4typeEv.exit.i.i.i.i554:                ; preds = %1170, %1168
@@ -4214,7 +4214,7 @@ _ZN12_GLOBAL__N_19IsHoldingISt6vectorISt3anySaIS2_EEEEbRKS2_.exit653: ; preds = 
   %1362 = landingpad { ptr, i32 }
           catch ptr null
   %1363 = extractvalue { ptr, i32 } %1362, 0
-  call void @__clang_call_terminate(ptr %1363) #25
+  call void @__clang_call_terminate(ptr %1363) #25, !noalias !49
   unreachable
 
 _ZNKSt3any4typeEv.exit.i.i.i.i657:                ; preds = %1359, %1357
@@ -4327,7 +4327,7 @@ _ZNSt6vectorISt3anySaIS0_EED2Ev.exit678:          ; preds = %_ZSt8_DestroyIPSt3a
   %1399 = landingpad { ptr, i32 }
           catch ptr null
   %1400 = extractvalue { ptr, i32 } %1399, 0
-  call void @__clang_call_terminate(ptr %1400) #25
+  call void @__clang_call_terminate(ptr %1400) #25, !noalias !52
   unreachable
 
 _ZNKSt3any4typeEv.exit.i.i.i.i680:                ; preds = %1396, %1394
@@ -4898,7 +4898,7 @@ _ZN12_GLOBAL__N_19IsHoldingISt6vectorISt3anySaIS2_EEEEbRKS2_.exit779: ; preds = 
   %1588 = landingpad { ptr, i32 }
           catch ptr null
   %1589 = extractvalue { ptr, i32 } %1588, 0
-  call void @__clang_call_terminate(ptr %1589) #25
+  call void @__clang_call_terminate(ptr %1589) #25, !noalias !60
   unreachable
 
 _ZNKSt3any4typeEv.exit.i.i.i.i783:                ; preds = %1585, %1583
@@ -5011,7 +5011,7 @@ _ZNSt6vectorISt3anySaIS0_EED2Ev.exit804:          ; preds = %_ZSt8_DestroyIPSt3a
   %1625 = landingpad { ptr, i32 }
           catch ptr null
   %1626 = extractvalue { ptr, i32 } %1625, 0
-  call void @__clang_call_terminate(ptr %1626) #25
+  call void @__clang_call_terminate(ptr %1626) #25, !noalias !63
   unreachable
 
 _ZNKSt3any4typeEv.exit.i.i.i.i806:                ; preds = %1622, %1620
@@ -5556,7 +5556,7 @@ _ZN12_GLOBAL__N_19IsHoldingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %1840 = landingpad { ptr, i32 }
           catch ptr null
   %1841 = extractvalue { ptr, i32 } %1840, 0
-  call void @__clang_call_terminate(ptr %1841) #25
+  call void @__clang_call_terminate(ptr %1841) #25, !noalias !67
   unreachable
 
 _ZNKSt3any4typeEv.exit.i.i.i.i876:                ; preds = %1837, %1835
@@ -5663,7 +5663,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %1872 = landingpad { ptr, i32 }
           catch ptr null
   %1873 = extractvalue { ptr, i32 } %1872, 0
-  call void @__clang_call_terminate(ptr %1873) #25
+  call void @__clang_call_terminate(ptr %1873) #25, !noalias !70
   unreachable
 
 _ZNKSt3any4typeEv.exit.i.i.i.i886:                ; preds = %1869, %1867
@@ -8333,7 +8333,7 @@ _ZN12_GLOBAL__N_19IsHoldingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %377 = landingpad { ptr, i32 }
           catch ptr null
   %378 = extractvalue { ptr, i32 } %377, 0
-  call void @__clang_call_terminate(ptr %378) #25
+  call void @__clang_call_terminate(ptr %378) #25, !noalias !82
   unreachable
 
 _ZNKSt3any4typeEv.exit.i.i.i.i121:                ; preds = %374, %372

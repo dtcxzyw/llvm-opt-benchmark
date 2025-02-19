@@ -21991,7 +21991,7 @@ default.unreachable95:                            ; preds = %485, %308, %293, %1
   %150 = getelementptr inbounds nuw i8, ptr %146, i64 24
   %151 = load ptr, ptr %150, align 8, !invariant.load !25, !noalias !3361, !nonnull !25
   %152 = invoke { i64, ptr } %151(ptr noundef nonnull align 1 %147, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
-          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17he0945ea1a3c03623E.exit.i" unwind label %153
+          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17he0945ea1a3c03623E.exit.i" unwind label %153, !noalias !3359
 
 153:                                              ; preds = %145
   %154 = landingpad { ptr, i32 }
@@ -32354,7 +32354,7 @@ _ZN4core3ops8function6FnOnce9call_once17h30e45a35bea77d6bE.exit.i: ; preds = %19
   unreachable
 
 230:                                              ; preds = %.noexc.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %213, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %213, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !4948
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !4948
   %231 = load i32, ptr %11, align 8, !alias.scope !4951, !noundef !25
   %.not.i = icmp eq i32 %231, 0
@@ -38027,7 +38027,7 @@ attributes #25 = { noreturn }
 !3358 = distinct !{!3358, !3356, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17he0945ea1a3c03623E: argument 1"}
 !3359 = !{!3349}
 !3360 = !{!3355}
-!3361 = !{!3355, !3358}
+!3361 = !{!3355, !3358, !3349}
 !3362 = !{!3363}
 !3363 = distinct !{!3363, !3364, !"_ZN4core3ptr182drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$$GT$17hcc1ea63f495a2acfE: argument 0"}
 !3364 = distinct !{!3364, !"_ZN4core3ptr182drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$$GT$17hcc1ea63f495a2acfE"}

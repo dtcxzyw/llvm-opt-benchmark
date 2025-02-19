@@ -1343,7 +1343,7 @@ _ZNK5vcpkg11DllMetadata28try_get_image_data_directoryEm.exit.i: ; preds = %245
   %307 = landingpad { ptr, i32 }
           catch ptr null
   %308 = extractvalue { ptr, i32 } %307, 0
-  call void @__clang_call_terminate(ptr %308) #24
+  call void @__clang_call_terminate(ptr %308) #24, !noalias !35
   unreachable
 
 _ZNO5vcpkg9ExpectedTIjNS_15LocalizedStringEE5errorEv.exit.i: ; preds = %.noexc50

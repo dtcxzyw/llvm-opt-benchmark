@@ -4814,7 +4814,7 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
   %269 = extractvalue { ptr, ptr } %249, 0
   %270 = extractvalue { ptr, ptr } %249, 1
   invoke void @_ZN4core4iter8adapters11try_process17hfe448e319533374bE(ptr nonnull sret([32 x i8]) align 8 %107, ptr align 1 %269, ptr align 8 %270)
-          to label %271 unwind label %244
+          to label %271 unwind label %244, !noalias !24
 
 271:                                              ; preds = %268
   %272 = load i64, ptr %107, align 8, !noalias !24
@@ -10343,9 +10343,9 @@ _ZN19pyo3_macros_backend7pyclass31complex_enum_struct_variant_new17h9ee762c91a75
 
 1020:                                             ; preds = %1019
   %1021 = load ptr, ptr %911, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.015.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false), !noalias !62
   store i64 39, ptr %31, align 8, !noalias !62
   store i64 -9223372036854775808, ptr %.sroa.015.sroa.2.0..sroa_idx.i.i, align 8, !noalias !62
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.015.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false), !noalias !62
   store ptr %1021, ptr %.sroa.416.0..sroa_idx.i.i, align 8, !noalias !62
   store ptr null, ptr %.sroa.5.0..sroa_idx.i5.i, align 8, !noalias !62
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h51c94ecefc35edfcE"(ptr nonnull align 8 %34, ptr nonnull align 8 %31)
@@ -12322,9 +12322,9 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
           to label %504 unwind label %.loopexit.i.i, !noalias !72
 
 504:                                              ; preds = %503
-  %505 = load ptr, ptr %494, align 8
+  %505 = load ptr, ptr %494, align 8, !noalias !72
   %506 = getelementptr inbounds nuw i8, ptr %494, i64 8
-  %507 = load i32, ptr %506, align 8
+  %507 = load i32, ptr %506, align 8, !noalias !72
   invoke fastcc void @_ZN19pyo3_macros_backend7pyclass33complex_enum_variant_field_getter17h5a76fbd1520c63a4E(ptr noalias align 8 %60, ptr nonnull align 8 %112, ptr nonnull align 8 %67, i32 %507, ptr nonnull align 8 %3)
           to label %511 unwind label %.thread.i.i, !noalias !72
 

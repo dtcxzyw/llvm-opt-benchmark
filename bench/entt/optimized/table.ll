@@ -1274,7 +1274,6 @@ define hidden void @_ZN23Table_Constructors_Test8TestBodyEv(ptr nonnull readnone
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #25
   invoke void @_ZNSt11_Tuple_implILm0EJSt6vectorIiSaIiEES0_IcSaIcEEEEC2ERKS2_RKS4_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN4entt11basic_tableIJSt6vectorIiSaIiEES1_IcSaIcEEEED2Ev.exit126 unwind label %38

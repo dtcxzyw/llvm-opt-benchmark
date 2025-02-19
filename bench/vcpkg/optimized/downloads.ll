@@ -2573,16 +2573,14 @@ _ZNSt8functionIFvN5vcpkg10StringViewEEED2Ev.exit: ; preds = %153, %155
 
 169:                                              ; preds = %165, %163
   %.sroa.06.0.copyload = load i64, ptr @_ZN5vcpkg22msgCurlFailedToPutHttpE, align 8
-  %.sroa.0.0.copyload.i = load ptr, ptr %15, align 8
-  %.sroa.2.0.copyload.i = load i64, ptr %35, align 8
   invoke void @_ZN5vcpkg12error_prefixEv(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %34)
           to label %.noexc76 unwind label %204
 
 .noexc76:                                         ; preds = %169
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !40
-  store ptr %.sroa.0.0.copyload.i, ptr %10, align 8, !noalias !40
+  store ptr %2, ptr %10, align 8, !noalias !40
   %170 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 %.sroa.2.0.copyload.i, ptr %170, align 8, !noalias !40
+  store i64 %3, ptr %170, align 8, !noalias !40
   %171 = load ptr, ptr @_ZN5vcpkg3msg11exit_code_t4nameE, align 8, !noalias !40
   %172 = load ptr, ptr @_ZN5vcpkg3msg5url_t4nameE, align 8, !noalias !40
   %173 = load ptr, ptr @_ZN5vcpkg3msg7value_t4nameE, align 8, !noalias !40

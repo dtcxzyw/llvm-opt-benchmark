@@ -28746,7 +28746,7 @@ _ZNSt12_Vector_baseIN8WasmEdge10RefVariantESaIS1_EE11_M_allocateEm.exit.thread.i
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #22
+  tail call void @__clang_call_terminate(ptr %27) #22, !noalias !233
   unreachable
 
 _ZSt11make_uniqueIN8WasmEdge7Runtime8Instance15ElementInstanceEJRjRKNS0_7ValTypeERSt6vectorINS0_10RefVariantESaIS9_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %_ZNSt12_Vector_baseIN8WasmEdge10RefVariantESaIS1_EE11_M_allocateEm.exit.thread.i.i.i.i, %.noexc4.i.i.i

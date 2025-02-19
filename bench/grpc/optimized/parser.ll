@@ -510,7 +510,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i:               ; preds = %if.then.i.i.i.i.i.i
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #18
+  call void @__clang_call_terminate(ptr %26) #18, !noalias !14
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i
@@ -592,7 +592,7 @@ terminate.lpad.i.i.i.i.i.i56.i.i.i.i:             ; preds = %if.then.i.i.i.i.i.i
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #18
+  call void @__clang_call_terminate(ptr %35) #18, !noalias !14
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i57.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i55.i.i.i.i, %for.body.i.i.i.i51.i.i.i.i
@@ -664,7 +664,7 @@ terminate.lpad.i.i.i.i.i.i78.i.i.i.i:             ; preds = %if.then.i.i.i.i.i.i
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  call void @__clang_call_terminate(ptr %45) #18
+  call void @__clang_call_terminate(ptr %45) #18, !noalias !14
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i79.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i77.i.i.i.i, %for.body.i.i.i.i73.i.i.i.i
@@ -726,7 +726,7 @@ terminate.lpad.i.i.i.i.i.i97.i.i.i.i:             ; preds = %if.then.i.i.i.i.i.i
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #18
+  call void @__clang_call_terminate(ptr %53) #18, !noalias !14
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i98.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i96.i.i.i.i, %for.body.i.i.i.i92.i.i.i.i
@@ -788,7 +788,7 @@ terminate.lpad.i.i.i.i.i.i116.i.i.i.i:            ; preds = %if.then.i.i.i.i.i.i
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #18
+  call void @__clang_call_terminate(ptr %61) #18, !noalias !14
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i117.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i115.i.i.i.i, %for.body.i.i.i.i111.i.i.i.i
@@ -1042,7 +1042,7 @@ terminate.lpad.i.i.i.i.i.i.i21.i.i.i:             ; preds = %if.then.i.i.i.i.i.i
   %79 = landingpad { ptr, i32 }
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #18
+  call void @__clang_call_terminate(ptr %80) #18, !noalias !14
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i.i22.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i20.i.i.i, %for.body.i.i.i.i.i16.i.i.i
@@ -1103,7 +1103,7 @@ terminate.lpad.i.i.i.i.i.i58.i.i.i.i:             ; preds = %if.then.i.i.i.i.i.i
   %87 = landingpad { ptr, i32 }
           catch ptr null
   %88 = extractvalue { ptr, i32 } %87, 0
-  call void @__clang_call_terminate(ptr %88) #18
+  call void @__clang_call_terminate(ptr %88) #18, !noalias !14
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i59.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i57.i.i.i.i, %for.body.i.i.i.i53.i.i.i.i
@@ -1164,7 +1164,7 @@ terminate.lpad.i.i.i.i.i.i77.i.i.i.i:             ; preds = %if.then.i.i.i.i.i.i
   %95 = landingpad { ptr, i32 }
           catch ptr null
   %96 = extractvalue { ptr, i32 } %95, 0
-  call void @__clang_call_terminate(ptr %96) #18
+  call void @__clang_call_terminate(ptr %96) #18, !noalias !14
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i78.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i76.i.i.i.i, %for.body.i.i.i.i72.i.i.i.i
@@ -1225,7 +1225,7 @@ terminate.lpad.i.i.i.i.i.i96.i.i.i.i:             ; preds = %if.then.i.i.i.i.i.i
   %103 = landingpad { ptr, i32 }
           catch ptr null
   %104 = extractvalue { ptr, i32 } %103, 0
-  call void @__clang_call_terminate(ptr %104) #18
+  call void @__clang_call_terminate(ptr %104) #18, !noalias !14
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i97.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i95.i.i.i.i, %for.body.i.i.i.i91.i.i.i.i
@@ -1605,7 +1605,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i
   %139 = landingpad { ptr, i32 }
           catch ptr null
   %140 = extractvalue { ptr, i32 } %139, 0
-  call void @__clang_call_terminate(ptr %140) #18
+  call void @__clang_call_terminate(ptr %140) #18, !noalias !38
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
@@ -1676,7 +1676,7 @@ terminate.lpad.i.i.i.i.i.i80.i.i.i:               ; preds = %if.then.i.i.i.i.i.i
   %145 = landingpad { ptr, i32 }
           catch ptr null
   %146 = extractvalue { ptr, i32 } %145, 0
-  call void @__clang_call_terminate(ptr %146) #18
+  call void @__clang_call_terminate(ptr %146) #18, !noalias !38
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i81.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i79.i.i.i, %for.body.i.i.i.i75.i.i.i
@@ -1902,7 +1902,7 @@ terminate.lpad.i36.i.i:                           ; preds = %if.then.i.i35.i.i
   %166 = landingpad { ptr, i32 }
           catch ptr null
   %167 = extractvalue { ptr, i32 } %166, 0
-  call void @__clang_call_terminate(ptr %167) #18
+  call void @__clang_call_terminate(ptr %167) #18, !noalias !14
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit37.i.i:     ; preds = %if.then.i.i35.i.i, %invoke.cont18.i.i, %if.then.i27.i.i

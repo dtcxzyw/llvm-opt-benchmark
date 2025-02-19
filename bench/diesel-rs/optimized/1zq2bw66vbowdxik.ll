@@ -1257,11 +1257,11 @@ define internal fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_infer
   store i32 2, ptr %9, align 8
   br label %24
 
-24:                                               ; preds = %37, %19
+24:                                               ; preds = %35, %19
   call void @_ZN4core4iter6traits8iterator8Iterator5chain17h3b2b83c58c78683bE(ptr nonnull sret({ { i64, [40 x i64] }, { i32, [17 x i32] } }) align 8 %11, ptr nonnull align 8 %10, ptr nonnull align 8 %9)
   call void @"_ZN111_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h09fafb758b4764b7E"(ptr nonnull sret({ { { i64, ptr }, i64 }, ptr }) align 8 %12, ptr nonnull align 8 %11)
   %25 = invoke i32 @"_ZN57_$LT$syn..token..Lt$u20$as$u20$core..default..Default$GT$7default17h2820235303e02da6E"()
-          to label %41 unwind label %39
+          to label %39 unwind label %37
 
 26:                                               ; preds = %17
   %.fca.0.extract = extractvalue { ptr, ptr } %18, 0
@@ -1270,7 +1270,7 @@ define internal fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_infer
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %27 = invoke { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17h550479364212ff2dE"(ptr align 8 %3)
-          to label %29 unwind label %57
+          to label %29 unwind label %55
 
 28:                                               ; preds = %34
   %lpad.thr_comm.split-lp39 = landingpad { ptr, i32 }
@@ -1285,83 +1285,81 @@ define internal fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_infer
   %33 = icmp ne ptr %31, null
   tail call void @llvm.assume(i1 %33)
   invoke void @_ZN4core4iter6traits8iterator8Iterator5chain17heab78ae0f150eeb6E(ptr nonnull sret({ { i32, i32 }, { ptr, ptr } }) align 8 %6, ptr nonnull align 1 %30, ptr nonnull align 8 %31, i32 0)
-          to label %34 unwind label %57
+          to label %34 unwind label %55
 
 34:                                               ; preds = %29
-  %35 = load ptr, ptr %7, align 8, !nonnull !4, !align !13, !noundef !4
-  %36 = load ptr, ptr %.fca.1.gep, align 8, !nonnull !4, !align !6, !noundef !4
-  invoke void @_ZN4core4iter6traits8iterator8Iterator3zip17h739e98959512d868E(ptr nonnull sret({ { { i32, i32 }, { ptr, ptr } }, { ptr, ptr }, i64, i64, i64 }) align 8 %8, ptr nonnull align 1 %35, ptr nonnull align 8 %36, ptr nonnull align 8 %6)
-          to label %37 unwind label %28
+  invoke void @_ZN4core4iter6traits8iterator8Iterator3zip17h739e98959512d868E(ptr nonnull sret({ { { i32, i32 }, { ptr, ptr } }, { ptr, ptr }, i64, i64, i64 }) align 8 %8, ptr nonnull align 1 %.fca.0.extract, ptr nonnull align 8 %.fca.1.extract, ptr nonnull align 8 %6)
+          to label %35 unwind label %28
 
-37:                                               ; preds = %34
+35:                                               ; preds = %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false)
-  %38 = icmp ne ptr %1, null
-  call void @llvm.assume(i1 %38)
+  %36 = icmp ne ptr %1, null
+  call void @llvm.assume(i1 %36)
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 64
   store ptr %1, ptr %.sroa.24.0..sroa_idx, align 8
   br label %24
 
-39:                                               ; preds = %41, %24
-  %40 = landingpad { ptr, i32 }
+37:                                               ; preds = %39, %24
+  %38 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr102drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..path..GenericArgument$C$syn..token..Comma$GT$$GT$17hf8e664174d390c4cE"(ptr nonnull align 8 %12) #9
-          to label %56 unwind label %54
+          to label %54 unwind label %52
 
-41:                                               ; preds = %24
-  %42 = invoke i32 @"_ZN57_$LT$syn..token..Gt$u20$as$u20$core..default..Default$GT$7default17h3c8ab2b81e30f9c4E"()
-          to label %43 unwind label %39
+39:                                               ; preds = %24
+  %40 = invoke i32 @"_ZN57_$LT$syn..token..Gt$u20$as$u20$core..default..Default$GT$7default17h3c8ab2b81e30f9c4E"()
+          to label %41 unwind label %37
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store i32 0, ptr %44, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %13, i64 44
-  store i32 %25, ptr %45, align 4
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  store i32 0, ptr %42, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %13, i64 44
+  store i32 %25, ptr %43, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false)
-  %46 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  store i32 %42, ptr %46, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %48 = load i64, ptr %47, align 8, !noundef !4
-  %49 = icmp eq i64 %48, 0
-  %50 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %.not = icmp eq ptr %51, null
-  %.025 = select i1 %49, i1 %.not, i1 false
-  br i1 %.025, label %.critedge, label %52
+  %44 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  store i32 %40, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %46 = load i64, ptr %45, align 8, !noundef !4
+  %47 = icmp eq i64 %46, 0
+  %48 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %49 = load ptr, ptr %48, align 8
+  %.not = icmp eq ptr %49, null
+  %.025 = select i1 %47, i1 %.not, i1 false
+  br i1 %.025, label %.critedge, label %50
 
-52:                                               ; preds = %43
+50:                                               ; preds = %41
   %.sroa.315.0..sroa_idx.c = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -9223372036854775807, ptr %0, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.315.0..sroa_idx.c, ptr noundef nonnull align 8 dereferenceable(56) %13, i64 56, i1 false)
-  br label %53
+  br label %51
 
-53:                                               ; preds = %52, %.critedge
+51:                                               ; preds = %50, %.critedge
   ret void
 
-.critedge:                                        ; preds = %43
+.critedge:                                        ; preds = %41
   store i64 -9223372036854775808, ptr %0, align 8
   call void @"_ZN4core3ptr62drop_in_place$LT$syn..path..AngleBracketedGenericArguments$GT$17h1fc2faf0220763f9E"(ptr nonnull align 8 %13)
-  br label %53
+  br label %51
 
-54:                                               ; preds = %.thread, %57, %39
-  %55 = landingpad { ptr, i32 }
+52:                                               ; preds = %.thread, %55, %37
+  %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-56:                                               ; preds = %.thread, %39
-  %.pn27 = phi { ptr, i32 } [ %40, %39 ], [ %.pn31, %.thread ]
+54:                                               ; preds = %.thread, %37
+  %.pn27 = phi { ptr, i32 } [ %38, %37 ], [ %.pn31, %.thread ]
   resume { ptr, i32 } %.pn27
 
-57:                                               ; preds = %29, %26
+55:                                               ; preds = %29, %26
   %lpad.thr_comm38 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr76drop_in_place$LT$syn..punctuated..Iter$LT$syn..path..GenericArgument$GT$$GT$17h8e714508215dbb60E"(ptr nonnull align 8 %7) #9
-          to label %.thread unwind label %54
+          to label %.thread unwind label %52
 
-.thread:                                          ; preds = %28, %57, %.thread33
-  %.pn31 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread33 ], [ %lpad.thr_comm.split-lp39, %28 ], [ %lpad.thr_comm38, %57 ]
+.thread:                                          ; preds = %28, %55, %.thread33
+  %.pn31 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread33 ], [ %lpad.thr_comm.split-lp39, %28 ], [ %lpad.thr_comm38, %55 ]
   invoke void @"_ZN4core3ptr77drop_in_place$LT$core..option..IntoIter$LT$syn..path..GenericArgument$GT$$GT$17hf41e503ec88dd7e7E"(ptr nonnull align 8 %10) #9
-          to label %56 unwind label %54
+          to label %54 unwind label %52
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

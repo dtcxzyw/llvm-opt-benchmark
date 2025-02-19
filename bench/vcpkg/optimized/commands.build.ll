@@ -3231,7 +3231,7 @@ _ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exi
   %412 = call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #27, !noalias !33
   %413 = extractvalue { ptr, i64 } %412, 0
   %414 = extractvalue { ptr, i64 } %412, 1
-  %415 = call noundef zeroext i1 @_ZN5vcpkgltENS_10StringViewES0_(ptr %410, i64 %411, ptr %413, i64 %414) #27
+  %415 = call noundef zeroext i1 @_ZN5vcpkgltENS_10StringViewES0_(ptr %410, i64 %411, ptr %413, i64 %414) #27, !noalias !33
   %.19.i.i.i.i.i.i.i = select i1 %415, ptr %.0811.i.i.i.i.i.i.i, ptr %.012.i.i.i.i.i.i.i
   %.1.in.v.i.i.i.i.i.i.i = select i1 %415, i64 24, i64 16
   %.1.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 %.1.in.v.i.i.i.i.i.i.i
@@ -3252,7 +3252,7 @@ _ZNSt3mapIN5vcpkg4PathENS0_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsI
   %420 = call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %.19.i.i.i.i.i.i.i.sroa.sel) #27, !noalias !33
   %421 = extractvalue { ptr, i64 } %420, 0
   %422 = extractvalue { ptr, i64 } %420, 1
-  %423 = call noundef zeroext i1 @_ZN5vcpkgltENS_10StringViewES0_(ptr %418, i64 %419, ptr %421, i64 %422) #27
+  %423 = call noundef zeroext i1 @_ZN5vcpkgltENS_10StringViewES0_(ptr %418, i64 %419, ptr %421, i64 %422) #27, !noalias !33
   br i1 %423, label %.critedge.i.i.i.i, label %438
 
 .critedge.i.i.i.i:                                ; preds = %416, %_ZNSt3mapIN5vcpkg4PathENS0_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvESaISt4pairIKS1_S9_EEE11lower_boundERSD_.exit.i.i.i.i, %.noexc137.i
@@ -6715,7 +6715,7 @@ _ZNSt3mapIN5vcpkg4PathENS0_8EnvCache15TripletMapEntryESt4lessIvESaISt4pairIKS1_S
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #28
+  call void @__clang_call_terminate(ptr %36) #28, !noalias !101
   unreachable
 
 "_ZZNK5vcpkg8EnvCache17get_triplet_cacheERKNS_18ReadOnlyFilesystemERKNS_4PathEENK3$_0clEv.exit.i": ; preds = %.critedge.i
@@ -7763,7 +7763,7 @@ _ZNSt3mapIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4le
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #28
+  call void @__clang_call_terminate(ptr %36) #28, !noalias !119
   unreachable
 
 "_ZZN5vcpkgL19get_toolchain_cacheERNS_5CacheINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvEEERKS1_RKNS_18ReadOnlyFilesystemEENK3$_0clB5cxx11Ev.exit.i": ; preds = %.critedge.i
@@ -22222,7 +22222,7 @@ _ZNK5vcpkg28SourceControlFileAndLocation14port_directoryEv.exit195: ; preds = %.
   %850 = landingpad { ptr, i32 }
           catch ptr null
   %851 = extractvalue { ptr, i32 } %850, 0
-  call void @__clang_call_terminate(ptr %851) #28
+  call void @__clang_call_terminate(ptr %851) #28, !noalias !343
   unreachable
 
 _ZNKR5vcpkg8OptionalIRKNS_28SourceControlFileAndLocationEE13value_or_exitERKNS_8LineInfoE.exit.i196: ; preds = %845
@@ -22270,7 +22270,7 @@ _ZNKR5vcpkg8OptionalIRKNS_28SourceControlFileAndLocationEE13value_or_exitERKNS_8
   %868 = landingpad { ptr, i32 }
           catch ptr null
   %869 = extractvalue { ptr, i32 } %868, 0
-  call void @__clang_call_terminate(ptr %869) #28
+  call void @__clang_call_terminate(ptr %869) #28, !noalias !343
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i198
@@ -22295,7 +22295,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   %876 = landingpad { ptr, i32 }
           catch ptr null
   %877 = extractvalue { ptr, i32 } %876, 0
-  call void @__clang_call_terminate(ptr %877) #28
+  call void @__clang_call_terminate(ptr %877) #28, !noalias !343
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i: ; preds = %872
@@ -22329,7 +22329,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIN5vcpkg
   %889 = landingpad { ptr, i32 }
           catch ptr null
   %890 = extractvalue { ptr, i32 } %889, 0
-  call void @__clang_call_terminate(ptr %890) #28
+  call void @__clang_call_terminate(ptr %890) #28, !noalias !343
   unreachable
 
 _ZNKR5vcpkg8OptionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEE13value_or_exitERKNS_8LineInfoE.exit.i: ; preds = %881
@@ -22511,7 +22511,7 @@ _ZNSt6vectorIN5vcpkg15BinaryParagraphESaIS1_EE7reserveEm.exit.i: ; preds = %_ZNS
   %966 = landingpad { ptr, i32 }
           catch ptr null
   %967 = extractvalue { ptr, i32 } %966, 0
-  call void @__clang_call_terminate(ptr %967) #28
+  call void @__clang_call_terminate(ptr %967) #28, !noalias !343
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i38.i: ; preds = %.lr.ph.i.i.i35.i
@@ -22536,7 +22536,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   %974 = landingpad { ptr, i32 }
           catch ptr null
   %975 = extractvalue { ptr, i32 } %974, 0
-  call void @__clang_call_terminate(ptr %975) #28
+  call void @__clang_call_terminate(ptr %975) #28, !noalias !343
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i45.i: ; preds = %970

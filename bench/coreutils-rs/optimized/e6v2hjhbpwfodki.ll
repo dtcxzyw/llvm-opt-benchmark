@@ -2401,7 +2401,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           cleanup
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @_ZN3std9panicking3try8do_catch17ha46d692b850ce49cE.llvm.7250715705572359478(ptr nonnull %2, ptr %30)
+  call void @_ZN3std9panicking3try8do_catch17ha46d692b850ce49cE.llvm.7250715705572359478(ptr nonnull %2, ptr %30), !noalias !384
   %31 = load ptr, ptr %2, align 8, !noalias !381, !nonnull !13, !align !158
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %33 = load ptr, ptr %32, align 8, !noalias !381, !nonnull !13, !align !351
@@ -2641,7 +2641,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           cleanup
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @_ZN3std9panicking3try8do_catch17h51aa696d954d8bb0E.llvm.7250715705572359478(ptr nonnull %2, ptr %30)
+  call void @_ZN3std9panicking3try8do_catch17h51aa696d954d8bb0E.llvm.7250715705572359478(ptr nonnull %2, ptr %30), !noalias !425
   %31 = load ptr, ptr %2, align 8, !noalias !422, !nonnull !13, !align !158
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %33 = load ptr, ptr %32, align 8, !noalias !422, !nonnull !13, !align !351
@@ -2881,7 +2881,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           cleanup
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @_ZN3std9panicking3try8do_catch17hbb78a5e56520b612E.llvm.7250715705572359478(ptr nonnull %2, ptr %29)
+  call void @_ZN3std9panicking3try8do_catch17hbb78a5e56520b612E.llvm.7250715705572359478(ptr nonnull %2, ptr %29), !noalias !464
   %30 = load ptr, ptr %2, align 8, !noalias !461, !nonnull !13, !align !158
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %32 = load ptr, ptr %31, align 8, !noalias !461, !nonnull !13, !align !351

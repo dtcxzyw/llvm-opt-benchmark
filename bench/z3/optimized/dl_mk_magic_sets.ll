@@ -4649,7 +4649,6 @@ invoke.cont105:                                   ; preds = %invoke.cont101
           to label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit unwind label %lpad49.loopexit.split-lp
 
 _ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit:    ; preds = %invoke.cont105
-  store ptr null, ptr %result, align 8
   %67 = load ptr, ptr %empty_var_idx_set, align 8
   %tobool.not.i.i.i.i50 = icmp eq ptr %67, null
   br i1 %tobool.not.i.i.i.i50, label %return, label %if.then.i.i.i.i

@@ -15947,8 +15947,8 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN92_$LT$futures_channel..oneshot..Re
 
 27:                                               ; preds = %8
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %29 = load ptr, ptr %28, align 8, !nonnull !13, !noundef !13
-  tail call void %29(ptr noundef %16)
+  %29 = load ptr, ptr %28, align 8, !noalias !3990, !nonnull !13, !noundef !13
+  tail call void %29(ptr noundef %16), !noalias !3990
   br label %34
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h3672690d7387bd1fE.exit.i": ; preds = %24, %21

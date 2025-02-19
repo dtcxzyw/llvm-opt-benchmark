@@ -3342,7 +3342,7 @@ define hidden void @"_ZN15futures_channel4mpsc24UnboundedSender$LT$T$GT$10do_sen
 
 "_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$4push17h0732bdab4818cb70E.exit.i": ; preds = %.noexc.i.i
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %21, ptr noundef nonnull align 8 dereferenceable(416) %4, i64 416, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %21, ptr noundef nonnull align 8 dereferenceable(416) %4, i64 416, i1 false), !noalias !451
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %4), !noalias !451
   %31 = atomicrmw xchg ptr %30, ptr %21 acq_rel, align 8, !noalias !451
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 408
@@ -3710,7 +3710,7 @@ define hidden void @"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$21q
 
 "_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$4push17h0732bdab4818cb70E.exit": ; preds = %.noexc.i
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %7, ptr noundef nonnull align 8 dereferenceable(416) %3, i64 416, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %7, ptr noundef nonnull align 8 dereferenceable(416) %3, i64 416, i1 false), !noalias !495
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %3), !noalias !495
   %17 = atomicrmw xchg ptr %16, ptr %7 acq_rel, align 8, !noalias !495
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 408

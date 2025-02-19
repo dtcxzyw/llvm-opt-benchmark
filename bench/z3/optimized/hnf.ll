@@ -2574,7 +2574,6 @@ invoke.cont43:                                    ; preds = %if.then.i.i.i14.i, 
   %40 = phi ptr [ %call.i, %invoke.cont3.i ], [ %30, %if.then2.i.i.i19.i ], [ %30, %if.then.i.i.i14.i ]
   %41 = load ptr, ptr %premise, align 8
   store ptr %40, ptr %premise, align 8
-  store ptr %41, ptr %ref.tmp40, align 8
   %tobool.not.i.i.i85 = icmp eq ptr %41, null
   br i1 %tobool.not.i.i.i85, label %_ZN7obj_refI3app11ast_managerED2Ev.exit, label %if.then.i.i.i.i86
 
@@ -2738,7 +2737,6 @@ invoke.cont60:                                    ; preds = %if.then.i.i.i14.i14
   %61 = phi ptr [ %call.i123, %invoke.cont3.i130 ], [ %50, %if.then2.i.i.i19.i149 ], [ %50, %if.then.i.i.i14.i142 ]
   %62 = load ptr, ptr %premise, align 8
   store ptr %61, ptr %premise, align 8
-  store ptr %62, ptr %ref.tmp50, align 8
   %tobool.not.i.i.i153 = icmp eq ptr %62, null
   br i1 %tobool.not.i.i.i153, label %_ZN7obj_refI3app11ast_managerED2Ev.exit172, label %if.then.i.i.i.i154
 
@@ -3711,7 +3709,6 @@ lpad.i475:                                        ; preds = %if.then2.i.i.i19.i5
 invoke.cont206:                                   ; preds = %if.then.i.i.i14.i493, %if.then2.i.i.i19.i500, %invoke.cont3.i481
   %229 = phi ptr [ %call.i474, %invoke.cont3.i481 ], [ %219, %if.then2.i.i.i19.i500 ], [ %219, %if.then.i.i.i14.i493 ]
   store ptr %229, ptr %p2, align 8
-  store ptr %215, ptr %ref.tmp201, align 8
   br i1 %tobool.not.i459, label %_ZN7obj_refI3app11ast_managerED2Ev.exit522, label %if.then.i.i.i.i504
 
 if.then.i.i.i.i504:                               ; preds = %invoke.cont206
@@ -4349,9 +4346,8 @@ invoke.cont292:                                   ; preds = %if.then.i.i.i14.i76
   %324 = phi ptr [ %call.i747, %invoke.cont3.i754 ], [ %314, %if.then2.i.i.i19.i773 ], [ %314, %if.then.i.i.i14.i766 ]
   %325 = load ptr, ptr %premise, align 8
   store ptr %324, ptr %premise, align 8
-  store ptr %325, ptr %ref.tmp287, align 8
   %tobool.not.i.i.i777 = icmp eq ptr %325, null
-  br i1 %tobool.not.i.i.i777, label %_ZN7obj_refI3app11ast_managerED2Ev.exit796, label %if.then.i.i.i.i778
+  br i1 %tobool.not.i.i.i777, label %cleanup, label %if.then.i.i.i.i778
 
 if.then.i.i.i.i778:                               ; preds = %invoke.cont292
   %m_ref_count.i.i.i.i.i780 = getelementptr inbounds nuw i8, ptr %325, i64 8
@@ -4359,11 +4355,11 @@ if.then.i.i.i.i778:                               ; preds = %invoke.cont292
   %dec.i.i.i.i.i781 = add i32 %326, -1
   store i32 %dec.i.i.i.i.i781, ptr %m_ref_count.i.i.i.i.i780, align 4
   %cmp.i.i.i.i782 = icmp eq i32 %dec.i.i.i.i.i781, 0
-  br i1 %cmp.i.i.i.i782, label %if.then2.i.i.i.i784, label %_ZN7obj_refI3app11ast_managerED2Ev.exit796
+  br i1 %cmp.i.i.i.i782, label %if.then2.i.i.i.i784, label %cleanup
 
 if.then2.i.i.i.i784:                              ; preds = %if.then.i.i.i.i778
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %315, ptr noundef nonnull %325)
-          to label %_ZN7obj_refI3app11ast_managerED2Ev.exit796 unwind label %terminate.lpad.i785
+          to label %cleanup unwind label %terminate.lpad.i785
 
 terminate.lpad.i785:                              ; preds = %if.then2.i.i.i.i784
   %327 = landingpad { ptr, i32 }
@@ -4372,18 +4368,14 @@ terminate.lpad.i785:                              ; preds = %if.then2.i.i.i.i784
   call void @__clang_call_terminate(ptr %328) #20
   unreachable
 
-_ZN7obj_refI3app11ast_managerED2Ev.exit796:       ; preds = %if.then2.i.i.i.i784, %if.then.i.i.i.i778, %invoke.cont292
-  store ptr null, ptr %ref.tmp287, align 8
-  br label %cleanup
-
 lpad263:                                          ; preds = %if.then2.i.i.i679
   %329 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp258) #19
   br label %ehcleanup295
 
-cleanup:                                          ; preds = %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit582, %_ZN7obj_refI4expr11ast_managerED2Ev.exit730, %_ZN7obj_refI3app11ast_managerED2Ev.exit796
-  %330 = phi ptr [ %.pre896, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit582 ], [ %.pre897, %_ZN7obj_refI4expr11ast_managerED2Ev.exit730 ], [ %call284, %_ZN7obj_refI3app11ast_managerED2Ev.exit796 ]
+cleanup:                                          ; preds = %invoke.cont292, %if.then.i.i.i.i778, %if.then2.i.i.i.i784, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit582, %_ZN7obj_refI4expr11ast_managerED2Ev.exit730
+  %330 = phi ptr [ %.pre896, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit582 ], [ %.pre897, %_ZN7obj_refI4expr11ast_managerED2Ev.exit730 ], [ %call284, %if.then2.i.i.i.i784 ], [ %call284, %if.then.i.i.i.i778 ], [ %call284, %invoke.cont292 ]
   %tobool.not.i.i797 = icmp eq ptr %330, null
   br i1 %tobool.not.i.i797, label %_ZN7obj_refI3app11ast_managerED2Ev.exit806, label %if.then.i.i.i798
 

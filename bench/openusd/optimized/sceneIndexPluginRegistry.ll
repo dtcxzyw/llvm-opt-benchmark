@@ -1435,7 +1435,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEEC2
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  %80 = call ptr @__cxa_begin_catch(ptr %79) #18
+  %80 = call ptr @__cxa_begin_catch(ptr %79) #18, !noalias !9
   %81 = load ptr, ptr %74, align 8, !noalias !9
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8, !noalias !9
@@ -1453,7 +1453,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEEC2
   %87 = landingpad { ptr, i32 }
           catch ptr null
   %88 = extractvalue { ptr, i32 } %87, 0
-  call void @__clang_call_terminate(ptr %88) #22
+  call void @__clang_call_terminate(ptr %88) #22, !noalias !9
   unreachable
 
 89:                                               ; preds = %77

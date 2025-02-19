@@ -22013,6 +22013,7 @@ _ZN13libraw_memmgr6callocEmm.exit:                ; preds = %38
 .loopexit364:                                     ; preds = %.loopexit363, %16
   %134 = phi ptr [ %18, %16 ], [ %34, %.loopexit363 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #21
+  store i32 %3, ptr %5, align 4, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #21
   store ptr %2, ptr %6, align 8, !tbaa !194
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 9
@@ -22134,7 +22135,6 @@ _ZN6LibRaw5sgetnEiPh.exit305:                     ; preds = %.lr.ph.i301
 
 186:                                              ; preds = %_ZN6LibRaw5sgetnEiPh.exit305
   %187 = sub nsw i32 %137, %161
-  store i32 %187, ptr %5, align 4, !tbaa !19
   %188 = getelementptr inbounds nuw i8, ptr %140, i64 4
   br label %.lr.ph.i306
 

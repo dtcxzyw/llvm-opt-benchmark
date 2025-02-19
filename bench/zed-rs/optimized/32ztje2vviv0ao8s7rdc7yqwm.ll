@@ -8944,13 +8944,13 @@ define hidden void @_ZN9itertools9Itertools3tee17h5dc78c54ecf2d581E(ptr dead_on_
   resume { ptr, i32 } %12
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17hefad5770b201ecf8E.llvm.2903763967427937413.exit.i": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false), !noalias !985
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4), !noalias !985
-  %15 = load i64, ptr %8, align 8, !noundef !9
+  %15 = load i64, ptr %8, align 8, !noalias !985, !noundef !9
   %16 = icmp ne i64 %15, 0
   tail call void @llvm.assume(i1 %16)
   %17 = add i64 %15, 1
-  store i64 %17, ptr %8, align 8
+  store i64 %17, ptr %8, align 8, !noalias !985
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %19, label %_ZN9itertools3tee3new17h43da29c036894873E.exit
 

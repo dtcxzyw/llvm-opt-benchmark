@@ -8732,7 +8732,6 @@ invoke.cont16:                                    ; preds = %invoke.cont11
 
 _ZN9grpc_core13RefCountedPtrINS_26ExternalAccountCredentialsEED2Ev.exit: ; preds = %invoke.cont16
   %8 = load ptr, ptr %ref.tmp14, align 8
-  store ptr null, ptr %ref.tmp14, align 8
   %9 = load ptr, ptr %agg.tmp18, align 8
   %10 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %9, %10
@@ -11875,19 +11874,11 @@ _ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i, label %invoke.cont.thread.i.i.i, label %if.then.i.i3.i.i.i.i
-
-invoke.cont.thread.i.i.i:                         ; preds = %invoke.cont.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i)
-  br label %invoke.cont.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %invoke.cont.thread.i.i, label %if.then.i.i3.i.i.i.i
 
 if.then.i.i3.i.i.i.i:                             ; preds = %invoke.cont.i.i.i.i
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %0)
-          to label %invoke.cont.thread4.i.i.i unwind label %terminate.lpad.i.i.i.i.i
-
-invoke.cont.thread4.i.i.i:                        ; preds = %if.then.i.i3.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i)
-  br label %if.then.i.i3.i.i.i
+          to label %if.then.i.i3.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i3.i.i.i.i
   %6 = landingpad { ptr, i32 }
@@ -11904,58 +11895,50 @@ lpad.i.i.i.i:                                     ; preds = %_ZN4absl12lts_20230
 
 if.else.i.i.i.i:                                  ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i.i
   invoke void @_ZN9grpc_core26ExternalAccountCredentials13ExchangeTokenESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(560) %__f.val.i.i, i64 %1, ptr %2)
-          to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
+          to label %invoke.cont.thread.i.i unwind label %lpad.i.i.i
 
-invoke.cont.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %.pre.i.i.i = load i64, ptr %agg.tmp2.i.i.i, align 8
-  %.pre1.i.i.i = and i64 %.pre.i.i.i, 1
-  %9 = icmp eq i64 %.pre1.i.i.i, 0
+invoke.cont.thread.i.i:                           ; preds = %if.else.i.i.i.i, %invoke.cont.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i)
-  br i1 %9, label %invoke.cont.i.i, label %if.then.i.i3.i.i.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i.i.i)
+  br label %"_ZSt10__invoke_rIvRZN9grpc_core26ExternalAccountCredentials12fetch_oauth2EP33grpc_credentials_metadata_requestP19grpc_polling_entityPFvPvN4absl12lts_202308026StatusEENS0_9TimestampEE3$_0JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit"
 
-if.then.i.i3.i.i.i:                               ; preds = %invoke.cont.i.i.i, %invoke.cont.thread4.i.i.i
-  %10 = phi i64 [ %0, %invoke.cont.thread4.i.i.i ], [ %.pre.i.i.i, %invoke.cont.i.i.i ]
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %10)
-          to label %invoke.cont.i.i unwind label %terminate.lpad.i.i.i.i
+if.then.i.i3.i.i.i:                               ; preds = %if.then.i.i3.i.i.i.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %0)
+          to label %if.then.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i3.i.i.i
-  %11 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #28
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #28
   unreachable
 
 lpad.i.i.i:                                       ; preds = %if.else.i.i.i.i
-  %13 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i.i.i
 
 lpad.body.i.i.i:                                  ; preds = %lpad.i.i.i, %lpad.i.i.i.i
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %13, %lpad.i.i.i ], [ %8, %lpad.i.i.i.i ]
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %11, %lpad.i.i.i ], [ %8, %lpad.i.i.i.i ]
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp2.i.i.i) #27
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp3.i.i) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i) #27
   resume { ptr, i32 } %eh.lpad-body.i.i.i
 
-invoke.cont.i.i:                                  ; preds = %if.then.i.i3.i.i.i, %invoke.cont.i.i.i, %invoke.cont.thread.i.i.i
+if.then.i.i.i.i:                                  ; preds = %if.then.i.i3.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i.i.i)
-  %14 = load i64, ptr %agg.tmp3.i.i, align 8
-  %and.i.i.i.i.i = and i64 %14, 1
-  %cmp.i.i.i1.i.i = icmp eq i64 %and.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i1.i.i, label %"_ZSt10__invoke_rIvRZN9grpc_core26ExternalAccountCredentials12fetch_oauth2EP33grpc_credentials_metadata_requestP19grpc_polling_entityPFvPvN4absl12lts_202308026StatusEENS0_9TimestampEE3$_0JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit", label %if.then.i.i.i.i
-
-if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %14)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %0)
           to label %"_ZSt10__invoke_rIvRZN9grpc_core26ExternalAccountCredentials12fetch_oauth2EP33grpc_credentials_metadata_requestP19grpc_polling_entityPFvPvN4absl12lts_202308026StatusEENS0_9TimestampEE3$_0JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit" unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
-  %15 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #28
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #28
   unreachable
 
-"_ZSt10__invoke_rIvRZN9grpc_core26ExternalAccountCredentials12fetch_oauth2EP33grpc_credentials_metadata_requestP19grpc_polling_entityPFvPvN4absl12lts_202308026StatusEENS0_9TimestampEE3$_0JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit": ; preds = %invoke.cont.i.i, %if.then.i.i.i.i
+"_ZSt10__invoke_rIvRZN9grpc_core26ExternalAccountCredentials12fetch_oauth2EP33grpc_credentials_metadata_requestP19grpc_polling_entityPFvPvN4absl12lts_202308026StatusEENS0_9TimestampEE3$_0JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit": ; preds = %invoke.cont.thread.i.i, %if.then.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp3.i.i)

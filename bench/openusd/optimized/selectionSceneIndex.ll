@@ -789,7 +789,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__34UsdImagingSelectionSceneInde
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  %26 = call ptr @__cxa_begin_catch(ptr %25) #21
+  %26 = call ptr @__cxa_begin_catch(ptr %25) #21, !noalias !4
   %27 = load ptr, ptr %17, align 8, !noalias !4
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8, !noalias !4
@@ -807,7 +807,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__34UsdImagingSelectionSceneInde
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #23
+  call void @__clang_call_terminate(ptr %34) #23, !noalias !4
   unreachable
 
 35:                                               ; preds = %23

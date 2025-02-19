@@ -13306,9 +13306,9 @@ _ZNK4llvm8CallBase12getParamAttrEjNS_9Attribute8AttrKindE.exit.i.i: ; preds = %9
   %.010.i161.i.i.i = phi ptr [ %984, %_ZN4llvm23SmallVectorTemplateBaseINS_13ConstantRangeELb0EE9push_backERKS1_.exit615 ], [ %944, %_ZNK4llvm8CallBase12getParamAttrEjNS_9Attribute8AttrKindE.exit.i.i ]
   %948 = zext i32 %947 to i64
   %949 = add nuw nsw i64 %948, 1
-  %950 = load i32, ptr %113, align 4, !tbaa !27
+  %950 = load i32, ptr %113, align 4, !tbaa !27, !noalias !774
   %.not.i.i.not.i608 = icmp ult i32 %947, %950
-  %.pre3.i609 = load ptr, ptr %24, align 8, !tbaa !25
+  %.pre3.i609 = load ptr, ptr %24, align 8, !tbaa !25, !noalias !774
   br i1 %.not.i.i.not.i608, label %_ZN4llvm23SmallVectorTemplateBaseINS_13ConstantRangeELb0EE28reserveForParamAndGetAddressERKS1_m.exit.i612, label %951, !prof !33
 
 951:                                              ; preds = %.lr.ph.i160.i.i.i
@@ -13319,39 +13319,39 @@ _ZNK4llvm8CallBase12getParamAttrEjNS_9Attribute8AttrKindE.exit.i.i: ; preds = %9
   br i1 %spec.select.i.i.i.i.i610, label %956, label %955, !prof !150
 
 955:                                              ; preds = %951
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_13ConstantRangeELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(80) %24, i64 noundef %949)
-  %.pre.i611 = load ptr, ptr %24, align 8, !tbaa !25
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_13ConstantRangeELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(80) %24, i64 noundef %949), !noalias !774
+  %.pre.i611 = load ptr, ptr %24, align 8, !tbaa !25, !noalias !774
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_13ConstantRangeELb0EE28reserveForParamAndGetAddressERKS1_m.exit.i612
 
 956:                                              ; preds = %951
   %957 = ptrtoint ptr %.010.i161.i.i.i to i64
   %958 = ptrtoint ptr %.pre3.i609 to i64
   %959 = sub i64 %957, %958
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_13ConstantRangeELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(80) %24, i64 noundef %949)
-  %960 = load ptr, ptr %24, align 8, !tbaa !25
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_13ConstantRangeELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(80) %24, i64 noundef %949), !noalias !774
+  %960 = load ptr, ptr %24, align 8, !tbaa !25, !noalias !774
   %961 = getelementptr inbounds i8, ptr %960, i64 %959
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_13ConstantRangeELb0EE28reserveForParamAndGetAddressERKS1_m.exit.i612
 
 _ZN4llvm23SmallVectorTemplateBaseINS_13ConstantRangeELb0EE28reserveForParamAndGetAddressERKS1_m.exit.i612: ; preds = %956, %955, %.lr.ph.i160.i.i.i
   %962 = phi ptr [ %.pre3.i609, %.lr.ph.i160.i.i.i ], [ %960, %956 ], [ %.pre.i611, %955 ]
   %.016.i.i.i613 = phi ptr [ %.010.i161.i.i.i, %.lr.ph.i160.i.i.i ], [ %961, %956 ], [ %.010.i161.i.i.i, %955 ]
-  %963 = load i32, ptr %112, align 8, !tbaa !26
+  %963 = load i32, ptr %112, align 8, !tbaa !26, !noalias !774
   %964 = zext i32 %963 to i64
   %965 = getelementptr inbounds nuw %"class.llvm::ConstantRange", ptr %962, i64 %964
   %966 = getelementptr inbounds nuw i8, ptr %965, i64 8
   %967 = getelementptr inbounds nuw i8, ptr %.016.i.i.i613, i64 8
-  %968 = load i32, ptr %967, align 8, !tbaa !363
-  store i32 %968, ptr %966, align 8, !tbaa !363
+  %968 = load i32, ptr %967, align 8, !tbaa !363, !noalias !774
+  store i32 %968, ptr %966, align 8, !tbaa !363, !noalias !774
   %969 = icmp ult i32 %968, 65
   br i1 %969, label %970, label %972
 
 970:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_13ConstantRangeELb0EE28reserveForParamAndGetAddressERKS1_m.exit.i612
-  %971 = load i64, ptr %.016.i.i.i613, align 8, !tbaa !151
-  store i64 %971, ptr %965, align 8, !tbaa !151
+  %971 = load i64, ptr %.016.i.i.i613, align 8, !tbaa !151, !noalias !774
+  store i64 %971, ptr %965, align 8, !tbaa !151, !noalias !774
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i.i614
 
 972:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_13ConstantRangeELb0EE28reserveForParamAndGetAddressERKS1_m.exit.i612
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %965, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i613) #23
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %965, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i613) #23, !noalias !774
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i.i614
 
 _ZN4llvm5APIntC2ERKS0_.exit.i.i614:               ; preds = %972, %970
@@ -13359,24 +13359,24 @@ _ZN4llvm5APIntC2ERKS0_.exit.i.i614:               ; preds = %972, %970
   %974 = getelementptr inbounds nuw i8, ptr %.016.i.i.i613, i64 16
   %975 = getelementptr inbounds nuw i8, ptr %965, i64 24
   %976 = getelementptr inbounds nuw i8, ptr %.016.i.i.i613, i64 24
-  %977 = load i32, ptr %976, align 8, !tbaa !363
-  store i32 %977, ptr %975, align 8, !tbaa !363
+  %977 = load i32, ptr %976, align 8, !tbaa !363, !noalias !774
+  store i32 %977, ptr %975, align 8, !tbaa !363, !noalias !774
   %978 = icmp ult i32 %977, 65
   br i1 %978, label %979, label %981
 
 979:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i.i614
-  %980 = load i64, ptr %974, align 8, !tbaa !151
-  store i64 %980, ptr %973, align 8, !tbaa !151
+  %980 = load i64, ptr %974, align 8, !tbaa !151, !noalias !774
+  store i64 %980, ptr %973, align 8, !tbaa !151, !noalias !774
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_13ConstantRangeELb0EE9push_backERKS1_.exit615
 
 981:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i.i614
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %973, ptr noundef nonnull align 8 dereferenceable(12) %974) #23
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %973, ptr noundef nonnull align 8 dereferenceable(12) %974) #23, !noalias !774
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_13ConstantRangeELb0EE9push_backERKS1_.exit615
 
 _ZN4llvm23SmallVectorTemplateBaseINS_13ConstantRangeELb0EE9push_backERKS1_.exit615: ; preds = %979, %981
-  %982 = load i32, ptr %112, align 8, !tbaa !26
+  %982 = load i32, ptr %112, align 8, !tbaa !26, !noalias !774
   %983 = add i32 %982, 1
-  store i32 %983, ptr %112, align 8, !tbaa !26
+  store i32 %983, ptr %112, align 8, !tbaa !26, !noalias !774
   %984 = getelementptr inbounds nuw i8, ptr %.010.i161.i.i.i, i64 32
   %.not.i162.i.i.i = icmp eq ptr %984, %946
   br i1 %.not.i162.i.i.i, label %_ZN4llvm17ConstantRangeListC2ENS_8ArrayRefINS_13ConstantRangeEEE.exit163.i.i.i, label %.lr.ph.i160.i.i.i

@@ -3109,17 +3109,15 @@ _ZN4llvm16dyn_cast_or_nullINS_8MDStringENS_8MetadataEEEDaPT0_.exit: ; preds = %2
   %236 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %230) #27
   %237 = extractvalue { ptr, i64 } %236, 0
   %238 = extractvalue { ptr, i64 } %236, 1
-  %.sroa.04.0.copyload = load ptr, ptr %19, align 8, !tbaa !44
-  %.sroa.2.0.copyload = load i64, ptr %226, align 8, !tbaa !45
-  %.not.i.i46 = icmp eq i64 %238, %.sroa.2.0.copyload
+  %.not.i.i46 = icmp eq i64 %238, %227
   br i1 %.not.i.i46, label %239, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 239:                                              ; preds = %235
-  %240 = icmp eq i64 %238, 0
+  %240 = icmp eq i64 %227, 0
   br i1 %240, label %_ZN4llvmneENS_9StringRefES0_.exit.thread100, label %_ZN4llvmneENS_9StringRefES0_.exit
 
 _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %239
-  %bcmp.i.i = call i32 @bcmp(ptr %237, ptr %.sroa.04.0.copyload, i64 %238)
+  %bcmp.i.i = call i32 @bcmp(ptr %237, ptr %225, i64 %227)
   %.not109 = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not109, label %_ZN4llvmneENS_9StringRefES0_.exit.thread100, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
@@ -14363,7 +14361,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTI
   %.sroa.1028.0.i = phi ptr [ %12, %2 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #27, !noalias !839
   %15 = load ptr, ptr %6, align 8, !tbaa !674, !noalias !839
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.1138") align 8 %3, ptr noundef nonnull align 8 dereferenceable(412423) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #27
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.1138") align 8 %3, ptr noundef nonnull align 8 dereferenceable(412423) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #27, !noalias !839
   %16 = load i8, ptr %3, align 8, !tbaa !842, !noalias !839
   switch i8 %16, label %17 [
     i8 10, label %_ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit

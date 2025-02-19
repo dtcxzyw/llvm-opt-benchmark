@@ -425,7 +425,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #21
+  call void @__clang_call_terminate(ptr %10) #21, !noalias !4
   unreachable
 
 lpad.i7.i.i.i:                                    ; preds = %.noexc.i.i
@@ -443,7 +443,7 @@ terminate.lpad.i.i6.i.i.i.i:                      ; preds = %if.then.i.i4.i.i.i.
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #21
+  call void @__clang_call_terminate(ptr %14) #21, !noalias !4
   unreachable
 
 invoke.cont5.i.i.i:                               ; preds = %if.then.i.i.i.i.i.i, %invoke.cont.i8.i.i.i
@@ -460,7 +460,7 @@ terminate.lpad.i.i14.i.i.i:                       ; preds = %if.then.i.i12.i.i.i
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #21
+  call void @__clang_call_terminate(ptr %17) #21, !noalias !4
   unreachable
 
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit.i.i.i: ; preds = %if.then.i.i12.i.i.i, %invoke.cont5.i.i.i
@@ -508,7 +508,7 @@ terminate.lpad.i.i.i25.i.i.i:                     ; preds = %if.then.i.i.i24.i.i
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #21
+  call void @__clang_call_terminate(ptr %25) #21, !noalias !4
   unreachable
 
 _ZN8facebook3jsi6ObjectD2Ev.exit.i.i.i.i:         ; preds = %if.then.i.i.i24.i.i.i, %invoke.cont.i22.i.i.i
@@ -543,7 +543,7 @@ terminate.lpad.i.i5.i.i.i.i:                      ; preds = %if.then.i.i3.i.i.i.
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #21
+  call void @__clang_call_terminate(ptr %31) #21, !noalias !4
   unreachable
 
 lpad.i21.i.i.i:                                   ; preds = %.noexc.i.i.i
@@ -563,7 +563,7 @@ terminate.lpad.i.i10.i.i.i.i:                     ; preds = %if.then.i.i8.i.i.i.
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #21
+  call void @__clang_call_terminate(ptr %36) #21, !noalias !4
   unreachable
 
 lpad2.i.i.i.i:                                    ; preds = %invoke.cont4.i.i.i.i, %invoke.cont3.i.i.i.i, %_ZN8facebook3jsi6ObjectD2Ev.exit.i.i.i.i
@@ -583,7 +583,7 @@ terminate.lpad.i.i15.i.i.i.i:                     ; preds = %if.then.i.i13.i.i.i
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #21
+  call void @__clang_call_terminate(ptr %41) #21, !noalias !4
   unreachable
 
 invoke.cont10.i.i.i:                              ; preds = %if.then.i.i3.i.i.i.i, %invoke.cont5.i.i.i.i
@@ -670,7 +670,7 @@ terminate.lpad.i.i.i38.i.i.i:                     ; preds = %if.then.i.i.i36.i.i
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #21
+  call void @__clang_call_terminate(ptr %50) #21, !noalias !4
   unreachable
 
 _ZN8facebook3jsi6ObjectD2Ev.exit.i39.i.i.i:       ; preds = %if.then.i.i.i36.i.i.i, %invoke.cont19.i.i.i.i
@@ -688,7 +688,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #21
+  call void @__clang_call_terminate(ptr %54) #21, !noalias !4
   unreachable
 
 _ZN8facebook3jsi8FunctionD2Ev.exit.i.i.i.i:       ; preds = %if.then.i.i.i.i.i.i.i, %_ZN8facebook3jsi6ObjectD2Ev.exit.i39.i.i.i
@@ -706,7 +706,7 @@ terminate.lpad.i.i14.i.i.i.i:                     ; preds = %if.then.i.i12.i.i.i
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #21
+  call void @__clang_call_terminate(ptr %58) #21, !noalias !4
   unreachable
 
 _ZN8facebook3jsi6ObjectD2Ev.exit15.i.i.i.i:       ; preds = %if.then.i.i12.i.i.i.i, %_ZN8facebook3jsi8FunctionD2Ev.exit.i.i.i.i
@@ -724,7 +724,7 @@ terminate.lpad.i.i19.i.i.i.i:                     ; preds = %if.then.i.i17.i.i.i
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #21
+  call void @__clang_call_terminate(ptr %62) #21, !noalias !4
   unreachable
 
 _ZN8facebook3jsi6ObjectD2Ev.exit20.i.i.i.i:       ; preds = %if.then.i.i17.i.i.i.i, %_ZN8facebook3jsi6ObjectD2Ev.exit15.i.i.i.i
@@ -742,7 +742,7 @@ terminate.lpad.i.i24.i.i.i.i:                     ; preds = %if.then.i.i22.i.i.i
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #21
+  call void @__clang_call_terminate(ptr %66) #21, !noalias !4
   unreachable
 
 lpad.i30.i.i.i:                                   ; preds = %invoke.cont6.i.i.i.i, %invoke.cont4.i32.i.i.i, %invoke.cont2.i.i.i.i, %invoke.cont.i31.i.i.i, %.noexc40.i.i.i
@@ -782,7 +782,7 @@ terminate.lpad.i.i29.i.i.i.i:                     ; preds = %if.then.i.i27.i.i.i
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #21
+  call void @__clang_call_terminate(ptr %75) #21, !noalias !4
   unreachable
 
 ehcleanup.i.i.i.i:                                ; preds = %if.then.i.i27.i.i.i.i, %lpad18.i.i.i.i, %lpad16.i.i.i.i
@@ -801,7 +801,7 @@ terminate.lpad.i.i.i34.i.i.i.i:                   ; preds = %if.then.i.i.i32.i.i
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #21
+  call void @__clang_call_terminate(ptr %79) #21, !noalias !4
   unreachable
 
 ehcleanup20.i.i.i.i:                              ; preds = %if.then.i.i.i32.i.i.i.i, %ehcleanup.i.i.i.i, %lpad13.i.i.i.i
@@ -820,7 +820,7 @@ terminate.lpad.i.i39.i.i.i.i:                     ; preds = %if.then.i.i37.i.i.i
   %82 = landingpad { ptr, i32 }
           catch ptr null
   %83 = extractvalue { ptr, i32 } %82, 0
-  call void @__clang_call_terminate(ptr %83) #21
+  call void @__clang_call_terminate(ptr %83) #21, !noalias !4
   unreachable
 
 ehcleanup21.i.i.i.i:                              ; preds = %if.then.i.i37.i.i.i.i, %ehcleanup20.i.i.i.i, %lpad11.i.i.i.i
@@ -839,7 +839,7 @@ terminate.lpad.i.i44.i.i.i.i:                     ; preds = %if.then.i.i42.i.i.i
   %86 = landingpad { ptr, i32 }
           catch ptr null
   %87 = extractvalue { ptr, i32 } %86, 0
-  call void @__clang_call_terminate(ptr %87) #21
+  call void @__clang_call_terminate(ptr %87) #21, !noalias !4
   unreachable
 
 ehcleanup22.i.i.i.i:                              ; preds = %if.then.i.i42.i.i.i.i, %ehcleanup21.i.i.i.i, %lpad.i30.i.i.i
@@ -858,7 +858,7 @@ terminate.lpad.i.i49.i.i.i.i:                     ; preds = %if.then.i.i47.i.i.i
   %90 = landingpad { ptr, i32 }
           catch ptr null
   %91 = extractvalue { ptr, i32 } %90, 0
-  call void @__clang_call_terminate(ptr %91) #21
+  call void @__clang_call_terminate(ptr %91) #21, !noalias !4
   unreachable
 
 invoke.cont11.i.i.i:                              ; preds = %if.then.i.i22.i.i.i.i, %_ZN8facebook3jsi6ObjectD2Ev.exit20.i.i.i.i
@@ -886,7 +886,7 @@ terminate.lpad.i.i46.i.i.i:                       ; preds = %if.then.i.i44.i.i.i
   %94 = landingpad { ptr, i32 }
           catch ptr null
   %95 = extractvalue { ptr, i32 } %94, 0
-  call void @__clang_call_terminate(ptr %95) #21
+  call void @__clang_call_terminate(ptr %95) #21, !noalias !4
   unreachable
 
 _ZN8facebook3jsi6ObjectD2Ev.exit.i.i.i:           ; preds = %if.then.i.i44.i.i.i, %invoke.cont11.i.i.i
@@ -904,7 +904,7 @@ terminate.lpad.i.i.i50.i.i.i:                     ; preds = %if.then.i.i.i48.i.i
   %98 = landingpad { ptr, i32 }
           catch ptr null
   %99 = extractvalue { ptr, i32 } %98, 0
-  call void @__clang_call_terminate(ptr %99) #21
+  call void @__clang_call_terminate(ptr %99) #21, !noalias !4
   unreachable
 
 _ZN8facebook3jsi8FunctionD2Ev.exit.i.i.i:         ; preds = %if.then.i.i.i48.i.i.i, %_ZN8facebook3jsi6ObjectD2Ev.exit.i.i.i
@@ -920,7 +920,7 @@ terminate.lpad.i.i56.i.i.i:                       ; preds = %if.then.i.i54.i.i.i
   %101 = landingpad { ptr, i32 }
           catch ptr null
   %102 = extractvalue { ptr, i32 } %101, 0
-  call void @__clang_call_terminate(ptr %102) #21
+  call void @__clang_call_terminate(ptr %102) #21, !noalias !4
   unreachable
 
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit58.i.i.i: ; preds = %if.then.i.i54.i.i.i, %_ZN8facebook3jsi8FunctionD2Ev.exit.i.i.i
@@ -938,7 +938,7 @@ terminate.lpad.i.i62.i.i.i:                       ; preds = %if.then.i.i60.i.i.i
   %105 = landingpad { ptr, i32 }
           catch ptr null
   %106 = extractvalue { ptr, i32 } %105, 0
-  call void @__clang_call_terminate(ptr %106) #21
+  call void @__clang_call_terminate(ptr %106) #21, !noalias !4
   unreachable
 
 lpad4.body.i.i.i:                                 ; preds = %if.then.i.i4.i.i.i.i, %lpad.i7.i.i.i
@@ -954,7 +954,7 @@ terminate.lpad.i.i67.i.i.i:                       ; preds = %if.then.i.i65.i.i.i
   %108 = landingpad { ptr, i32 }
           catch ptr null
   %109 = extractvalue { ptr, i32 } %108, 0
-  call void @__clang_call_terminate(ptr %109) #21
+  call void @__clang_call_terminate(ptr %109) #21, !noalias !4
   unreachable
 
 lpad6.i.i.i:                                      ; preds = %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit.i.i.i
@@ -983,7 +983,7 @@ terminate.lpad.i.i73.i.i.i:                       ; preds = %if.then.i.i71.i.i.i
   %114 = landingpad { ptr, i32 }
           catch ptr null
   %115 = extractvalue { ptr, i32 } %114, 0
-  call void @__clang_call_terminate(ptr %115) #21
+  call void @__clang_call_terminate(ptr %115) #21, !noalias !4
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %if.then.i.i71.i.i.i, %lpad8.body.i.i.i, %lpad6.i.i.i
@@ -1002,7 +1002,7 @@ terminate.lpad.i.i.i78.i.i.i:                     ; preds = %if.then.i.i.i76.i.i
   %118 = landingpad { ptr, i32 }
           catch ptr null
   %119 = extractvalue { ptr, i32 } %118, 0
-  call void @__clang_call_terminate(ptr %119) #21
+  call void @__clang_call_terminate(ptr %119) #21, !noalias !4
   unreachable
 
 ehcleanup12.i.i.i:                                ; preds = %if.then.i.i.i76.i.i.i, %ehcleanup.i.i.i, %if.then.i.i65.i.i.i, %lpad4.body.i.i.i
@@ -1019,7 +1019,7 @@ terminate.lpad.i.i85.i.i.i:                       ; preds = %if.then.i.i83.i.i.i
   %121 = landingpad { ptr, i32 }
           catch ptr null
   %122 = extractvalue { ptr, i32 } %121, 0
-  call void @__clang_call_terminate(ptr %122) #21
+  call void @__clang_call_terminate(ptr %122) #21, !noalias !4
   unreachable
 
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit87.i.i.i: ; preds = %if.then.i.i83.i.i.i, %ehcleanup12.i.i.i
@@ -1037,7 +1037,7 @@ terminate.lpad.i.i91.i.i.i:                       ; preds = %if.then.i.i89.i.i.i
   %125 = landingpad { ptr, i32 }
           catch ptr null
   %126 = extractvalue { ptr, i32 } %125, 0
-  call void @__clang_call_terminate(ptr %126) #21
+  call void @__clang_call_terminate(ptr %126) #21, !noalias !4
   unreachable
 
 lpad.i.i:                                         ; preds = %entry
@@ -4432,7 +4432,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i9.i.i.i
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #21
+  call void @__clang_call_terminate(ptr %18) #21, !noalias !76
   unreachable
 
 _ZN8facebook3jsi6ObjectD2Ev.exit.i.i.i:           ; preds = %if.then.i.i9.i.i.i, %lpad.i.i.i

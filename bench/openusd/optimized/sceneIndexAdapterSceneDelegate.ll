@@ -3369,7 +3369,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZN3tbb6det
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #29
+  tail call void @__clang_call_terminate(ptr %12) #29, !noalias !31
   unreachable
 
 _ZNK3tbb6detail2d112hash_compareINSt6thread2idESt4hashIS4_ESt8equal_toIS4_EEclERKS4_.exit.i.i: ; preds = %2

@@ -1916,7 +1916,7 @@ lpad.i.i.i:                                       ; preds = %_ZNK5boost10shared_
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %exn.slot.0.i.i.i = extractvalue { ptr, i32 } %17, 0
-  %18 = call ptr @__cxa_begin_catch(ptr %exn.slot.0.i.i.i) #27
+  %18 = call ptr @__cxa_begin_catch(ptr %exn.slot.0.i.i.i) #27, !noalias !96
   invoke void @__cxa_rethrow() #29
           to label %unreachable.i.i.i unwind label %lpad5.i.i.i, !noalias !96
 
@@ -1934,7 +1934,7 @@ terminate.lpad.i.i.i:                             ; preds = %lpad5.i.i.i
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #28
+  call void @__clang_call_terminate(ptr %21) #28, !noalias !96
   unreachable
 
 unreachable.i.i.i:                                ; preds = %lpad.i.i.i
@@ -2073,7 +2073,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #28
+  call void @__clang_call_terminate(ptr %35) #28, !noalias !96
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %if.then.i.i, %invoke.cont20.i
@@ -2111,7 +2111,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #28
+  call void @__clang_call_terminate(ptr %42) #28, !noalias !96
   unreachable
 
 _ZN8QuantLib6HandleINS_18YieldTermStructureEED2Ev.exit.i: ; preds = %if.then.i.i.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i19.i, %_ZNSt14_Function_baseD2Ev.exit.i
@@ -2149,7 +2149,7 @@ terminate.lpad.i.i.i29.i:                         ; preds = %if.then.i.i.i.i.i33
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #28
+  call void @__clang_call_terminate(ptr %49) #28, !noalias !96
   unreachable
 
 _ZN8QuantLib6HandleINS_18YieldTermStructureEED2Ev.exit36.i: ; preds = %if.then.i.i.i.i.i33.i, %.noexc.i.i.i30.i, %if.then.i.i.i23.i, %_ZN8QuantLib6HandleINS_18YieldTermStructureEED2Ev.exit.i
@@ -2195,7 +2195,7 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #28
+  call void @__clang_call_terminate(ptr %58) #28, !noalias !96
   unreachable
 
 _ZSt8_DestroyIN5boost10shared_ptrIN8QuantLib8DividendEEEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
@@ -2269,7 +2269,7 @@ terminate.lpad.i.i50.i:                           ; preds = %if.then.i.i.i.i53.i
   %67 = landingpad { ptr, i32 }
           catch ptr null
   %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #28
+  call void @__clang_call_terminate(ptr %68) #28, !noalias !96
   unreachable
 
 lpad.i:                                           ; preds = %_ZNSt16allocator_traitsISaIN5boost10shared_ptrIN8QuantLib8DividendEEEEE8allocateERS5_m.exit.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i
@@ -2292,7 +2292,7 @@ terminate.lpad.i60.i:                             ; preds = %if.then.i58.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #28
+  call void @__clang_call_terminate(ptr %73) #28, !noalias !96
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit61.i:               ; preds = %if.then.i58.i, %lpad19.i

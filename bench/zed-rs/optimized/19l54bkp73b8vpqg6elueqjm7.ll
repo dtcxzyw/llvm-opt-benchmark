@@ -13842,7 +13842,7 @@ define hidden void @_ZN8language6buffer6Buffer4edit17hceba1cd6d835564cE.llvm.671
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !4498
   %294 = extractvalue { ptr, i64 } %290, 0
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %295, ptr nonnull readonly align 1 %.sroa.9.sroa.0.0.copyload427, i64 %.sroa.9.sroa.5.0.copyload428, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %295, ptr nonnull readonly align 1 %.sroa.9.sroa.0.0.copyload427, i64 %.sroa.9.sroa.5.0.copyload428, i1 false), !noalias !4505
   %296 = icmp eq i64 %.sroa.6.0.copyload426, 0
   br i1 %296, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hc9c96cb1798f9b4bE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3838115190227029238.exit.i.i1.i.i4.i.i"
 
@@ -14055,7 +14055,7 @@ define hidden void @_ZN8language6buffer6Buffer4edit17hceba1cd6d835564cE.llvm.671
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !4569
   %357 = extractvalue { ptr, i64 } %352, 0
   %358 = getelementptr inbounds nuw i8, ptr %357, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %358, ptr nonnull readonly align 1 %345, i64 %346, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %358, ptr nonnull readonly align 1 %345, i64 %346, i1 false), !noalias !4566
   call void @llvm.experimental.noalias.scope.decl(metadata !4590)
   call void @llvm.experimental.noalias.scope.decl(metadata !4593)
   call void @llvm.experimental.noalias.scope.decl(metadata !4596)

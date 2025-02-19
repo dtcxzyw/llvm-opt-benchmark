@@ -16115,7 +16115,7 @@ terminate.lpad.i.i.i:                             ; preds = %while.body.i.i.i
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #43
+  tail call void @__clang_call_terminate(ptr %17) #43, !noalias !114
   unreachable
 
 common.resume.i:                                  ; preds = %.noexc.i.i, %if.then.i.i.i, %lpad.i.i
@@ -16232,7 +16232,7 @@ terminate.lpad.i32.i.i:                           ; preds = %while.body.i54.i.i
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #43
+  tail call void @__clang_call_terminate(ptr %24) #43, !noalias !114
   unreachable
 
 if.else.i:                                        ; preds = %if.end.i
@@ -16312,7 +16312,7 @@ terminate.lpad.i.i17.i:                           ; preds = %if.then.i.i.i
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #43
+  tail call void @__clang_call_terminate(ptr %32) #43, !noalias !114
   unreachable
 
 if.end37.i.i:                                     ; preds = %invoke.cont34.i.i, %invoke.cont28.i.i
@@ -16327,7 +16327,7 @@ terminate.lpad.i19.i.i:                           ; preds = %if.then.i18.i.i
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  tail call void @__clang_call_terminate(ptr %34) #43
+  tail call void @__clang_call_terminate(ptr %34) #43, !noalias !114
   unreachable
 
 if.end10.i:                                       ; preds = %.noexc57.i.i, %cleanup.i.i
@@ -16529,7 +16529,7 @@ terminate.lpad.i.i.i:                             ; preds = %while.body.i.i.i
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #43
+  tail call void @__clang_call_terminate(ptr %17) #43, !noalias !126
   unreachable
 
 common.resume.i:                                  ; preds = %.noexc.i.i, %if.then.i.i.i, %lpad.i.i
@@ -16647,7 +16647,7 @@ terminate.lpad.i32.i.i:                           ; preds = %while.body.i54.i.i
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #43
+  tail call void @__clang_call_terminate(ptr %24) #43, !noalias !126
   unreachable
 
 if.else.i:                                        ; preds = %if.end.i
@@ -16728,7 +16728,7 @@ terminate.lpad.i.i18.i:                           ; preds = %if.then.i.i.i
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #43
+  tail call void @__clang_call_terminate(ptr %32) #43, !noalias !126
   unreachable
 
 if.end37.i.i:                                     ; preds = %invoke.cont34.i.i, %invoke.cont28.i.i
@@ -16747,7 +16747,7 @@ terminate.lpad.i19.i.i:                           ; preds = %if.then.i18.i.i
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  tail call void @__clang_call_terminate(ptr %34) #43
+  tail call void @__clang_call_terminate(ptr %34) #43, !noalias !126
   unreachable
 
 if.end10.i:                                       ; preds = %.noexc57.i.i, %cleanup.i.i
@@ -22108,7 +22108,6 @@ while.body.i.i423:                                ; preds = %cleanup.i, %.noexc.
 terminate.lpad.i425:                              ; preds = %while.body.i.i423
   %25 = landingpad { ptr, i32 }
           catch ptr null
-  store ptr %16, ptr %cri.i, align 8
   %26 = extractvalue { ptr, i32 } %25, 0
   call void @__clang_call_terminate(ptr %26) #43
   unreachable
@@ -22402,7 +22401,6 @@ while.body.i.i388:                                ; preds = %cleanup156.i, %.noe
 terminate.lpad.i390:                              ; preds = %while.body.i.i388
   %68 = landingpad { ptr, i32 }
           catch ptr null
-  store ptr %60, ptr %cri145.i, align 8
   %69 = extractvalue { ptr, i32 } %68, 0
   call void @__clang_call_terminate(ptr %69) #43
   unreachable
@@ -22643,7 +22641,6 @@ while.body.i.i525:                                ; preds = %cleanup.i196, %.noe
 terminate.lpad.i527:                              ; preds = %while.body.i.i525
   %93 = landingpad { ptr, i32 }
           catch ptr null
-  store ptr %84, ptr %cri.i68, align 8
   %94 = extractvalue { ptr, i32 } %93, 0
   call void @__clang_call_terminate(ptr %94) #43
   unreachable
@@ -22936,7 +22933,6 @@ while.body.i.i446:                                ; preds = %cleanup156.i122, %.
 terminate.lpad.i448:                              ; preds = %while.body.i.i446
   %136 = landingpad { ptr, i32 }
           catch ptr null
-  store ptr %128, ptr %cri145.i82, align 8
   %137 = extractvalue { ptr, i32 } %136, 0
   call void @__clang_call_terminate(ptr %137) #43
   unreachable

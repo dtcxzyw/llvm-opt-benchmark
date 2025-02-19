@@ -1276,7 +1276,7 @@ define hidden { i32, i32 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !256
   %28 = extractvalue { i32, ptr } %27, 0
   %29 = extractvalue { i32, ptr } %27, 1
-  %30 = tail call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef readonly align 8 dereferenceable(416) %29, i32 noundef %28)
+  %30 = tail call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef readonly align 8 dereferenceable(416) %29, i32 noundef %28), !noalias !247
   %31 = insertvalue { i32, i32 } poison, i32 %30, 0
   %32 = insertvalue { i32, i32 } %31, i32 %12, 1
   ret { i32, i32 } %32

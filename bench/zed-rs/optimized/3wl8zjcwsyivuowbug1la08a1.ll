@@ -385,7 +385,7 @@ define internal fastcc void @"_ZN15futures_channel4mpsc24UnboundedSender$LT$T$GT
 
 "_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$4push17h556abb682aa8e3f1E.exit.i": ; preds = %.noexc.i.i
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %21, ptr noundef nonnull align 8 dereferenceable(416) %4, i64 416, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %21, ptr noundef nonnull align 8 dereferenceable(416) %4, i64 416, i1 false), !noalias !24
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %4), !noalias !24
   %35 = atomicrmw xchg ptr %34, ptr %21 acq_rel, align 8, !noalias !24
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 408

@@ -15644,7 +15644,7 @@ define hidden void @_ZN14language_tools7lsp_log8LogStore27add_language_server_me
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h5d97e62aee79d707E.llvm.18046559547927896630.exit.i": ; preds = %.noexc.i
   %68 = getelementptr inbounds nuw i8, ptr %55, i64 728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !noalias !2969
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %57, ptr %69, align 8, !noalias !2974
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 28
@@ -15936,7 +15936,7 @@ define hidden void @_ZN14language_tools7lsp_log8LogStore27add_language_server_me
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h5d97e62aee79d707E.llvm.18046559547927896630.exit.i": ; preds = %.noexc.i
   %83 = getelementptr inbounds nuw i8, ptr %70, i64 728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %76, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %76, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !noalias !3013
   %84 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 %72, ptr %84, align 8, !noalias !3018
   %85 = getelementptr inbounds nuw i8, ptr %10, i64 28
@@ -18552,7 +18552,7 @@ attributes #43 = { nounwind }
 !1439 = distinct !{!1439, !1440, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hb60653cae150b4d3E.llvm.6039865359716373534: argument 0"}
 !1440 = distinct !{!1440, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hb60653cae150b4d3E.llvm.6039865359716373534"}
 !1441 = distinct !{!1441, !1440, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hb60653cae150b4d3E.llvm.6039865359716373534: argument 1"}
-!1442 = !{!1439}
+!1442 = !{!1439, !1351, !1348, !1352, !1353, !1355, !1356, !1358, !1343, !1331}
 !1443 = !{!1348, !1352, !1355, !1356, !1358, !1343, !1331}
 !1444 = !{!1445}
 !1445 = distinct !{!1445, !1446, !"_ZN4core3ptr49drop_in_place$LT$language..LanguageServerName$GT$17h750d1e058253ac48E: argument 0"}

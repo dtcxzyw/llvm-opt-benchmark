@@ -1739,7 +1739,7 @@ _ZNK5boost3log11v2_mt_posix6filterclERKNS1_19attribute_value_setE.exit: ; preds 
   %.018.i = phi i1 [ true, %41 ], [ %.220.i, %64 ]
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %42, %41 ], [ %.pn.pn.pn.i, %64 ]
   %.015.i = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.i, 0
-  %69 = call ptr @__cxa_begin_catch(ptr %.015.i) #21
+  %69 = call ptr @__cxa_begin_catch(ptr %.015.i) #21, !noalias !80
   %70 = load ptr, ptr %4, align 8, !tbaa !62, !noalias !80
   %.not26.i = icmp eq ptr %70, null
   br i1 %.not26.i, label %72, label %71
@@ -1801,7 +1801,7 @@ _ZNK5boost3log11v2_mt_posix3aux14light_functionIFvvEEclEv.exit: ; preds = %82
   %91 = landingpad { ptr, i32 }
           catch ptr null
   %92 = extractvalue { ptr, i32 } %91, 0
-  call void @__clang_call_terminate(ptr %92) #22
+  call void @__clang_call_terminate(ptr %92) #22, !noalias !80
   unreachable
 
 93:                                               ; preds = %85, %78
@@ -1987,7 +1987,7 @@ _ZNK5boost3log11v2_mt_posix6filterclERKNS1_19attribute_value_setE.exit: ; preds 
   %.018.i = phi i1 [ true, %41 ], [ %.220.i, %64 ]
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %42, %41 ], [ %.pn.pn.pn.i, %64 ]
   %.015.i = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.i, 0
-  %69 = call ptr @__cxa_begin_catch(ptr %.015.i) #21
+  %69 = call ptr @__cxa_begin_catch(ptr %.015.i) #21, !noalias !84
   %70 = load ptr, ptr %4, align 8, !tbaa !62, !noalias !84
   %.not26.i = icmp eq ptr %70, null
   br i1 %.not26.i, label %72, label %71
@@ -2049,7 +2049,7 @@ _ZNK5boost3log11v2_mt_posix3aux14light_functionIFvvEEclEv.exit: ; preds = %82
   %91 = landingpad { ptr, i32 }
           catch ptr null
   %92 = extractvalue { ptr, i32 } %91, 0
-  call void @__clang_call_terminate(ptr %92) #22
+  call void @__clang_call_terminate(ptr %92) #22, !noalias !84
   unreachable
 
 93:                                               ; preds = %85, %78
@@ -2236,7 +2236,7 @@ _ZNK5boost3log11v2_mt_posix6filterclERKNS1_19attribute_value_setE.exit: ; preds 
   %.018.i = phi i1 [ true, %40 ], [ %.220.i, %63 ]
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %41, %40 ], [ %.pn.pn.pn.i, %63 ]
   %.015.i = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.i, 0
-  %68 = call ptr @__cxa_begin_catch(ptr %.015.i) #21
+  %68 = call ptr @__cxa_begin_catch(ptr %.015.i) #21, !noalias !88
   %69 = load ptr, ptr %4, align 8, !tbaa !62, !noalias !88
   %.not26.i = icmp eq ptr %69, null
   br i1 %.not26.i, label %71, label %70
@@ -2298,7 +2298,7 @@ _ZNK5boost3log11v2_mt_posix3aux14light_functionIFvvEEclEv.exit: ; preds = %81
   %90 = landingpad { ptr, i32 }
           catch ptr null
   %91 = extractvalue { ptr, i32 } %90, 0
-  call void @__clang_call_terminate(ptr %91) #22
+  call void @__clang_call_terminate(ptr %91) #22, !noalias !88
   unreachable
 
 92:                                               ; preds = %84, %77
@@ -2343,7 +2343,7 @@ define void @_ZN5boost3log11v2_mt_posix4core16push_record_moveERNS1_6recordE(ptr
 .lr.ph.i:                                         ; preds = %.noexc73, %.noexc75
   %.sroa.05.09.i = phi ptr [ %34, %.noexc75 ], [ %15, %.noexc73 ]
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !26
+  %18 = load ptr, ptr %17, align 8, !tbaa !26, !noalias !93
   %.not.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i, label %_ZN5boost3log11v2_mt_posix15attribute_value18detach_from_threadEv.exit.i, label %19
 
@@ -2357,9 +2357,9 @@ define void @_ZN5boost3log11v2_mt_posix4core16push_record_moveERNS1_6recordE(ptr
 
 .noexc74:                                         ; preds = %19
   %23 = load ptr, ptr %3, align 8, !tbaa !26, !noalias !93
-  %24 = load ptr, ptr %17, align 8, !tbaa !26
+  %24 = load ptr, ptr %17, align 8, !tbaa !26, !noalias !93
   store ptr %24, ptr %3, align 8, !tbaa !26, !noalias !93
-  store ptr %23, ptr %17, align 8, !tbaa !26
+  store ptr %23, ptr %17, align 8, !tbaa !26, !noalias !93
   %.not.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i, label %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix15attribute_value4implEED2Ev.exit.i.i, label %25
 
@@ -2386,7 +2386,7 @@ _ZN5boost3log11v2_mt_posix15attribute_value18detach_from_threadEv.exit.i: ; pred
 
 .noexc75:                                         ; preds = %_ZN5boost3log11v2_mt_posix15attribute_value18detach_from_threadEv.exit.i
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !28
+  %34 = load ptr, ptr %33, align 8, !tbaa !28, !noalias !93
   %.not.i = icmp eq ptr %34, %16
   br i1 %.not.i, label %.loopexit119, label %.lr.ph.i, !llvm.loop !30
 

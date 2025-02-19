@@ -5806,7 +5806,7 @@ define hidden void @"_ZN6picker15Picker$LT$D$GT$12uniform_list17hcf246291be1d6ed
   %24 = extractvalue { ptr, ptr } %20, 0
   %25 = extractvalue { ptr, ptr } %20, 1
   invoke void @_ZN4gpui12subscription12Subscription6detach17hf1558a2443b2cbddE(ptr noundef align 1 %24, ptr %25)
-          to label %28 unwind label %21
+          to label %28 unwind label %21, !noalias !1828
 
 26:                                               ; preds = %21
   %27 = landingpad { ptr, i32 }

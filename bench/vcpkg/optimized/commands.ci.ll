@@ -2459,7 +2459,7 @@ _ZNSt12_Vector_baseIN5vcpkg13StringLiteralESaIS1_EE11_M_allocateEm.exit.i.i: ; p
   %646 = landingpad { ptr, i32 }
           catch ptr null
   %647 = extractvalue { ptr, i32 } %646, 0
-  call void @__clang_call_terminate(ptr %647) #26
+  call void @__clang_call_terminate(ptr %647) #26, !noalias !22
   unreachable
 
 _ZNKR5vcpkg8OptionalINS_7AbiInfoEE13value_or_exitERKNS_8LineInfoE.exit.i: ; preds = %639
@@ -3356,7 +3356,7 @@ _ZNSt6vectorIN5vcpkg13StringLiteralESaIS1_EE12emplace_backIJRA2_KcEEERS1_DpOT_.e
   %873 = landingpad { ptr, i32 }
           catch ptr null
   %874 = extractvalue { ptr, i32 } %873, 0
-  call void @__clang_call_terminate(ptr %874) #26
+  call void @__clang_call_terminate(ptr %874) #26, !noalias !22
   unreachable
 
 875:                                              ; preds = %._crit_edge.i405
@@ -3970,7 +3970,7 @@ _ZNK5vcpkg12SortedVectorINS_11PackageSpecESt4lessIvEE8containsERKS1_.exit.thread
   %1082 = landingpad { ptr, i32 }
           catch ptr null
   %1083 = extractvalue { ptr, i32 } %1082, 0
-  call void @__clang_call_terminate(ptr %1083) #26
+  call void @__clang_call_terminate(ptr %1083) #26, !noalias !66
   unreachable
 
 _ZN5vcpkg4Json5Value6stringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXsr3stdE18is_constructible_vINS_10StringViewERKT_EEiE4typeELi0EEES1_SD_.exit: ; preds = %1080
@@ -4002,7 +4002,7 @@ _ZN5vcpkg4Json5Value6stringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %1091 = landingpad { ptr, i32 }
           catch ptr null
   %1092 = extractvalue { ptr, i32 } %1091, 0
-  call void @__clang_call_terminate(ptr %1092) #26
+  call void @__clang_call_terminate(ptr %1092) #26, !noalias !69
   unreachable
 
 _ZN5vcpkg4Json5Value6stringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXsr3stdE18is_constructible_vINS_10StringViewERKT_EEiE4typeELi0EEES1_SD_.exit462: ; preds = %1089
@@ -4029,7 +4029,7 @@ _ZN5vcpkg4Json5Value6stringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %1099 = landingpad { ptr, i32 }
           catch ptr null
   %1100 = extractvalue { ptr, i32 } %1099, 0
-  call void @__clang_call_terminate(ptr %1100) #26
+  call void @__clang_call_terminate(ptr %1100) #26, !noalias !72
   unreachable
 
 _ZN5vcpkg4Json5Value6stringINS_13StringLiteralETnNSt9enable_ifIXsr3stdE18is_constructible_vINS_10StringViewERKT_EEiE4typeELi0EEES1_S8_.exit: ; preds = %1094
@@ -4069,7 +4069,7 @@ _ZNR5vcpkg8OptionalINS_7AbiInfoEE13value_or_exitERKNS_8LineInfoE.exit463: ; pred
   %1111 = landingpad { ptr, i32 }
           catch ptr null
   %1112 = extractvalue { ptr, i32 } %1111, 0
-  call void @__clang_call_terminate(ptr %1112) #26
+  call void @__clang_call_terminate(ptr %1112) #26, !noalias !75
   unreachable
 
 _ZN5vcpkg4Json5Value6stringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXsr3stdE18is_constructible_vINS_10StringViewERKT_EEiE4typeELi0EEES1_SD_.exit464: ; preds = %_ZNR5vcpkg8OptionalINS_7AbiInfoEE13value_or_exitERKNS_8LineInfoE.exit463

@@ -592,7 +592,7 @@ define hidden void @_ZN4cvc58internal6theory5arith6linear16ErrorInformation9setA
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #22
+  tail call void @__clang_call_terminate(ptr %12) #22, !noalias !37
   unreachable
 
 13:                                               ; preds = %5

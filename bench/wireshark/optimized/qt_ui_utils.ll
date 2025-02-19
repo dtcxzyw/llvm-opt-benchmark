@@ -254,7 +254,7 @@ _Z24gchar_free_to_qbytearrayPc.exit:              ; preds = %2
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #22
+  call void @__clang_call_terminate(ptr %14) #22, !noalias !6
   unreachable
 
 _ZN7QStringD2Ev.exit.i:                           ; preds = %_Z24gchar_free_to_qbytearrayPc.exit

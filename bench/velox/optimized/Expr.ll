@@ -21423,7 +21423,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.end19.i
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #35
+  call void @__clang_call_terminate(ptr %14) #35, !noalias !208
   unreachable
 
 call2.i134.noexc.i:                               ; preds = %if.end19.i
@@ -30052,11 +30052,7 @@ invoke.cont5:                                     ; preds = %cond.false4.i.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %invoke.cont5
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv(ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %.noexc1.i.i unwind label %terminate.lpad.i.i
-
-.noexc1.i.i:                                      ; preds = %if.then3.i.i.i
-  store i8 0, ptr %_M_owns.i.i.i, align 8
-  br label %if.end
+          to label %if.end unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i
   %4 = landingpad { ptr, i32 }
@@ -30076,7 +30072,7 @@ lpad4:                                            ; preds = %invoke.cont5
   call void @_ZN5folly9LockedPtrINS_12SynchronizedIN8facebook5velox17SelectivityVectorENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSA_22SynchronizedMutexLevelE1ELNSA_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #33
   br label %ehcleanup
 
-if.end:                                           ; preds = %.noexc1.i.i, %invoke.cont
+if.end:                                           ; preds = %if.then3.i.i.i, %invoke.cont
   %8 = load i8, ptr %state_.i.i.i.i2.i.i.i, align 8
   %tobool.i.i.i.i.i6 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i.i.i6, label %if.then.i.i.i.i, label %_ZN5folly9LockedPtrINS_12SynchronizedIN8facebook5velox17SelectivityVectorENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSA_22SynchronizedMutexLevelE3ELNSA_23SynchronizedMutexMethodE0EEEED2Ev.exit

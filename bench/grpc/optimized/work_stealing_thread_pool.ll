@@ -2724,7 +2724,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #26
+  tail call void @__clang_call_terminate(ptr %5) #26, !noalias !46
   unreachable
 
 lpad.i.i.i:                                       ; preds = %.noexc
@@ -2737,7 +2737,7 @@ terminate.lpad.i1.i.i.i:                          ; preds = %lpad.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #26
+  tail call void @__clang_call_terminate(ptr %8) #26, !noalias !46
   unreachable
 
 invoke.cont4:                                     ; preds = %invoke.cont.i.i.i

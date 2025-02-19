@@ -12907,13 +12907,13 @@ define hidden void @_ZN9itertools9Itertools3tee17hd195d03bacff26acE(ptr dead_on_
   resume { ptr, i32 } %12
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h023de2f84e029c43E.llvm.13307192628441598346.exit.i": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false), !noalias !1688
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4), !noalias !1688
-  %15 = load i64, ptr %8, align 8, !noundef !4
+  %15 = load i64, ptr %8, align 8, !noalias !1688, !noundef !4
   %16 = icmp ne i64 %15, 0
   tail call void @llvm.assume(i1 %16)
   %17 = add i64 %15, 1
-  store i64 %17, ptr %8, align 8
+  store i64 %17, ptr %8, align 8, !noalias !1688
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %19, label %_ZN9itertools3tee3new17hd2311b83823da307E.exit
 
@@ -14909,7 +14909,7 @@ attributes #23 = { cold }
 !1448 = distinct !{!1448, !1446, !"_ZN63_$LT$schemars..schema..Schema$u20$as$u20$core..clone..Clone$GT$5clone17h6e475f596f568e54E: argument 0"}
 !1449 = !{!1448, !1445, !1442}
 !1450 = !{!1445, !1442}
-!1451 = !{!1452}
+!1451 = !{!1452, !1442}
 !1452 = distinct !{!1452, !1453, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h09269bcc8c2b9369E: argument 0"}
 !1453 = distinct !{!1453, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h09269bcc8c2b9369E"}
 !1454 = !{!1455}
@@ -14927,7 +14927,7 @@ attributes #23 = { cold }
 !1466 = distinct !{!1466, !1464, !"_ZN63_$LT$schemars..schema..Schema$u20$as$u20$core..clone..Clone$GT$5clone17h6e475f596f568e54E: argument 0"}
 !1467 = !{!1466, !1463, !1460}
 !1468 = !{!1463, !1460}
-!1469 = !{!1470}
+!1469 = !{!1470, !1460}
 !1470 = distinct !{!1470, !1471, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h09269bcc8c2b9369E: argument 0"}
 !1471 = distinct !{!1471, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h09269bcc8c2b9369E"}
 !1472 = !{i8 0, i8 3}
@@ -14941,7 +14941,7 @@ attributes #23 = { cold }
 !1480 = distinct !{!1480, !1478, !"_ZN63_$LT$schemars..schema..Schema$u20$as$u20$core..clone..Clone$GT$5clone17h6e475f596f568e54E: argument 0"}
 !1481 = !{!1480, !1477, !1474}
 !1482 = !{!1477, !1474}
-!1483 = !{!1484}
+!1483 = !{!1484, !1474}
 !1484 = distinct !{!1484, !1485, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h09269bcc8c2b9369E: argument 0"}
 !1485 = distinct !{!1485, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h09269bcc8c2b9369E"}
 !1486 = !{!1487}
@@ -14970,7 +14970,7 @@ attributes #23 = { cold }
 !1509 = distinct !{!1509, !1507, !"_ZN63_$LT$schemars..schema..Schema$u20$as$u20$core..clone..Clone$GT$5clone17h6e475f596f568e54E: argument 0"}
 !1510 = !{!1509, !1506, !1503}
 !1511 = !{!1506, !1503}
-!1512 = !{!1513}
+!1512 = !{!1513, !1503}
 !1513 = distinct !{!1513, !1514, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h09269bcc8c2b9369E: argument 0"}
 !1514 = distinct !{!1514, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h09269bcc8c2b9369E"}
 !1515 = !{!1516}
@@ -14983,7 +14983,7 @@ attributes #23 = { cold }
 !1522 = distinct !{!1522, !1520, !"_ZN63_$LT$schemars..schema..Schema$u20$as$u20$core..clone..Clone$GT$5clone17h6e475f596f568e54E: argument 0"}
 !1523 = !{!1522, !1519, !1516}
 !1524 = !{!1519, !1516}
-!1525 = !{!1526}
+!1525 = !{!1526, !1516}
 !1526 = distinct !{!1526, !1527, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h09269bcc8c2b9369E: argument 0"}
 !1527 = distinct !{!1527, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h09269bcc8c2b9369E"}
 !1528 = !{!1529}

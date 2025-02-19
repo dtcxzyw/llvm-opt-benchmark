@@ -1116,7 +1116,7 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #26
+  tail call void @__clang_call_terminate(ptr %7) #26, !noalias !7
   unreachable
 
 _ZSt19__relocate_object_aIN9grpc_core10HPackTable7MementoES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %for.body.i.i.i
@@ -3543,7 +3543,7 @@ invoke.cont.i:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !138
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #24, !noalias !141
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef %cond.i.i.i, i64 noundef %cond.i2.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
-          to label %invoke.cont6.i unwind label %lpad.i.i
+          to label %invoke.cont6.i unwind label %lpad.i.i, !noalias !138
 
 lpad.i.i:                                         ; preds = %invoke.cont.i
   %3 = landingpad { ptr, i32 }
@@ -3730,7 +3730,7 @@ invoke.cont.i:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !150
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #24, !noalias !153
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef %cond.i.i.i, i64 noundef %cond.i2.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
-          to label %invoke.cont6.i unwind label %lpad.i.i
+          to label %invoke.cont6.i unwind label %lpad.i.i, !noalias !150
 
 lpad.i.i:                                         ; preds = %invoke.cont.i
   %3 = landingpad { ptr, i32 }
@@ -5413,7 +5413,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !243
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #24, !noalias !246
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef %2, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
-          to label %_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumE.exit.i unwind label %lpad.i.i
+          to label %_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumE.exit.i unwind label %lpad.i.i, !noalias !243
 
 common.resume.i:                                  ; preds = %lpad.i, %lpad.i.i
   %common.resume.op.i = phi { ptr, i32 } [ %3, %lpad.i.i ], [ %6, %lpad.i ]
@@ -5863,7 +5863,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !267
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #24, !noalias !273
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef %2, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
-          to label %invoke.cont6.i unwind label %lpad.i.i
+          to label %invoke.cont6.i unwind label %lpad.i.i, !noalias !267
 
 lpad.i.i:                                         ; preds = %entry
   %3 = landingpad { ptr, i32 }
@@ -6401,7 +6401,7 @@ invoke.cont.i:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !303
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #24, !noalias !306
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef %cond.i.i.i, i64 noundef %cond.i2.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
-          to label %invoke.cont6.i unwind label %lpad.i.i
+          to label %invoke.cont6.i unwind label %lpad.i.i, !noalias !303
 
 lpad.i.i:                                         ; preds = %invoke.cont.i
   %3 = landingpad { ptr, i32 }
@@ -6581,7 +6581,7 @@ invoke.cont.i:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !315
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #24, !noalias !318
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef %cond.i.i.i, i64 noundef %cond.i2.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
-          to label %invoke.cont6.i unwind label %lpad.i.i
+          to label %invoke.cont6.i unwind label %lpad.i.i, !noalias !315
 
 lpad.i.i:                                         ; preds = %invoke.cont.i
   %3 = landingpad { ptr, i32 }
@@ -6761,7 +6761,7 @@ invoke.cont.i:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !327
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #24, !noalias !330
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef %cond.i.i.i, i64 noundef %cond.i2.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
-          to label %invoke.cont6.i unwind label %lpad.i.i
+          to label %invoke.cont6.i unwind label %lpad.i.i, !noalias !327
 
 lpad.i.i:                                         ; preds = %invoke.cont.i
   %3 = landingpad { ptr, i32 }
@@ -6941,7 +6941,7 @@ invoke.cont.i:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !339
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #24, !noalias !342
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef %cond.i.i.i, i64 noundef %cond.i2.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
-          to label %invoke.cont6.i unwind label %lpad.i.i
+          to label %invoke.cont6.i unwind label %lpad.i.i, !noalias !339
 
 lpad.i.i:                                         ; preds = %invoke.cont.i
   %3 = landingpad { ptr, i32 }
@@ -7121,7 +7121,7 @@ invoke.cont.i:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !351
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #24, !noalias !354
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef %cond.i.i.i, i64 noundef %cond.i2.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
-          to label %invoke.cont6.i unwind label %lpad.i.i
+          to label %invoke.cont6.i unwind label %lpad.i.i, !noalias !351
 
 lpad.i.i:                                         ; preds = %invoke.cont.i
   %3 = landingpad { ptr, i32 }
@@ -7301,7 +7301,7 @@ invoke.cont.i:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !363
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #24, !noalias !366
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef %cond.i.i.i, i64 noundef %cond.i2.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
-          to label %invoke.cont6.i unwind label %lpad.i.i
+          to label %invoke.cont6.i unwind label %lpad.i.i, !noalias !363
 
 lpad.i.i:                                         ; preds = %invoke.cont.i
   %3 = landingpad { ptr, i32 }
@@ -7481,7 +7481,7 @@ invoke.cont.i:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !375
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #24, !noalias !378
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef %cond.i.i.i, i64 noundef %cond.i2.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
-          to label %invoke.cont6.i unwind label %lpad.i.i
+          to label %invoke.cont6.i unwind label %lpad.i.i, !noalias !375
 
 lpad.i.i:                                         ; preds = %invoke.cont.i
   %3 = landingpad { ptr, i32 }
@@ -8328,7 +8328,7 @@ invoke.cont.i:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !422
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #24, !noalias !425
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef %cond.i.i.i, i64 noundef %cond.i2.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
-          to label %invoke.cont6.i unwind label %lpad.i.i
+          to label %invoke.cont6.i unwind label %lpad.i.i, !noalias !422
 
 lpad.i.i:                                         ; preds = %invoke.cont.i
   %3 = landingpad { ptr, i32 }
@@ -8508,7 +8508,7 @@ invoke.cont.i:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !434
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #24, !noalias !437
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef %cond.i.i.i, i64 noundef %cond.i2.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
-          to label %invoke.cont6.i unwind label %lpad.i.i
+          to label %invoke.cont6.i unwind label %lpad.i.i, !noalias !434
 
 lpad.i.i:                                         ; preds = %invoke.cont.i
   %3 = landingpad { ptr, i32 }
@@ -9151,7 +9151,7 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #26
+  tail call void @__clang_call_terminate(ptr %10) #26, !noalias !467
   unreachable
 
 _ZSt19__relocate_object_aIN9grpc_core10HPackTable7MementoES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %for.body.i.i.i
@@ -9193,7 +9193,7 @@ terminate.lpad.i.i.i.i.i.i.i.i21:                 ; preds = %for.body.i.i.i12
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #26
+  tail call void @__clang_call_terminate(ptr %15) #26, !noalias !473
   unreachable
 
 _ZSt19__relocate_object_aIN9grpc_core10HPackTable7MementoES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i22: ; preds = %for.body.i.i.i12

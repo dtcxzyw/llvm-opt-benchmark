@@ -4590,7 +4590,7 @@ _ZN5folly9hazptr_tcISt6atomicE7try_getEv.exit.thread: ; preds = %.noexc, %_ZN5fo
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
-  call void @__clang_call_terminate(ptr %63) #41
+  call void @__clang_call_terminate(ptr %63) #41, !noalias !235
   unreachable
 
 _ZN5folly14UnboundedQueueINS_8FunctionIFvvEEELb0ELb0ELb1ELm8ELm6ESt6atomicE11dequeueImplEv.exit: ; preds = %_ZN5folly9hazptr_tcISt6atomicE7try_getEv.exit, %_ZN5folly9hazptr_tcISt6atomicE7try_getEv.exit.thread
@@ -14598,7 +14598,7 @@ _ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i: ; preds = %.critedge
   %187 = landingpad { ptr, i32 }
           catch ptr null
   %188 = extractvalue { ptr, i32 } %187, 0
-  call void @__clang_call_terminate(ptr %188) #41
+  call void @__clang_call_terminate(ptr %188) #41, !noalias !586
   unreachable
 
 _ZN5folly14UnboundedQueueINS_8FunctionIFSt10shared_ptrINS_15observer_detail4CoreEEvEEELb0ELb1ELb1ELm8ELm6ESt6atomicE11dequeueImplEv.exit: ; preds = %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i.thread

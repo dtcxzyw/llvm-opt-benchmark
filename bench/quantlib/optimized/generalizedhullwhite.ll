@@ -2520,7 +2520,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   %99 = landingpad { ptr, i32 }
           catch ptr null
   %100 = extractvalue { ptr, i32 } %99, 0
-  call void @__clang_call_terminate(ptr %100) #29
+  call void @__clang_call_terminate(ptr %100) #29, !noalias !99
   unreachable
 
 lpad149:                                          ; preds = %for.cond.cleanup122
@@ -2802,7 +2802,7 @@ terminate.lpad.i.i.i.i251:                        ; preds = %if.then.i.i.i.i.i.i
   %142 = landingpad { ptr, i32 }
           catch ptr null
   %143 = extractvalue { ptr, i32 } %142, 0
-  call void @__clang_call_terminate(ptr %143) #29
+  call void @__clang_call_terminate(ptr %143) #29, !noalias !105
   unreachable
 
 lpad185:                                          ; preds = %for.cond.cleanup163
@@ -5555,7 +5555,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   %99 = landingpad { ptr, i32 }
           catch ptr null
   %100 = extractvalue { ptr, i32 } %99, 0
-  call void @__clang_call_terminate(ptr %100) #29
+  call void @__clang_call_terminate(ptr %100) #29, !noalias !116
   unreachable
 
 lpad149:                                          ; preds = %for.cond.cleanup122
@@ -5837,7 +5837,7 @@ terminate.lpad.i.i.i.i251:                        ; preds = %if.then.i.i.i.i.i.i
   %142 = landingpad { ptr, i32 }
           catch ptr null
   %143 = extractvalue { ptr, i32 } %142, 0
-  call void @__clang_call_terminate(ptr %143) #29
+  call void @__clang_call_terminate(ptr %143) #29, !noalias !120
   unreachable
 
 lpad182:                                          ; preds = %for.cond.cleanup163
@@ -9646,7 +9646,6 @@ _ZN5boost10shared_ptrIN8QuantLib19StochasticProcess1DEED2Ev.exit: ; preds = %inv
   store ptr %call, ptr %process_.i, align 8, !tbaa !195
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call.i.i.i, ptr %pn.i.i, align 8, !tbaa !37
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
   %.pre = load ptr, ptr %_M_manager.i.i3, align 8, !tbaa !54
   %tobool.not.i = icmp eq ptr %.pre, null
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i26

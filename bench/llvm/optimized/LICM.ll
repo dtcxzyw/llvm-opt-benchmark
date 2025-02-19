@@ -6802,15 +6802,15 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i.i: ; preds = %920, %_ZNK4llv
   %943 = sub nsw i64 0, %942
   %944 = getelementptr inbounds %"class.llvm::Use", ptr %spec.select.i.i.i.i.i, i64 %943
   %945 = getelementptr inbounds nuw i8, ptr %939, i64 8
-  %946 = load i32, ptr %945, align 8, !tbaa !508, !noalias !504
+  %946 = load i32, ptr %945, align 8, !tbaa !508, !noalias !507
   %947 = zext i32 %946 to i64
   %.idx6.i.i.i.i.i = shl nuw nsw i64 %947, 5
   %948 = getelementptr inbounds nuw i8, ptr %944, i64 %.idx6.i.i.i.i.i
   %949 = getelementptr inbounds nuw i8, ptr %939, i64 12
-  %950 = load i32, ptr %949, align 4, !tbaa !511, !noalias !504
+  %950 = load i32, ptr %949, align 4, !tbaa !511, !noalias !507
   %951 = zext i32 %950 to i64
   %952 = sub nsw i64 %951, %947
-  %953 = load ptr, ptr %939, align 8, !tbaa !512, !noalias !504
+  %953 = load ptr, ptr %939, align 8, !tbaa !512, !noalias !507
   store ptr %948, ptr %17, align 8, !tbaa !407, !alias.scope !507
   store i64 %952, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !55, !alias.scope !507
   store ptr %953, ptr %106, align 8, !tbaa !513, !alias.scope !507

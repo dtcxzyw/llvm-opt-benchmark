@@ -504,7 +504,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceC2ERKNS_8TfR
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  %59 = tail call ptr @__cxa_begin_catch(ptr %58) #20
+  %59 = tail call ptr @__cxa_begin_catch(ptr %58) #20, !noalias !7
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #20, !noalias !7
   tail call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef 32) #22, !noalias !7
   invoke void @__cxa_rethrow() #24
@@ -520,7 +520,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceC2ERKNS_8TfR
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  tail call void @__clang_call_terminate(ptr %64) #21
+  tail call void @__clang_call_terminate(ptr %64) #21, !noalias !7
   unreachable
 
 65:                                               ; preds = %56

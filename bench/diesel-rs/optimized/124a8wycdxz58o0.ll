@@ -789,9 +789,9 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i:  ; preds = %44
   store i32 %57, ptr %63, align 4, !noalias !79
   store i32 5, ptr %30, align 8, !noalias !79
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %65 = load ptr, ptr %64, align 8, !invariant.load !5, !nonnull !5
+  %65 = load ptr, ptr %64, align 8, !invariant.load !5, !noalias !83, !nonnull !5
   invoke void %65(ptr noundef align 1 %62, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %30)
-          to label %67 unwind label %54
+          to label %67 unwind label %54, !noalias !83
 
 66:                                               ; preds = %59
   unreachable
@@ -1098,9 +1098,9 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i25: ; preds = %133
   store i32 %138, ptr %150, align 4, !noalias !137
   store i32 6, ptr %16, align 8, !noalias !137
   %151 = getelementptr inbounds nuw i8, ptr %149, i64 24
-  %152 = load ptr, ptr %151, align 8, !invariant.load !5, !nonnull !5
+  %152 = load ptr, ptr %151, align 8, !invariant.load !5, !noalias !153, !nonnull !5
   invoke void %152(ptr noundef align 1 %148, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %16)
-          to label %153 unwind label %139
+          to label %153 unwind label %139, !noalias !153
 
 153:                                              ; preds = %147
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16), !noalias !137

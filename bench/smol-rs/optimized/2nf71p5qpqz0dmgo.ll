@@ -543,7 +543,7 @@ thread-pre-split.i.i.i.i.i:                       ; preds = %.critedge
           to label %"_ZN14async_executor6Runner8runnable28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3be15edcaab43ff2E.exit.i.i.i.i" unwind label %.loopexit.i.i
 
 197:                                              ; preds = %.noexc31.i.i.i.i.i
-  %198 = load ptr, ptr %.fca.1.extract.i.i.i.i.i.i.i, align 8, !nonnull !5, !noundef !5
+  %198 = load ptr, ptr %.fca.1.extract.i.i.i.i.i.i.i, align 8, !noalias !18, !nonnull !5, !noundef !5
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 128
   %200 = load ptr, ptr %73, align 8, !noalias !18, !nonnull !5, !noundef !5
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 128

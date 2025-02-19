@@ -1259,7 +1259,7 @@ define internal void @"_ZN5vcpkg3$_08__invokeEv"(ptr dead_on_unwind noalias writ
   %14 = extractvalue { ptr, i64 } %13, 0
   %15 = extractvalue { ptr, i64 } %13, 1
   invoke void @_ZN5vcpkg18HelpTableFormatter6formatENS_10StringViewES1_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nonnull @.str.11, i64 23, ptr %14, i64 %15)
-          to label %16 unwind label %56
+          to label %16 unwind label %56, !noalias !14
 
 16:                                               ; preds = %12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18, !noalias !14
@@ -1272,7 +1272,7 @@ define internal void @"_ZN5vcpkg3$_08__invokeEv"(ptr dead_on_unwind noalias writ
   %19 = extractvalue { ptr, i64 } %18, 0
   %20 = extractvalue { ptr, i64 } %18, 1
   invoke void @_ZN5vcpkg18HelpTableFormatter6formatENS_10StringViewES1_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nonnull @.str.12, i64 22, ptr %19, i64 %20)
-          to label %21 unwind label %58
+          to label %21 unwind label %58, !noalias !14
 
 21:                                               ; preds = %17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18, !noalias !14
@@ -1289,7 +1289,7 @@ define internal void @"_ZN5vcpkg3$_08__invokeEv"(ptr dead_on_unwind noalias writ
   %25 = extractvalue { ptr, i64 } %24, 0
   %26 = extractvalue { ptr, i64 } %24, 1
   invoke void @_ZN5vcpkg18HelpTableFormatter6formatENS_10StringViewES1_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nonnull @.str.13, i64 23, ptr %25, i64 %26)
-          to label %27 unwind label %60
+          to label %27 unwind label %60, !noalias !14
 
 27:                                               ; preds = %23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18, !noalias !14
@@ -1306,7 +1306,7 @@ define internal void @"_ZN5vcpkg3$_08__invokeEv"(ptr dead_on_unwind noalias writ
   %31 = extractvalue { ptr, i64 } %30, 0
   %32 = extractvalue { ptr, i64 } %30, 1
   invoke void @_ZN5vcpkg18HelpTableFormatter6formatENS_10StringViewES1_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nonnull @.str.14, i64 20, ptr %31, i64 %32)
-          to label %33 unwind label %62
+          to label %33 unwind label %62, !noalias !14
 
 33:                                               ; preds = %29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18, !noalias !14
@@ -1319,7 +1319,7 @@ define internal void @"_ZN5vcpkg3$_08__invokeEv"(ptr dead_on_unwind noalias writ
   %36 = extractvalue { ptr, i64 } %35, 0
   %37 = extractvalue { ptr, i64 } %35, 1
   invoke void @_ZN5vcpkg18HelpTableFormatter6formatENS_10StringViewES1_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nonnull @.str.15, i64 22, ptr %36, i64 %37)
-          to label %38 unwind label %64
+          to label %38 unwind label %64, !noalias !14
 
 38:                                               ; preds = %34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18, !noalias !14
@@ -1332,7 +1332,7 @@ define internal void @"_ZN5vcpkg3$_08__invokeEv"(ptr dead_on_unwind noalias writ
   %41 = extractvalue { ptr, i64 } %40, 0
   %42 = extractvalue { ptr, i64 } %40, 1
   invoke void @_ZN5vcpkg18HelpTableFormatter6formatENS_10StringViewES1_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nonnull @.str.16, i64 26, ptr %41, i64 %42)
-          to label %43 unwind label %66
+          to label %43 unwind label %66, !noalias !14
 
 43:                                               ; preds = %39
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18, !noalias !14
@@ -1345,7 +1345,7 @@ define internal void @"_ZN5vcpkg3$_08__invokeEv"(ptr dead_on_unwind noalias writ
   %46 = extractvalue { ptr, i64 } %45, 0
   %47 = extractvalue { ptr, i64 } %45, 1
   invoke void @_ZN5vcpkg18HelpTableFormatter6formatENS_10StringViewES1_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nonnull @.str.17, i64 19, ptr %46, i64 %47)
-          to label %48 unwind label %68
+          to label %48 unwind label %68, !noalias !14
 
 48:                                               ; preds = %44
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #18, !noalias !14

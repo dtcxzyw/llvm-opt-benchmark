@@ -10570,9 +10570,9 @@ _ZN4call4room4Room12mute_on_join17h74294626f8c21bc5E.exit: ; preds = %_ZN3std4sy
   unreachable
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h1b9bec78f7ce57f9E.llvm.4009989310053140746.exit.i.i": ; preds = %.noexc.i.i55
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(1024) %164, ptr noundef nonnull align 128 dereferenceable(1024) %10, i64 1024, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(1024) %164, ptr noundef nonnull align 128 dereferenceable(1024) %10, i64 1024, i1 false), !noalias !2353
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10), !noalias !2353
-  %171 = atomicrmw add ptr %164, i64 1 monotonic, align 8
+  %171 = atomicrmw add ptr %164, i64 1 monotonic, align 8, !noalias !2353
   %172 = icmp slt i64 %171, 0
   br i1 %172, label %173, label %179
 
@@ -12879,13 +12879,13 @@ define noundef align 8 dereferenceable_or_null(136) ptr @_ZN4call4room4Room30rem
 .lr.ph.i:                                         ; preds = %13, %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h88d5c04b2212e7a8E.exit.i"
   %20 = phi ptr [ %30, %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h88d5c04b2212e7a8E.exit.i" ], [ %17, %13 ]
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 112
-  %22 = load i32, ptr %21, align 8, !alias.scope !2605, !noundef !4
+  %22 = load i32, ptr %21, align 8, !alias.scope !2605, !noalias !2602, !noundef !4
   %23 = icmp eq i32 %22, %1
   br i1 %23, label %"_ZN4call4room4Room30remote_participant_for_peer_id28_$u7b$$u7b$closure$u7d$$u7d$17hf2920796037caa24E.exit.i.i", label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h88d5c04b2212e7a8E.exit.i"
 
 "_ZN4call4room4Room30remote_participant_for_peer_id28_$u7b$$u7b$closure$u7d$$u7d$17hf2920796037caa24E.exit.i.i": ; preds = %.lr.ph.i
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 116
-  %25 = load i32, ptr %24, align 4, !alias.scope !2605, !noundef !4
+  %25 = load i32, ptr %24, align 4, !alias.scope !2605, !noalias !2602, !noundef !4
   %26 = icmp eq i32 %25, %2
   br i1 %26, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h8955a6460d5d0391E.exit, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h88d5c04b2212e7a8E.exit.i"
 
@@ -15390,7 +15390,7 @@ select.unfold:                                    ; preds = %.noexc317, %297
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h3094d2b919147fabE.llvm.12416795407365802493.exit.i": ; preds = %.noexc.i
   %374 = getelementptr inbounds nuw i8, ptr %361, i64 728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %367, ptr noundef nonnull align 8 dereferenceable(40) %79, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %367, ptr noundef nonnull align 8 dereferenceable(40) %79, i64 40, i1 false), !noalias !3086
   %375 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store i32 %363, ptr %375, align 8, !noalias !3091
   %376 = getelementptr inbounds nuw i8, ptr %27, i64 28
@@ -15785,7 +15785,7 @@ select.unfold463:                                 ; preds = %.noexc336, %457
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h3094d2b919147fabE.llvm.12416795407365802493.exit.i342": ; preds = %.noexc.i341
   %527 = getelementptr inbounds nuw i8, ptr %514, i64 728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %520, ptr noundef nonnull align 8 dereferenceable(40) %62, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %520, ptr noundef nonnull align 8 dereferenceable(40) %62, i64 40, i1 false), !noalias !3157
   %528 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i32 %516, ptr %528, align 8, !noalias !3162
   %529 = getelementptr inbounds nuw i8, ptr %22, i64 28
@@ -16084,7 +16084,7 @@ select.unfold473:                                 ; preds = %.noexc357, %583
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h3094d2b919147fabE.llvm.12416795407365802493.exit.i363": ; preds = %.noexc.i362
   %648 = getelementptr inbounds nuw i8, ptr %635, i64 728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %641, ptr noundef nonnull align 8 dereferenceable(40) %74, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %641, ptr noundef nonnull align 8 dereferenceable(40) %74, i64 40, i1 false), !noalias !3228
   %649 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i32 %637, ptr %649, align 8, !noalias !3233
   %650 = getelementptr inbounds nuw i8, ptr %19, i64 28
@@ -16363,7 +16363,7 @@ select.unfold479:                                 ; preds = %.noexc381, %706
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h3094d2b919147fabE.llvm.12416795407365802493.exit.i386": ; preds = %.noexc.i385
   %759 = getelementptr inbounds nuw i8, ptr %746, i64 728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %752, ptr noundef nonnull align 8 dereferenceable(40) %57, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %752, ptr noundef nonnull align 8 dereferenceable(40) %57, i64 40, i1 false), !noalias !3283
   %760 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i32 %748, ptr %760, align 8, !noalias !3288
   %761 = getelementptr inbounds nuw i8, ptr %13, i64 28
@@ -17105,7 +17105,7 @@ define void @_ZN4call4room4Room12join_project17h1345f0df6fdc3f2bE(ptr dead_on_un
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h3094d2b919147fabE.llvm.12416795407365802493.exit.i": ; preds = %.noexc.i
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !noalias !3370
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %29, ptr %41, align 8, !noalias !3375
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 28

@@ -11123,7 +11123,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i:        ; preds = %527
   %547 = landingpad { ptr, i32 }
           catch ptr null
   %548 = extractvalue { ptr, i32 } %547, 0
-  tail call void @__clang_call_terminate(ptr %548) #34
+  tail call void @__clang_call_terminate(ptr %548) #34, !noalias !438
   unreachable
 
 _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i:  ; preds = %._crit_edge93.i.i
@@ -11137,14 +11137,14 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i:  ; preds = %._crit_edge93.i.i
   %553 = landingpad { ptr, i32 }
           catch ptr null
   %554 = extractvalue { ptr, i32 } %553, 0
-  tail call void @__clang_call_terminate(ptr %554) #34
+  tail call void @__clang_call_terminate(ptr %554) #34, !noalias !438
   unreachable
 
 555:                                              ; preds = %215
   %556 = landingpad { ptr, i32 }
           catch ptr null
   %557 = extractvalue { ptr, i32 } %556, 0
-  tail call void @__clang_call_terminate(ptr %557) #34
+  tail call void @__clang_call_terminate(ptr %557) #34, !noalias !438
   unreachable
 
 _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit274.i.i: ; preds = %215, %213
@@ -11159,7 +11159,7 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit274.i.i: ; preds = %215, %213
   %562 = landingpad { ptr, i32 }
           catch ptr null
   %563 = extractvalue { ptr, i32 } %562, 0
-  tail call void @__clang_call_terminate(ptr %563) #34
+  tail call void @__clang_call_terminate(ptr %563) #34, !noalias !438
   unreachable
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i: ; preds = %_ZN5faiss12heap_reorderINS_4CMaxIilEEEEmmPNT_1TEPNS3_2TIE.exit.i.i, %.preheader.i.i
@@ -12423,7 +12423,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i150:     ; preds = %1126
   %1146 = landingpad { ptr, i32 }
           catch ptr null
   %1147 = extractvalue { ptr, i32 } %1146, 0
-  tail call void @__clang_call_terminate(ptr %1147) #34
+  tail call void @__clang_call_terminate(ptr %1147) #34, !noalias !534
   unreachable
 
 _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i139: ; preds = %._crit_edge93.i.i138
@@ -12437,14 +12437,14 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i139: ; preds = %._crit_edge93.i.i
   %1152 = landingpad { ptr, i32 }
           catch ptr null
   %1153 = extractvalue { ptr, i32 } %1152, 0
-  tail call void @__clang_call_terminate(ptr %1153) #34
+  tail call void @__clang_call_terminate(ptr %1153) #34, !noalias !534
   unreachable
 
 1154:                                             ; preds = %807
   %1155 = landingpad { ptr, i32 }
           catch ptr null
   %1156 = extractvalue { ptr, i32 } %1155, 0
-  tail call void @__clang_call_terminate(ptr %1156) #34
+  tail call void @__clang_call_terminate(ptr %1156) #34, !noalias !534
   unreachable
 
 _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit271.i.i: ; preds = %807, %805
@@ -12459,7 +12459,7 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit271.i.i: ; preds = %807, %805
   %1161 = landingpad { ptr, i32 }
           catch ptr null
   %1162 = extractvalue { ptr, i32 } %1161, 0
-  tail call void @__clang_call_terminate(ptr %1162) #34
+  tail call void @__clang_call_terminate(ptr %1162) #34, !noalias !534
   unreachable
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i124: ; preds = %_ZN5faiss12heap_reorderINS_4CMaxIilEEEEmmPNT_1TEPNS3_2TIE.exit.i.i122, %.preheader.i.i105
@@ -13709,7 +13709,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i305:     ; preds = %1744
   %1764 = landingpad { ptr, i32 }
           catch ptr null
   %1765 = extractvalue { ptr, i32 } %1764, 0
-  tail call void @__clang_call_terminate(ptr %1765) #34
+  tail call void @__clang_call_terminate(ptr %1765) #34, !noalias !626
   unreachable
 
 _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i292: ; preds = %._crit_edge93.i.i291
@@ -13723,14 +13723,14 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i292: ; preds = %._crit_edge93.i.i
   %1770 = landingpad { ptr, i32 }
           catch ptr null
   %1771 = extractvalue { ptr, i32 } %1770, 0
-  tail call void @__clang_call_terminate(ptr %1771) #34
+  tail call void @__clang_call_terminate(ptr %1771) #34, !noalias !626
   unreachable
 
 1772:                                             ; preds = %1408
   %1773 = landingpad { ptr, i32 }
           catch ptr null
   %1774 = extractvalue { ptr, i32 } %1773, 0
-  tail call void @__clang_call_terminate(ptr %1774) #34
+  tail call void @__clang_call_terminate(ptr %1774) #34, !noalias !626
   unreachable
 
 _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit274.i.i281: ; preds = %1408, %1406
@@ -13745,7 +13745,7 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit274.i.i281: ; preds = %1408, %1406
   %1779 = landingpad { ptr, i32 }
           catch ptr null
   %1780 = extractvalue { ptr, i32 } %1779, 0
-  tail call void @__clang_call_terminate(ptr %1780) #34
+  tail call void @__clang_call_terminate(ptr %1780) #34, !noalias !626
   unreachable
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i269: ; preds = %_ZN5faiss12heap_reorderINS_4CMaxIilEEEEmmPNT_1TEPNS3_2TIE.exit.i.i267, %.preheader.i.i241
@@ -15046,7 +15046,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i468:     ; preds = %2405
   %2425 = landingpad { ptr, i32 }
           catch ptr null
   %2426 = extractvalue { ptr, i32 } %2425, 0
-  tail call void @__clang_call_terminate(ptr %2426) #34
+  tail call void @__clang_call_terminate(ptr %2426) #34, !noalias !718
   unreachable
 
 _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i455: ; preds = %._crit_edge93.i.i454
@@ -15060,14 +15060,14 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i455: ; preds = %._crit_edge93.i.i
   %2431 = landingpad { ptr, i32 }
           catch ptr null
   %2432 = extractvalue { ptr, i32 } %2431, 0
-  tail call void @__clang_call_terminate(ptr %2432) #34
+  tail call void @__clang_call_terminate(ptr %2432) #34, !noalias !718
   unreachable
 
 2433:                                             ; preds = %2028
   %2434 = landingpad { ptr, i32 }
           catch ptr null
   %2435 = extractvalue { ptr, i32 } %2434, 0
-  tail call void @__clang_call_terminate(ptr %2435) #34
+  tail call void @__clang_call_terminate(ptr %2435) #34, !noalias !718
   unreachable
 
 _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit277.i.i: ; preds = %2028, %2026
@@ -15082,7 +15082,7 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit277.i.i: ; preds = %2028, %2026
   %2440 = landingpad { ptr, i32 }
           catch ptr null
   %2441 = extractvalue { ptr, i32 } %2440, 0
-  tail call void @__clang_call_terminate(ptr %2441) #34
+  tail call void @__clang_call_terminate(ptr %2441) #34, !noalias !718
   unreachable
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i435: ; preds = %_ZN5faiss12heap_reorderINS_4CMaxIilEEEEmmPNT_1TEPNS3_2TIE.exit.i.i433, %.preheader.i.i416
@@ -16444,7 +16444,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i623:     ; preds = %3119
   %3139 = landingpad { ptr, i32 }
           catch ptr null
   %3140 = extractvalue { ptr, i32 } %3139, 0
-  tail call void @__clang_call_terminate(ptr %3140) #34
+  tail call void @__clang_call_terminate(ptr %3140) #34, !noalias !810
   unreachable
 
 _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i610: ; preds = %._crit_edge93.i.i609
@@ -16458,14 +16458,14 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i610: ; preds = %._crit_edge93.i.i
   %3145 = landingpad { ptr, i32 }
           catch ptr null
   %3146 = extractvalue { ptr, i32 } %3145, 0
-  tail call void @__clang_call_terminate(ptr %3146) #34
+  tail call void @__clang_call_terminate(ptr %3146) #34, !noalias !810
   unreachable
 
 3147:                                             ; preds = %2691
   %3148 = landingpad { ptr, i32 }
           catch ptr null
   %3149 = extractvalue { ptr, i32 } %3148, 0
-  tail call void @__clang_call_terminate(ptr %3149) #34
+  tail call void @__clang_call_terminate(ptr %3149) #34, !noalias !810
   unreachable
 
 _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit280.i.i: ; preds = %2691, %2689
@@ -16480,7 +16480,7 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit280.i.i: ; preds = %2691, %2689
   %3154 = landingpad { ptr, i32 }
           catch ptr null
   %3155 = extractvalue { ptr, i32 } %3154, 0
-  tail call void @__clang_call_terminate(ptr %3155) #34
+  tail call void @__clang_call_terminate(ptr %3155) #34, !noalias !810
   unreachable
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i588: ; preds = %_ZN5faiss12heap_reorderINS_4CMaxIilEEEEmmPNT_1TEPNS3_2TIE.exit.i.i586, %.preheader.i.i569
@@ -18066,7 +18066,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i764:     ; preds = %4025
   %4045 = landingpad { ptr, i32 }
           catch ptr null
   %4046 = extractvalue { ptr, i32 } %4045, 0
-  tail call void @__clang_call_terminate(ptr %4046) #34
+  tail call void @__clang_call_terminate(ptr %4046) #34, !noalias !902
   unreachable
 
 _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i756: ; preds = %._crit_edge94.i.i
@@ -18080,14 +18080,14 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i756: ; preds = %._crit_edge94.i.i
   %4051 = landingpad { ptr, i32 }
           catch ptr null
   %4052 = extractvalue { ptr, i32 } %4051, 0
-  tail call void @__clang_call_terminate(ptr %4052) #34
+  tail call void @__clang_call_terminate(ptr %4052) #34, !noalias !902
   unreachable
 
 4053:                                             ; preds = %3413
   %4054 = landingpad { ptr, i32 }
           catch ptr null
   %4055 = extractvalue { ptr, i32 } %4054, 0
-  tail call void @__clang_call_terminate(ptr %4055) #34
+  tail call void @__clang_call_terminate(ptr %4055) #34, !noalias !902
   unreachable
 
 _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit292.i.i: ; preds = %3413, %3411
@@ -18102,7 +18102,7 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit292.i.i: ; preds = %3413, %3411
   %4060 = landingpad { ptr, i32 }
           catch ptr null
   %4061 = extractvalue { ptr, i32 } %4060, 0
-  tail call void @__clang_call_terminate(ptr %4061) #34
+  tail call void @__clang_call_terminate(ptr %4061) #34, !noalias !902
   unreachable
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i743: ; preds = %_ZN5faiss12heap_reorderINS_4CMaxIilEEEEmmPNT_1TEPNS3_2TIE.exit.i.i741, %.preheader.i.i726
@@ -19317,7 +19317,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i913:     ; preds = %4584
   %4604 = landingpad { ptr, i32 }
           catch ptr null
   %4605 = extractvalue { ptr, i32 } %4604, 0
-  call void @__clang_call_terminate(ptr %4605) #34
+  call void @__clang_call_terminate(ptr %4605) #34, !noalias !984
   unreachable
 
 _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i905: ; preds = %._crit_edge92.i.i
@@ -19331,14 +19331,14 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i905: ; preds = %._crit_edge92.i.i
   %4610 = landingpad { ptr, i32 }
           catch ptr null
   %4611 = extractvalue { ptr, i32 } %4610, 0
-  call void @__clang_call_terminate(ptr %4611) #34
+  call void @__clang_call_terminate(ptr %4611) #34, !noalias !984
   unreachable
 
 4612:                                             ; preds = %4307
   %4613 = landingpad { ptr, i32 }
           catch ptr null
   %4614 = extractvalue { ptr, i32 } %4613, 0
-  call void @__clang_call_terminate(ptr %4614) #34
+  call void @__clang_call_terminate(ptr %4614) #34, !noalias !984
   unreachable
 
 _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit277.i.i895: ; preds = %4307, %4305
@@ -19353,7 +19353,7 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit277.i.i895: ; preds = %4307, %4305
   %4619 = landingpad { ptr, i32 }
           catch ptr null
   %4620 = extractvalue { ptr, i32 } %4619, 0
-  call void @__clang_call_terminate(ptr %4620) #34
+  call void @__clang_call_terminate(ptr %4620) #34, !noalias !984
   unreachable
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i882: ; preds = %_ZN5faiss12heap_reorderINS_4CMaxIilEEEEmmPNT_1TEPNS3_2TIE.exit.i.i880, %.preheader.i.i855

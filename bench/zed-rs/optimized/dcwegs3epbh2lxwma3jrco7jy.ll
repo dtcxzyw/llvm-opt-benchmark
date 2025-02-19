@@ -991,7 +991,7 @@ define internal fastcc void @_ZN7snippet13parse_snippet17h115d1f9287b059bbE(ptr 
 .critedge:                                        ; preds = %142, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hd30f76576d92798aE.exit94"
   %168 = getelementptr inbounds nuw i8, ptr %.sroa.0.0221, i64 2
   %169 = add i64 %.sroa.20.0220, -2
-  call fastcc void @_ZN7snippet9parse_int17hb618848ca3f92ca2E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 1 %168, i64 noundef %169)
+  call fastcc void @_ZN7snippet9parse_int17hb618848ca3f92ca2E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 1 %168, i64 noundef %169), !noalias !205
   %170 = load ptr, ptr %19, align 8, !noalias !204, !noundef !4
   %171 = icmp eq ptr %170, null
   br i1 %171, label %174, label %172
@@ -1048,7 +1048,7 @@ define internal fastcc void @_ZN7snippet13parse_snippet17h115d1f9287b059bbE(ptr 
 .critedge151:                                     ; preds = %179, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hd30f76576d92798aE.exit83"
   %184 = getelementptr inbounds nuw i8, ptr %170, i64 1
   %185 = add i64 %.sroa.638.0.copyload.i, -1
-  call fastcc void @_ZN7snippet13parse_snippet17h115d1f9287b059bbE(ptr noalias noundef align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 1 %184, i64 noundef %185, i1 noundef zeroext true, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
+  call fastcc void @_ZN7snippet13parse_snippet17h115d1f9287b059bbE(ptr noalias noundef align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 1 %184, i64 noundef %185, i1 noundef zeroext true, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %5), !noalias !209
   %186 = load ptr, ptr %12, align 8, !noalias !204, !noundef !4
   %187 = icmp eq ptr %186, null
   br i1 %187, label %188, label %176

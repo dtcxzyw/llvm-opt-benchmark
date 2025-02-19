@@ -11995,9 +11995,6 @@ _ZSt10_ConstructISt4pairIS0_ImPN4cvc58internal4expr9NodeValueEENS2_12NodeTemplat
 66:                                               ; preds = %65
   %67 = landingpad { ptr, i32 }
           catch ptr null
-  store ptr %16, ptr %7, align 8
-  store ptr %15, ptr %10, align 8
-  store i8 %17, ptr %0, align 8
   %68 = extractvalue { ptr, i32 } %67, 0
   tail call void @__clang_call_terminate(ptr %68) #26
   unreachable
@@ -12039,17 +12036,11 @@ _ZN4cvc58internal4expr4attr8AttrHashINS0_12NodeTemplateILb1EEEE8IteratorIS6_NSt8
 87:                                               ; preds = %40
   %88 = landingpad { ptr, i32 }
           catch ptr null
-  store ptr %16, ptr %7, align 8
-  store ptr %15, ptr %10, align 8
-  store i8 %17, ptr %0, align 8
   br label %91
 
 89:                                               ; preds = %55
   %90 = landingpad { ptr, i32 }
           catch ptr null
-  store ptr %16, ptr %7, align 8
-  store ptr %15, ptr %10, align 8
-  store i8 %17, ptr %0, align 8
   call void @_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_12NodeTemplateILb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #27
   br label %91
 
@@ -16591,9 +16582,6 @@ _ZSt10_ConstructISt4pairIS0_ImPN4cvc58internal4expr9NodeValueEENS2_8TypeNodeEEJS
 66:                                               ; preds = %65
   %67 = landingpad { ptr, i32 }
           catch ptr null
-  store ptr %16, ptr %7, align 8
-  store ptr %15, ptr %10, align 8
-  store i8 %17, ptr %0, align 8
   %68 = extractvalue { ptr, i32 } %67, 0
   tail call void @__clang_call_terminate(ptr %68) #26
   unreachable
@@ -16635,17 +16623,11 @@ _ZN4cvc58internal4expr4attr8AttrHashINS0_8TypeNodeEE8IteratorIS5_NSt8__detail14_
 87:                                               ; preds = %40
   %88 = landingpad { ptr, i32 }
           catch ptr null
-  store ptr %16, ptr %7, align 8
-  store ptr %15, ptr %10, align 8
-  store i8 %17, ptr %0, align 8
   br label %91
 
 89:                                               ; preds = %55
   %90 = landingpad { ptr, i32 }
           catch ptr null
-  store ptr %16, ptr %7, align 8
-  store ptr %15, ptr %10, align 8
-  store i8 %17, ptr %0, align 8
   call void @_ZNSt4pairIS_ImPN4cvc58internal4expr9NodeValueEENS1_8TypeNodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #27
   br label %91
 
@@ -21147,9 +21129,6 @@ _ZN4cvc58internal4expr4attr8AttrHashINSt7__cxx1112basic_stringIcSt11char_traitsI
 73:                                               ; preds = %.noexc.i.i.i.i
   %74 = landingpad { ptr, i32 }
           catch ptr null
-  store ptr %19, ptr %8, align 8
-  store ptr %18, ptr %11, align 8
-  store i8 %20, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #27
   %.0 = extractvalue { ptr, i32 } %74, 0
   %75 = call ptr @__cxa_begin_catch(ptr %.0) #27

@@ -328,7 +328,7 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #22
+  tail call void @__clang_call_terminate(ptr %13) #22, !noalias !4
   unreachable
 
 _ZN9grpc_core10Subchannel20connected_subchannelEv.exit: ; preds = %invoke.cont.i
@@ -1135,7 +1135,7 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #22
+  tail call void @__clang_call_terminate(ptr %5) #22, !noalias !21
   unreachable
 
 invoke.cont2:                                     ; preds = %invoke.cont.i

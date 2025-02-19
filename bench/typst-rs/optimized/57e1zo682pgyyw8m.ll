@@ -370,7 +370,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   br i1 %.not.i.i.i.i.i.i, label %18, label %_ZN4core3ops8function6FnOnce9call_once17h7225cb57b5ef30c4E.exit
 
 18:                                               ; preds = %2
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %11, ptr nonnull readonly align 1 %14, i64 %12), !alias.scope !58
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %11, ptr nonnull readonly align 1 %14, i64 %12), !alias.scope !58, !noalias !57
   %19 = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br label %_ZN4core3ops8function6FnOnce9call_once17h7225cb57b5ef30c4E.exit
 
@@ -2219,7 +2219,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_inse
   br i1 %.not.i.i.i.i.i, label %40, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hb94d0a86ff04153eE.llvm.2808647571845796349.exit.backedge"
 
 40:                                               ; preds = %.lr.ph
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %33, ptr nonnull readonly align 1 %36, i64 %34), !alias.scope !476, !noalias !475
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %33, ptr nonnull readonly align 1 %36, i64 %34), !alias.scope !476, !noalias !465
   %41 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %41, label %67, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hb94d0a86ff04153eE.llvm.2808647571845796349.exit.backedge"
 

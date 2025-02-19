@@ -694,7 +694,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i.i: ; preds = %_ZNK4llvm7DIScop
   %289 = phi ptr [ %.pre.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread.i.i ], [ %78, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i.i ]
   %.pre8.i.i4.i.i = phi i64 [ %.pre8.pre.i.i.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread.i.i ], [ 0, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i.i ]
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 %.pre8.i.i4.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %290, ptr align 1 %285, i64 %286, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %290, ptr align 1 %285, i64 %286, i1 false), !noalias !149
   %.pre.i.i.i.i = load i64, ptr %79, align 8, !tbaa !161, !noalias !149
   br label %_ZN4llvm11SmallStringILj256EEC2ENS_9StringRefE.exit.i
 
@@ -1090,7 +1090,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95.i: ; preds = %_
 
 .lr.ph.i:                                         ; preds = %_ZNK4llvm7DIScope11getFilenameEv.exit76.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i
   %.0121.i = phi ptr [ %446, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i ], [ %329, %_ZNK4llvm7DIScope11getFilenameEv.exit76.i ]
-  %429 = load i8, ptr %.0121.i, align 1, !tbaa !122
+  %429 = load i8, ptr %.0121.i, align 1, !tbaa !122, !noalias !149
   %430 = icmp eq i8 %429, 46
   %431 = select i1 %430, i8 64, i8 %429
   %432 = load i64, ptr %88, align 8, !tbaa !146, !noalias !149

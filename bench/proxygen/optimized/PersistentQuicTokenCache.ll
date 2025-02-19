@@ -4609,7 +4609,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %invoke.cont
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #27
+  tail call void @__clang_call_terminate(ptr %5) #27, !noalias !36
   unreachable
 
 _ZN5folly6detail22callWithConstructedKeyIPNS_16EvictingCacheMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_NS_23HeterogeneousAccessHashIS8_vEENS_26HeterogeneousAccessEqualToIS8_vEEE4NodeENS_3f146detail11F14BasicSetINSH_21VectorContainerPolicyISF_vNSD_9KeyHasherENSD_13KeyValueEqualEvSt17integral_constantIbLb0EEEEE11UsableAsKeyESaISF_EZNSP_7emplaceIJRSF_EEESt4pairINSH_23VectorContainerIteratorIPKSF_EEbEDpOT_EUlS12_E_ST_TnNSt9enable_ifIXoosr3std7is_sameINS_12remove_cvrefIT3_E4typeET_EE5valuesrT0_IS18_E5valueEiE4typeELi0EEEDaRT1_OT2_OS16_.exit.i.i: ; preds = %invoke.cont

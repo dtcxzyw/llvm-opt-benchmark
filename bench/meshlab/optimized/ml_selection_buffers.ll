@@ -1662,7 +1662,6 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit36:  ; preds = %_ZNK3vcg8Matrix44If
           to label %.thread unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .thread:                                          ; preds = %.invoke, %101, %_ZN11QReadLockerC2EP14QReadWriteLock.exit, %7
-  store i64 %5, ptr %4, align 8
   invoke void @_ZN14QReadWriteLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %_ZN11QReadLockerD2Ev.exit unwind label %194
 

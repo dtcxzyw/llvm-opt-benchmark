@@ -3097,7 +3097,7 @@ _ZNSt6vectorIN12_GLOBAL__N_114CallbackObjectESaIS1_EE12emplace_backIJS1_EEEvDpOT
   %1179 = landingpad { ptr, i32 }
           catch ptr null
   %1180 = extractvalue { ptr, i32 } %1179, 0
-  call void @__clang_call_terminate(ptr %1180) #25
+  call void @__clang_call_terminate(ptr %1180) #25, !noalias !4
   unreachable
 
 _ZNSt10_HashtableIN3ade6HandleINS0_4NodeEEESt4pairIKS3_N12_GLOBAL__N_118CallbackCacheEntryEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ENS0_12HandleHasherIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i: ; preds = %.noexc.i.i.i.i, %._crit_edge509.i, %._crit_edge504.i
@@ -3133,7 +3133,7 @@ _ZNSt13unordered_mapIN3ade6HandleINS0_4NodeEEEN12_GLOBAL__N_118CallbackCacheEntr
   %1188 = landingpad { ptr, i32 }
           catch ptr null
   %1189 = extractvalue { ptr, i32 } %1188, 0
-  call void @__clang_call_terminate(ptr %1189) #25
+  call void @__clang_call_terminate(ptr %1189) #25, !noalias !4
   unreachable
 
 _ZNSt10_HashtableIPN3ade20MemoryDescriptorViewESt4pairIKS2_N12_GLOBAL__N_110CacheEntryEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i: ; preds = %.noexc.i.i.i268.i, %_ZNSt13unordered_mapIN3ade6HandleINS0_4NodeEEEN12_GLOBAL__N_118CallbackCacheEntryENS0_12HandleHasherIS2_EESt8equal_toIS3_ESaISt4pairIKS3_S5_EEED2Ev.exit.i
@@ -8114,7 +8114,6 @@ _ZNSt8functionIFvvEEaSEOS1_.exit:                 ; preds = %_ZNSt8functionIFvvE
   store ptr %20, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store ptr %49, ptr %56, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   store ptr %51, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)

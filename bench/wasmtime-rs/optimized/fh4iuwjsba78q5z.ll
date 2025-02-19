@@ -713,7 +713,7 @@ common.resume:                                    ; preds = %66, %36
   %62 = extractvalue { i64, ptr } %60, 1
   %63 = icmp ne ptr %62, null
   tail call void @llvm.assume(i1 %63)
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %62, ptr nonnull align 1 %.sroa.021.0.copyload.i.i, i64 %.sroa.422.0.copyload.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %62, ptr nonnull align 1 %.sroa.021.0.copyload.i.i, i64 %.sroa.422.0.copyload.i.i, i1 false), !noalias !100
   %64 = inttoptr i64 %61 to ptr
   %65 = ptrtoint ptr %62 to i64
   %.sink73.i236 = inttoptr i64 %.sroa.422.0.copyload.i.i to ptr

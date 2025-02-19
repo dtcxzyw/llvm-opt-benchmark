@@ -45006,7 +45006,7 @@ if.then.i48.i:                                    ; preds = %_ZNK4mold3elf12Inpu
   br i1 %cmp.i.i49.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i55.i, label %lor.lhs.false.i50.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i55.i: ; preds = %if.then.i48.i
-  %bcmp.i.i56.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %52, ptr noundef nonnull dereferenceable(11) @.str.58, i64 11)
+  %bcmp.i.i56.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %52, ptr noundef nonnull dereferenceable(11) @.str.58, i64 11), !noalias !729
   %cmp.i.i.i57.i = icmp eq i32 %bcmp.i.i56.i, 0
   br i1 %cmp.i.i.i57.i, label %_ZN4mold3elfL17canonicalize_typeINS0_6X86_64EEEmSt17basic_string_viewIcSt11char_traitsIcEEm.exit.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i8.i.i
 
@@ -45015,17 +45015,17 @@ lor.lhs.false.i50.i:                              ; preds = %if.then.i48.i
   br i1 %cmp.i.not.i.i.i51.i, label %if.end14.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i52.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i52.i: ; preds = %lor.lhs.false.i50.i
-  %bcmp.i.i.i.i53.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %52, ptr noundef nonnull dereferenceable(12) @.str.199, i64 12)
+  %bcmp.i.i.i.i53.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %52, ptr noundef nonnull dereferenceable(12) @.str.199, i64 12), !noalias !729
   %cmp.i.i.i.i.i54.i = icmp eq i32 %bcmp.i.i.i.i53.i, 0
   br i1 %cmp.i.i.i.i.i54.i, label %_ZN4mold3elfL17canonicalize_typeINS0_6X86_64EEEmSt17basic_string_viewIcSt11char_traitsIcEEm.exit.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i19.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i8.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i55.i
-  %bcmp.i9.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %52, ptr noundef nonnull dereferenceable(11) @.str.60, i64 11)
+  %bcmp.i9.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %52, ptr noundef nonnull dereferenceable(11) @.str.60, i64 11), !noalias !729
   %cmp.i.i10.i.i = icmp eq i32 %bcmp.i9.i.i, 0
   br i1 %cmp.i.i10.i.i, label %_ZN4mold3elfL17canonicalize_typeINS0_6X86_64EEEmSt17basic_string_viewIcSt11char_traitsIcEEm.exit.i, label %if.end14.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i19.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i52.i
-  %bcmp.i.i.i20.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %52, ptr noundef nonnull dereferenceable(12) @.str.200, i64 12)
+  %bcmp.i.i.i20.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %52, ptr noundef nonnull dereferenceable(12) @.str.200, i64 12), !noalias !729
   %cmp.i.i.i.i21.i.i = icmp eq i32 %bcmp.i.i.i20.i.i, 0
   br i1 %cmp.i.i.i.i21.i.i, label %_ZN4mold3elfL17canonicalize_typeINS0_6X86_64EEEmSt17basic_string_viewIcSt11char_traitsIcEEm.exit.i, label %if.end14.i.i
 

@@ -1160,7 +1160,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont7.i.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #37
+  call void @__clang_call_terminate(ptr %13) #37, !noalias !16
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i: ; preds = %invoke.cont7.i.i
@@ -1662,7 +1662,7 @@ terminate.lpad.i.i.i.i.i66:                       ; preds = %invoke.cont7.i.i62
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
-  call void @__clang_call_terminate(ptr %63) #37
+  call void @__clang_call_terminate(ptr %63) #37, !noalias !42
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i67: ; preds = %invoke.cont7.i.i62
@@ -2242,7 +2242,7 @@ terminate.lpad.i.i.i.i.i258:                      ; preds = %invoke.cont7.i.i254
   %125 = landingpad { ptr, i32 }
           catch ptr null
   %126 = extractvalue { ptr, i32 } %125, 0
-  call void @__clang_call_terminate(ptr %126) #37
+  call void @__clang_call_terminate(ptr %126) #37, !noalias !68
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i259: ; preds = %invoke.cont7.i.i254
@@ -2822,7 +2822,7 @@ terminate.lpad.i.i.i.i.i485:                      ; preds = %invoke.cont9.i.i
   %188 = landingpad { ptr, i32 }
           catch ptr null
   %189 = extractvalue { ptr, i32 } %188, 0
-  call void @__clang_call_terminate(ptr %189) #37
+  call void @__clang_call_terminate(ptr %189) #37, !noalias !94
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i486: ; preds = %invoke.cont9.i.i
@@ -3413,7 +3413,7 @@ terminate.lpad.i.i.i.i.i678:                      ; preds = %_ZN2tf8Executor19_i
   %260 = landingpad { ptr, i32 }
           catch ptr null
   %261 = extractvalue { ptr, i32 } %260, 0
-  call void @__clang_call_terminate(ptr %261) #37
+  call void @__clang_call_terminate(ptr %261) #37, !noalias !120
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i679: ; preds = %_ZN2tf8Executor19_increment_topologyEv.exit.i.i672
@@ -3780,7 +3780,7 @@ terminate.lpad.i.i.i.i.i832:                      ; preds = %_ZN2tf8Executor19_i
   %301 = landingpad { ptr, i32 }
           catch ptr null
   %302 = extractvalue { ptr, i32 } %301, 0
-  call void @__clang_call_terminate(ptr %302) #37
+  call void @__clang_call_terminate(ptr %302) #37, !noalias !128
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i833: ; preds = %_ZN2tf8Executor19_increment_topologyEv.exit.i.i826
@@ -4226,7 +4226,7 @@ terminate.lpad.i.i.i.i.i1030:                     ; preds = %_ZN2tf8Executor19_i
   %356 = landingpad { ptr, i32 }
           catch ptr null
   %357 = extractvalue { ptr, i32 } %356, 0
-  call void @__clang_call_terminate(ptr %357) #37
+  call void @__clang_call_terminate(ptr %357) #37, !noalias !136
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i1031: ; preds = %_ZN2tf8Executor19_increment_topologyEv.exit.i.i1024
@@ -4672,7 +4672,7 @@ terminate.lpad.i.i.i.i.i1236:                     ; preds = %_ZN2tf8Executor19_i
   %411 = landingpad { ptr, i32 }
           catch ptr null
   %412 = extractvalue { ptr, i32 } %411, 0
-  call void @__clang_call_terminate(ptr %412) #37
+  call void @__clang_call_terminate(ptr %412) #37, !noalias !144
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i1237: ; preds = %_ZN2tf8Executor19_increment_topologyEv.exit.i.i1230

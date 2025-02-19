@@ -274,7 +274,7 @@ common.resume:                                    ; preds = %77, %.body.i
   resume { ptr, i32 } %common.resume.op
 
 .thread:                                          ; preds = %.noexc.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !67
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !67
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10), !noalias !43
   br label %84

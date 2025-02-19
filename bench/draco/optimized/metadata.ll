@@ -418,7 +418,6 @@ define void @_ZN5draco8MetadataC2ERKS0_(ptr noundef nonnull align 8 dereferencea
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr %4, align 8, !tbaa !31
-  store ptr null, ptr %4, align 8, !tbaa !31
   %36 = load ptr, ptr %33, align 8, !tbaa !31
   store ptr %35, ptr %33, align 8, !tbaa !31
   %.not.i.i.i.i = icmp eq ptr %36, null

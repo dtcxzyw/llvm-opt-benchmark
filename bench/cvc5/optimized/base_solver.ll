@@ -3219,7 +3219,6 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit493: ; preds = %996, %991, %998
 1013:                                             ; preds = %1012
   %1014 = landingpad { ptr, i32 }
           catch ptr null
-  store i64 %931, ptr %indvars.iv.sroa.phi, align 8
   %1015 = extractvalue { ptr, i32 } %1014, 0
   call void @__clang_call_terminate(ptr %1015) #27
   unreachable
@@ -3247,7 +3246,6 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit493: ; preds = %996, %991, %998
 1026:                                             ; preds = %1025
   %1027 = landingpad { ptr, i32 }
           catch ptr null
-  store i64 %931, ptr %indvars.iv.sroa.phi, align 8
   %1028 = extractvalue { ptr, i32 } %1027, 0
   call void @__clang_call_terminate(ptr %1028) #27
   unreachable
@@ -3324,7 +3322,6 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit503: ; preds = %._ZNK4cvc58intern
 1064:                                             ; preds = %1063
   %1065 = landingpad { ptr, i32 }
           catch ptr null
-  store i64 %931, ptr %indvars.iv.sroa.phi, align 8
   %1066 = extractvalue { ptr, i32 } %1065, 0
   call void @__clang_call_terminate(ptr %1066) #27
   unreachable
@@ -3491,7 +3488,6 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit: ;
 1137:                                             ; preds = %1136
   %1138 = landingpad { ptr, i32 }
           catch ptr null
-  store i64 %931, ptr %indvars.iv.sroa.phi, align 8
   %1139 = extractvalue { ptr, i32 } %1138, 0
   call void @__clang_call_terminate(ptr %1139) #27
   unreachable
@@ -3518,7 +3514,6 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit519: ; preds = %_ZNSt6vectorIN4cvc
 1149:                                             ; preds = %1148
   %1150 = landingpad { ptr, i32 }
           catch ptr null
-  store i64 %931, ptr %indvars.iv.sroa.phi, align 8
   %1151 = extractvalue { ptr, i32 } %1150, 0
   call void @__clang_call_terminate(ptr %1151) #27
   unreachable

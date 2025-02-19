@@ -27589,38 +27589,35 @@ define internal fastcc void @_ZN12_GLOBAL__N_117DataFlowSanitizer28buildExternWe
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 15
   %9 = icmp eq i32 %8, 9
-  br i1 %9, label %_ZNSt6vectorIPN4llvm5ValueESaIS2_EE9push_backEOS2_.exit, label %22
+  br i1 %9, label %_ZNSt6vectorIPN4llvm5ValueESaIS2_EE9push_backEOS2_.exit, label %21
 
 _ZNSt6vectorIPN4llvm5ValueESaIS2_EE9push_backEOS2_.exit: ; preds = %3
-  %10 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
-  store ptr %2, ptr %10, align 8, !tbaa !348
-  %11 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #21
-  %12 = extractvalue { ptr, i64 } %11, 0
-  %13 = extractvalue { ptr, i64 } %11, 1
+  %10 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #21
+  %11 = extractvalue { ptr, i64 } %10, 0
+  %12 = extractvalue { ptr, i64 } %10, 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #21
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i16 257, ptr %14, align 8
-  %15 = call noundef ptr @_ZN4llvm13IRBuilderBase18CreateGlobalStringENS_9StringRefERKNS_5TwineEjPNS_6ModuleEb(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr %12, i64 %13, ptr noundef nonnull align 8 dereferenceable(34) %4, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #21
-  %16 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %15, ptr %17, align 8, !tbaa !348
-  %18 = load i64, ptr %10, align 8
-  store i64 %18, ptr %16, align 8
-  call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef 8) #22
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i16 257, ptr %13, align 8
+  %14 = call noundef ptr @_ZN4llvm13IRBuilderBase18CreateGlobalStringENS_9StringRefERKNS_5TwineEjPNS_6ModuleEb(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr %11, i64 %12, ptr noundef nonnull align 8 dereferenceable(34) %4, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #21
+  %15 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store ptr %14, ptr %16, align 8, !tbaa !348
+  %17 = ptrtoint ptr %2 to i64
+  store i64 %17, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #21
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %.sroa.0.0.copyload = load ptr, ptr %19, align 8, !tbaa !347
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %.sroa.0.0.copyload = load ptr, ptr %18, align 8, !tbaa !347
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 336
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !348
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #21
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i16 257, ptr %20, align 8
-  %21 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCallEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EERKNS_5TwineEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef %.sroa.0.0.copyload, ptr noundef %.sroa.2.0.copyload, ptr nonnull %16, i64 2, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr noundef null)
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i16 257, ptr %19, align 8
+  %20 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCallEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EERKNS_5TwineEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef %.sroa.0.0.copyload, ptr noundef %.sroa.2.0.copyload, ptr nonnull %15, i64 2, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #21
-  call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef 16) #22
-  br label %22
+  call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef 16) #22
+  br label %21
 
-22:                                               ; preds = %_ZNSt6vectorIPN4llvm5ValueESaIS2_EE9push_backEOS2_.exit, %3
+21:                                               ; preds = %_ZNSt6vectorIPN4llvm5ValueESaIS2_EE9push_backEOS2_.exit, %3
   ret void
 }
 

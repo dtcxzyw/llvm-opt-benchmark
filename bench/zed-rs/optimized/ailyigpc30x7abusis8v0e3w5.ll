@@ -5205,7 +5205,7 @@ default.unreachable:                              ; preds = %117
   %153 = getelementptr inbounds nuw i8, ptr %149, i64 24
   %154 = load ptr, ptr %153, align 8, !invariant.load !5, !noalias !587, !nonnull !5
   invoke void %154(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %5, ptr noundef nonnull align 1 %150, ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h6ddb4e1cf268ea1dE.exit.i" unwind label %155
+          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h6ddb4e1cf268ea1dE.exit.i" unwind label %155, !noalias !585
 
 155:                                              ; preds = %148
   %156 = landingpad { ptr, i32 }
@@ -31397,7 +31397,7 @@ attributes #31 = { noreturn nounwind }
 !584 = distinct !{!584, !581, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h6ddb4e1cf268ea1dE: argument 2"}
 !585 = !{!574}
 !586 = !{!580}
-!587 = !{!583, !580, !584}
+!587 = !{!583, !580, !584, !574, !576}
 !588 = !{i32 0, i32 1000000003}
 !589 = !{!590}
 !590 = distinct !{!590, !591, !"_ZN4core3ptr237drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$fs..Metadata$GT$$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h4399268e3d6e8bb7E: argument 0"}
@@ -33974,7 +33974,7 @@ attributes #31 = { noreturn nounwind }
 !3161 = distinct !{!3161, !"_ZN65_$LT$core..task..wake..Waker$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf9a0118e92c3996E.llvm.5574743378113271237"}
 !3162 = distinct !{!3162, !3163, !"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h6304106769e95251E.llvm.5574743378113271237: argument 0"}
 !3163 = distinct !{!3163, !"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h6304106769e95251E.llvm.5574743378113271237"}
-!3164 = !{!3165, !3167}
+!3164 = !{!3165, !3167, !3157}
 !3165 = distinct !{!3165, !3166, !"_ZN65_$LT$core..task..wake..Waker$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf9a0118e92c3996E.llvm.5574743378113271237: argument 0"}
 !3166 = distinct !{!3166, !"_ZN65_$LT$core..task..wake..Waker$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf9a0118e92c3996E.llvm.5574743378113271237"}
 !3167 = distinct !{!3167, !3168, !"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h6304106769e95251E.llvm.5574743378113271237: argument 0"}
@@ -33997,7 +33997,7 @@ attributes #31 = { noreturn nounwind }
 !3184 = distinct !{!3184, !"_ZN65_$LT$core..task..wake..Waker$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf9a0118e92c3996E.llvm.5574743378113271237"}
 !3185 = distinct !{!3185, !3186, !"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h6304106769e95251E.llvm.5574743378113271237: argument 0"}
 !3186 = distinct !{!3186, !"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h6304106769e95251E.llvm.5574743378113271237"}
-!3187 = !{!3188, !3190}
+!3187 = !{!3188, !3190, !3180}
 !3188 = distinct !{!3188, !3189, !"_ZN65_$LT$core..task..wake..Waker$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf9a0118e92c3996E.llvm.5574743378113271237: argument 0"}
 !3189 = distinct !{!3189, !"_ZN65_$LT$core..task..wake..Waker$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcf9a0118e92c3996E.llvm.5574743378113271237"}
 !3190 = distinct !{!3190, !3191, !"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h6304106769e95251E.llvm.5574743378113271237: argument 0"}

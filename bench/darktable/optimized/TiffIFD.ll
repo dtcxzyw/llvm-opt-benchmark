@@ -712,7 +712,6 @@ _ZNKSt14default_deleteIN8rawspeed9TiffEntryEEclEPS1_.exit.i89: ; preds = %187
   br label %_ZNSt10unique_ptrIN8rawspeed9TiffEntryESt14default_deleteIS1_EED2Ev.exit90
 
 _ZNSt10unique_ptrIN8rawspeed9TiffEntryESt14default_deleteIS1_EED2Ev.exit90: ; preds = %187, %_ZNKSt14default_deleteIN8rawspeed9TiffEntryEEclEPS1_.exit.i89
-  store ptr null, ptr %9, align 8, !tbaa !37
   invoke void @__cxa_end_catch()
           to label %_ZNSt10unique_ptrIN8rawspeed9TiffEntryESt14default_deleteIS1_EED2Ev.exit93 unwind label %197
 

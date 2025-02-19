@@ -11094,9 +11094,7 @@ _ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit29: ; pre
 
 78:                                               ; preds = %_ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit29
   %79 = load ptr, ptr %52, align 8, !tbaa !324
-  %.sroa.011.0.copyload = load ptr, ptr %5, align 8, !tbaa !297
-  %.sroa.212.0.copyload = load i64, ptr %48, align 8, !tbaa !298
-  %80 = call ptr @_ZN5clang11FileManager17getVirtualFileRefEN4llvm9StringRefEll(ptr noundef nonnull align 8 dereferenceable(808) %79, ptr %.sroa.011.0.copyload, i64 %.sroa.212.0.copyload, i64 noundef 0, i64 noundef 0) #23
+  %80 = call ptr @_ZN5clang11FileManager17getVirtualFileRefEN4llvm9StringRefEll(ptr noundef nonnull align 8 dereferenceable(808) %79, ptr %.sroa.013.0.copyload, i64 %49, i64 noundef 0, i64 noundef 0) #23
   br label %.sink.split
 
 .sink.split:                                      ; preds = %47, %78

@@ -1271,7 +1271,6 @@ define hidden void @_ZNK6Assimp15BlenderImporter15ParseMagicTokenERKNSt7__cxx111
 _ZN6Assimp8IOSystem4OpenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit: ; preds = %._crit_edge.i.i
   store ptr %23, ptr %9, align 8
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr null, ptr %24, align 8
   %25 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
           to label %42 unwind label %26
 
@@ -1607,7 +1606,6 @@ _ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.i: ; preds = %141, %138, %_ZN
 _ZN6Assimp12StreamReaderILb0ELb0EEC2ESt10shared_ptrINS_8IOStreamEEb.exit: ; preds = %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.i
   store ptr %127, ptr %12, align 8
   %144 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr null, ptr %144, align 8
   %145 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
           to label %156 unwind label %146
 

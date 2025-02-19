@@ -7538,7 +7538,6 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal8rewriter18RewriteDbProofCons
   %18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal7IntStatppEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
   %19 = call noundef i32 @_ZN4cvc58internal8rewriter18RewriteDbProofCons24proveInternalViaStrategyERKNS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(608) %0, ptr noundef nonnull align 8 dereferenceable(8) %2) #25
   %20 = call noundef i64 @_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  store i32 %19, ptr %7, align 4, !tbaa !216
   br label %21
 
 21:                                               ; preds = %._crit_edge, %14

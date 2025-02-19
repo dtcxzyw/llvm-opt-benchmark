@@ -957,7 +957,7 @@ _ZN4cvc58internal6theory5arith8rewriter12_GLOBAL__N_110getLTermItERSt3mapINS0_12
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #18
+  call void @__clang_call_terminate(ptr %53) #18, !noalias !44
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit.i:            ; preds = %49
@@ -969,7 +969,7 @@ _ZN4cvc58internal8RationalD2Ev.exit.i:            ; preds = %49
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #18
+  call void @__clang_call_terminate(ptr %56) #18, !noalias !44
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit17.i:          ; preds = %_ZN4cvc58internal8RationalD2Ev.exit.i
@@ -992,7 +992,7 @@ _ZN4cvc58internal8RationalD2Ev.exit17.i:          ; preds = %_ZN4cvc58internal8R
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
-  call void @__clang_call_terminate(ptr %63) #18
+  call void @__clang_call_terminate(ptr %63) #18, !noalias !44
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit18.i:          ; preds = %59, %57
@@ -1005,7 +1005,7 @@ _ZN4cvc58internal8RationalD2Ev.exit18.i:          ; preds = %59, %57
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #18
+  call void @__clang_call_terminate(ptr %66) #18, !noalias !44
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit19.i:          ; preds = %_ZN4cvc58internal8RationalD2Ev.exit18.i

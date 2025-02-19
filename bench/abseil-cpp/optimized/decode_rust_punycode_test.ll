@@ -2343,7 +2343,7 @@ _ZNK7testing8internal11MatcherBaseIRKPcE8IsSharedEv.exit.i.i.i.i.i.i.i.i: ; pred
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #25
+  call void @__clang_call_terminate(ptr %46) #25, !noalias !76
   unreachable
 
 _ZN7testing8internal11MatcherBaseIRKPcED2Ev.exit.i.i.i.i.i.i: ; preds = %39, %35, %_ZNK7testing8internal11MatcherBaseIRKPcE8IsSharedEv.exit.i.i.i.i.i.i.i.i, %_ZNSt6vectorIN7testing7MatcherIRKPcEESaIS5_EE9push_backEOS5_.exit.i.i.i.i.i.i
@@ -2506,7 +2506,7 @@ _ZNK7testing8internal11MatcherBaseIRKPcE8IsSharedEv.exit.i.i.i.i.i.i.i.i.i: ; pr
   %104 = landingpad { ptr, i32 }
           catch ptr null
   %105 = extractvalue { ptr, i32 } %104, 0
-  call void @__clang_call_terminate(ptr %105) #25
+  call void @__clang_call_terminate(ptr %105) #25, !noalias !76
   unreachable
 
 106:                                              ; preds = %91

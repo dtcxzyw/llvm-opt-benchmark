@@ -242,7 +242,7 @@ common.resume:                                    ; preds = %116, %124, %.body, 
   resume { ptr, i32 } %common.resume.op
 
 _ZN4core3ops8function6FnOnce9call_once17hd16bbad53d7a9ea6E.llvm.1502689326356229583.exit.i: ; preds = %.noexc.i.i.i.i
-  store ptr %39, ptr %41, align 8
+  store ptr %39, ptr %41, align 8, !noalias !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !21
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %41, ptr %48, align 8, !alias.scope !13, !noalias !19
@@ -300,7 +300,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd16bbad53d7a9ea6E.llvm.1502689326356229
   unreachable
 
 _ZN4core3ops8function6FnOnce9call_once17hd16bbad53d7a9ea6E.llvm.1502689326356229583.exit.i48: ; preds = %.noexc.i.i.i.i47
-  store ptr %53, ptr %57, align 8
+  store ptr %53, ptr %57, align 8, !noalias !46
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !36
   br label %67
 

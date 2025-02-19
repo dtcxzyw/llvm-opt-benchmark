@@ -29318,7 +29318,7 @@ _ZSt8_DestroyIPN5arrow7compute7SortKeyES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %7
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #26
+  call void @__clang_call_terminate(ptr %20) #26, !noalias !820
   unreachable
 
 common.resume:                                    ; preds = %_ZNSt10unique_ptrIN5arrow7compute11SortOptionsESt14default_deleteIS2_EED2Ev.exit5, %21
@@ -29455,7 +29455,7 @@ _ZSt8_DestroyIPN5arrow7compute7SortKeyES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %8
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #26
+  call void @__clang_call_terminate(ptr %21) #26, !noalias !835
   unreachable
 
 common.resume:                                    ; preds = %_ZNSt10unique_ptrIN5arrow7compute11SortOptionsESt14default_deleteIS2_EED2Ev.exit, %22
@@ -43577,7 +43577,7 @@ _ZSt8_DestroyIPN5arrow7compute7SortKeyES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %7
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #26
+  call void @__clang_call_terminate(ptr %20) #26, !noalias !1264
   unreachable
 
 common.resume:                                    ; preds = %_ZNSt10unique_ptrIN5arrow7compute14SelectKOptionsESt14default_deleteIS2_EED2Ev.exit5, %21
@@ -43712,7 +43712,7 @@ _ZSt8_DestroyIPN5arrow7compute7SortKeyES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %8
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #26
+  call void @__clang_call_terminate(ptr %21) #26, !noalias !1278
   unreachable
 
 common.resume:                                    ; preds = %_ZNSt10unique_ptrIN5arrow7compute14SelectKOptionsESt14default_deleteIS2_EED2Ev.exit, %22
@@ -51215,7 +51215,7 @@ _ZSt8_DestroyIPN5arrow7compute7SortKeyES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %7
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #26
+  call void @__clang_call_terminate(ptr %20) #26, !noalias !1462
   unreachable
 
 common.resume:                                    ; preds = %_ZNSt10unique_ptrIN5arrow7compute11RankOptionsESt14default_deleteIS2_EED2Ev.exit5, %21
@@ -51363,7 +51363,7 @@ _ZSt8_DestroyIPN5arrow7compute7SortKeyES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %8
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #26
+  call void @__clang_call_terminate(ptr %21) #26, !noalias !1477
   unreachable
 
 common.resume:                                    ; preds = %_ZNSt10unique_ptrIN5arrow7compute11RankOptionsESt14default_deleteIS2_EED2Ev.exit, %22
@@ -55743,7 +55743,7 @@ _ZSt8_DestroyIPN5arrow7compute7SortKeyES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %7
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #26
+  call void @__clang_call_terminate(ptr %20) #26, !noalias !1581
   unreachable
 
 common.resume:                                    ; preds = %_ZNSt10unique_ptrIN5arrow7compute19RankQuantileOptionsESt14default_deleteIS2_EED2Ev.exit5, %21
@@ -55880,7 +55880,7 @@ _ZSt8_DestroyIPN5arrow7compute7SortKeyES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %8
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #26
+  call void @__clang_call_terminate(ptr %21) #26, !noalias !1596
   unreachable
 
 common.resume:                                    ; preds = %_ZNSt10unique_ptrIN5arrow7compute19RankQuantileOptionsESt14default_deleteIS2_EED2Ev.exit, %22

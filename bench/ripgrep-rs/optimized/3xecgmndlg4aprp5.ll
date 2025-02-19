@@ -1365,7 +1365,7 @@ _ZN5alloc3fmt6format17hf6ddbaba453730d3E.exit217: ; preds = %434
 
 .noexc226:                                        ; preds = %456
   %460 = extractvalue { i64, ptr } %459, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %460, ptr nonnull readonly align 1 %.val, i64 %.val178, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %460, ptr nonnull readonly align 1 %.val, i64 %.val178, i1 false), !noalias !129
   %461 = icmp ne ptr %460, null
   call void @llvm.assume(i1 %461)
   %462 = icmp eq i64 %.val178, 0
@@ -1729,7 +1729,7 @@ attributes #13 = { nounwind }
 !132 = !{!133}
 !133 = distinct !{!133, !131, !"_ZN12regex_syntax3hir3Hir7literal17h01fb2dff5d6815b1E: argument 1"}
 !134 = !{!130, !133}
-!135 = !{!136, !138, !140}
+!135 = !{!136, !138, !140, !130, !133}
 !136 = distinct !{!136, !137, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf851cd81d9bebd7dE.llvm.8519985026491776260: argument 0"}
 !137 = distinct !{!137, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf851cd81d9bebd7dE.llvm.8519985026491776260"}
 !138 = distinct !{!138, !139, !"_ZN4core3ptr58drop_in_place$LT$alloc..boxed..Box$LT$$u5b$u8$u5d$$GT$$GT$17hf82b76fa0a8846a6E.llvm.8519985026491776260: argument 0"}

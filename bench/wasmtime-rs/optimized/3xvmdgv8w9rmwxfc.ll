@@ -583,7 +583,7 @@ define internal fastcc void @_ZN5serde2de9MapAccess10next_value17hda97d5a699c92f
   %49 = extractvalue { i64, ptr } %46, 1
   %50 = icmp ne ptr %49, null
   call void @llvm.assume(i1 %50)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %49, ptr nonnull align 1 %43, i64 %45, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %49, ptr nonnull align 1 %43, i64 %45, i1 false), !noalias !170
   store i64 %48, ptr %3, align 8, !noalias !168
   %.sroa.46.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %49, ptr %.sroa.46.0..sroa_idx.i.i.i, align 8, !noalias !168
@@ -970,7 +970,7 @@ define internal fastcc void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20
   %43 = extractvalue { i64, ptr } %40, 1
   %44 = icmp ne ptr %43, null
   call void @llvm.assume(i1 %44)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull align 1 %37, i64 %39, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull align 1 %37, i64 %39, i1 false), !noalias !238
   store i64 %42, ptr %3, align 8, !noalias !236
   %.sroa.46.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %43, ptr %.sroa.46.0..sroa_idx.i.i, align 8, !noalias !236
@@ -1712,7 +1712,7 @@ define hidden void @"_ZN172_$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..d
   %113 = extractvalue { i64, ptr } %110, 1
   %114 = icmp ne ptr %113, null
   call void @llvm.assume(i1 %114)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %113, ptr nonnull align 1 %108, i64 %109, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %113, ptr nonnull align 1 %108, i64 %109, i1 false), !noalias !356
   store i64 %112, ptr %4, align 8, !noalias !351
   store ptr %113, ptr %.sroa.46.0..sroa_idx.i.i.i.i, align 8, !noalias !351
   store i64 %109, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8, !noalias !351
@@ -2701,7 +2701,7 @@ define hidden void @"_ZN177_$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..d
   %316 = extractvalue { i64, ptr } %313, 1
   %317 = icmp ne ptr %316, null
   call void @llvm.assume(i1 %317)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %316, ptr nonnull align 1 %311, i64 %312, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %316, ptr nonnull align 1 %311, i64 %312, i1 false), !noalias !477
   store i64 %315, ptr %106, align 8, !noalias !475
   store ptr %316, ptr %.sroa.46.0..sroa_idx.i.i.i.i, align 8, !noalias !475
   store i64 %312, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8, !noalias !475
@@ -2884,7 +2884,7 @@ define hidden void @"_ZN177_$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..d
   %355 = extractvalue { i64, ptr } %352, 1
   %356 = icmp ne ptr %355, null
   call void @llvm.assume(i1 %356)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %355, ptr nonnull align 1 %350, i64 %351, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %355, ptr nonnull align 1 %350, i64 %351, i1 false), !noalias !518
   store i64 %354, ptr %96, align 8, !noalias !516
   store ptr %355, ptr %.sroa.46.0..sroa_idx.i.i.i.i327, align 8, !noalias !516
   store i64 %351, ptr %.sroa.5.0..sroa_idx.i.i.i.i328, align 8, !noalias !516
@@ -3104,7 +3104,7 @@ define hidden void @"_ZN177_$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..d
   %403 = extractvalue { i64, ptr } %400, 1
   %404 = icmp ne ptr %403, null
   call void @llvm.assume(i1 %404)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %403, ptr nonnull align 1 %398, i64 %399, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %403, ptr nonnull align 1 %398, i64 %399, i1 false), !noalias !580
   store i64 %402, ptr %85, align 8, !noalias !578
   store ptr %403, ptr %.sroa.46.0..sroa_idx.i.i.i.i346, align 8, !noalias !578
   store i64 %399, ptr %.sroa.5.0..sroa_idx.i.i.i.i347, align 8, !noalias !578
@@ -3372,7 +3372,7 @@ define hidden void @"_ZN177_$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..d
   %466 = extractvalue { i64, ptr } %463, 1
   %467 = icmp ne ptr %466, null
   call void @llvm.assume(i1 %467)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %466, ptr nonnull align 1 %461, i64 %462, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %466, ptr nonnull align 1 %461, i64 %462, i1 false), !noalias !623
   store i64 %465, ptr %75, align 8, !noalias !621
   store ptr %466, ptr %.sroa.46.0..sroa_idx.i.i.i.i369, align 8, !noalias !621
   store i64 %462, ptr %.sroa.5.0..sroa_idx.i.i.i.i370, align 8, !noalias !621
@@ -3554,7 +3554,7 @@ define hidden void @"_ZN177_$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..d
   %505 = extractvalue { i64, ptr } %502, 1
   %506 = icmp ne ptr %505, null
   call void @llvm.assume(i1 %506)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %505, ptr nonnull align 1 %500, i64 %501, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %505, ptr nonnull align 1 %500, i64 %501, i1 false), !noalias !666
   store i64 %504, ptr %65, align 8, !noalias !664
   store ptr %505, ptr %.sroa.46.0..sroa_idx.i.i.i.i391, align 8, !noalias !664
   store i64 %501, ptr %.sroa.5.0..sroa_idx.i.i.i.i392, align 8, !noalias !664
@@ -3736,7 +3736,7 @@ define hidden void @"_ZN177_$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..d
   %544 = extractvalue { i64, ptr } %541, 1
   %545 = icmp ne ptr %544, null
   call void @llvm.assume(i1 %545)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %544, ptr nonnull align 1 %539, i64 %540, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %544, ptr nonnull align 1 %539, i64 %540, i1 false), !noalias !709
   store i64 %543, ptr %55, align 8, !noalias !707
   store ptr %544, ptr %.sroa.46.0..sroa_idx.i.i.i.i414, align 8, !noalias !707
   store i64 %540, ptr %.sroa.5.0..sroa_idx.i.i.i.i415, align 8, !noalias !707
@@ -3918,7 +3918,7 @@ define hidden void @"_ZN177_$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..d
   %583 = extractvalue { i64, ptr } %580, 1
   %584 = icmp ne ptr %583, null
   call void @llvm.assume(i1 %584)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %583, ptr nonnull align 1 %578, i64 %579, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %583, ptr nonnull align 1 %578, i64 %579, i1 false), !noalias !752
   store i64 %582, ptr %45, align 8, !noalias !750
   store ptr %583, ptr %.sroa.46.0..sroa_idx.i.i.i.i437, align 8, !noalias !750
   store i64 %579, ptr %.sroa.5.0..sroa_idx.i.i.i.i438, align 8, !noalias !750
@@ -4100,7 +4100,7 @@ define hidden void @"_ZN177_$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..d
   %622 = extractvalue { i64, ptr } %619, 1
   %623 = icmp ne ptr %622, null
   call void @llvm.assume(i1 %623)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %622, ptr nonnull align 1 %617, i64 %618, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %622, ptr nonnull align 1 %617, i64 %618, i1 false), !noalias !795
   store i64 %621, ptr %35, align 8, !noalias !793
   store ptr %622, ptr %.sroa.46.0..sroa_idx.i.i.i.i460, align 8, !noalias !793
   store i64 %618, ptr %.sroa.5.0..sroa_idx.i.i.i.i461, align 8, !noalias !793
@@ -4282,7 +4282,7 @@ define hidden void @"_ZN177_$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..d
   %661 = extractvalue { i64, ptr } %658, 1
   %662 = icmp ne ptr %661, null
   call void @llvm.assume(i1 %662)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %661, ptr nonnull align 1 %656, i64 %657, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %661, ptr nonnull align 1 %656, i64 %657, i1 false), !noalias !838
   store i64 %660, ptr %25, align 8, !noalias !836
   store ptr %661, ptr %.sroa.46.0..sroa_idx.i.i.i.i483, align 8, !noalias !836
   store i64 %657, ptr %.sroa.5.0..sroa_idx.i.i.i.i484, align 8, !noalias !836
@@ -4464,7 +4464,7 @@ define hidden void @"_ZN177_$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..d
   %700 = extractvalue { i64, ptr } %697, 1
   %701 = icmp ne ptr %700, null
   call void @llvm.assume(i1 %701)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %700, ptr nonnull align 1 %695, i64 %696, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %700, ptr nonnull align 1 %695, i64 %696, i1 false), !noalias !881
   store i64 %699, ptr %15, align 8, !noalias !879
   store ptr %700, ptr %.sroa.46.0..sroa_idx.i.i.i.i506, align 8, !noalias !879
   store i64 %696, ptr %.sroa.5.0..sroa_idx.i.i.i.i507, align 8, !noalias !879
@@ -4646,7 +4646,7 @@ define hidden void @"_ZN177_$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..d
   %739 = extractvalue { i64, ptr } %736, 1
   %740 = icmp ne ptr %739, null
   call void @llvm.assume(i1 %740)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %739, ptr nonnull align 1 %734, i64 %735, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %739, ptr nonnull align 1 %734, i64 %735, i1 false), !noalias !924
   store i64 %738, ptr %5, align 8, !noalias !922
   store ptr %739, ptr %.sroa.46.0..sroa_idx.i.i.i.i529, align 8, !noalias !922
   store i64 %735, ptr %.sroa.5.0..sroa_idx.i.i.i.i530, align 8, !noalias !922
@@ -5370,7 +5370,7 @@ define hidden void @"_ZN187_$LT$wasmtime_cache..worker.._..$LT$impl$u20$serde..d
   %115 = extractvalue { i64, ptr } %112, 1
   %116 = icmp ne ptr %115, null
   call void @llvm.assume(i1 %116)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %115, ptr nonnull align 1 %110, i64 %111, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %115, ptr nonnull align 1 %110, i64 %111, i1 false), !noalias !1040
   store i64 %114, ptr %15, align 8, !noalias !1038
   store ptr %115, ptr %.sroa.46.0..sroa_idx.i.i.i.i, align 8, !noalias !1038
   store i64 %111, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8, !noalias !1038
@@ -5546,7 +5546,7 @@ define hidden void @"_ZN187_$LT$wasmtime_cache..worker.._..$LT$impl$u20$serde..d
   %152 = extractvalue { i64, ptr } %149, 1
   %153 = icmp ne ptr %152, null
   call void @llvm.assume(i1 %153)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %152, ptr nonnull align 1 %147, i64 %148, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %152, ptr nonnull align 1 %147, i64 %148, i1 false), !noalias !1078
   store i64 %151, ptr %5, align 8, !noalias !1076
   store ptr %152, ptr %.sroa.46.0..sroa_idx.i.i.i.i138, align 8, !noalias !1076
   store i64 %148, ptr %.sroa.5.0..sroa_idx.i.i.i.i139, align 8, !noalias !1076

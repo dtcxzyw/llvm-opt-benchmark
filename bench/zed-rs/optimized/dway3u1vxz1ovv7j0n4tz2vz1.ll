@@ -80,8 +80,8 @@ define hidden { i64, ptr } @"_ZN102_$LT$futures_util..future..future..map..Map$L
 
 32:                                               ; preds = %12
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %34 = load ptr, ptr %33, align 8, !nonnull !4, !noundef !4
-  tail call void %34(ptr noundef %20)
+  %34 = load ptr, ptr %33, align 8, !noalias !11, !nonnull !4, !noundef !4
+  tail call void %34(ptr noundef %20), !noalias !11
   br label %40
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h4e90a91bf5e8c066E.exit.i.i": ; preds = %28, %26
@@ -257,8 +257,8 @@ define hidden { i64, ptr } @"_ZN102_$LT$futures_util..future..future..map..Map$L
 
 32:                                               ; preds = %12
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %34 = load ptr, ptr %33, align 8, !nonnull !4, !noundef !4
-  tail call void %34(ptr noundef %20)
+  %34 = load ptr, ptr %33, align 8, !noalias !42, !nonnull !4, !noundef !4
+  tail call void %34(ptr noundef %20), !noalias !42
   br label %40
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h4e90a91bf5e8c066E.exit.i.i": ; preds = %28, %26

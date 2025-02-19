@@ -1477,7 +1477,7 @@ _ZN3std4path7PathBuf4push17h61c7ec98beb2db6dE.exit: ; preds = %383, %199, %195
   %223 = extractvalue { i64, ptr } %219, 1
   %224 = icmp ne ptr %223, null
   call void @llvm.assume(i1 %224)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %223, ptr nonnull align 1 %215, i64 %217, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %223, ptr nonnull align 1 %215, i64 %217, i1 false), !noalias !305
   store i64 %222, ptr %50, align 8, !noalias !298
   %.sroa.470.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %223, ptr %.sroa.470.0..sroa_idx.i.i, align 8, !noalias !298

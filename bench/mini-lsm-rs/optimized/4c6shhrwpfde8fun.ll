@@ -2631,7 +2631,7 @@ define hidden void @"_ZN4moka12notification8notifier29NotificationTask$LT$K$C$V$
           cleanup
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @_ZN3std9panicking3try8do_catch17hc3b5eb4b89914da9E.llvm.885679253126787145(ptr nonnull %6, ptr %35)
+  call void @_ZN3std9panicking3try8do_catch17hc3b5eb4b89914da9E.llvm.885679253126787145(ptr nonnull %6, ptr %35), !noalias !378
   %36 = load ptr, ptr %6, align 8, !noalias !375, !nonnull !4, !align !129
   %37 = load ptr, ptr %.sroa.4.0..sroa_idx1.i, align 8, !noalias !375, !nonnull !4, !align !130
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !375
@@ -2784,7 +2784,7 @@ define hidden void @"_ZN4moka12notification8notifier29NotificationTask$LT$K$C$V$
           cleanup
           catch ptr null
   %82 = extractvalue { ptr, i32 } %81, 0
-  call void @_ZN3std9panicking3try8do_catch17hc3b5eb4b89914da9E.llvm.885679253126787145(ptr nonnull %2, ptr %82)
+  call void @_ZN3std9panicking3try8do_catch17hc3b5eb4b89914da9E.llvm.885679253126787145(ptr nonnull %2, ptr %82), !noalias !401
   %83 = load ptr, ptr %2, align 8, !noalias !398, !nonnull !4, !align !129
   %84 = load ptr, ptr %.sroa.4.0..sroa_idx1.i47, align 8, !noalias !398, !nonnull !4, !align !130
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !398
@@ -2952,7 +2952,7 @@ define hidden void @"_ZN4moka12notification8notifier36BlockingRemovalNotifier$LT
           cleanup
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @_ZN3std9panicking3try8do_catch17ha5bfd6620a81e835E.llvm.885679253126787145(ptr nonnull %5, ptr %27)
+  call void @_ZN3std9panicking3try8do_catch17ha5bfd6620a81e835E.llvm.885679253126787145(ptr nonnull %5, ptr %27), !noalias !411
   %28 = load ptr, ptr %5, align 8, !noalias !411, !nonnull !4, !align !129
   %29 = load ptr, ptr %.sroa.4.0..sroa_idx28, align 8, !noalias !411, !nonnull !4, !align !130
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !411
@@ -3964,7 +3964,7 @@ common.resume:                                    ; preds = %.body, %426, %.thre
           cleanup
           catch ptr null
   %240 = extractvalue { ptr, i32 } %239, 0
-  call void @_ZN3std9panicking3try8do_catch17h5aa8d9e70db8ea47E.llvm.885679253126787145(ptr nonnull %15, ptr %240)
+  call void @_ZN3std9panicking3try8do_catch17h5aa8d9e70db8ea47E.llvm.885679253126787145(ptr nonnull %15, ptr %240), !noalias !548
   %241 = load ptr, ptr %15, align 8, !noalias !544, !nonnull !4, !align !129, !noundef !4
   %242 = load ptr, ptr %169, align 8, !noalias !544, !nonnull !4, !align !130, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !544

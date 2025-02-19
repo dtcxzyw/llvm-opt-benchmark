@@ -1108,7 +1108,7 @@ _ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10unique_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core19XdsLbPolicyRegistry24ConvertXdsLbPolicyConfigERKNS_15XdsResourceType13DecodeContextEPK43envoy_config_cluster_v3_LoadBalancingPolicyPNS_16ValidationErrorsEi(ptr noalias sret(%"class.std::vector") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef readonly captures(none) %lb_policy, ptr noundef %errors, i32 noundef %recursion_depth) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core19XdsLbPolicyRegistry24ConvertXdsLbPolicyConfigERKNS_15XdsResourceType13DecodeContextEPK43envoy_config_cluster_v3_LoadBalancingPolicyPNS_16ValidationErrorsEi(ptr noalias writeonly sret(%"class.std::vector") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef readonly captures(none) %lb_policy, ptr noundef %errors, i32 noundef %recursion_depth) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %ref.tmp.i.i.i.i.i = alloca %class.anon, align 1
@@ -1423,7 +1423,7 @@ lpad2.i.i.i.i.i:                                  ; preds = %invoke.cont3.i.i.i.
   %33 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %lpad.i.body unwind label %terminate.lpad.i.i.i.i.i91
+          to label %if.then.i.i.i unwind label %terminate.lpad.i.i.i.i.i91
 
 terminate.lpad.i.i.i.i.i91:                       ; preds = %lpad2.i.i.i.i.i
   %34 = landingpad { ptr, i32 }
@@ -1440,13 +1440,8 @@ lpad.i.body.thread:                               ; preds = %invoke.cont53
           cleanup
   br label %lpad57.body
 
-lpad.i.body:                                      ; preds = %lpad2.i.i.i.i.i
-  %.pr = load ptr, ptr %agg.result, align 8
-  %tobool.not.i.i.i = icmp eq ptr %.pr, null
-  br i1 %tobool.not.i.i.i, label %lpad57.body, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %lpad.i.body
-  call void @_ZdlPv(ptr noundef nonnull %.pr) #20
+if.then.i.i.i:                                    ; preds = %lpad2.i.i.i.i.i
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i92) #20
   br label %lpad57.body
 
 if.end.i.i.i.i:                                   ; preds = %for.inc.i.i.i.i.i
@@ -1487,8 +1482,8 @@ lpad52:                                           ; preds = %if.then45
           cleanup
   br label %ehcleanup174
 
-lpad57.body:                                      ; preds = %lpad.i.body.thread, %lpad.i.body, %if.then.i.i.i
-  %eh.lpad-body93189 = phi { ptr, i32 } [ %36, %lpad.i.body.thread ], [ %33, %lpad.i.body ], [ %33, %if.then.i.i.i ]
+lpad57.body:                                      ; preds = %lpad.i.body.thread, %if.then.i.i.i
+  %eh.lpad-body93189 = phi { ptr, i32 } [ %36, %lpad.i.body.thread ], [ %33, %if.then.i.i.i ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp47) #19
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp48) #19
   br label %ehcleanup174
@@ -1671,7 +1666,7 @@ lpad2.i.i.i.i.i111:                               ; preds = %invoke.cont3.i.i.i.
   %65 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %lpad.i58.body unwind label %terminate.lpad.i.i.i.i.i112
+          to label %if.then.i.i.i60 unwind label %terminate.lpad.i.i.i.i.i112
 
 terminate.lpad.i.i.i.i.i112:                      ; preds = %lpad2.i.i.i.i.i111
   %66 = landingpad { ptr, i32 }
@@ -1688,13 +1683,8 @@ lpad.i58.body.thread:                             ; preds = %_ZNSt8_Rb_treeINSt7
           cleanup
   br label %lpad120.body
 
-lpad.i58.body:                                    ; preds = %lpad2.i.i.i.i.i111
-  %.pr129 = load ptr, ptr %agg.result, align 8
-  %tobool.not.i.i.i59 = icmp eq ptr %.pr129, null
-  br i1 %tobool.not.i.i.i59, label %lpad120.body, label %if.then.i.i.i60
-
-if.then.i.i.i60:                                  ; preds = %lpad.i58.body
-  call void @_ZdlPv(ptr noundef nonnull %.pr129) #20
+if.then.i.i.i60:                                  ; preds = %lpad2.i.i.i.i.i111
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i123) #20
   br label %lpad120.body
 
 if.end.i.i.i.i67:                                 ; preds = %for.inc.i.i.i.i.i116
@@ -1758,8 +1748,8 @@ lpad101:                                          ; preds = %if.then87
           cleanup
   br label %ehcleanup152
 
-lpad120.body:                                     ; preds = %lpad.i58.body.thread, %lpad.i58.body, %if.then.i.i.i60
-  %eh.lpad-body124194 = phi { ptr, i32 } [ %68, %lpad.i58.body.thread ], [ %65, %lpad.i58.body ], [ %65, %if.then.i.i.i60 ]
+lpad120.body:                                     ; preds = %lpad.i58.body.thread, %if.then.i.i.i60
+  %eh.lpad-body124194 = phi { ptr, i32 } [ %68, %lpad.i58.body.thread ], [ %65, %if.then.i.i.i60 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp89) #19
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp92) #19
   br label %ehcleanup137
@@ -7146,7 +7136,7 @@ invoke.cont9:                                     ; preds = %if.then7
   store ptr %6, ptr %_M_right.i.i.i.i.i20, align 8
   %_M_node_count.i.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i21, align 8
-  br label %cleanup
+  br label %if.then.i
 
 lpad:                                             ; preds = %if.end10, %if.then7
   %7 = landingpad { ptr, i32 }
@@ -7449,11 +7439,11 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZNSt8__detail9__va
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %_ZN9grpc_core12experimental4JsonD2Ev.exit52
   %45 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %40, %_ZN9grpc_core12experimental4JsonD2Ev.exit52 ]
   %tobool.not.i.i.i59 = icmp eq ptr %45, null
-  br i1 %tobool.not.i.i.i59, label %cleanup, label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i59, label %if.then.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   call void @_ZdlPv(ptr noundef nonnull %45) #20
-  br label %cleanup
+  br label %if.then.i
 
 lpad22:                                           ; preds = %invoke.cont11
   %46 = landingpad { ptr, i32 }
@@ -7482,20 +7472,15 @@ ehcleanup60:                                      ; preds = %ehcleanup46, %lpad2
   call void @_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %child_policy) #19
   br label %ehcleanup78
 
-cleanup:                                          ; preds = %if.then.i.i.i, %invoke.cont.i, %invoke.cont9
-  %48 = load ptr, ptr %field, align 8
-  %cmp.not.i60 = icmp eq ptr %48, null
-  br i1 %cmp.not.i60, label %return, label %if.then.i
-
-if.then.i:                                        ; preds = %cleanup
-  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %48)
+if.then.i:                                        ; preds = %invoke.cont9, %invoke.cont.i, %if.then.i.i.i
+  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %errors)
           to label %return unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %49 = landingpad { ptr, i32 }
+  %48 = landingpad { ptr, i32 }
           catch ptr null
-  %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #21
+  %49 = extractvalue { ptr, i32 } %48, 0
+  call void @__clang_call_terminate(ptr %49) #21
   unreachable
 
 ehcleanup78:                                      ; preds = %ehcleanup60, %lpad
@@ -7503,7 +7488,7 @@ ehcleanup78:                                      ; preds = %ehcleanup60, %lpad
   call void @_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %field) #19
   resume { ptr, i32 } %.pn11
 
-return:                                           ; preds = %if.then.i, %cleanup, %if.then
+return:                                           ; preds = %if.then.i, %if.then
   ret void
 }
 

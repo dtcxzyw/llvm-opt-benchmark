@@ -9582,7 +9582,7 @@ define hidden { i64, ptr } @"_ZN92_$LT$async_std..future..poll_fn..PollFn$LT$F$G
 13:                                               ; preds = %9
   %14 = icmp ne ptr %12, null
   tail call void @llvm.assume(i1 %14)
-  %15 = tail call { i64, ptr } @"_ZN9async_std2fs4file43LockGuard$LT$async_std..fs..file..State$GT$10poll_flush17hc751704a9635b1bbE"(ptr noundef nonnull %12, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
+  %15 = tail call { i64, ptr } @"_ZN9async_std2fs4file43LockGuard$LT$async_std..fs..file..State$GT$10poll_flush17hc751704a9635b1bbE"(ptr noundef nonnull %12, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !1119
   %16 = extractvalue { i64, ptr } %15, 0
   %17 = extractvalue { i64, ptr } %15, 1
   br label %"_ZN9async_std2fs4file4File7set_len28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he64dfabcf9b830ebE.llvm.4628595066780388198.exit"

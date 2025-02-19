@@ -20586,7 +20586,7 @@ _ZN7xgboost4JsonD2Ev.exit23.i:                    ; preds = %205, %201, %_ZN7xgb
   %219 = landingpad { ptr, i32 }
           catch ptr null
   %220 = extractvalue { ptr, i32 } %219, 0
-  call void @__clang_call_terminate(ptr %220) #36
+  call void @__clang_call_terminate(ptr %220) #36, !noalias !40
   unreachable
 
 221:                                              ; preds = %197, %193, %191
@@ -20882,7 +20882,7 @@ _ZN7xgboost4JsonD2Ev.exit23.i68:                  ; preds = %321, %317, %_ZN7xgb
   %335 = landingpad { ptr, i32 }
           catch ptr null
   %336 = extractvalue { ptr, i32 } %335, 0
-  call void @__clang_call_terminate(ptr %336) #36
+  call void @__clang_call_terminate(ptr %336) #36, !noalias !46
   unreachable
 
 337:                                              ; preds = %313, %309, %307
@@ -21171,7 +21171,7 @@ _ZN7xgboost4JsonD2Ev.exit23.i89:                  ; preds = %435, %431, %_ZN7xgb
   %449 = landingpad { ptr, i32 }
           catch ptr null
   %450 = extractvalue { ptr, i32 } %449, 0
-  call void @__clang_call_terminate(ptr %450) #36
+  call void @__clang_call_terminate(ptr %450) #36, !noalias !52
   unreachable
 
 451:                                              ; preds = %427, %423, %421
@@ -21460,7 +21460,7 @@ _ZN7xgboost4JsonD2Ev.exit23.i110:                 ; preds = %549, %545, %_ZN7xgb
   %563 = landingpad { ptr, i32 }
           catch ptr null
   %564 = extractvalue { ptr, i32 } %563, 0
-  call void @__clang_call_terminate(ptr %564) #36
+  call void @__clang_call_terminate(ptr %564) #36, !noalias !58
   unreachable
 
 565:                                              ; preds = %541, %537, %535

@@ -1016,7 +1016,6 @@ _ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue10QueuedNodeESt14default_deleteIS2_
   br label %while.cond
 
 while.end:                                        ; preds = %invoke.cont, %if.then11
-  store ptr null, ptr %node, align 8
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
@@ -1312,7 +1311,6 @@ delete.notnull.i.i:                               ; preds = %invoke.cont
   br label %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue10QueuedNodeESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue10QueuedNodeESt14default_deleteIS2_EED2Ev.exit: ; preds = %cleanup.thread, %delete.notnull.i.i
-  store ptr null, ptr %node, align 8
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i7
 
@@ -4777,7 +4775,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i12.i.i
   %208 = landingpad { ptr, i32 }
           catch ptr null
   %209 = extractvalue { ptr, i32 } %208, 0
-  call void @__clang_call_terminate(ptr %209) #29
+  call void @__clang_call_terminate(ptr %209) #29, !noalias !57
   unreachable
 
 lpad5.i.i:                                        ; preds = %call.i155.noexc
@@ -9023,7 +9021,7 @@ terminate.lpad.i.i.i36:                           ; preds = %if.then.i.i.i35
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #29, !noalias !150
+  call void @__clang_call_terminate(ptr %29) #29, !noalias !156
   unreachable
 
 "_ZN9grpc_core9ConstructINS_14promise_detail11PromiseLikeINS1_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS4_5StartEvE3$_0ZNS4_5StartEvE3$_2ZNS4_5StartEvE3$_3EEEvEEJSA_EEEvPT_DpOT0_.exit.i.i": ; preds = %"_ZN9grpc_core9ConstructINS_14promise_detail18OncePromiseFactoryIiZNS_16BasicMemoryQuota5StartEvE3$_0EEJRKS5_EEEvPT_DpOT0_.exit.i.i.i58", %if.then.i.i.i.i.i.i.i.i20.i.i.i67, %if.else.i.i.i.i.i.i.i.i22.i.i.i75
@@ -9439,7 +9437,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i:               ; preds = %invoke.cont24.i.i.i
   %92 = landingpad { ptr, i32 }
           catch ptr null
   %93 = extractvalue { ptr, i32 } %92, 0
-  call void @__clang_call_terminate(ptr %93) #29
+  call void @__clang_call_terminate(ptr %93) #29, !noalias !230
   unreachable
 
 _ZN9grpc_core5WakerD2Ev.exit.i.i.i.i.i.i.i.i.i:   ; preds = %invoke.cont24.i.i.i.i.i.i.i.i.i
@@ -9573,7 +9571,7 @@ terminate.lpad.i67.i.i.i.i.i.i.i.i.i:             ; preds = %lpad23.body.i.i.i.i
   %116 = landingpad { ptr, i32 }
           catch ptr null
   %117 = extractvalue { ptr, i32 } %116, 0
-  call void @__clang_call_terminate(ptr %117) #29
+  call void @__clang_call_terminate(ptr %117) #29, !noalias !230
   unreachable
 
 ehcleanup25.i.i.i.i.i.i.i.i.i:                    ; preds = %lpad23.body.i.i.i.i.i.i.i.i.i, %lpad17.i.i.i.i.i.i.i.i.i
@@ -9889,7 +9887,7 @@ terminate.lpad.i.i.i28:                           ; preds = %if.then.i.i.i
   %162 = landingpad { ptr, i32 }
           catch ptr null
   %163 = extractvalue { ptr, i32 } %162, 0
-  call void @__clang_call_terminate(ptr %163) #29, !noalias !150
+  call void @__clang_call_terminate(ptr %163) #29, !noalias !237
   unreachable
 
 if.else.i.i.i.i.i:                                ; preds = %_ZSt17holds_alternativeIN9grpc_core8ContinueEJS1_N4absl12lts_202308026StatusEEEbRKSt7variantIJDpT0_EE.exit.i.i, %if.then.i.i.i.i

@@ -1498,7 +1498,7 @@ _ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i3.i: ; preds =
   %261 = landingpad { ptr, i32 }
           catch ptr null
   %262 = extractvalue { ptr, i32 } %261, 0
-  call void @__clang_call_terminate(ptr %262) #34
+  call void @__clang_call_terminate(ptr %262) #34, !noalias !47
   unreachable
 
 .sink.split.sink.split:                           ; preds = %242, %_ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i.i102

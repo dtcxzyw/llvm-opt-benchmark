@@ -29612,24 +29612,24 @@ define linkonce_odr void @_ZN3vcg3tri17VoronoiProcessingINS0_12VoronoiAtlasI6CMe
 47:                                               ; preds = %1
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %186
+  br label %182
 
 49:                                               ; preds = %6
   %50 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #35
-  br label %186
+  br label %182
 
 51:                                               ; preds = %8
   %52 = landingpad { ptr, i32 }
           cleanup
-  br label %186
+  br label %182
 
 53:                                               ; preds = %10
   %54 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #35
-  br label %186
+  br label %182
 
 55:                                               ; preds = %.preheader, %111
   %.021114 = phi i32 [ 0, %.preheader ], [ %112, %111 ]
@@ -29742,15 +29742,15 @@ _ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE10VoroVertexESaIS6_EED2Ev.exit36: 
   br i1 %119, label %.split125.us, label %.split
 
 .split:                                           ; preds = %._crit_edge, %._crit_edge123
-  %120 = phi ptr [ %183, %._crit_edge123 ], [ %118, %._crit_edge ]
+  %120 = phi ptr [ %179, %._crit_edge123 ], [ %118, %._crit_edge ]
   %121 = load ptr, ptr %13, align 8
   %.not112118 = icmp eq ptr %121, %120
   br i1 %.not112118, label %.split125.us, label %.lr.ph122
 
-.lr.ph122:                                        ; preds = %.split, %182
-  %122 = phi ptr [ %183, %182 ], [ %120, %.split ]
-  %.020120 = phi i32 [ %.2, %182 ], [ 0, %.split ]
-  %.sroa.059.0119 = phi ptr [ %184, %182 ], [ %121, %.split ]
+.lr.ph122:                                        ; preds = %.split, %178
+  %122 = phi ptr [ %179, %178 ], [ %120, %.split ]
+  %.020120 = phi i32 [ %.2, %178 ], [ 0, %.split ]
+  %.sroa.059.0119 = phi ptr [ %180, %178 ], [ %121, %.split ]
   %123 = load ptr, ptr %116, align 8
   %124 = load ptr, ptr %123, align 8
   %125 = ptrtoint ptr %.sroa.059.0119 to i64
@@ -29761,7 +29761,7 @@ _ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE10VoroVertexESaIS6_EED2Ev.exit36: 
   %130 = getelementptr inbounds i8, ptr %128, i64 %129
   %131 = load ptr, ptr %130, align 8
   %132 = icmp eq ptr %131, null
-  br i1 %132, label %133, label %182
+  br i1 %132, label %133, label %178
 
 133:                                              ; preds = %.lr.ph122
   %134 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #38
@@ -29774,98 +29774,94 @@ _ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE10VoroVertexESaIS6_EED2Ev.exit36: 
   %indvars.iv128 = phi i64 [ 0, %133 ], [ %indvars.iv.next129, %137 ]
   %138 = getelementptr inbounds nuw [3 x ptr], ptr %136, i64 0, i64 %indvars.iv128
   %139 = load ptr, ptr %138, align 8
-  %140 = load ptr, ptr %116, align 8
-  %141 = load ptr, ptr %140, align 8
-  %142 = ptrtoint ptr %139 to i64
-  %143 = ptrtoint ptr %141 to i64
-  %144 = sub i64 %142, %143
-  %145 = load ptr, ptr %115, align 8
-  %146 = sdiv exact i64 %144, 20
-  %147 = getelementptr inbounds i8, ptr %145, i64 %146
-  %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv128
-  store ptr %148, ptr %149, align 8
+  %140 = load ptr, ptr %123, align 8
+  %141 = ptrtoint ptr %139 to i64
+  %142 = ptrtoint ptr %140 to i64
+  %143 = sub i64 %141, %142
+  %144 = sdiv exact i64 %143, 20
+  %145 = getelementptr inbounds i8, ptr %128, i64 %144
+  %146 = load ptr, ptr %145, align 8
+  %147 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv128
+  store ptr %146, ptr %147, align 8
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next129, 3
-  br i1 %exitcond131.not, label %150, label %137, !llvm.loop !231
+  br i1 %exitcond131.not, label %148, label %137, !llvm.loop !231
 
-150:                                              ; preds = %137
-  %151 = load ptr, ptr %134, align 8
-  %.not = icmp eq ptr %151, null
+148:                                              ; preds = %137
+  %149 = load ptr, ptr %134, align 8
+  %.not = icmp eq ptr %149, null
   %.pre137 = load ptr, ptr %135, align 8
-  br i1 %.not, label %158, label %152
+  br i1 %.not, label %156, label %150
+
+150:                                              ; preds = %148
+  %151 = icmp eq ptr %149, %.pre137
+  br i1 %151, label %_ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE10VoroVertexESaIS6_EED2Ev.exit42, label %152
 
 152:                                              ; preds = %150
-  %153 = icmp eq ptr %151, %.pre137
-  br i1 %153, label %_ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE10VoroVertexESaIS6_EED2Ev.exit42, label %154
+  %153 = getelementptr inbounds nuw i8, ptr %134, i64 16
+  %154 = load ptr, ptr %153, align 8
+  %155 = icmp eq ptr %149, %154
+  br i1 %155, label %_ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE10VoroVertexESaIS6_EED2Ev.exit42, label %156
 
-154:                                              ; preds = %152
-  %155 = getelementptr inbounds nuw i8, ptr %134, i64 16
-  %156 = load ptr, ptr %155, align 8
-  %157 = icmp eq ptr %151, %156
-  br i1 %157, label %_ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE10VoroVertexESaIS6_EED2Ev.exit42, label %158
-
-158:                                              ; preds = %154, %150
+156:                                              ; preds = %152, %148
   %.not32 = icmp ne ptr %.pre137, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %134, i64 16
   %.pre139 = load ptr, ptr %.phi.trans.insert, align 8
-  %159 = icmp eq ptr %.pre137, %.pre139
-  %or.cond = select i1 %.not32, i1 %159, i1 false
+  %157 = icmp eq ptr %.pre137, %.pre139
+  %or.cond = select i1 %.not32, i1 %157, i1 false
   br i1 %or.cond, label %_ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE10VoroVertexESaIS6_EED2Ev.exit42, label %._crit_edge138
 
-._crit_edge138:                                   ; preds = %158
-  %160 = getelementptr inbounds nuw i8, ptr %134, i64 16
-  %161 = icmp ult ptr %.pre137, %.pre139
-  %..i = select i1 %161, ptr %160, ptr %135
-  %162 = load ptr, ptr %..i, align 8
-  %163 = icmp ult ptr %151, %162
-  %..i40 = select i1 %163, ptr %..i, ptr %134
-  %164 = load ptr, ptr %..i40, align 8
+._crit_edge138:                                   ; preds = %156
+  %158 = getelementptr inbounds nuw i8, ptr %134, i64 16
+  %159 = icmp ult ptr %.pre137, %.pre139
+  %..i = select i1 %159, ptr %158, ptr %135
+  %160 = load ptr, ptr %..i, align 8
+  %161 = icmp ult ptr %149, %160
+  %..i40 = select i1 %161, ptr %..i, ptr %134
+  %162 = load ptr, ptr %..i40, align 8
   br label %_ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE10VoroVertexESaIS6_EED2Ev.exit42
 
-_ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE10VoroVertexESaIS6_EED2Ev.exit42: ; preds = %158, %154, %152, %._crit_edge138
-  %.sink150 = phi ptr [ %164, %._crit_edge138 ], [ %151, %152 ], [ %151, %154 ], [ %.pre137, %158 ]
-  %165 = load ptr, ptr %116, align 8
-  %166 = load ptr, ptr %165, align 8
-  %167 = ptrtoint ptr %166 to i64
-  %168 = sub i64 %125, %167
-  %169 = load ptr, ptr %115, align 8
-  %170 = sdiv exact i64 %168, 20
-  %171 = getelementptr inbounds i8, ptr %169, i64 %170
-  store ptr %.sink150, ptr %171, align 8
-  %172 = load ptr, ptr %116, align 8
-  %173 = load ptr, ptr %172, align 8
-  %174 = ptrtoint ptr %173 to i64
-  %175 = sub i64 %125, %174
-  %176 = load ptr, ptr %115, align 8
-  %177 = sdiv exact i64 %175, 20
-  %178 = getelementptr inbounds i8, ptr %176, i64 %177
-  %179 = load ptr, ptr %178, align 8
-  %180 = icmp eq ptr %179, null
-  %181 = zext i1 %180 to i32
-  %spec.select = add nsw i32 %.020120, %181
+_ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE10VoroVertexESaIS6_EED2Ev.exit42: ; preds = %156, %152, %150, %._crit_edge138
+  %.sink150 = phi ptr [ %162, %._crit_edge138 ], [ %149, %150 ], [ %149, %152 ], [ %.pre137, %156 ]
+  %163 = load ptr, ptr %123, align 8
+  %164 = ptrtoint ptr %163 to i64
+  %165 = sub i64 %125, %164
+  %166 = sdiv exact i64 %165, 20
+  %167 = getelementptr inbounds i8, ptr %128, i64 %166
+  store ptr %.sink150, ptr %167, align 8
+  %168 = load ptr, ptr %116, align 8
+  %169 = load ptr, ptr %168, align 8
+  %170 = ptrtoint ptr %169 to i64
+  %171 = sub i64 %125, %170
+  %172 = load ptr, ptr %115, align 8
+  %173 = sdiv exact i64 %171, 20
+  %174 = getelementptr inbounds i8, ptr %172, i64 %173
+  %175 = load ptr, ptr %174, align 8
+  %176 = icmp eq ptr %175, null
+  %177 = zext i1 %176 to i32
+  %spec.select = add nsw i32 %.020120, %177
   call void @_ZdlPv(ptr noundef nonnull %134) #34
   %.pre140 = load ptr, ptr %15, align 8
-  br label %182
+  br label %178
 
-182:                                              ; preds = %.lr.ph122, %_ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE10VoroVertexESaIS6_EED2Ev.exit42
-  %183 = phi ptr [ %.pre140, %_ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE10VoroVertexESaIS6_EED2Ev.exit42 ], [ %122, %.lr.ph122 ]
+178:                                              ; preds = %.lr.ph122, %_ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE10VoroVertexESaIS6_EED2Ev.exit42
+  %179 = phi ptr [ %.pre140, %_ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE10VoroVertexESaIS6_EED2Ev.exit42 ], [ %122, %.lr.ph122 ]
   %.2 = phi i32 [ %spec.select, %_ZNSt6vectorIPN3vcg3tri12VoronoiAtlasI6CMeshOE10VoroVertexESaIS6_EED2Ev.exit42 ], [ %.020120, %.lr.ph122 ]
-  %184 = getelementptr inbounds nuw i8, ptr %.sroa.059.0119, i64 160
-  %.not112 = icmp eq ptr %184, %183
+  %180 = getelementptr inbounds nuw i8, ptr %.sroa.059.0119, i64 160
+  %.not112 = icmp eq ptr %180, %179
   br i1 %.not112, label %._crit_edge123, label %.lr.ph122, !llvm.loop !232
 
-._crit_edge123:                                   ; preds = %182
-  %185 = icmp sgt i32 %.2, 0
-  br i1 %185, label %.split, label %.split125.us, !llvm.loop !233
+._crit_edge123:                                   ; preds = %178
+  %181 = icmp sgt i32 %.2, 0
+  br i1 %181, label %.split, label %.split125.us, !llvm.loop !233
 
 .split125.us:                                     ; preds = %.split, %._crit_edge123, %._crit_edge
   ret void
 
-186:                                              ; preds = %51, %53, %47, %49
-  %.sink158 = phi ptr [ %3, %49 ], [ %3, %47 ], [ %5, %53 ], [ %5, %51 ]
+182:                                              ; preds = %51, %53, %47, %49
+  %.sink156 = phi ptr [ %3, %49 ], [ %3, %47 ], [ %5, %53 ], [ %5, %51 ]
   %.pn33 = phi { ptr, i32 } [ %50, %49 ], [ %48, %47 ], [ %54, %53 ], [ %52, %51 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink158) #35
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink156) #35
   resume { ptr, i32 } %.pn33
 }
 

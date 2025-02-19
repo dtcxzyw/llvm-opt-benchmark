@@ -5759,7 +5759,7 @@ _ZSt7advanceISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %120 = landingpad { ptr, i32 }
           catch ptr null
   %121 = extractvalue { ptr, i32 } %120, 0
-  tail call void @__clang_call_terminate(ptr %121) #21
+  tail call void @__clang_call_terminate(ptr %121) #21, !noalias !72
   unreachable
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PS9_EKS9_EEbT_RT0_.exit.i: ; preds = %_ZSt7advanceISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ElEvRT_T0_.exit.i
@@ -5948,7 +5948,7 @@ _ZSt7advanceISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %217 = landingpad { ptr, i32 }
           catch ptr null
   %218 = extractvalue { ptr, i32 } %217, 0
-  tail call void @__clang_call_terminate(ptr %218) #21
+  tail call void @__clang_call_terminate(ptr %218) #21, !noalias !76
   unreachable
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt15_Deque_iteratorIS8_RS8_PS8_EEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ElEvRT_T0_.exit.i30
@@ -7600,7 +7600,7 @@ _ZSt7advanceISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %208 = landingpad { ptr, i32 }
           catch ptr null
   %209 = extractvalue { ptr, i32 } %208, 0
-  tail call void @__clang_call_terminate(ptr %209) #21
+  tail call void @__clang_call_terminate(ptr %209) #21, !noalias !119
   unreachable
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PS9_EKS9_EEbT_RT0_.exit.i: ; preds = %_ZSt7advanceISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ElEvRT_T0_.exit.i
@@ -7789,7 +7789,7 @@ _ZSt7advanceISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %305 = landingpad { ptr, i32 }
           catch ptr null
   %306 = extractvalue { ptr, i32 } %305, 0
-  tail call void @__clang_call_terminate(ptr %306) #21
+  tail call void @__clang_call_terminate(ptr %306) #21, !noalias !122
   unreachable
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt15_Deque_iteratorIS8_RS8_PS8_EEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ElEvRT_T0_.exit.i48

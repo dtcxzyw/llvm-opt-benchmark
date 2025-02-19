@@ -15858,7 +15858,6 @@ define hidden void @_ZN4cvc58internal6theory5arith12OperatorElim11getAxiomForEPN
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #25
-  store i8 0, ptr %11, align 1, !tbaa !36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #25
   %17 = load ptr, ptr %2, align 8, !tbaa !38
   store ptr %17, ptr %13, align 8, !tbaa !38

@@ -426,7 +426,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %_ZSt7replaceIN9__gn
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #22
+  call void @__clang_call_terminate(ptr %26) #22, !noalias !5
   unreachable
 
 if.then.i.i.i.i.i:                                ; preds = %lpad13.i.i, %lpad5.i.i

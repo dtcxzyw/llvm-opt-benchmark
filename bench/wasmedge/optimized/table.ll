@@ -27391,7 +27391,7 @@ _ZNSt12_Vector_baseIN8WasmEdge10RefVariantESaIS1_EEC2EmRKS2_.exit.i.i.i: ; preds
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  tail call void @__clang_call_terminate(ptr %29) #20
+  tail call void @__clang_call_terminate(ptr %29) #20, !noalias !192
   unreachable
 
 _ZSt11make_uniqueIN8WasmEdge7Runtime8Instance13TableInstanceEJRKNS0_3AST9TableTypeERNS0_10RefVariantEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %.loopexit.i.i, %23
@@ -27638,7 +27638,7 @@ _ZNSt12_Vector_baseIN8WasmEdge10RefVariantESaIS1_EEC2EmRKS2_.exit.i.i.i: ; preds
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #20
+  tail call void @__clang_call_terminate(ptr %20) #20, !noalias !202
   unreachable
 
 _ZSt11make_uniqueIN8WasmEdge7Runtime8Instance13TableInstanceEJRKNS0_3AST9TableTypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %4

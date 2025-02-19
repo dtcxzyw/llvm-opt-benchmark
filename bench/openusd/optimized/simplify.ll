@@ -2044,7 +2044,6 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit203: ; preds = %_ZNK32pxrI
 299:                                              ; preds = %294
   %300 = landingpad { ptr, i32 }
           catch ptr null
-  store ptr %286, ptr %23, align 8
   %301 = extractvalue { ptr, i32 } %300, 0
   call void @__clang_call_terminate(ptr %301) #25
   unreachable

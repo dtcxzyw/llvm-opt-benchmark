@@ -1378,7 +1378,7 @@ _ZN6opencc20MaxMatchSegmentationC2ESt10shared_ptrINS_4DictEE.exit.i: ; preds = %
   %264 = landingpad { ptr, i32 }
           catch ptr null
   %265 = extractvalue { ptr, i32 } %264, 0
-  %266 = call ptr @__cxa_begin_catch(ptr %265) #26
+  %266 = call ptr @__cxa_begin_catch(ptr %265) #26, !noalias !28
   %267 = load ptr, ptr %236, align 8, !noalias !28
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 16
   %269 = load ptr, ptr %268, align 8, !noalias !28
@@ -1396,7 +1396,7 @@ _ZN6opencc20MaxMatchSegmentationC2ESt10shared_ptrINS_4DictEE.exit.i: ; preds = %
   %273 = landingpad { ptr, i32 }
           catch ptr null
   %274 = extractvalue { ptr, i32 } %273, 0
-  call void @__clang_call_terminate(ptr %274) #29
+  call void @__clang_call_terminate(ptr %274) #29, !noalias !28
   unreachable
 
 275:                                              ; preds = %263
@@ -1837,7 +1837,7 @@ _ZN6opencc10ConversionC2ESt10shared_ptrINS_4DictEE.exit.i.i: ; preds = %448, %44
   %452 = landingpad { ptr, i32 }
           catch ptr null
   %453 = extractvalue { ptr, i32 } %452, 0
-  %454 = call ptr @__cxa_begin_catch(ptr %453) #26
+  %454 = call ptr @__cxa_begin_catch(ptr %453) #26, !noalias !37
   call void @_ZN6opencc10ConversionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %429) #26, !noalias !37
   call void @_ZdlPv(ptr noundef nonnull %429) #27, !noalias !37
   invoke void @__cxa_rethrow() #28
@@ -1853,7 +1853,7 @@ _ZN6opencc10ConversionC2ESt10shared_ptrINS_4DictEE.exit.i.i: ; preds = %448, %44
   %458 = landingpad { ptr, i32 }
           catch ptr null
   %459 = extractvalue { ptr, i32 } %458, 0
-  call void @__clang_call_terminate(ptr %459) #29
+  call void @__clang_call_terminate(ptr %459) #29, !noalias !37
   unreachable
 
 460:                                              ; preds = %451
@@ -2237,7 +2237,7 @@ _ZNSt7__cxx114listISt10shared_ptrIN6opencc10ConversionEESaIS4_EEC2ERKS6_.exit.i:
   %624 = landingpad { ptr, i32 }
           catch ptr null
   %625 = extractvalue { ptr, i32 } %624, 0
-  %626 = call ptr @__cxa_begin_catch(ptr %625) #26
+  %626 = call ptr @__cxa_begin_catch(ptr %625) #26, !noalias !31
   call void @_ZN6opencc15ConversionChainD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %595) #26, !noalias !31
   call void @_ZdlPv(ptr noundef nonnull %595) #27, !noalias !31
   invoke void @__cxa_rethrow() #28
@@ -2253,7 +2253,7 @@ _ZNSt7__cxx114listISt10shared_ptrIN6opencc10ConversionEESaIS4_EEC2ERKS6_.exit.i:
   %630 = landingpad { ptr, i32 }
           catch ptr null
   %631 = extractvalue { ptr, i32 } %630, 0
-  call void @__clang_call_terminate(ptr %631) #29
+  call void @__clang_call_terminate(ptr %631) #29, !noalias !31
   unreachable
 
 632:                                              ; preds = %623

@@ -18832,7 +18832,7 @@ _ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JRS1_EEEvRS2_PT_DpOT0_
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  tail call void @__clang_call_terminate(ptr %29) #34
+  tail call void @__clang_call_terminate(ptr %29) #34, !noalias !105
   unreachable
 
 30:                                               ; preds = %.lr.ph.i.i.i
@@ -18881,7 +18881,7 @@ _ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds =
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  tail call void @__clang_call_terminate(ptr %47) #34
+  tail call void @__clang_call_terminate(ptr %47) #34, !noalias !112
   unreachable
 
 48:                                               ; preds = %.lr.ph.i.i.i27
@@ -19258,7 +19258,7 @@ _ZSt27__uninitialized_default_n_aIPN7xgboost4JsonEmS1_ET_S3_T0_RSaIT1_E.exit: ; 
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #34
+  tail call void @__clang_call_terminate(ptr %38) #34, !noalias !121
   unreachable
 
 39:                                               ; preds = %.lr.ph.i.i.i
@@ -19481,7 +19481,7 @@ _ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #34
+  tail call void @__clang_call_terminate(ptr %35) #34, !noalias !128
   unreachable
 
 36:                                               ; preds = %.lr.ph.i.i.i
@@ -19530,7 +19530,7 @@ _ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds =
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  tail call void @__clang_call_terminate(ptr %53) #34
+  tail call void @__clang_call_terminate(ptr %53) #34, !noalias !134
   unreachable
 
 54:                                               ; preds = %.lr.ph.i.i.i17

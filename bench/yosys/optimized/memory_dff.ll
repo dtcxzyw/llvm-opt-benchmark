@@ -72524,7 +72524,7 @@ _ZZN12_GLOBAL__N_115MemoryDffWorker10walk_muxesEN5Yosys5RTLIL7SigSpecERSt6vector
   %658 = landingpad { ptr, i32 }
           catch ptr null
   %659 = extractvalue { ptr, i32 } %658, 0
-  call void @__clang_call_terminate(ptr %659) #26
+  call void @__clang_call_terminate(ptr %659) #26, !noalias !546
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i:              ; preds = %656, %650, %_ZZN12_GLOBAL__N_115MemoryDffWorker10walk_muxesEN5Yosys5RTLIL7SigSpecERSt6vectorINS_7MuxDataESaIS5_EEENKUlvE_clEv.exit.i
@@ -72620,7 +72620,7 @@ _ZZN12_GLOBAL__N_115MemoryDffWorker10walk_muxesEN5Yosys5RTLIL7SigSpecERSt6vector
   %702 = landingpad { ptr, i32 }
           catch ptr null
   %703 = extractvalue { ptr, i32 } %702, 0
-  call void @__clang_call_terminate(ptr %703) #26
+  call void @__clang_call_terminate(ptr %703) #26, !noalias !546
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit65.i:            ; preds = %700, %694, %_ZZN12_GLOBAL__N_115MemoryDffWorker10walk_muxesEN5Yosys5RTLIL7SigSpecERSt6vectorINS_7MuxDataESaIS5_EEENKUlvE0_clEv.exit.i
@@ -72755,7 +72755,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i.
 756:                                              ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.i
   %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   %757 = extractvalue { ptr, i32 } %lpad.phi.i.i, 0
-  %758 = call ptr @__cxa_begin_catch(ptr %757) #22
+  %758 = call ptr @__cxa_begin_catch(ptr %757) #22, !noalias !546
   %.not4.i.i.i.i = icmp eq ptr %723, %.017.i.i
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkEEvT_S4_.exit.i.i, label %.lr.ph.i.i.i.i
 
@@ -72789,7 +72789,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkEEvT_S4_.exit.i.i: ; preds = %_ZSt8_Destroy
   %766 = landingpad { ptr, i32 }
           catch ptr null
   %767 = extractvalue { ptr, i32 } %766, 0
-  call void @__clang_call_terminate(ptr %767) #26
+  call void @__clang_call_terminate(ptr %767) #26, !noalias !546
   unreachable
 
 768:                                              ; preds = %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkEEvT_S4_.exit.i.i
@@ -73253,7 +73253,7 @@ _ZNSt6vectorIN12_GLOBAL__N_17MuxDataESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36
 928:                                              ; preds = %924, %889
   %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %925, %924 ], [ %890, %889 ]
   %929 = extractvalue { ptr, i32 } %eh.lpad-body.i.i.i, 0
-  %930 = call ptr @__cxa_begin_catch(ptr %929) #22
+  %930 = call ptr @__cxa_begin_catch(ptr %929) #22, !noalias !546
   call void @_ZdlPv(ptr noundef nonnull %885) #23, !noalias !546
   invoke void @__cxa_rethrow() #24
           to label %934 unwind label %926, !noalias !546
@@ -73262,7 +73262,7 @@ _ZNSt6vectorIN12_GLOBAL__N_17MuxDataESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36
   %932 = landingpad { ptr, i32 }
           catch ptr null
   %933 = extractvalue { ptr, i32 } %932, 0
-  call void @__clang_call_terminate(ptr %933) #26
+  call void @__clang_call_terminate(ptr %933) #26, !noalias !546
   unreachable
 
 934:                                              ; preds = %928
@@ -73547,7 +73547,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit124.i:            ; preds = %1005, %_ZSt8_Destro
   %1019 = landingpad { ptr, i32 }
           catch ptr null
   %1020 = extractvalue { ptr, i32 } %1019, 0
-  call void @__clang_call_terminate(ptr %1020) #26
+  call void @__clang_call_terminate(ptr %1020) #26, !noalias !546
   unreachable
 
 _ZN5Yosys9ModWalker7PortBitD2Ev.exit.i:           ; preds = %598, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us.i.i, %1017, %1010, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit124.i, %.noexc242

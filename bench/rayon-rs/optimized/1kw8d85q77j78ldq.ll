@@ -743,7 +743,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           cleanup
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @_ZN3std9panicking3try8do_catch17h099fa0bb3c2e1354E.llvm.17432428852515034553(ptr nonnull %2, ptr %27)
+  call void @_ZN3std9panicking3try8do_catch17h099fa0bb3c2e1354E.llvm.17432428852515034553(ptr nonnull %2, ptr %27), !noalias !142
   %28 = load ptr, ptr %2, align 8, !noalias !139, !nonnull !4, !align !10
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %30 = load ptr, ptr %29, align 8, !noalias !139, !nonnull !4, !align !120

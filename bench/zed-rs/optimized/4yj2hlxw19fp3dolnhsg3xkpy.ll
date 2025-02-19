@@ -1781,7 +1781,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %47 = load i64, ptr %46, align 8, !noundef !4
   %48 = getelementptr inbounds { { { [4 x i64] } }, { i8 }, [7 x i8] }, ptr %.sroa.04.0, i64 %47
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
   store atomic i8 1, ptr %49 release, align 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 504
@@ -2104,7 +2104,7 @@ define hidden void @"_ZN15futures_channel4mpsc24UnboundedSender$LT$T$GT$10do_sen
 
 "_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$4push17hb7f248e99f6afec0E.exit.i": ; preds = %.noexc.i.i
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !538
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !532
   %33 = atomicrmw xchg ptr %32, ptr %25 acq_rel, align 8, !noalias !539
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -29797,8 +29797,8 @@ define hidden { i64, i64 } @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$G
 
 28:                                               ; preds = %8
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %30 = load ptr, ptr %29, align 8, !nonnull !4, !noundef !4
-  tail call void %30(ptr noundef %16)
+  %30 = load ptr, ptr %29, align 8, !noalias !7067, !nonnull !4, !noundef !4
+  tail call void %30(ptr noundef %16), !noalias !7067
   br label %36
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h737d41f8e9c747ffE.exit.i": ; preds = %24, %22
@@ -29885,8 +29885,8 @@ define hidden { i64, ptr } @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$G
 
 28:                                               ; preds = %8
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %30 = load ptr, ptr %29, align 8, !nonnull !4, !noundef !4
-  tail call void %30(ptr noundef %16)
+  %30 = load ptr, ptr %29, align 8, !noalias !7080, !nonnull !4, !noundef !4
+  tail call void %30(ptr noundef %16), !noalias !7080
   br label %36
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h737d41f8e9c747ffE.exit.i": ; preds = %24, %22

@@ -3085,14 +3085,14 @@ _ZN5ZXing7Content6appendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.
   br i1 %992, label %993, label %.loopexit143
 
 993:                                              ; preds = %.body.i77
-  %994 = call ptr @__cxa_get_exception_ptr(ptr %.026.i) #17
+  %994 = call ptr @__cxa_get_exception_ptr(ptr %.026.i) #17, !noalias !15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(43) %40, ptr noundef nonnull align 8 dereferenceable(43) %994)
           to label %995 unwind label %1041, !noalias !15
 
 995:                                              ; preds = %993
   %996 = getelementptr inbounds nuw i8, ptr %994, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %122, ptr noundef nonnull align 8 dereferenceable(11) %996, i64 11, i1 false), !noalias !15
-  %997 = call ptr @__cxa_begin_catch(ptr %.026.i) #17
+  %997 = call ptr @__cxa_begin_catch(ptr %.026.i) #17, !noalias !15
   %998 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(43) %24, ptr noundef nonnull align 8 dereferenceable(43) %40) #17, !noalias !15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %112, ptr noundef nonnull align 8 dereferenceable(11) %122, i64 11, i1 false), !noalias !15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(43) %40) #17, !noalias !15
@@ -3238,7 +3238,7 @@ _ZN5ZXing7Content9push_backEh.exit.i:             ; preds = %.noexc107.i, %_ZN5Z
   %1042 = landingpad { ptr, i32 }
           catch ptr null
   %1043 = extractvalue { ptr, i32 } %1042, 0
-  call void @__clang_call_terminate(ptr %1043) #21
+  call void @__clang_call_terminate(ptr %1043) #21, !noalias !15
   unreachable
 
 1044:                                             ; preds = %983, %458, %436, %299

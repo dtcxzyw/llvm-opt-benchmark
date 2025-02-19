@@ -4223,7 +4223,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit.i: ; preds = %356, %354, %349
   %370 = landingpad { ptr, i32 }
           catch ptr null
   %371 = extractvalue { ptr, i32 } %370, 0
-  call void @__clang_call_terminate(ptr %371) #24
+  call void @__clang_call_terminate(ptr %371) #24, !noalias !134
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.i: ; preds = %368, %362, %359

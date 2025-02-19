@@ -354,7 +354,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %while.body.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #11
+  tail call void @__clang_call_terminate(ptr %3) #11, !noalias !15
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclIN5boost9container12vec_iteratorIPS8_Lb1EEEKS8_EEbT_RT0_.exit.i.i.i: ; preds = %while.body.i.i.i
@@ -388,7 +388,7 @@ terminate.lpad.i.i.i:                             ; preds = %land.rhs.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #11
+  tail call void @__clang_call_terminate(ptr %9) #11, !noalias !27
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i: ; preds = %land.rhs.i

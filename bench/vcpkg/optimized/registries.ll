@@ -8374,7 +8374,7 @@ define linkonce_odr dso_local void @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112
   %48 = load ptr, ptr %47, align 8, !noalias !167
   call void %48(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %1), !noalias !167
   invoke void @_ZN5vcpkg4Json6Reader27check_for_unexpected_fieldsERKNS0_6ObjectENS_4SpanIKNS_10StringViewEEERKNS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull align 8 dereferenceable(24) %40, ptr %45, i64 %46, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5visitERNS0_6ReaderERKNS0_6ObjectE.exit unwind label %49
+          to label %_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5visitERNS0_6ReaderERKNS0_6ObjectE.exit unwind label %49, !noalias !167
 
 49:                                               ; preds = %39
   %50 = landingpad { ptr, i32 }
@@ -9082,7 +9082,7 @@ define linkonce_odr dso_local void @_ZNK5vcpkg4Json13IDeserializerINS_17GitVersi
   %48 = load ptr, ptr %47, align 8, !noalias !177
   call void %48(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %1), !noalias !177
   invoke void @_ZN5vcpkg4Json6Reader27check_for_unexpected_fieldsERKNS0_6ObjectENS_4SpanIKNS_10StringViewEEERKNS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull align 8 dereferenceable(24) %40, ptr %45, i64 %46, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZNK5vcpkg4Json13IDeserializerINS_17GitVersionDbEntryEE5visitERNS0_6ReaderERKNS0_6ObjectE.exit unwind label %49
+          to label %_ZNK5vcpkg4Json13IDeserializerINS_17GitVersionDbEntryEE5visitERNS0_6ReaderERKNS0_6ObjectE.exit unwind label %49, !noalias !177
 
 49:                                               ; preds = %39
   %50 = landingpad { ptr, i32 }
@@ -9320,7 +9320,7 @@ define linkonce_odr dso_local void @_ZNK5vcpkg4Json13IDeserializerISt6vectorINS_
   %48 = load ptr, ptr %47, align 8, !noalias !191
   call void %48(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %1), !noalias !191
   invoke void @_ZN5vcpkg4Json6Reader27check_for_unexpected_fieldsERKNS0_6ObjectENS_4SpanIKNS_10StringViewEEERKNS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull align 8 dereferenceable(24) %40, ptr %45, i64 %46, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZNK5vcpkg4Json13IDeserializerISt6vectorINS_17GitVersionDbEntryESaIS3_EEE5visitERNS0_6ReaderERKNS0_6ObjectE.exit unwind label %49
+          to label %_ZNK5vcpkg4Json13IDeserializerISt6vectorINS_17GitVersionDbEntryESaIS3_EEE5visitERNS0_6ReaderERKNS0_6ObjectE.exit unwind label %49, !noalias !191
 
 49:                                               ; preds = %39
   %50 = landingpad { ptr, i32 }
@@ -10109,7 +10109,7 @@ define linkonce_odr dso_local void @_ZNK5vcpkg4Json13IDeserializerISt3mapINSt7__
   %48 = load ptr, ptr %47, align 8, !noalias !216
   call void %48(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %1), !noalias !216
   invoke void @_ZN5vcpkg4Json6Reader27check_for_unexpected_fieldsERKNS0_6ObjectENS_4SpanIKNS_10StringViewEEERKNS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull align 8 dereferenceable(24) %40, ptr %45, i64 %46, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZNK5vcpkg4Json13IDeserializerISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS8_S9_EEEE5visitERNS0_6ReaderERKNS0_6ObjectE.exit unwind label %49
+          to label %_ZNK5vcpkg4Json13IDeserializerISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS8_S9_EEEE5visitERNS0_6ReaderERKNS0_6ObjectE.exit unwind label %49, !noalias !216
 
 49:                                               ; preds = %39
   %50 = landingpad { ptr, i32 }
@@ -17780,7 +17780,7 @@ _ZNK12_GLOBAL__N_111GitRegistry14get_lock_entryEv.exit.i.i.i.i.i.i: ; preds = %_
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #35
+  call void @__clang_call_terminate(ptr %53) #35, !noalias !337
   unreachable
 
 _ZNKR5vcpkg9ExpectedTINS_8LockFile5EntryENS_15LocalizedStringEE5errorEv.exit.i.i.i.i.i.i: ; preds = %47
@@ -17927,7 +17927,7 @@ _ZNO5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEE5errorEv.exit.i.i.i.i.i.i: ;
   %104 = landingpad { ptr, i32 }
           catch ptr null
   %105 = extractvalue { ptr, i32 } %104, 0
-  call void @__clang_call_terminate(ptr %105) #35
+  call void @__clang_call_terminate(ptr %105) #35, !noalias !337
   unreachable
 
 _ZNKR5vcpkg9ExpectedTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15LocalizedStringEE5errorEv.exit.i.i.i.i.i.i: ; preds = %97
@@ -17936,7 +17936,7 @@ _ZNKR5vcpkg9ExpectedTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15L
   %107 = extractvalue { ptr, i64 } %106, 0
   %108 = extractvalue { ptr, i64 } %106, 1
   %109 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNO5vcpkg15LocalizedString10append_rawENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %96, ptr %107, i64 %108)
-          to label %110 unwind label %121
+          to label %110 unwind label %121, !noalias !337
 
 110:                                              ; preds = %_ZNKR5vcpkg9ExpectedTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15LocalizedStringEE5errorEv.exit.i.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(33) %25, ptr noundef nonnull align 8 dereferenceable(32) %109) #28
@@ -18057,7 +18057,7 @@ _ZNKR5vcpkg9ExpectedTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15L
   %151 = landingpad { ptr, i32 }
           catch ptr null
   %152 = extractvalue { ptr, i32 } %151, 0
-  call void @__clang_call_terminate(ptr %152) #35
+  call void @__clang_call_terminate(ptr %152) #35, !noalias !337
   unreachable
 
 _ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE5errorEv.exit.i.i.i.i.i.i: ; preds = %144
@@ -21686,7 +21686,7 @@ _ZNO5vcpkg15LocalizedString10append_rawINS_13StringLiteralEvEEOS0_RKT_.exit73.i.
   %206 = landingpad { ptr, i32 }
           catch ptr null
   %207 = extractvalue { ptr, i32 } %206, 0
-  call void @__clang_call_terminate(ptr %207) #35
+  call void @__clang_call_terminate(ptr %207) #35, !noalias !439
   unreachable
 
 _ZNKR5vcpkg9ExpectedTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15LocalizedStringEE5errorEv.exit.i.i.i.i.i.i.i: ; preds = %199
@@ -22128,7 +22128,7 @@ define internal void @_ZNK12_GLOBAL__N_118FilesystemRegistry14get_port_entryEN5v
   %40 = extractvalue { ptr, i64 } %39, 0
   %41 = extractvalue { ptr, i64 } %39, 1
   invoke void @_ZNKR5vcpkg4PathdvENS_10StringViewE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Path") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %28, ptr %40, i64 %41)
-          to label %42 unwind label %65
+          to label %42 unwind label %65, !noalias !483
 
 42:                                               ; preds = %.noexc20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #28, !noalias !483
@@ -22217,7 +22217,7 @@ _ZN5vcpkg8OptionalISt6vectorINS_24FilesystemVersionDbEntryESaIS2_EEED2Ev.exit.i:
   %83 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %84 = load i64, ptr %83, align 8, !noalias !483
   invoke void @_ZN5vcpkg4Json12parse_objectENS_10StringViewES1_(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ExpectedT.169") align 8 %17, ptr %82, i64 %84, ptr %80, i64 %81)
-          to label %85 unwind label %76
+          to label %85 unwind label %76, !noalias !483
 
 85:                                               ; preds = %78
   %86 = getelementptr inbounds nuw i8, ptr %17, i64 32
@@ -22304,7 +22304,7 @@ _ZN12_GLOBAL__N_141FilesystemVersionDbEntryArrayDeserializerC2ERKN5vcpkg4PathE.e
   %114 = extractvalue { ptr, i64 } %113, 0
   %115 = extractvalue { ptr, i64 } %113, 1
   invoke void @_ZN5vcpkg4Json6ReaderC1ENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(120) %22, ptr %114, i64 %115)
-          to label %116 unwind label %155
+          to label %116 unwind label %155, !noalias !483
 
 116:                                              ; preds = %_ZN12_GLOBAL__N_141FilesystemVersionDbEntryArrayDeserializerC2ERKN5vcpkg4PathE.exit.i
   invoke void @_ZN5vcpkg4Json6Reader12visit_in_keyISt6vectorINS_24FilesystemVersionDbEntryESaIS4_EEEEvRKNS0_5ValueENS_10StringViewERT_RKNS0_13IDeserializerISB_EE(ptr noundef nonnull align 8 dereferenceable(120) %22, ptr noundef nonnull align 8 dereferenceable(8) %91, ptr nonnull @.str.7, i64 8, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(8) %21)
@@ -22368,7 +22368,7 @@ _ZN12_GLOBAL__N_141FilesystemVersionDbEntryArrayDeserializerC2ERKN5vcpkg4PathE.e
   %139 = extractvalue { ptr, i64 } %138, 0
   %140 = extractvalue { ptr, i64 } %138, 1
   invoke void @_ZN5vcpkg7Strings7details15append_internalERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr %139, i64 %140)
-          to label %_ZN5vcpkg7Strings6appendIJNS_15LocalizedStringEEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_DpRKT_.exit.i.i.i unwind label %143
+          to label %_ZN5vcpkg7Strings6appendIJNS_15LocalizedStringEEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_DpRKT_.exit.i.i.i unwind label %143, !noalias !483
 
 _ZN5vcpkg7Strings6appendIJNS_15LocalizedStringEEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_DpRKT_.exit.i.i.i: ; preds = %.preheader.i.i.i
   %141 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.i.i.i, i64 32
@@ -24566,7 +24566,7 @@ define linkonce_odr dso_local void @_ZNK5vcpkg4Json13IDeserializerINS_24Filesyst
   %48 = load ptr, ptr %47, align 8, !noalias !544
   call void %48(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %1), !noalias !544
   invoke void @_ZN5vcpkg4Json6Reader27check_for_unexpected_fieldsERKNS0_6ObjectENS_4SpanIKNS_10StringViewEEERKNS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull align 8 dereferenceable(24) %40, ptr %45, i64 %46, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZNK5vcpkg4Json13IDeserializerINS_24FilesystemVersionDbEntryEE5visitERNS0_6ReaderERKNS0_6ObjectE.exit unwind label %49
+          to label %_ZNK5vcpkg4Json13IDeserializerINS_24FilesystemVersionDbEntryEE5visitERNS0_6ReaderERKNS0_6ObjectE.exit unwind label %49, !noalias !544
 
 49:                                               ; preds = %39
   %50 = landingpad { ptr, i32 }
@@ -24804,7 +24804,7 @@ define linkonce_odr dso_local void @_ZNK5vcpkg4Json13IDeserializerISt6vectorINS_
   %48 = load ptr, ptr %47, align 8, !noalias !558
   call void %48(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %1), !noalias !558
   invoke void @_ZN5vcpkg4Json6Reader27check_for_unexpected_fieldsERKNS0_6ObjectENS_4SpanIKNS_10StringViewEEERKNS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull align 8 dereferenceable(24) %40, ptr %45, i64 %46, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZNK5vcpkg4Json13IDeserializerISt6vectorINS_24FilesystemVersionDbEntryESaIS3_EEE5visitERNS0_6ReaderERKNS0_6ObjectE.exit unwind label %49
+          to label %_ZNK5vcpkg4Json13IDeserializerISt6vectorINS_24FilesystemVersionDbEntryESaIS3_EEE5visitERNS0_6ReaderERKNS0_6ObjectE.exit unwind label %49, !noalias !558
 
 49:                                               ; preds = %39
   %50 = landingpad { ptr, i32 }
@@ -25568,7 +25568,7 @@ define linkonce_odr dso_local void @_ZNK5vcpkg4Json13IDeserializerINS_7VersionEE
   %48 = load ptr, ptr %47, align 8, !noalias !575
   call void %48(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %1), !noalias !575
   invoke void @_ZN5vcpkg4Json6Reader27check_for_unexpected_fieldsERKNS0_6ObjectENS_4SpanIKNS_10StringViewEEERKNS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull align 8 dereferenceable(24) %40, ptr %45, i64 %46, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZNK5vcpkg4Json13IDeserializerINS_7VersionEE5visitERNS0_6ReaderERKNS0_6ObjectE.exit unwind label %49
+          to label %_ZNK5vcpkg4Json13IDeserializerINS_7VersionEE5visitERNS0_6ReaderERKNS0_6ObjectE.exit unwind label %49, !noalias !575
 
 49:                                               ; preds = %39
   %50 = landingpad { ptr, i32 }

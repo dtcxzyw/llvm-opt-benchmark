@@ -1974,7 +1974,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #31
+  call void @__clang_call_terminate(ptr %7) #31, !noalias !33
   unreachable
 
 if.then:                                          ; preds = %_ZNK9grpc_core11ChannelArgs5Value11GetIfStringEv.exit.i, %if.end.i, %entry
@@ -5126,7 +5126,6 @@ _ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE6HeightERKN
           to label %call.i.noexc unwind label %lpad5
 
 call.i.noexc:                                     ; preds = %_ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE6HeightERKNS_13RefCountedPtrINS4_4NodeEEE.exit7.i
-  store ptr null, ptr %agg.tmp, align 8, !noalias !111
   call void @_ZN9grpc_core11ChannelArgs7PointerC1EOS1_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp9.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp1) #30, !noalias !111
   %2 = load ptr, ptr %ref.tmp, align 8, !noalias !111
   %cmp.not.i.i144 = icmp eq ptr %2, null
@@ -5178,7 +5177,7 @@ terminate.lpad.i.i.i:                             ; preds = %invoke.cont15.i
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #31
+  call void @__clang_call_terminate(ptr %12) #31, !noalias !111
   unreachable
 
 invoke.cont6:                                     ; preds = %invoke.cont15.i
@@ -5669,7 +5668,6 @@ _ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE6HeightERKN
           to label %call.i.noexc168 unwind label %lpad74
 
 call.i.noexc168:                                  ; preds = %_ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE6HeightERKNS_13RefCountedPtrINS4_4NodeEEE.exit7.i125
-  store ptr null, ptr %agg.tmp68, align 8, !noalias !117
   call void @_ZN9grpc_core11ChannelArgs7PointerC1EOS1_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp9.i149, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp69) #30, !noalias !117
   %108 = load ptr, ptr %left71, align 8, !noalias !117
   %cmp.not.i.i152 = icmp eq ptr %108, null
@@ -5721,7 +5719,7 @@ terminate.lpad.i.i.i167:                          ; preds = %invoke.cont15.i159
   %117 = landingpad { ptr, i32 }
           catch ptr null
   %118 = extractvalue { ptr, i32 } %117, 0
-  call void @__clang_call_terminate(ptr %118) #31
+  call void @__clang_call_terminate(ptr %118) #31, !noalias !117
   unreachable
 
 invoke.cont75:                                    ; preds = %invoke.cont15.i159
@@ -6172,7 +6170,6 @@ _ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE6HeightERKN
           to label %call.i.noexc unwind label %lpad37
 
 call.i.noexc:                                     ; preds = %_ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE6HeightERKNS_13RefCountedPtrINS4_4NodeEEE.exit7.i
-  store ptr null, ptr %agg.tmp33, align 8, !noalias !123
   call void @_ZN9grpc_core11ChannelArgs7PointerC1EOS1_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp9.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp34) #30, !noalias !123
   %81 = load ptr, ptr %left, align 8, !noalias !123
   %cmp.not.i.i105 = icmp eq ptr %81, null
@@ -6224,7 +6221,7 @@ terminate.lpad.i.i.i:                             ; preds = %invoke.cont15.i
   %90 = landingpad { ptr, i32 }
           catch ptr null
   %91 = extractvalue { ptr, i32 } %90, 0
-  call void @__clang_call_terminate(ptr %91) #31
+  call void @__clang_call_terminate(ptr %91) #31, !noalias !123
   unreachable
 
 invoke.cont38:                                    ; preds = %invoke.cont15.i
@@ -6435,7 +6432,7 @@ terminate.lpad.i.i.i:                             ; preds = %invoke.cont15.i
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #31
+  call void @__clang_call_terminate(ptr %28) #31, !noalias !129
   unreachable
 
 invoke.cont27:                                    ; preds = %invoke.cont15.i
@@ -6534,7 +6531,7 @@ terminate.lpad.i.i.i103:                          ; preds = %invoke.cont15.i95
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #31
+  call void @__clang_call_terminate(ptr %46) #31, !noalias !135
   unreachable
 
 invoke.cont36:                                    ; preds = %invoke.cont15.i95
@@ -6574,7 +6571,6 @@ _ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE6HeightERKN
 
 call.i.noexc126:                                  ; preds = %_ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE6HeightERKNS_13RefCountedPtrINS4_4NodeEEE.exit7.i40
   %51 = load ptr, ptr %agg.tmp, align 8, !noalias !141
-  store ptr null, ptr %agg.tmp, align 8, !noalias !141
   call void @_ZN9grpc_core11ChannelArgs7PointerC1EOS1_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp9.i107, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3) #30, !noalias !141
   %52 = load ptr, ptr %ref.tmp, align 8, !noalias !141
   %cmp.not.i.i110 = icmp eq ptr %52, null
@@ -6626,7 +6622,7 @@ terminate.lpad.i.i.i125:                          ; preds = %invoke.cont15.i117
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #31
+  call void @__clang_call_terminate(ptr %62) #31, !noalias !141
   unreachable
 
 invoke.cont38:                                    ; preds = %invoke.cont15.i117
@@ -6900,7 +6896,7 @@ terminate.lpad.i.i.i:                             ; preds = %invoke.cont15.i
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #31
+  call void @__clang_call_terminate(ptr %22) #31, !noalias !147
   unreachable
 
 invoke.cont11:                                    ; preds = %invoke.cont15.i
@@ -6931,7 +6927,6 @@ _ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE6HeightERKN
 
 call.i.noexc65:                                   ; preds = %_ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE6HeightERKNS_13RefCountedPtrINS4_4NodeEEE.exit7.i15
   %26 = load ptr, ptr %agg.tmp, align 8, !noalias !153
-  store ptr null, ptr %agg.tmp, align 8, !noalias !153
   call void @_ZN9grpc_core11ChannelArgs7PointerC1EOS1_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp9.i46, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp1) #30, !noalias !153
   %27 = load ptr, ptr %left5, align 8, !noalias !153
   %cmp.not.i.i49 = icmp eq ptr %27, null
@@ -6983,7 +6978,7 @@ terminate.lpad.i.i.i64:                           ; preds = %invoke.cont15.i56
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #31
+  call void @__clang_call_terminate(ptr %37) #31, !noalias !153
   unreachable
 
 invoke.cont13:                                    ; preds = %invoke.cont15.i56
@@ -7218,7 +7213,7 @@ terminate.lpad.i.i.i:                             ; preds = %invoke.cont15.i
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #31
+  call void @__clang_call_terminate(ptr %23) #31, !noalias !159
   unreachable
 
 invoke.cont15:                                    ; preds = %invoke.cont15.i
@@ -7336,7 +7331,7 @@ terminate.lpad.i.i.i103:                          ; preds = %invoke.cont15.i95
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #31
+  call void @__clang_call_terminate(ptr %46) #31, !noalias !165
   unreachable
 
 invoke.cont36:                                    ; preds = %invoke.cont15.i95
@@ -7428,7 +7423,7 @@ terminate.lpad.i.i.i125:                          ; preds = %invoke.cont15.i117
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #31
+  call void @__clang_call_terminate(ptr %62) #31, !noalias !171
   unreachable
 
 invoke.cont38:                                    ; preds = %invoke.cont15.i117
@@ -7743,7 +7738,7 @@ terminate.lpad.i.i.i:                             ; preds = %invoke.cont15.i
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #31
+  call void @__clang_call_terminate(ptr %21) #31, !noalias !177
   unreachable
 
 _ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE6HeightERKNS_13RefCountedPtrINS4_4NodeEEE.exit.i10: ; preds = %invoke.cont15.i
@@ -7775,7 +7770,6 @@ _ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE6HeightERKN
 
 call.i.noexc65:                                   ; preds = %_ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE6HeightERKNS_13RefCountedPtrINS4_4NodeEEE.exit7.i15
   %26 = load ptr, ptr %agg.tmp, align 8, !noalias !183
-  store ptr null, ptr %agg.tmp, align 8, !noalias !183
   call void @_ZN9grpc_core11ChannelArgs7PointerC1EOS1_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp9.i46, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp1) #30, !noalias !183
   %27 = load ptr, ptr %ref.tmp, align 8, !noalias !183
   %cmp.not.i.i49 = icmp eq ptr %27, null
@@ -7827,7 +7821,7 @@ terminate.lpad.i.i.i64:                           ; preds = %invoke.cont15.i56
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #31
+  call void @__clang_call_terminate(ptr %37) #31, !noalias !183
   unreachable
 
 invoke.cont13:                                    ; preds = %invoke.cont15.i56

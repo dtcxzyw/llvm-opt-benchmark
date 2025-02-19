@@ -2284,7 +2284,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit70.i.i: ;
   %.v.i.i.i = select i1 %.not.i.i53.i, i64 18560, i64 18480
   %350 = getelementptr inbounds nuw i8, ptr %345, i64 %.v.i.i.i
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %350, align 8, !tbaa !17, !noalias !130
-  %351 = call { ptr, i8 } @_ZN5clang4ento11SValBuilder9evalBinOpEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS_18BinaryOperatorKindENS0_4SValES8_NS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(412) %337, ptr noundef nonnull %21, i32 noundef 13, ptr %.fca.0.extract9.i.i, i8 %.fca.1.extract10.i.i, ptr noundef nonnull byval(%"class.clang::ento::SVal") align 8 %22, i64 %.sroa.0.0.copyload.i.i.i.i) #18
+  %351 = call { ptr, i8 } @_ZN5clang4ento11SValBuilder9evalBinOpEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS_18BinaryOperatorKindENS0_4SValES8_NS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(412) %337, ptr noundef nonnull %21, i32 noundef 13, ptr %.fca.0.extract9.i.i, i8 %.fca.1.extract10.i.i, ptr noundef nonnull byval(%"class.clang::ento::SVal") align 8 %22, i64 %.sroa.0.0.copyload.i.i.i.i) #18, !noalias !130
   %.fca.0.extract.i.i = extractvalue { ptr, i8 } %351, 0
   %.fca.1.extract.i.i = extractvalue { ptr, i8 } %351, 1
   %.not.i.i.i73.not.i.i = icmp eq i8 %.fca.1.extract.i.i, 0

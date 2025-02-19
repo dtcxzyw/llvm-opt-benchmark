@@ -979,7 +979,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %cleanup.i.i.i.i
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #28
+  tail call void @__clang_call_terminate(ptr %35) #28, !noalias !26
   unreachable
 
 lpad.i.i.i.i:                                     ; preds = %if.end.i2.i.i.i
@@ -992,7 +992,7 @@ terminate.lpad.i3.i.i.i.i:                        ; preds = %lpad.i.i.i.i
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #28
+  tail call void @__clang_call_terminate(ptr %38) #28, !noalias !26
   unreachable
 
 _ZN5folly9call_onceINS_15basic_once_flagINS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEES3_EEZZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystem19fileSystemGeneratorEvENKUlSt10shared_ptrIKNS8_6ConfigEESt17basic_string_viewIcSt11char_traitsIcEEE_clESF_SJ_EUlvE_JEEEvRT_OT0_DpOT1_.exit.i.i.i: ; preds = %cleanup.i.i.i.i, %init.end.i.i.i

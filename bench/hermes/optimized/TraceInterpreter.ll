@@ -5668,7 +5668,7 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont22.i
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #32
+  call void @__clang_call_terminate(ptr %43) #32, !noalias !67
   unreachable
 
 lpad.loopexit.i:                                  ; preds = %lor.lhs.false198.i, %lor.lhs.false191.i, %lor.lhs.false184.i, %invoke.cont176.i, %_ZNKSt6vectorIPKN8facebook6hermes7tracing10SynthTrace6RecordESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i, %if.end151.i, %if.else.i603.i, %if.then.i600.i, %if.end.i.i582.i, %if.else131.i, %_ZNKSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE12_M_check_lenEmPKc.exit.i.i454.i, %if.end.i.i428.i, %if.else101.i, %_ZNKSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE12_M_check_lenEmPKc.exit.i.i301.i, %if.end.i.i276.i, %lor.lhs.false.i, %if.else67.i, %_ZNKSt6vectorIZN8facebook6hermes7tracing12_GLOBAL__N_18getCallsEmRKS_ISt10unique_ptrINS2_10SynthTrace6RecordESt14default_deleteIS6_EESaIS9_EEE10StackValueSaISE_EE12_M_check_lenEmPKc.exit.i.i149.i, %if.end.i.i123.i, %if.else40.i, %if.else.i, %for.body.i
@@ -11178,7 +11178,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i8.i
   %173 = landingpad { ptr, i32 }
           catch ptr null
   %174 = extractvalue { ptr, i32 } %173, 0
-  call void @__clang_call_terminate(ptr %174) #32
+  call void @__clang_call_terminate(ptr %174) #32, !noalias !134
   unreachable
 
 _ZNSt8functionIFN8facebook3jsi5ValueEmEED2Ev.exit.i: ; preds = %if.then.i.i8.i, %invoke.cont.i
@@ -11238,7 +11238,7 @@ terminate.lpad.i.i22.i:                           ; preds = %if.then.i.i20.i
   %186 = landingpad { ptr, i32 }
           catch ptr null
   %187 = extractvalue { ptr, i32 } %186, 0
-  call void @__clang_call_terminate(ptr %187) #32
+  call void @__clang_call_terminate(ptr %187) #32, !noalias !134
   unreachable
 
 lpad13.i:                                         ; preds = %if.end.i, %if.then.i341

@@ -470,7 +470,7 @@ _ZN5boost4urls5paramD2Ev.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #14
+  call void @__clang_call_terminate(ptr %59) #14, !noalias !55
   unreachable
 
 60:                                               ; preds = %55
@@ -504,7 +504,7 @@ _ZN5boost4urls5paramD2Ev.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #14
+  call void @__clang_call_terminate(ptr %65) #14, !noalias !64
   unreachable
 
 _ZN5boost4urls10params_ref5eraseENS0_11params_base8iteratorE.exit15: ; preds = %61
@@ -562,7 +562,7 @@ define void @_ZN5boost4urls10params_ref5eraseENS0_11params_base8iteratorE(ptr de
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #14
+  call void @__clang_call_terminate(ptr %12) #14, !noalias !70
   unreachable
 
 _ZN5boost4urls10params_ref5eraseENS0_11params_base8iteratorES3_.exit: ; preds = %.preheader.i.i.i
@@ -966,7 +966,7 @@ _ZN5boost4urls10params_ref3setENS0_11params_base8iteratorENS_4core17basic_string
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #14
+  call void @__clang_call_terminate(ptr %65) #14, !noalias !107
   unreachable
 
 _ZN5boost4urls10params_ref5eraseENS0_11params_base8iteratorE.exit: ; preds = %.lr.ph

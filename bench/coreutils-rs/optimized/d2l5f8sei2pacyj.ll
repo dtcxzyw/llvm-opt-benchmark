@@ -518,7 +518,7 @@ define internal fastcc void @"_ZN4core6option15Option$LT$T$GT$6map_or17hf678a624
   %16 = extractvalue { i64, ptr } %14, 1
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %16, ptr noundef nonnull align 1 dereferenceable(40) @anon.c26689b4b3f0ec1139c0701bc8b1e935.87, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %16, ptr noundef nonnull align 1 dereferenceable(40) @anon.c26689b4b3f0ec1139c0701bc8b1e935.87, i64 40, i1 false), !noalias !115
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %15, ptr %18, align 8, !alias.scope !110, !noalias !113
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16

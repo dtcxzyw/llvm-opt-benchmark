@@ -140,7 +140,7 @@ default.unreachable1:                             ; preds = %2
   %34 = extractvalue { i64, ptr } %32, 1
   %35 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %35)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(196) %34, ptr noundef nonnull align 1 dereferenceable(196) @anon.96edb2e12b1c90f4cebcfcaadf93dceb.3, i64 196, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(196) %34, ptr noundef nonnull align 1 dereferenceable(196) @anon.96edb2e12b1c90f4cebcfcaadf93dceb.3, i64 196, i1 false), !noalias !6
   store i64 %33, ptr %0, align 8, !alias.scope !6
   store ptr %34, ptr %.sroa.217.0..sroa_idx.i, align 8, !alias.scope !6
   store i64 196, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !6
@@ -152,7 +152,7 @@ default.unreachable1:                             ; preds = %2
   %39 = extractvalue { i64, ptr } %37, 1
   %40 = icmp ne ptr %39, null
   tail call void @llvm.assume(i1 %40)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(197) %39, ptr noundef nonnull align 1 dereferenceable(197) @anon.96edb2e12b1c90f4cebcfcaadf93dceb.4, i64 197, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(197) %39, ptr noundef nonnull align 1 dereferenceable(197) @anon.96edb2e12b1c90f4cebcfcaadf93dceb.4, i64 197, i1 false), !noalias !6
   store i64 %38, ptr %0, align 8, !alias.scope !6
   store ptr %39, ptr %.sroa.217.0..sroa_idx.i, align 8, !alias.scope !6
   store i64 197, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !6

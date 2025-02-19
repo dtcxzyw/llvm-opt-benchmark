@@ -5206,7 +5206,6 @@ _ZNKSt14default_deleteIN3gmx24ParrinelloRahmanBarostatEEclEPS1_.exit.i.i: ; pred
 
 _ZNSt10unique_ptrIN3gmx24ParrinelloRahmanBarostatESt14default_deleteIS1_EED2Ev.exit: ; preds = %34, %_ZNKSt14default_deleteIN3gmx24ParrinelloRahmanBarostatEEclEPS1_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  store ptr null, ptr %11, align 8
   store ptr %33, ptr %13, align 8
   %47 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %8)

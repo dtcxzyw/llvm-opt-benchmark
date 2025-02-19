@@ -23359,8 +23359,8 @@ define hidden { i64, ptr } @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$G
 
 28:                                               ; preds = %8
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %30 = load ptr, ptr %29, align 8, !nonnull !11, !noundef !11
-  tail call void %30(ptr noundef %16)
+  %30 = load ptr, ptr %29, align 8, !noalias !4904, !nonnull !11, !noundef !11
+  tail call void %30(ptr noundef %16), !noalias !4904
   br label %36
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h0bfe8947b0bae4a3E.exit.i": ; preds = %24, %22

@@ -2380,7 +2380,6 @@ _ZNK6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE14transformer_f
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog23product_relation_plugin12transform_fnE, i64 16), ptr %call18, align 8
   %m_sig.i26 = getelementptr inbounds nuw i8, ptr %call18, i64 8
   store ptr %25, ptr %m_sig.i26, align 8
-  store ptr null, ptr %agg.tmp, align 8
   %m_transforms.i27 = getelementptr inbounds nuw i8, ptr %call18, i64 16
   store ptr null, ptr %m_transforms.i27, align 8
   br label %_ZN7datalog18relation_signatureD2Ev.exit
@@ -3011,7 +3010,6 @@ _ZNK6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE14transformer_f
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog23product_relation_plugin12transform_fnE, i64 16), ptr %call19, align 8
   %m_sig.i36 = getelementptr inbounds nuw i8, ptr %call19, i64 8
   store ptr %40, ptr %m_sig.i36, align 8
-  store ptr null, ptr %agg.tmp, align 8
   %m_transforms.i37 = getelementptr inbounds nuw i8, ptr %call19, i64 16
   store ptr null, ptr %m_transforms.i37, align 8
   br label %_ZN7datalog18relation_signatureD2Ev.exit

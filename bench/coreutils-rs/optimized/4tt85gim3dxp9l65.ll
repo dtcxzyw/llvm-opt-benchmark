@@ -952,7 +952,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %59
   resume { ptr, i32 } %77
 
 _ZN6uucore4mods5error12USimpleError3new17hc7c7f6ddbd4da39eE.exit: ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !128
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !128
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %73, ptr %81, align 8
@@ -2740,7 +2740,7 @@ define { ptr, ptr } @_ZN7uu_uniq15map_clap_errors17h703005e348667558E(ptr noalia
   unreachable
 
 241:                                              ; preds = %.noexc.i130
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %234, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %234, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !noalias !544
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !544
   %242 = insertvalue { ptr, ptr } poison, ptr %234, 0
   %243 = insertvalue { ptr, ptr } %242, ptr @anon.1e87dbef6090fd807a14033badb59e10.16.llvm.2282624722526689056, 1

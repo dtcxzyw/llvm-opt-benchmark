@@ -64,7 +64,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %17 = extractvalue { ptr, i64 } %15, 0
   %18 = extractvalue { ptr, i64 } %15, 1
   invoke void @_ZN5paths7AbsPath4join17h5848497ad340fb88E(ptr noalias noundef nonnull sret({ { { { { { { i64, ptr, {} }, i64 } } } } } }) align 8 captures(none) dereferenceable(24) %.sroa.0.i.i, ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16)
-          to label %19 unwind label %24
+          to label %19 unwind label %24, !noalias !12
 
 19:                                               ; preds = %.noexc.i
   %20 = getelementptr inbounds { { { { { { { i64, ptr, {} }, i64 } } } } } }, ptr %.sroa.9.0.copyload, i64 %.val18.i

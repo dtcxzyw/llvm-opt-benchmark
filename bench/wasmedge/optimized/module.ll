@@ -32101,7 +32101,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #21
+  tail call void @__clang_call_terminate(ptr %26) #21, !noalias !284
   unreachable
 
 _ZNK8WasmEdge10Executable12createSymbolIPA23_KPvEENS_6SymbolIT_EEPS7_.exit: ; preds = %18
@@ -32222,7 +32222,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #21
+  call void @__clang_call_terminate(ptr %49) #21, !noalias !291
   unreachable
 
 _ZNK8WasmEdge10Executable12createSymbolIFvPvS2_PKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEPSG_EEENS_6SymbolIT_EEPSM_.exit: ; preds = %41
@@ -32453,7 +32453,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #21
+  call void @__clang_call_terminate(ptr %50) #21, !noalias !297
   unreachable
 
 _ZNK8WasmEdge10Executable12createSymbolIvEENS_6SymbolIT_EEPS3_.exit: ; preds = %42

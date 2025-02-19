@@ -1707,7 +1707,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang7Code
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %21
   %27 = extractvalue { ptr, i64 } %25, 0
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %27, ptr noundef nonnull dereferenceable(7) @.str.184, i64 7)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %27, ptr noundef nonnull dereferenceable(7) @.str.184, i64 7), !noalias !384
   %bcmp.i.fr.i = freeze i32 %bcmp.i.i
   %28 = icmp eq i32 %bcmp.i.fr.i, 0
   %spec.select.i = select i1 %28, i32 6, i32 18
@@ -1725,7 +1725,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread268.i:    ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvmeqENS_9StringRefES0_.exit157.i:           ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread268.i
   %35 = extractvalue { ptr, i64 } %33, 0
-  %bcmp.i156.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %35, ptr noundef nonnull dereferenceable(7) @.str.184, i64 7)
+  %bcmp.i156.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %35, ptr noundef nonnull dereferenceable(7) @.str.184, i64 7), !noalias !384
   %bcmp.i156.fr.i = freeze i32 %bcmp.i156.i
   %36 = icmp eq i32 %bcmp.i156.fr.i, 0
   %spec.select332.i = select i1 %36, i32 4, i32 8
@@ -1747,7 +1747,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit157.thread274.i: ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvmeqENS_9StringRefES0_.exit161.i:           ; preds = %38
   %44 = extractvalue { ptr, i64 } %42, 0
-  %bcmp.i160.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %44, ptr noundef nonnull dereferenceable(9) @.str.185, i64 9)
+  %bcmp.i160.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %44, ptr noundef nonnull dereferenceable(9) @.str.185, i64 9), !noalias !384
   %45 = icmp eq i32 %bcmp.i160.i, 0
   br i1 %45, label %_ZN4llvmeqENS_9StringRefES0_.exit161.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit161.thread278.i
 
@@ -1772,7 +1772,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit161.thread278.i: ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvmeqENS_9StringRefES0_.exit165.i:           ; preds = %50
   %56 = extractvalue { ptr, i64 } %54, 0
-  %bcmp.i164.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %56, ptr noundef nonnull dereferenceable(10) @.str.186, i64 10)
+  %bcmp.i164.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %56, ptr noundef nonnull dereferenceable(10) @.str.186, i64 10), !noalias !384
   %57 = icmp eq i32 %bcmp.i164.i, 0
   br i1 %57, label %_ZN4llvmeqENS_9StringRefES0_.exit161.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit165.thread281.i
 
@@ -1787,7 +1787,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit165.thread281.i: ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvmeqENS_9StringRefES0_.exit169.i:           ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit165.thread281.i
   %63 = extractvalue { ptr, i64 } %61, 0
-  %bcmp.i168.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %63, ptr noundef nonnull dereferenceable(9) @.str.187, i64 9)
+  %bcmp.i168.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %63, ptr noundef nonnull dereferenceable(9) @.str.187, i64 9), !noalias !384
   %bcmp.i168.fr.i = freeze i32 %bcmp.i168.i
   %64 = icmp eq i32 %bcmp.i168.fr.i, 0
   %spec.select333.i = select i1 %64, i32 4, i32 0
@@ -1809,7 +1809,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit161.thread.i:    ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvmeqENS_9StringRefES0_.exit173.i:           ; preds = %65
   %71 = extractvalue { ptr, i64 } %69, 0
-  %bcmp.i172.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %71, ptr noundef nonnull dereferenceable(15) @.str.188, i64 15)
+  %bcmp.i172.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %71, ptr noundef nonnull dereferenceable(15) @.str.188, i64 15), !noalias !384
   %bcmp.i172.fr.i = freeze i32 %bcmp.i172.i
   %72 = icmp eq i32 %bcmp.i172.fr.i, 0
   %spec.select334.i = zext i1 %72 to i32
@@ -1843,12 +1843,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit173.thread292.i: ; preds = %_ZN4llvmeqENS_9Stri
   ]
 
 _ZN4llvmeqENS_9StringRefES0_.exit177.i:           ; preds = %79
-  %bcmp.i176.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %84, ptr noundef nonnull dereferenceable(8) @.str.189, i64 8)
+  %bcmp.i176.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %84, ptr noundef nonnull dereferenceable(8) @.str.189, i64 8), !noalias !384
   %86 = icmp eq i32 %bcmp.i176.i, 0
   br i1 %86, label %_ZNK4llvm6Triple14isHardFloatABIEv.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit181.thread299.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit181.i:           ; preds = %79
-  %bcmp.i180.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %84, ptr noundef nonnull dereferenceable(7) @.str.190, i64 7)
+  %bcmp.i180.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %84, ptr noundef nonnull dereferenceable(7) @.str.190, i64 7), !noalias !384
   %87 = icmp eq i32 %bcmp.i180.i, 0
   br i1 %87, label %_ZNK4llvm6Triple14isHardFloatABIEv.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit181.thread299.i
 
@@ -1943,7 +1943,7 @@ _ZNK4llvm6Triple14isHardFloatABIEv.exit.i:        ; preds = %_ZNK4llvm6Triple14i
 
 _ZN4llvmeqENS_9StringRefES0_.exit185.i:           ; preds = %125
   %131 = extractvalue { ptr, i64 } %129, 0
-  %bcmp.i184.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %131, ptr noundef nonnull dereferenceable(5) @.str.194, i64 5)
+  %bcmp.i184.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %131, ptr noundef nonnull dereferenceable(5) @.str.194, i64 5), !noalias !384
   %bcmp.i184.fr.i = freeze i32 %bcmp.i184.i
   %132 = icmp eq i32 %bcmp.i184.fr.i, 0
   %spec.select335.i = zext i1 %132 to i32
@@ -1972,7 +1972,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit185.thread304.i: ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvmeqENS_9StringRefES0_.exit189.i:           ; preds = %138
   %144 = extractvalue { ptr, i64 } %142, 0
-  %bcmp.i188.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %144, ptr noundef nonnull dereferenceable(5) @.str.195, i64 5)
+  %bcmp.i188.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %144, ptr noundef nonnull dereferenceable(5) @.str.195, i64 5), !noalias !384
   %bcmp.i188.fr.i = freeze i32 %bcmp.i188.i
   %145 = icmp ne i32 %bcmp.i188.fr.i, 0
   %spec.select336.i = zext i1 %145 to i32
@@ -2010,7 +2010,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.i:         ; preds = %152
   %161 = extractvalue { ptr, i64 } %156, 0
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 %157
   %163 = getelementptr inbounds i8, ptr %162, i64 -1
-  %lhsc329.i = load i8, ptr %163, align 1
+  %lhsc329.i = load i8, ptr %163, align 1, !noalias !384
   %lhsc330.fr.i = freeze i8 %lhsc329.i
   %164 = icmp eq i8 %lhsc330.fr.i, 102
   %165 = icmp eq i8 %lhsc330.fr.i, 100
@@ -2042,7 +2042,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit197.i:      ; preds = %_ZNK4llvm9StringRef
 
 178:                                              ; preds = %172
   %179 = extractvalue { ptr, i64 } %176, 0
-  %bcmp.i200.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %179, ptr noundef nonnull dereferenceable(6) @.str.199, i64 6)
+  %bcmp.i200.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %179, ptr noundef nonnull dereferenceable(6) @.str.199, i64 6), !noalias !384
   %180 = icmp eq i32 %bcmp.i200.i, 0
   br label %_ZN4llvmeqENS_9StringRefES0_.exit201.i
 
@@ -2107,13 +2107,13 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit.i:            ; preds = %183
   ]
 
 _ZN4llvmeqENS_9StringRefES0_.exit205.i:           ; preds = %205
-  %bcmp.i204.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %210, ptr noundef nonnull dereferenceable(6) @.str.200, i64 6)
+  %bcmp.i204.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %210, ptr noundef nonnull dereferenceable(6) @.str.200, i64 6), !noalias !384
   %212 = icmp eq i32 %bcmp.i204.i, 0
   %spec.select341.i = select i1 %212, i32 2, i32 0
   br label %_ZN4llvmeqENS_9StringRefES0_.exit205.thread.i
 
 213:                                              ; preds = %205
-  %bcmp.i208.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %210, ptr noundef nonnull dereferenceable(3) @.str.201, i64 3)
+  %bcmp.i208.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %210, ptr noundef nonnull dereferenceable(3) @.str.201, i64 3), !noalias !384
   %214 = icmp eq i32 %bcmp.i208.i, 0
   %215 = zext i1 %214 to i32
   br label %_ZN4llvmeqENS_9StringRefES0_.exit205.thread.i
@@ -2223,7 +2223,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit212.i:      ; preds = %252
   %258 = extractvalue { ptr, i64 } %256, 0
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 %257
   %260 = getelementptr inbounds i8, ptr %259, i64 -1
-  %lhsc.i = load i8, ptr %260, align 1
+  %lhsc.i = load i8, ptr %260, align 1, !noalias !384
   %lhsc327.fr.i = freeze i8 %lhsc.i
   %261 = icmp eq i8 %lhsc327.fr.i, 102
   br i1 %261, label %_ZNK4llvm9StringRef9ends_withES0_.exit212.thread.i, label %_ZNK4llvm9StringRef9ends_withES0_.exit215.i

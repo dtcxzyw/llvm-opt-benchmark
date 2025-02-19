@@ -1081,7 +1081,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #27
+  call void @__clang_call_terminate(ptr %3) #27, !noalias !8
   unreachable
 
 lpad.i5.i:                                        ; preds = %_ZNSt8functionIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEC2EOSJ_.exit.i.i
@@ -1100,7 +1100,7 @@ terminate.lpad.i.i6.i.i:                          ; preds = %if.then.i.i4.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #27
+  call void @__clang_call_terminate(ptr %7) #27, !noalias !8
   unreachable
 
 invoke.cont6.i:                                   ; preds = %if.then.i.i.i.i, %invoke.cont.i6.i
@@ -1421,7 +1421,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #27
+  call void @__clang_call_terminate(ptr %3) #27, !noalias !14
   unreachable
 
 lpad.i5.i:                                        ; preds = %_ZNSt8functionIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEC2EOSJ_.exit.i.i
@@ -1440,7 +1440,7 @@ terminate.lpad.i.i6.i.i:                          ; preds = %if.then.i.i4.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #27
+  call void @__clang_call_terminate(ptr %7) #27, !noalias !14
   unreachable
 
 invoke.cont6.i:                                   ; preds = %if.then.i.i.i.i, %invoke.cont.i6.i
@@ -1873,7 +1873,7 @@ terminate.lpad.i.i6.i.i.i:                        ; preds = %if.then.i.i4.i.i.i
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #27
+  call void @__clang_call_terminate(ptr %16) #27, !noalias !20
   unreachable
 
 invoke.cont.i5.i:                                 ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIZN12_GLOBAL__N_119DOCTEST_ANON_FUNC_8EvE10MyIteratorEEEC2EOSJ_b.exit.i.i.i
@@ -1889,7 +1889,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i3.i.i
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #27
+  call void @__clang_call_terminate(ptr %19) #27, !noalias !20
   unreachable
 
 lpad.body.i.i:                                    ; preds = %if.then.i.i4.i.i.i, %lpad.i.i.i
@@ -1905,7 +1905,7 @@ terminate.lpad.i.i8.i.i:                          ; preds = %if.then.i.i6.i.i
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #27
+  call void @__clang_call_terminate(ptr %22) #27, !noalias !20
   unreachable
 
 invoke.cont11.i:                                  ; preds = %if.then.i.i3.i.i, %invoke.cont.i5.i

@@ -2520,7 +2520,7 @@ _ZN5vcpkg4Json6ObjectD2Ev.exit:                   ; preds = %_ZSt8_DestroyIPSt4p
   %82 = landingpad { ptr, i32 }
           catch ptr null
   %83 = extractvalue { ptr, i32 } %82, 0
-  call void @__clang_call_terminate(ptr %83) #24
+  call void @__clang_call_terminate(ptr %83) #24, !noalias !54
   unreachable
 
 _ZN5vcpkg4Json5Value6stringIA36_cTnNSt9enable_ifIXsr3stdE18is_constructible_vINS_10StringViewERKT_EEiE4typeELi0EEES1_S8_.exit: ; preds = %79
@@ -2543,7 +2543,7 @@ _ZN5vcpkg4Json5Value6stringIA36_cTnNSt9enable_ifIXsr3stdE18is_constructible_vINS
   %87 = landingpad { ptr, i32 }
           catch ptr null
   %88 = extractvalue { ptr, i32 } %87, 0
-  call void @__clang_call_terminate(ptr %88) #24
+  call void @__clang_call_terminate(ptr %88) #24, !noalias !57
   unreachable
 
 _ZN5vcpkg4Json5Value6stringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXsr3stdE18is_constructible_vINS_10StringViewERKT_EEiE4typeELi0EEES1_SD_.exit: ; preds = %85
@@ -2574,7 +2574,7 @@ _ZN5vcpkg4Json5Value6stringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %95 = landingpad { ptr, i32 }
           catch ptr null
   %96 = extractvalue { ptr, i32 } %95, 0
-  call void @__clang_call_terminate(ptr %96) #24
+  call void @__clang_call_terminate(ptr %96) #24, !noalias !60
   unreachable
 
 _ZN5vcpkg4Json5Value6stringIA4_cTnNSt9enable_ifIXsr3stdE18is_constructible_vINS_10StringViewERKT_EEiE4typeELi0EEES1_S8_.exit: ; preds = %92
@@ -2599,7 +2599,7 @@ _ZN5vcpkg4Json5Value6stringIA4_cTnNSt9enable_ifIXsr3stdE18is_constructible_vINS_
   %101 = landingpad { ptr, i32 }
           catch ptr null
   %102 = extractvalue { ptr, i32 } %101, 0
-  call void @__clang_call_terminate(ptr %102) #24
+  call void @__clang_call_terminate(ptr %102) #24, !noalias !63
   unreachable
 
 _ZN5vcpkg4Json5Value6stringIA37_cTnNSt9enable_ifIXsr3stdE18is_constructible_vINS_10StringViewERKT_EEiE4typeELi0EEES1_S8_.exit: ; preds = %98
@@ -2664,7 +2664,7 @@ _ZN5vcpkg4Json6ObjectD2Ev.exit89:                 ; preds = %_ZSt8_DestroyIPSt4p
   %118 = landingpad { ptr, i32 }
           catch ptr null
   %119 = extractvalue { ptr, i32 } %118, 0
-  call void @__clang_call_terminate(ptr %119) #24
+  call void @__clang_call_terminate(ptr %119) #24, !noalias !66
   unreachable
 
 _ZN5vcpkg4Json5Value6stringIA6_cTnNSt9enable_ifIXsr3stdE18is_constructible_vINS_10StringViewERKT_EEiE4typeELi0EEES1_S8_.exit: ; preds = %_ZN5vcpkg4Json6ObjectD2Ev.exit89
@@ -2688,7 +2688,7 @@ _ZN5vcpkg4Json5Value6stringIA6_cTnNSt9enable_ifIXsr3stdE18is_constructible_vINS_
   %124 = landingpad { ptr, i32 }
           catch ptr null
   %125 = extractvalue { ptr, i32 } %124, 0
-  call void @__clang_call_terminate(ptr %125) #24
+  call void @__clang_call_terminate(ptr %125) #24, !noalias !69
   unreachable
 
 _ZN5vcpkg4Json5Value6stringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXsr3stdE18is_constructible_vINS_10StringViewERKT_EEiE4typeELi0EEES1_SD_.exit90: ; preds = %121
@@ -2712,7 +2712,7 @@ _ZN5vcpkg4Json5Value6stringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %130 = landingpad { ptr, i32 }
           catch ptr null
   %131 = extractvalue { ptr, i32 } %130, 0
-  call void @__clang_call_terminate(ptr %131) #24
+  call void @__clang_call_terminate(ptr %131) #24, !noalias !72
   unreachable
 
 _ZN5vcpkg4Json5Value6stringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXsr3stdE18is_constructible_vINS_10StringViewERKT_EEiE4typeELi0EEES1_SD_.exit91: ; preds = %127
@@ -2735,7 +2735,7 @@ _ZN5vcpkg4Json5Value6stringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %135 = landingpad { ptr, i32 }
           catch ptr null
   %136 = extractvalue { ptr, i32 } %135, 0
-  call void @__clang_call_terminate(ptr %136) #24
+  call void @__clang_call_terminate(ptr %136) #24, !noalias !75
   unreachable
 
 _ZN5vcpkg4Json5Value6stringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXsr3stdE18is_constructible_vINS_10StringViewERKT_EEiE4typeELi0EEES1_SD_.exit92: ; preds = %133
@@ -2759,7 +2759,7 @@ _ZN5vcpkg4Json5Value6stringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %141 = landingpad { ptr, i32 }
           catch ptr null
   %142 = extractvalue { ptr, i32 } %141, 0
-  call void @__clang_call_terminate(ptr %142) #24
+  call void @__clang_call_terminate(ptr %142) #24, !noalias !78
   unreachable
 
 _ZN5vcpkg4Json5Value6stringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXsr3stdE18is_constructible_vINS_10StringViewERKT_EEiE4typeELi0EEES1_SD_.exit93: ; preds = %138
@@ -2818,7 +2818,7 @@ _ZN5vcpkg4Json6ObjectD2Ev.exit102:                ; preds = %_ZSt8_DestroyIPSt4p
   %156 = landingpad { ptr, i32 }
           catch ptr null
   %157 = extractvalue { ptr, i32 } %156, 0
-  call void @__clang_call_terminate(ptr %157) #24
+  call void @__clang_call_terminate(ptr %157) #24, !noalias !81
   unreachable
 
 _ZN5vcpkg4Json5Value6stringIA10_cTnNSt9enable_ifIXsr3stdE18is_constructible_vINS_10StringViewERKT_EEiE4typeELi0EEES1_S8_.exit: ; preds = %_ZN5vcpkg4Json6ObjectD2Ev.exit102
@@ -2883,7 +2883,7 @@ _ZN5vcpkg4Json6ObjectD2Ev.exit111:                ; preds = %_ZSt8_DestroyIPSt4p
   %173 = landingpad { ptr, i32 }
           catch ptr null
   %174 = extractvalue { ptr, i32 } %173, 0
-  call void @__clang_call_terminate(ptr %174) #24
+  call void @__clang_call_terminate(ptr %174) #24, !noalias !84
   unreachable
 
 _ZN5vcpkg4Json5Value6stringIA18_cTnNSt9enable_ifIXsr3stdE18is_constructible_vINS_10StringViewERKT_EEiE4typeELi0EEES1_S8_.exit: ; preds = %170
@@ -2969,7 +2969,7 @@ _ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg12DefineMetricENS1_17DefineMetricEntry
   %199 = landingpad { ptr, i32 }
           catch ptr null
   %200 = extractvalue { ptr, i32 } %199, 0
-  call void @__clang_call_terminate(ptr %200) #24
+  call void @__clang_call_terminate(ptr %200) #24, !noalias !87
   unreachable
 
 _ZN5vcpkg4Json5Value6stringIA8_cTnNSt9enable_ifIXsr3stdE18is_constructible_vINS_10StringViewERKT_EEiE4typeELi0EEES1_S8_.exit: ; preds = %_ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg12DefineMetricENS1_17DefineMetricEntryELm25EEENS1_13StringLiteralET_RKSt5arrayIT0_XT1_EE.exit
@@ -3124,7 +3124,7 @@ _ZN5vcpkg4Json5Value6stringIA8_cTnNSt9enable_ifIXsr3stdE18is_constructible_vINS_
   %248 = landingpad { ptr, i32 }
           catch ptr null
   %249 = extractvalue { ptr, i32 } %248, 0
-  call void @__clang_call_terminate(ptr %249) #24
+  call void @__clang_call_terminate(ptr %249) #24, !noalias !90
   unreachable
 
 _ZN5vcpkg4Json5Value6stringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXsr3stdE18is_constructible_vINS_10StringViewERKT_EEiE4typeELi0EEES1_SD_.exit121: ; preds = %._crit_edge
@@ -3172,7 +3172,7 @@ _ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg12StringMetricENS1_17StringMetricEntry
   %264 = landingpad { ptr, i32 }
           catch ptr null
   %265 = extractvalue { ptr, i32 } %264, 0
-  call void @__clang_call_terminate(ptr %265) #24
+  call void @__clang_call_terminate(ptr %265) #24, !noalias !93
   unreachable
 
 _ZN5vcpkg4Json5Value6stringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXsr3stdE18is_constructible_vINS_10StringViewERKT_EEiE4typeELi0EEES1_SD_.exit127: ; preds = %_ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg12StringMetricENS1_17StringMetricEntryELm18EEENS1_13StringLiteralET_RKSt5arrayIT0_XT1_EE.exit
@@ -3273,7 +3273,7 @@ _ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg10BoolMetricENS1_15BoolMetricEntryELm1
   %300 = landingpad { ptr, i32 }
           catch ptr null
   %301 = extractvalue { ptr, i32 } %300, 0
-  call void @__clang_call_terminate(ptr %301) #24
+  call void @__clang_call_terminate(ptr %301) #24, !noalias !96
   unreachable
 
 _ZN5vcpkg4Json5Value6stringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXsr3stdE18is_constructible_vINS_10StringViewERKT_EEiE4typeELi0EEES1_SD_.exit133: ; preds = %.lr.ph246
@@ -3455,7 +3455,7 @@ _ZN5vcpkg4Json6ObjectD2Ev.exit157:                ; preds = %_ZSt8_DestroyIPSt4p
   %353 = landingpad { ptr, i32 }
           catch ptr null
   %354 = extractvalue { ptr, i32 } %353, 0
-  call void @__clang_call_terminate(ptr %354) #24
+  call void @__clang_call_terminate(ptr %354) #24, !noalias !100
   unreachable
 
 _ZN5vcpkg4Json5Value6stringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXsr3stdE18is_constructible_vINS_10StringViewERKT_EEiE4typeELi0EEES1_SD_.exit158: ; preds = %350

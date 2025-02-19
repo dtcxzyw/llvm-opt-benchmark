@@ -873,7 +873,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 .noexc.i:                                         ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$21adjusted_current_node17h42783e54d25dff00E.llvm.4491288516430033680.exit.i.i"
   %267 = extractvalue { ptr, ptr } %266, 0
   %268 = extractvalue { ptr, ptr } %266, 1
-  %269 = load i64, ptr %267, align 8, !noundef !4
+  %269 = load i64, ptr %267, align 8, !noalias !105, !noundef !4
   switch i64 %269, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$10is_foreign17hd6736e33dd83fa12E.exit.thread74.i" [
     i64 30064771074, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$10is_foreign17hd6736e33dd83fa12E.exit.thread.i"
     i64 4294967298, label %270
@@ -881,7 +881,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   ]
 
 270:                                              ; preds = %.noexc.i
-  %271 = load i64, ptr %268, align 8, !noundef !4
+  %271 = load i64, ptr %268, align 8, !noalias !105, !noundef !4
   switch i64 %271, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$10is_foreign17hd6736e33dd83fa12E.exit.thread74.i" [
     i64 3448858738690, label %272
     i64 3753801416706, label %272
@@ -907,7 +907,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br i1 %trunc.i.i, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$10is_foreign17hd6736e33dd83fa12E.exit.thread74.i", label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$10is_foreign17hd6736e33dd83fa12E.exit.i"
 
 278:                                              ; preds = %.noexc.i
-  %279 = load i64, ptr %268, align 8, !noundef !4
+  %279 = load i64, ptr %268, align 8, !noalias !105, !noundef !4
   switch i64 %279, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$10is_foreign17hd6736e33dd83fa12E.exit.thread74.i" [
     i64 1194000908290, label %280
     i64 2993592205314, label %280
@@ -1388,10 +1388,10 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 
 375:                                              ; preds = %369
   %376 = extractvalue { ptr, ptr } %372, 0
-  %377 = load i64, ptr %376, align 8, !range !57, !noundef !4
+  %377 = load i64, ptr %376, align 8, !range !57, !noalias !134, !noundef !4
   %378 = extractvalue { ptr, ptr } %372, 1
   %379 = invoke noundef zeroext i1 @"_ZN12string_cache4atom18Atom$LT$Static$GT$20eq_ignore_ascii_case17h204ae4ded3757392E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %378, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %238)
-          to label %380 unwind label %.body25.thread37.loopexit.i.i
+          to label %380 unwind label %.body25.thread37.loopexit.i.i, !noalias !134
 
 380:                                              ; preds = %375
   %381 = icmp ne i64 %377, 30064771074
@@ -4789,7 +4789,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
   %34 = extractvalue { ptr, ptr } %33, 0
   %35 = extractvalue { ptr, ptr } %33, 1
   %.val7.us.i = load i64, ptr %34, align 8, !alias.scope !594, !noalias !597, !noundef !4
-  %.val8.us.i = load i64, ptr %35, align 8
+  %.val8.us.i = load i64, ptr %35, align 8, !noalias !584
   switch i64 %.val7.us.i, label %_ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.us.i [
     i64 30064771074, label %38
     i64 4294967298, label %37
@@ -4911,7 +4911,7 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.us.i: ; preds = %38, %37,
   %64 = extractvalue { ptr, ptr } %63, 0
   %65 = extractvalue { ptr, ptr } %63, 1
   %.val7.i = load i64, ptr %64, align 8, !alias.scope !594, !noalias !597, !noundef !4
-  %.val8.i = load i64, ptr %65, align 8
+  %.val8.i = load i64, ptr %65, align 8, !noalias !584
   switch i64 %.val7.i, label %_ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i [
     i64 30064771074, label %66
     i64 4294967298, label %67
@@ -5096,8 +5096,8 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
 .noexc4:                                          ; preds = %29
   %31 = extractvalue { ptr, ptr } %30, 0
   %32 = extractvalue { ptr, ptr } %30, 1
-  %.val7.i = load i64, ptr %31, align 8, !noundef !4
-  %.val8.i = load i64, ptr %32, align 8
+  %.val7.i = load i64, ptr %31, align 8, !noalias !608, !noundef !4
+  %.val8.i = load i64, ptr %32, align 8, !noalias !608
   %33 = icmp eq i64 %.val7.i, 30064771074
   %34 = icmp eq i64 %.val8.i, 4294967298
   %or.cond.i.i.i = select i1 %33, i1 %34, i1 false
@@ -5245,8 +5245,8 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
 .noexc2:                                          ; preds = %32
   %34 = extractvalue { ptr, ptr } %33, 0
   %35 = extractvalue { ptr, ptr } %33, 1
-  %.val7.us.i = load i64, ptr %34, align 8, !noundef !4
-  %.val8.us.i = load i64, ptr %35, align 8
+  %.val7.us.i = load i64, ptr %34, align 8, !noalias !624, !noundef !4
+  %.val8.us.i = load i64, ptr %35, align 8, !noalias !624
   switch i64 %.val7.us.i, label %_ZN4core3ops8function2Fn4call17hbf6822db916f92f4E.exit.us.i [
     i64 30064771074, label %38
     i64 4294967298, label %37
@@ -5369,8 +5369,8 @@ _ZN4core3ops8function2Fn4call17hbf6822db916f92f4E.exit.us.i: ; preds = %38, %37,
 .noexc4:                                          ; preds = %62
   %64 = extractvalue { ptr, ptr } %63, 0
   %65 = extractvalue { ptr, ptr } %63, 1
-  %.val7.i = load i64, ptr %64, align 8, !noundef !4
-  %.val8.i = load i64, ptr %65, align 8
+  %.val7.i = load i64, ptr %64, align 8, !noalias !624, !noundef !4
+  %.val8.i = load i64, ptr %65, align 8, !noalias !624
   switch i64 %.val7.i, label %_ZN4core3ops8function2Fn4call17hbf6822db916f92f4E.exit.i [
     i64 30064771074, label %66
     i64 4294967298, label %67
@@ -5556,13 +5556,13 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
 
 .noexc4:                                          ; preds = %29
   %31 = extractvalue { ptr, ptr } %30, 0
-  %.val7.i = load i64, ptr %31, align 8, !noundef !4
+  %.val7.i = load i64, ptr %31, align 8, !noalias !643, !noundef !4
   %32 = icmp eq i64 %.val7.i, 30064771074
   br i1 %32, label %_ZN4core3ops8function2Fn4call17h0c732d32e393fbf3E.exit.i, label %"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE.exit"
 
 _ZN4core3ops8function2Fn4call17h0c732d32e393fbf3E.exit.i: ; preds = %.noexc4
   %33 = extractvalue { ptr, ptr } %30, 1
-  %.val8.i = load i64, ptr %33, align 8
+  %.val8.i = load i64, ptr %33, align 8, !noalias !643
   switch i64 %.val8.i, label %"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE.exit" [
     i64 1924145348610, label %.backedge.i
     i64 167503724546, label %.backedge.i
@@ -5671,13 +5671,13 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
 
 .noexc2:                                          ; preds = %32
   %34 = extractvalue { ptr, ptr } %33, 0
-  %.val5.us.i = load i64, ptr %34, align 8, !noundef !4
+  %.val5.us.i = load i64, ptr %34, align 8, !noalias !659, !noundef !4
   %35 = icmp eq i64 %.val5.us.i, 30064771074
   br i1 %35, label %36, label %_ZN4core3ops8function2Fn4call17h027c3db8f1d10e3eE.exit.us.i
 
 36:                                               ; preds = %.noexc2
   %37 = extractvalue { ptr, ptr } %33, 1
-  %.val6.us.i = load i64, ptr %37, align 8
+  %.val6.us.i = load i64, ptr %37, align 8, !noalias !659
   switch i64 %.val6.us.i, label %_ZN4core3ops8function2Fn4call17h027c3db8f1d10e3eE.exit.us.i [
     i64 3723736645634, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$8in_scope17h6931a6e9c029e621E.exit.thread"
     i64 3972844748802, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$8in_scope17h6931a6e9c029e621E.exit.thread"
@@ -5768,13 +5768,13 @@ _ZN4core3ops8function2Fn4call17h027c3db8f1d10e3eE.exit.us.i: ; preds = %36, %.no
 
 .noexc4:                                          ; preds = %61
   %63 = extractvalue { ptr, ptr } %62, 0
-  %.val5.i = load i64, ptr %63, align 8, !noundef !4
+  %.val5.i = load i64, ptr %63, align 8, !noalias !659, !noundef !4
   %64 = icmp eq i64 %.val5.i, 30064771074
   br i1 %64, label %65, label %_ZN4core3ops8function2Fn4call17h027c3db8f1d10e3eE.exit.i
 
 65:                                               ; preds = %.noexc4
   %66 = extractvalue { ptr, ptr } %62, 1
-  %.val6.i = load i64, ptr %66, align 8
+  %.val6.i = load i64, ptr %66, align 8, !noalias !659
   switch i64 %.val6.i, label %_ZN4core3ops8function2Fn4call17h027c3db8f1d10e3eE.exit.i [
     i64 3723736645634, label %"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE.exit"
     i64 3972844748802, label %"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE.exit"
@@ -6930,7 +6930,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %199 = extractvalue { ptr, ptr } %198, 0
   %200 = extractvalue { ptr, ptr } %198, 1
   %.val5.i = load i64, ptr %199, align 8, !alias.scope !790, !noalias !793, !noundef !4
-  %.val6.i = load i64, ptr %200, align 8
+  %.val6.i = load i64, ptr %200, align 8, !noalias !787
   switch i64 %.val5.i, label %_ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i [
     i64 30064771074, label %201
     i64 4294967298, label %202
@@ -9423,13 +9423,13 @@ define internal fastcc noundef i64 @"_ZN9html5ever12tree_builder32TreeBuilder$LT
 
 21:                                               ; preds = %9
   %22 = extractvalue { ptr, ptr } %18, 0
-  %.val6.i = load i64, ptr %22, align 8, !range !57, !noundef !4
+  %.val6.i = load i64, ptr %22, align 8, !range !57, !noalias !1119, !noundef !4
   %23 = icmp eq i64 %.val6.i, 30064771074
   br i1 %23, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15pop_until_named28_$u7b$$u7b$closure$u7d$$u7d$17hb1795f02cee533b5E.exit.i", label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15pop_until_named28_$u7b$$u7b$closure$u7d$$u7d$17hb1795f02cee533b5E.exit.thread.i"
 
 "_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15pop_until_named28_$u7b$$u7b$closure$u7d$$u7d$17hb1795f02cee533b5E.exit.i": ; preds = %21
   %24 = extractvalue { ptr, ptr } %18, 1
-  %25 = load i64, ptr %24, align 8, !range !57, !alias.scope !1122, !noundef !4
+  %25 = load i64, ptr %24, align 8, !range !57, !alias.scope !1122, !noalias !1119, !noundef !4
   %26 = icmp eq i64 %25, %1
   br i1 %26, label %41, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15pop_until_named28_$u7b$$u7b$closure$u7d$$u7d$17hb1795f02cee533b5E.exit.thread.i"
 
@@ -11945,13 +11945,13 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %17 = getelementptr inbounds i8, ptr %12, i64 -8
   %18 = tail call { ptr, ptr } @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$9elem_name17h4e753bf026563d2eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %17), !noalias !1321
   %19 = extractvalue { ptr, ptr } %18, 0
-  %20 = load i64, ptr %19, align 8, !range !57, !noundef !4
+  %20 = load i64, ptr %19, align 8, !range !57, !noalias !1321, !noundef !4
   %21 = icmp eq i64 %20, 30064771074
   br i1 %21, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he2c5ccc7e16a2e5eE.exit.i.i", label %25
 
 "_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he2c5ccc7e16a2e5eE.exit.i.i": ; preds = %16
   %22 = extractvalue { ptr, ptr } %18, 1
-  %23 = load i64, ptr %22, align 8, !range !57, !noundef !4
+  %23 = load i64, ptr %22, align 8, !range !57, !noalias !1321, !noundef !4
   %24 = icmp eq i64 %23, 176093659138
   br i1 %24, label %27, label %25
 
@@ -12425,13 +12425,13 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 .noexc:                                           ; preds = %7
   %13 = extractvalue { ptr, ptr } %12, 0
-  %.val2.i = load i64, ptr %13, align 8, !range !57, !noundef !4
+  %.val2.i = load i64, ptr %13, align 8, !range !57, !noalias !1392, !noundef !4
   %14 = icmp eq i64 %.val2.i, 30064771074
   br i1 %14, label %"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$17h0ed4ac647496d4d2E.llvm.4491288516430033680.exit3.i.i", label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$20generate_implied_end17h7a2dc8631f07f6d0E.exit"
 
 "_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$17h0ed4ac647496d4d2E.llvm.4491288516430033680.exit3.i.i": ; preds = %.noexc
   %15 = extractvalue { ptr, ptr } %12, 1
-  %16 = load i64, ptr %15, align 8, !range !57, !alias.scope !1394, !noundef !4
+  %16 = load i64, ptr %15, align 8, !range !57, !alias.scope !1394, !noalias !1392, !noundef !4
   %17 = icmp eq i64 %16, %1
   br i1 %17, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$20generate_implied_end17h7a2dc8631f07f6d0E.exit", label %18
 
@@ -23836,7 +23836,7 @@ attributes #18 = { noreturn }
 !594 = !{!595}
 !595 = distinct !{!595, !596, !"_ZN9html5ever12tree_builder8tag_sets13default_scope17ha11ea3e90aa1c6a2E: argument 0"}
 !596 = distinct !{!596, !"_ZN9html5ever12tree_builder8tag_sets13default_scope17ha11ea3e90aa1c6a2E"}
-!597 = !{!598}
+!597 = !{!598, !583}
 !598 = distinct !{!598, !596, !"_ZN9html5ever12tree_builder8tag_sets13default_scope17ha11ea3e90aa1c6a2E: argument 1"}
 !599 = !{!600}
 !600 = distinct !{!600, !601, !"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h6ef0aa1cb44f6be4E: argument 0"}
@@ -24032,7 +24032,7 @@ attributes #18 = { noreturn }
 !790 = !{!791}
 !791 = distinct !{!791, !792, !"_ZN9html5ever12tree_builder8tag_sets13default_scope17ha11ea3e90aa1c6a2E: argument 0"}
 !792 = distinct !{!792, !"_ZN9html5ever12tree_builder8tag_sets13default_scope17ha11ea3e90aa1c6a2E"}
-!793 = !{!794}
+!793 = !{!794, !788}
 !794 = distinct !{!794, !792, !"_ZN9html5ever12tree_builder8tag_sets13default_scope17ha11ea3e90aa1c6a2E: argument 1"}
 !795 = !{!796}
 !796 = distinct !{!796, !797, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hf5a5a14083491d52E: argument 1"}

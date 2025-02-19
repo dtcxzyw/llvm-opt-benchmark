@@ -944,7 +944,6 @@ _ZNSt10shared_ptrIN3gmx28AnalysisDataVectorPlotModuleEED2Ev.exit: ; preds = %_ZN
 191:                                              ; preds = %190
   store ptr %188, ptr %6, align 8
   %192 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr null, ptr %192, align 8
   %193 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #10
           to label %_ZNSt10shared_ptrIN3gmx28AnalysisDataVectorPlotModuleEEC2IS1_vEEPT_.exit40 unwind label %194
 
@@ -1256,7 +1255,6 @@ _ZNSt10shared_ptrIN3gmx28AnalysisDataVectorPlotModuleEED2Ev.exit57: ; preds = %_
 339:                                              ; preds = %338
   store ptr %336, ptr %8, align 8
   %340 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr null, ptr %340, align 8
   %341 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #10
           to label %_ZNSt10shared_ptrIN3gmx28AnalysisDataVectorPlotModuleEEC2IS1_vEEPT_.exit59 unwind label %342
 

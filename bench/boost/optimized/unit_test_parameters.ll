@@ -3848,7 +3848,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36
   %478 = landingpad { ptr, i32 }
           catch ptr null
   %479 = extractvalue { ptr, i32 } %478, 0
-  call void @__clang_call_terminate(ptr %479) #30
+  call void @__clang_call_terminate(ptr %479) #30, !noalias !89
   unreachable
 
 480:                                              ; preds = %"_ZNK5boost3nfp23named_parameter_combineINS0_15named_parameterIKZNS_9unit_test14runtime_config12_GLOBAL__N_119register_parametersERNS_7runtime16parameters_storeEE3$_0NS6_12_GLOBAL__N_110callback_tERSA_EENS1_INS2_IKNS3_13basic_cstringIKcEENSB_9env_var_tERSI_EENS2_ISI_NSB_13description_tESK_EEEEEixENS0_7keywordISC_Lb0EEE.exit.i.i.i.i"

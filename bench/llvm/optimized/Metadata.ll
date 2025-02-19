@@ -7397,7 +7397,7 @@ _ZN4llvm11SmallVectorIPNS_8MetadataELj4EEC2IPKNS_9MDOperandEEERKNS_14iterator_ra
   %63 = call { ptr, i8 } @_ZN4llvm9StringMapINS_8MDStringENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(120) %61, ptr %.sroa.0.1.i.i, i64 %.sroa.4.1.i.i, i32 noundef %62), !noalias !334
   %.fca.0.extract.i.i.i.i = extractvalue { ptr, i8 } %63, 0
   %.fca.1.extract.i.i.i.i = extractvalue { ptr, i8 } %63, 1
-  %64 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185
+  %64 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185, !noalias !334
   %65 = trunc nuw i8 %.fca.1.extract.i.i.i.i to i1
   br i1 %65, label %66, label %_ZN4llvm8MDString3getERNS_11LLVMContextENS_9StringRefE.exit.i.i.i
 
@@ -7505,7 +7505,7 @@ _ZNK4llvm12DIEnumerator7getNameEv.exit:           ; preds = %_ZNK4llvm6DINode12g
   %42 = call { ptr, i8 } @_ZN4llvm9StringMapINS_8MDStringENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(120) %40, ptr nonnull %38, i64 %35, i32 noundef %41), !noalias !339
   %.fca.0.extract.i.i.i.i = extractvalue { ptr, i8 } %42, 0
   %.fca.1.extract.i.i.i.i = extractvalue { ptr, i8 } %42, 1
-  %43 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185
+  %43 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185, !noalias !339
   %44 = trunc nuw i8 %.fca.1.extract.i.i.i.i to i1
   br i1 %44, label %45, label %_ZN4llvm8MDString3getERNS_11LLVMContextENS_9StringRefE.exit.i.i.i
 
@@ -7611,7 +7611,7 @@ _ZNK4llvm6DIType7getNameEv.exit:                  ; preds = %_ZNK4llvm6DINode12g
   %42 = tail call { ptr, i8 } @_ZN4llvm9StringMapINS_8MDStringENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(120) %40, ptr %.sroa.0.1.i.i, i64 %.sroa.4.1.i.i, i32 noundef %41), !noalias !345
   %.fca.0.extract.i.i.i.i = extractvalue { ptr, i8 } %42, 0
   %.fca.1.extract.i.i.i.i = extractvalue { ptr, i8 } %42, 1
-  %43 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185
+  %43 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185, !noalias !345
   %44 = trunc nuw i8 %.fca.1.extract.i.i.i.i to i1
   br i1 %44, label %45, label %_ZN4llvm8MDString3getERNS_11LLVMContextENS_9StringRefE.exit.i.i.i
 
@@ -7776,7 +7776,7 @@ _ZNK4llvm13DIDerivedType14getAnnotationsEv.exit:  ; preds = %65, %68
   %81 = tail call { ptr, i8 } @_ZN4llvm9StringMapINS_8MDStringENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(120) %79, ptr %.sroa.0.1.i.i, i64 %.sroa.4.1.i.i, i32 noundef %80), !noalias !350
   %.fca.0.extract.i.i.i.i = extractvalue { ptr, i8 } %81, 0
   %.fca.1.extract.i.i.i.i = extractvalue { ptr, i8 } %81, 1
-  %82 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185
+  %82 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185, !noalias !350
   %83 = trunc nuw i8 %.fca.1.extract.i.i.i.i to i1
   br i1 %83, label %84, label %_ZN4llvm8MDString3getERNS_11LLVMContextENS_9StringRefE.exit.i.i.i
 
@@ -7989,7 +7989,7 @@ _ZNK4llvm15DICompositeType16getSpecificationEv.exit: ; preds = %82, %85
   %105 = tail call { ptr, i8 } @_ZN4llvm9StringMapINS_8MDStringENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(120) %103, ptr %.sroa.0.1.i.i, i64 %.sroa.4.1.i.i, i32 noundef %104), !noalias !355
   %.fca.0.extract.i.i.i.i = extractvalue { ptr, i8 } %105, 0
   %.fca.1.extract.i.i.i.i = extractvalue { ptr, i8 } %105, 1
-  %106 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185
+  %106 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185, !noalias !355
   %107 = trunc nuw i8 %.fca.1.extract.i.i.i.i to i1
   br i1 %107, label %108, label %_ZN4llvm8MDString3getERNS_11LLVMContextENS_9StringRefE.exit.i.i.i
 
@@ -8014,7 +8014,7 @@ _ZN4llvm6DINode20getCanonicalMDStringERNS_11LLVMContextENS_9StringRefE.exit.i.i:
   %116 = tail call { ptr, i8 } @_ZN4llvm9StringMapINS_8MDStringENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(120) %114, ptr %.sroa.0.1.i.i18, i64 %.sroa.4.1.i.i19, i32 noundef %115), !noalias !355
   %.fca.0.extract.i.i26.i.i = extractvalue { ptr, i8 } %116, 0
   %.fca.1.extract.i.i27.i.i = extractvalue { ptr, i8 } %116, 1
-  %117 = load ptr, ptr %.fca.0.extract.i.i26.i.i, align 8, !tbaa !185
+  %117 = load ptr, ptr %.fca.0.extract.i.i26.i.i, align 8, !tbaa !185, !noalias !355
   %118 = trunc nuw i8 %.fca.1.extract.i.i27.i.i to i1
   br i1 %118, label %119, label %_ZN4llvm8MDString3getERNS_11LLVMContextENS_9StringRefE.exit.i28.i.i
 
@@ -8838,7 +8838,7 @@ _ZNK4llvm11DINamespace7getNameEv.exit:            ; preds = %_ZNK4llvm6DINode12g
   %36 = tail call { ptr, i8 } @_ZN4llvm9StringMapINS_8MDStringENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(120) %34, ptr nonnull %32, i64 %27, i32 noundef %35), !noalias !405
   %.fca.0.extract.i.i.i.i = extractvalue { ptr, i8 } %36, 0
   %.fca.1.extract.i.i.i.i = extractvalue { ptr, i8 } %36, 1
-  %37 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185
+  %37 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185, !noalias !405
   %38 = trunc nuw i8 %.fca.1.extract.i.i.i.i to i1
   br i1 %38, label %39, label %_ZN4llvm8MDString3getERNS_11LLVMContextENS_9StringRefE.exit.i.i.i
 
@@ -9145,7 +9145,7 @@ _ZNK4llvm19DITemplateParameter7getTypeEv.exit:    ; preds = %26, %29
   %43 = tail call { ptr, i8 } @_ZN4llvm9StringMapINS_8MDStringENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(120) %41, ptr %.sroa.0.1.i.i, i64 %.sroa.4.1.i.i, i32 noundef %42), !noalias !411
   %.fca.0.extract.i.i.i.i = extractvalue { ptr, i8 } %43, 0
   %.fca.1.extract.i.i.i.i = extractvalue { ptr, i8 } %43, 1
-  %44 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185
+  %44 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185, !noalias !411
   %45 = trunc nuw i8 %.fca.1.extract.i.i.i.i to i1
   br i1 %45, label %46, label %_ZN4llvm8MDString3getERNS_11LLVMContextENS_9StringRefE.exit.i.i.i
 
@@ -9250,7 +9250,7 @@ _ZNK4llvm24DITemplateValueParameter8getValueEv.exit: ; preds = %27, %30
   %43 = tail call { ptr, i8 } @_ZN4llvm9StringMapINS_8MDStringENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(120) %41, ptr %.sroa.0.1.i.i, i64 %.sroa.4.1.i.i, i32 noundef %42), !noalias !414
   %.fca.0.extract.i.i.i.i = extractvalue { ptr, i8 } %43, 0
   %.fca.1.extract.i.i.i.i = extractvalue { ptr, i8 } %43, 1
-  %44 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185
+  %44 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185, !noalias !414
   %45 = trunc nuw i8 %.fca.1.extract.i.i.i.i to i1
   br i1 %45, label %46, label %_ZN4llvm8MDString3getERNS_11LLVMContextENS_9StringRefE.exit.i.i.i
 
@@ -9400,7 +9400,7 @@ _ZNK4llvm16DIGlobalVariable14getAnnotationsEv.exit: ; preds = %43, %46
   %64 = tail call { ptr, i8 } @_ZN4llvm9StringMapINS_8MDStringENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(120) %62, ptr %.sroa.0.1.i.i, i64 %.sroa.4.1.i.i, i32 noundef %63), !noalias !422
   %.fca.0.extract.i.i.i.i = extractvalue { ptr, i8 } %64, 0
   %.fca.1.extract.i.i.i.i = extractvalue { ptr, i8 } %64, 1
-  %65 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185
+  %65 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185, !noalias !422
   %66 = trunc nuw i8 %.fca.1.extract.i.i.i.i to i1
   br i1 %66, label %67, label %_ZN4llvm8MDString3getERNS_11LLVMContextENS_9StringRefE.exit.i.i.i
 
@@ -9425,7 +9425,7 @@ _ZN4llvm6DINode20getCanonicalMDStringERNS_11LLVMContextENS_9StringRefE.exit.i.i:
   %75 = tail call { ptr, i8 } @_ZN4llvm9StringMapINS_8MDStringENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(120) %73, ptr %.sroa.0.1.i.i6, i64 %.sroa.4.1.i.i7, i32 noundef %74), !noalias !422
   %.fca.0.extract.i.i19.i.i = extractvalue { ptr, i8 } %75, 0
   %.fca.1.extract.i.i20.i.i = extractvalue { ptr, i8 } %75, 1
-  %76 = load ptr, ptr %.fca.0.extract.i.i19.i.i, align 8, !tbaa !185
+  %76 = load ptr, ptr %.fca.0.extract.i.i19.i.i, align 8, !tbaa !185, !noalias !422
   %77 = trunc nuw i8 %.fca.1.extract.i.i20.i.i to i1
   br i1 %77, label %78, label %_ZN4llvm8MDString3getERNS_11LLVMContextENS_9StringRefE.exit.i21.i.i
 
@@ -9540,7 +9540,7 @@ _ZNK4llvm15DILocalVariable14getAnnotationsEv.exit: ; preds = %28, %31
   %48 = tail call { ptr, i8 } @_ZN4llvm9StringMapINS_8MDStringENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(120) %46, ptr %.sroa.0.1.i.i, i64 %.sroa.4.1.i.i, i32 noundef %47), !noalias !427
   %.fca.0.extract.i.i.i.i = extractvalue { ptr, i8 } %48, 0
   %.fca.1.extract.i.i.i.i = extractvalue { ptr, i8 } %48, 1
-  %49 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185
+  %49 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185, !noalias !427
   %50 = trunc nuw i8 %.fca.1.extract.i.i.i.i to i1
   br i1 %50, label %51, label %_ZN4llvm8MDString3getERNS_11LLVMContextENS_9StringRefE.exit.i.i.i
 
@@ -9644,7 +9644,7 @@ _ZNK4llvm7DILabel7getFileEv.exit:                 ; preds = %28, %31
   %45 = tail call { ptr, i8 } @_ZN4llvm9StringMapINS_8MDStringENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(120) %43, ptr %.sroa.0.1.i.i, i64 %.sroa.4.1.i.i, i32 noundef %44), !noalias !430
   %.fca.0.extract.i.i.i.i = extractvalue { ptr, i8 } %45, 0
   %.fca.1.extract.i.i.i.i = extractvalue { ptr, i8 } %45, 1
-  %46 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185
+  %46 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185, !noalias !430
   %47 = trunc nuw i8 %.fca.1.extract.i.i.i.i to i1
   br i1 %47, label %48, label %_ZN4llvm8MDString3getERNS_11LLVMContextENS_9StringRefE.exit.i.i.i
 
@@ -9906,7 +9906,7 @@ _ZNK4llvm16DIImportedEntity11getElementsEv.exit:  ; preds = %32, %35
   %47 = tail call { ptr, i8 } @_ZN4llvm9StringMapINS_8MDStringENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr %.sroa.0.1.i.i, i64 %.sroa.4.1.i.i, i32 noundef %46), !noalias !439
   %.fca.0.extract.i.i.i.i = extractvalue { ptr, i8 } %47, 0
   %.fca.1.extract.i.i.i.i = extractvalue { ptr, i8 } %47, 1
-  %48 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185
+  %48 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185, !noalias !439
   %49 = trunc nuw i8 %.fca.1.extract.i.i.i.i to i1
   br i1 %49, label %50, label %_ZN4llvm8MDString3getERNS_11LLVMContextENS_9StringRefE.exit.i.i.i
 
@@ -10023,7 +10023,7 @@ _ZNK4llvm7DIMacro8getValueEv.exit:                ; preds = %_ZNK4llvm11DIMacroN
   %50 = tail call { ptr, i8 } @_ZN4llvm9StringMapINS_8MDStringENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(120) %48, ptr %.sroa.0.1.i.i, i64 %.sroa.4.1.i.i, i32 noundef %49), !noalias !442
   %.fca.0.extract.i.i.i.i = extractvalue { ptr, i8 } %50, 0
   %.fca.1.extract.i.i.i.i = extractvalue { ptr, i8 } %50, 1
-  %51 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185
+  %51 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185, !noalias !442
   %52 = trunc nuw i8 %.fca.1.extract.i.i.i.i to i1
   br i1 %52, label %53, label %_ZN4llvm8MDString3getERNS_11LLVMContextENS_9StringRefE.exit.i.i.i
 
@@ -10048,7 +10048,7 @@ _ZN4llvm11DIMacroNode20getCanonicalMDStringERNS_11LLVMContextENS_9StringRefE.exi
   %61 = tail call { ptr, i8 } @_ZN4llvm9StringMapINS_8MDStringENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(120) %59, ptr %.sroa.0.1.i.i5, i64 %.sroa.4.1.i.i6, i32 noundef %60), !noalias !442
   %.fca.0.extract.i.i10.i.i = extractvalue { ptr, i8 } %61, 0
   %.fca.1.extract.i.i11.i.i = extractvalue { ptr, i8 } %61, 1
-  %62 = load ptr, ptr %.fca.0.extract.i.i10.i.i, align 8, !tbaa !185
+  %62 = load ptr, ptr %.fca.0.extract.i.i10.i.i, align 8, !tbaa !185, !noalias !442
   %63 = trunc nuw i8 %.fca.1.extract.i.i11.i.i to i1
   br i1 %63, label %64, label %_ZN4llvm8MDString3getERNS_11LLVMContextENS_9StringRefE.exit.i12.i.i
 
@@ -10154,7 +10154,7 @@ _ZNK4llvm13DICommonBlock7getFileEv.exit:          ; preds = %29, %32
   %46 = tail call { ptr, i8 } @_ZN4llvm9StringMapINS_8MDStringENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(120) %44, ptr %.sroa.0.1.i.i, i64 %.sroa.4.1.i.i, i32 noundef %45), !noalias !445
   %.fca.0.extract.i.i.i.i = extractvalue { ptr, i8 } %46, 0
   %.fca.1.extract.i.i.i.i = extractvalue { ptr, i8 } %46, 1
-  %47 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185
+  %47 = load ptr, ptr %.fca.0.extract.i.i.i.i, align 8, !tbaa !185, !noalias !445
   %48 = trunc nuw i8 %.fca.1.extract.i.i.i.i to i1
   br i1 %48, label %49, label %_ZN4llvm8MDString3getERNS_11LLVMContextENS_9StringRefE.exit.i.i.i
 

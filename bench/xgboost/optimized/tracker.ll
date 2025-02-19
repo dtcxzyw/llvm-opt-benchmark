@@ -2858,7 +2858,7 @@ define void @_ZN7xgboost10collective12RabitTracker3RunEv(ptr dead_on_unwind noal
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #33
+  tail call void @__clang_call_terminate(ptr %22) #33, !noalias !91
   unreachable
 
 _ZNSt13__future_base7_ResultIN7xgboost10collective6ResultEEC2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %19
@@ -2962,7 +2962,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i7.i.i.i.i.i.i.i.i.i.i: ;
 
 .critedge.i:                                      ; preds = %.body.i
   %50 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
-  %51 = call ptr @__cxa_begin_catch(ptr %50) #10
+  %51 = call ptr @__cxa_begin_catch(ptr %50) #10, !noalias !88
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #34
   store i32 11, ptr %6, align 8, !noalias !88
@@ -3107,7 +3107,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %107 = landingpad { ptr, i32 }
           catch ptr null
   %108 = extractvalue { ptr, i32 } %107, 0
-  call void @__clang_call_terminate(ptr %108) #33
+  call void @__clang_call_terminate(ptr %108) #33, !noalias !88
   unreachable
 
 109:                                              ; preds = %.critedge.i
@@ -12929,7 +12929,7 @@ _ZN7xgboost10collective6ResultD2Ev.exit.i.i.i:    ; preds = %2
   %16 = extractvalue { ptr, i32 } %14, 1
   %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #10
   %18 = icmp eq i32 %16, %17
-  %19 = call ptr @__cxa_begin_catch(ptr %15) #10
+  %19 = call ptr @__cxa_begin_catch(ptr %15) #10, !noalias !296
   br i1 %18, label %20, label %21
 
 20:                                               ; preds = %13
@@ -12982,7 +12982,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i: ; preds = %27, %_ZNSt15__e
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #33
+  call void @__clang_call_terminate(ptr %33) #33, !noalias !296
   unreachable
 
 34:                                               ; preds = %20

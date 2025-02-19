@@ -10698,9 +10698,9 @@ define hidden { ptr, ptr } @_ZN7postage8channels8dispatch7channel17h611be916198b
   resume { ptr, i32 } %26
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h67b975be52e15562E.llvm.14866053422413872834.exit.i": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(1408) %22, ptr noundef nonnull align 128 dereferenceable(1408) %2, i64 1408, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(1408) %22, ptr noundef nonnull align 128 dereferenceable(1408) %2, i64 1408, i1 false), !noalias !2334
   call void @llvm.lifetime.end.p0(i64 1408, ptr nonnull %2), !noalias !2334
-  %29 = atomicrmw add ptr %22, i64 1 monotonic, align 8
+  %29 = atomicrmw add ptr %22, i64 1 monotonic, align 8, !noalias !2334
   %30 = icmp slt i64 %29, 0
   br i1 %30, label %31, label %_ZN7postage4sync6shared17h2df5b1b7ebb5e493E.exit
 

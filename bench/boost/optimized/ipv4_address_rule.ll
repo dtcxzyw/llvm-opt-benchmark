@@ -145,7 +145,7 @@ define void @_ZNK5boost4urls22implementation_defined19ipv4_address_rule_t5parseE
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #9
+  call void @__clang_call_terminate(ptr %22) #9, !noalias !3
   unreachable
 
 _ZN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined16dec_octet_rule_tEJNS4_14squelch_rule_tINS4_13ch_delim_ruleEEES5_S8_S5_S8_S5_EE5applyILm0ELm0EEENSt9enable_ifIXltT_plLi1EsZT1_EvE4typeERPKcSF_RKSt17integral_constantImXT_EERKSH_ImXT0_EE.exit.i.i: ; preds = %4

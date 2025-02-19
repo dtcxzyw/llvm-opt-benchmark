@@ -1913,7 +1913,7 @@ define hidden void @_ZN7GOCVBGR5Actor11extractRMatERKN2cv10MediaFrameERNS1_4RMat
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #30
+  call void @__clang_call_terminate(ptr %43) #30, !noalias !11
   unreachable
 
 _ZNSt8functionIFN2cv3MatERKNS0_10GFrameDescERKNS0_10MediaFrame4ViewEEED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %39, %37
@@ -1929,7 +1929,7 @@ _ZNSt8functionIFN2cv3MatERKNS0_10GFrameDescERKNS0_10MediaFrame4ViewEEED2Ev.exit.
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #30
+  call void @__clang_call_terminate(ptr %49) #30, !noalias !11
   unreachable
 
 50:                                               ; preds = %28
@@ -1947,7 +1947,7 @@ _ZNSt8functionIFN2cv3MatERKNS0_10GFrameDescERKNS0_10MediaFrame4ViewEEED2Ev.exit.
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #30
+  call void @__clang_call_terminate(ptr %57) #30, !noalias !11
   unreachable
 
 _ZNSt8functionIFN2cv3MatERKNS0_10GFrameDescERKNS0_10MediaFrame4ViewEEED2Ev.exit7.i.i.i.i.i.i.i.i: ; preds = %53, %50
@@ -1963,7 +1963,7 @@ _ZNSt8functionIFN2cv3MatERKNS0_10GFrameDescERKNS0_10MediaFrame4ViewEEED2Ev.exit7
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
-  call void @__clang_call_terminate(ptr %63) #30
+  call void @__clang_call_terminate(ptr %63) #30, !noalias !11
   unreachable
 
 common.resume:                                    ; preds = %187, %262, %265, %195, %107, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5gimpl21RMatMediaFrameAdapterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i
@@ -2865,7 +2865,7 @@ _ZN2cv4RMatD2Ev.exit:                             ; preds = %_ZNSt16_Sp_counted_
   %111 = landingpad { ptr, i32 }
           catch ptr null
   %112 = extractvalue { ptr, i32 } %111, 0
-  call void @__clang_call_terminate(ptr %112) #30
+  call void @__clang_call_terminate(ptr %112) #30, !noalias !34
   unreachable
 
 _ZNSt8functionIFN2cv3MatERKNS0_10GFrameDescERKNS0_10MediaFrame4ViewEEED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %108, %106
@@ -2881,7 +2881,7 @@ _ZNSt8functionIFN2cv3MatERKNS0_10GFrameDescERKNS0_10MediaFrame4ViewEEED2Ev.exit.
   %117 = landingpad { ptr, i32 }
           catch ptr null
   %118 = extractvalue { ptr, i32 } %117, 0
-  call void @__clang_call_terminate(ptr %118) #30
+  call void @__clang_call_terminate(ptr %118) #30, !noalias !34
   unreachable
 
 119:                                              ; preds = %97
@@ -2899,7 +2899,7 @@ _ZNSt8functionIFN2cv3MatERKNS0_10GFrameDescERKNS0_10MediaFrame4ViewEEED2Ev.exit.
   %125 = landingpad { ptr, i32 }
           catch ptr null
   %126 = extractvalue { ptr, i32 } %125, 0
-  call void @__clang_call_terminate(ptr %126) #30
+  call void @__clang_call_terminate(ptr %126) #30, !noalias !34
   unreachable
 
 _ZNSt8functionIFN2cv3MatERKNS0_10GFrameDescERKNS0_10MediaFrame4ViewEEED2Ev.exit7.i.i.i.i.i.i.i.i: ; preds = %122, %119
@@ -2915,7 +2915,7 @@ _ZNSt8functionIFN2cv3MatERKNS0_10GFrameDescERKNS0_10MediaFrame4ViewEEED2Ev.exit7
   %131 = landingpad { ptr, i32 }
           catch ptr null
   %132 = extractvalue { ptr, i32 } %131, 0
-  call void @__clang_call_terminate(ptr %132) #30
+  call void @__clang_call_terminate(ptr %132) #30, !noalias !34
   unreachable
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5gimpl21RMatMediaFrameAdapterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i: ; preds = %128, %_ZNSt8functionIFN2cv3MatERKNS0_10GFrameDescERKNS0_10MediaFrame4ViewEEED2Ev.exit7.i.i.i.i.i.i.i.i
@@ -3036,7 +3036,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %183 = landingpad { ptr, i32 }
           catch ptr null
   %184 = extractvalue { ptr, i32 } %183, 0
-  call void @__clang_call_terminate(ptr %184) #30
+  call void @__clang_call_terminate(ptr %184) #30, !noalias !39
   unreachable
 
 _ZNSt8functionIFN2cv3MatERKNS0_10GFrameDescERKNS0_10MediaFrame4ViewEEED2Ev.exit.i.i.i.i.i.i.i.i44: ; preds = %180, %178
@@ -3052,7 +3052,7 @@ _ZNSt8functionIFN2cv3MatERKNS0_10GFrameDescERKNS0_10MediaFrame4ViewEEED2Ev.exit.
   %189 = landingpad { ptr, i32 }
           catch ptr null
   %190 = extractvalue { ptr, i32 } %189, 0
-  call void @__clang_call_terminate(ptr %190) #30
+  call void @__clang_call_terminate(ptr %190) #30, !noalias !39
   unreachable
 
 191:                                              ; preds = %169
@@ -3070,7 +3070,7 @@ _ZNSt8functionIFN2cv3MatERKNS0_10GFrameDescERKNS0_10MediaFrame4ViewEEED2Ev.exit.
   %197 = landingpad { ptr, i32 }
           catch ptr null
   %198 = extractvalue { ptr, i32 } %197, 0
-  call void @__clang_call_terminate(ptr %198) #30
+  call void @__clang_call_terminate(ptr %198) #30, !noalias !39
   unreachable
 
 _ZNSt8functionIFN2cv3MatERKNS0_10GFrameDescERKNS0_10MediaFrame4ViewEEED2Ev.exit7.i.i.i.i.i.i.i.i40: ; preds = %194, %191
@@ -3086,7 +3086,7 @@ _ZNSt8functionIFN2cv3MatERKNS0_10GFrameDescERKNS0_10MediaFrame4ViewEEED2Ev.exit7
   %203 = landingpad { ptr, i32 }
           catch ptr null
   %204 = extractvalue { ptr, i32 } %203, 0
-  call void @__clang_call_terminate(ptr %204) #30
+  call void @__clang_call_terminate(ptr %204) #30, !noalias !39
   unreachable
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5gimpl21RMatMediaFrameAdapterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i42: ; preds = %200, %_ZNSt8functionIFN2cv3MatERKNS0_10GFrameDescERKNS0_10MediaFrame4ViewEEED2Ev.exit7.i.i.i.i.i.i.i.i40
@@ -3752,7 +3752,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN2cv3M
   %197 = landingpad { ptr, i32 }
           catch ptr null
   %198 = extractvalue { ptr, i32 } %197, 0
-  call void @__clang_call_terminate(ptr %198) #30
+  call void @__clang_call_terminate(ptr %198) #30, !noalias !58
   unreachable
 
 _ZNSt8functionIFN2cv3MatERKNS0_10GFrameDescERKNS0_10MediaFrame4ViewEEED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %194, %192
@@ -3768,7 +3768,7 @@ _ZNSt8functionIFN2cv3MatERKNS0_10GFrameDescERKNS0_10MediaFrame4ViewEEED2Ev.exit.
   %203 = landingpad { ptr, i32 }
           catch ptr null
   %204 = extractvalue { ptr, i32 } %203, 0
-  call void @__clang_call_terminate(ptr %204) #30
+  call void @__clang_call_terminate(ptr %204) #30, !noalias !58
   unreachable
 
 205:                                              ; preds = %183
@@ -3786,7 +3786,7 @@ _ZNSt8functionIFN2cv3MatERKNS0_10GFrameDescERKNS0_10MediaFrame4ViewEEED2Ev.exit.
   %211 = landingpad { ptr, i32 }
           catch ptr null
   %212 = extractvalue { ptr, i32 } %211, 0
-  call void @__clang_call_terminate(ptr %212) #30
+  call void @__clang_call_terminate(ptr %212) #30, !noalias !58
   unreachable
 
 _ZNSt8functionIFN2cv3MatERKNS0_10GFrameDescERKNS0_10MediaFrame4ViewEEED2Ev.exit7.i.i.i.i.i.i.i.i: ; preds = %208, %205
@@ -3802,7 +3802,7 @@ _ZNSt8functionIFN2cv3MatERKNS0_10GFrameDescERKNS0_10MediaFrame4ViewEEED2Ev.exit7
   %217 = landingpad { ptr, i32 }
           catch ptr null
   %218 = extractvalue { ptr, i32 } %217, 0
-  call void @__clang_call_terminate(ptr %218) #30
+  call void @__clang_call_terminate(ptr %218) #30, !noalias !58
   unreachable
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5gimpl21RMatMediaFrameAdapterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i: ; preds = %214, %_ZNSt8functionIFN2cv3MatERKNS0_10GFrameDescERKNS0_10MediaFrame4ViewEEED2Ev.exit7.i.i.i.i.i.i.i.i

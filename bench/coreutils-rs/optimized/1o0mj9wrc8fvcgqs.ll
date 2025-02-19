@@ -946,7 +946,7 @@ define void @_ZN7uu_fold15handle_obsolete17h1ea1f1c1184b4e6aE(ptr noalias nounde
   %25 = add nuw nsw i64 %.sroa.7.027.i, 1
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.013.028.i, i64 24
   %27 = getelementptr inbounds nuw [0 x { [3 x i64] }], ptr %17, i64 0, i64 %.sroa.7.027.i
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !282
   %28 = icmp eq i64 %21, 0
   br i1 %28, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17haad141fcf5cf710cE.exit", label %.lr.ph.i
 
@@ -1094,7 +1094,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17he8ac9c3c5d217007E.exit: ; preds = %
   %92 = add nuw nsw i64 %.sroa.7.027.i38, 1
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.013.028.i37, i64 24
   %94 = getelementptr inbounds nuw [0 x { [3 x i64] }], ptr %84, i64 0, i64 %.sroa.7.027.i38
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !295
   %95 = icmp eq i64 %88, 0
   br i1 %95, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17haad141fcf5cf710cE.exit40", label %.lr.ph.i35
 
@@ -1196,7 +1196,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17he8ac9c3c5d217007E.exit: ; preds = %
   %130 = icmp ne ptr %129, null
   call void @llvm.assume(i1 %130)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %129, ptr nonnull align 1 %43, i64 %125, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %128, ptr %131, align 8
   %.sroa.427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32

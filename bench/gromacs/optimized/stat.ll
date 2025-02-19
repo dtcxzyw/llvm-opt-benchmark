@@ -807,33 +807,30 @@ _ZL16filter_enerdtermPKfbPfbbb.exit302:           ; preds = %304, %311, %318, %2
   br label %343
 
 343:                                              ; preds = %319, %330, %_ZL16filter_enerdtermPKfbPfbbb.exit302
-  %.sroa.01.0.copyload.i303 = load ptr, ptr %8, align 8
-  %.sroa.0.0.copyload.i304 = load ptr, ptr %190, align 8
-  %344 = icmp eq ptr %.sroa.01.0.copyload.i303, %.sroa.0.0.copyload.i304
-  br i1 %344, label %350, label %345
+  br i1 %191, label %349, label %344
 
-345:                                              ; preds = %343
-  %346 = ptrtoint ptr %.sroa.0.0.copyload.i304 to i64
-  %347 = ptrtoint ptr %.sroa.01.0.copyload.i303 to i64
-  %348 = sub i64 %346, %347
-  %349 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload.i303, i64 %348
-  call void @_Z12extract_binrP5t_biniN3gmx8ArrayRefIfEE(ptr noundef %28, i32 noundef %.0248, ptr %.sroa.01.0.copyload.i303, ptr nonnull %349)
-  br label %350
+344:                                              ; preds = %343
+  %345 = ptrtoint ptr %.sroa.0.0.copyload.i273 to i64
+  %346 = ptrtoint ptr %.sroa.01.0.copyload.i to i64
+  %347 = sub i64 %345, %346
+  %348 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload.i, i64 %347
+  call void @_Z12extract_binrP5t_biniN3gmx8ArrayRefIfEE(ptr noundef %28, i32 noundef %.0248, ptr %.sroa.01.0.copyload.i, ptr nonnull %348)
+  br label %349
 
-350:                                              ; preds = %345, %343
-  br i1 %202, label %357, label %351
+349:                                              ; preds = %344, %343
+  br i1 %202, label %356, label %350
 
-351:                                              ; preds = %350
-  %352 = ptrtoint ptr %201 to i64
-  %353 = ptrtoint ptr %200 to i64
-  %354 = sub i64 %352, %353
-  %355 = lshr exact i64 %354, 3
-  %356 = trunc i64 %355 to i32
-  call void @_Z12extract_bindP5t_biniiPd(ptr noundef %28, i32 noundef %.0237, i32 noundef %356, ptr noundef %200)
+350:                                              ; preds = %349
+  %351 = ptrtoint ptr %201 to i64
+  %352 = ptrtoint ptr %200 to i64
+  %353 = sub i64 %351, %352
+  %354 = lshr exact i64 %353, 3
+  %355 = trunc i64 %354 to i32
+  call void @_Z12extract_bindP5t_biniiPd(ptr noundef %28, i32 noundef %.0237, i32 noundef %355, ptr noundef %200)
   call void @_ZN3gmx18ObservablesReducer17reductionCompleteEl(ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef %11)
-  br label %357
+  br label %356
 
-357:                                              ; preds = %351, %350
+356:                                              ; preds = %350, %349
   ret void
 }
 

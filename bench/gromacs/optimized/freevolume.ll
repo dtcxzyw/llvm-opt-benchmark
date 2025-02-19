@@ -956,7 +956,6 @@ _ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEED2Ev.exit: ; preds = %30, %48, %61
 67:                                               ; preds = %_ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEED2Ev.exit
   store ptr %66, ptr %5, align 8
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %68, align 8
   %69 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
           to label %_ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit unwind label %70
 

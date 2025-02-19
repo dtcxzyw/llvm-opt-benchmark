@@ -758,12 +758,12 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12FunctionPass12skipFunctionERKNS_
   ]
 
 32:                                               ; preds = %._crit_edge.i.i.i.i
-  %33 = load i8, ptr %21, align 1, !tbaa !113
+  %33 = load i8, ptr %21, align 1, !tbaa !113, !noalias !135
   store i8 %33, ptr %31, align 1, !tbaa !113, !noalias !135
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i
 
 34:                                               ; preds = %._crit_edge.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr nonnull align 1 %21, i64 %22, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr nonnull align 1 %21, i64 %22, i1 false), !noalias !135
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i: ; preds = %34, %32, %._crit_edge.i.i.i.i

@@ -59137,7 +59137,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36
   %478 = landingpad { ptr, i32 }
           catch ptr null
   %479 = extractvalue { ptr, i32 } %478, 0
-  call void @__clang_call_terminate(ptr %479) #57
+  call void @__clang_call_terminate(ptr %479) #57, !noalias !1117
   unreachable
 
 480:                                              ; preds = %"_ZNK5boost3nfp23named_parameter_combineINS0_15named_parameterIKZNS_9unit_test14runtime_config12_GLOBAL__N_119register_parametersERNS_7runtime16parameters_storeEE3$_0NS6_12_GLOBAL__N_110callback_tERSA_EENS1_INS2_IKNS3_13basic_cstringIKcEENSB_9env_var_tERSI_EENS2_ISI_NSB_13description_tESK_EEEEEixENS0_7keywordISC_Lb0EEE.exit.i.i.i.i"
@@ -91054,7 +91054,7 @@ define linkonce_odr hidden void @_ZN5boost4bindIvNS_9unit_test17test_unit_fixtur
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #57
+  tail call void @__clang_call_terminate(ptr %31) #57, !noalias !1717
   unreachable
 
 32:                                               ; preds = %25, %.noexc.i.i.i.i.i.i, %8
@@ -91086,7 +91086,7 @@ define linkonce_odr hidden void @_ZN5boost4bindIvNS_9unit_test17test_unit_fixtur
   %47 = landingpad { ptr, i32 }
           catch ptr null
   %48 = extractvalue { ptr, i32 } %47, 0
-  tail call void @__clang_call_terminate(ptr %48) #57
+  tail call void @__clang_call_terminate(ptr %48) #57, !noalias !1717
   unreachable
 
 _ZN5boost4bindINS_4_mfi2mfIMNS_9unit_test17test_unit_fixtureEFvvEvS4_JEEEJNS_10shared_ptrIS4_EEEEENS_3_bi6bind_tINSA_11unspecifiedET_NSA_7list_avIJDpT0_EE4typeEEESD_SG_.exit: ; preds = %4
@@ -121984,7 +121984,7 @@ declare noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctyp
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5boost9algorithm10iter_splitISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKPKcNS0_6detail13token_finderFIZNKS_7process2v16detail11const_entryIcKNSI_22basic_environment_implIcNSJ_5posix23native_environment_implEEEE9to_vectorEvE8splitterEEEERT_SU_OT0_T1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 %2) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::iterators::transform_iterator.899", align 8
-  %.sroa.5 = alloca [16 x i8], align 8
+  %.sroa.4 = alloca [16 x i8], align 8
   %5 = alloca %"class.boost::iterators::transform_iterator.899", align 8
   %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"class.boost::iterators::transform_iterator.899", align 8
@@ -122119,17 +122119,17 @@ _ZSt7find_ifIPKcZNK5boost7process2v16detail11const_entryIcKNS4_22basic_environme
   br label %_ZN5boost9algorithm14split_iteratorIPKcE9incrementEv.exit.i
 
 _ZN5boost9algorithm14split_iteratorIPKcE9incrementEv.exit.i: ; preds = %._crit_edge.i.i.i.i.i.i, %48, %_ZSt7find_ifIPKcZNK5boost7process2v16detail11const_entryIcKNS4_22basic_environment_implIcNS5_5posix23native_environment_implEEEE9to_vectorB5cxx11EvE8splitterET_SE_SE_T0_.exit.i.i.i, %62, %.lr.ph.i.i.i, %60, %3
-  %.sroa.8.0 = phi ptr [ %10, %3 ], [ %12, %_ZSt7find_ifIPKcZNK5boost7process2v16detail11const_entryIcKNS4_22basic_environment_implIcNS5_5posix23native_environment_implEEEE9to_vectorB5cxx11EvE8splitterET_SE_SE_T0_.exit.i.i.i ], [ %.028.i.i.i.i.i.i, %62 ], [ %12, %._crit_edge.i.i.i.i.i.i ], [ %12, %48 ], [ %.028.i.i.i.i.i.i, %.lr.ph.i.i.i ], [ %.028.i.i.i.i.i.i, %60 ]
+  %.sroa.7.0 = phi ptr [ %10, %3 ], [ %12, %_ZSt7find_ifIPKcZNK5boost7process2v16detail11const_entryIcKNS4_22basic_environment_implIcNS5_5posix23native_environment_implEEEE9to_vectorB5cxx11EvE8splitterET_SE_SE_T0_.exit.i.i.i ], [ %.028.i.i.i.i.i.i, %62 ], [ %12, %._crit_edge.i.i.i.i.i.i ], [ %12, %48 ], [ %.028.i.i.i.i.i.i, %.lr.ph.i.i.i ], [ %.028.i.i.i.i.i.i, %60 ]
   %64 = phi ptr [ %10, %3 ], [ %12, %_ZSt7find_ifIPKcZNK5boost7process2v16detail11const_entryIcKNS4_22basic_environment_implIcNS5_5posix23native_environment_implEEEE9to_vectorB5cxx11EvE8splitterET_SE_SE_T0_.exit.i.i.i ], [ %63, %62 ], [ %12, %._crit_edge.i.i.i.i.i.i ], [ %12, %48 ], [ %scevgep.i.i.i, %60 ], [ %.028.i.i.i, %.lr.ph.i.i.i ]
   store ptr %14, ptr %4, align 8, !tbaa !303, !alias.scope !2113
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %2, ptr %65, align 8
-  %.sroa.5.8..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)
+  %.sroa.4.8..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, i64 16, i1 false)
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %10, ptr %66, align 8
-  %.sroa.8.32..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr %.sroa.8.0, ptr %.sroa.8.32..sroa_idx, align 8
+  %.sroa.7.32..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr %.sroa.7.0, ptr %.sroa.7.32..sroa_idx, align 8
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %64, ptr %67, align 8, !tbaa !2116, !alias.scope !2113
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -122146,12 +122146,12 @@ _ZN5boost9algorithm14split_iteratorIPKcE9incrementEv.exit.i: ; preds = %._crit_e
   store ptr %14, ptr %7, align 8, !tbaa !303
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %2, ptr %72, align 8
-  %.sroa.5.8..sroa_idx83 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.8..sroa_idx83, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)
+  %.sroa.4.8..sroa_idx83 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.8..sroa_idx83, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, i64 16, i1 false)
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %10, ptr %73, align 8
-  %.sroa.8.32..sroa_idx86 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr %.sroa.8.0, ptr %.sroa.8.32..sroa_idx86, align 8
+  %.sroa.7.32..sroa_idx86 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store ptr %.sroa.7.0, ptr %.sroa.7.32..sroa_idx86, align 8
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %64, ptr %74, align 8, !tbaa !2116
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 56

@@ -2500,7 +2500,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i.i.i.i.i.i.i: ; preds = %836, %_ZNSt1
           catch ptr null
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %834) #20, !noalias !94
   %845 = extractvalue { ptr, i32 } %844, 0
-  %846 = call ptr @__cxa_begin_catch(ptr %845) #20
+  %846 = call ptr @__cxa_begin_catch(ptr %845) #20, !noalias !94
   br label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_17LUTTypeENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit39.thread.i.i.i.i.i
 
 847:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i.i.i.i.i.i.i
@@ -2686,7 +2686,7 @@ _ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_17LUTTypeE
   %925 = landingpad { ptr, i32 }
           catch ptr null
   %926 = extractvalue { ptr, i32 } %925, 0
-  %927 = call ptr @__cxa_begin_catch(ptr %926) #20
+  %927 = call ptr @__cxa_begin_catch(ptr %926) #20, !noalias !94
   call fastcc void @_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_17LUTTypeEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(76) %834) #20, !noalias !94
   br label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_17LUTTypeENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit39.thread.i.i.i.i.i
 
@@ -2705,7 +2705,7 @@ _ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_17LUTTypeE
   %931 = landingpad { ptr, i32 }
           catch ptr null
   %932 = extractvalue { ptr, i32 } %931, 0
-  call void @__clang_call_terminate(ptr %932) #24
+  call void @__clang_call_terminate(ptr %932) #24, !noalias !94
   unreachable
 
 933:                                              ; preds = %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_17LUTTypeENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit39.thread.i.i.i.i.i
@@ -2813,7 +2813,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i.i.i.i25.i.i.i: ; preds = %968, %_ZNS
           catch ptr null
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %966) #20, !noalias !94
   %977 = extractvalue { ptr, i32 } %976, 0
-  %978 = call ptr @__cxa_begin_catch(ptr %977) #20
+  %978 = call ptr @__cxa_begin_catch(ptr %977) #20, !noalias !94
   br label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_17LUTTypeENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit39.thread.i.i35.i.i.i
 
 979:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i.i.i.i.i.i25.i.i.i
@@ -2999,7 +2999,7 @@ _ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_17LUTTypeE
   %1057 = landingpad { ptr, i32 }
           catch ptr null
   %1058 = extractvalue { ptr, i32 } %1057, 0
-  %1059 = call ptr @__cxa_begin_catch(ptr %1058) #20
+  %1059 = call ptr @__cxa_begin_catch(ptr %1058) #20, !noalias !94
   call fastcc void @_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_17LUTTypeEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(76) %966) #20, !noalias !94
   br label %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_17LUTTypeENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit39.thread.i.i35.i.i.i
 
@@ -3018,7 +3018,7 @@ _ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_17LUTTypeE
   %1063 = landingpad { ptr, i32 }
           catch ptr null
   %1064 = extractvalue { ptr, i32 } %1063, 0
-  call void @__clang_call_terminate(ptr %1064) #24
+  call void @__clang_call_terminate(ptr %1064) #24, !noalias !94
   unreachable
 
 1065:                                             ; preds = %_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_17LUTTypeENS1_8hash_opsIS4_EEE7entry_tESA_EvT_SC_RSaIT0_E.exit39.thread.i.i35.i.i.i
@@ -10507,7 +10507,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStri
   %150 = landingpad { ptr, i32 }
           catch ptr null
   %151 = extractvalue { ptr, i32 } %150, 0
-  tail call void @__clang_call_terminate(ptr %151) #24
+  tail call void @__clang_call_terminate(ptr %151) #24, !noalias !134
   unreachable
 
 _ZN12_GLOBAL__N_16LUTPinD2Ev.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %148, %141, %.lr.ph.i.i.i.i.i.i.i
@@ -10536,7 +10536,7 @@ _ZN12_GLOBAL__N_16LUTPinD2Ev.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %148, %141, %.l
   %165 = landingpad { ptr, i32 }
           catch ptr null
   %166 = extractvalue { ptr, i32 } %165, 0
-  tail call void @__clang_call_terminate(ptr %166) #24
+  tail call void @__clang_call_terminate(ptr %166) #24, !noalias !134
   unreachable
 
 _ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_16LUTPinENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i.i.i: ; preds = %163, %156, %_ZN12_GLOBAL__N_16LUTPinD2Ev.exit.i.i.i.i.i.i.i.i.i.i
@@ -10764,7 +10764,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStri
   %272 = landingpad { ptr, i32 }
           catch ptr null
   %273 = extractvalue { ptr, i32 } %272, 0
-  tail call void @__clang_call_terminate(ptr %273) #24
+  tail call void @__clang_call_terminate(ptr %273) #24, !noalias !134
   unreachable
 
 _ZN12_GLOBAL__N_16LUTPinD2Ev.exit.i.i.i.i.i.i.i.i38.i.i: ; preds = %270, %263, %.lr.ph.i.i.i.i.i34.i.i
@@ -10793,7 +10793,7 @@ _ZN12_GLOBAL__N_16LUTPinD2Ev.exit.i.i.i.i.i.i.i.i38.i.i: ; preds = %270, %263, %
   %287 = landingpad { ptr, i32 }
           catch ptr null
   %288 = extractvalue { ptr, i32 } %287, 0
-  tail call void @__clang_call_terminate(ptr %288) #24
+  tail call void @__clang_call_terminate(ptr %288) #24, !noalias !134
   unreachable
 
 _ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_16LUTPinENS1_8hash_opsIS4_EEE7entry_tEEvPT_.exit.i.i.i.i.i40.i.i: ; preds = %285, %278, %_ZN12_GLOBAL__N_16LUTPinD2Ev.exit.i.i.i.i.i.i.i.i38.i.i

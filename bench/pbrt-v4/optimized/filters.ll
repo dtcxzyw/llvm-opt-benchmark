@@ -2664,7 +2664,6 @@ lpad27.loopexit.split-lp:                         ; preds = %for.end43, %if.end.
 for.end43:                                        ; preds = %for.inc41, %for.end, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit
   %22 = phi i64 [ 0, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit ], [ 0, %for.end ], [ %inc.i37, %for.inc41 ]
   %23 = phi ptr [ %call.i.i.i.i26, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit ], [ null, %for.end ], [ %18, %for.inc41 ]
-  %nStored.i.i = getelementptr inbounds nuw i8, ptr %marginalFunc, i64 24
   %domain.sroa.0.4.vec.extract = extractelement <2 x float> %domain.coerce0, i64 1
   %domain.sroa.4.12.vec.extract = extractelement <2 x float> %domain.coerce1, i64 1
   invoke void @_ZN4pbrt19PiecewiseConstant1DC2EN4pstd4spanIKfEEffNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(76) %ref.tmp44, ptr %23, i64 %22, float noundef %domain.sroa.0.4.vec.extract, float noundef %domain.sroa.4.12.vec.extract, ptr %alloc.coerce)
@@ -2735,7 +2734,6 @@ terminate.lpad.i9.i:                              ; preds = %if.end.i.i.i.i4.i
   unreachable
 
 _ZN4pbrt19PiecewiseConstant1DD2Ev.exit:           ; preds = %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i, %if.end.i.i.i.i4.i
-  store i64 0, ptr %nStored.i.i, align 8
   %36 = load ptr, ptr %ptr.i19, align 8
   %tobool.not.i.i.i.i59 = icmp eq ptr %36, null
   br i1 %tobool.not.i.i.i.i59, label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit, label %if.end.i.i.i.i60

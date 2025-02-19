@@ -2213,15 +2213,15 @@ define void @"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..se
 36:                                               ; preds = %31
   %37 = icmp ne ptr %33, null
   call void @llvm.assume(i1 %37)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %12, ptr noundef nonnull align 8 dereferenceable(296) %33, i64 296, i1 false)
-  store i64 4, ptr %33, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %12, ptr noundef nonnull align 8 dereferenceable(296) %33, i64 296, i1 false), !noalias !282
+  store i64 4, ptr %33, align 8, !noalias !282
   %.sroa.2.0..sroa.7.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %33, i64 8
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.start.p0(i64 296, ptr nonnull %11), !noalias !287
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %39 = load ptr, ptr %38, align 8, !nonnull !4, !noundef !4
+  %39 = load ptr, ptr %38, align 8, !noalias !282, !nonnull !4, !noundef !4
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %41 = load i64, ptr %40, align 8, !noundef !4
+  %41 = load i64, ptr %40, align 8, !noalias !282, !noundef !4
   invoke void @_ZN5milli6update8settings27validate_embedding_settings17hade15e33e1371ac7E(ptr noalias noundef nonnull sret([296 x i8]) align 8 captures(none) dereferenceable(296) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(296) %12, ptr noalias noundef nonnull readonly align 1 %39, i64 noundef %41)
           to label %42 unwind label %27, !noalias !282
 
@@ -2236,13 +2236,13 @@ define void @"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..se
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %11), !noalias !287
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.3.i, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.6.i, i64 216, i1 false), !noalias !287
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %.sroa.6.i)
-  %46 = load i64, ptr %33, align 8, !range !24, !alias.scope !294, !noundef !4
+  %46 = load i64, ptr %33, align 8, !range !24, !alias.scope !294, !noalias !282, !noundef !4
   %47 = icmp samesign ult i64 %46, 3
   br i1 %47, label %48, label %"_ZN4core3ptr103drop_in_place$LT$milli..update..settings..Setting$LT$milli..vector..settings..EmbeddingSettings$GT$$GT$17h06ebf5fdf781faa9E.exit.i"
 
 48:                                               ; preds = %45
   invoke void @"_ZN4core3ptr63drop_in_place$LT$milli..vector..settings..EmbeddingSettings$GT$17hfb7d29da939a96f7E"(ptr noalias noundef nonnull align 8 dereferenceable(296) %33)
-          to label %"_ZN4core3ptr103drop_in_place$LT$milli..update..settings..Setting$LT$milli..vector..settings..EmbeddingSettings$GT$$GT$17h06ebf5fdf781faa9E.exit.i" unwind label %51
+          to label %"_ZN4core3ptr103drop_in_place$LT$milli..update..settings..Setting$LT$milli..vector..settings..EmbeddingSettings$GT$$GT$17h06ebf5fdf781faa9E.exit.i" unwind label %51, !noalias !282
 
 49:                                               ; preds = %42
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %11), !noalias !287
@@ -2265,17 +2265,17 @@ define void @"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..se
 51:                                               ; preds = %48
   %52 = landingpad { ptr, i32 }
           cleanup
-  store i64 %43, ptr %33, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.2.0..sroa.7.8..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.3.i, i64 216, i1 false)
+  store i64 %43, ptr %33, align 8, !noalias !282
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.2.0..sroa.7.8..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.3.i, i64 216, i1 false), !noalias !282
   %.sroa.4.0..sroa.7.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %33, i64 224
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.0..sroa.7.8..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.i, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.0..sroa.7.8..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.i, i64 72, i1 false), !noalias !282
   br label %26
 
 "_ZN4core3ptr103drop_in_place$LT$milli..update..settings..Setting$LT$milli..vector..settings..EmbeddingSettings$GT$$GT$17h06ebf5fdf781faa9E.exit.i": ; preds = %48, %45
-  store i64 %43, ptr %33, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.2.0..sroa.7.8..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.3.i, i64 216, i1 false)
+  store i64 %43, ptr %33, align 8, !noalias !282
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.2.0..sroa.7.8..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.3.i, i64 216, i1 false), !noalias !282
   %.sroa.4.0..sroa.7.8..sroa_idx9.i = getelementptr inbounds nuw i8, ptr %33, i64 224
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.0..sroa.7.8..sroa_idx9.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.i, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.0..sroa.7.8..sroa_idx9.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.i, i64 72, i1 false), !noalias !282
   br label %29
 
 53:                                               ; preds = %58, %26

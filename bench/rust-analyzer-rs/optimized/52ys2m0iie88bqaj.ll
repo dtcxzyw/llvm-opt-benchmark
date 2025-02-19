@@ -2045,13 +2045,12 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.18152640266846470746.e
 
 "_ZN4core3ptr209drop_in_place$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$..parent$GT$$GT$17h84574b9da28a9b0dE.exit67": ; preds = %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$9ancestors17h9bd54f6ff4b8b6cbE.exit"
   store i64 36, ptr %0, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %106, i64 48
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !noalias !5
   %209 = getelementptr inbounds nuw i8, ptr %106, i64 48
-  %210 = add i32 %.pre, -1
-  store i32 %210, ptr %209, align 4, !noalias !5
-  %211 = icmp eq i32 %210, 0
-  br i1 %211, label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd1512002f8a29c76E.exit.sink.split.i72", label %.critedge
+  %210 = load i32, ptr %209, align 4, !noalias !5, !noundef !5
+  %211 = add i32 %210, -1
+  store i32 %211, ptr %209, align 4, !noalias !5
+  %212 = icmp eq i32 %211, 0
+  br i1 %212, label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd1512002f8a29c76E.exit.sink.split.i72", label %.critedge
 
 "_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd1512002f8a29c76E.exit.sink.split.i72": ; preds = %"_ZN4core3ptr209drop_in_place$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$..parent$GT$$GT$17h84574b9da28a9b0dE.exit67"
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %106)
@@ -2063,14 +2062,14 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.18152640266846470746.e
 
 .critedge:                                        ; preds = %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd1512002f8a29c76E.exit.sink.split.i72", %"_ZN4core3ptr209drop_in_place$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$..parent$GT$$GT$17h84574b9da28a9b0dE.exit67", %26, %"_ZN4core3ptr103drop_in_place$LT$triomphe..arc..Arc$LT$span..map..SpanMap$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h4ab97066b4bbfe64E.exit47"
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %212 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val37 = load ptr, ptr %212, align 8, !nonnull !5, !noundef !5
-  %213 = getelementptr inbounds nuw i8, ptr %.val37, i64 48
-  %214 = load i32, ptr %213, align 4, !noalias !5, !noundef !5
-  %215 = add i32 %214, -1
-  store i32 %215, ptr %213, align 4, !noalias !5
-  %216 = icmp eq i32 %215, 0
-  br i1 %216, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17hf8b8b1ca411558c9E.exit.sink.split.i75", label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h7baf95d050551c73E.exit76"
+  %213 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val37 = load ptr, ptr %213, align 8, !nonnull !5, !noundef !5
+  %214 = getelementptr inbounds nuw i8, ptr %.val37, i64 48
+  %215 = load i32, ptr %214, align 4, !noalias !5, !noundef !5
+  %216 = add i32 %215, -1
+  store i32 %216, ptr %214, align 4, !noalias !5
+  %217 = icmp eq i32 %216, 0
+  br i1 %217, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17hf8b8b1ca411558c9E.exit.sink.split.i75", label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h7baf95d050551c73E.exit76"
 
 "_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17hf8b8b1ca411558c9E.exit.sink.split.i75": ; preds = %.critedge
   call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.val37), !noalias !5

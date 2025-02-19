@@ -114,7 +114,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   store ptr @anon.d8650f252a778334d2c694542707141d.2, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %32, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.d8650f252a778334d2c694542707141d.12) #15
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.d8650f252a778334d2c694542707141d.12) #14
           to label %.noexc4 unwind label %37
 
 .noexc4:                                          ; preds = %28
@@ -135,7 +135,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 37:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h2813d92712d12179E.exit.i", %28, %27, %13
   %38 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$anki_proto_gen..Method$GT$$GT$17hfc18336c487e1317E"(ptr nonnull align 8 %10) #16
+  invoke void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$anki_proto_gen..Method$GT$$GT$17hfc18336c487e1317E"(ptr nonnull align 8 %10) #15
           to label %47 unwind label %40
 
 39:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h2813d92712d12179E.exit.i"
@@ -149,7 +149,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 40:                                               ; preds = %37
   %41 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #17
+  call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #16
   unreachable
 
 42:                                               ; preds = %2
@@ -162,7 +162,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   store ptr @anon.d8650f252a778334d2c694542707141d.2, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %46, align 8
-  call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %8, ptr nonnull align 8 @anon.d8650f252a778334d2c694542707141d.4) #15
+  call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %8, ptr nonnull align 8 @anon.d8650f252a778334d2c694542707141d.4) #14
   unreachable
 
 47:                                               ; preds = %37
@@ -198,7 +198,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 14:                                               ; preds = %20, %16, %12
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$anki_proto_gen..Method$GT$17haf41f5eb221c3047E"(ptr nonnull align 8 %5) #16
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$anki_proto_gen..Method$GT$17haf41f5eb221c3047E"(ptr nonnull align 8 %5) #15
           to label %30 unwind label %28
 
 16:                                               ; preds = %12
@@ -216,7 +216,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
   %24 = extractvalue { ptr, i64 } %21, 1
   %25 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %25)
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %23, ptr noundef nonnull align 8 dereferenceable(80) %5, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %23, ptr noundef nonnull align 8 dereferenceable(80) %5, i64 80, i1 false)
   store ptr %23, ptr %7, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %24, ptr %.sroa.3.0..sroa_idx, align 8
@@ -229,7 +229,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 26:                                               ; preds = %22
   %27 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$anki_proto_gen..Method$GT$$GT$17hfc18336c487e1317E"(ptr nonnull align 8 %7) #16
+  invoke void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$anki_proto_gen..Method$GT$$GT$17hfc18336c487e1317E"(ptr nonnull align 8 %7) #15
           to label %30 unwind label %28
 
 "_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hc5d14f68e06a7c8bE.exit": ; preds = %22
@@ -239,7 +239,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 28:                                               ; preds = %14, %26
   %29 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #17
+  call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #16
   unreachable
 
 30:                                               ; preds = %26, %14
@@ -353,7 +353,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h2813d92712d12179
   store ptr @anon.d8650f252a778334d2c694542707141d.2, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %27, align 8
-  call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.d8650f252a778334d2c694542707141d.12) #15
+  call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.d8650f252a778334d2c694542707141d.12) #14
   unreachable
 }
 
@@ -413,7 +413,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h82cc00910141d6a4
   store ptr @anon.d8650f252a778334d2c694542707141d.2, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %28, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.d8650f252a778334d2c694542707141d.12) #15
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.d8650f252a778334d2c694542707141d.12) #14
           to label %29 unwind label %31
 
 29:                                               ; preds = %24
@@ -425,13 +425,13 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h82cc00910141d6a4
 31:                                               ; preds = %24, %2, %19
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr81drop_in_place$LT$core..option..IntoIter$LT$anki_proto_gen..BackendService$GT$$GT$17hca957f6ecbca6705E"(ptr align 8 %1) #16
+  invoke void @"_ZN4core3ptr81drop_in_place$LT$core..option..IntoIter$LT$anki_proto_gen..BackendService$GT$$GT$17hca957f6ecbca6705E"(ptr align 8 %1) #15
           to label %30 unwind label %32
 
 32:                                               ; preds = %31
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #17
+  call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #16
   unreachable
 }
 
@@ -491,7 +491,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hd60bade151dc9335
   store ptr @anon.d8650f252a778334d2c694542707141d.2, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %28, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.d8650f252a778334d2c694542707141d.12) #15
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.d8650f252a778334d2c694542707141d.12) #14
           to label %29 unwind label %31
 
 29:                                               ; preds = %24
@@ -503,13 +503,13 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hd60bade151dc9335
 31:                                               ; preds = %24, %2, %19
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr84drop_in_place$LT$core..option..IntoIter$LT$anki_proto_gen..CollectionService$GT$$GT$17h4cf5430b06568c88E"(ptr align 8 %1) #16
+  invoke void @"_ZN4core3ptr84drop_in_place$LT$core..option..IntoIter$LT$anki_proto_gen..CollectionService$GT$$GT$17h4cf5430b06568c88E"(ptr align 8 %1) #15
           to label %30 unwind label %32
 
 32:                                               ; preds = %31
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #17
+  call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #16
   unreachable
 }
 
@@ -602,7 +602,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hc67b5401bcbf6e
 19:                                               ; preds = %28, %14
   %20 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$anki_proto_gen..Method$GT$17haf41f5eb221c3047E"(ptr nonnull align 8 %4) #16
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$anki_proto_gen..Method$GT$17haf41f5eb221c3047E"(ptr nonnull align 8 %4) #15
           to label %9 unwind label %29
 
 21:                                               ; preds = %14
@@ -621,7 +621,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hc67b5401bcbf6e
 29:                                               ; preds = %19
   %30 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #17
+  call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #16
   unreachable
 }
 
@@ -799,7 +799,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   store ptr @anon.d8650f252a778334d2c694542707141d.2, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %23, align 8
-  call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.d8650f252a778334d2c694542707141d.12) #15
+  call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.d8650f252a778334d2c694542707141d.12) #14
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h2813d92712d12179E.exit": ; preds = %9, %18
@@ -930,9 +930,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -947,10 +944,9 @@ attributes #10 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-c
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { noreturn }
-attributes #16 = { cold }
-attributes #17 = { cold noreturn nounwind }
+attributes #14 = { noreturn }
+attributes #15 = { cold }
+attributes #16 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

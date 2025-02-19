@@ -786,7 +786,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit._crit_edge.i:
   %268 = landingpad { ptr, i32 }
           catch ptr null
   %269 = extractvalue { ptr, i32 } %268, 0
-  call void @__clang_call_terminate(ptr %269) #30
+  call void @__clang_call_terminate(ptr %269) #30, !noalias !35
   unreachable
 
 _ZNSt10unique_ptrI5dh_st14OpenSSLDeleterIS0_XadL_Z7DH_freeEEEED2Ev.exit.i: ; preds = %266, %265, %.thread.i
@@ -849,7 +849,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38.i: ; preds = %_
   %284 = landingpad { ptr, i32 }
           catch ptr null
   %285 = extractvalue { ptr, i32 } %284, 0
-  call void @__clang_call_terminate(ptr %285) #30
+  call void @__clang_call_terminate(ptr %285) #30, !noalias !35
   unreachable
 
 286:                                              ; preds = %282, %281
@@ -1064,7 +1064,6 @@ define internal fastcc noundef zeroext i1 @_ZL10DoExchangePSt10unique_ptrI14ssl_
 .thread283:                                       ; preds = %.noexc
   tail call void @_ZN9TestStateD2Ev(ptr noundef nonnull align 8 dereferenceable(117) %27) #28
   tail call void @_ZdlPv(ptr noundef nonnull %27) #31
-  store ptr null, ptr %9, align 8, !tbaa !86
   br label %.thread282
 
 34:                                               ; preds = %21, %265, %250, %245, %240, %235, %230, %225, %218, %216, %211, %206, %200, %193, %184, %175, %170, %169, %159, %150, %124, %117, %111, %105, %99, %93, %87, %81, %75, %70, %65, %58, %57, %42, %26
@@ -4131,7 +4130,6 @@ _ZNSt6vectorIiSaIiEED2Ev.exit39:                  ; preds = %58, %59
 
 85:                                               ; preds = %80
   %86 = load ptr, ptr %7, align 8, !tbaa !97
-  store ptr null, ptr %7, align 8, !tbaa !97
   %87 = load ptr, ptr %2, align 8, !tbaa !97
   store ptr %86, ptr %2, align 8, !tbaa !97
   %.not.i.i.i.i44 = icmp eq ptr %87, null
@@ -4303,7 +4301,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %_ZN
   %141 = landingpad { ptr, i32 }
           catch ptr null
   %142 = extractvalue { ptr, i32 } %141, 0
-  call void @__clang_call_terminate(ptr %142) #30
+  call void @__clang_call_terminate(ptr %142) #30, !noalias !171
   unreachable
 
 143:                                              ; preds = %139, %.noexc56

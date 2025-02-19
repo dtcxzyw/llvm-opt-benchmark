@@ -4143,7 +4143,7 @@ terminate.lpad.i6.i:                              ; preds = %if.then.i.i.i4.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #23
+  call void @__clang_call_terminate(ptr %6) #23, !noalias !66
   unreachable
 
 lpad.i:                                           ; preds = %if.then7.i3.i.i
@@ -4279,7 +4279,7 @@ terminate.lpad.i6.i:                              ; preds = %if.then.i.i.i4.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #23
+  call void @__clang_call_terminate(ptr %6) #23, !noalias !89
   unreachable
 
 lpad.i:                                           ; preds = %if.then7.i3.i.i
@@ -4671,7 +4671,7 @@ terminate.lpad.i6.i:                              ; preds = %if.then.i.i.i4.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #23
+  call void @__clang_call_terminate(ptr %6) #23, !noalias !121
   unreachable
 
 lpad.i:                                           ; preds = %if.then7.i3.i.i
@@ -4807,7 +4807,7 @@ terminate.lpad.i6.i:                              ; preds = %if.then.i.i.i4.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #23
+  call void @__clang_call_terminate(ptr %6) #23, !noalias !144
   unreachable
 
 lpad.i:                                           ; preds = %if.then7.i3.i.i
@@ -4943,7 +4943,7 @@ terminate.lpad.i6.i:                              ; preds = %if.then.i.i.i4.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #23
+  call void @__clang_call_terminate(ptr %6) #23, !noalias !167
   unreachable
 
 lpad.i:                                           ; preds = %if.then7.i3.i.i
@@ -5079,7 +5079,7 @@ terminate.lpad.i6.i:                              ; preds = %if.then.i.i.i4.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #23
+  call void @__clang_call_terminate(ptr %6) #23, !noalias !190
   unreachable
 
 lpad.i:                                           ; preds = %if.then7.i3.i.i
@@ -5215,7 +5215,7 @@ terminate.lpad.i6.i:                              ; preds = %if.then.i.i.i4.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #23
+  call void @__clang_call_terminate(ptr %6) #23, !noalias !213
   unreachable
 
 lpad.i:                                           ; preds = %if.then7.i3.i.i
@@ -5351,7 +5351,7 @@ terminate.lpad.i6.i:                              ; preds = %if.then.i.i.i4.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #23
+  call void @__clang_call_terminate(ptr %6) #23, !noalias !236
   unreachable
 
 lpad.i:                                           ; preds = %if.then7.i3.i.i
@@ -5487,7 +5487,7 @@ terminate.lpad.i6.i:                              ; preds = %if.then.i.i.i4.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #23
+  call void @__clang_call_terminate(ptr %6) #23, !noalias !259
   unreachable
 
 lpad.i:                                           ; preds = %if.then7.i3.i.i
@@ -5909,7 +5909,7 @@ terminate.lpad.i6.i:                              ; preds = %if.then.i.i.i4.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #23
+  call void @__clang_call_terminate(ptr %6) #23, !noalias !302
   unreachable
 
 lpad.i:                                           ; preds = %if.then7.i3.i.i
@@ -6045,7 +6045,7 @@ terminate.lpad.i6.i:                              ; preds = %if.then.i.i.i4.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #23
+  call void @__clang_call_terminate(ptr %6) #23, !noalias !325
   unreachable
 
 lpad.i:                                           ; preds = %if.then7.i3.i.i

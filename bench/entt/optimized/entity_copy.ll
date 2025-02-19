@@ -16712,7 +16712,7 @@ _ZNK4entt9meta_type4infoEv.exit.i:                ; preds = %14, %12, %9, %2
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #27
+  tail call void @__clang_call_terminate(ptr %30) #27, !noalias !379
   unreachable
 
 _ZNK4entt8meta_any10allow_castERKNS_9meta_typeE.exit: ; preds = %22, %26
@@ -49637,7 +49637,7 @@ _ZN4entt8internal16meta_custom_nodeC2ERKS1_.exit.i.i: ; preds = %42, %39, %28
   br label %_ZN4entt8internal14meta_type_nodeD2Ev.exit.i
 
 _ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit.thread.i: ; preds = %22, %_ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %0, i8 0, i64 144, i1 false), !alias.scope !867
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %0, i8 0, i64 136, i1 false), !alias.scope !867
   %56 = load ptr, ptr @_ZN4entt7locatorINS_8meta_ctxEE7serviceE, align 8, !tbaa !159, !noalias !867
   %.not.i.i.i = icmp eq ptr %56, null
   br i1 %.not.i.i.i, label %57, label %_ZN4entt7resolveERKNS_8meta_ctxERKNS_9type_infoE.exit
@@ -49650,7 +49650,7 @@ _ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit.thread
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  tail call void @__clang_call_terminate(ptr %61) #27
+  tail call void @__clang_call_terminate(ptr %61) #27, !noalias !867
   unreachable
 
 _ZN4entt8internal14meta_type_nodeD2Ev.exit.i:     ; preds = %54, %51, %_ZN4entt8internal16meta_custom_nodeC2ERKS1_.exit.i.i
@@ -50867,7 +50867,7 @@ _ZZNK4entt9meta_type6invokeEjNS_11meta_handleEPNS_8meta_anyEmENUlvE_clEv.exit88.
   %205 = landingpad { ptr, i32 }
           catch ptr null
   %206 = extractvalue { ptr, i32 } %205, 0
-  call void @__clang_call_terminate(ptr %206) #27
+  call void @__clang_call_terminate(ptr %206) #27, !noalias !902
   unreachable
 
 .lr.ph120.split.split.us:                         ; preds = %.lr.ph120
@@ -51097,7 +51097,7 @@ _ZN4entt9basic_anyILm16ELm8EE6as_refEv.exit.thread: ; preds = %7
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #27
+  tail call void @__clang_call_terminate(ptr %18) #27, !noalias !907
   unreachable
 
 _ZN4entt9basic_anyILm16ELm8EE6as_refEv.exit:      ; preds = %2

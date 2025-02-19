@@ -7819,7 +7819,6 @@ define dso_local void @_ZN5clang16CompilerInstance16createOutputFileEN4llvm9Stri
 
 .thread:                                          ; preds = %8
   %16 = load i64, ptr %9, align 8, !tbaa !145
-  store i64 %16, ptr %0, align 8, !tbaa !145
   br label %_ZN4llvm8ExpectedISt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteIS2_EEED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %8
@@ -7832,7 +7831,6 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   call void @llvm.experimental.noalias.scope.decl(metadata !870)
   %19 = load i64, ptr %9, align 8, !tbaa !612, !noalias !870
   %20 = inttoptr i64 %19 to ptr
-  store ptr null, ptr %9, align 8, !tbaa !612, !noalias !870
   store ptr %20, ptr %12, align 8, !tbaa !617, !alias.scope !870
   %21 = call { i32, ptr } @_ZN4llvm16errorToErrorCodeENS_5ErrorE(ptr noundef nonnull %12) #26
   %22 = extractvalue { i32, ptr } %21, 0
@@ -7930,19 +7928,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 67:                                               ; preds = %66, %63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #26
-  store ptr null, ptr %0, align 8, !tbaa !876
-  %.pr = load ptr, ptr %9, align 8, !tbaa !611
-  %.not.i1.i = icmp eq ptr %.pr, null
-  br i1 %.not.i1.i, label %_ZN4llvm8ExpectedISt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteIS2_EEED2Ev.exit, label %_ZNSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS1_EED2Ev.exit.sink.split.i
-
-_ZNSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS1_EED2Ev.exit.sink.split.i: ; preds = %67
-  %68 = load ptr, ptr %.pr, align 8, !tbaa !9
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %70 = load ptr, ptr %69, align 8
-  call void %70(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #26
   br label %_ZN4llvm8ExpectedISt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteIS2_EEED2Ev.exit
 
-_ZN4llvm8ExpectedISt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteIS2_EEED2Ev.exit: ; preds = %.thread, %67, %_ZNSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS1_EED2Ev.exit.sink.split.i
+_ZN4llvm8ExpectedISt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteIS2_EEED2Ev.exit: ; preds = %67, %.thread
+  %storemerge = phi i64 [ %16, %.thread ], [ 0, %67 ]
+  store i64 %storemerge, ptr %0, align 8, !tbaa !145
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #26
   ret void
 }
@@ -7950,14 +7940,14 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteIS2_EE
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang16CompilerInstance20createNullOutputFileEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.67") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(352) %1) local_unnamed_addr #0 align 2 {
 _ZNSt10unique_ptrIN4llvm16raw_null_ostreamESt14default_deleteIS1_EED2Ev.exit:
-  %2 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25, !noalias !877
+  %2 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25, !noalias !876
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %2, i8 0, i64 48, i1 false), !noalias !877
-  store i32 1, ptr %3, align 4, !tbaa !880, !noalias !877
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %2, i8 0, i64 48, i1 false), !noalias !876
+  store i32 1, ptr %3, align 4, !tbaa !879, !noalias !876
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !noalias !877
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm16raw_null_ostreamE, i64 16), ptr %2, align 8, !tbaa !9, !noalias !877
-  store ptr %2, ptr %0, align 8, !tbaa !876
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !noalias !876
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm16raw_null_ostreamE, i64 16), ptr %2, align 8, !tbaa !9, !noalias !876
+  store ptr %2, ptr %0, align 8, !tbaa !880
   ret void
 }
 
@@ -8689,7 +8679,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %263 = load i8, ptr %262, align 8
   %264 = and i8 %263, -2
   store i8 %264, ptr %262, align 8
-  store ptr %.sroa.092.3, ptr %0, align 8, !tbaa !876
+  store ptr %.sroa.092.3, ptr %0, align 8, !tbaa !880
   br label %285
 
 265:                                              ; preds = %257
@@ -8700,7 +8690,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %269 = getelementptr inbounds nuw i8, ptr %266, i64 40
   store i8 0, ptr %269, align 8, !tbaa !928, !noalias !924
   %270 = getelementptr inbounds nuw i8, ptr %266, i64 44
-  store i32 1, ptr %270, align 4, !tbaa !880, !noalias !924
+  store i32 1, ptr %270, align 4, !tbaa !879, !noalias !924
   %271 = getelementptr inbounds nuw i8, ptr %266, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %271, i8 0, i64 24, i1 false), !noalias !924
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %266, align 8, !tbaa !9, !noalias !924
@@ -8732,7 +8722,7 @@ _ZNSt10unique_ptrIN4llvm21buffer_unique_ostreamESt14default_deleteIS1_EED2Ev.exi
   %283 = load i8, ptr %282, align 8
   %284 = and i8 %283, -2
   store i8 %284, ptr %282, align 8
-  store ptr %266, ptr %0, align 8, !tbaa !876
+  store ptr %266, ptr %0, align 8, !tbaa !880
   br label %285
 
 285:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit63, %_ZNSt10unique_ptrIN4llvm21buffer_unique_ostreamESt14default_deleteIS1_EED2Ev.exit, %261
@@ -22992,7 +22982,7 @@ _ZN4llvm11SmallStringILj128EEC2ENS_9StringRefE.exit.i: ; preds = %205, %_ZN4llvm
   %218 = getelementptr inbounds nuw i8, ptr %32, i64 40
   store i8 0, ptr %218, align 8, !tbaa !928
   %219 = getelementptr inbounds nuw i8, ptr %32, i64 44
-  store i32 1, ptr %219, align 4, !tbaa !880
+  store i32 1, ptr %219, align 4, !tbaa !879
   %220 = getelementptr inbounds nuw i8, ptr %32, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %220, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %32, align 8, !tbaa !9
@@ -34104,11 +34094,11 @@ attributes #30 = { nounwind willreturn memory(read) }
 !873 = !{!874}
 !874 = distinct !{!874, !875, !"_ZNKSt10error_code7messageB5cxx11Ev: argument 0"}
 !875 = distinct !{!875, !"_ZNKSt10error_code7messageB5cxx11Ev"}
-!876 = !{!139, !140, i64 0}
-!877 = !{!878}
-!878 = distinct !{!878, !879, !"_ZSt11make_uniqueIN4llvm16raw_null_ostreamEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!879 = distinct !{!879, !"_ZSt11make_uniqueIN4llvm16raw_null_ostreamEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!880 = !{!275, !277, i64 44}
+!876 = !{!877}
+!877 = distinct !{!877, !878, !"_ZSt11make_uniqueIN4llvm16raw_null_ostreamEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!878 = distinct !{!878, !"_ZSt11make_uniqueIN4llvm16raw_null_ostreamEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!879 = !{!275, !277, i64 44}
+!880 = !{!139, !140, i64 0}
 !881 = !{!5, !5, i64 0}
 !882 = !{!153, !153, i64 0}
 !883 = !{!884, !886, i64 44}

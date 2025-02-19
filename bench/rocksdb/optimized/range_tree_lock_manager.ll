@@ -5325,7 +5325,7 @@ lpad.i.i.i.i.i:                                   ; preds = %invoke.cont16
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  %13 = call ptr @__cxa_begin_catch(ptr %12) #24
+  %13 = call ptr @__cxa_begin_catch(ptr %12) #24, !noalias !45
   invoke void @_ZN4toku16locktree_manager10release_ltEPNS_8locktreeE(ptr noundef nonnull align 8 dereferenceable(392) %ltm_, ptr noundef %call17)
           to label %invoke.cont8.i.i.i.i.i unwind label %lpad7.i.i.i.i.i, !noalias !45
 
@@ -5343,7 +5343,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %lpad7.i.i.i.i.i
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #27
+  call void @__clang_call_terminate(ptr %16) #27, !noalias !45
   unreachable
 
 unreachable.i.i.i.i.i:                            ; preds = %invoke.cont8.i.i.i.i.i

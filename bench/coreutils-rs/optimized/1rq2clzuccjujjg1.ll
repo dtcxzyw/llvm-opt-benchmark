@@ -844,7 +844,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %42
 82:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !77
   invoke void @"_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17h4e3a47f24bad5bddE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 1 %70, i64 noundef %71)
-          to label %97 unwind label %.loopexit.split-lp.loopexit.i
+          to label %97 unwind label %.loopexit.split-lp.loopexit.i, !noalias !81
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h7e5843c5caea386cE.exit.i": ; preds = %77
   %83 = icmp eq i64 %75, 0
@@ -982,7 +982,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %42
   %129 = extractvalue { i64, ptr } %125, 1
   %130 = icmp ne ptr %129, null
   call void @llvm.assume(i1 %130)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %129, ptr nonnull align 1 %127, i64 %124, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %129, ptr nonnull align 1 %127, i64 %124, i1 false), !noalias !81
   br label %122
 
 131:                                              ; preds = %.loopexit.split-lp.i

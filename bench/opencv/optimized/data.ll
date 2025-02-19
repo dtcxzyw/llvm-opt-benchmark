@@ -1753,9 +1753,7 @@ _ZN2cv3PtrINS_2ml13TrainDataImplEED2Ev.exit:      ; preds = %19, %34, %46, %_ZNS
   store ptr %55, ptr %0, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load ptr, ptr %17, align 8
-  store ptr null, ptr %17, align 8
   store ptr %57, ptr %56, align 8
-  store ptr null, ptr %10, align 8
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %59 = load i32, ptr %58, align 8
   %.not.i = icmp eq i32 %59, 0
@@ -3612,9 +3610,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv2ml13TrainDataImplESaI
 _ZN2cv3PtrINS_2ml13TrainDataImplEED2Ev.exit:      ; preds = %19
   store ptr %14, ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %17, align 8
   store ptr %11, ptr %20, align 8
-  store ptr null, ptr %10, align 8
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %22 = load i32, ptr %21, align 8
   %.not.i = icmp eq i32 %22, 0

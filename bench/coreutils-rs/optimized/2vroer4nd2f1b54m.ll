@@ -8733,7 +8733,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           cleanup
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @_ZN3std9panicking3try8do_catch17hc16e3d4617d1b0afE.llvm.12150801376095413471(ptr nonnull %2, ptr %30)
+  call void @_ZN3std9panicking3try8do_catch17hc16e3d4617d1b0afE.llvm.12150801376095413471(ptr nonnull %2, ptr %30), !noalias !1403
   br label %31
 
 31:                                               ; preds = %28, %27
@@ -8929,7 +8929,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           cleanup
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @_ZN3std9panicking3try8do_catch17ha80c71698200096fE.llvm.12150801376095413471(ptr nonnull %2, ptr %30)
+  call void @_ZN3std9panicking3try8do_catch17ha80c71698200096fE.llvm.12150801376095413471(ptr nonnull %2, ptr %30), !noalias !1440
   br label %31
 
 31:                                               ; preds = %28, %27
@@ -9125,7 +9125,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           cleanup
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @_ZN3std9panicking3try8do_catch17h8fb0ee86f37fb419E.llvm.12150801376095413471(ptr nonnull %2, ptr %30)
+  call void @_ZN3std9panicking3try8do_catch17h8fb0ee86f37fb419E.llvm.12150801376095413471(ptr nonnull %2, ptr %30), !noalias !1476
   %31 = load ptr, ptr %2, align 8, !noalias !1473, !nonnull !4, !align !18
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %33 = load ptr, ptr %32, align 8, !noalias !1473, !nonnull !4, !align !19
@@ -9365,7 +9365,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           cleanup
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @_ZN3std9panicking3try8do_catch17h915028466316f91cE.llvm.12150801376095413471(ptr nonnull %2, ptr %30)
+  call void @_ZN3std9panicking3try8do_catch17h915028466316f91cE.llvm.12150801376095413471(ptr nonnull %2, ptr %30), !noalias !1518
   br label %31
 
 31:                                               ; preds = %28, %27
@@ -9561,7 +9561,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           cleanup
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @_ZN3std9panicking3try8do_catch17hd38f4e5238e1d8f6E.llvm.12150801376095413471(ptr nonnull %2, ptr %30)
+  call void @_ZN3std9panicking3try8do_catch17hd38f4e5238e1d8f6E.llvm.12150801376095413471(ptr nonnull %2, ptr %30), !noalias !1555
   br label %31
 
 31:                                               ; preds = %28, %27
@@ -9757,7 +9757,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           cleanup
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @_ZN3std9panicking3try8do_catch17hdbbac7573a279c22E.llvm.12150801376095413471(ptr nonnull %2, ptr %30)
+  call void @_ZN3std9panicking3try8do_catch17hdbbac7573a279c22E.llvm.12150801376095413471(ptr nonnull %2, ptr %30), !noalias !1592
   br label %31
 
 31:                                               ; preds = %28, %27
@@ -9953,7 +9953,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           cleanup
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @_ZN3std9panicking3try8do_catch17hac944cf934c20f28E.llvm.12150801376095413471(ptr nonnull %2, ptr %30)
+  call void @_ZN3std9panicking3try8do_catch17hac944cf934c20f28E.llvm.12150801376095413471(ptr nonnull %2, ptr %30), !noalias !1629
   br label %31
 
 31:                                               ; preds = %28, %27
@@ -10149,7 +10149,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           cleanup
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @_ZN3std9panicking3try8do_catch17h50ec7dcc4ba11b4bE.llvm.12150801376095413471(ptr nonnull %2, ptr %30)
+  call void @_ZN3std9panicking3try8do_catch17h50ec7dcc4ba11b4bE.llvm.12150801376095413471(ptr nonnull %2, ptr %30), !noalias !1666
   br label %31
 
 31:                                               ; preds = %28, %27
@@ -10345,7 +10345,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           cleanup
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @_ZN3std9panicking3try8do_catch17h2ca3e8c20e377ccfE.llvm.12150801376095413471(ptr nonnull %2, ptr %30)
+  call void @_ZN3std9panicking3try8do_catch17h2ca3e8c20e377ccfE.llvm.12150801376095413471(ptr nonnull %2, ptr %30), !noalias !1702
   %31 = load ptr, ptr %2, align 8, !noalias !1699, !nonnull !4, !align !18
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %33 = load ptr, ptr %32, align 8, !noalias !1699, !nonnull !4, !align !19
@@ -10585,7 +10585,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           cleanup
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @_ZN3std9panicking3try8do_catch17h06eff59ae1a6d2e3E.llvm.12150801376095413471(ptr nonnull %2, ptr %30)
+  call void @_ZN3std9panicking3try8do_catch17h06eff59ae1a6d2e3E.llvm.12150801376095413471(ptr nonnull %2, ptr %30), !noalias !1742
   br label %31
 
 31:                                               ; preds = %28, %27
@@ -10781,7 +10781,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           cleanup
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @_ZN3std9panicking3try8do_catch17h6a625c6cd0ec0805E.llvm.12150801376095413471(ptr nonnull %2, ptr %30)
+  call void @_ZN3std9panicking3try8do_catch17h6a625c6cd0ec0805E.llvm.12150801376095413471(ptr nonnull %2, ptr %30), !noalias !1779
   br label %31
 
 31:                                               ; preds = %28, %27
@@ -10977,7 +10977,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           cleanup
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @_ZN3std9panicking3try8do_catch17h70587f1af8114fd5E.llvm.12150801376095413471(ptr nonnull %2, ptr %30)
+  call void @_ZN3std9panicking3try8do_catch17h70587f1af8114fd5E.llvm.12150801376095413471(ptr nonnull %2, ptr %30), !noalias !1816
   br label %31
 
 31:                                               ; preds = %28, %27
@@ -11173,7 +11173,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           cleanup
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @_ZN3std9panicking3try8do_catch17hd59cd20a83f35a6aE.llvm.12150801376095413471(ptr nonnull %2, ptr %30)
+  call void @_ZN3std9panicking3try8do_catch17hd59cd20a83f35a6aE.llvm.12150801376095413471(ptr nonnull %2, ptr %30), !noalias !1853
   br label %31
 
 31:                                               ; preds = %28, %27
@@ -11369,7 +11369,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           cleanup
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @_ZN3std9panicking3try8do_catch17hc67834dab3dc2a48E.llvm.12150801376095413471(ptr nonnull %2, ptr %30)
+  call void @_ZN3std9panicking3try8do_catch17hc67834dab3dc2a48E.llvm.12150801376095413471(ptr nonnull %2, ptr %30), !noalias !1890
   br label %31
 
 31:                                               ; preds = %28, %27
@@ -11565,7 +11565,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           cleanup
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @_ZN3std9panicking3try8do_catch17h47e7654eb1a6ee8bE.llvm.12150801376095413471(ptr nonnull %2, ptr %30)
+  call void @_ZN3std9panicking3try8do_catch17h47e7654eb1a6ee8bE.llvm.12150801376095413471(ptr nonnull %2, ptr %30), !noalias !1927
   br label %31
 
 31:                                               ; preds = %28, %27

@@ -197,7 +197,7 @@ define internal void @_ZN3std3sys6common12thread_local10fast_local13destroy_valu
           filter [0 x ptr] zeroinitializer
   %20 = extractvalue { ptr, i32 } %19, 0
   %21 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %20)
-          to label %25 unwind label %22
+          to label %25 unwind label %22, !noalias !30
 
 22:                                               ; preds = %18
   %23 = landingpad { ptr, i32 }

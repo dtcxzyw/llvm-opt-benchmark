@@ -179666,7 +179666,7 @@ terminate.lpad.i.i.i.i4:                          ; preds = %if.end.i.i.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #29
+  call void @__clang_call_terminate(ptr %9) #29, !noalias !1362
   unreachable
 
 _ZNKSt3any4typeEv.exit.i.i.i:                     ; preds = %invoke.cont.i.i.i.i, %lor.lhs.false.i.i.i
@@ -180065,7 +180065,7 @@ terminate.lpad.i.i.i.i7:                          ; preds = %if.end.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #29
+  call void @__clang_call_terminate(ptr %8) #29, !noalias !1365
   unreachable
 
 _ZNKSt3any4typeEv.exit.i.i.i:                     ; preds = %invoke.cont.i.i.i.i, %lor.lhs.false.i.i.i
@@ -189936,7 +189936,7 @@ terminate.lpad.i.i.i.i57:                         ; preds = %if.end.i.i.i.i56
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #29
+  call void @__clang_call_terminate(ptr %35) #29, !noalias !1493
   unreachable
 
 _ZNKSt3any4typeEv.exit.i.i.i59:                   ; preds = %invoke.cont.i.i.i.i58, %lor.lhs.false.i.i.i54
@@ -190461,7 +190461,7 @@ terminate.lpad.i.i.i.i7:                          ; preds = %if.end.i.i.i.i
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #29
+  call void @__clang_call_terminate(ptr %11) #29, !noalias !1496
   unreachable
 
 _ZNKSt3any4typeEv.exit.i.i.i:                     ; preds = %invoke.cont.i.i.i.i, %lor.lhs.false.i.i.i
@@ -190651,7 +190651,7 @@ terminate.lpad.i.i.i.i6:                          ; preds = %if.end.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #29
+  call void @__clang_call_terminate(ptr %8) #29, !noalias !1499
   unreachable
 
 _ZNKSt3any4typeEv.exit.i.i.i:                     ; preds = %invoke.cont.i.i.i.i, %lor.lhs.false.i.i.i
@@ -190920,7 +190920,7 @@ terminate.lpad.i.i.i.i7:                          ; preds = %if.end.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #29
+  call void @__clang_call_terminate(ptr %8) #29, !noalias !1502
   unreachable
 
 _ZNKSt3any4typeEv.exit.i.i.i:                     ; preds = %invoke.cont.i.i.i.i, %lor.lhs.false.i.i.i

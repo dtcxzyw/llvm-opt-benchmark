@@ -4570,9 +4570,6 @@ delete.notnull.i.i.i:                             ; preds = %if.then3.i.i.i
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i51
   %92 = landingpad { ptr, i32 }
           catch ptr null
-  store i64 %84, ptr %start_updated_offset, align 8
-  store i64 %add57, ptr %end_updated_offset, align 8
-  store i8 %83, ptr %found_first_miss_block, align 1
   %93 = extractvalue { ptr, i32 } %92, 0
   call void @__clang_call_terminate(ptr %93) #20
   unreachable

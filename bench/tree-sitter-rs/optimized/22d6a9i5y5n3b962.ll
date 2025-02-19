@@ -158,6 +158,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h1882ba32989b4523E(ptr noal
   %.0152 = phi i64 [ 0, %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$3new17h0ad6861de3a0d886E.exit" ], [ %.0.i, %._crit_edge ]
   %44 = sub nuw i64 %1, %.0152
   %45 = getelementptr inbounds { { { { { i64, ptr }, i64 } } } }, ptr %0, i64 %.0152
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   %46 = icmp samesign ult i64 %44, 2
   br i1 %46, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h7024cc3192527c73E.exit", label %47
 
@@ -192,7 +193,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h1882ba32989b4523E(ptr noal
   %.sroa.316.0.i.i.i = select i1 %56, i64 0, i64 %.fca.1.extract3.i.i.i
   %57 = sub i64 %.sroa.3.0.i.i.i, %.sroa.316.0.i.i.i
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.3.0.i.i.i, i64 %.sroa.316.0.i.i.i)
-  %58 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.sroa.010.0.i.i.i, ptr nonnull readonly align 1 %.sroa.015.0.i.i.i, i64 %..i.i.i.i), !alias.scope !25
+  %58 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.sroa.010.0.i.i.i, ptr nonnull readonly align 1 %.sroa.015.0.i.i.i, i64 %..i.i.i.i), !alias.scope !25, !noalias !22
   %59 = sext i32 %58 to i64
   %60 = icmp eq i32 %58, 0
   %spec.store.select.i.i.i.i = select i1 %60, i64 %57, i64 %59
@@ -243,7 +244,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h1882ba32989b4523E(ptr noal
   %.sroa.316.0.i.i46.i = select i1 %70, i64 0, i64 %.fca.1.extract3.i.i44.i
   %71 = sub i64 %.sroa.3.0.i.i42.i, %.sroa.316.0.i.i46.i
   %..i.i.i47.i = tail call i64 @llvm.umin.i64(i64 %.sroa.3.0.i.i42.i, i64 %.sroa.316.0.i.i46.i)
-  %72 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.sroa.010.0.i.i41.i, ptr nonnull readonly align 1 %.sroa.015.0.i.i45.i, i64 %..i.i.i47.i), !alias.scope !29
+  %72 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.sroa.010.0.i.i41.i, ptr nonnull readonly align 1 %.sroa.015.0.i.i45.i, i64 %..i.i.i47.i), !alias.scope !29, !noalias !22
   %73 = sext i32 %72 to i64
   %74 = icmp eq i32 %72, 0
   %spec.store.select.i.i.i48.i = select i1 %74, i64 %71, i64 %73
@@ -284,7 +285,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h1882ba32989b4523E(ptr noal
   %.sroa.316.0.i.i56.i = select i1 %84, i64 0, i64 %.fca.1.extract3.i.i54.i
   %85 = sub i64 %.sroa.3.0.i.i52.i, %.sroa.316.0.i.i56.i
   %..i.i.i57.i = tail call i64 @llvm.umin.i64(i64 %.sroa.3.0.i.i52.i, i64 %.sroa.316.0.i.i56.i)
-  %86 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.sroa.010.0.i.i51.i, ptr nonnull readonly align 1 %.sroa.015.0.i.i55.i, i64 %..i.i.i57.i), !alias.scope !33
+  %86 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.sroa.010.0.i.i51.i, ptr nonnull readonly align 1 %.sroa.015.0.i.i55.i, i64 %..i.i.i57.i), !alias.scope !33, !noalias !22
   %87 = sext i32 %86 to i64
   %88 = icmp eq i32 %86, 0
   %spec.store.select.i.i.i58.i = select i1 %88, i64 %85, i64 %87
@@ -13957,7 +13958,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17haa
   %.sroa.316.0.i.i.i = select i1 %17, i64 0, i64 %.fca.1.extract3.i.i.i
   %18 = sub i64 %.sroa.3.0.i.i.i, %.sroa.316.0.i.i.i
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.3.0.i.i.i, i64 %.sroa.316.0.i.i.i)
-  %19 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.sroa.010.0.i.i.i, ptr nonnull readonly align 1 %.sroa.015.0.i.i.i, i64 %..i.i.i.i), !alias.scope !2838
+  %19 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.sroa.010.0.i.i.i, ptr nonnull readonly align 1 %.sroa.015.0.i.i.i, i64 %..i.i.i.i), !alias.scope !2838, !noalias !2835
   %20 = sext i32 %19 to i64
   %21 = icmp eq i32 %19, 0
   %spec.store.select.i.i.i.i = select i1 %21, i64 %18, i64 %20
@@ -14012,7 +14013,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17haa
   %.sroa.316.0.i.i29.i = select i1 %35, i64 0, i64 %.fca.1.extract3.i.i27.i
   %36 = sub i64 %.sroa.3.0.i.i25.i, %.sroa.316.0.i.i29.i
   %..i.i.i30.i = tail call i64 @llvm.umin.i64(i64 %.sroa.3.0.i.i25.i, i64 %.sroa.316.0.i.i29.i)
-  %37 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.sroa.010.0.i.i24.i, ptr nonnull readonly align 1 %.sroa.015.0.i.i28.i, i64 %..i.i.i30.i), !alias.scope !2842
+  %37 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.sroa.010.0.i.i24.i, ptr nonnull readonly align 1 %.sroa.015.0.i.i28.i, i64 %..i.i.i30.i), !alias.scope !2842, !noalias !2835
   %38 = sext i32 %37 to i64
   %39 = icmp eq i32 %37, 0
   %spec.store.select.i.i.i31.i = select i1 %39, i64 %36, i64 %38
@@ -36673,7 +36674,7 @@ define internal fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$
   %19 = call { ptr, i64 } @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4208779dc7815555E.llvm.17454970623020605724"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.983fb0243dbc2737139f3fea59bedfec.92.llvm.17454970623020605724), !noalias !8029
   %20 = extractvalue { ptr, i64 } %19, 0
   %21 = extractvalue { ptr, i64 } %19, 1
-  %22 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h29fd7b80f53a61bfE"(ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %18, ptr noalias noundef nonnull readonly align 1 %20, i64 noundef %21)
+  %22 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h29fd7b80f53a61bfE"(ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %18, ptr noalias noundef nonnull readonly align 1 %20, i64 noundef %21), !noalias !8029
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %24 = load i8, ptr %23, align 8, !range !221, !alias.scope !8030, !noalias !8024
   %.not.i.i.i.i.i = icmp eq i8 %24, %12
@@ -36712,7 +36713,7 @@ define internal fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$
   %40 = call { ptr, i64 } @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4208779dc7815555E.llvm.17454970623020605724"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.983fb0243dbc2737139f3fea59bedfec.92.llvm.17454970623020605724), !noalias !8048
   %41 = extractvalue { ptr, i64 } %40, 0
   %42 = extractvalue { ptr, i64 } %40, 1
-  %43 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h29fd7b80f53a61bfE"(ptr noalias noundef nonnull readonly align 1 %38, i64 noundef %39, ptr noalias noundef nonnull readonly align 1 %41, i64 noundef %42)
+  %43 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h29fd7b80f53a61bfE"(ptr noalias noundef nonnull readonly align 1 %38, i64 noundef %39, ptr noalias noundef nonnull readonly align 1 %41, i64 noundef %42), !noalias !8048
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %45 = load i8, ptr %44, align 8, !range !221, !alias.scope !8049, !noalias !8043
   %.not.i.i.i.i8.i = icmp eq i8 %45, %33

@@ -7443,7 +7443,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime9scheduler6Handle5spawn17h7e
 
 17:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h03c922a38122f5e7E.llvm.3320867604257097217.exit.i"
   invoke void @"_ZN5tokio7runtime9scheduler14current_thread134_$LT$impl$u20$tokio..runtime..task..Schedule$u20$for$u20$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$8schedule17h64d080971ee15367E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noundef nonnull %16)
-          to label %_ZN5tokio7runtime9scheduler14current_thread6Handle5spawn17hcb03f38d77fe2697E.exit unwind label %18
+          to label %_ZN5tokio7runtime9scheduler14current_thread6Handle5spawn17hcb03f38d77fe2697E.exit unwind label %18, !noalias !1685
 
 common.resume:                                    ; preds = %.noexc9.i2, %40, %.noexc9.i, %22
   %common.resume.op = phi { ptr, i32 } [ %19, %22 ], [ %19, %.noexc9.i ], [ %37, %40 ], [ %37, %.noexc9.i2 ]
@@ -7455,14 +7455,14 @@ common.resume:                                    ; preds = %.noexc9.i2, %40, %.
   %20 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %20)
   %21 = invoke noundef zeroext i1 @_ZN5tokio7runtime4task5state5State21drop_join_handle_fast17h0334ce97825fa31dE(ptr noundef nonnull align 8 %15)
-          to label %.noexc9.i unwind label %23
+          to label %.noexc9.i unwind label %23, !noalias !1685
 
 .noexc9.i:                                        ; preds = %18
   br i1 %21, label %22, label %common.resume
 
 22:                                               ; preds = %.noexc9.i
   invoke void @_ZN5tokio7runtime4task3raw7RawTask21drop_join_handle_slow17hc2f3616e52041719E(ptr noundef nonnull %15)
-          to label %common.resume unwind label %23
+          to label %common.resume unwind label %23, !noalias !1685
 
 23:                                               ; preds = %22, %18
   %24 = landingpad { ptr, i32 }
@@ -7495,7 +7495,7 @@ common.resume:                                    ; preds = %.noexc9.i2, %40, %.
 
 35:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9c0805615a465fc2E.llvm.3320867604257097217.exit.i"
   invoke void @"_ZN5tokio7runtime9scheduler12multi_thread6worker73_$LT$impl$u20$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$13schedule_task17h569463f98ed647baE"(ptr noundef nonnull align 8 %27, ptr noundef nonnull %34, i1 noundef zeroext false)
-          to label %_ZN5tokio7runtime9scheduler14current_thread6Handle5spawn17hcb03f38d77fe2697E.exit unwind label %36
+          to label %_ZN5tokio7runtime9scheduler14current_thread6Handle5spawn17hcb03f38d77fe2697E.exit unwind label %36, !noalias !1696
 
 36:                                               ; preds = %35
   %37 = landingpad { ptr, i32 }
@@ -7503,14 +7503,14 @@ common.resume:                                    ; preds = %.noexc9.i2, %40, %.
   %38 = icmp ne ptr %33, null
   tail call void @llvm.assume(i1 %38)
   %39 = invoke noundef zeroext i1 @_ZN5tokio7runtime4task5state5State21drop_join_handle_fast17h0334ce97825fa31dE(ptr noundef nonnull align 8 %33)
-          to label %.noexc9.i2 unwind label %41
+          to label %.noexc9.i2 unwind label %41, !noalias !1696
 
 .noexc9.i2:                                       ; preds = %36
   br i1 %39, label %40, label %common.resume
 
 40:                                               ; preds = %.noexc9.i2
   invoke void @_ZN5tokio7runtime4task3raw7RawTask21drop_join_handle_slow17hc2f3616e52041719E(ptr noundef nonnull %33)
-          to label %common.resume unwind label %41
+          to label %common.resume unwind label %41, !noalias !1696
 
 41:                                               ; preds = %40, %36
   %42 = landingpad { ptr, i32 }

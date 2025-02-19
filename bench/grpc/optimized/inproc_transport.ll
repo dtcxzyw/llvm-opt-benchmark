@@ -531,7 +531,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i13.i
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #27
+  call void @__clang_call_terminate(ptr %38) #27, !noalias !4
   unreachable
 
 lpad3.i:                                          ; preds = %invoke.cont.i14
@@ -621,7 +621,7 @@ terminate.lpad.i32.i:                             ; preds = %if.then.i.i31.i
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #27
+  call void @__clang_call_terminate(ptr %51) #27, !noalias !4
   unreachable
 
 lpad32.i:                                         ; preds = %invoke.cont30.i
@@ -674,7 +674,7 @@ terminate.lpad.i6.i.i.i:                          ; preds = %if.then.i.i5.i.i.i
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #27
+  call void @__clang_call_terminate(ptr %61) #27, !noalias !4
   unreachable
 
 ehcleanup50.i:                                    ; preds = %invoke.cont43.i
@@ -699,7 +699,7 @@ terminate.lpad.i39.i:                             ; preds = %if.then.i.i38.i
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #27
+  call void @__clang_call_terminate(ptr %65) #27, !noalias !4
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit40.i:       ; preds = %if.then.i.i38.i, %cleanup51.i
@@ -716,7 +716,7 @@ terminate.lpad.i43.i:                             ; preds = %if.then.i42.i
   %67 = landingpad { ptr, i32 }
           catch ptr null
   %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #27
+  call void @__clang_call_terminate(ptr %68) #27, !noalias !4
   unreachable
 
 _ZNSt10unique_ptrIN9grpc_core9TransportENS0_16OrphanableDeleteEED2Ev.exit.i: ; preds = %if.then.i42.i, %_ZN4absl12lts_202308026StatusD2Ev.exit40.i
@@ -752,7 +752,7 @@ terminate.lpad.i49.i:                             ; preds = %if.then.i47.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #27
+  call void @__clang_call_terminate(ptr %73) #27, !noalias !4
   unreachable
 
 ehcleanup56.i:                                    ; preds = %if.then.i47.i, %ehcleanup54.thread61.i

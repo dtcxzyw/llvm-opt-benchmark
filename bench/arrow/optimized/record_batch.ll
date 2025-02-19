@@ -10761,7 +10761,6 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
   call void @llvm.experimental.noalias.scope.decl(metadata !336)
   %47 = load ptr, ptr %9, align 8, !tbaa !85, !noalias !336
   store ptr %47, ptr %8, align 8, !tbaa !85, !alias.scope !336
-  store ptr null, ptr %9, align 8, !tbaa !85, !noalias !336
   %48 = load ptr, ptr %45, align 8, !tbaa !335
   %.not.i91 = icmp eq ptr %48, null
   br i1 %.not.i91, label %_ZNSt14_Function_baseD2Ev.exit, label %49
@@ -12621,7 +12620,6 @@ _ZN5arrow6StatusD2Ev.exit244:                     ; preds = %767
   call void @llvm.experimental.noalias.scope.decl(metadata !419)
   %769 = load ptr, ptr %43, align 8, !tbaa !85, !noalias !419
   store ptr %769, ptr %42, align 8, !tbaa !85, !alias.scope !419
-  store ptr null, ptr %43, align 8, !tbaa !85, !noalias !419
   %770 = load ptr, ptr %765, align 8, !tbaa !335
   %.not.i245 = icmp eq ptr %770, null
   br i1 %.not.i245, label %_ZNSt14_Function_baseD2Ev.exit246, label %771

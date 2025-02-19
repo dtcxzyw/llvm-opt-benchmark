@@ -1707,7 +1707,7 @@ define void @_ZN18TapParameterDialog34on_actionCopyToClipboard_triggeredEv(ptr n
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #34
+  call void @__clang_call_terminate(ptr %12) #34, !noalias !18
   unreachable
 
 _ZN7QStringD2Ev.exit.i:                           ; preds = %1

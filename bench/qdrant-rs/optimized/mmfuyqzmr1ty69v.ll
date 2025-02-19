@@ -1338,19 +1338,16 @@ define void @_ZN6sparse5index14search_context13SearchContext12plain_search17h411
 
 24:                                               ; preds = %4
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %5)
-  %.sroa.046.0.copyload = load i64, ptr %15, align 8
-  %.sroa.447.0.copyload = load ptr, ptr %.sroa.411.0..sroa_idx, align 8, !nonnull !5, !noundef !5
-  %.sroa.548.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
-  %25 = getelementptr inbounds i32, ptr %.sroa.447.0.copyload, i64 %.sroa.548.0.copyload
+  %25 = getelementptr inbounds i32, ptr %18, i64 %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
-  store ptr %.sroa.447.0.copyload, ptr %14, align 8
+  store ptr %18, ptr %14, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %.sroa.447.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %18, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i64 %.sroa.046.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %17, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %25, ptr %.sroa.6.0..sroa_idx45, align 8
-  %26 = icmp eq i64 %.sroa.548.0.copyload, 0
+  %26 = icmp eq i64 %3, 0
   br i1 %26, label %.thread67, label %.lr.ph92
 
 .lr.ph92:                                         ; preds = %24
@@ -1422,7 +1419,7 @@ define void @_ZN6sparse5index14search_context13SearchContext12plain_search17h411
   br label %123
 
 53:                                               ; preds = %.lr.ph92, %87
-  %54 = phi ptr [ %.sroa.447.0.copyload, %.lr.ph92 ], [ %89, %87 ]
+  %54 = phi ptr [ %18, %.lr.ph92 ], [ %89, %87 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !139)
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store ptr %55, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !139

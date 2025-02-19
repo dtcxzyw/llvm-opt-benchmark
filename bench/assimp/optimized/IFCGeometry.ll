@@ -8557,7 +8557,6 @@ _ZN6Assimp12LogFunctionsINS_11IFCImporterEE15LogVerboseDebugIJRA63_KcEEEvDpOT_.e
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1026, i8 0, i64 48, i1 false)
   store ptr %1026, ptr %26, align 8
   %1028 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr null, ptr %1028, align 8
   %1029 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
           to label %1040 unwind label %1030
 
@@ -8608,7 +8607,6 @@ _ZN6Assimp12LogFunctionsINS_11IFCImporterEE15LogVerboseDebugIJRA63_KcEEEvDpOT_.e
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1045, i8 0, i64 48, i1 false)
   store ptr %1045, ptr %27, align 8
   %1047 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store ptr null, ptr %1047, align 8
   %1048 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
           to label %1059 unwind label %1049
 

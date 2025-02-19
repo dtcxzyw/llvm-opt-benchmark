@@ -21,7 +21,7 @@ define hidden noalias noundef nonnull align 8 ptr @"_ZN131_$LT$std..io..error..E
   %7 = extractvalue { i64, ptr } %4, 1
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %7, ptr noundef nonnull align 1 dereferenceable(15) @anon.d3b9d48c319f501348139d7fb5e04d7d.2.llvm.420069971368793054, i64 15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %7, ptr noundef nonnull align 1 dereferenceable(15) @anon.d3b9d48c319f501348139d7fb5e04d7d.2.llvm.420069971368793054, i64 15, i1 false), !noalias !4
   store i64 %6, ptr %2, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %7, ptr %.sroa.42.0..sroa_idx, align 8
@@ -29,8 +29,8 @@ define hidden noalias noundef nonnull align 8 ptr @"_ZN131_$LT$std..io..error..E
   store i64 15, ptr %.sroa.53.0..sroa_idx, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %0, ptr %9, align 8
-  %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !4
-  %11 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #11, !noalias !4
+  %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !7
+  %11 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #11, !noalias !7
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %18
 
@@ -77,7 +77,7 @@ define hidden noalias noundef nonnull align 8 ptr @"_ZN131_$LT$std..io..error..E
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h19196a87d470d215E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !7, !align !8, !noundef !7
+  %3 = load ptr, ptr %0, align 8, !nonnull !10, !align !11, !noundef !10
   %4 = tail call noundef zeroext i1 @"_ZN58_$LT$std..io..error..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h22f0bf05415010c5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   ret i1 %4
 }
@@ -263,7 +263,10 @@ attributes #14 = { cold noreturn nounwind }
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h53bd1b6a41dc940cE.llvm.420069971368793054: argument 0"}
-!6 = distinct !{!6, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h53bd1b6a41dc940cE.llvm.420069971368793054"}
-!7 = !{}
-!8 = !{i64 8}
+!5 = distinct !{!5, !6, !"_ZN7uu_date19set_system_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h5841ea1846c60023E.llvm.420069971368793054: argument 0"}
+!6 = distinct !{!6, !"_ZN7uu_date19set_system_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h5841ea1846c60023E.llvm.420069971368793054"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h53bd1b6a41dc940cE.llvm.420069971368793054: argument 0"}
+!9 = distinct !{!9, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h53bd1b6a41dc940cE.llvm.420069971368793054"}
+!10 = !{}
+!11 = !{i64 8}

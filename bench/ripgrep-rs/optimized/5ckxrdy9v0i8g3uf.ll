@@ -88,7 +88,7 @@ define internal fastcc void @"_ZN4core4cell4once17OnceCell$LT$T$GT$15get_or_try_
   %.merged.i.i.i.i.i.i = phi { ptr, i64 } [ %12, %6 ], [ %14, %13 ]
   %15 = extractvalue { ptr, i64 } %.merged.i.i.i.i.i.i, 0
   %16 = extractvalue { ptr, i64 } %.merged.i.i.i.i.i.i, 1
-  call void @_ZN12grep_printer9hyperlink13HyperlinkPath9from_path17h383c3882e62f3f64E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %16)
+  call void @_ZN12grep_printer9hyperlink13HyperlinkPath9from_path17h383c3882e62f3f64E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %16), !noalias !20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !20
   ret void

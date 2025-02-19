@@ -1628,7 +1628,7 @@ _ZSt8_DestroyIPN8WasmEdge3AST10ExpressionES2_EvT_S4_RSaIT0_E.exit.i.i.i: ; preds
   %247 = landingpad { ptr, i32 }
           catch ptr null
   %248 = extractvalue { ptr, i32 } %247, 0
-  call void @__clang_call_terminate(ptr %248) #20
+  call void @__clang_call_terminate(ptr %248) #20, !noalias !36
   unreachable
 
 _ZNSt6vectorIN8WasmEdge3AST10ExpressionESaIS2_EE6resizeEm.exit.i: ; preds = %_ZSt8_DestroyIPN8WasmEdge3AST10ExpressionES2_EvT_S4_RSaIT0_E.exit.i.i.i, %243, %241, %239

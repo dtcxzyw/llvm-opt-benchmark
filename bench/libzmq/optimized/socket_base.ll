@@ -5850,11 +5850,9 @@ if.then83:                                        ; preds = %invoke.cont79
 cleanup:                                          ; preds = %invoke.cont79, %if.then83, %if.then52
   %retval.3 = phi i32 [ -1, %if.then52 ], [ 0, %if.then83 ], [ 0, %invoke.cont79 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %resolved_endpoint_uri) #32
-  %.pre.pre.pre = load ptr, ptr %sync_lock, align 8
   br label %cleanup85
 
 cleanup85:                                        ; preds = %invoke.cont25, %cond.false29, %cleanup
-  %.pre.pre = phi ptr [ %.pre.pre.pre, %cleanup ], [ %cond, %invoke.cont25 ], [ %cond, %cond.false29 ]
   %retval.2 = phi i32 [ %retval.3, %cleanup ], [ 0, %invoke.cont25 ], [ %call31, %cond.false29 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %endpoint_uri_str) #32
   br label %cleanup86
@@ -5865,7 +5863,6 @@ ehcleanup:                                        ; preds = %lpad40, %cleanup.ac
   br label %ehcleanup87
 
 cleanup86:                                        ; preds = %invoke.cont11, %lor.lhs.false, %cleanup85
-  %.pre = phi ptr [ %.pre.pre, %cleanup85 ], [ %cond, %lor.lhs.false ], [ %cond, %invoke.cont11 ]
   %retval.1 = phi i32 [ %retval.2, %cleanup85 ], [ -1, %lor.lhs.false ], [ -1, %invoke.cont11 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %uri_path) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %uri_protocol) #32
@@ -5878,30 +5875,28 @@ ehcleanup87:                                      ; preds = %ehcleanup, %lpad19,
   br label %ehcleanup91
 
 cleanup90:                                        ; preds = %invoke.cont, %cleanup86, %if.then4, %if.then
-  %15 = phi ptr [ %cond, %if.then ], [ %cond, %if.then4 ], [ %.pre, %cleanup86 ], [ %cond, %invoke.cont ]
   %retval.0 = phi i32 [ -1, %if.then ], [ -1, %if.then4 ], [ %retval.1, %cleanup86 ], [ -1, %invoke.cont ]
-  %cmp.not.i15 = icmp eq ptr %15, null
-  br i1 %cmp.not.i15, label %_ZN3zmq22scoped_optional_lock_tD2Ev.exit, label %if.then.i16
+  br i1 %tobool, label %if.then.i16, label %_ZN3zmq22scoped_optional_lock_tD2Ev.exit
 
 if.then.i16:                                      ; preds = %cleanup90
-  %call.i.i17 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %15) #32
+  %call.i.i17 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %_sync) #32
   %tobool.not.i.i18 = icmp eq i32 %call.i.i17, 0
   br i1 %tobool.not.i.i18, label %_ZN3zmq22scoped_optional_lock_tD2Ev.exit, label %if.then.i.i19
 
 if.then.i.i19:                                    ; preds = %if.then.i16
   %call2.i.i20 = call ptr @strerror(i32 noundef %call.i.i17) #32
+  %15 = load ptr, ptr @stderr, align 8
+  %call3.i.i21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.9, ptr noundef %call2.i.i20, ptr noundef nonnull @.str.23, i32 noundef 125) #37
   %16 = load ptr, ptr @stderr, align 8
-  %call3.i.i21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.9, ptr noundef %call2.i.i20, ptr noundef nonnull @.str.23, i32 noundef 125) #37
-  %17 = load ptr, ptr @stderr, align 8
-  %call4.i.i22 = call i32 @fflush(ptr noundef %17)
+  %call4.i.i22 = call i32 @fflush(ptr noundef %16)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call2.i.i20)
           to label %_ZN3zmq22scoped_optional_lock_tD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i19
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #38
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #38
   unreachable
 
 _ZN3zmq22scoped_optional_lock_tD2Ev.exit:         ; preds = %cleanup90, %if.then.i16, %if.then.i.i19

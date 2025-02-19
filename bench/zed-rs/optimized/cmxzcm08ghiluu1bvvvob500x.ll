@@ -7234,7 +7234,7 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
 .body36.i.i:                                      ; preds = %225, %185, %179, %169, %163, %159, %139
   %.pn.i.i = phi { ptr, i32 } [ %226, %225 ], [ %160, %159 ], [ %140, %139 ], [ %164, %169 ], [ %164, %163 ], [ %180, %185 ], [ %180, %179 ]
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17h2f8916ea46f2af62E"(ptr nonnull %134, ptr nonnull %135) #42
-          to label %.body43.i.i unwind label %234
+          to label %.body43.i.i unwind label %234, !noalias !1770
 
 139:                                              ; preds = %229, %224, %191, %175, %155, %151, %143, %137
   %140 = landingpad { ptr, i32 }
@@ -7252,16 +7252,16 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   %146 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %147 = load i32, ptr %146, align 4, !noalias !1785, !noundef !59
   %148 = getelementptr inbounds nuw i8, ptr %135, i64 392
-  %149 = load ptr, ptr %148, align 8, !invariant.load !59, !nonnull !59
+  %149 = load ptr, ptr %148, align 8, !invariant.load !59, !noalias !1770, !nonnull !59
   %150 = invoke noundef zeroext i1 %149(ptr noundef nonnull align 1 %134, ptr noundef nonnull readonly align 1 %76, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.c28f838e65d5125eabc60c9fde663a3d.43)
-          to label %154 unwind label %139
+          to label %154 unwind label %139, !noalias !1770
 
 151:                                              ; preds = %155, %154, %141
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !1785
   %152 = getelementptr inbounds nuw i8, ptr %135, i64 32
-  %153 = load ptr, ptr %152, align 8, !invariant.load !59, !nonnull !59
+  %153 = load ptr, ptr %152, align 8, !invariant.load !59, !noalias !1770, !nonnull !59
   invoke void %153(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %9, ptr noundef nonnull align 1 %134, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16)
-          to label %157 unwind label %139
+          to label %157 unwind label %139, !noalias !1770
 
 154:                                              ; preds = %143
   br i1 %150, label %155, label %151
@@ -7368,42 +7368,42 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   br label %194
 
 194:                                              ; preds = %233, %"_ZN4core3ptr46drop_in_place$LT$gpui..window..FocusHandle$GT$17h28b37c75955e70fdE.exit.i.i"
-  %195 = load ptr, ptr %135, align 8, !invariant.load !59
+  %195 = load ptr, ptr %135, align 8, !invariant.load !59, !noalias !1770
   %.not.i.i.i = icmp eq ptr %195, null
   br i1 %.not.i.i.i, label %197, label %196
 
 196:                                              ; preds = %194
   invoke void %195(ptr noundef nonnull align 1 %134)
-          to label %197 unwind label %205
+          to label %197 unwind label %205, !noalias !1770
 
 197:                                              ; preds = %196, %194
   %198 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  %199 = load i64, ptr %198, align 8, !range !403, !invariant.load !59
+  %199 = load i64, ptr %198, align 8, !range !403, !invariant.load !59, !noalias !1770
   %200 = getelementptr inbounds nuw i8, ptr %135, i64 16
-  %201 = load i64, ptr %200, align 8, !range !404, !invariant.load !59
+  %201 = load i64, ptr %200, align 8, !range !404, !invariant.load !59, !noalias !1770
   %202 = icmp ult i64 %201, -9223372036854775807
   call void @llvm.assume(i1 %202)
   %203 = icmp eq i64 %199, 0
   br i1 %203, label %237, label %204
 
 204:                                              ; preds = %197
-  call void @__rust_dealloc(ptr noundef nonnull %134, i64 noundef range(i64 1, -9223372036854775808) %199, i64 noundef range(i64 1, -9223372036854775807) %201) #43
+  call void @__rust_dealloc(ptr noundef nonnull %134, i64 noundef range(i64 1, -9223372036854775808) %199, i64 noundef range(i64 1, -9223372036854775807) %201) #43, !noalias !1770
   br label %237
 
 205:                                              ; preds = %196
   %206 = landingpad { ptr, i32 }
           cleanup
   %207 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  %208 = load i64, ptr %207, align 8, !range !403, !invariant.load !59
+  %208 = load i64, ptr %207, align 8, !range !403, !invariant.load !59, !noalias !1770
   %209 = getelementptr inbounds nuw i8, ptr %135, i64 16
-  %210 = load i64, ptr %209, align 8, !range !404, !invariant.load !59
+  %210 = load i64, ptr %209, align 8, !range !404, !invariant.load !59, !noalias !1770
   %211 = icmp ult i64 %210, -9223372036854775807
   call void @llvm.assume(i1 %211)
   %212 = icmp eq i64 %208, 0
   br i1 %212, label %.body43.i.i, label %213
 
 213:                                              ; preds = %205
-  call void @__rust_dealloc(ptr noundef nonnull %134, i64 noundef range(i64 1, -9223372036854775808) %208, i64 noundef range(i64 1, -9223372036854775807) %210) #43
+  call void @__rust_dealloc(ptr noundef nonnull %134, i64 noundef range(i64 1, -9223372036854775808) %208, i64 noundef range(i64 1, -9223372036854775807) %210) #43, !noalias !1770
   br label %.body43.i.i
 
 "_ZN4core3ptr46drop_in_place$LT$gpui..window..FocusHandle$GT$17h28b37c75955e70fdE.exit42.i.i": ; preds = %191, %186
@@ -7419,9 +7419,9 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   store i64 -1, ptr %216, align 8, !noalias !1770
   %220 = getelementptr inbounds nuw i8, ptr %215, i64 24
   %221 = getelementptr inbounds nuw i8, ptr %135, i64 384
-  %222 = load ptr, ptr %221, align 8, !invariant.load !59, !nonnull !59
+  %222 = load ptr, ptr %221, align 8, !invariant.load !59, !noalias !1770, !nonnull !59
   %223 = invoke noundef zeroext i1 %222(ptr noundef nonnull align 1 %134, ptr noundef nonnull readonly align 1 %76, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.c28f838e65d5125eabc60c9fde663a3d.43, ptr noalias noundef nonnull align 8 dereferenceable(240) %220, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16)
-          to label %229 unwind label %225
+          to label %229 unwind label %225, !noalias !1770
 
 224:                                              ; preds = %"_ZN4core3ptr46drop_in_place$LT$gpui..window..FocusHandle$GT$17h28b37c75955e70fdE.exit42.i.i"
   invoke void @_ZN4core4cell22panic_already_borrowed17h47d80d4a02d76176E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c28f838e65d5125eabc60c9fde663a3d.44) #40
@@ -7494,9 +7494,9 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
 
 251:                                              ; preds = %247
   %252 = getelementptr inbounds nuw i8, ptr %245, i64 368
-  %253 = load ptr, ptr %252, align 8, !invariant.load !59, !nonnull !59
+  %253 = load ptr, ptr %252, align 8, !invariant.load !59, !noalias !1770, !nonnull !59
   %254 = invoke noundef zeroext i1 %253(ptr noundef nonnull align 1 %244, ptr noundef nonnull readonly align 1 %76, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.c28f838e65d5125eabc60c9fde663a3d.43, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %249)
-          to label %255 unwind label %281
+          to label %255 unwind label %281, !noalias !1770
 
 255:                                              ; preds = %251
   br i1 %254, label %256, label %258
@@ -7504,45 +7504,45 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
 256:                                              ; preds = %255
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !1785
   %257 = invoke noundef ptr @_ZN9workspace9Workspace26enqueue_item_serialization17hcab9b549991fcaf3E(ptr noalias noundef nonnull align 8 dereferenceable(1576) %.sroa.45.0.copyload.i.i, ptr noundef nonnull align 1 %244, ptr noalias noundef nonnull readonly align 8 dereferenceable(376) %245)
-          to label %278 unwind label %250
+          to label %278 unwind label %250, !noalias !1770
 
 258:                                              ; preds = %255
-  %259 = load ptr, ptr %245, align 8, !invariant.load !59
+  %259 = load ptr, ptr %245, align 8, !invariant.load !59, !noalias !1770
   %.not.i52.i.i = icmp eq ptr %259, null
   br i1 %.not.i52.i.i, label %261, label %260
 
 260:                                              ; preds = %258
   invoke void %259(ptr noundef nonnull align 1 %244)
-          to label %261 unwind label %269
+          to label %261 unwind label %269, !noalias !1770
 
 261:                                              ; preds = %260, %258
   %262 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  %263 = load i64, ptr %262, align 8, !range !403, !invariant.load !59
+  %263 = load i64, ptr %262, align 8, !range !403, !invariant.load !59, !noalias !1770
   %264 = getelementptr inbounds nuw i8, ptr %245, i64 16
-  %265 = load i64, ptr %264, align 8, !range !404, !invariant.load !59
+  %265 = load i64, ptr %264, align 8, !range !404, !invariant.load !59, !noalias !1770
   %266 = icmp ult i64 %265, -9223372036854775807
   call void @llvm.assume(i1 %266)
   %267 = icmp eq i64 %263, 0
   br i1 %267, label %282, label %268
 
 268:                                              ; preds = %261
-  call void @__rust_dealloc(ptr noundef nonnull %244, i64 noundef range(i64 1, -9223372036854775808) %263, i64 noundef range(i64 1, -9223372036854775807) %265) #43
+  call void @__rust_dealloc(ptr noundef nonnull %244, i64 noundef range(i64 1, -9223372036854775808) %263, i64 noundef range(i64 1, -9223372036854775807) %265) #43, !noalias !1770
   br label %282
 
 269:                                              ; preds = %260
   %270 = landingpad { ptr, i32 }
           cleanup
   %271 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  %272 = load i64, ptr %271, align 8, !range !403, !invariant.load !59
+  %272 = load i64, ptr %271, align 8, !range !403, !invariant.load !59, !noalias !1770
   %273 = getelementptr inbounds nuw i8, ptr %245, i64 16
-  %274 = load i64, ptr %273, align 8, !range !404, !invariant.load !59
+  %274 = load i64, ptr %273, align 8, !range !404, !invariant.load !59, !noalias !1770
   %275 = icmp ult i64 %274, -9223372036854775807
   call void @llvm.assume(i1 %275)
   %276 = icmp eq i64 %272, 0
   br i1 %276, label %.body43.i.i, label %277
 
 277:                                              ; preds = %269
-  call void @__rust_dealloc(ptr noundef nonnull %244, i64 noundef range(i64 1, -9223372036854775808) %272, i64 noundef range(i64 1, -9223372036854775807) %274) #43
+  call void @__rust_dealloc(ptr noundef nonnull %244, i64 noundef range(i64 1, -9223372036854775808) %272, i64 noundef range(i64 1, -9223372036854775807) %274) #43, !noalias !1770
   br label %.body43.i.i
 
 278:                                              ; preds = %256
@@ -7562,7 +7562,7 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   %lpad.thr_comm.i.i = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..SerializableItemHandle$GT$$GT$17h9ff8106a5d935d97E"(ptr nonnull %244, ptr nonnull %245) #42
-          to label %.body43.i.i unwind label %234
+          to label %.body43.i.i unwind label %234, !noalias !1770
 
 282:                                              ; preds = %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17h3b4ee834440994e0E.llvm.12145702740127016891.exit.i.i", %268, %261, %243
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11)
@@ -7844,7 +7844,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h2434e8f259dcd205E.exit: ; preds = %"_
 79:                                               ; preds = %102, %80
   %.pn.i = phi { ptr, i32 } [ %81, %80 ], [ %103, %102 ]
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17h2f8916ea46f2af62E"(ptr nonnull %70, ptr nonnull %71) #42
-          to label %134 unwind label %128
+          to label %134 unwind label %128, !noalias !1912
 
 80:                                               ; preds = %101, %87, %82, %73
   %81 = landingpad { ptr, i32 }
@@ -7853,9 +7853,9 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h2434e8f259dcd205E.exit: ; preds = %"_
 
 82:                                               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %71, i64 352
-  %84 = load ptr, ptr %83, align 8, !invariant.load !59, !nonnull !59
+  %84 = load ptr, ptr %83, align 8, !invariant.load !59, !noalias !1911, !nonnull !59
   invoke void %84(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull align 1 %70, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %78, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
-          to label %85 unwind label %80
+          to label %85 unwind label %80, !noalias !1912
 
 85:                                               ; preds = %82
   %86 = load i64, ptr %6, align 8, !range !84, !noalias !1906, !noundef !59
@@ -7928,42 +7928,42 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h2434e8f259dcd205E.exit: ; preds = %"_
   %107 = load i64, ptr %92, align 8, !noalias !1920, !noundef !59
   %108 = add i64 %107, 1
   store i64 %108, ptr %92, align 8, !noalias !1920
-  %109 = load ptr, ptr %71, align 8, !invariant.load !59
+  %109 = load ptr, ptr %71, align 8, !invariant.load !59, !noalias !1912
   %.not.i.i = icmp eq ptr %109, null
   br i1 %.not.i.i, label %111, label %110
 
 110:                                              ; preds = %106
   invoke void %109(ptr noundef nonnull align 1 %70)
-          to label %111 unwind label %119
+          to label %111 unwind label %119, !noalias !1912
 
 111:                                              ; preds = %110, %106
   %112 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %113 = load i64, ptr %112, align 8, !range !403, !invariant.load !59
+  %113 = load i64, ptr %112, align 8, !range !403, !invariant.load !59, !noalias !1912
   %114 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %115 = load i64, ptr %114, align 8, !range !404, !invariant.load !59
+  %115 = load i64, ptr %114, align 8, !range !404, !invariant.load !59, !noalias !1912
   %116 = icmp ult i64 %115, -9223372036854775807
   call void @llvm.assume(i1 %116)
   %117 = icmp eq i64 %113, 0
   br i1 %117, label %131, label %118
 
 118:                                              ; preds = %111
-  call void @__rust_dealloc(ptr noundef nonnull %70, i64 noundef range(i64 1, -9223372036854775808) %113, i64 noundef range(i64 1, -9223372036854775807) %115) #43
+  call void @__rust_dealloc(ptr noundef nonnull %70, i64 noundef range(i64 1, -9223372036854775808) %113, i64 noundef range(i64 1, -9223372036854775807) %115) #43, !noalias !1912
   br label %131
 
 119:                                              ; preds = %110
   %120 = landingpad { ptr, i32 }
           cleanup
   %121 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %122 = load i64, ptr %121, align 8, !range !403, !invariant.load !59
+  %122 = load i64, ptr %121, align 8, !range !403, !invariant.load !59, !noalias !1912
   %123 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %124 = load i64, ptr %123, align 8, !range !404, !invariant.load !59
+  %124 = load i64, ptr %123, align 8, !range !404, !invariant.load !59, !noalias !1912
   %125 = icmp ult i64 %124, -9223372036854775807
   call void @llvm.assume(i1 %125)
   %126 = icmp eq i64 %122, 0
   br i1 %126, label %134, label %127
 
 127:                                              ; preds = %119
-  call void @__rust_dealloc(ptr noundef nonnull %70, i64 noundef range(i64 1, -9223372036854775808) %122, i64 noundef range(i64 1, -9223372036854775807) %124) #43
+  call void @__rust_dealloc(ptr noundef nonnull %70, i64 noundef range(i64 1, -9223372036854775808) %122, i64 noundef range(i64 1, -9223372036854775807) %124) #43, !noalias !1912
   br label %134
 
 128:                                              ; preds = %79

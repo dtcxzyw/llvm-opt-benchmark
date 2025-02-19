@@ -2250,10 +2250,9 @@ declare void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef n
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx15openLibraryFileERKNSt10filesystem7__cxx114pathEbb(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.10") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx15openLibraryFileERKNSt10filesystem7__cxx114pathEbb(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.10") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unique_ptr.10", align 8
   %6 = alloca %"class.gmx::DataFileOptions", align 8
-  store ptr null, ptr %0, align 8
   %7 = load ptr, ptr @_ZN3gmx12_GLOBAL__N_115g_libFileFinderE, align 8
   %.not.i = icmp eq ptr %7, null
   %_ZN3gmx12_GLOBAL__N_122g_defaultLibFileFinderE..i = select i1 %.not.i, ptr @_ZN3gmx12_GLOBAL__N_122g_defaultLibFileFinderE, ptr %7
@@ -2333,27 +2332,18 @@ _ZN3gmx15DataFileOptionsD2Ev.exit:                ; preds = %_ZNSt10unique_ptrI8
   %30 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %31 unwind label %34
+          to label %_ZNSt10unique_ptrI8_IO_FILEN3gmx15functor_wrapperIS0_XadL_ZNS1_14fclose_wrapperEPS0_EEEEED2Ev.exit15 unwind label %31
+
+_ZNSt10unique_ptrI8_IO_FILEN3gmx15functor_wrapperIS0_XadL_ZNS1_14fclose_wrapperEPS0_EEEEED2Ev.exit15: ; preds = %.body, %29
+  %.merged = phi { ptr, i32 } [ %30, %29 ], [ %.pn, %.body ]
+  store ptr null, ptr %0, align 8
+  resume { ptr, i32 } %.merged
 
 31:                                               ; preds = %29
-  %.pre = load ptr, ptr %0, align 8
-  %.not.i14 = icmp eq ptr %.pre, null
-  br i1 %.not.i14, label %_ZNSt10unique_ptrI8_IO_FILEN3gmx15functor_wrapperIS0_XadL_ZNS1_14fclose_wrapperEPS0_EEEEED2Ev.exit15, label %32
-
-32:                                               ; preds = %31
-  %33 = call i32 @fclose(ptr noundef nonnull %.pre)
-  br label %_ZNSt10unique_ptrI8_IO_FILEN3gmx15functor_wrapperIS0_XadL_ZNS1_14fclose_wrapperEPS0_EEEEED2Ev.exit15
-
-_ZNSt10unique_ptrI8_IO_FILEN3gmx15functor_wrapperIS0_XadL_ZNS1_14fclose_wrapperEPS0_EEEEED2Ev.exit15: ; preds = %.body, %31, %32
-  %.merged18 = phi { ptr, i32 } [ %30, %31 ], [ %30, %32 ], [ %.pn, %.body ]
-  store ptr null, ptr %0, align 8
-  resume { ptr, i32 } %.merged18
-
-34:                                               ; preds = %29
-  %35 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #28
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #28
   unreachable
 }
 

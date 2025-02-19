@@ -1856,7 +1856,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i70
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #21
+  call void @__clang_call_terminate(ptr %28) #21, !noalias !58
   unreachable
 
 _ZN6google8protobuf13json_internal9JsonLexer9BeginMarkEv.exit: ; preds = %if.then.i.i.i70
@@ -2159,7 +2159,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i148
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #21
+  call void @__clang_call_terminate(ptr %65) #21, !noalias !65
   unreachable
 
 invoke.cont101:                                   ; preds = %if.then.i.i148
@@ -4353,7 +4353,7 @@ terminate.lpad.i1.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #21
+  call void @__clang_call_terminate(ptr %13) #21, !noalias !103
   unreachable
 
 if.else.i.i.i.i:                                  ; preds = %invoke.cont3.i.i
@@ -4369,7 +4369,7 @@ terminate.lpad.i5.i.i.i.i:                        ; preds = %if.then.i.i4.i.i.i.
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #21
+  call void @__clang_call_terminate(ptr %15) #21, !noalias !103
   unreachable
 
 lpad.loopexit.i.i:                                ; preds = %do.body.i.i, %while.cond.i.i
@@ -4490,7 +4490,7 @@ terminate.lpad.i14.i.i:                           ; preds = %if.then.i.i13.i.i
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #21
+  call void @__clang_call_terminate(ptr %35) #21, !noalias !103
   unreachable
 
 if.then.i.i16.i.i:                                ; preds = %"_ZZN6google8protobuf13json_internal9JsonLexer14ParseRawNumberEvEN3$_0clEmc.exit.i.i", %if.end23.i.i.i, %if.then4.i.i.i, %if.then.i.i4.i.i.i.i, %if.else.i.i.i.i
@@ -4550,7 +4550,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i26.i.i
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #21
+  call void @__clang_call_terminate(ptr %40) #21, !noalias !103
   unreachable
 
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i: ; preds = %if.then.i.i26.i.i
@@ -4572,7 +4572,7 @@ terminate.lpad.i28.i.i:                           ; preds = %if.then.i.i.i10
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #21
+  call void @__clang_call_terminate(ptr %43) #21, !noalias !103
   unreachable
 
 if.then.i31.i.i:                                  ; preds = %if.then.i.i.i10, %if.then.i.i13.i.i, %cleanup.i.i, %if.then16.i.i
@@ -4583,7 +4583,7 @@ terminate.lpad.i32.i.i:                           ; preds = %if.then.i31.i.i
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  call void @__clang_call_terminate(ptr %45) #21
+  call void @__clang_call_terminate(ptr %45) #21, !noalias !103
   unreachable
 
 common.resume:                                    ; preds = %lpad.i.i, %ehcleanup150, %common.resume.i
@@ -6290,7 +6290,7 @@ terminate.lpad.i1.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #21
+  call void @__clang_call_terminate(ptr %13) #21, !noalias !117
   unreachable
 
 if.else.i.i.i.i:                                  ; preds = %invoke.cont3.i.i
@@ -6306,7 +6306,7 @@ terminate.lpad.i5.i.i.i.i:                        ; preds = %if.then.i.i4.i.i.i.
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #21
+  call void @__clang_call_terminate(ptr %15) #21, !noalias !117
   unreachable
 
 lpad.loopexit.i.i:                                ; preds = %do.body.i.i, %while.cond.i.i
@@ -6397,7 +6397,7 @@ terminate.lpad.i15.i.i:                           ; preds = %if.then.i.i14.i.i
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #21
+  call void @__clang_call_terminate(ptr %29) #21, !noalias !117
   unreachable
 
 if.then.i.i17.i.i:                                ; preds = %invoke.cont7.i.i, %if.then.i.i4.i.i.i.i, %if.else.i.i.i.i
@@ -6457,7 +6457,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i27.i.i
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #21
+  call void @__clang_call_terminate(ptr %34) #21, !noalias !117
   unreachable
 
 _ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit.i.i.i: ; preds = %if.then.i.i27.i.i
@@ -6479,7 +6479,7 @@ terminate.lpad.i29.i.i:                           ; preds = %if.then.i.i.i4
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #21
+  call void @__clang_call_terminate(ptr %37) #21, !noalias !117
   unreachable
 
 if.then.i31.i.i:                                  ; preds = %if.then.i.i.i4, %if.then.i.i14.i.i, %cleanup.i.i, %if.then16.i.i
@@ -6490,7 +6490,7 @@ terminate.lpad.i32.i.i:                           ; preds = %if.then.i31.i.i
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #21
+  call void @__clang_call_terminate(ptr %39) #21, !noalias !117
   unreachable
 
 common.resume:                                    ; preds = %lpad.i.i, %ehcleanup, %common.resume.i

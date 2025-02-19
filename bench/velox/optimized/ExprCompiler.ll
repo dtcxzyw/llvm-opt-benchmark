@@ -6864,7 +6864,7 @@ catch.dispatch.i:                                 ; preds = %ehcleanup30.i, %lpa
 
 catch.i:                                          ; preds = %catch.dispatch.i
   %exn.slot.0.i = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.i, 0
-  %761 = call ptr @__cxa_begin_catch(ptr %exn.slot.0.i) #28
+  %761 = call ptr @__cxa_begin_catch(ptr %exn.slot.0.i) #28, !noalias !132
   invoke void @__cxa_end_catch()
           to label %if.end.i216 unwind label %lpad48.i
 

@@ -18754,7 +18754,7 @@ _ZN3nix4SyncINS_10LocalStore5StateESt5mutexE4LockD2Ev.exit3.i.i: ; preds = %_ZN3
 
 20:                                               ; preds = %.body.i
   %21 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
-  %22 = call ptr @__cxa_begin_catch(ptr %21) #35
+  %22 = call ptr @__cxa_begin_catch(ptr %21) #35, !noalias !100
   invoke void @_ZN3nix16handleSQLiteBusyERKNS_10SQLiteBusyERl(ptr noundef nonnull align 8 dereferenceable(452) %22, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %23 unwind label %24, !noalias !100
 
@@ -18772,7 +18772,7 @@ _ZN3nix4SyncINS_10LocalStore5StateESt5mutexE4LockD2Ev.exit3.i.i: ; preds = %_ZN3
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #40
+  call void @__clang_call_terminate(ptr %28) #40, !noalias !100
   unreachable
 
 29:                                               ; preds = %_ZN3nix4SyncINS_10LocalStore5StateESt5mutexE4lockEv.exit.i.i
@@ -19655,7 +19655,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix13ValidPathInfoESaIvE
 
 88:                                               ; preds = %83
   invoke void @__cxa_throw(ptr nonnull %77, ptr nonnull @_ZTIN3nix5ErrorE, ptr nonnull @_ZN3nix5ErrorD2Ev) #36
-          to label %232 unwind label %92
+          to label %230 unwind label %92
 
 .thread:                                          ; preds = %75
   %89 = landingpad { ptr, i32 }
@@ -19690,7 +19690,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix13ValidPathInfoESaIvE
 96:                                               ; preds = %95, %94
   %.pn44.pn89 = phi { ptr, i32 } [ %.pn44.pn90, %95 ], [ %.pn44, %94 ]
   invoke void @__cxa_end_catch()
-          to label %.body unwind label %229
+          to label %.body unwind label %227
 
 97:                                               ; preds = %.noexc
   %98 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -19749,7 +19749,7 @@ _ZN3nix9StorePathD2Ev.exit:                       ; preds = %_ZNKSt7__cxx1112bas
 123:                                              ; preds = %176, %172, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev.exit, %139, %130, %127, %125, %108, %101, %97
   %124 = landingpad { ptr, i32 }
           cleanup
-  br label %228
+  br label %226
 
 125:                                              ; preds = %_ZN3nix9StorePathD2Ev.exit, %107
   %126 = invoke noundef i64 @_ZN3nix10SQLiteStmt3Use6getIntEi(ptr noundef nonnull align 8 dereferenceable(12) %6, i32 noundef 4)
@@ -19873,7 +19873,7 @@ _ZN3nix10SQLiteStmt3useEv.exit:                   ; preds = %176
   %179 = getelementptr inbounds nuw i8, ptr %63, i64 208
   %180 = load i64, ptr %179, align 8
   %181 = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZN3nix10SQLiteStmt3UseclElb(ptr noundef nonnull align 8 dereferenceable(12) %21, i64 noundef %180, i1 noundef zeroext true)
-          to label %182 unwind label %215
+          to label %182 unwind label %214
 
 182:                                              ; preds = %_ZN3nix10SQLiteStmt3useEv.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %181, i64 16, i1 false)
@@ -19882,146 +19882,144 @@ _ZN3nix10SQLiteStmt3useEv.exit:                   ; preds = %176
   %184 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %185 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %186 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  br label %187
+  %187 = getelementptr inbounds nuw i8, ptr %63, i64 144
+  br label %188
 
-187:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71, %182
-  %188 = invoke noundef zeroext i1 @_ZN3nix10SQLiteStmt3Use4nextEv(ptr noundef nonnull align 8 dereferenceable(12) %20)
-          to label %189 unwind label %217
+188:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71, %182
+  %189 = invoke noundef zeroext i1 @_ZN3nix10SQLiteStmt3Use4nextEv(ptr noundef nonnull align 8 dereferenceable(12) %20)
+          to label %190 unwind label %216
 
-189:                                              ; preds = %187
-  %190 = load ptr, ptr %16, align 8
-  br i1 %188, label %191, label %224
+190:                                              ; preds = %188
+  br i1 %189, label %191, label %223
 
-191:                                              ; preds = %189
-  %192 = getelementptr inbounds nuw i8, ptr %190, i64 128
-  %193 = load ptr, ptr %1, align 8
-  %194 = getelementptr i8, ptr %193, i64 -32
-  %195 = load i64, ptr %194, align 8
+191:                                              ; preds = %190
+  %192 = load ptr, ptr %1, align 8
+  %193 = getelementptr i8, ptr %192, i64 -32
+  %194 = load i64, ptr %193, align 8
   invoke void @_ZN3nix10SQLiteStmt3Use6getStrB5cxx11Ei(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %23, ptr noundef nonnull align 8 dereferenceable(12) %20, i32 noundef 0)
-          to label %196 unwind label %217
+          to label %195 unwind label %216
 
-196:                                              ; preds = %191
-  %197 = getelementptr inbounds i8, ptr %1, i64 %195
-  %198 = load ptr, ptr %23, align 8
-  %199 = load i64, ptr %183, align 8
-  invoke void @_ZNK3nix14StoreDirConfig14parseStorePathESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.nix::StorePath") align 8 %22, ptr noundef nonnull align 8 dereferenceable(344) %197, i64 %199, ptr %198)
-          to label %200 unwind label %219
+195:                                              ; preds = %191
+  %196 = getelementptr inbounds i8, ptr %1, i64 %194
+  %197 = load ptr, ptr %23, align 8
+  %198 = load i64, ptr %183, align 8
+  invoke void @_ZNK3nix14StoreDirConfig14parseStorePathESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.nix::StorePath") align 8 %22, ptr noundef nonnull align 8 dereferenceable(344) %196, i64 %198, ptr %197)
+          to label %199 unwind label %218
 
-200:                                              ; preds = %196
+199:                                              ; preds = %195
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %201 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE24_M_get_insert_unique_posERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %192, ptr noundef nonnull align 8 dereferenceable(32) %22)
-          to label %.noexc64 unwind label %221
+  %200 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE24_M_get_insert_unique_posERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %187, ptr noundef nonnull align 8 dereferenceable(32) %22)
+          to label %.noexc64 unwind label %220
 
-.noexc64:                                         ; preds = %200
-  %202 = extractvalue { ptr, ptr } %201, 1
-  %.not.i.i = icmp eq ptr %202, null
-  br i1 %.not.i.i, label %206, label %203
+.noexc64:                                         ; preds = %199
+  %201 = extractvalue { ptr, ptr } %200, 1
+  %.not.i.i = icmp eq ptr %201, null
+  br i1 %.not.i.i, label %205, label %202
 
-203:                                              ; preds = %.noexc64
-  %204 = extractvalue { ptr, ptr } %201, 0
-  store ptr %192, ptr %5, align 8
-  %205 = invoke ptr @_ZNSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %192, ptr noundef %204, ptr noundef nonnull %202, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %206 unwind label %221
+202:                                              ; preds = %.noexc64
+  %203 = extractvalue { ptr, ptr } %200, 0
+  store ptr %187, ptr %5, align 8
+  %204 = invoke ptr @_ZNSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %187, ptr noundef %203, ptr noundef nonnull %201, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %205 unwind label %220
 
-206:                                              ; preds = %.noexc64, %203
+205:                                              ; preds = %.noexc64, %202
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %207 = load ptr, ptr %22, align 8
-  %208 = icmp eq ptr %207, %184
-  br i1 %208, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i67, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i66
+  %206 = load ptr, ptr %22, align 8
+  %207 = icmp eq ptr %206, %184
+  br i1 %207, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i67, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i66
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i67: ; preds = %206
-  %209 = load i64, ptr %185, align 8
-  %210 = icmp ult i64 %209, 16
-  call void @llvm.assume(i1 %210)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i67: ; preds = %205
+  %208 = load i64, ptr %185, align 8
+  %209 = icmp ult i64 %208, 16
+  call void @llvm.assume(i1 %209)
   br label %_ZN3nix9StorePathD2Ev.exit68
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i66: ; preds = %206
-  call void @_ZdlPv(ptr noundef %207) #38
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i66: ; preds = %205
+  call void @_ZdlPv(ptr noundef %206) #38
   br label %_ZN3nix9StorePathD2Ev.exit68
 
 _ZN3nix9StorePathD2Ev.exit68:                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i67, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i66
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #35
-  %211 = load ptr, ptr %23, align 8
-  %212 = icmp eq ptr %211, %186
-  br i1 %212, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i70, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i69
+  %210 = load ptr, ptr %23, align 8
+  %211 = icmp eq ptr %210, %186
+  br i1 %211, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i70, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i69
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i70: ; preds = %_ZN3nix9StorePathD2Ev.exit68
-  %213 = load i64, ptr %183, align 8
-  %214 = icmp ult i64 %213, 16
-  call void @llvm.assume(i1 %214)
+  %212 = load i64, ptr %183, align 8
+  %213 = icmp ult i64 %212, 16
+  call void @llvm.assume(i1 %213)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i69: ; preds = %_ZN3nix9StorePathD2Ev.exit68
-  call void @_ZdlPv(ptr noundef %211) #38
+  call void @_ZdlPv(ptr noundef %210) #38
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i70, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i69
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #35
-  br label %187, !llvm.loop !125
+  br label %188, !llvm.loop !125
 
-215:                                              ; preds = %_ZN3nix10SQLiteStmt3useEv.exit
-  %216 = landingpad { ptr, i32 }
+214:                                              ; preds = %_ZN3nix10SQLiteStmt3useEv.exit
+  %215 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3nix10SQLiteStmt3UseD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %21) #35
-  br label %228
+  br label %226
 
-217:                                              ; preds = %191, %187
-  %218 = landingpad { ptr, i32 }
+216:                                              ; preds = %191, %188
+  %217 = landingpad { ptr, i32 }
           cleanup
-  br label %227
+  br label %225
 
-219:                                              ; preds = %196
-  %220 = landingpad { ptr, i32 }
+218:                                              ; preds = %195
+  %219 = landingpad { ptr, i32 }
           cleanup
-  br label %223
+  br label %222
 
-221:                                              ; preds = %203, %200
-  %222 = landingpad { ptr, i32 }
+220:                                              ; preds = %202, %199
+  %221 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3nix9StorePathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #35
-  br label %223
+  br label %222
 
-223:                                              ; preds = %221, %219
-  %.pn49 = phi { ptr, i32 } [ %222, %221 ], [ %220, %219 ]
+222:                                              ; preds = %220, %218
+  %.pn49 = phi { ptr, i32 } [ %221, %220 ], [ %219, %218 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #35
-  br label %227
+  br label %225
 
-224:                                              ; preds = %189
-  store ptr %190, ptr %0, align 8
-  %225 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %226 = load ptr, ptr %98, align 8
-  store ptr %226, ptr %225, align 8
+223:                                              ; preds = %190
+  store ptr %66, ptr %0, align 8
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %63, ptr %224, align 8
   call void @_ZN3nix10SQLiteStmt3UseD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %20) #35
   br label %_ZNSt10shared_ptrIN3nix13ValidPathInfoEED2Ev.exit78
 
-227:                                              ; preds = %223, %217
-  %.pn49.pn = phi { ptr, i32 } [ %.pn49, %223 ], [ %218, %217 ]
+225:                                              ; preds = %222, %216
+  %.pn49.pn = phi { ptr, i32 } [ %.pn49, %222 ], [ %217, %216 ]
   call void @_ZN3nix10SQLiteStmt3UseD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %20) #35
-  br label %228
+  br label %226
 
-228:                                              ; preds = %227, %215, %123
-  %.pn49.pn.pn = phi { ptr, i32 } [ %.pn49.pn, %227 ], [ %216, %215 ], [ %124, %123 ]
+226:                                              ; preds = %225, %214, %123
+  %.pn49.pn.pn = phi { ptr, i32 } [ %.pn49.pn, %225 ], [ %215, %214 ], [ %124, %123 ]
   call void @_ZNSt10shared_ptrIN3nix13ValidPathInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #35
   br label %.body
 
-_ZNSt10shared_ptrIN3nix13ValidPathInfoEED2Ev.exit78: ; preds = %224, %_ZNSt10shared_ptrIN3nix13ValidPathInfoEED2Ev.exit
+_ZNSt10shared_ptrIN3nix13ValidPathInfoEED2Ev.exit78: ; preds = %223, %_ZNSt10shared_ptrIN3nix13ValidPathInfoEED2Ev.exit
   call void @_ZN3nix10SQLiteStmt3UseD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %6) #35
   ret void
 
-.body:                                            ; preds = %72, %228, %96, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix13ValidPathInfoESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, %48, %44, %46
-  %.sink = phi ptr [ %7, %46 ], [ %7, %44 ], [ %6, %48 ], [ %6, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix13ValidPathInfoESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ], [ %6, %96 ], [ %6, %228 ], [ %6, %72 ]
-  %.merged = phi { ptr, i32 } [ %47, %46 ], [ %45, %44 ], [ %49, %48 ], [ %67, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix13ValidPathInfoESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ], [ %.pn44.pn89, %96 ], [ %.pn49.pn.pn, %228 ], [ %.pn42, %72 ]
+.body:                                            ; preds = %72, %226, %96, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix13ValidPathInfoESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, %48, %44, %46
+  %.sink = phi ptr [ %7, %46 ], [ %7, %44 ], [ %6, %48 ], [ %6, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix13ValidPathInfoESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ], [ %6, %96 ], [ %6, %226 ], [ %6, %72 ]
+  %.merged = phi { ptr, i32 } [ %47, %46 ], [ %45, %44 ], [ %49, %48 ], [ %67, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix13ValidPathInfoESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ], [ %.pn44.pn89, %96 ], [ %.pn49.pn.pn, %226 ], [ %.pn42, %72 ]
   call void @_ZN3nix10SQLiteStmt3UseD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %.sink) #35
   resume { ptr, i32 } %.merged
 
-229:                                              ; preds = %96
-  %230 = landingpad { ptr, i32 }
+227:                                              ; preds = %96
+  %228 = landingpad { ptr, i32 }
           catch ptr null
-  %231 = extractvalue { ptr, i32 } %230, 0
-  call void @__clang_call_terminate(ptr %231) #40
+  %229 = extractvalue { ptr, i32 } %228, 0
+  call void @__clang_call_terminate(ptr %229) #40
   unreachable
 
-232:                                              ; preds = %88
+230:                                              ; preds = %88
   unreachable
 }
 
@@ -22240,7 +22238,7 @@ _ZN3nix4SyncINS_10LocalStore5StateESt5mutexE4LockD2Ev.exit9.i.i: ; preds = %56, 
 
 96:                                               ; preds = %.body.i
   %97 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
-  %98 = call ptr @__cxa_begin_catch(ptr %97) #35
+  %98 = call ptr @__cxa_begin_catch(ptr %97) #35, !noalias !171
   invoke void @_ZN3nix16handleSQLiteBusyERKNS_10SQLiteBusyERl(ptr noundef nonnull align 8 dereferenceable(452) %98, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %99 unwind label %100, !noalias !171
 
@@ -22258,7 +22256,7 @@ _ZN3nix4SyncINS_10LocalStore5StateESt5mutexE4LockD2Ev.exit9.i.i: ; preds = %56, 
   %103 = landingpad { ptr, i32 }
           catch ptr null
   %104 = extractvalue { ptr, i32 } %103, 0
-  call void @__clang_call_terminate(ptr %104) #40
+  call void @__clang_call_terminate(ptr %104) #40, !noalias !171
   unreachable
 
 105:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEmmPKcm.exit.i.i, %_ZN3nix9StorePathD2Ev.exit.i.i, %50
@@ -33113,7 +33111,6 @@ _ZN3nix4SyncINS_10LocalStore5StateESt5mutexE4LockD2Ev.exit3.i.i: ; preds = %_ZN3
 
 _ZNRSt8optionalIKN3nix11RealisationEE5valueEv.exit: ; preds = %31
   call void @llvm.experimental.noalias.scope.decl(metadata !292)
-  store ptr null, ptr %6, align 8, !alias.scope !292
   %36 = invoke noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #37
           to label %.noexc5 unwind label %73
 

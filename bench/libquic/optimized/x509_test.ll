@@ -144,7 +144,7 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef read
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  tail call void @__clang_call_terminate(ptr %51) #12
+  tail call void @__clang_call_terminate(ptr %51) #12, !noalias !6
   unreachable
 
 common.resume:                                    ; preds = %432, %_ZN20ScopedOpenSSLContextI13env_md_ctx_stiXadL_Z15EVP_MD_CTX_initEEXadL_Z18EVP_MD_CTX_cleanupEEED2Ev.exit12.i, %399, %419, %367, %386, %52, %.body.i
@@ -184,7 +184,7 @@ _ZL11CertFromPEMPKc.exit.i:                       ; preds = %48, %47
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  tail call void @__clang_call_terminate(ptr %60) #12
+  tail call void @__clang_call_terminate(ptr %60) #12, !noalias !16
   unreachable
 
 61:                                               ; preds = %.noexc.i
@@ -220,7 +220,7 @@ _ZL11CertFromPEMPKc.exit.i:                       ; preds = %48, %47
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
-  tail call void @__clang_call_terminate(ptr %70) #12
+  tail call void @__clang_call_terminate(ptr %70) #12, !noalias !19
   unreachable
 
 71:                                               ; preds = %.noexc89.i
@@ -256,7 +256,7 @@ _ZL11CertFromPEMPKc.exit.i:                       ; preds = %48, %47
   %79 = landingpad { ptr, i32 }
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
-  tail call void @__clang_call_terminate(ptr %80) #12
+  tail call void @__clang_call_terminate(ptr %80) #12, !noalias !22
   unreachable
 
 81:                                               ; preds = %.noexc94.i
@@ -292,7 +292,7 @@ _ZL11CertFromPEMPKc.exit.i:                       ; preds = %48, %47
   %89 = landingpad { ptr, i32 }
           catch ptr null
   %90 = extractvalue { ptr, i32 } %89, 0
-  tail call void @__clang_call_terminate(ptr %90) #12
+  tail call void @__clang_call_terminate(ptr %90) #12, !noalias !25
   unreachable
 
 91:                                               ; preds = %.noexc99.i
@@ -328,7 +328,7 @@ _ZL11CertFromPEMPKc.exit.i:                       ; preds = %48, %47
   %99 = landingpad { ptr, i32 }
           catch ptr null
   %100 = extractvalue { ptr, i32 } %99, 0
-  tail call void @__clang_call_terminate(ptr %100) #12
+  tail call void @__clang_call_terminate(ptr %100) #12, !noalias !28
   unreachable
 
 101:                                              ; preds = %.noexc104.i
@@ -364,7 +364,7 @@ _ZL11CertFromPEMPKc.exit.i:                       ; preds = %48, %47
   %109 = landingpad { ptr, i32 }
           catch ptr null
   %110 = extractvalue { ptr, i32 } %109, 0
-  tail call void @__clang_call_terminate(ptr %110) #12
+  tail call void @__clang_call_terminate(ptr %110) #12, !noalias !31
   unreachable
 
 111:                                              ; preds = %.noexc109.i
@@ -400,7 +400,7 @@ _ZL11CertFromPEMPKc.exit.i:                       ; preds = %48, %47
   %119 = landingpad { ptr, i32 }
           catch ptr null
   %120 = extractvalue { ptr, i32 } %119, 0
-  tail call void @__clang_call_terminate(ptr %120) #12
+  tail call void @__clang_call_terminate(ptr %120) #12, !noalias !34
   unreachable
 
 121:                                              ; preds = %.noexc114.i
@@ -1241,7 +1241,7 @@ _ZL10TestVerifyv.exit:                            ; preds = %_ZNSt10unique_ptrI7
   %365 = landingpad { ptr, i32 }
           catch ptr null
   %366 = extractvalue { ptr, i32 } %365, 0
-  tail call void @__clang_call_terminate(ptr %366) #12
+  tail call void @__clang_call_terminate(ptr %366) #12, !noalias !44
   unreachable
 
 367:                                              ; preds = %359
@@ -1351,7 +1351,7 @@ _ZL7TestPSSv.exit:                                ; preds = %387
   %397 = landingpad { ptr, i32 }
           catch ptr null
   %398 = extractvalue { ptr, i32 } %397, 0
-  tail call void @__clang_call_terminate(ptr %398) #12
+  tail call void @__clang_call_terminate(ptr %398) #12, !noalias !49
   unreachable
 
 399:                                              ; preds = %391
@@ -1465,7 +1465,7 @@ _ZL20TestBadPSSParametersv.exit:                  ; preds = %420
   %430 = landingpad { ptr, i32 }
           catch ptr null
   %431 = extractvalue { ptr, i32 } %430, 0
-  tail call void @__clang_call_terminate(ptr %431) #12
+  tail call void @__clang_call_terminate(ptr %431) #12, !noalias !52
   unreachable
 
 432:                                              ; preds = %424
@@ -2100,7 +2100,7 @@ define internal fastcc noundef zeroext i1 @_ZL19SignatureRoundTripsP13env_md_ctx
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #12
+  tail call void @__clang_call_terminate(ptr %11) #12, !noalias !62
   unreachable
 
 common.resume:                                    ; preds = %17, %12

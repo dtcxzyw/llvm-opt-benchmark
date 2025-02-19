@@ -32358,13 +32358,11 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %2457, %_ZNK4llvm9St
   br i1 %2466, label %2468, label %2467
 
 2467:                                             ; preds = %2461
-  %.sroa.276.0.copyload = load i64, ptr %.sroa.490.0..sroa_idx, align 8, !tbaa !47
-  %.not.i.i215 = icmp eq i64 %2465, %.sroa.276.0.copyload
+  %.not.i.i215 = icmp eq i64 %2465, %2434
   br i1 %.not.i.i215, label %_ZN4llvmneENS_9StringRefES0_.exit, label %_ZNSt10unique_ptrIN12_GLOBAL__N_113MatchableInfoESt14default_deleteIS1_EED2Ev.exit
 
 _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %2467
-  %.sroa.075.0.copyload = load ptr, ptr %152, align 8, !tbaa !46
-  %bcmp.i.i = call i32 @bcmp(ptr %2464, ptr %.sroa.075.0.copyload, i64 %2465)
+  %bcmp.i.i = call i32 @bcmp(ptr %2464, ptr %2433, i64 %2434)
   %.not516 = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not516, label %2468, label %_ZNSt10unique_ptrIN12_GLOBAL__N_113MatchableInfoESt14default_deleteIS1_EED2Ev.exit
 
@@ -32585,13 +32583,11 @@ _ZNK4llvm9StringRef11starts_withES0_.exit230.thread: ; preds = %2552, %_ZNK4llvm
   br i1 %2559, label %2561, label %2560
 
 2560:                                             ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit230.thread
-  %.sroa.264.0.copyload = load i64, ptr %.sroa.490.0..sroa_idx, align 8, !tbaa !47
-  %.not.i.i231 = icmp eq i64 %2558, %.sroa.264.0.copyload
+  %.not.i.i231 = icmp eq i64 %2558, %2434
   br i1 %.not.i.i231, label %_ZN4llvmneENS_9StringRefES0_.exit234, label %_ZNK4llvm9StringRef11starts_withES0_.exit230.thread508
 
 _ZN4llvmneENS_9StringRefES0_.exit234:             ; preds = %2560
-  %.sroa.063.0.copyload = load ptr, ptr %152, align 8, !tbaa !46
-  %bcmp.i.i233 = call i32 @bcmp(ptr %2557, ptr %.sroa.063.0.copyload, i64 %2558)
+  %bcmp.i.i233 = call i32 @bcmp(ptr %2557, ptr %2433, i64 %2434)
   %.not517 = icmp eq i32 %bcmp.i.i233, 0
   br i1 %.not517, label %2561, label %_ZNK4llvm9StringRef11starts_withES0_.exit230.thread508
 

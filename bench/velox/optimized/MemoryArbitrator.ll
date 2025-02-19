@@ -683,7 +683,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #36
+  tail call void @__clang_call_terminate(ptr %10) #36, !noalias !4
   unreachable
 
 _ZN8facebook5velox6memory16MemoryArbitratorC2ERKNS2_6ConfigE.exit.i.i: ; preds = %invoke.cont.i.i.i.i, %if.then

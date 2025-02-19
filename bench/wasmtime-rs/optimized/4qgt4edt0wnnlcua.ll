@@ -4403,7 +4403,7 @@ _ZN16wasmtime_runtime8instance9allocator7pooling11memory_pool10MemoryPool8get_ba
   %89 = load i64, ptr %88, align 8, !noalias !554, !noundef !4
   %90 = shl i64 %89, 16
   %91 = invoke noundef ptr @_ZN16wasmtime_runtime3cow15MemoryImageSlot11instantiate17h0844c31e5e7d723cE(ptr noalias noundef nonnull align 8 dereferenceable(40) %8, i64 noundef %90, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %86, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3)
-          to label %94 unwind label %109
+          to label %94 unwind label %109, !noalias !554
 
 92:                                               ; preds = %84
   %93 = icmp ne ptr %86, null

@@ -4129,7 +4129,7 @@ define void @"_ZN108_$LT$deltalake_test..utils..LocalStorageIntegration$u20$as$u
   %23 = extractvalue { i64, ptr } %21, 1
   %24 = icmp ne ptr %23, null
   tail call void @llvm.assume(i1 %24)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %14, i64 %16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %14, i64 %16, i1 false), !noalias !1013
   store i64 %22, ptr %6, align 8, !alias.scope !1008, !noalias !1011
   %.sroa.45.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %23, ptr %.sroa.45.0..sroa_idx.i, align 8, !alias.scope !1008, !noalias !1011

@@ -9688,7 +9688,7 @@ _ZN4crow4CrowIJEE8validateEv.exit:                ; preds = %40
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #39
+  call void @__clang_call_terminate(ptr %53) #39, !noalias !138
   unreachable
 
 _ZN4asio2ip15make_address_v6EPKcRSt10error_code.exit.i.i: ; preds = %49, %48
@@ -9718,7 +9718,7 @@ _ZN4asio2ip15make_address_v6EPKcRSt10error_code.exit.i.i: ; preds = %49, %48
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
-  call void @__clang_call_terminate(ptr %63) #39
+  call void @__clang_call_terminate(ptr %63) #39, !noalias !149
   unreachable
 
 _ZN4asio2ip15make_address_v4EPKcRSt10error_code.exit.i.i: ; preds = %59
@@ -27296,37 +27296,36 @@ define linkonce_odr dso_local void @_ZN4asio6detail23reactive_socket_send_opINS0
   %6 = alloca %"class.asio::detail::handler_work", align 8
   %7 = alloca %"class.asio::detail::binder2", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #37
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  store ptr %8, ptr %5, align 8, !tbaa !704
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %1, ptr %9, align 8, !tbaa !708
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %1, ptr %10, align 8, !tbaa !709
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %1, ptr %8, align 8, !tbaa !708
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %1, ptr %9, align 8, !tbaa !709
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #37
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 432
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 448
-  %14 = load ptr, ptr %13, align 8, !tbaa !208
-  store ptr %14, ptr %12, align 8, !tbaa !208
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 464
-  %17 = load ptr, ptr %16, align 8, !tbaa !491
-  store ptr %17, ptr %15, align 8, !tbaa !491
-  store ptr @_ZZN4asio9execution6detail17any_executor_base16object_fns_tableIvEEPKNS2_10object_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %13, align 8, !tbaa !208
-  store ptr @_ZZN4asio9execution6detail17any_executor_base16target_fns_tableIvEEPKNS2_10target_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %16, align 8, !tbaa !491
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !732
-  invoke void %19(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %11)
-          to label %23 unwind label %20
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 432
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 448
+  %13 = load ptr, ptr %12, align 8, !tbaa !208
+  store ptr %13, ptr %11, align 8, !tbaa !208
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 464
+  %16 = load ptr, ptr %15, align 8, !tbaa !491
+  store ptr %16, ptr %14, align 8, !tbaa !491
+  store ptr @_ZZN4asio9execution6detail17any_executor_base16object_fns_tableIvEEPKNS2_10object_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %12, align 8, !tbaa !208
+  store ptr @_ZZN4asio9execution6detail17any_executor_base16target_fns_tableIvEEPKNS2_10target_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %15, align 8, !tbaa !491
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %18 = load ptr, ptr %17, align 8, !tbaa !732
+  invoke void %18(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %10)
+          to label %22 unwind label %19
 
-20:                                               ; preds = %4
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %4
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #39
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #39
   unreachable
 
-23:                                               ; preds = %4
+22:                                               ; preds = %4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 456
   store ptr null, ptr %24, align 8, !tbaa !723
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -27337,7 +27336,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail23reactive_socket_send_opINS0
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #37
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %30 = load ptr, ptr %8, align 8, !tbaa !695
+  %30 = load ptr, ptr %23, align 8, !tbaa !695
   store ptr %30, ptr %7, align 8, !tbaa !605
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 344
@@ -27381,7 +27380,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail23reactive_socket_send_opINS0
   invoke void @_ZN4asio6detail23reactive_socket_send_opINS0_16prepared_buffersINS_12const_bufferELm64EEENS0_8write_opINS_19basic_stream_socketINS_2ip3tcpENS_9execution12any_executorIJNS9_12context_as_tIRNS_17execution_contextEEENS9_6detail8blocking7never_tILi0EEENS9_11prefer_onlyINSG_10possibly_tILi0EEEEENSJ_INSF_16outstanding_work9tracked_tILi0EEEEENSJ_INSN_11untracked_tILi0EEEEENSJ_INSF_12relationship6fork_tILi0EEEEENSJ_INSU_14continuation_tILi0EEEEEEEEEESt6vectorIS3_SaIS3_EEN9__gnu_cxx17__normal_iteratorIPKS3_S15_EENS0_14transfer_all_tEZN4crow9websocket10ConnectionINS1C_13SocketAdaptorENS1C_4CrowIJEEEE8do_writeEvEUlRKSt10error_codemE_EES11_E3ptr5resetEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %57 unwind label %64
 
-57:                                               ; preds = %23
+57:                                               ; preds = %22
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %68, label %58
 
@@ -27404,7 +27403,7 @@ _ZN4asio6detail12handler_workINS0_8write_opINS_19basic_stream_socketINS_2ip3tcpE
   fence release
   br label %68
 
-64:                                               ; preds = %23
+64:                                               ; preds = %22
   %65 = landingpad { ptr, i32 }
           cleanup
   br label %97
@@ -27463,7 +27462,7 @@ _ZZN4crow9websocket10ConnectionINS_13SocketAdaptorENS_4CrowIJEEEE8do_writeEvENUl
 
 _ZN4asio6detail7binder2INS0_8write_opINS_19basic_stream_socketINS_2ip3tcpENS_9execution12any_executorIJNS6_12context_as_tIRNS_17execution_contextEEENS6_6detail8blocking7never_tILi0EEENS6_11prefer_onlyINSD_10possibly_tILi0EEEEENSG_INSC_16outstanding_work9tracked_tILi0EEEEENSG_INSK_11untracked_tILi0EEEEENSG_INSC_12relationship6fork_tILi0EEEEENSG_INSR_14continuation_tILi0EEEEEEEEEESt6vectorINS_12const_bufferESaIS11_EEN9__gnu_cxx17__normal_iteratorIPKS11_S13_EENS0_14transfer_all_tEZN4crow9websocket10ConnectionINS1A_13SocketAdaptorENS1A_4CrowIJEEEE8do_writeEvEUlRKSt10error_codemE_EES1H_mED2Ev.exit: ; preds = %_ZZN4crow9websocket10ConnectionINS_13SocketAdaptorENS_4CrowIJEEEE8do_writeEvENUlRKSt10error_codemE_D2Ev.exit.i.i, %84
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #37
-  %89 = load ptr, ptr %12, align 8, !tbaa !208
+  %89 = load ptr, ptr %11, align 8, !tbaa !208
   %90 = load ptr, ptr %89, align 8, !tbaa !209
   invoke void %90(ptr noundef nonnull align 8 dereferenceable(48) %6)
           to label %_ZN4asio6detail17handler_work_baseINS_9execution12any_executorIJNS2_12context_as_tIRNS_17execution_contextEEENS2_6detail8blocking7never_tILi0EEENS2_11prefer_onlyINS9_10possibly_tILi0EEEEENSC_INS8_16outstanding_work9tracked_tILi0EEEEENSC_INSG_11untracked_tILi0EEEEENSC_INS8_12relationship6fork_tILi0EEEEENSC_INSN_14continuation_tILi0EEEEEEEEvNS_10io_contextENS_8executorEvED2Ev.exit unwind label %91
@@ -27495,7 +27494,7 @@ _ZN4asio6detail23reactive_socket_send_opINS0_16prepared_buffersINS_12const_buffe
   %.pn = phi { ptr, i32 } [ %67, %66 ], [ %65, %64 ]
   call void @_ZN4asio6detail7binder2INS0_8write_opINS_19basic_stream_socketINS_2ip3tcpENS_9execution12any_executorIJNS6_12context_as_tIRNS_17execution_contextEEENS6_6detail8blocking7never_tILi0EEENS6_11prefer_onlyINSD_10possibly_tILi0EEEEENSG_INSC_16outstanding_work9tracked_tILi0EEEEENSG_INSK_11untracked_tILi0EEEEENSG_INSC_12relationship6fork_tILi0EEEEENSG_INSR_14continuation_tILi0EEEEEEEEEESt6vectorINS_12const_bufferESaIS11_EEN9__gnu_cxx17__normal_iteratorIPKS11_S13_EENS0_14transfer_all_tEZN4crow9websocket10ConnectionINS1A_13SocketAdaptorENS1A_4CrowIJEEEE8do_writeEvEUlRKSt10error_codemE_EES1H_mED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %7) #37
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #37
-  %98 = load ptr, ptr %12, align 8, !tbaa !208
+  %98 = load ptr, ptr %11, align 8, !tbaa !208
   %99 = load ptr, ptr %98, align 8, !tbaa !209
   invoke void %99(ptr noundef nonnull align 8 dereferenceable(48) %6)
           to label %_ZN4asio6detail17handler_work_baseINS_9execution12any_executorIJNS2_12context_as_tIRNS_17execution_contextEEENS2_6detail8blocking7never_tILi0EEENS2_11prefer_onlyINS9_10possibly_tILi0EEEEENSC_INS8_16outstanding_work9tracked_tILi0EEEEENSC_INSG_11untracked_tILi0EEEEENSC_INS8_12relationship6fork_tILi0EEEEENSC_INSN_14continuation_tILi0EEEEEEEEvNS_10io_contextENS_8executorEvED2Ev.exit15 unwind label %100
@@ -30201,37 +30200,35 @@ define linkonce_odr dso_local void @_ZN4asio6detail23reactive_socket_recv_opINS_
   %6 = alloca %"class.asio::detail::handler_work.256", align 8
   %7 = alloca %"class.asio::detail::binder2.259", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #37
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store ptr %8, ptr %5, align 8, !tbaa !773
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %1, ptr %9, align 8, !tbaa !776
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %1, ptr %10, align 8, !tbaa !777
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %1, ptr %8, align 8, !tbaa !776
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #37
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %14 = load ptr, ptr %13, align 8, !tbaa !208
-  store ptr %14, ptr %12, align 8, !tbaa !208
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %17 = load ptr, ptr %16, align 8, !tbaa !491
-  store ptr %17, ptr %15, align 8, !tbaa !491
-  store ptr @_ZZN4asio9execution6detail17any_executor_base16object_fns_tableIvEEPKNS2_10object_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %13, align 8, !tbaa !208
-  store ptr @_ZZN4asio9execution6detail17any_executor_base16target_fns_tableIvEEPKNS2_10target_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %16, align 8, !tbaa !491
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !732
-  invoke void %19(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %11)
-          to label %23 unwind label %20
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %13 = load ptr, ptr %12, align 8, !tbaa !208
+  store ptr %13, ptr %11, align 8, !tbaa !208
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %16 = load ptr, ptr %15, align 8, !tbaa !491
+  store ptr %16, ptr %14, align 8, !tbaa !491
+  store ptr @_ZZN4asio9execution6detail17any_executor_base16object_fns_tableIvEEPKNS2_10object_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %12, align 8, !tbaa !208
+  store ptr @_ZZN4asio9execution6detail17any_executor_base16target_fns_tableIvEEPKNS2_10target_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %15, align 8, !tbaa !491
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %18 = load ptr, ptr %17, align 8, !tbaa !732
+  invoke void %18(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %10)
+          to label %22 unwind label %19
 
-20:                                               ; preds = %4
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %4
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #39
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #39
   unreachable
 
-23:                                               ; preds = %4
+22:                                               ; preds = %4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store ptr null, ptr %24, align 8, !tbaa !723
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -30242,7 +30239,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail23reactive_socket_recv_opINS_
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #37
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %30 = load i64, ptr %8, align 8, !tbaa !624
+  %30 = load i64, ptr %23, align 8, !tbaa !624
   store i64 %30, ptr %7, align 8, !tbaa !624
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false), !tbaa.struct !712
@@ -30250,20 +30247,20 @@ define linkonce_odr dso_local void @_ZN4asio6detail23reactive_socket_recv_opINS_
   %33 = load i64, ptr %29, align 8, !tbaa !10
   store i64 %33, ptr %32, align 8, !tbaa !787
   store ptr %7, ptr %5, align 8, !tbaa !773
-  %34 = load ptr, ptr %13, align 8, !tbaa !208
+  %34 = load ptr, ptr %12, align 8, !tbaa !208
   %35 = load ptr, ptr %34, align 8, !tbaa !209
-  invoke void %35(ptr noundef nonnull align 8 dereferenceable(48) %11)
+  invoke void %35(ptr noundef nonnull align 8 dereferenceable(48) %10)
           to label %39 unwind label %36
 
-36:                                               ; preds = %23
+36:                                               ; preds = %22
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
   call void @__clang_call_terminate(ptr %38) #39
   unreachable
 
-39:                                               ; preds = %23
-  store ptr null, ptr %10, align 8, !tbaa !777
+39:                                               ; preds = %22
+  store ptr null, ptr %9, align 8, !tbaa !777
   %40 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4asio6detail15keyword_tss_ptrINS0_10call_stackINS0_14thread_contextENS0_16thread_info_baseEE7contextEE6value_E)
   %41 = load ptr, ptr %40, align 8, !tbaa !300
   %.not.i.i.i.i.i = icmp eq ptr %41, null
@@ -30292,7 +30289,7 @@ _ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.
   br label %_ZN4asio6detail23reactive_socket_recv_opINS_17mutable_buffers_1EZN4crow9websocket10ConnectionINS3_13SocketAdaptorENS3_4CrowIJEEEE7do_readEvEUlRKSt10error_codemE_NS_9execution12any_executorIJNSE_12context_as_tIRNS_17execution_contextEEENSE_6detail8blocking7never_tILi0EEENSE_11prefer_onlyINSL_10possibly_tILi0EEEEENSO_INSK_16outstanding_work9tracked_tILi0EEEEENSO_INSS_11untracked_tILi0EEEEENSO_INSK_12relationship6fork_tILi0EEEEENSO_INSZ_14continuation_tILi0EEEEEEEEE3ptr5resetEv.exit
 
 _ZN4asio6detail23reactive_socket_recv_opINS_17mutable_buffers_1EZN4crow9websocket10ConnectionINS3_13SocketAdaptorENS3_4CrowIJEEEE7do_readEvEUlRKSt10error_codemE_NS_9execution12any_executorIJNSE_12context_as_tIRNS_17execution_contextEEENSE_6detail8blocking7never_tILi0EEENSE_11prefer_onlyINSL_10possibly_tILi0EEEEENSO_INSK_16outstanding_work9tracked_tILi0EEEEENSO_INSS_11untracked_tILi0EEEEENSO_INSK_12relationship6fork_tILi0EEEEENSO_INSZ_14continuation_tILi0EEEEEEEEE3ptr5resetEv.exit: ; preds = %47, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i.i
-  store ptr null, ptr %9, align 8, !tbaa !776
+  store ptr null, ptr %8, align 8, !tbaa !776
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %60, label %50
 
@@ -30320,14 +30317,14 @@ _ZN4asio6detail12handler_workIZN4crow9websocket10ConnectionINS2_13SocketAdaptorE
           cleanup
   fence release
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #37
-  %58 = load ptr, ptr %12, align 8, !tbaa !208
+  %58 = load ptr, ptr %11, align 8, !tbaa !208
   %59 = load ptr, ptr %58, align 8, !tbaa !209
   invoke void %59(ptr noundef nonnull align 8 dereferenceable(48) %6)
           to label %_ZN4asio6detail17handler_work_baseINS_9execution12any_executorIJNS2_12context_as_tIRNS_17execution_contextEEENS2_6detail8blocking7never_tILi0EEENS2_11prefer_onlyINS9_10possibly_tILi0EEEEENSC_INS8_16outstanding_work9tracked_tILi0EEEEENSC_INSG_11untracked_tILi0EEEEENSC_INS8_12relationship6fork_tILi0EEEEENSC_INSN_14continuation_tILi0EEEEEEEEvNS_10io_contextENS_8executorEvED2Ev.exit14 unwind label %66
 
 60:                                               ; preds = %_ZN4asio6detail12handler_workIZN4crow9websocket10ConnectionINS2_13SocketAdaptorENS2_4CrowIJEEEE7do_readEvEUlRKSt10error_codemE_NS_9execution12any_executorIJNSD_12context_as_tIRNS_17execution_contextEEENSD_6detail8blocking7never_tILi0EEENSD_11prefer_onlyINSK_10possibly_tILi0EEEEENSN_INSJ_16outstanding_work9tracked_tILi0EEEEENSN_INSR_11untracked_tILi0EEEEENSN_INSJ_12relationship6fork_tILi0EEEEENSN_INSY_14continuation_tILi0EEEEEEEEvE8completeINS0_7binder2ISC_S9_mEEEEvRT_RSC_.exit, %_ZN4asio6detail23reactive_socket_recv_opINS_17mutable_buffers_1EZN4crow9websocket10ConnectionINS3_13SocketAdaptorENS3_4CrowIJEEEE7do_readEvEUlRKSt10error_codemE_NS_9execution12any_executorIJNSE_12context_as_tIRNS_17execution_contextEEENSE_6detail8blocking7never_tILi0EEENSE_11prefer_onlyINSL_10possibly_tILi0EEEEENSO_INSK_16outstanding_work9tracked_tILi0EEEEENSO_INSS_11untracked_tILi0EEEEENSO_INSK_12relationship6fork_tILi0EEEEENSO_INSZ_14continuation_tILi0EEEEEEEEE3ptr5resetEv.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #37
-  %61 = load ptr, ptr %12, align 8, !tbaa !208
+  %61 = load ptr, ptr %11, align 8, !tbaa !208
   %62 = load ptr, ptr %61, align 8, !tbaa !209
   invoke void %62(ptr noundef nonnull align 8 dereferenceable(48) %6)
           to label %_ZN4asio6detail23reactive_socket_recv_opINS_17mutable_buffers_1EZN4crow9websocket10ConnectionINS3_13SocketAdaptorENS3_4CrowIJEEEE7do_readEvEUlRKSt10error_codemE_NS_9execution12any_executorIJNSE_12context_as_tIRNS_17execution_contextEEENSE_6detail8blocking7never_tILi0EEENSE_11prefer_onlyINSL_10possibly_tILi0EEEEENSO_INSK_16outstanding_work9tracked_tILi0EEEEENSO_INSS_11untracked_tILi0EEEEENSO_INSK_12relationship6fork_tILi0EEEEENSO_INSZ_14continuation_tILi0EEEEEEEEE3ptrD2Ev.exit unwind label %63
@@ -31455,37 +31452,36 @@ define linkonce_odr dso_local void @_ZN4asio6detail23reactive_socket_recv_opINS_
   %7 = alloca %"class.asio::detail::handler_work.269", align 8
   %8 = alloca %"class.asio::detail::binder2.272", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #37
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store ptr %9, ptr %6, align 8, !tbaa !810
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %1, ptr %10, align 8, !tbaa !814
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %1, ptr %11, align 8, !tbaa !815
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %1, ptr %9, align 8, !tbaa !814
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %1, ptr %10, align 8, !tbaa !815
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #37
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %15 = load ptr, ptr %14, align 8, !tbaa !208
-  store ptr %15, ptr %13, align 8, !tbaa !208
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %18 = load ptr, ptr %17, align 8, !tbaa !491
-  store ptr %18, ptr %16, align 8, !tbaa !491
-  store ptr @_ZZN4asio9execution6detail17any_executor_base16object_fns_tableIvEEPKNS2_10object_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %14, align 8, !tbaa !208
-  store ptr @_ZZN4asio9execution6detail17any_executor_base16target_fns_tableIvEEPKNS2_10target_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %17, align 8, !tbaa !491
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !732
-  invoke void %20(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %12)
-          to label %24 unwind label %21
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %14 = load ptr, ptr %13, align 8, !tbaa !208
+  store ptr %14, ptr %12, align 8, !tbaa !208
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %17 = load ptr, ptr %16, align 8, !tbaa !491
+  store ptr %17, ptr %15, align 8, !tbaa !491
+  store ptr @_ZZN4asio9execution6detail17any_executor_base16object_fns_tableIvEEPKNS2_10object_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %13, align 8, !tbaa !208
+  store ptr @_ZZN4asio9execution6detail17any_executor_base16target_fns_tableIvEEPKNS2_10target_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %16, align 8, !tbaa !491
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %19 = load ptr, ptr %18, align 8, !tbaa !732
+  invoke void %19(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %11)
+          to label %23 unwind label %20
 
-21:                                               ; preds = %4
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %4
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #39
+  %22 = extractvalue { ptr, i32 } %21, 0
+  call void @__clang_call_terminate(ptr %22) #39
   unreachable
 
-24:                                               ; preds = %4
+23:                                               ; preds = %4
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr null, ptr %25, align 8, !tbaa !723
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -31496,7 +31492,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail23reactive_socket_recv_opINS_
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #37
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %31 = load ptr, ptr %9, align 8, !tbaa !816
+  %31 = load ptr, ptr %24, align 8, !tbaa !816
   store ptr %31, ptr %8, align 8, !tbaa !605
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -31515,20 +31511,20 @@ define linkonce_odr dso_local void @_ZN4asio6detail23reactive_socket_recv_opINS_
   %42 = load i64, ptr %30, align 8, !tbaa !10
   store i64 %42, ptr %41, align 8, !tbaa !822
   store ptr %8, ptr %6, align 8, !tbaa !810
-  %43 = load ptr, ptr %14, align 8, !tbaa !208
+  %43 = load ptr, ptr %13, align 8, !tbaa !208
   %44 = load ptr, ptr %43, align 8, !tbaa !209
-  invoke void %44(ptr noundef nonnull align 8 dereferenceable(48) %12)
+  invoke void %44(ptr noundef nonnull align 8 dereferenceable(48) %11)
           to label %48 unwind label %45
 
-45:                                               ; preds = %24
+45:                                               ; preds = %23
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
   call void @__clang_call_terminate(ptr %47) #39
   unreachable
 
-48:                                               ; preds = %24
-  store ptr null, ptr %11, align 8, !tbaa !815
+48:                                               ; preds = %23
+  store ptr null, ptr %10, align 8, !tbaa !815
   %49 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4asio6detail15keyword_tss_ptrINS0_10call_stackINS0_14thread_contextENS0_16thread_info_baseEE7contextEE6value_E)
   %50 = load ptr, ptr %49, align 8, !tbaa !300
   %.not.i.i.i.i.i.i.i = icmp eq ptr %50, null
@@ -31557,7 +31553,7 @@ _ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.
   br label %_ZN4asio6detail23reactive_socket_recv_opINS_17mutable_buffers_1ENS0_7read_opINS_19basic_stream_socketINS_2ip3tcpENS_9execution12any_executorIJNS7_12context_as_tIRNS_17execution_contextEEENS7_6detail8blocking7never_tILi0EEENS7_11prefer_onlyINSE_10possibly_tILi0EEEEENSH_INSD_16outstanding_work9tracked_tILi0EEEEENSH_INSL_11untracked_tILi0EEEEENSH_INSD_12relationship6fork_tILi0EEEEENSH_INSS_14continuation_tILi0EEEEEEEEEES2_PKNS_14mutable_bufferENS0_14transfer_all_tEZN4crow9websocket10ConnectionINS15_13SocketAdaptorENS15_4CrowIJEEEE7do_readEvEUlRKSt10error_codemE0_EESZ_E3ptr5resetEv.exit
 
 _ZN4asio6detail23reactive_socket_recv_opINS_17mutable_buffers_1ENS0_7read_opINS_19basic_stream_socketINS_2ip3tcpENS_9execution12any_executorIJNS7_12context_as_tIRNS_17execution_contextEEENS7_6detail8blocking7never_tILi0EEENS7_11prefer_onlyINSE_10possibly_tILi0EEEEENSH_INSD_16outstanding_work9tracked_tILi0EEEEENSH_INSL_11untracked_tILi0EEEEENSH_INSD_12relationship6fork_tILi0EEEEENSH_INSS_14continuation_tILi0EEEEEEEEEES2_PKNS_14mutable_bufferENS0_14transfer_all_tEZN4crow9websocket10ConnectionINS15_13SocketAdaptorENS15_4CrowIJEEEE7do_readEvEUlRKSt10error_codemE0_EESZ_E3ptr5resetEv.exit: ; preds = %56, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i.i.i.i
-  store ptr null, ptr %10, align 8, !tbaa !814
+  store ptr null, ptr %9, align 8, !tbaa !814
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %89, label %59
 
@@ -31624,14 +31620,14 @@ _ZN4asio6detail12handler_workINS0_7read_opINS_19basic_stream_socketINS_2ip3tcpEN
           cleanup
   fence release
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #37
-  %87 = load ptr, ptr %13, align 8, !tbaa !208
+  %87 = load ptr, ptr %12, align 8, !tbaa !208
   %88 = load ptr, ptr %87, align 8, !tbaa !209
   invoke void %88(ptr noundef nonnull align 8 dereferenceable(48) %7)
           to label %_ZN4asio6detail17handler_work_baseINS_9execution12any_executorIJNS2_12context_as_tIRNS_17execution_contextEEENS2_6detail8blocking7never_tILi0EEENS2_11prefer_onlyINS9_10possibly_tILi0EEEEENSC_INS8_16outstanding_work9tracked_tILi0EEEEENSC_INSG_11untracked_tILi0EEEEENSC_INS8_12relationship6fork_tILi0EEEEENSC_INSN_14continuation_tILi0EEEEEEEEvNS_10io_contextENS_8executorEvED2Ev.exit15 unwind label %95
 
 89:                                               ; preds = %_ZN4asio6detail12handler_workINS0_7read_opINS_19basic_stream_socketINS_2ip3tcpENS_9execution12any_executorIJNS6_12context_as_tIRNS_17execution_contextEEENS6_6detail8blocking7never_tILi0EEENS6_11prefer_onlyINSD_10possibly_tILi0EEEEENSG_INSC_16outstanding_work9tracked_tILi0EEEEENSG_INSK_11untracked_tILi0EEEEENSG_INSC_12relationship6fork_tILi0EEEEENSG_INSR_14continuation_tILi0EEEEEEEEEENS_17mutable_buffers_1EPKNS_14mutable_bufferENS0_14transfer_all_tEZN4crow9websocket10ConnectionINS15_13SocketAdaptorENS15_4CrowIJEEEE7do_readEvEUlRKSt10error_codemE0_EESY_vE8completeINS0_7binder2IS1G_S1C_mEEEEvRT_RS1G_.exit, %_ZN4asio6detail23reactive_socket_recv_opINS_17mutable_buffers_1ENS0_7read_opINS_19basic_stream_socketINS_2ip3tcpENS_9execution12any_executorIJNS7_12context_as_tIRNS_17execution_contextEEENS7_6detail8blocking7never_tILi0EEENS7_11prefer_onlyINSE_10possibly_tILi0EEEEENSH_INSD_16outstanding_work9tracked_tILi0EEEEENSH_INSL_11untracked_tILi0EEEEENSH_INSD_12relationship6fork_tILi0EEEEENSH_INSS_14continuation_tILi0EEEEEEEEEES2_PKNS_14mutable_bufferENS0_14transfer_all_tEZN4crow9websocket10ConnectionINS15_13SocketAdaptorENS15_4CrowIJEEEE7do_readEvEUlRKSt10error_codemE0_EESZ_E3ptr5resetEv.exit
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #37
-  %90 = load ptr, ptr %13, align 8, !tbaa !208
+  %90 = load ptr, ptr %12, align 8, !tbaa !208
   %91 = load ptr, ptr %90, align 8, !tbaa !209
   invoke void %91(ptr noundef nonnull align 8 dereferenceable(48) %7)
           to label %_ZN4asio6detail23reactive_socket_recv_opINS_17mutable_buffers_1ENS0_7read_opINS_19basic_stream_socketINS_2ip3tcpENS_9execution12any_executorIJNS7_12context_as_tIRNS_17execution_contextEEENS7_6detail8blocking7never_tILi0EEENS7_11prefer_onlyINSE_10possibly_tILi0EEEEENSH_INSD_16outstanding_work9tracked_tILi0EEEEENSH_INSL_11untracked_tILi0EEEEENSH_INSD_12relationship6fork_tILi0EEEEENSH_INSS_14continuation_tILi0EEEEEEEEEES2_PKNS_14mutable_bufferENS0_14transfer_all_tEZN4crow9websocket10ConnectionINS15_13SocketAdaptorENS15_4CrowIJEEEE7do_readEvEUlRKSt10error_codemE0_EESZ_E3ptrD2Ev.exit unwind label %92
@@ -32530,37 +32526,36 @@ define linkonce_odr dso_local void @_ZN4asio6detail23reactive_socket_recv_opINS_
   %7 = alloca %"class.asio::detail::handler_work.282", align 8
   %8 = alloca %"class.asio::detail::binder2.285", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #37
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store ptr %9, ptr %6, align 8, !tbaa !843
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %1, ptr %10, align 8, !tbaa !847
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %1, ptr %11, align 8, !tbaa !848
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %1, ptr %9, align 8, !tbaa !847
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %1, ptr %10, align 8, !tbaa !848
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #37
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %15 = load ptr, ptr %14, align 8, !tbaa !208
-  store ptr %15, ptr %13, align 8, !tbaa !208
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %18 = load ptr, ptr %17, align 8, !tbaa !491
-  store ptr %18, ptr %16, align 8, !tbaa !491
-  store ptr @_ZZN4asio9execution6detail17any_executor_base16object_fns_tableIvEEPKNS2_10object_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %14, align 8, !tbaa !208
-  store ptr @_ZZN4asio9execution6detail17any_executor_base16target_fns_tableIvEEPKNS2_10target_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %17, align 8, !tbaa !491
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !732
-  invoke void %20(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %12)
-          to label %24 unwind label %21
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %14 = load ptr, ptr %13, align 8, !tbaa !208
+  store ptr %14, ptr %12, align 8, !tbaa !208
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %17 = load ptr, ptr %16, align 8, !tbaa !491
+  store ptr %17, ptr %15, align 8, !tbaa !491
+  store ptr @_ZZN4asio9execution6detail17any_executor_base16object_fns_tableIvEEPKNS2_10object_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %13, align 8, !tbaa !208
+  store ptr @_ZZN4asio9execution6detail17any_executor_base16target_fns_tableIvEEPKNS2_10target_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %16, align 8, !tbaa !491
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %19 = load ptr, ptr %18, align 8, !tbaa !732
+  invoke void %19(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %11)
+          to label %23 unwind label %20
 
-21:                                               ; preds = %4
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %4
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #39
+  %22 = extractvalue { ptr, i32 } %21, 0
+  call void @__clang_call_terminate(ptr %22) #39
   unreachable
 
-24:                                               ; preds = %4
+23:                                               ; preds = %4
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr null, ptr %25, align 8, !tbaa !723
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -32571,7 +32566,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail23reactive_socket_recv_opINS_
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #37
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %31 = load ptr, ptr %9, align 8, !tbaa !849
+  %31 = load ptr, ptr %24, align 8, !tbaa !849
   store ptr %31, ptr %8, align 8, !tbaa !605
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -32590,20 +32585,20 @@ define linkonce_odr dso_local void @_ZN4asio6detail23reactive_socket_recv_opINS_
   %42 = load i64, ptr %30, align 8, !tbaa !10
   store i64 %42, ptr %41, align 8, !tbaa !855
   store ptr %8, ptr %6, align 8, !tbaa !843
-  %43 = load ptr, ptr %14, align 8, !tbaa !208
+  %43 = load ptr, ptr %13, align 8, !tbaa !208
   %44 = load ptr, ptr %43, align 8, !tbaa !209
-  invoke void %44(ptr noundef nonnull align 8 dereferenceable(48) %12)
+  invoke void %44(ptr noundef nonnull align 8 dereferenceable(48) %11)
           to label %48 unwind label %45
 
-45:                                               ; preds = %24
+45:                                               ; preds = %23
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
   call void @__clang_call_terminate(ptr %47) #39
   unreachable
 
-48:                                               ; preds = %24
-  store ptr null, ptr %11, align 8, !tbaa !848
+48:                                               ; preds = %23
+  store ptr null, ptr %10, align 8, !tbaa !848
   %49 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4asio6detail15keyword_tss_ptrINS0_10call_stackINS0_14thread_contextENS0_16thread_info_baseEE7contextEE6value_E)
   %50 = load ptr, ptr %49, align 8, !tbaa !300
   %.not.i.i.i.i.i.i.i = icmp eq ptr %50, null
@@ -32632,7 +32627,7 @@ _ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.
   br label %_ZN4asio6detail23reactive_socket_recv_opINS_17mutable_buffers_1ENS0_7read_opINS_19basic_stream_socketINS_2ip3tcpENS_9execution12any_executorIJNS7_12context_as_tIRNS_17execution_contextEEENS7_6detail8blocking7never_tILi0EEENS7_11prefer_onlyINSE_10possibly_tILi0EEEEENSH_INSD_16outstanding_work9tracked_tILi0EEEEENSH_INSL_11untracked_tILi0EEEEENSH_INSD_12relationship6fork_tILi0EEEEENSH_INSS_14continuation_tILi0EEEEEEEEEES2_PKNS_14mutable_bufferENS0_14transfer_all_tEZN4crow9websocket10ConnectionINS15_13SocketAdaptorENS15_4CrowIJEEEE7do_readEvEUlRKSt10error_codemE1_EESZ_E3ptr5resetEv.exit
 
 _ZN4asio6detail23reactive_socket_recv_opINS_17mutable_buffers_1ENS0_7read_opINS_19basic_stream_socketINS_2ip3tcpENS_9execution12any_executorIJNS7_12context_as_tIRNS_17execution_contextEEENS7_6detail8blocking7never_tILi0EEENS7_11prefer_onlyINSE_10possibly_tILi0EEEEENSH_INSD_16outstanding_work9tracked_tILi0EEEEENSH_INSL_11untracked_tILi0EEEEENSH_INSD_12relationship6fork_tILi0EEEEENSH_INSS_14continuation_tILi0EEEEEEEEEES2_PKNS_14mutable_bufferENS0_14transfer_all_tEZN4crow9websocket10ConnectionINS15_13SocketAdaptorENS15_4CrowIJEEEE7do_readEvEUlRKSt10error_codemE1_EESZ_E3ptr5resetEv.exit: ; preds = %56, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i.i.i.i
-  store ptr null, ptr %10, align 8, !tbaa !847
+  store ptr null, ptr %9, align 8, !tbaa !847
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %89, label %59
 
@@ -32699,14 +32694,14 @@ _ZN4asio6detail12handler_workINS0_7read_opINS_19basic_stream_socketINS_2ip3tcpEN
           cleanup
   fence release
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #37
-  %87 = load ptr, ptr %13, align 8, !tbaa !208
+  %87 = load ptr, ptr %12, align 8, !tbaa !208
   %88 = load ptr, ptr %87, align 8, !tbaa !209
   invoke void %88(ptr noundef nonnull align 8 dereferenceable(48) %7)
           to label %_ZN4asio6detail17handler_work_baseINS_9execution12any_executorIJNS2_12context_as_tIRNS_17execution_contextEEENS2_6detail8blocking7never_tILi0EEENS2_11prefer_onlyINS9_10possibly_tILi0EEEEENSC_INS8_16outstanding_work9tracked_tILi0EEEEENSC_INSG_11untracked_tILi0EEEEENSC_INS8_12relationship6fork_tILi0EEEEENSC_INSN_14continuation_tILi0EEEEEEEEvNS_10io_contextENS_8executorEvED2Ev.exit15 unwind label %95
 
 89:                                               ; preds = %_ZN4asio6detail12handler_workINS0_7read_opINS_19basic_stream_socketINS_2ip3tcpENS_9execution12any_executorIJNS6_12context_as_tIRNS_17execution_contextEEENS6_6detail8blocking7never_tILi0EEENS6_11prefer_onlyINSD_10possibly_tILi0EEEEENSG_INSC_16outstanding_work9tracked_tILi0EEEEENSG_INSK_11untracked_tILi0EEEEENSG_INSC_12relationship6fork_tILi0EEEEENSG_INSR_14continuation_tILi0EEEEEEEEEENS_17mutable_buffers_1EPKNS_14mutable_bufferENS0_14transfer_all_tEZN4crow9websocket10ConnectionINS15_13SocketAdaptorENS15_4CrowIJEEEE7do_readEvEUlRKSt10error_codemE1_EESY_vE8completeINS0_7binder2IS1G_S1C_mEEEEvRT_RS1G_.exit, %_ZN4asio6detail23reactive_socket_recv_opINS_17mutable_buffers_1ENS0_7read_opINS_19basic_stream_socketINS_2ip3tcpENS_9execution12any_executorIJNS7_12context_as_tIRNS_17execution_contextEEENS7_6detail8blocking7never_tILi0EEENS7_11prefer_onlyINSE_10possibly_tILi0EEEEENSH_INSD_16outstanding_work9tracked_tILi0EEEEENSH_INSL_11untracked_tILi0EEEEENSH_INSD_12relationship6fork_tILi0EEEEENSH_INSS_14continuation_tILi0EEEEEEEEEES2_PKNS_14mutable_bufferENS0_14transfer_all_tEZN4crow9websocket10ConnectionINS15_13SocketAdaptorENS15_4CrowIJEEEE7do_readEvEUlRKSt10error_codemE1_EESZ_E3ptr5resetEv.exit
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #37
-  %90 = load ptr, ptr %13, align 8, !tbaa !208
+  %90 = load ptr, ptr %12, align 8, !tbaa !208
   %91 = load ptr, ptr %90, align 8, !tbaa !209
   invoke void %91(ptr noundef nonnull align 8 dereferenceable(48) %7)
           to label %_ZN4asio6detail23reactive_socket_recv_opINS_17mutable_buffers_1ENS0_7read_opINS_19basic_stream_socketINS_2ip3tcpENS_9execution12any_executorIJNS7_12context_as_tIRNS_17execution_contextEEENS7_6detail8blocking7never_tILi0EEENS7_11prefer_onlyINSE_10possibly_tILi0EEEEENSH_INSD_16outstanding_work9tracked_tILi0EEEEENSH_INSL_11untracked_tILi0EEEEENSH_INSD_12relationship6fork_tILi0EEEEENSH_INSS_14continuation_tILi0EEEEEEEEEES2_PKNS_14mutable_bufferENS0_14transfer_all_tEZN4crow9websocket10ConnectionINS15_13SocketAdaptorENS15_4CrowIJEEEE7do_readEvEUlRKSt10error_codemE1_EESZ_E3ptrD2Ev.exit unwind label %92
@@ -33600,37 +33595,36 @@ define linkonce_odr dso_local void @_ZN4asio6detail23reactive_socket_recv_opINS_
   %7 = alloca %"class.asio::detail::handler_work.295", align 8
   %8 = alloca %"class.asio::detail::binder2.298", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #37
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store ptr %9, ptr %6, align 8, !tbaa !875
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %1, ptr %10, align 8, !tbaa !879
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %1, ptr %11, align 8, !tbaa !880
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %1, ptr %9, align 8, !tbaa !879
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %1, ptr %10, align 8, !tbaa !880
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #37
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %15 = load ptr, ptr %14, align 8, !tbaa !208
-  store ptr %15, ptr %13, align 8, !tbaa !208
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %18 = load ptr, ptr %17, align 8, !tbaa !491
-  store ptr %18, ptr %16, align 8, !tbaa !491
-  store ptr @_ZZN4asio9execution6detail17any_executor_base16object_fns_tableIvEEPKNS2_10object_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %14, align 8, !tbaa !208
-  store ptr @_ZZN4asio9execution6detail17any_executor_base16target_fns_tableIvEEPKNS2_10target_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %17, align 8, !tbaa !491
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !732
-  invoke void %20(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %12)
-          to label %24 unwind label %21
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %14 = load ptr, ptr %13, align 8, !tbaa !208
+  store ptr %14, ptr %12, align 8, !tbaa !208
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %17 = load ptr, ptr %16, align 8, !tbaa !491
+  store ptr %17, ptr %15, align 8, !tbaa !491
+  store ptr @_ZZN4asio9execution6detail17any_executor_base16object_fns_tableIvEEPKNS2_10object_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %13, align 8, !tbaa !208
+  store ptr @_ZZN4asio9execution6detail17any_executor_base16target_fns_tableIvEEPKNS2_10target_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %16, align 8, !tbaa !491
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %19 = load ptr, ptr %18, align 8, !tbaa !732
+  invoke void %19(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %11)
+          to label %23 unwind label %20
 
-21:                                               ; preds = %4
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %4
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #39
+  %22 = extractvalue { ptr, i32 } %21, 0
+  call void @__clang_call_terminate(ptr %22) #39
   unreachable
 
-24:                                               ; preds = %4
+23:                                               ; preds = %4
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr null, ptr %25, align 8, !tbaa !723
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -33641,7 +33635,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail23reactive_socket_recv_opINS_
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #37
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %31 = load ptr, ptr %9, align 8, !tbaa !881
+  %31 = load ptr, ptr %24, align 8, !tbaa !881
   store ptr %31, ptr %8, align 8, !tbaa !605
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -33660,20 +33654,20 @@ define linkonce_odr dso_local void @_ZN4asio6detail23reactive_socket_recv_opINS_
   %42 = load i64, ptr %30, align 8, !tbaa !10
   store i64 %42, ptr %41, align 8, !tbaa !887
   store ptr %8, ptr %6, align 8, !tbaa !875
-  %43 = load ptr, ptr %14, align 8, !tbaa !208
+  %43 = load ptr, ptr %13, align 8, !tbaa !208
   %44 = load ptr, ptr %43, align 8, !tbaa !209
-  invoke void %44(ptr noundef nonnull align 8 dereferenceable(48) %12)
+  invoke void %44(ptr noundef nonnull align 8 dereferenceable(48) %11)
           to label %48 unwind label %45
 
-45:                                               ; preds = %24
+45:                                               ; preds = %23
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
   call void @__clang_call_terminate(ptr %47) #39
   unreachable
 
-48:                                               ; preds = %24
-  store ptr null, ptr %11, align 8, !tbaa !880
+48:                                               ; preds = %23
+  store ptr null, ptr %10, align 8, !tbaa !880
   %49 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4asio6detail15keyword_tss_ptrINS0_10call_stackINS0_14thread_contextENS0_16thread_info_baseEE7contextEE6value_E)
   %50 = load ptr, ptr %49, align 8, !tbaa !300
   %.not.i.i.i.i.i.i.i = icmp eq ptr %50, null
@@ -33702,7 +33696,7 @@ _ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.
   br label %_ZN4asio6detail23reactive_socket_recv_opINS_17mutable_buffers_1ENS0_7read_opINS_19basic_stream_socketINS_2ip3tcpENS_9execution12any_executorIJNS7_12context_as_tIRNS_17execution_contextEEENS7_6detail8blocking7never_tILi0EEENS7_11prefer_onlyINSE_10possibly_tILi0EEEEENSH_INSD_16outstanding_work9tracked_tILi0EEEEENSH_INSL_11untracked_tILi0EEEEENSH_INSD_12relationship6fork_tILi0EEEEENSH_INSS_14continuation_tILi0EEEEEEEEEES2_PKNS_14mutable_bufferENS0_14transfer_all_tEZN4crow9websocket10ConnectionINS15_13SocketAdaptorENS15_4CrowIJEEEE7do_readEvEUlRKSt10error_codemE2_EESZ_E3ptr5resetEv.exit
 
 _ZN4asio6detail23reactive_socket_recv_opINS_17mutable_buffers_1ENS0_7read_opINS_19basic_stream_socketINS_2ip3tcpENS_9execution12any_executorIJNS7_12context_as_tIRNS_17execution_contextEEENS7_6detail8blocking7never_tILi0EEENS7_11prefer_onlyINSE_10possibly_tILi0EEEEENSH_INSD_16outstanding_work9tracked_tILi0EEEEENSH_INSL_11untracked_tILi0EEEEENSH_INSD_12relationship6fork_tILi0EEEEENSH_INSS_14continuation_tILi0EEEEEEEEEES2_PKNS_14mutable_bufferENS0_14transfer_all_tEZN4crow9websocket10ConnectionINS15_13SocketAdaptorENS15_4CrowIJEEEE7do_readEvEUlRKSt10error_codemE2_EESZ_E3ptr5resetEv.exit: ; preds = %56, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i.i.i.i
-  store ptr null, ptr %10, align 8, !tbaa !879
+  store ptr null, ptr %9, align 8, !tbaa !879
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %89, label %59
 
@@ -33769,14 +33763,14 @@ _ZN4asio6detail12handler_workINS0_7read_opINS_19basic_stream_socketINS_2ip3tcpEN
           cleanup
   fence release
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #37
-  %87 = load ptr, ptr %13, align 8, !tbaa !208
+  %87 = load ptr, ptr %12, align 8, !tbaa !208
   %88 = load ptr, ptr %87, align 8, !tbaa !209
   invoke void %88(ptr noundef nonnull align 8 dereferenceable(48) %7)
           to label %_ZN4asio6detail17handler_work_baseINS_9execution12any_executorIJNS2_12context_as_tIRNS_17execution_contextEEENS2_6detail8blocking7never_tILi0EEENS2_11prefer_onlyINS9_10possibly_tILi0EEEEENSC_INS8_16outstanding_work9tracked_tILi0EEEEENSC_INSG_11untracked_tILi0EEEEENSC_INS8_12relationship6fork_tILi0EEEEENSC_INSN_14continuation_tILi0EEEEEEEEvNS_10io_contextENS_8executorEvED2Ev.exit15 unwind label %95
 
 89:                                               ; preds = %_ZN4asio6detail12handler_workINS0_7read_opINS_19basic_stream_socketINS_2ip3tcpENS_9execution12any_executorIJNS6_12context_as_tIRNS_17execution_contextEEENS6_6detail8blocking7never_tILi0EEENS6_11prefer_onlyINSD_10possibly_tILi0EEEEENSG_INSC_16outstanding_work9tracked_tILi0EEEEENSG_INSK_11untracked_tILi0EEEEENSG_INSC_12relationship6fork_tILi0EEEEENSG_INSR_14continuation_tILi0EEEEEEEEEENS_17mutable_buffers_1EPKNS_14mutable_bufferENS0_14transfer_all_tEZN4crow9websocket10ConnectionINS15_13SocketAdaptorENS15_4CrowIJEEEE7do_readEvEUlRKSt10error_codemE2_EESY_vE8completeINS0_7binder2IS1G_S1C_mEEEEvRT_RS1G_.exit, %_ZN4asio6detail23reactive_socket_recv_opINS_17mutable_buffers_1ENS0_7read_opINS_19basic_stream_socketINS_2ip3tcpENS_9execution12any_executorIJNS7_12context_as_tIRNS_17execution_contextEEENS7_6detail8blocking7never_tILi0EEENS7_11prefer_onlyINSE_10possibly_tILi0EEEEENSH_INSD_16outstanding_work9tracked_tILi0EEEEENSH_INSL_11untracked_tILi0EEEEENSH_INSD_12relationship6fork_tILi0EEEEENSH_INSS_14continuation_tILi0EEEEEEEEEES2_PKNS_14mutable_bufferENS0_14transfer_all_tEZN4crow9websocket10ConnectionINS15_13SocketAdaptorENS15_4CrowIJEEEE7do_readEvEUlRKSt10error_codemE2_EESZ_E3ptr5resetEv.exit
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #37
-  %90 = load ptr, ptr %13, align 8, !tbaa !208
+  %90 = load ptr, ptr %12, align 8, !tbaa !208
   %91 = load ptr, ptr %90, align 8, !tbaa !209
   invoke void %91(ptr noundef nonnull align 8 dereferenceable(48) %7)
           to label %_ZN4asio6detail23reactive_socket_recv_opINS_17mutable_buffers_1ENS0_7read_opINS_19basic_stream_socketINS_2ip3tcpENS_9execution12any_executorIJNS7_12context_as_tIRNS_17execution_contextEEENS7_6detail8blocking7never_tILi0EEENS7_11prefer_onlyINSE_10possibly_tILi0EEEEENSH_INSD_16outstanding_work9tracked_tILi0EEEEENSH_INSL_11untracked_tILi0EEEEENSH_INSD_12relationship6fork_tILi0EEEEENSH_INSS_14continuation_tILi0EEEEEEEEEES2_PKNS_14mutable_bufferENS0_14transfer_all_tEZN4crow9websocket10ConnectionINS15_13SocketAdaptorENS15_4CrowIJEEEE7do_readEvEUlRKSt10error_codemE2_EESZ_E3ptrD2Ev.exit unwind label %92
@@ -34530,37 +34524,35 @@ define linkonce_odr dso_local void @_ZN4asio6detail23reactive_socket_recv_opINS_
   %6 = alloca %"class.asio::detail::handler_work.306", align 8
   %7 = alloca %"class.asio::detail::binder2.309", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #37
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store ptr %8, ptr %5, align 8, !tbaa !903
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %1, ptr %9, align 8, !tbaa !906
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %1, ptr %10, align 8, !tbaa !907
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %1, ptr %8, align 8, !tbaa !906
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #37
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %14 = load ptr, ptr %13, align 8, !tbaa !208
-  store ptr %14, ptr %12, align 8, !tbaa !208
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %17 = load ptr, ptr %16, align 8, !tbaa !491
-  store ptr %17, ptr %15, align 8, !tbaa !491
-  store ptr @_ZZN4asio9execution6detail17any_executor_base16object_fns_tableIvEEPKNS2_10object_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %13, align 8, !tbaa !208
-  store ptr @_ZZN4asio9execution6detail17any_executor_base16target_fns_tableIvEEPKNS2_10target_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %16, align 8, !tbaa !491
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !732
-  invoke void %19(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %11)
-          to label %23 unwind label %20
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %13 = load ptr, ptr %12, align 8, !tbaa !208
+  store ptr %13, ptr %11, align 8, !tbaa !208
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %16 = load ptr, ptr %15, align 8, !tbaa !491
+  store ptr %16, ptr %14, align 8, !tbaa !491
+  store ptr @_ZZN4asio9execution6detail17any_executor_base16object_fns_tableIvEEPKNS2_10object_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %12, align 8, !tbaa !208
+  store ptr @_ZZN4asio9execution6detail17any_executor_base16target_fns_tableIvEEPKNS2_10target_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %15, align 8, !tbaa !491
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %18 = load ptr, ptr %17, align 8, !tbaa !732
+  invoke void %18(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %10)
+          to label %22 unwind label %19
 
-20:                                               ; preds = %4
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %4
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #39
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #39
   unreachable
 
-23:                                               ; preds = %4
+22:                                               ; preds = %4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store ptr null, ptr %24, align 8, !tbaa !723
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -34571,7 +34563,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail23reactive_socket_recv_opINS_
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #37
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %30 = load i64, ptr %8, align 8, !tbaa !624
+  %30 = load i64, ptr %23, align 8, !tbaa !624
   store i64 %30, ptr %7, align 8, !tbaa !624
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false), !tbaa.struct !712
@@ -34579,20 +34571,20 @@ define linkonce_odr dso_local void @_ZN4asio6detail23reactive_socket_recv_opINS_
   %33 = load i64, ptr %29, align 8, !tbaa !10
   store i64 %33, ptr %32, align 8, !tbaa !913
   store ptr %7, ptr %5, align 8, !tbaa !903
-  %34 = load ptr, ptr %13, align 8, !tbaa !208
+  %34 = load ptr, ptr %12, align 8, !tbaa !208
   %35 = load ptr, ptr %34, align 8, !tbaa !209
-  invoke void %35(ptr noundef nonnull align 8 dereferenceable(48) %11)
+  invoke void %35(ptr noundef nonnull align 8 dereferenceable(48) %10)
           to label %39 unwind label %36
 
-36:                                               ; preds = %23
+36:                                               ; preds = %22
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
   call void @__clang_call_terminate(ptr %38) #39
   unreachable
 
-39:                                               ; preds = %23
-  store ptr null, ptr %10, align 8, !tbaa !907
+39:                                               ; preds = %22
+  store ptr null, ptr %9, align 8, !tbaa !907
   %40 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4asio6detail15keyword_tss_ptrINS0_10call_stackINS0_14thread_contextENS0_16thread_info_baseEE7contextEE6value_E)
   %41 = load ptr, ptr %40, align 8, !tbaa !300
   %.not.i.i.i.i.i = icmp eq ptr %41, null
@@ -34621,7 +34613,7 @@ _ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.
   br label %_ZN4asio6detail23reactive_socket_recv_opINS_17mutable_buffers_1EZN4crow9websocket10ConnectionINS3_13SocketAdaptorENS3_4CrowIJEEEE7do_readEvEUlRKSt10error_codemE3_NS_9execution12any_executorIJNSE_12context_as_tIRNS_17execution_contextEEENSE_6detail8blocking7never_tILi0EEENSE_11prefer_onlyINSL_10possibly_tILi0EEEEENSO_INSK_16outstanding_work9tracked_tILi0EEEEENSO_INSS_11untracked_tILi0EEEEENSO_INSK_12relationship6fork_tILi0EEEEENSO_INSZ_14continuation_tILi0EEEEEEEEE3ptr5resetEv.exit
 
 _ZN4asio6detail23reactive_socket_recv_opINS_17mutable_buffers_1EZN4crow9websocket10ConnectionINS3_13SocketAdaptorENS3_4CrowIJEEEE7do_readEvEUlRKSt10error_codemE3_NS_9execution12any_executorIJNSE_12context_as_tIRNS_17execution_contextEEENSE_6detail8blocking7never_tILi0EEENSE_11prefer_onlyINSL_10possibly_tILi0EEEEENSO_INSK_16outstanding_work9tracked_tILi0EEEEENSO_INSS_11untracked_tILi0EEEEENSO_INSK_12relationship6fork_tILi0EEEEENSO_INSZ_14continuation_tILi0EEEEEEEEE3ptr5resetEv.exit: ; preds = %47, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i.i
-  store ptr null, ptr %9, align 8, !tbaa !906
+  store ptr null, ptr %8, align 8, !tbaa !906
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %60, label %50
 
@@ -34649,14 +34641,14 @@ _ZN4asio6detail12handler_workIZN4crow9websocket10ConnectionINS2_13SocketAdaptorE
           cleanup
   fence release
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #37
-  %58 = load ptr, ptr %12, align 8, !tbaa !208
+  %58 = load ptr, ptr %11, align 8, !tbaa !208
   %59 = load ptr, ptr %58, align 8, !tbaa !209
   invoke void %59(ptr noundef nonnull align 8 dereferenceable(48) %6)
           to label %_ZN4asio6detail17handler_work_baseINS_9execution12any_executorIJNS2_12context_as_tIRNS_17execution_contextEEENS2_6detail8blocking7never_tILi0EEENS2_11prefer_onlyINS9_10possibly_tILi0EEEEENSC_INS8_16outstanding_work9tracked_tILi0EEEEENSC_INSG_11untracked_tILi0EEEEENSC_INS8_12relationship6fork_tILi0EEEEENSC_INSN_14continuation_tILi0EEEEEEEEvNS_10io_contextENS_8executorEvED2Ev.exit14 unwind label %66
 
 60:                                               ; preds = %_ZN4asio6detail12handler_workIZN4crow9websocket10ConnectionINS2_13SocketAdaptorENS2_4CrowIJEEEE7do_readEvEUlRKSt10error_codemE3_NS_9execution12any_executorIJNSD_12context_as_tIRNS_17execution_contextEEENSD_6detail8blocking7never_tILi0EEENSD_11prefer_onlyINSK_10possibly_tILi0EEEEENSN_INSJ_16outstanding_work9tracked_tILi0EEEEENSN_INSR_11untracked_tILi0EEEEENSN_INSJ_12relationship6fork_tILi0EEEEENSN_INSY_14continuation_tILi0EEEEEEEEvE8completeINS0_7binder2ISC_S9_mEEEEvRT_RSC_.exit, %_ZN4asio6detail23reactive_socket_recv_opINS_17mutable_buffers_1EZN4crow9websocket10ConnectionINS3_13SocketAdaptorENS3_4CrowIJEEEE7do_readEvEUlRKSt10error_codemE3_NS_9execution12any_executorIJNSE_12context_as_tIRNS_17execution_contextEEENSE_6detail8blocking7never_tILi0EEENSE_11prefer_onlyINSL_10possibly_tILi0EEEEENSO_INSK_16outstanding_work9tracked_tILi0EEEEENSO_INSS_11untracked_tILi0EEEEENSO_INSK_12relationship6fork_tILi0EEEEENSO_INSZ_14continuation_tILi0EEEEEEEEE3ptr5resetEv.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #37
-  %61 = load ptr, ptr %12, align 8, !tbaa !208
+  %61 = load ptr, ptr %11, align 8, !tbaa !208
   %62 = load ptr, ptr %61, align 8, !tbaa !209
   invoke void %62(ptr noundef nonnull align 8 dereferenceable(48) %6)
           to label %_ZN4asio6detail23reactive_socket_recv_opINS_17mutable_buffers_1EZN4crow9websocket10ConnectionINS3_13SocketAdaptorENS3_4CrowIJEEEE7do_readEvEUlRKSt10error_codemE3_NS_9execution12any_executorIJNSE_12context_as_tIRNS_17execution_contextEEENSE_6detail8blocking7never_tILi0EEENSE_11prefer_onlyINSL_10possibly_tILi0EEEEENSO_INSK_16outstanding_work9tracked_tILi0EEEEENSO_INSS_11untracked_tILi0EEEEENSO_INSK_12relationship6fork_tILi0EEEEENSO_INSZ_14continuation_tILi0EEEEEEEEE3ptrD2Ev.exit unwind label %63
@@ -76056,37 +76048,35 @@ define linkonce_odr dso_local void @_ZN4asio6detail12wait_handlerISt5_BindIFMN4c
   %6 = alloca %"class.asio::detail::handler_work.569", align 8
   %7 = alloca %"class.asio::detail::binder1", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #37
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store ptr %8, ptr %5, align 8, !tbaa !1959
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %1, ptr %9, align 8, !tbaa !1963
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %1, ptr %10, align 8, !tbaa !1964
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %1, ptr %8, align 8, !tbaa !1963
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #37
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %14 = load ptr, ptr %13, align 8, !tbaa !208
-  store ptr %14, ptr %12, align 8, !tbaa !208
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %17 = load ptr, ptr %16, align 8, !tbaa !491
-  store ptr %17, ptr %15, align 8, !tbaa !491
-  store ptr @_ZZN4asio9execution6detail17any_executor_base16object_fns_tableIvEEPKNS2_10object_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %13, align 8, !tbaa !208
-  store ptr @_ZZN4asio9execution6detail17any_executor_base16target_fns_tableIvEEPKNS2_10target_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %16, align 8, !tbaa !491
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !732
-  invoke void %19(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %11)
-          to label %23 unwind label %20
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %13 = load ptr, ptr %12, align 8, !tbaa !208
+  store ptr %13, ptr %11, align 8, !tbaa !208
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %16 = load ptr, ptr %15, align 8, !tbaa !491
+  store ptr %16, ptr %14, align 8, !tbaa !491
+  store ptr @_ZZN4asio9execution6detail17any_executor_base16object_fns_tableIvEEPKNS2_10object_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %12, align 8, !tbaa !208
+  store ptr @_ZZN4asio9execution6detail17any_executor_base16target_fns_tableIvEEPKNS2_10target_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %15, align 8, !tbaa !491
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %18 = load ptr, ptr %17, align 8, !tbaa !732
+  invoke void %18(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %10)
+          to label %22 unwind label %19
 
-20:                                               ; preds = %4
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %4
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #39
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #39
   unreachable
 
-23:                                               ; preds = %4
+22:                                               ; preds = %4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store ptr null, ptr %24, align 8, !tbaa !723
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -76096,7 +76086,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail12wait_handlerISt5_BindIFMN4c
   store ptr @_ZZN4asio9execution12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS0_6detail8blocking7never_tILi0EEENS0_11prefer_onlyINS7_10possibly_tILi0EEEEENSA_INS6_16outstanding_work9tracked_tILi0EEEEENSA_INSE_11untracked_tILi0EEEEENSA_INS6_12relationship6fork_tILi0EEEEENSA_INSL_14continuation_tILi0EEEEEEE14prop_fns_tableIvEEPKNS6_17any_executor_base8prop_fnsISS_EEvE3fns, ptr %26, align 8, !tbaa !493
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #37
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.unpack.i.i = load i64, ptr %8, align 8, !tbaa !1929
+  %.unpack.i.i = load i64, ptr %23, align 8, !tbaa !1929
   %.elt3.i.i = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.unpack4.i.i = load i64, ptr %.elt3.i.i, align 8, !tbaa !1929
   store i64 %.unpack.i.i, ptr %7, align 8, !tbaa !1929
@@ -76109,20 +76099,20 @@ define linkonce_odr dso_local void @_ZN4asio6detail12wait_handlerISt5_BindIFMN4c
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false), !tbaa.struct !712
   store ptr %7, ptr %5, align 8, !tbaa !1959
-  %33 = load ptr, ptr %13, align 8, !tbaa !208
+  %33 = load ptr, ptr %12, align 8, !tbaa !208
   %34 = load ptr, ptr %33, align 8, !tbaa !209
-  invoke void %34(ptr noundef nonnull align 8 dereferenceable(48) %11)
+  invoke void %34(ptr noundef nonnull align 8 dereferenceable(48) %10)
           to label %38 unwind label %35
 
-35:                                               ; preds = %23
+35:                                               ; preds = %22
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
   call void @__clang_call_terminate(ptr %37) #39
   unreachable
 
-38:                                               ; preds = %23
-  store ptr null, ptr %10, align 8, !tbaa !1964
+38:                                               ; preds = %22
+  store ptr null, ptr %9, align 8, !tbaa !1964
   %39 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4asio6detail15keyword_tss_ptrINS0_10call_stackINS0_14thread_contextENS0_16thread_info_baseEE7contextEE6value_E)
   %40 = load ptr, ptr %39, align 8, !tbaa !300
   %.not.i.i.i.i.i = icmp eq ptr %40, null
@@ -76151,7 +76141,7 @@ _ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.
   br label %_ZN4asio6detail12wait_handlerISt5_BindIFMN4crow6detail10task_timerEFvRKSt10error_codeEPS5_St12_PlaceholderILi1EEEENS_9execution12any_executorIJNSG_12context_as_tIRNS_17execution_contextEEENSG_6detail8blocking7never_tILi0EEENSG_11prefer_onlyINSN_10possibly_tILi0EEEEENSQ_INSM_16outstanding_work9tracked_tILi0EEEEENSQ_INSU_11untracked_tILi0EEEEENSQ_INSM_12relationship6fork_tILi0EEEEENSQ_INS11_14continuation_tILi0EEEEEEEEE3ptr5resetEv.exit
 
 _ZN4asio6detail12wait_handlerISt5_BindIFMN4crow6detail10task_timerEFvRKSt10error_codeEPS5_St12_PlaceholderILi1EEEENS_9execution12any_executorIJNSG_12context_as_tIRNS_17execution_contextEEENSG_6detail8blocking7never_tILi0EEENSG_11prefer_onlyINSN_10possibly_tILi0EEEEENSQ_INSM_16outstanding_work9tracked_tILi0EEEEENSQ_INSU_11untracked_tILi0EEEEENSQ_INSM_12relationship6fork_tILi0EEEEENSQ_INS11_14continuation_tILi0EEEEEEEEE3ptr5resetEv.exit: ; preds = %46, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i.i
-  store ptr null, ptr %9, align 8, !tbaa !1963
+  store ptr null, ptr %8, align 8, !tbaa !1963
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %69, label %49
 
@@ -76199,14 +76189,14 @@ _ZN4asio6detail12handler_workISt5_BindIFMN4crow6detail10task_timerEFvRKSt10error
           cleanup
   fence release
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #37
-  %67 = load ptr, ptr %12, align 8, !tbaa !208
+  %67 = load ptr, ptr %11, align 8, !tbaa !208
   %68 = load ptr, ptr %67, align 8, !tbaa !209
   invoke void %68(ptr noundef nonnull align 8 dereferenceable(48) %6)
           to label %_ZN4asio6detail17handler_work_baseINS_9execution12any_executorIJNS2_12context_as_tIRNS_17execution_contextEEENS2_6detail8blocking7never_tILi0EEENS2_11prefer_onlyINS9_10possibly_tILi0EEEEENSC_INS8_16outstanding_work9tracked_tILi0EEEEENSC_INSG_11untracked_tILi0EEEEENSC_INS8_12relationship6fork_tILi0EEEEENSC_INSN_14continuation_tILi0EEEEEEEEvNS_10io_contextENS_8executorEvED2Ev.exit13 unwind label %75
 
 69:                                               ; preds = %_ZN4asio6detail12handler_workISt5_BindIFMN4crow6detail10task_timerEFvRKSt10error_codeEPS5_St12_PlaceholderILi1EEEENS_9execution12any_executorIJNSG_12context_as_tIRNS_17execution_contextEEENSG_6detail8blocking7never_tILi0EEENSG_11prefer_onlyINSN_10possibly_tILi0EEEEENSQ_INSM_16outstanding_work9tracked_tILi0EEEEENSQ_INSU_11untracked_tILi0EEEEENSQ_INSM_12relationship6fork_tILi0EEEEENSQ_INS11_14continuation_tILi0EEEEEEEEvE8completeINS0_7binder1ISF_S6_EEEEvRT_RSF_.exit, %_ZN4asio6detail12wait_handlerISt5_BindIFMN4crow6detail10task_timerEFvRKSt10error_codeEPS5_St12_PlaceholderILi1EEEENS_9execution12any_executorIJNSG_12context_as_tIRNS_17execution_contextEEENSG_6detail8blocking7never_tILi0EEENSG_11prefer_onlyINSN_10possibly_tILi0EEEEENSQ_INSM_16outstanding_work9tracked_tILi0EEEEENSQ_INSU_11untracked_tILi0EEEEENSQ_INSM_12relationship6fork_tILi0EEEEENSQ_INS11_14continuation_tILi0EEEEEEEEE3ptr5resetEv.exit
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #37
-  %70 = load ptr, ptr %12, align 8, !tbaa !208
+  %70 = load ptr, ptr %11, align 8, !tbaa !208
   %71 = load ptr, ptr %70, align 8, !tbaa !209
   invoke void %71(ptr noundef nonnull align 8 dereferenceable(48) %6)
           to label %_ZN4asio6detail12wait_handlerISt5_BindIFMN4crow6detail10task_timerEFvRKSt10error_codeEPS5_St12_PlaceholderILi1EEEENS_9execution12any_executorIJNSG_12context_as_tIRNS_17execution_contextEEENSG_6detail8blocking7never_tILi0EEENSG_11prefer_onlyINSN_10possibly_tILi0EEEEENSQ_INSM_16outstanding_work9tracked_tILi0EEEEENSQ_INSU_11untracked_tILi0EEEEENSQ_INSM_12relationship6fork_tILi0EEEEENSQ_INS11_14continuation_tILi0EEEEEEEEE3ptrD2Ev.exit unwind label %72
@@ -78359,37 +78349,35 @@ define linkonce_odr dso_local void @_ZN4asio6detail12wait_handlerIZN4crow6Server
   %6 = alloca %"class.asio::detail::handler_work.618", align 8
   %7 = alloca %"class.asio::detail::binder1.621", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #37
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store ptr %8, ptr %5, align 8, !tbaa !2009
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %1, ptr %9, align 8, !tbaa !2012
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %1, ptr %10, align 8, !tbaa !2013
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %1, ptr %8, align 8, !tbaa !2012
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #37
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %14 = load ptr, ptr %13, align 8, !tbaa !208
-  store ptr %14, ptr %12, align 8, !tbaa !208
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %17 = load ptr, ptr %16, align 8, !tbaa !491
-  store ptr %17, ptr %15, align 8, !tbaa !491
-  store ptr @_ZZN4asio9execution6detail17any_executor_base16object_fns_tableIvEEPKNS2_10object_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %13, align 8, !tbaa !208
-  store ptr @_ZZN4asio9execution6detail17any_executor_base16target_fns_tableIvEEPKNS2_10target_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %16, align 8, !tbaa !491
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !732
-  invoke void %19(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %11)
-          to label %23 unwind label %20
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %13 = load ptr, ptr %12, align 8, !tbaa !208
+  store ptr %13, ptr %11, align 8, !tbaa !208
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %16 = load ptr, ptr %15, align 8, !tbaa !491
+  store ptr %16, ptr %14, align 8, !tbaa !491
+  store ptr @_ZZN4asio9execution6detail17any_executor_base16object_fns_tableIvEEPKNS2_10object_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %12, align 8, !tbaa !208
+  store ptr @_ZZN4asio9execution6detail17any_executor_base16target_fns_tableIvEEPKNS2_10target_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %15, align 8, !tbaa !491
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %18 = load ptr, ptr %17, align 8, !tbaa !732
+  invoke void %18(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %10)
+          to label %22 unwind label %19
 
-20:                                               ; preds = %4
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %4
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #39
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #39
   unreachable
 
-23:                                               ; preds = %4
+22:                                               ; preds = %4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr null, ptr %24, align 8, !tbaa !723
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -78399,25 +78387,25 @@ define linkonce_odr dso_local void @_ZN4asio6detail12wait_handlerIZN4crow6Server
   store ptr @_ZZN4asio9execution12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS0_6detail8blocking7never_tILi0EEENS0_11prefer_onlyINS7_10possibly_tILi0EEEEENSA_INS6_16outstanding_work9tracked_tILi0EEEEENSA_INSE_11untracked_tILi0EEEEENSA_INS6_12relationship6fork_tILi0EEEEENSA_INSL_14continuation_tILi0EEEEEEE14prop_fns_tableIvEEPKNS6_17any_executor_base8prop_fnsISS_EEvE3fns, ptr %26, align 8, !tbaa !493
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #37
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %29 = load i64, ptr %8, align 8, !tbaa !167
+  %29 = load i64, ptr %23, align 8, !tbaa !167
   store i64 %29, ptr %7, align 8, !tbaa !167
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false), !tbaa.struct !712
   store ptr %7, ptr %5, align 8, !tbaa !2009
-  %31 = load ptr, ptr %13, align 8, !tbaa !208
+  %31 = load ptr, ptr %12, align 8, !tbaa !208
   %32 = load ptr, ptr %31, align 8, !tbaa !209
-  invoke void %32(ptr noundef nonnull align 8 dereferenceable(48) %11)
+  invoke void %32(ptr noundef nonnull align 8 dereferenceable(48) %10)
           to label %36 unwind label %33
 
-33:                                               ; preds = %23
+33:                                               ; preds = %22
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
   call void @__clang_call_terminate(ptr %35) #39
   unreachable
 
-36:                                               ; preds = %23
-  store ptr null, ptr %10, align 8, !tbaa !2013
+36:                                               ; preds = %22
+  store ptr null, ptr %9, align 8, !tbaa !2013
   %37 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4asio6detail15keyword_tss_ptrINS0_10call_stackINS0_14thread_contextENS0_16thread_info_baseEE7contextEE6value_E)
   %38 = load ptr, ptr %37, align 8, !tbaa !300
   %.not.i.i.i.i.i = icmp eq ptr %38, null
@@ -78446,7 +78434,7 @@ _ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.
   br label %_ZN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEE3ptr5resetEv.exit
 
 _ZN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEE3ptr5resetEv.exit: ; preds = %44, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i.i
-  store ptr null, ptr %9, align 8, !tbaa !2012
+  store ptr null, ptr %8, align 8, !tbaa !2012
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %59, label %47
 
@@ -78479,14 +78467,14 @@ _ZN4asio6detail12handler_workIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJ
           cleanup
   fence release
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #37
-  %57 = load ptr, ptr %12, align 8, !tbaa !208
+  %57 = load ptr, ptr %11, align 8, !tbaa !208
   %58 = load ptr, ptr %57, align 8, !tbaa !209
   invoke void %58(ptr noundef nonnull align 8 dereferenceable(48) %6)
           to label %_ZN4asio6detail17handler_work_baseINS_9execution12any_executorIJNS2_12context_as_tIRNS_17execution_contextEEENS2_6detail8blocking7never_tILi0EEENS2_11prefer_onlyINS9_10possibly_tILi0EEEEENSC_INS8_16outstanding_work9tracked_tILi0EEEEENSC_INSG_11untracked_tILi0EEEEENSC_INS8_12relationship6fork_tILi0EEEEENSC_INSN_14continuation_tILi0EEEEEEEEvNS_10io_contextENS_8executorEvED2Ev.exit14 unwind label %65
 
 59:                                               ; preds = %_ZN4asio6detail12handler_workIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEvE8completeINS0_7binder1ISB_S8_EEEEvRT_RSB_.exit, %_ZN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEE3ptr5resetEv.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #37
-  %60 = load ptr, ptr %12, align 8, !tbaa !208
+  %60 = load ptr, ptr %11, align 8, !tbaa !208
   %61 = load ptr, ptr %60, align 8, !tbaa !209
   invoke void %61(ptr noundef nonnull align 8 dereferenceable(48) %6)
           to label %_ZN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEE3ptrD2Ev.exit unwind label %62
@@ -78907,37 +78895,35 @@ define linkonce_odr dso_local void @_ZN4asio6detail12wait_handlerIZN4crow6Server
   %6 = alloca %"class.asio::detail::handler_work.625", align 8
   %7 = alloca %"class.asio::detail::binder1.628", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #37
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store ptr %8, ptr %5, align 8, !tbaa !2029
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %1, ptr %9, align 8, !tbaa !2032
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %1, ptr %10, align 8, !tbaa !2033
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %1, ptr %8, align 8, !tbaa !2032
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #37
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %14 = load ptr, ptr %13, align 8, !tbaa !208
-  store ptr %14, ptr %12, align 8, !tbaa !208
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %17 = load ptr, ptr %16, align 8, !tbaa !491
-  store ptr %17, ptr %15, align 8, !tbaa !491
-  store ptr @_ZZN4asio9execution6detail17any_executor_base16object_fns_tableIvEEPKNS2_10object_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %13, align 8, !tbaa !208
-  store ptr @_ZZN4asio9execution6detail17any_executor_base16target_fns_tableIvEEPKNS2_10target_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %16, align 8, !tbaa !491
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !732
-  invoke void %19(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %11)
-          to label %23 unwind label %20
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %13 = load ptr, ptr %12, align 8, !tbaa !208
+  store ptr %13, ptr %11, align 8, !tbaa !208
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %16 = load ptr, ptr %15, align 8, !tbaa !491
+  store ptr %16, ptr %14, align 8, !tbaa !491
+  store ptr @_ZZN4asio9execution6detail17any_executor_base16object_fns_tableIvEEPKNS2_10object_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %12, align 8, !tbaa !208
+  store ptr @_ZZN4asio9execution6detail17any_executor_base16target_fns_tableIvEEPKNS2_10target_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %15, align 8, !tbaa !491
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %18 = load ptr, ptr %17, align 8, !tbaa !732
+  invoke void %18(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %10)
+          to label %22 unwind label %19
 
-20:                                               ; preds = %4
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %4
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #39
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #39
   unreachable
 
-23:                                               ; preds = %4
+22:                                               ; preds = %4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr null, ptr %24, align 8, !tbaa !723
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -78947,25 +78933,25 @@ define linkonce_odr dso_local void @_ZN4asio6detail12wait_handlerIZN4crow6Server
   store ptr @_ZZN4asio9execution12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS0_6detail8blocking7never_tILi0EEENS0_11prefer_onlyINS7_10possibly_tILi0EEEEENSA_INS6_16outstanding_work9tracked_tILi0EEEEENSA_INSE_11untracked_tILi0EEEEENSA_INS6_12relationship6fork_tILi0EEEEENSA_INSL_14continuation_tILi0EEEEEEE14prop_fns_tableIvEEPKNS6_17any_executor_base8prop_fnsISS_EEvE3fns, ptr %26, align 8, !tbaa !493
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #37
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %29 = load i64, ptr %8, align 8, !tbaa !167
+  %29 = load i64, ptr %23, align 8, !tbaa !167
   store i64 %29, ptr %7, align 8, !tbaa !167
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false), !tbaa.struct !712
   store ptr %7, ptr %5, align 8, !tbaa !2029
-  %31 = load ptr, ptr %13, align 8, !tbaa !208
+  %31 = load ptr, ptr %12, align 8, !tbaa !208
   %32 = load ptr, ptr %31, align 8, !tbaa !209
-  invoke void %32(ptr noundef nonnull align 8 dereferenceable(48) %11)
+  invoke void %32(ptr noundef nonnull align 8 dereferenceable(48) %10)
           to label %36 unwind label %33
 
-33:                                               ; preds = %23
+33:                                               ; preds = %22
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
   call void @__clang_call_terminate(ptr %35) #39
   unreachable
 
-36:                                               ; preds = %23
-  store ptr null, ptr %10, align 8, !tbaa !2033
+36:                                               ; preds = %22
+  store ptr null, ptr %9, align 8, !tbaa !2033
   %37 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4asio6detail15keyword_tss_ptrINS0_10call_stackINS0_14thread_contextENS0_16thread_info_baseEE7contextEE6value_E)
   %38 = load ptr, ptr %37, align 8, !tbaa !300
   %.not.i.i.i.i.i = icmp eq ptr %38, null
@@ -78994,7 +78980,7 @@ _ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.
   br label %_ZN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE7on_tickEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEE3ptr5resetEv.exit
 
 _ZN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE7on_tickEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEE3ptr5resetEv.exit: ; preds = %44, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i.i
-  store ptr null, ptr %9, align 8, !tbaa !2032
+  store ptr null, ptr %8, align 8, !tbaa !2032
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %59, label %47
 
@@ -79027,14 +79013,14 @@ _ZN4asio6detail12handler_workIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJ
           cleanup
   fence release
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #37
-  %57 = load ptr, ptr %12, align 8, !tbaa !208
+  %57 = load ptr, ptr %11, align 8, !tbaa !208
   %58 = load ptr, ptr %57, align 8, !tbaa !209
   invoke void %58(ptr noundef nonnull align 8 dereferenceable(48) %6)
           to label %_ZN4asio6detail17handler_work_baseINS_9execution12any_executorIJNS2_12context_as_tIRNS_17execution_contextEEENS2_6detail8blocking7never_tILi0EEENS2_11prefer_onlyINS9_10possibly_tILi0EEEEENSC_INS8_16outstanding_work9tracked_tILi0EEEEENSC_INSG_11untracked_tILi0EEEEENSC_INS8_12relationship6fork_tILi0EEEEENSC_INSN_14continuation_tILi0EEEEEEEEvNS_10io_contextENS_8executorEvED2Ev.exit14 unwind label %65
 
 59:                                               ; preds = %_ZN4asio6detail12handler_workIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE7on_tickEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEvE8completeINS0_7binder1ISB_S8_EEEEvRT_RSB_.exit, %_ZN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE7on_tickEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEE3ptr5resetEv.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #37
-  %60 = load ptr, ptr %12, align 8, !tbaa !208
+  %60 = load ptr, ptr %11, align 8, !tbaa !208
   %61 = load ptr, ptr %60, align 8, !tbaa !209
   invoke void %61(ptr noundef nonnull align 8 dereferenceable(48) %6)
           to label %_ZN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE7on_tickEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEE3ptrD2Ev.exit unwind label %62
@@ -80328,37 +80314,35 @@ define linkonce_odr dso_local void @_ZN4asio6detail14signal_handlerIZN4crow6Serv
   %6 = alloca %"class.asio::detail::handler_work.641", align 8
   %7 = alloca %"class.asio::detail::binder2.644", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #37
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr %8, ptr %5, align 8, !tbaa !2065
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %1, ptr %9, align 8, !tbaa !2068
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %1, ptr %10, align 8, !tbaa !2069
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %1, ptr %8, align 8, !tbaa !2068
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #37
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %14 = load ptr, ptr %13, align 8, !tbaa !208
-  store ptr %14, ptr %12, align 8, !tbaa !208
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %17 = load ptr, ptr %16, align 8, !tbaa !491
-  store ptr %17, ptr %15, align 8, !tbaa !491
-  store ptr @_ZZN4asio9execution6detail17any_executor_base16object_fns_tableIvEEPKNS2_10object_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %13, align 8, !tbaa !208
-  store ptr @_ZZN4asio9execution6detail17any_executor_base16target_fns_tableIvEEPKNS2_10target_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %16, align 8, !tbaa !491
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !732
-  invoke void %19(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %11)
-          to label %23 unwind label %20
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %13 = load ptr, ptr %12, align 8, !tbaa !208
+  store ptr %13, ptr %11, align 8, !tbaa !208
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %16 = load ptr, ptr %15, align 8, !tbaa !491
+  store ptr %16, ptr %14, align 8, !tbaa !491
+  store ptr @_ZZN4asio9execution6detail17any_executor_base16object_fns_tableIvEEPKNS2_10object_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %12, align 8, !tbaa !208
+  store ptr @_ZZN4asio9execution6detail17any_executor_base16target_fns_tableIvEEPKNS2_10target_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %15, align 8, !tbaa !491
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %18 = load ptr, ptr %17, align 8, !tbaa !732
+  invoke void %18(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %10)
+          to label %22 unwind label %19
 
-20:                                               ; preds = %4
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %4
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #39
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #39
   unreachable
 
-23:                                               ; preds = %4
+22:                                               ; preds = %4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr null, ptr %24, align 8, !tbaa !723
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -80369,7 +80353,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail14signal_handlerIZN4crow6Serv
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #37
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %30 = load i64, ptr %8, align 8, !tbaa !167
+  %30 = load i64, ptr %23, align 8, !tbaa !167
   store i64 %30, ptr %7, align 8, !tbaa !167
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false), !tbaa.struct !712
@@ -80377,20 +80361,20 @@ define linkonce_odr dso_local void @_ZN4asio6detail14signal_handlerIZN4crow6Serv
   %33 = load i32, ptr %29, align 4, !tbaa !152
   store i32 %33, ptr %32, align 8, !tbaa !2076
   store ptr %7, ptr %5, align 8, !tbaa !2065
-  %34 = load ptr, ptr %13, align 8, !tbaa !208
+  %34 = load ptr, ptr %12, align 8, !tbaa !208
   %35 = load ptr, ptr %34, align 8, !tbaa !209
-  invoke void %35(ptr noundef nonnull align 8 dereferenceable(48) %11)
+  invoke void %35(ptr noundef nonnull align 8 dereferenceable(48) %10)
           to label %39 unwind label %36
 
-36:                                               ; preds = %23
+36:                                               ; preds = %22
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
   call void @__clang_call_terminate(ptr %38) #39
   unreachable
 
-39:                                               ; preds = %23
-  store ptr null, ptr %10, align 8, !tbaa !2069
+39:                                               ; preds = %22
+  store ptr null, ptr %9, align 8, !tbaa !2069
   %40 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4asio6detail15keyword_tss_ptrINS0_10call_stackINS0_14thread_contextENS0_16thread_info_baseEE7contextEE6value_E)
   %41 = load ptr, ptr %40, align 8, !tbaa !300
   %.not.i.i.i.i.i = icmp eq ptr %41, null
@@ -80419,7 +80403,7 @@ _ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.
   br label %_ZN4asio6detail14signal_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeiE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEE3ptr5resetEv.exit
 
 _ZN4asio6detail14signal_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeiE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEE3ptr5resetEv.exit: ; preds = %47, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i.i
-  store ptr null, ptr %9, align 8, !tbaa !2068
+  store ptr null, ptr %8, align 8, !tbaa !2068
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %60, label %50
 
@@ -80447,14 +80431,14 @@ _ZN4asio6detail12handler_workIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJ
           cleanup
   fence release
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #37
-  %58 = load ptr, ptr %12, align 8, !tbaa !208
+  %58 = load ptr, ptr %11, align 8, !tbaa !208
   %59 = load ptr, ptr %58, align 8, !tbaa !209
   invoke void %59(ptr noundef nonnull align 8 dereferenceable(48) %6)
           to label %_ZN4asio6detail17handler_work_baseINS_9execution12any_executorIJNS2_12context_as_tIRNS_17execution_contextEEENS2_6detail8blocking7never_tILi0EEENS2_11prefer_onlyINS9_10possibly_tILi0EEEEENSC_INS8_16outstanding_work9tracked_tILi0EEEEENSC_INSG_11untracked_tILi0EEEEENSC_INS8_12relationship6fork_tILi0EEEEENSC_INSN_14continuation_tILi0EEEEEEEEvNS_10io_contextENS_8executorEvED2Ev.exit14 unwind label %66
 
 60:                                               ; preds = %_ZN4asio6detail12handler_workIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeiE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEvE8completeINS0_7binder2ISB_S8_iEEEEvRT_RSB_.exit, %_ZN4asio6detail14signal_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeiE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEE3ptr5resetEv.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #37
-  %61 = load ptr, ptr %12, align 8, !tbaa !208
+  %61 = load ptr, ptr %11, align 8, !tbaa !208
   %62 = load ptr, ptr %61, align 8, !tbaa !209
   invoke void %62(ptr noundef nonnull align 8 dereferenceable(48) %6)
           to label %_ZN4asio6detail14signal_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeiE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEE3ptrD2Ev.exit unwind label %63
@@ -86738,37 +86722,36 @@ define linkonce_odr dso_local void @_ZN4asio6detail23reactive_socket_recv_opINS_
   %6 = alloca %"class.asio::detail::handler_work.699", align 8
   %7 = alloca %"class.asio::detail::binder2.702", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #37
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store ptr %8, ptr %5, align 8, !tbaa !2207
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %1, ptr %9, align 8, !tbaa !2210
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %1, ptr %10, align 8, !tbaa !2211
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %1, ptr %8, align 8, !tbaa !2210
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %1, ptr %9, align 8, !tbaa !2211
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #37
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %14 = load ptr, ptr %13, align 8, !tbaa !208
-  store ptr %14, ptr %12, align 8, !tbaa !208
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %17 = load ptr, ptr %16, align 8, !tbaa !491
-  store ptr %17, ptr %15, align 8, !tbaa !491
-  store ptr @_ZZN4asio9execution6detail17any_executor_base16object_fns_tableIvEEPKNS2_10object_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %13, align 8, !tbaa !208
-  store ptr @_ZZN4asio9execution6detail17any_executor_base16target_fns_tableIvEEPKNS2_10target_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %16, align 8, !tbaa !491
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !732
-  invoke void %19(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %11)
-          to label %_ZN4asio6detail12handler_workIZN4crow10ConnectionINS2_13SocketAdaptorENS2_4CrowIJEEEJEE7do_readEvEUlRKSt10error_codemE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEvEC2EOS15_.exit unwind label %20
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %13 = load ptr, ptr %12, align 8, !tbaa !208
+  store ptr %13, ptr %11, align 8, !tbaa !208
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %16 = load ptr, ptr %15, align 8, !tbaa !491
+  store ptr %16, ptr %14, align 8, !tbaa !491
+  store ptr @_ZZN4asio9execution6detail17any_executor_base16object_fns_tableIvEEPKNS2_10object_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %12, align 8, !tbaa !208
+  store ptr @_ZZN4asio9execution6detail17any_executor_base16target_fns_tableIvEEPKNS2_10target_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %15, align 8, !tbaa !491
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %18 = load ptr, ptr %17, align 8, !tbaa !732
+  invoke void %18(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %10)
+          to label %_ZN4asio6detail12handler_workIZN4crow10ConnectionINS2_13SocketAdaptorENS2_4CrowIJEEEJEE7do_readEvEUlRKSt10error_codemE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEvEC2EOS15_.exit unwind label %19
 
-20:                                               ; preds = %4
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %4
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #39
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #39
   unreachable
 
 _ZN4asio6detail12handler_workIZN4crow10ConnectionINS2_13SocketAdaptorENS2_4CrowIJEEEJEE7do_readEvEUlRKSt10error_codemE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEvEC2EOS15_.exit: ; preds = %4
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr null, ptr %23, align 8, !tbaa !723
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -86779,14 +86762,14 @@ _ZN4asio6detail12handler_workIZN4crow10ConnectionINS2_13SocketAdaptorENS2_4CrowI
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #37
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %29 = load ptr, ptr %8, align 8, !tbaa !1806
+  %29 = load ptr, ptr %22, align 8, !tbaa !1806
   store ptr %29, ptr %7, align 8, !tbaa !1806
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %32 = load ptr, ptr %31, align 8, !tbaa !520
   store ptr null, ptr %31, align 8, !tbaa !520
   store ptr %32, ptr %30, align 8, !tbaa !520
-  store ptr null, ptr %8, align 8, !tbaa !1806
+  store ptr null, ptr %22, align 8, !tbaa !1806
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false), !tbaa.struct !712
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -86881,7 +86864,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %66, %6
 
 _ZN4asio6detail7binder2IZN4crow10ConnectionINS2_13SocketAdaptorENS2_4CrowIJEEEJEE7do_readEvEUlRKSt10error_codemE_S8_mED2Ev.exit: ; preds = %47, %54, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %69
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #37
-  %70 = load ptr, ptr %12, align 8, !tbaa !208
+  %70 = load ptr, ptr %11, align 8, !tbaa !208
   %71 = load ptr, ptr %70, align 8, !tbaa !209
   invoke void %71(ptr noundef nonnull align 8 dereferenceable(48) %6)
           to label %_ZN4asio6detail17handler_work_baseINS_9execution12any_executorIJNS2_12context_as_tIRNS_17execution_contextEEENS2_6detail8blocking7never_tILi0EEENS2_11prefer_onlyINS9_10possibly_tILi0EEEEENSC_INS8_16outstanding_work9tracked_tILi0EEEEENSC_INSG_11untracked_tILi0EEEEENSC_INS8_12relationship6fork_tILi0EEEEENSC_INSN_14continuation_tILi0EEEEEEEEvNS_10io_contextENS_8executorEvED2Ev.exit unwind label %72
@@ -86913,7 +86896,7 @@ _ZN4asio6detail23reactive_socket_recv_opINS_17mutable_buffers_1EZN4crow10Connect
   %.pn = phi { ptr, i32 } [ %46, %45 ], [ %44, %43 ]
   call void @_ZN4asio6detail7binder2IZN4crow10ConnectionINS2_13SocketAdaptorENS2_4CrowIJEEEJEE7do_readEvEUlRKSt10error_codemE_S8_mED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #37
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #37
-  %79 = load ptr, ptr %12, align 8, !tbaa !208
+  %79 = load ptr, ptr %11, align 8, !tbaa !208
   %80 = load ptr, ptr %79, align 8, !tbaa !209
   invoke void %80(ptr noundef nonnull align 8 dereferenceable(48) %6)
           to label %_ZN4asio6detail17handler_work_baseINS_9execution12any_executorIJNS2_12context_as_tIRNS_17execution_contextEEENS2_6detail8blocking7never_tILi0EEENS2_11prefer_onlyINS9_10possibly_tILi0EEEEENSC_INS8_16outstanding_work9tracked_tILi0EEEEENSC_INSG_11untracked_tILi0EEEEENSC_INS8_12relationship6fork_tILi0EEEEENSC_INSN_14continuation_tILi0EEEEEEEEvNS_10io_contextENS_8executorEvED2Ev.exit13 unwind label %81
@@ -106600,7 +106583,6 @@ _ZNSt10shared_ptrIN4crow10ConnectionINS0_13SocketAdaptorENS0_4CrowIJEEEJEEEEC2ER
   %513 = load ptr, ptr %496, align 8, !tbaa !520
   store ptr null, ptr %496, align 8, !tbaa !520
   store ptr %513, ptr %512, align 8, !tbaa !520
-  store ptr null, ptr %21, align 8, !tbaa !1806
   store ptr %507, ptr %3, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false), !tbaa.struct !26
@@ -106679,7 +106661,6 @@ _ZNSt10shared_ptrIN4crow10ConnectionINS0_13SocketAdaptorENS0_4CrowIJEEEJEEEEC2ER
   %542 = load ptr, ptr %526, align 8, !tbaa !520
   store ptr null, ptr %526, align 8, !tbaa !520
   store ptr %542, ptr %541, align 8, !tbaa !520
-  store ptr null, ptr %22, align 8, !tbaa !1806
   store ptr %537, ptr %2, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i120)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i120, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false), !tbaa.struct !26

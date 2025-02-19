@@ -2107,7 +2107,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GprimDataSourceC2ERKSt10sh
   %67 = landingpad { ptr, i32 }
           catch ptr null
   %68 = extractvalue { ptr, i32 } %67, 0
-  %69 = tail call ptr @__cxa_begin_catch(ptr %68) #27
+  %69 = tail call ptr @__cxa_begin_catch(ptr %68) #27, !noalias !18
   %70 = load ptr, ptr %37, align 8, !noalias !18
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8, !noalias !18
@@ -2125,7 +2125,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GprimDataSourceC2ERKSt10sh
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  tail call void @__clang_call_terminate(ptr %77) #28
+  tail call void @__clang_call_terminate(ptr %77) #28, !noalias !18
   unreachable
 
 78:                                               ; preds = %66
@@ -2339,7 +2339,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_InstancerPrimDataSourceC2E
   %176 = landingpad { ptr, i32 }
           catch ptr null
   %177 = extractvalue { ptr, i32 } %176, 0
-  %178 = tail call ptr @__cxa_begin_catch(ptr %177) #27
+  %178 = tail call ptr @__cxa_begin_catch(ptr %177) #27, !noalias !21
   %179 = load ptr, ptr %146, align 8, !noalias !21
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %181 = load ptr, ptr %180, align 8, !noalias !21
@@ -2357,7 +2357,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_InstancerPrimDataSourceC2E
   %185 = landingpad { ptr, i32 }
           catch ptr null
   %186 = extractvalue { ptr, i32 } %185, 0
-  tail call void @__clang_call_terminate(ptr %186) #28
+  tail call void @__clang_call_terminate(ptr %186) #28, !noalias !21
   unreachable
 
 187:                                              ; preds = %175
@@ -2557,7 +2557,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %251, 
   %277 = landingpad { ptr, i32 }
           catch ptr null
   %278 = extractvalue { ptr, i32 } %277, 0
-  %279 = call ptr @__cxa_begin_catch(ptr %278) #27
+  %279 = call ptr @__cxa_begin_catch(ptr %278) #27, !noalias !24
   %280 = load ptr, ptr %235, align 8, !noalias !24
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 8
   %282 = load ptr, ptr %281, align 8, !noalias !24
@@ -2575,7 +2575,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %251, 
   %286 = landingpad { ptr, i32 }
           catch ptr null
   %287 = extractvalue { ptr, i32 } %286, 0
-  call void @__clang_call_terminate(ptr %287) #28
+  call void @__clang_call_terminate(ptr %287) #28, !noalias !24
   unreachable
 
 288:                                              ; preds = %276
@@ -20896,7 +20896,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %80, %
   %106 = landingpad { ptr, i32 }
           catch ptr null
   %107 = extractvalue { ptr, i32 } %106, 0
-  %108 = call ptr @__cxa_begin_catch(ptr %107) #27
+  %108 = call ptr @__cxa_begin_catch(ptr %107) #27, !noalias !227
   %109 = load ptr, ptr %51, align 8, !noalias !227
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load ptr, ptr %110, align 8, !noalias !227
@@ -20914,7 +20914,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %80, %
   %115 = landingpad { ptr, i32 }
           catch ptr null
   %116 = extractvalue { ptr, i32 } %115, 0
-  call void @__clang_call_terminate(ptr %116) #28
+  call void @__clang_call_terminate(ptr %116) #28, !noalias !227
   unreachable
 
 117:                                              ; preds = %105

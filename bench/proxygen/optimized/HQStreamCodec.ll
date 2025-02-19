@@ -2254,7 +2254,6 @@ _ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i: ; preds = %invok
 
 _ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit26: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i, %invoke.cont138
   store ptr null, ptr %agg.tmp134, align 8
-  store ptr null, ptr %trailerHeaders, align 8
   br label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i31
 
 lpad137:                                          ; preds = %invoke.cont131
@@ -2293,18 +2292,14 @@ lpad147:                                          ; preds = %if.else141
 
 if.end151:                                        ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i28, %invoke.cont148
   store ptr null, ptr %agg.tmp144, align 8
-  br label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit32
+  br label %cleanup
 
 _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i31: ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit26, %if.end121
   call void @_ZN8proxygen11HTTPMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(616) %24) #22
   call void @_ZdlPv(ptr noundef nonnull %24) #23
-  br label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit32
-
-_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit32: ; preds = %if.end151, %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i31
-  store ptr null, ptr %msg87, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit32, %_ZN8proxygen13HTTPExceptionD2Ev.exit
+cleanup:                                          ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i31, %if.end151, %_ZN8proxygen13HTTPExceptionD2Ev.exit
   %49 = load i8, ptr %g2, align 16
   %tobool.i = trunc i8 %49 to i1
   br i1 %tobool.i, label %if.end.i, label %if.then.i

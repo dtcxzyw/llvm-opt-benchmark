@@ -817,7 +817,7 @@ default.unreachable110:                           ; preds = %39, %17
   unreachable
 
 "_ZN22aws_smithy_runtime_api6client6result21SdkError$LT$E$C$R$GT$14response_error17hd5275586575de984E.exit": ; preds = %.noexc.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %76, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %76, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false), !noalias !70
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %85, ptr noundef nonnull align 8 dereferenceable(208) %12, i64 208, i1 false), !alias.scope !70, !noalias !71
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -891,7 +891,7 @@ default.unreachable110:                           ; preds = %39, %17
   unreachable
 
 101:                                              ; preds = %.noexc.i.i.i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %91, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %91, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false), !noalias !84
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %102, ptr noundef nonnull align 8 dereferenceable(208) %9, i64 208, i1 false), !alias.scope !84, !noalias !85
   %.sroa.4.0..sroa_idx.i65 = getelementptr inbounds nuw i8, ptr %0, i64 216

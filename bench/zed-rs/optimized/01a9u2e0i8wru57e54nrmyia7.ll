@@ -903,7 +903,6 @@ define hidden void @"_ZN15futures_channel4mpsc23UnboundedInner$LT$T$GT$10set_clo
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN15futures_channel4mpsc24UnboundedSender$LT$T$GT$10do_send_nb17h364927a8393f8f73E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %.sroa.4.i.i = alloca [12 x i8], align 8
   %4 = load ptr, ptr %1, align 8, !noundef !4
   %5 = icmp eq ptr %4, null
   br i1 %5, label %"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$16inc_num_messages17ha3e8de560389f0ceE.llvm.10519033148703350266.exit", label %6
@@ -942,24 +941,21 @@ define hidden void @"_ZN15futures_channel4mpsc24UnboundedSender$LT$T$GT$10do_sen
   br label %25
 
 17:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.4.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.4.i.i, ptr noundef nonnull readonly align 4 dereferenceable(12) %2, i64 12, i1 false), !noalias !51
-  %18 = tail call { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hca4f2c3ea5fa8ec1E.llvm.6039865359716373534(ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 8, i64 noundef 24, i1 noundef zeroext false), !noalias !54
+  %18 = tail call { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hca4f2c3ea5fa8ec1E.llvm.6039865359716373534(ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 8, i64 noundef 24, i1 noundef zeroext false), !noalias !51
   %19 = extractvalue { ptr, i64 } %18, 0
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$21queue_push_and_signal17h7b8ebcdc1e91a33eE.llvm.10519033148703350266.exit"
 
 21:                                               ; preds = %17
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h6d7f2bdbc63ffea9E(i64 noundef 8, i64 noundef 24) #32, !noalias !54
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h6d7f2bdbc63ffea9E(i64 noundef 8, i64 noundef 24) #32, !noalias !51
   unreachable
 
 "_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$21queue_push_and_signal17h7b8ebcdc1e91a33eE.llvm.10519033148703350266.exit": ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr null, ptr %19, align 8
+  store ptr null, ptr %19, align 8, !noalias !59
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.4.i.i, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.4.i.i)
-  %23 = atomicrmw xchg ptr %22, ptr %19 acq_rel, align 8, !noalias !60
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull readonly align 4 dereferenceable(12) %2, i64 12, i1 false), !noalias !60
+  %23 = atomicrmw xchg ptr %22, ptr %19 acq_rel, align 8, !noalias !59
   store atomic ptr %19, ptr %23 release, align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 48
   tail call void @_ZN12futures_core4task10__internal12atomic_waker11AtomicWaker4wake17h251c193126d5370dE(ptr noundef nonnull align 8 %24), !noalias !61
@@ -1047,7 +1043,7 @@ define hidden void @"_ZN15futures_channel4mpsc24UnboundedSender$LT$T$GT$10do_sen
 
 "_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$4push17h2d678fbc3404f92fE.exit.i": ; preds = %.noexc.i.i
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !65
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !65
   %29 = atomicrmw xchg ptr %28, ptr %21 acq_rel, align 8, !noalias !65
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
@@ -1540,7 +1536,7 @@ define hidden void @"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$21q
 
 "_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$4push17h2d678fbc3404f92fE.exit": ; preds = %.noexc.i
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false), !noalias !113
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !113
   %16 = atomicrmw xchg ptr %15, ptr %7 acq_rel, align 8, !noalias !113
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -1552,10 +1548,7 @@ define hidden void @"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$21q
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$21queue_push_and_signal17h7b8ebcdc1e91a33eE.llvm.10519033148703350266"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %.sroa.4.i = alloca [12 x i8], align 8
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.4.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.4.i, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %4 = tail call { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hca4f2c3ea5fa8ec1E.llvm.6039865359716373534(ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 8, i64 noundef 24, i1 noundef zeroext false), !noalias !116
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = icmp eq ptr %5, null
@@ -1567,10 +1560,9 @@ define hidden void @"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$21q
 
 "_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$4push17h2366f552125e1bdaE.exit": ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr null, ptr %5, align 8
+  store ptr null, ptr %5, align 8, !noalias !121
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.4.i, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.4.i)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %9 = atomicrmw xchg ptr %8, ptr %5 acq_rel, align 8, !noalias !121
   store atomic ptr %5, ptr %9 release, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -20198,17 +20190,17 @@ attributes #33 = { nounwind }
 !48 = !{!49}
 !49 = distinct !{!49, !50, !"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$16inc_num_messages17ha3e8de560389f0ceE.llvm.10519033148703350266: argument 0"}
 !50 = distinct !{!50, !"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$16inc_num_messages17ha3e8de560389f0ceE.llvm.10519033148703350266"}
-!51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$21queue_push_and_signal17h7b8ebcdc1e91a33eE.llvm.10519033148703350266: argument 0"}
-!53 = distinct !{!53, !"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$21queue_push_and_signal17h7b8ebcdc1e91a33eE.llvm.10519033148703350266"}
-!54 = !{!55, !57, !52, !59}
-!55 = distinct !{!55, !56, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h01b1163782ffb8f2E.llvm.6039865359716373534: argument 0"}
-!56 = distinct !{!56, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h01b1163782ffb8f2E.llvm.6039865359716373534"}
-!57 = distinct !{!57, !58, !"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$4push17h2366f552125e1bdaE: argument 0"}
-!58 = distinct !{!58, !"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$4push17h2366f552125e1bdaE"}
-!59 = distinct !{!59, !53, !"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$21queue_push_and_signal17h7b8ebcdc1e91a33eE.llvm.10519033148703350266: argument 1"}
-!60 = !{!57, !52, !59}
-!61 = !{!52, !59}
+!51 = !{!52, !54, !56, !58}
+!52 = distinct !{!52, !53, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h01b1163782ffb8f2E.llvm.6039865359716373534: argument 0"}
+!53 = distinct !{!53, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h01b1163782ffb8f2E.llvm.6039865359716373534"}
+!54 = distinct !{!54, !55, !"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$4push17h2366f552125e1bdaE: argument 0"}
+!55 = distinct !{!55, !"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$4push17h2366f552125e1bdaE"}
+!56 = distinct !{!56, !57, !"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$21queue_push_and_signal17h7b8ebcdc1e91a33eE.llvm.10519033148703350266: argument 0"}
+!57 = distinct !{!57, !"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$21queue_push_and_signal17h7b8ebcdc1e91a33eE.llvm.10519033148703350266"}
+!58 = distinct !{!58, !57, !"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$21queue_push_and_signal17h7b8ebcdc1e91a33eE.llvm.10519033148703350266: argument 1"}
+!59 = !{!54, !56, !58}
+!60 = !{!56}
+!61 = !{!56, !58}
 !62 = !{!63}
 !63 = distinct !{!63, !64, !"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$16inc_num_messages17h81563632f590bb65E.llvm.10519033148703350266: argument 0"}
 !64 = distinct !{!64, !"_ZN15futures_channel4mpsc29UnboundedSenderInner$LT$T$GT$16inc_num_messages17h81563632f590bb65E.llvm.10519033148703350266"}

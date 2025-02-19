@@ -5315,7 +5315,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock12AcquireWriteEv.
 _ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock13_ReleaseWriteEv.exit.i.i: ; preds = %48
   %50 = load ptr, ptr %6, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex13_ReleaseWriteEv(ptr noundef nonnull align 8 dereferenceable(9) %50)
-          to label %.sink.split.i.i unwind label %60
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLockD2Ev.exit unwind label %60
 
 51:                                               ; preds = %48
   %52 = icmp sgt i32 %49, -1
@@ -5347,10 +5347,6 @@ _ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock12_ReleaseReadEv.
   %57 = load ptr, ptr %55, align 8
   %58 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::TfBigRWMutex::_LockState", ptr %57, i64 %56
   %59 = atomicrmw sub ptr %58, i32 2 seq_cst, align 4
-  br label %.sink.split.i.i
-
-.sink.split.i.i:                                  ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock12_ReleaseReadEv.exit.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock13_ReleaseWriteEv.exit.i.i
-  store i32 -1, ptr %30, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLockD2Ev.exit
 
 60:                                               ; preds = %53, %_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock13_ReleaseWriteEv.exit.i.i
@@ -5375,8 +5371,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock12_ReleaseReadEv.
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLockD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %6) #25
   br label %74
 
-_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLockD2Ev.exit: ; preds = %.sink.split.i.i, %48, %22
-  %.sroa.018.0 = phi ptr [ %23, %22 ], [ %32, %48 ], [ %32, %.sink.split.i.i ]
+_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLockD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock13_ReleaseWriteEv.exit.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock12_ReleaseReadEv.exit.i.i, %48, %22
+  %.sroa.018.0 = phi ptr [ %23, %22 ], [ %32, %48 ], [ %32, %_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock12_ReleaseReadEv.exit.i.i ], [ %32, %_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock13_ReleaseWriteEv.exit.i.i ]
   %67 = load ptr, ptr %5, align 8
   %.not.i.i14 = icmp eq ptr %67, null
   br i1 %.not.i.i14, label %_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoD2Ev.exit, label %68

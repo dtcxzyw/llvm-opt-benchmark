@@ -115,7 +115,6 @@ define hidden void @_ZNK5boost4urls6detail11host_rule_t5parseERPKcS4_(ptr dead_o
   %10 = alloca %"class.boost::system::result.35", align 8
   %11 = alloca %"class.boost::system::error_code", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.29)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.29, i8 0, i64 24, i1 false)
   %12 = load ptr, ptr %2, align 8, !tbaa !3
   %13 = icmp eq ptr %12, %3
   br i1 %13, label %14, label %16

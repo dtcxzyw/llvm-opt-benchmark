@@ -6705,7 +6705,6 @@ invoke.cont71.i:                                  ; preds = %invoke.cont60.i
 
 invoke.cont74.i:                                  ; preds = %invoke.cont71.i
   %175 = load ptr, ptr %ref.tmp61.i, align 8
-  store ptr null, ptr %ref.tmp61.i, align 8
   store ptr %175, ptr %split.i, align 8
   br i1 %cmp.i.not.i, label %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_11RoseInGraphENS0_17RoseInVertexPropsENS0_15RoseInEdgePropsEEEEESaIS8_EED2Ev.exit258.i, label %delete.notnull.i.i.i.i.i.i
 
@@ -32543,7 +32542,6 @@ invoke.cont52.i:                                  ; preds = %_ZNSt8_Rb_treeIN3ue
   %208 = phi ptr [ %call.i214.i, %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEEclERKS8_SB_.exit.i245.i ], [ %call.i214.i, %if.then.i.i.i250.i ], [ %.pre.i449, %cleanup.thread.i.i.i ], [ %call.i214.i, %_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_St10unique_ptrINS0_12_GLOBAL__N_111VertLitInfoESt14default_deleteISD_EEESt10_Select1stISH_ESt4lessIS8_ESaISH_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISH_E.exit.i.i.i.i ]
   %__i.sroa.0.0.i247.i = phi ptr [ %__y.addr.1.i.i.i.i235.i, %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEEclERKS8_SB_.exit.i245.i ], [ %__y.addr.1.i.i.i.i235.i, %if.then.i.i.i250.i ], [ %call5.i.i.i.i.i.i.i259.i, %cleanup.thread.i.i.i ], [ %retval.sroa.0.0.ph.i.i.i, %_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_St10unique_ptrINS0_12_GLOBAL__N_111VertLitInfoESt14default_deleteISD_EEESt10_Select1stISH_ESt4lessIS8_ESaISH_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISH_E.exit.i.i.i.i ]
   %second.i248.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i247.i, i64 48
-  store ptr null, ptr %ref.tmp48.i, align 8
   %209 = load ptr, ptr %second.i248.i, align 8
   store ptr %208, ptr %second.i248.i, align 8
   %tobool.not.i.i.i.i.i441 = icmp eq ptr %209, null

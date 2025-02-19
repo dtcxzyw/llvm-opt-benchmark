@@ -2747,7 +2747,7 @@ _ZNSt13unordered_mapIN5vcpkg15CPUArchitectureEiSt4hashIS1_ESt8equal_toIS1_ESaISt
   %302 = landingpad { ptr, i32 }
           catch ptr null
   %303 = extractvalue { ptr, i32 } %302, 0
-  call void @__clang_call_terminate(ptr %303) #22
+  call void @__clang_call_terminate(ptr %303) #22, !noalias !20
   unreachable
 
 _ZNO5vcpkg8OptionalIRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S7_EEEE13value_or_exitERKNS_8LineInfoE.exit.i: ; preds = %.noexc664

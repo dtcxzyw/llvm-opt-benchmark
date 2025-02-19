@@ -1078,7 +1078,7 @@ _ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i.i.i8.i.i.i.i.i: ; preds = %185, %182
   %205 = landingpad { ptr, i32 }
           catch ptr null
   %206 = extractvalue { ptr, i32 } %205, 0
-  call void @__clang_call_terminate(ptr %206) #20
+  call void @__clang_call_terminate(ptr %206) #20, !noalias !49
   unreachable
 
 "_ZZN5folly7futures6detail4CoreINS_4UnitEE11setCallbackIZNS1_10FutureBaseIS3_E18thenImplementationIZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSH_3_V212steady_clockENSH_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS9_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSU_EUlONS_8Executor9KeepAliveISZ_EEONS_3TryIS3_EEE_NS1_25tryExecutorCallableResultIS3_S16_EEEENSt9enable_ifIXntsrNT0_13ReturnsFutureE5valueENS9_INS1A_10value_typeEEEE4typeESY_S1A_NS1_18InlineContinuationEEUlS12_S15_E_EEvSY_OSt10shared_ptrINS_14RequestContextEES1F_ENUlRNS1_8CoreBaseES12_PNS_17exception_wrapperEE_D2Ev.exit.i.i.i.i.i": ; preds = %203, %"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv.exit.i.i.i.i.i.i.i.i", %"_ZNK5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E14before_barrierEv.exit.i.i.i.i.i.i.i.i", %180, %.thread.i.i.i.i.i
@@ -1235,7 +1235,7 @@ _ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i.i.i.i:  ; preds = %247, %245
   %266 = landingpad { ptr, i32 }
           catch ptr null
   %267 = extractvalue { ptr, i32 } %266, 0
-  call void @__clang_call_terminate(ptr %267) #20
+  call void @__clang_call_terminate(ptr %267) #20, !noalias !49
   unreachable
 
 "_ZZN5folly7futures6detail10FutureBaseINS_4UnitEE18thenImplementationIZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSE_3_V212steady_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS6_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSR_EUlONS_8Executor9KeepAliveISW_EEONS_3TryIS3_EEE_NS1_25tryExecutorCallableResultIS3_S13_EEEENSt9enable_ifIXntsrNT0_13ReturnsFutureE5valueENS6_INS17_10value_typeEEEE4typeESV_S17_NS1_18InlineContinuationEENUlSZ_S12_E_D2Ev.exit.i.i": ; preds = %264, %"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv.exit.i.i.i.i", %"_ZNK5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E14before_barrierEv.exit.i.i.i.i", %243
@@ -1265,7 +1265,7 @@ _ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i.i.i.i:  ; preds = %247, %245
   %277 = landingpad { ptr, i32 }
           catch ptr null
   %278 = extractvalue { ptr, i32 } %277, 0
-  call void @__clang_call_terminate(ptr %278) #20
+  call void @__clang_call_terminate(ptr %278) #20, !noalias !49
   unreachable
 
 _ZN5folly7PromiseINS_4UnitEED2Ev.exit.i.i.i:      ; preds = %274
@@ -2502,10 +2502,8 @@ _ZN5folly7futures6detail10FutureBaseINS_4UnitEED2Ev.exit: ; preds = %16, %_ZN5fo
   call void @_ZN5folly7futures6detail19KeepAliveOrDeferredD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
   store ptr %7, ptr %0, align 8, !tbaa !52
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %4, align 8, !tbaa !121
   store i8 1, ptr %25, align 8, !tbaa !90
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %6, align 8, !tbaa !62
   store ptr %7, ptr %26, align 8, !tbaa !87
   invoke void @_ZN5folly10SemiFutureINS_4UnitEE23releaseDeferredExecutorEPNS_7futures6detail4CoreIS1_EE(ptr noundef null)
           to label %_ZN5folly7PromiseINS_4UnitEED2Ev.exit unwind label %27
@@ -2542,42 +2540,42 @@ define internal fastcc void @"_ZZN5folly7futures6detail10FutureBaseINS_4UnitEE18
 
 4:                                                ; preds = %"_ZNK5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E14before_barrierEv.exit.i"
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %6 = load ptr, ptr %5, align 8, !tbaa !26, !noalias !122
+  %6 = load ptr, ptr %5, align 8, !tbaa !26, !noalias !121
   %.not.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = tail call noundef i64 %6(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %8, ptr noundef null) #21, !noalias !122
+  %9 = tail call noundef i64 %6(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %8, ptr noundef null) #21, !noalias !121
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i
 
 _ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i:        ; preds = %7, %4
-  %10 = load i64, ptr %0, align 16, !tbaa !21, !noalias !122
+  %10 = load i64, ptr %0, align 16, !tbaa !21, !noalias !121
   %11 = and i64 %10, -4
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv.exit.i", label %13
 
 13:                                               ; preds = %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i
   %14 = inttoptr i64 %11 to ptr
-  %15 = load ptr, ptr %14, align 16, !tbaa !7, !noalias !122
+  %15 = load ptr, ptr %14, align 16, !tbaa !7, !noalias !121
   %16 = getelementptr i8, ptr %15, i64 -72
-  %17 = load i64, ptr %16, align 8, !noalias !122
-  store i64 0, ptr %0, align 16, !tbaa !17, !noalias !122
+  %17 = load i64, ptr %16, align 8, !noalias !121
+  store i64 0, ptr %0, align 16, !tbaa !17, !noalias !121
   %18 = and i64 %10, 3
   %.not4.i.i.i.i.i.i = icmp eq i64 %18, 0
   br i1 %.not4.i.i.i.i.i.i, label %19, label %"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv.exit.i"
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds i8, ptr %14, i64 %17
-  %21 = load ptr, ptr %20, align 8, !tbaa !7, !noalias !122
+  %21 = load ptr, ptr %20, align 8, !tbaa !7, !noalias !121
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  %23 = load ptr, ptr %22, align 8, !noalias !122
-  tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %20) #21, !noalias !122
+  %23 = load ptr, ptr %22, align 8, !noalias !121
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %20) #21, !noalias !121
   br label %"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv.exit.i"
 
 "_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv.exit.i": ; preds = %19, %13, %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i
-  %24 = load ptr, ptr %2, align 16, !tbaa !62, !noalias !122
-  store ptr null, ptr %2, align 16, !tbaa !62, !noalias !122
+  %24 = load ptr, ptr %2, align 16, !tbaa !62, !noalias !121
+  store ptr null, ptr %2, align 16, !tbaa !62, !noalias !121
   %.not.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i, label %"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_ED2Ev.exit", label %25
 
@@ -2690,11 +2688,11 @@ define linkonce_odr void @_ZN5folly7futures6detail4CoreINS_4UnitEED2Ev(ptr nound
   %4 = load i32, ptr %3, align 8
   %cond.i = icmp eq i32 %4, 1
   %or.cond = select i1 %2, i1 %cond.i, i1 false
-  br i1 %or.cond, label %5, label %_ZN5folly6detail7TryBaseINS_4UnitEED2Ev.exit, !prof !125
+  br i1 %or.cond, label %5, label %_ZN5folly6detail7TryBaseINS_4UnitEED2Ev.exit, !prof !124
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %7 = load ptr, ptr %6, align 16, !tbaa !126
+  %7 = load ptr, ptr %6, align 16, !tbaa !125
   %.not.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i, label %_ZN5folly6detail7TryBaseINS_4UnitEED2Ev.exit, label %8
 
@@ -2714,11 +2712,11 @@ define linkonce_odr void @_ZN5folly7futures6detail4CoreINS_4UnitEED0Ev(ptr nound
   %4 = load i32, ptr %3, align 8
   %cond.i.i = icmp eq i32 %4, 1
   %or.cond.i = select i1 %2, i1 %cond.i.i, i1 false
-  br i1 %or.cond.i, label %5, label %_ZN5folly7futures6detail4CoreINS_4UnitEED2Ev.exit, !prof !125
+  br i1 %or.cond.i, label %5, label %_ZN5folly7futures6detail4CoreINS_4UnitEED2Ev.exit, !prof !124
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %7 = load ptr, ptr %6, align 16, !tbaa !126
+  %7 = load ptr, ptr %6, align 16, !tbaa !125
   %.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i.i, label %_ZN5folly7futures6detail4CoreINS_4UnitEED2Ev.exit, label %8
 
@@ -2811,23 +2809,23 @@ _ZN5folly3TryINS_4UnitEEC2EOS2_.exit.i.i:         ; preds = %1
   call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @.str.3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly13BrokenPromiseE, i64 16), ptr %6, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr @_ZN5folly13BrokenPromise13error_messageINS_4UnitEEE, ptr %8, align 8, !tbaa !128
+  store ptr @_ZN5folly13BrokenPromise13error_messageINS_4UnitEEE, ptr %8, align 8, !tbaa !127
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr %6, ptr %3, align 8, !noalias !135
+  store ptr %6, ptr %3, align 8, !noalias !134
   call void @_ZN5folly6detail24make_exception_ptr_with_ERKNS0_28make_exception_ptr_with_arg_EPv(ptr dead_on_unwind nonnull writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK5folly26make_exception_ptr_with_fnclIZNKS0_4makeINS_13BrokenPromiseEJOS3_EEEDaDpOT0_EUlvE_TnPDTclclscPDoFRT_vELDnEEEELPS3_0EEENSt15__exception_ptr13exception_ptrES9_E3arg, ptr noundef nonnull %3) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  store i32 1, ptr %4, align 8, !tbaa !138
+  store i32 1, ptr %4, align 8, !tbaa !137
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %10 = load i64, ptr %5, align 8, !noalias !141
-  store i64 0, ptr %5, align 8, !noalias !141
+  %10 = load i64, ptr %5, align 8, !noalias !140
+  store i64 0, ptr %5, align 8, !noalias !140
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #21
   store i64 0, ptr %2, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 1, ptr %11, align 8, !tbaa !138
+  store i32 1, ptr %11, align 8, !tbaa !137
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  call void @llvm.experimental.noalias.scope.decl(metadata !144)
-  store i64 %10, ptr %12, align 16, !alias.scope !144
-  store i64 0, ptr %9, align 8, !noalias !144
+  call void @llvm.experimental.noalias.scope.decl(metadata !143)
+  store i64 %10, ptr %12, align 16, !alias.scope !143
+  store i64 0, ptr %9, align 8, !noalias !143
   invoke void @_ZN5folly7futures6detail8CoreBase10setResult_EONS_8Executor9KeepAliveIS3_EE(ptr noundef nonnull align 16 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %_ZN5folly7futures6detail4CoreINS_4UnitEE9setResultEONS_8Executor9KeepAliveIS5_EEONS_3TryIS3_EE.exit.i unwind label %18
 
@@ -2836,13 +2834,13 @@ _ZN5folly7futures6detail4CoreINS_4UnitEE9setResultEONS_8Executor9KeepAliveIS5_EE
   %14 = and i64 %13, -4
   %15 = inttoptr i64 %14 to ptr
   %.not.i.i.i = icmp eq i64 %14, 0
-  br i1 %.not.i.i.i, label %.thread, label %16, !prof !147
+  br i1 %.not.i.i.i, label %.thread, label %16, !prof !146
 
 16:                                               ; preds = %_ZN5folly7futures6detail4CoreINS_4UnitEE9setResultEONS_8Executor9KeepAliveIS5_EEONS_3TryIS3_EE.exit.i
   store i64 0, ptr %2, align 8, !tbaa !17
   %17 = and i64 %13, 3
   %.not3.i.i.i = icmp eq i64 %17, 0
-  br i1 %.not3.i.i.i, label %29, label %.thread, !prof !148
+  br i1 %.not3.i.i.i, label %29, label %.thread, !prof !147
 
 18:                                               ; preds = %_ZN5folly3TryINS_4UnitEEC2EOS2_.exit.i.i
   %19 = landingpad { ptr, i32 }
@@ -2851,13 +2849,13 @@ _ZN5folly7futures6detail4CoreINS_4UnitEE9setResultEONS_8Executor9KeepAliveIS5_EE
   %21 = and i64 %20, -4
   %22 = inttoptr i64 %21 to ptr
   %.not.i.i3.i = icmp eq i64 %21, 0
-  br i1 %.not.i.i3.i, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit5.i.thread, label %23, !prof !147
+  br i1 %.not.i.i3.i, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit5.i.thread, label %23, !prof !146
 
 23:                                               ; preds = %18
   store i64 0, ptr %2, align 8, !tbaa !17
   %24 = and i64 %20, 3
   %.not3.i.i4.i = icmp eq i64 %24, 0
-  br i1 %.not3.i.i4.i, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit5.i, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit5.i.thread, !prof !148
+  br i1 %.not3.i.i4.i, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit5.i, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit5.i.thread, !prof !147
 
 _ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit5.i.thread: ; preds = %23, %18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #21
@@ -2868,10 +2866,10 @@ _ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit5.i:    ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %27 = load ptr, ptr %26, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(8) %22) #21
-  %.pre = load i32, ptr %4, align 8, !tbaa !138
+  %.pre = load i32, ptr %4, align 8, !tbaa !137
   %28 = icmp eq i32 %.pre, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #21
-  br i1 %28, label %39, label %_ZN5folly6detail7TryBaseINS_4UnitEED2Ev.exit7, !prof !149
+  br i1 %28, label %39, label %_ZN5folly6detail7TryBaseINS_4UnitEED2Ev.exit7, !prof !148
 
 .thread:                                          ; preds = %16, %_ZN5folly7futures6detail4CoreINS_4UnitEE9setResultEONS_8Executor9KeepAliveIS5_EEONS_3TryIS3_EE.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #21
@@ -2882,13 +2880,13 @@ _ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit5.i:    ; preds = %23
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %32 = load ptr, ptr %31, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(8) %15) #21
-  %.pre10 = load i32, ptr %4, align 8, !tbaa !138
+  %.pre10 = load i32, ptr %4, align 8, !tbaa !137
   %33 = icmp eq i32 %.pre10, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #21
-  br i1 %33, label %34, label %_ZN5folly6detail7TryBaseINS_4UnitEED2Ev.exit, !prof !149
+  br i1 %33, label %34, label %_ZN5folly6detail7TryBaseINS_4UnitEED2Ev.exit, !prof !148
 
 34:                                               ; preds = %.thread, %29
-  %35 = load ptr, ptr %9, align 8, !tbaa !126
+  %35 = load ptr, ptr %9, align 8, !tbaa !125
   %.not.i.i.i4 = icmp eq ptr %35, null
   br i1 %.not.i.i.i4, label %_ZN5folly6detail7TryBaseINS_4UnitEED2Ev.exit, label %36
 
@@ -2897,7 +2895,7 @@ _ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit5.i:    ; preds = %23
   br label %_ZN5folly6detail7TryBaseINS_4UnitEED2Ev.exit
 
 _ZN5folly6detail7TryBaseINS_4UnitEED2Ev.exit:     ; preds = %29, %34, %36
-  %37 = load ptr, ptr %5, align 8, !tbaa !126
+  %37 = load ptr, ptr %5, align 8, !tbaa !125
   %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %_ZN5folly17exception_wrapperD2Ev.exit, label %38
 
@@ -2912,7 +2910,7 @@ _ZN5folly17exception_wrapperD2Ev.exit:            ; preds = %_ZN5folly6detail7Tr
   br label %44
 
 39:                                               ; preds = %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit5.i.thread, %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit5.i
-  %40 = load ptr, ptr %9, align 8, !tbaa !126
+  %40 = load ptr, ptr %9, align 8, !tbaa !125
   %.not.i.i.i6 = icmp eq ptr %40, null
   br i1 %.not.i.i.i6, label %_ZN5folly6detail7TryBaseINS_4UnitEED2Ev.exit7, label %41
 
@@ -2921,7 +2919,7 @@ _ZN5folly17exception_wrapperD2Ev.exit:            ; preds = %_ZN5folly6detail7Tr
   br label %_ZN5folly6detail7TryBaseINS_4UnitEED2Ev.exit7
 
 _ZN5folly6detail7TryBaseINS_4UnitEED2Ev.exit7:    ; preds = %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit5.i, %39, %41
-  %42 = load ptr, ptr %5, align 8, !tbaa !126
+  %42 = load ptr, ptr %5, align 8, !tbaa !125
   %.not.i.i8 = icmp eq ptr %42, null
   br i1 %.not.i.i8, label %_ZN5folly17exception_wrapperD2Ev.exit9, label %43
 
@@ -2958,20 +2956,20 @@ define linkonce_odr void @_ZN5folly13BrokenPromiseD0Ev(ptr noundef nonnull align
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK5folly13BrokenPromise4whatEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !128
+  %3 = load ptr, ptr %2, align 8, !tbaa !127
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly6detail28make_exception_ptr_with_arg_4makeIZNKS_26make_exception_ptr_with_fn4makeINS_13BrokenPromiseEJOS5_EEEDaDpOT0_EUlvE_S5_EEvPvSB_(ptr noundef %0, ptr noundef %1) #3 comdat align 2 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !150)
-  %3 = load ptr, ptr %1, align 8, !tbaa !153, !noalias !150
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !149)
+  %3 = load ptr, ptr %1, align 8, !tbaa !152, !noalias !149
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3) #21
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly13BrokenPromiseE, i64 16), ptr %0, align 8, !tbaa !7, !alias.scope !150
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly13BrokenPromiseE, i64 16), ptr %0, align 8, !tbaa !7, !alias.scope !149
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !128
-  store ptr %6, ptr %4, align 8, !tbaa !128, !alias.scope !150
+  %6 = load ptr, ptr %5, align 8, !tbaa !127
+  store ptr %6, ptr %4, align 8, !tbaa !127, !alias.scope !149
   ret void
 }
 
@@ -3105,42 +3103,42 @@ define internal fastcc void @"_ZZN5folly7futures6detail4CoreINS_4UnitEE11setCall
 
 4:                                                ; preds = %"_ZNK5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E14before_barrierEv.exit.i.i"
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %6 = load ptr, ptr %5, align 8, !tbaa !26, !noalias !156
+  %6 = load ptr, ptr %5, align 8, !tbaa !26, !noalias !155
   %.not.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i.i, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = tail call noundef i64 %6(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %8, ptr noundef null) #21, !noalias !156
+  %9 = tail call noundef i64 %6(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %8, ptr noundef null) #21, !noalias !155
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i.i
 
 _ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i.i:      ; preds = %7, %4
-  %10 = load i64, ptr %0, align 16, !tbaa !21, !noalias !156
+  %10 = load i64, ptr %0, align 16, !tbaa !21, !noalias !155
   %11 = and i64 %10, -4
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv.exit.i.i", label %13
 
 13:                                               ; preds = %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i.i
   %14 = inttoptr i64 %11 to ptr
-  %15 = load ptr, ptr %14, align 16, !tbaa !7, !noalias !156
+  %15 = load ptr, ptr %14, align 16, !tbaa !7, !noalias !155
   %16 = getelementptr i8, ptr %15, i64 -72
-  %17 = load i64, ptr %16, align 8, !noalias !156
-  store i64 0, ptr %0, align 16, !tbaa !17, !noalias !156
+  %17 = load i64, ptr %16, align 8, !noalias !155
+  store i64 0, ptr %0, align 16, !tbaa !17, !noalias !155
   %18 = and i64 %10, 3
   %.not4.i.i.i.i.i.i.i = icmp eq i64 %18, 0
   br i1 %.not4.i.i.i.i.i.i.i, label %19, label %"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv.exit.i.i"
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds i8, ptr %14, i64 %17
-  %21 = load ptr, ptr %20, align 8, !tbaa !7, !noalias !156
+  %21 = load ptr, ptr %20, align 8, !tbaa !7, !noalias !155
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  %23 = load ptr, ptr %22, align 8, !noalias !156
-  tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %20) #21, !noalias !156
+  %23 = load ptr, ptr %22, align 8, !noalias !155
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %20) #21, !noalias !155
   br label %"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv.exit.i.i"
 
 "_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv.exit.i.i": ; preds = %19, %13, %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i.i
-  %24 = load ptr, ptr %2, align 16, !tbaa !62, !noalias !156
-  store ptr null, ptr %2, align 16, !tbaa !62, !noalias !156
+  %24 = load ptr, ptr %2, align 16, !tbaa !62, !noalias !155
+  store ptr null, ptr %2, align 16, !tbaa !62, !noalias !155
   %.not.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i, label %"_ZZN5folly7futures6detail10FutureBaseINS_4UnitEE18thenImplementationIZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSE_3_V212steady_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS6_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSR_EUlONS_8Executor9KeepAliveISW_EEONS_3TryIS3_EEE_NS1_25tryExecutorCallableResultIS3_S13_EEEENSt9enable_ifIXntsrNT0_13ReturnsFutureE5valueENS6_INS17_10value_typeEEEE4typeESV_S17_NS1_18InlineContinuationEENUlSZ_S12_E_D2Ev.exit", label %25
 
@@ -3173,14 +3171,14 @@ define internal void @"_ZN5folly6detail8function5call_IZNS_7futures6detail4CoreI
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %12 = load i32, ptr %11, align 8, !tbaa !159
-  store i32 2, ptr %11, align 8, !tbaa !159
+  %12 = load i32, ptr %11, align 8, !tbaa !158
+  store i32 2, ptr %11, align 8, !tbaa !158
   %cond.i.i.i.i = icmp eq i32 %12, 1
-  br i1 %cond.i.i.i.i, label %13, label %_ZN5folly3TryINS_4UnitEE16emplaceExceptionIJNS_17exception_wrapperEEEERS4_DpOT_.exit.i.i, !prof !160
+  br i1 %cond.i.i.i.i, label %13, label %_ZN5folly3TryINS_4UnitEE16emplaceExceptionIJNS_17exception_wrapperEEEERS4_DpOT_.exit.i.i, !prof !159
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %15 = load ptr, ptr %14, align 16, !tbaa !126
+  %15 = load ptr, ptr %14, align 16, !tbaa !125
   %.not.i.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN5folly3TryINS_4UnitEE16emplaceExceptionIJNS_17exception_wrapperEEEERS4_DpOT_.exit.i.i, label %16
 
@@ -3190,18 +3188,18 @@ define internal void @"_ZN5folly6detail8function5call_IZNS_7futures6detail4CoreI
 
 _ZN5folly3TryINS_4UnitEE16emplaceExceptionIJNS_17exception_wrapperEEEERS4_DpOT_.exit.i.i: ; preds = %16, %13, %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !161)
-  %18 = load i64, ptr %2, align 8, !noalias !161
-  store i64 %18, ptr %17, align 16, !alias.scope !161
-  store i64 0, ptr %2, align 8, !noalias !161
-  store i32 1, ptr %11, align 8, !tbaa !138
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !160)
+  %18 = load i64, ptr %2, align 8, !noalias !160
+  store i64 %18, ptr %17, align 16, !alias.scope !160
+  store i64 0, ptr %2, align 8, !noalias !160
+  store i32 1, ptr %11, align 8, !tbaa !137
   br label %_ZN5folly7futures6detail4CoreINS_4UnitEE20setCallbackGetResultERNS1_8CoreBaseEPNS_17exception_wrapperE.exit.i
 
 _ZN5folly7futures6detail4CoreINS_4UnitEE20setCallbackGetResultERNS1_8CoreBaseEPNS_17exception_wrapperE.exit.i: ; preds = %_ZN5folly3TryINS_4UnitEE16emplaceExceptionIJNS_17exception_wrapperEEEERS4_DpOT_.exit.i.i, %4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #21
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
-  %20 = load i64, ptr %1, align 8, !tbaa !14, !noalias !164
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !163)
+  %20 = load i64, ptr %1, align 8, !tbaa !14, !noalias !163
   %21 = and i64 %20, 1
   %.not.i.i.i = icmp eq i64 %21, 0
   br i1 %.not.i.i.i, label %24, label %22
@@ -3217,10 +3215,10 @@ _ZN5folly7futures6detail4CoreINS_4UnitEE20setCallbackGetResultERNS1_8CoreBaseEPN
 
 26:                                               ; preds = %24
   %27 = inttoptr i64 %25 to ptr
-  %28 = load ptr, ptr %27, align 8, !tbaa !7, !noalias !167
+  %28 = load ptr, ptr %27, align 8, !tbaa !7, !noalias !166
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  %30 = load ptr, ptr %29, align 8, !noalias !167
-  %31 = tail call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(8) %27) #21, !noalias !167
+  %30 = load ptr, ptr %29, align 8, !noalias !166
+  %31 = tail call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(8) %27) #21, !noalias !166
   %not..i.i.i.i = xor i1 %31, true
   %32 = zext i1 %not..i.i.i.i to i64
   %spec.select.i.i.i.i = or disjoint i64 %25, %32
@@ -3228,131 +3226,131 @@ _ZN5folly7futures6detail4CoreINS_4UnitEE20setCallbackGetResultERNS1_8CoreBaseEPN
 
 _ZNK5folly8Executor9KeepAliveIS0_E4copyEv.exit.i.i: ; preds = %26, %24, %22
   %storemerge.i.i.i = phi i64 [ %23, %22 ], [ 0, %24 ], [ %spec.select.i.i.i.i, %26 ]
-  store i64 %storemerge.i.i.i, ptr %7, align 8, !tbaa !14, !alias.scope !164
+  store i64 %storemerge.i.i.i, ptr %7, align 8, !tbaa !14, !alias.scope !163
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #21
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !170)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !173)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !176)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !179)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !182)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !185)
-  %33 = load i32, ptr %19, align 8, !tbaa !138, !noalias !188
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !169)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !172)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !175)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !178)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !181)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !184)
+  %33 = load i32, ptr %19, align 8, !tbaa !137, !noalias !187
   %34 = icmp eq i32 %33, 1
   br i1 %34, label %_ZNO5folly3TryINS_4UnitEE9exceptionEv.exit.i.i.i.i.i.i.i.i, label %38
 
 _ZNO5folly3TryINS_4UnitEE9exceptionEv.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNK5folly8Executor9KeepAliveIS0_E4copyEv.exit.i.i
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !189)
-  %36 = load i64, ptr %35, align 16, !noalias !192
-  store i64 0, ptr %35, align 16, !noalias !192
-  store i32 1, ptr %8, align 8, !tbaa !138, !alias.scope !195
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !188)
+  %36 = load i64, ptr %35, align 16, !noalias !191
+  store i64 0, ptr %35, align 16, !noalias !191
+  store i32 1, ptr %8, align 8, !tbaa !137, !alias.scope !194
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %36, ptr %37, align 8, !alias.scope !196
+  store i64 %36, ptr %37, align 8, !alias.scope !195
   br label %"_ZN5folly11makeTryWithIZZNS_7futures6detail10FutureBaseINS_4UnitEE18thenImplementationIZNOS_6FutureIS4_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSF_3_V212steady_clockENSF_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS7_INS2_19valueCallableResultIS4_T_E10value_typeEEEOSS_EUlONS_8Executor9KeepAliveISX_EEONS_3TryIS4_EEE_NS2_25tryExecutorCallableResultIS4_S14_EEEENSt9enable_ifIXntsrNT0_13ReturnsFutureE5valueENS7_INS18_10value_typeEEEE4typeESW_S18_NS2_18InlineContinuationEENUlS10_S13_E_clES10_S13_EUlvE_EENS17_IXsr5isTryINS_13invoke_detail6traitsISS_E6resultIEEEE5valueES1K_E4typeESW_.exit.i.i"
 
 38:                                               ; preds = %_ZNK5folly8Executor9KeepAliveIS0_E4copyEv.exit.i.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !199)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !198)
   %39 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNR5folly3TryINS_4UnitEE5valueEv(ptr noundef nonnull align 8 dereferenceable(16) %19)
-          to label %.noexc.i.i.i unwind label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i, !noalias !170
+          to label %.noexc.i.i.i unwind label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i, !noalias !169
 
 .noexc.i.i.i:                                     ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !202
-  store ptr null, ptr %6, align 16, !tbaa !23, !noalias !202
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !201
+  store ptr null, ptr %6, align 16, !tbaa !23, !noalias !201
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  %42 = load ptr, ptr %41, align 16, !tbaa !24, !noalias !202
-  store ptr %42, ptr %40, align 16, !tbaa !24, !noalias !202
+  %42 = load ptr, ptr %41, align 16, !tbaa !24, !noalias !201
+  store ptr %42, ptr %40, align 16, !tbaa !24, !noalias !201
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  %45 = load ptr, ptr %44, align 8, !tbaa !26, !noalias !202
-  store ptr %45, ptr %43, align 8, !tbaa !26, !noalias !202
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %41, align 16, !tbaa !24, !noalias !202
-  store ptr null, ptr %44, align 8, !tbaa !26, !noalias !202
+  %45 = load ptr, ptr %44, align 8, !tbaa !26, !noalias !201
+  store ptr %45, ptr %43, align 8, !tbaa !26, !noalias !201
+  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %41, align 16, !tbaa !24, !noalias !201
+  store ptr null, ptr %44, align 8, !tbaa !26, !noalias !201
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5folly8FunctionIFvvEEC2EOS2_.exit.i.i.i.i.i.i.i.i.i.i.i, label %46
 
 46:                                               ; preds = %.noexc.i.i.i
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %48 = call noundef i64 %45(i32 noundef 0, ptr noundef nonnull align 16 dereferenceable(64) %47, ptr noundef nonnull align 16 dereferenceable(64) %6) #21, !noalias !202
+  %48 = call noundef i64 %45(i32 noundef 0, ptr noundef nonnull align 16 dereferenceable(64) %47, ptr noundef nonnull align 16 dereferenceable(64) %6) #21, !noalias !201
   br label %_ZN5folly8FunctionIFvvEEC2EOS2_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZN5folly8FunctionIFvvEEC2EOS2_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %46, %.noexc.i.i.i
-  call void @_ZN5folly27TimekeeperScheduledExecutor3runENS_8FunctionIFvvEEE(ptr nonnull align 16 poison, ptr noundef nonnull %6), !noalias !202
-  %49 = load ptr, ptr %43, align 8, !tbaa !26, !noalias !202
+  call void @_ZN5folly27TimekeeperScheduledExecutor3runENS_8FunctionIFvvEEE(ptr nonnull align 16 poison, ptr noundef nonnull %6), !noalias !201
+  %49 = load ptr, ptr %43, align 8, !tbaa !26, !noalias !201
   %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN5folly7futures6detail19InvokeResultWrapperIvE10wrapResultIZNS1_10wrapInvokeINS_4UnitEZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EEDaONS_3TryIT_EEOT0_EUlvE_EENSO_IS6_EESP_.exit.i.i.i.i.i.i.i.i", label %50
 
 50:                                               ; preds = %_ZN5folly8FunctionIFvvEEC2EOS2_.exit.i.i.i.i.i.i.i.i.i.i.i
-  %51 = call noundef i64 %49(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %6, ptr noundef null) #21, !noalias !202
+  %51 = call noundef i64 %49(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %6, ptr noundef null) #21, !noalias !201
   br label %"_ZN5folly7futures6detail19InvokeResultWrapperIvE10wrapResultIZNS1_10wrapInvokeINS_4UnitEZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EEDaONS_3TryIT_EEOT0_EUlvE_EENSO_IS6_EESP_.exit.i.i.i.i.i.i.i.i"
 
 "_ZN5folly7futures6detail19InvokeResultWrapperIvE10wrapResultIZNS1_10wrapInvokeINS_4UnitEZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EEDaONS_3TryIT_EEOT0_EUlvE_EENSO_IS6_EESP_.exit.i.i.i.i.i.i.i.i": ; preds = %50, %_ZN5folly8FunctionIFvvEEC2EOS2_.exit.i.i.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6), !noalias !202
-  store i32 0, ptr %8, align 8, !tbaa !138, !alias.scope !202
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6), !noalias !201
+  store i32 0, ptr %8, align 8, !tbaa !137, !alias.scope !201
   br label %"_ZN5folly11makeTryWithIZZNS_7futures6detail10FutureBaseINS_4UnitEE18thenImplementationIZNOS_6FutureIS4_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSF_3_V212steady_clockENSF_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS7_INS2_19valueCallableResultIS4_T_E10value_typeEEEOSS_EUlONS_8Executor9KeepAliveISX_EEONS_3TryIS4_EEE_NS2_25tryExecutorCallableResultIS4_S14_EEEENSt9enable_ifIXntsrNT0_13ReturnsFutureE5valueENS7_INS18_10value_typeEEEE4typeESW_S18_NS2_18InlineContinuationEENUlS10_S13_E_clES10_S13_EUlvE_EENS17_IXsr5isTryINS_13invoke_detail6traitsISS_E6resultIEEEE5valueES1K_E4typeESW_.exit.i.i"
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i: ; preds = %38
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  %54 = tail call ptr @__cxa_begin_catch(ptr %53) #21
+  %54 = tail call ptr @__cxa_begin_catch(ptr %53) #21, !noalias !169
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @_ZN5folly17current_exceptionEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %55) #21
-  store i32 1, ptr %8, align 8, !tbaa !138, !alias.scope !170
+  store i32 1, ptr %8, align 8, !tbaa !137, !alias.scope !169
   invoke void @__cxa_end_catch()
-          to label %"_ZN5folly11makeTryWithIZZNS_7futures6detail10FutureBaseINS_4UnitEE18thenImplementationIZNOS_6FutureIS4_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSF_3_V212steady_clockENSF_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS7_INS2_19valueCallableResultIS4_T_E10value_typeEEEOSS_EUlONS_8Executor9KeepAliveISX_EEONS_3TryIS4_EEE_NS2_25tryExecutorCallableResultIS4_S14_EEEENSt9enable_ifIXntsrNT0_13ReturnsFutureE5valueENS7_INS18_10value_typeEEEE4typeESW_S18_NS2_18InlineContinuationEENUlS10_S13_E_clES10_S13_EUlvE_EENS17_IXsr5isTryINS_13invoke_detail6traitsISS_E6resultIEEEE5valueES1K_E4typeESW_.exit.i.i" unwind label %56, !noalias !170
+          to label %"_ZN5folly11makeTryWithIZZNS_7futures6detail10FutureBaseINS_4UnitEE18thenImplementationIZNOS_6FutureIS4_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSF_3_V212steady_clockENSF_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS7_INS2_19valueCallableResultIS4_T_E10value_typeEEEOSS_EUlONS_8Executor9KeepAliveISX_EEONS_3TryIS4_EEE_NS2_25tryExecutorCallableResultIS4_S14_EEEENSt9enable_ifIXntsrNT0_13ReturnsFutureE5valueENS7_INS18_10value_typeEEEE4typeESW_S18_NS2_18InlineContinuationEENUlS10_S13_E_clES10_S13_EUlvE_EENS17_IXsr5isTryINS_13invoke_detail6traitsISS_E6resultIEEEE5valueES1K_E4typeESW_.exit.i.i" unwind label %56, !noalias !169
 
 56:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #20
+  call void @__clang_call_terminate(ptr %58) #20, !noalias !169
   unreachable
 
 "_ZN5folly11makeTryWithIZZNS_7futures6detail10FutureBaseINS_4UnitEE18thenImplementationIZNOS_6FutureIS4_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSF_3_V212steady_clockENSF_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS7_INS2_19valueCallableResultIS4_T_E10value_typeEEEOSS_EUlONS_8Executor9KeepAliveISX_EEONS_3TryIS4_EEE_NS2_25tryExecutorCallableResultIS4_S14_EEEENSt9enable_ifIXntsrNT0_13ReturnsFutureE5valueENS7_INS18_10value_typeEEEE4typeESW_S18_NS2_18InlineContinuationEENUlS10_S13_E_clES10_S13_EUlvE_EENS17_IXsr5isTryINS_13invoke_detail6traitsISS_E6resultIEEEE5valueES1K_E4typeESW_.exit.i.i": ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i, %"_ZN5folly7futures6detail19InvokeResultWrapperIvE10wrapResultIZNS1_10wrapInvokeINS_4UnitEZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EEDaONS_3TryIT_EEOT0_EUlvE_EENSO_IS6_EESP_.exit.i.i.i.i.i.i.i.i", %_ZNO5folly3TryINS_4UnitEE9exceptionEv.exit.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #21
-  call void @llvm.experimental.noalias.scope.decl(metadata !203)
+  call void @llvm.experimental.noalias.scope.decl(metadata !202)
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  %60 = load ptr, ptr %59, align 8, !tbaa !26, !noalias !203
+  %60 = load ptr, ptr %59, align 8, !tbaa !26, !noalias !202
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %60, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i.i.i, label %61
 
 61:                                               ; preds = %"_ZN5folly11makeTryWithIZZNS_7futures6detail10FutureBaseINS_4UnitEE18thenImplementationIZNOS_6FutureIS4_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSF_3_V212steady_clockENSF_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS7_INS2_19valueCallableResultIS4_T_E10value_typeEEEOSS_EUlONS_8Executor9KeepAliveISX_EEONS_3TryIS4_EEE_NS2_25tryExecutorCallableResultIS4_S14_EEEENSt9enable_ifIXntsrNT0_13ReturnsFutureE5valueENS7_INS18_10value_typeEEEE4typeESW_S18_NS2_18InlineContinuationEENUlS10_S13_E_clES10_S13_EUlvE_EENS17_IXsr5isTryINS_13invoke_detail6traitsISS_E6resultIEEEE5valueES1K_E4typeESW_.exit.i.i"
   %62 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %63 = call noundef i64 %60(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %62, ptr noundef null) #21, !noalias !203
+  %63 = call noundef i64 %60(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %62, ptr noundef null) #21, !noalias !202
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i.i.i
 
 _ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i.i.i:    ; preds = %61, %"_ZN5folly11makeTryWithIZZNS_7futures6detail10FutureBaseINS_4UnitEE18thenImplementationIZNOS_6FutureIS4_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSF_3_V212steady_clockENSF_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS7_INS2_19valueCallableResultIS4_T_E10value_typeEEEOSS_EUlONS_8Executor9KeepAliveISX_EEONS_3TryIS4_EEE_NS2_25tryExecutorCallableResultIS4_S14_EEEENSt9enable_ifIXntsrNT0_13ReturnsFutureE5valueENS7_INS18_10value_typeEEEE4typeESW_S18_NS2_18InlineContinuationEENUlS10_S13_E_clES10_S13_EUlvE_EENS17_IXsr5isTryINS_13invoke_detail6traitsISS_E6resultIEEEE5valueES1K_E4typeESW_.exit.i.i"
-  %64 = load i64, ptr %9, align 8, !tbaa !21, !noalias !203
+  %64 = load i64, ptr %9, align 8, !tbaa !21, !noalias !202
   %65 = and i64 %64, -4
   %66 = icmp eq i64 %65, 0
   br i1 %66, label %"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv.exit.i.i.i", label %67
 
 67:                                               ; preds = %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i.i.i
   %68 = inttoptr i64 %65 to ptr
-  %69 = load ptr, ptr %68, align 16, !tbaa !7, !noalias !203
+  %69 = load ptr, ptr %68, align 16, !tbaa !7, !noalias !202
   %70 = getelementptr i8, ptr %69, i64 -72
-  %71 = load i64, ptr %70, align 8, !noalias !203
-  store i64 0, ptr %9, align 8, !tbaa !17, !noalias !203
+  %71 = load i64, ptr %70, align 8, !noalias !202
+  store i64 0, ptr %9, align 8, !tbaa !17, !noalias !202
   %72 = and i64 %64, 3
   %.not4.i.i.i.i.i.i.i.i = icmp eq i64 %72, 0
   br i1 %.not4.i.i.i.i.i.i.i.i, label %73, label %"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv.exit.i.i.i"
 
 73:                                               ; preds = %67
   %74 = getelementptr inbounds i8, ptr %68, i64 %71
-  %75 = load ptr, ptr %74, align 8, !tbaa !7, !noalias !203
+  %75 = load ptr, ptr %74, align 8, !tbaa !7, !noalias !202
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 48
-  %77 = load ptr, ptr %76, align 8, !noalias !203
-  call void %77(ptr noundef nonnull align 8 dereferenceable(8) %74) #21, !noalias !203
+  %77 = load ptr, ptr %76, align 8, !noalias !202
+  call void %77(ptr noundef nonnull align 8 dereferenceable(8) %74) #21, !noalias !202
   br label %"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv.exit.i.i.i"
 
 "_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv.exit.i.i.i": ; preds = %73, %67, %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i.i.i
   %78 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  %79 = load ptr, ptr %78, align 8, !tbaa !62, !noalias !203
-  store ptr null, ptr %78, align 8, !tbaa !62, !noalias !203
-  store i8 1, ptr %5, align 8, !tbaa !90, !alias.scope !203
+  %79 = load ptr, ptr %78, align 8, !tbaa !62, !noalias !202
+  store ptr null, ptr %78, align 8, !tbaa !62, !noalias !202
+  store i8 1, ptr %5, align 8, !tbaa !90, !alias.scope !202
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %79, ptr %80, align 8, !tbaa !87, !alias.scope !203
+  store ptr %79, ptr %80, align 8, !tbaa !87, !alias.scope !202
   %.not.i.i.i.i.i.i.i = icmp eq ptr %79, null
   br i1 %.not.i.i.i.i.i.i.i, label %81, label %_ZNK5folly7PromiseINS_4UnitEE7getCoreEv.exit.i.i.i.i.i
 
@@ -3376,18 +3374,18 @@ _ZNK5folly7PromiseINS_4UnitEE7getCoreEv.exit.i.i.i.i.i: ; preds = %"_ZN5folly7fu
 
 _ZNK5folly7PromiseINS_4UnitEE16throwIfFulfilledEv.exit.i.i.i.i: ; preds = %_ZNK5folly7PromiseINS_4UnitEE7getCoreEv.exit.i.i.i.i.i
   %84 = getelementptr inbounds nuw i8, ptr %79, i64 136
-  %85 = load i32, ptr %8, align 8, !tbaa !138
-  store i32 %85, ptr %84, align 8, !tbaa !138
+  %85 = load i32, ptr %8, align 8, !tbaa !137
+  store i32 %85, ptr %84, align 8, !tbaa !137
   %cond.i.i.i.i.i.i.i = icmp eq i32 %85, 1
   br i1 %cond.i.i.i.i.i.i.i, label %86, label %_ZN5folly7futures6detail4CoreINS_4UnitEE9setResultEONS_8Executor9KeepAliveIS5_EEONS_3TryIS3_EE.exit.i.i.i.i
 
 86:                                               ; preds = %_ZNK5folly7PromiseINS_4UnitEE16throwIfFulfilledEv.exit.i.i.i.i
   %87 = getelementptr inbounds nuw i8, ptr %79, i64 144
   %88 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !206)
-  %89 = load i64, ptr %88, align 8, !noalias !206
-  store i64 %89, ptr %87, align 8, !alias.scope !206
-  store i64 0, ptr %88, align 8, !noalias !206
+  call void @llvm.experimental.noalias.scope.decl(metadata !205)
+  %89 = load i64, ptr %88, align 8, !noalias !205
+  store i64 %89, ptr %87, align 8, !alias.scope !205
+  store i64 0, ptr %88, align 8, !noalias !205
   br label %_ZN5folly7futures6detail4CoreINS_4UnitEE9setResultEONS_8Executor9KeepAliveIS5_EEONS_3TryIS3_EE.exit.i.i.i.i
 
 _ZN5folly7futures6detail4CoreINS_4UnitEE9setResultEONS_8Executor9KeepAliveIS5_EEONS_3TryIS3_EE.exit.i.i.i.i: ; preds = %86, %_ZNK5folly7PromiseINS_4UnitEE16throwIfFulfilledEv.exit.i.i.i.i
@@ -3410,19 +3408,19 @@ _ZN5folly7PromiseINS_4UnitEE6setTryEONS_8Executor9KeepAliveIS3_EEONS_3TryIS1_EE.
           cleanup
   call void @_ZN5folly7PromiseINS_4UnitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #21
-  %94 = load i32, ptr %8, align 8, !tbaa !138
+  %94 = load i32, ptr %8, align 8, !tbaa !137
   %cond.i8.i.i = icmp eq i32 %94, 1
-  br i1 %cond.i8.i.i, label %110, label %_ZN5folly6detail7TryBaseINS_4UnitEED2Ev.exit10.i.i, !prof !160
+  br i1 %cond.i8.i.i, label %110, label %_ZN5folly6detail7TryBaseINS_4UnitEED2Ev.exit10.i.i, !prof !159
 
 95:                                               ; preds = %_ZN5folly7PromiseINS_4UnitEE6setTryEONS_8Executor9KeepAliveIS3_EEONS_3TryIS1_EE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #21
-  %96 = load i32, ptr %8, align 8, !tbaa !138
+  %96 = load i32, ptr %8, align 8, !tbaa !137
   %cond.i.i.i = icmp eq i32 %96, 1
-  br i1 %cond.i.i.i, label %97, label %_ZN5folly6detail7TryBaseINS_4UnitEED2Ev.exit.i.i, !prof !160
+  br i1 %cond.i.i.i, label %97, label %_ZN5folly6detail7TryBaseINS_4UnitEED2Ev.exit.i.i, !prof !159
 
 97:                                               ; preds = %95
   %98 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %99 = load ptr, ptr %98, align 8, !tbaa !126
+  %99 = load ptr, ptr %98, align 8, !tbaa !125
   %.not.i.i.i.i.i = icmp eq ptr %99, null
   br i1 %.not.i.i.i.i.i, label %_ZN5folly6detail7TryBaseINS_4UnitEED2Ev.exit.i.i, label %100
 
@@ -3453,7 +3451,7 @@ _ZN5folly6detail7TryBaseINS_4UnitEED2Ev.exit.i.i: ; preds = %100, %97, %95
 
 110:                                              ; preds = %.body.i.i
   %111 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %112 = load ptr, ptr %111, align 8, !tbaa !126
+  %112 = load ptr, ptr %111, align 8, !tbaa !125
   %.not.i.i.i9.i.i = icmp eq ptr %112, null
   br i1 %.not.i.i.i9.i.i, label %_ZN5folly6detail7TryBaseINS_4UnitEED2Ev.exit10.i.i, label %113
 
@@ -3521,42 +3519,42 @@ define internal noundef i64 @"_ZN5folly6detail8function11DispatchBig4execIZNS_7f
 
 12:                                               ; preds = %"_ZNK5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E14before_barrierEv.exit.i.i.i"
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %14 = load ptr, ptr %13, align 8, !tbaa !26, !noalias !209
+  %14 = load ptr, ptr %13, align 8, !tbaa !26, !noalias !208
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i.i.i, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %17 = tail call noundef i64 %14(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %16, ptr noundef null) #21, !noalias !209
+  %17 = tail call noundef i64 %14(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %16, ptr noundef null) #21, !noalias !208
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i.i.i
 
 _ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i.i.i:    ; preds = %15, %12
-  %18 = load i64, ptr %7, align 8, !tbaa !21, !noalias !209
+  %18 = load i64, ptr %7, align 8, !tbaa !21, !noalias !208
   %19 = and i64 %18, -4
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv.exit.i.i.i", label %21
 
 21:                                               ; preds = %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i.i.i
   %22 = inttoptr i64 %19 to ptr
-  %23 = load ptr, ptr %22, align 16, !tbaa !7, !noalias !209
+  %23 = load ptr, ptr %22, align 16, !tbaa !7, !noalias !208
   %24 = getelementptr i8, ptr %23, i64 -72
-  %25 = load i64, ptr %24, align 8, !noalias !209
-  store i64 0, ptr %7, align 8, !tbaa !17, !noalias !209
+  %25 = load i64, ptr %24, align 8, !noalias !208
+  store i64 0, ptr %7, align 8, !tbaa !17, !noalias !208
   %26 = and i64 %18, 3
   %.not4.i.i.i.i.i.i.i.i = icmp eq i64 %26, 0
   br i1 %.not4.i.i.i.i.i.i.i.i, label %27, label %"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv.exit.i.i.i"
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds i8, ptr %22, i64 %25
-  %29 = load ptr, ptr %28, align 8, !tbaa !7, !noalias !209
+  %29 = load ptr, ptr %28, align 8, !tbaa !7, !noalias !208
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  %31 = load ptr, ptr %30, align 8, !noalias !209
-  tail call void %31(ptr noundef nonnull align 8 dereferenceable(8) %28) #21, !noalias !209
+  %31 = load ptr, ptr %30, align 8, !noalias !208
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(8) %28) #21, !noalias !208
   br label %"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv.exit.i.i.i"
 
 "_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv.exit.i.i.i": ; preds = %27, %21, %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i.i.i
-  %32 = load ptr, ptr %10, align 8, !tbaa !62, !noalias !209
-  store ptr null, ptr %10, align 8, !tbaa !62, !noalias !209
+  %32 = load ptr, ptr %10, align 8, !tbaa !62, !noalias !208
+  store ptr null, ptr %10, align 8, !tbaa !62, !noalias !208
   %.not.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i.i, label %"_ZZN5folly7futures6detail4CoreINS_4UnitEE11setCallbackIZNS1_10FutureBaseIS3_E18thenImplementationIZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSH_3_V212steady_clockENSH_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS9_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSU_EUlONS_8Executor9KeepAliveISZ_EEONS_3TryIS3_EEE_NS1_25tryExecutorCallableResultIS3_S16_EEEENSt9enable_ifIXntsrNT0_13ReturnsFutureE5valueENS9_INS1A_10value_typeEEEE4typeESY_S1A_NS1_18InlineContinuationEEUlS12_S15_E_EEvSY_OSt10shared_ptrINS_14RequestContextEES1F_ENUlRNS1_8CoreBaseES12_PNS_17exception_wrapperEE_D2Ev.exit", label %33
 
@@ -3687,11 +3685,11 @@ define linkonce_odr void @_ZN5folly10SemiFutureINS_4UnitEE23releaseDeferredExecu
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #21
   call void @_ZN5folly7futures6detail8CoreBase21stealDeferredExecutorEv(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.11") align 8 %2, ptr noundef nonnull align 16 dereferenceable(136) %0)
-  %8 = load ptr, ptr %2, align 8, !tbaa !212
+  %8 = load ptr, ptr %2, align 8, !tbaa !211
   %.not4 = icmp ne ptr %8, null
   %9 = zext i1 %.not4 to i32
   call void @_ZN5folly13async_tracing20logSemiFutureDiscardENS0_18DiscardHasDeferredE(i32 noundef %9) #21
-  %10 = load ptr, ptr %2, align 8, !tbaa !212
+  %10 = load ptr, ptr %2, align 8, !tbaa !211
   %.not7 = icmp eq ptr %10, null
   br i1 %.not7, label %_ZNSt10unique_ptrIN5folly7futures6detail16DeferredExecutorENS2_13UniqueDeleterEED2Ev.exit, label %11
 
@@ -3707,7 +3705,7 @@ define linkonce_odr void @_ZN5folly10SemiFutureINS_4UnitEE23releaseDeferredExecu
   resume { ptr, i32 } %13
 
 14:                                               ; preds = %11
-  %.pr = load ptr, ptr %2, align 8, !tbaa !212
+  %.pr = load ptr, ptr %2, align 8, !tbaa !211
   %.not.i = icmp eq ptr %.pr, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN5folly7futures6detail16DeferredExecutorENS2_13UniqueDeleterEED2Ev.exit, label %15
 
@@ -3739,7 +3737,7 @@ declare void @_ZN5folly7futures6detail16DeferredExecutor6detachEv(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10unique_ptrIN5folly7futures6detail16DeferredExecutorENS2_13UniqueDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !212
+  %2 = load ptr, ptr %0, align 8, !tbaa !211
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
@@ -3748,7 +3746,7 @@ define linkonce_odr void @_ZNSt10unique_ptrIN5folly7futures6detail16DeferredExec
           to label %4 unwind label %5
 
 4:                                                ; preds = %3, %1
-  store ptr null, ptr %0, align 8, !tbaa !212
+  store ptr null, ptr %0, align 8, !tbaa !211
   ret void
 
 5:                                                ; preds = %3
@@ -3990,96 +3988,95 @@ attributes #24 = { noreturn }
 !118 = !{!119}
 !119 = distinct !{!119, !120, !"_ZN5folly8Executor17getKeepAliveTokenIS0_EENS0_9KeepAliveIT_EEPS3_: argument 0"}
 !120 = distinct !{!120, !"_ZN5folly8Executor17getKeepAliveTokenIS0_EENS0_9KeepAliveIT_EEPS3_"}
-!121 = !{!89, !89, i64 0}
-!122 = !{!123}
-!123 = distinct !{!123, !124, !"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv: argument 0"}
-!124 = distinct !{!124, !"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv"}
-!125 = !{!"branch_weights", i32 1, i32 8008001}
-!126 = !{!127, !13, i64 0}
-!127 = !{!"_ZTSNSt15__exception_ptr13exception_ptrE", !13, i64 0}
-!128 = !{!129, !134, i64 16}
-!129 = !{!"_ZTSN5folly13BrokenPromiseE", !130, i64 0, !134, i64 16}
-!130 = !{!"_ZTSN5folly16PromiseExceptionE", !131, i64 0}
-!131 = !{!"_ZTSSt11logic_error", !132, i64 0, !133, i64 8}
-!132 = !{!"_ZTSSt9exception"}
-!133 = !{!"_ZTSSt12__cow_string", !12, i64 0}
-!134 = !{!"p1 omnipotent char", !13, i64 0}
-!135 = !{!136}
-!136 = distinct !{!136, !137, !"_ZNK5folly26make_exception_ptr_with_fnclIZNKS0_4makeINS_13BrokenPromiseEJOS3_EEEDaDpOT0_EUlvE_TnPDTclclscPDoFRT_vELDnEEEELPS3_0EEENSt15__exception_ptr13exception_ptrES9_: argument 0"}
-!137 = distinct !{!137, !"_ZNK5folly26make_exception_ptr_with_fnclIZNKS0_4makeINS_13BrokenPromiseEJOS3_EEEDaDpOT0_EUlvE_TnPDTclclscPDoFRT_vELDnEEEELPS3_0EEENSt15__exception_ptr13exception_ptrES9_"}
-!138 = !{!139, !140, i64 0}
-!139 = !{!"_ZTSN5folly6detail7TryBaseINS_4UnitEEE", !140, i64 0, !12, i64 8}
-!140 = !{!"_ZTSN5folly6detail7TryBaseINS_4UnitEE8ContainsE", !12, i64 0}
-!141 = !{!142}
-!142 = distinct !{!142, !143, !"_ZN5folly17exception_wrapper8extract_EONSt15__exception_ptr13exception_ptrE: argument 0"}
-!143 = distinct !{!143, !"_ZN5folly17exception_wrapper8extract_EONSt15__exception_ptr13exception_ptrE"}
-!144 = !{!145}
-!145 = distinct !{!145, !146, !"_ZN5folly17exception_wrapper8extract_EONSt15__exception_ptr13exception_ptrE: argument 0"}
-!146 = distinct !{!146, !"_ZN5folly17exception_wrapper8extract_EONSt15__exception_ptr13exception_ptrE"}
-!147 = !{!"branch_weights", i32 536, i32 2147483112}
-!148 = !{!"branch_weights", i32 2147483112, i32 536}
-!149 = !{!"branch_weights", i32 0, i32 -2147483648}
-!150 = !{!151}
-!151 = distinct !{!151, !152, !"_ZZNK5folly26make_exception_ptr_with_fn4makeINS_13BrokenPromiseEJOS2_EEEDaDpOT0_ENKUlvE_clEv: argument 0"}
-!152 = distinct !{!152, !"_ZZNK5folly26make_exception_ptr_with_fn4makeINS_13BrokenPromiseEJOS2_EEEDaDpOT0_ENKUlvE_clEv"}
-!153 = !{!154, !155, i64 0}
-!154 = !{!"_ZTSZNK5folly26make_exception_ptr_with_fn4makeINS_13BrokenPromiseEJOS2_EEEDaDpOT0_EUlvE_", !155, i64 0}
-!155 = !{!"p1 _ZTSN5folly13BrokenPromiseE", !13, i64 0}
-!156 = !{!157}
-!157 = distinct !{!157, !158, !"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv: argument 0"}
-!158 = distinct !{!158, !"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv"}
-!159 = !{!140, !140, i64 0}
-!160 = !{!"branch_weights", i32 1, i32 4004000}
-!161 = !{!162}
-!162 = distinct !{!162, !163, !"_ZN5folly17exception_wrapper8extract_EONSt15__exception_ptr13exception_ptrE: argument 0"}
-!163 = distinct !{!163, !"_ZN5folly17exception_wrapper8extract_EONSt15__exception_ptr13exception_ptrE"}
-!164 = !{!165}
-!165 = distinct !{!165, !166, !"_ZNK5folly8Executor9KeepAliveIS0_E4copyEv: argument 0"}
-!166 = distinct !{!166, !"_ZNK5folly8Executor9KeepAliveIS0_E4copyEv"}
-!167 = !{!168, !165}
-!168 = distinct !{!168, !169, !"_ZN5folly8Executor17getKeepAliveTokenIS0_EENS0_9KeepAliveIT_EEPS3_: argument 0"}
-!169 = distinct !{!169, !"_ZN5folly8Executor17getKeepAliveTokenIS0_EENS0_9KeepAliveIT_EEPS3_"}
-!170 = !{!171}
-!171 = distinct !{!171, !172, !"_ZN5folly11makeTryWithIZZNS_7futures6detail10FutureBaseINS_4UnitEE18thenImplementationIZNOS_6FutureIS4_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSF_3_V212steady_clockENSF_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS7_INS2_19valueCallableResultIS4_T_E10value_typeEEEOSS_EUlONS_8Executor9KeepAliveISX_EEONS_3TryIS4_EEE_NS2_25tryExecutorCallableResultIS4_S14_EEEENSt9enable_ifIXntsrNT0_13ReturnsFutureE5valueENS7_INS18_10value_typeEEEE4typeESW_S18_NS2_18InlineContinuationEENUlS10_S13_E_clES10_S13_EUlvE_EENS17_IXsr5isTryINS_13invoke_detail6traitsISS_E6resultIEEEE5valueES1K_E4typeESW_: argument 0"}
-!172 = distinct !{!172, !"_ZN5folly11makeTryWithIZZNS_7futures6detail10FutureBaseINS_4UnitEE18thenImplementationIZNOS_6FutureIS4_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSF_3_V212steady_clockENSF_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS7_INS2_19valueCallableResultIS4_T_E10value_typeEEEOSS_EUlONS_8Executor9KeepAliveISX_EEONS_3TryIS4_EEE_NS2_25tryExecutorCallableResultIS4_S14_EEEENSt9enable_ifIXntsrNT0_13ReturnsFutureE5valueENS7_INS18_10value_typeEEEE4typeESW_S18_NS2_18InlineContinuationEENUlS10_S13_E_clES10_S13_EUlvE_EENS17_IXsr5isTryINS_13invoke_detail6traitsISS_E6resultIEEEE5valueES1K_E4typeESW_"}
-!173 = !{!174}
-!174 = distinct !{!174, !175, !"_ZZZN5folly7futures6detail10FutureBaseINS_4UnitEE18thenImplementationIZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSE_3_V212steady_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS6_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSR_EUlONS_8Executor9KeepAliveISW_EEONS_3TryIS3_EEE_NS1_25tryExecutorCallableResultIS3_S13_EEEENSt9enable_ifIXntsrNT0_13ReturnsFutureE5valueENS6_INS17_10value_typeEEEE4typeESV_S17_NS1_18InlineContinuationEENUlSZ_S12_E_clESZ_S12_ENKUlvE_clEv: argument 0"}
-!175 = distinct !{!175, !"_ZZZN5folly7futures6detail10FutureBaseINS_4UnitEE18thenImplementationIZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSE_3_V212steady_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS6_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSR_EUlONS_8Executor9KeepAliveISW_EEONS_3TryIS3_EEE_NS1_25tryExecutorCallableResultIS3_S13_EEEENSt9enable_ifIXntsrNT0_13ReturnsFutureE5valueENS6_INS17_10value_typeEEEE4typeESV_S17_NS1_18InlineContinuationEENUlSZ_S12_E_clESZ_S12_ENKUlvE_clEv"}
-!176 = !{!177}
-!177 = distinct !{!177, !178, !"_ZN5folly7futures6detail27detail_msvc_15_7_workaround6invokeINS1_25tryExecutorCallableResultINS_4UnitEZNOS_6FutureIS5_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSE_3_V212steady_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS6_INS1_19valueCallableResultIS5_T_E10value_typeEEEOSR_EUlONS_8Executor9KeepAliveISW_EEONS_3TryIS5_EEE_EENS1_17CoreCallbackStateIS5_S13_EES5_TnNSt9enable_ifIXeqsrNSR_3Arg8ArgsSizeE5valueLm2EEiE4typeELi0EEEDcSR_RT0_SZ_ONS10_IT1_EE: argument 0"}
-!178 = distinct !{!178, !"_ZN5folly7futures6detail27detail_msvc_15_7_workaround6invokeINS1_25tryExecutorCallableResultINS_4UnitEZNOS_6FutureIS5_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSE_3_V212steady_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS6_INS1_19valueCallableResultIS5_T_E10value_typeEEEOSR_EUlONS_8Executor9KeepAliveISW_EEONS_3TryIS5_EEE_EENS1_17CoreCallbackStateIS5_S13_EES5_TnNSt9enable_ifIXeqsrNSR_3Arg8ArgsSizeE5valueLm2EEiE4typeELi0EEEDcSR_RT0_SZ_ONS10_IT1_EE"}
-!179 = !{!180}
-!180 = distinct !{!180, !181, !"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E6invokeIJSW_SZ_EEEDaDpOT_: argument 0"}
-!181 = distinct !{!181, !"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E6invokeIJSW_SZ_EEEDaDpOT_"}
-!182 = !{!183}
-!183 = distinct !{!183, !184, !"_ZZNO5folly6FutureINS_4UnitEE9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINS9_3_V212steady_clockENS9_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS0_INS_7futures6detail19valueCallableResultIS1_T_E10value_typeEEEOSO_ENUlONS_8Executor9KeepAliveIST_EEONS_3TryIS1_EEE_clESW_SZ_: argument 0"}
-!184 = distinct !{!184, !"_ZZNO5folly6FutureINS_4UnitEE9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINS9_3_V212steady_clockENS9_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS0_INS_7futures6detail19valueCallableResultIS1_T_E10value_typeEEEOSO_ENUlONS_8Executor9KeepAliveIST_EEONS_3TryIS1_EEE_clESW_SZ_"}
-!185 = !{!186}
-!186 = distinct !{!186, !187, !"_ZN5folly7futures6detail10wrapInvokeINS_4UnitEZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINS9_3_V212steady_clockENS9_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EEDaONS_3TryIT_EEOT0_: argument 0"}
-!187 = distinct !{!187, !"_ZN5folly7futures6detail10wrapInvokeINS_4UnitEZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINS9_3_V212steady_clockENS9_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EEDaONS_3TryIT_EEOT0_"}
-!188 = !{!186, !183, !180, !177, !174, !171}
-!189 = !{!190}
-!190 = distinct !{!190, !191, !"_ZN5folly7futures6detail23InvokeResultWrapperBaseINS_3TryINS_4UnitEEEE13wrapExceptionEONS_17exception_wrapperE: argument 0"}
-!191 = distinct !{!191, !"_ZN5folly7futures6detail23InvokeResultWrapperBaseINS_3TryINS_4UnitEEEE13wrapExceptionEONS_17exception_wrapperE"}
-!192 = !{!193, !190, !186, !183, !180, !177, !174, !171}
-!193 = distinct !{!193, !194, !"_ZN5folly17exception_wrapper8extract_EONSt15__exception_ptr13exception_ptrE: argument 0"}
-!194 = distinct !{!194, !"_ZN5folly17exception_wrapper8extract_EONSt15__exception_ptr13exception_ptrE"}
-!195 = !{!190, !186, !183, !180, !177, !174, !171}
-!196 = !{!197, !190, !186, !183, !180, !177, !174, !171}
-!197 = distinct !{!197, !198, !"_ZN5folly17exception_wrapper8extract_EONSt15__exception_ptr13exception_ptrE: argument 0"}
-!198 = distinct !{!198, !"_ZN5folly17exception_wrapper8extract_EONSt15__exception_ptr13exception_ptrE"}
-!199 = !{!200}
-!200 = distinct !{!200, !201, !"_ZN5folly7futures6detail19InvokeResultWrapperIvE10wrapResultIZNS1_10wrapInvokeINS_4UnitEZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EEDaONS_3TryIT_EEOT0_EUlvE_EENSO_IS6_EESP_: argument 0"}
-!201 = distinct !{!201, !"_ZN5folly7futures6detail19InvokeResultWrapperIvE10wrapResultIZNS1_10wrapInvokeINS_4UnitEZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EEDaONS_3TryIT_EEOT0_EUlvE_EENSO_IS6_EESP_"}
-!202 = !{!200, !186, !183, !180, !177, !174, !171}
-!203 = !{!204}
-!204 = distinct !{!204, !205, !"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv: argument 0"}
-!205 = distinct !{!205, !"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv"}
-!206 = !{!207}
-!207 = distinct !{!207, !208, !"_ZN5folly17exception_wrapper8extract_EONSt15__exception_ptr13exception_ptrE: argument 0"}
-!208 = distinct !{!208, !"_ZN5folly17exception_wrapper8extract_EONSt15__exception_ptr13exception_ptrE"}
-!209 = !{!210}
-!210 = distinct !{!210, !211, !"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv: argument 0"}
-!211 = distinct !{!211, !"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv"}
-!212 = !{!213, !213, i64 0}
-!213 = !{!"p1 _ZTSN5folly7futures6detail16DeferredExecutorE", !13, i64 0}
+!121 = !{!122}
+!122 = distinct !{!122, !123, !"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv: argument 0"}
+!123 = distinct !{!123, !"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv"}
+!124 = !{!"branch_weights", i32 1, i32 8008001}
+!125 = !{!126, !13, i64 0}
+!126 = !{!"_ZTSNSt15__exception_ptr13exception_ptrE", !13, i64 0}
+!127 = !{!128, !133, i64 16}
+!128 = !{!"_ZTSN5folly13BrokenPromiseE", !129, i64 0, !133, i64 16}
+!129 = !{!"_ZTSN5folly16PromiseExceptionE", !130, i64 0}
+!130 = !{!"_ZTSSt11logic_error", !131, i64 0, !132, i64 8}
+!131 = !{!"_ZTSSt9exception"}
+!132 = !{!"_ZTSSt12__cow_string", !12, i64 0}
+!133 = !{!"p1 omnipotent char", !13, i64 0}
+!134 = !{!135}
+!135 = distinct !{!135, !136, !"_ZNK5folly26make_exception_ptr_with_fnclIZNKS0_4makeINS_13BrokenPromiseEJOS3_EEEDaDpOT0_EUlvE_TnPDTclclscPDoFRT_vELDnEEEELPS3_0EEENSt15__exception_ptr13exception_ptrES9_: argument 0"}
+!136 = distinct !{!136, !"_ZNK5folly26make_exception_ptr_with_fnclIZNKS0_4makeINS_13BrokenPromiseEJOS3_EEEDaDpOT0_EUlvE_TnPDTclclscPDoFRT_vELDnEEEELPS3_0EEENSt15__exception_ptr13exception_ptrES9_"}
+!137 = !{!138, !139, i64 0}
+!138 = !{!"_ZTSN5folly6detail7TryBaseINS_4UnitEEE", !139, i64 0, !12, i64 8}
+!139 = !{!"_ZTSN5folly6detail7TryBaseINS_4UnitEE8ContainsE", !12, i64 0}
+!140 = !{!141}
+!141 = distinct !{!141, !142, !"_ZN5folly17exception_wrapper8extract_EONSt15__exception_ptr13exception_ptrE: argument 0"}
+!142 = distinct !{!142, !"_ZN5folly17exception_wrapper8extract_EONSt15__exception_ptr13exception_ptrE"}
+!143 = !{!144}
+!144 = distinct !{!144, !145, !"_ZN5folly17exception_wrapper8extract_EONSt15__exception_ptr13exception_ptrE: argument 0"}
+!145 = distinct !{!145, !"_ZN5folly17exception_wrapper8extract_EONSt15__exception_ptr13exception_ptrE"}
+!146 = !{!"branch_weights", i32 536, i32 2147483112}
+!147 = !{!"branch_weights", i32 2147483112, i32 536}
+!148 = !{!"branch_weights", i32 0, i32 -2147483648}
+!149 = !{!150}
+!150 = distinct !{!150, !151, !"_ZZNK5folly26make_exception_ptr_with_fn4makeINS_13BrokenPromiseEJOS2_EEEDaDpOT0_ENKUlvE_clEv: argument 0"}
+!151 = distinct !{!151, !"_ZZNK5folly26make_exception_ptr_with_fn4makeINS_13BrokenPromiseEJOS2_EEEDaDpOT0_ENKUlvE_clEv"}
+!152 = !{!153, !154, i64 0}
+!153 = !{!"_ZTSZNK5folly26make_exception_ptr_with_fn4makeINS_13BrokenPromiseEJOS2_EEEDaDpOT0_EUlvE_", !154, i64 0}
+!154 = !{!"p1 _ZTSN5folly13BrokenPromiseE", !13, i64 0}
+!155 = !{!156}
+!156 = distinct !{!156, !157, !"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv: argument 0"}
+!157 = distinct !{!157, !"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv"}
+!158 = !{!139, !139, i64 0}
+!159 = !{!"branch_weights", i32 1, i32 4004000}
+!160 = !{!161}
+!161 = distinct !{!161, !162, !"_ZN5folly17exception_wrapper8extract_EONSt15__exception_ptr13exception_ptrE: argument 0"}
+!162 = distinct !{!162, !"_ZN5folly17exception_wrapper8extract_EONSt15__exception_ptr13exception_ptrE"}
+!163 = !{!164}
+!164 = distinct !{!164, !165, !"_ZNK5folly8Executor9KeepAliveIS0_E4copyEv: argument 0"}
+!165 = distinct !{!165, !"_ZNK5folly8Executor9KeepAliveIS0_E4copyEv"}
+!166 = !{!167, !164}
+!167 = distinct !{!167, !168, !"_ZN5folly8Executor17getKeepAliveTokenIS0_EENS0_9KeepAliveIT_EEPS3_: argument 0"}
+!168 = distinct !{!168, !"_ZN5folly8Executor17getKeepAliveTokenIS0_EENS0_9KeepAliveIT_EEPS3_"}
+!169 = !{!170}
+!170 = distinct !{!170, !171, !"_ZN5folly11makeTryWithIZZNS_7futures6detail10FutureBaseINS_4UnitEE18thenImplementationIZNOS_6FutureIS4_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSF_3_V212steady_clockENSF_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS7_INS2_19valueCallableResultIS4_T_E10value_typeEEEOSS_EUlONS_8Executor9KeepAliveISX_EEONS_3TryIS4_EEE_NS2_25tryExecutorCallableResultIS4_S14_EEEENSt9enable_ifIXntsrNT0_13ReturnsFutureE5valueENS7_INS18_10value_typeEEEE4typeESW_S18_NS2_18InlineContinuationEENUlS10_S13_E_clES10_S13_EUlvE_EENS17_IXsr5isTryINS_13invoke_detail6traitsISS_E6resultIEEEE5valueES1K_E4typeESW_: argument 0"}
+!171 = distinct !{!171, !"_ZN5folly11makeTryWithIZZNS_7futures6detail10FutureBaseINS_4UnitEE18thenImplementationIZNOS_6FutureIS4_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSF_3_V212steady_clockENSF_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS7_INS2_19valueCallableResultIS4_T_E10value_typeEEEOSS_EUlONS_8Executor9KeepAliveISX_EEONS_3TryIS4_EEE_NS2_25tryExecutorCallableResultIS4_S14_EEEENSt9enable_ifIXntsrNT0_13ReturnsFutureE5valueENS7_INS18_10value_typeEEEE4typeESW_S18_NS2_18InlineContinuationEENUlS10_S13_E_clES10_S13_EUlvE_EENS17_IXsr5isTryINS_13invoke_detail6traitsISS_E6resultIEEEE5valueES1K_E4typeESW_"}
+!172 = !{!173}
+!173 = distinct !{!173, !174, !"_ZZZN5folly7futures6detail10FutureBaseINS_4UnitEE18thenImplementationIZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSE_3_V212steady_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS6_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSR_EUlONS_8Executor9KeepAliveISW_EEONS_3TryIS3_EEE_NS1_25tryExecutorCallableResultIS3_S13_EEEENSt9enable_ifIXntsrNT0_13ReturnsFutureE5valueENS6_INS17_10value_typeEEEE4typeESV_S17_NS1_18InlineContinuationEENUlSZ_S12_E_clESZ_S12_ENKUlvE_clEv: argument 0"}
+!174 = distinct !{!174, !"_ZZZN5folly7futures6detail10FutureBaseINS_4UnitEE18thenImplementationIZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSE_3_V212steady_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS6_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSR_EUlONS_8Executor9KeepAliveISW_EEONS_3TryIS3_EEE_NS1_25tryExecutorCallableResultIS3_S13_EEEENSt9enable_ifIXntsrNT0_13ReturnsFutureE5valueENS6_INS17_10value_typeEEEE4typeESV_S17_NS1_18InlineContinuationEENUlSZ_S12_E_clESZ_S12_ENKUlvE_clEv"}
+!175 = !{!176}
+!176 = distinct !{!176, !177, !"_ZN5folly7futures6detail27detail_msvc_15_7_workaround6invokeINS1_25tryExecutorCallableResultINS_4UnitEZNOS_6FutureIS5_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSE_3_V212steady_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS6_INS1_19valueCallableResultIS5_T_E10value_typeEEEOSR_EUlONS_8Executor9KeepAliveISW_EEONS_3TryIS5_EEE_EENS1_17CoreCallbackStateIS5_S13_EES5_TnNSt9enable_ifIXeqsrNSR_3Arg8ArgsSizeE5valueLm2EEiE4typeELi0EEEDcSR_RT0_SZ_ONS10_IT1_EE: argument 0"}
+!177 = distinct !{!177, !"_ZN5folly7futures6detail27detail_msvc_15_7_workaround6invokeINS1_25tryExecutorCallableResultINS_4UnitEZNOS_6FutureIS5_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSE_3_V212steady_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS6_INS1_19valueCallableResultIS5_T_E10value_typeEEEOSR_EUlONS_8Executor9KeepAliveISW_EEONS_3TryIS5_EEE_EENS1_17CoreCallbackStateIS5_S13_EES5_TnNSt9enable_ifIXeqsrNSR_3Arg8ArgsSizeE5valueLm2EEiE4typeELi0EEEDcSR_RT0_SZ_ONS10_IT1_EE"}
+!178 = !{!179}
+!179 = distinct !{!179, !180, !"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E6invokeIJSW_SZ_EEEDaDpOT_: argument 0"}
+!180 = distinct !{!180, !"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E6invokeIJSW_SZ_EEEDaDpOT_"}
+!181 = !{!182}
+!182 = distinct !{!182, !183, !"_ZZNO5folly6FutureINS_4UnitEE9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINS9_3_V212steady_clockENS9_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS0_INS_7futures6detail19valueCallableResultIS1_T_E10value_typeEEEOSO_ENUlONS_8Executor9KeepAliveIST_EEONS_3TryIS1_EEE_clESW_SZ_: argument 0"}
+!183 = distinct !{!183, !"_ZZNO5folly6FutureINS_4UnitEE9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINS9_3_V212steady_clockENS9_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS0_INS_7futures6detail19valueCallableResultIS1_T_E10value_typeEEEOSO_ENUlONS_8Executor9KeepAliveIST_EEONS_3TryIS1_EEE_clESW_SZ_"}
+!184 = !{!185}
+!185 = distinct !{!185, !186, !"_ZN5folly7futures6detail10wrapInvokeINS_4UnitEZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINS9_3_V212steady_clockENS9_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EEDaONS_3TryIT_EEOT0_: argument 0"}
+!186 = distinct !{!186, !"_ZN5folly7futures6detail10wrapInvokeINS_4UnitEZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINS9_3_V212steady_clockENS9_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EEDaONS_3TryIT_EEOT0_"}
+!187 = !{!185, !182, !179, !176, !173, !170}
+!188 = !{!189}
+!189 = distinct !{!189, !190, !"_ZN5folly7futures6detail23InvokeResultWrapperBaseINS_3TryINS_4UnitEEEE13wrapExceptionEONS_17exception_wrapperE: argument 0"}
+!190 = distinct !{!190, !"_ZN5folly7futures6detail23InvokeResultWrapperBaseINS_3TryINS_4UnitEEEE13wrapExceptionEONS_17exception_wrapperE"}
+!191 = !{!192, !189, !185, !182, !179, !176, !173, !170}
+!192 = distinct !{!192, !193, !"_ZN5folly17exception_wrapper8extract_EONSt15__exception_ptr13exception_ptrE: argument 0"}
+!193 = distinct !{!193, !"_ZN5folly17exception_wrapper8extract_EONSt15__exception_ptr13exception_ptrE"}
+!194 = !{!189, !185, !182, !179, !176, !173, !170}
+!195 = !{!196, !189, !185, !182, !179, !176, !173, !170}
+!196 = distinct !{!196, !197, !"_ZN5folly17exception_wrapper8extract_EONSt15__exception_ptr13exception_ptrE: argument 0"}
+!197 = distinct !{!197, !"_ZN5folly17exception_wrapper8extract_EONSt15__exception_ptr13exception_ptrE"}
+!198 = !{!199}
+!199 = distinct !{!199, !200, !"_ZN5folly7futures6detail19InvokeResultWrapperIvE10wrapResultIZNS1_10wrapInvokeINS_4UnitEZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EEDaONS_3TryIT_EEOT0_EUlvE_EENSO_IS6_EESP_: argument 0"}
+!200 = distinct !{!200, !"_ZN5folly7futures6detail19InvokeResultWrapperIvE10wrapResultIZNS1_10wrapInvokeINS_4UnitEZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EEDaONS_3TryIT_EEOT0_EUlvE_EENSO_IS6_EESP_"}
+!201 = !{!199, !185, !182, !179, !176, !173, !170}
+!202 = !{!203}
+!203 = distinct !{!203, !204, !"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv: argument 0"}
+!204 = distinct !{!204, !"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv"}
+!205 = !{!206}
+!206 = distinct !{!206, !207, !"_ZN5folly17exception_wrapper8extract_EONSt15__exception_ptr13exception_ptrE: argument 0"}
+!207 = distinct !{!207, !"_ZN5folly17exception_wrapper8extract_EONSt15__exception_ptr13exception_ptrE"}
+!208 = !{!209}
+!209 = distinct !{!209, !210, !"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv: argument 0"}
+!210 = distinct !{!210, !"_ZN5folly7futures6detail17CoreCallbackStateINS_4UnitEZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSC_3_V212steady_clockENSC_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS4_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSP_EUlONS_8Executor9KeepAliveISU_EEONS_3TryIS3_EEE_E12stealPromiseEv"}
+!211 = !{!212, !212, i64 0}
+!212 = !{!"p1 _ZTSN5folly7futures6detail16DeferredExecutorE", !13, i64 0}

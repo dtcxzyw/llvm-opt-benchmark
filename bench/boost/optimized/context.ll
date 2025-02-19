@@ -2508,7 +2508,7 @@ define internal { ptr, ptr } @"_ZN5boost7context6detail11fiber_ontopINS0_5fiberE
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #32
+  tail call void @__clang_call_terminate(ptr %11) #32, !noalias !176
   unreachable
 
 _ZN5boost7context5fiberD2Ev.exit4:                ; preds = %7, %2
@@ -2542,7 +2542,7 @@ define internal { ptr, ptr } @"_ZN5boost7context6detail11fiber_ontopINS0_5fiberE
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #32
+  call void @__clang_call_terminate(ptr %11) #32, !noalias !180
   unreachable
 
 _ZN5boost7context5fiberaSEOS1_.exit.i:            ; preds = %7, %5, %2
@@ -2616,7 +2616,7 @@ define internal { ptr, ptr } @"_ZN5boost7context6detail11fiber_ontopINS0_5fiberE
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #32
+  tail call void @__clang_call_terminate(ptr %9) #32, !noalias !183
   unreachable
 
 _ZN5boost7context5fiberaSEOS1_.exit.i:            ; preds = %5, %2
@@ -2644,7 +2644,7 @@ _ZN5boost6fibers19context_initializerC2IJEEEDpOT_.exit.i.i: ; preds = %15, %10
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #32
+  tail call void @__clang_call_terminate(ptr %19) #32, !noalias !183
   unreachable
 
 _ZN5boost6fibers7context6activeEv.exit.i:         ; preds = %_ZN5boost6fibers19context_initializerC2IJEEEDpOT_.exit.i.i, %_ZN5boost7context5fiberaSEOS1_.exit.i
@@ -2687,7 +2687,7 @@ define internal { ptr, ptr } @"_ZN5boost7context6detail11fiber_ontopINS0_5fiberE
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #32
+  tail call void @__clang_call_terminate(ptr %11) #32, !noalias !186
   unreachable
 
 _ZN5boost7context5fiberD2Ev.exit4:                ; preds = %7, %2

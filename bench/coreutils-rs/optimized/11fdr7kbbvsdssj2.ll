@@ -3145,7 +3145,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %"_ZN73_$LT$$u5b$A$u
   unreachable
 
 319:                                              ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %313, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %313, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false), !noalias !777
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !777
   store ptr %313, ptr %29, align 8
   store ptr @anon.de2d14fac14f75ea0e2677b8b9a03533.24.llvm.12252005645035583986, ptr %114, align 8

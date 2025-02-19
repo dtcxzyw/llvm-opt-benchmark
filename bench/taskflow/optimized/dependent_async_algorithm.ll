@@ -927,7 +927,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %_ZN2tf8Executor19_i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #32
+  call void @__clang_call_terminate(ptr %5) #32, !noalias !16
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i: ; preds = %_ZN2tf8Executor19_increment_topologyEv.exit.i.i
@@ -1308,7 +1308,7 @@ terminate.lpad.i.i.i.i.i34:                       ; preds = %_ZN2tf8Executor19_i
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #32
+  call void @__clang_call_terminate(ptr %44) #32, !noalias !24
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i35: ; preds = %_ZN2tf8Executor19_increment_topologyEv.exit.i.i28

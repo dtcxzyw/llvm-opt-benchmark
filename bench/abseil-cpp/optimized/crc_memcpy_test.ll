@@ -610,7 +610,7 @@ define internal void @_ZN12_GLOBAL__N_151gtest_EngineParamTestEngineParamTest_Ev
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  %15 = tail call ptr @__cxa_begin_catch(ptr %14) #32
+  %15 = tail call ptr @__cxa_begin_catch(ptr %14) #32, !noalias !42
   %16 = load ptr, ptr %3, align 8, !tbaa !18, !noalias !42
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !noalias !42
@@ -628,7 +628,7 @@ define internal void @_ZN12_GLOBAL__N_151gtest_EngineParamTestEngineParamTest_Ev
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  tail call void @__clang_call_terminate(ptr %23) #35
+  tail call void @__clang_call_terminate(ptr %23) #35, !noalias !42
   unreachable
 
 24:                                               ; preds = %12

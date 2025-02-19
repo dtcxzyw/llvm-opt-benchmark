@@ -5603,7 +5603,6 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory9ExtTheory8isActiveEN
   %3 = alloca i32, align 4
   %4 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #26
-  store i32 15, ptr %3, align 4, !tbaa !3
   %5 = load ptr, ptr %1, align 8, !tbaa !17
   store ptr %5, ptr %4, align 8, !tbaa !17
   %6 = load i64, ptr %5, align 8

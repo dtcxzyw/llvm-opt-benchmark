@@ -16136,11 +16136,7 @@ define dso_local noundef ptr @_ZN4Luau6Parser14parseTableTypeEb(ptr noundef nonn
   %17 = alloca %"struct.Luau::AstArray.203", align 8
   %18 = alloca %"struct.Luau::Location", align 4
   %19 = alloca %"struct.Luau::Parser::MatchLexeme", align 4
-  %.sroa.0272 = alloca %"struct.Luau::Location", align 8
-  %.sroa.5274 = alloca [3 x i8], align 1
   %20 = alloca %"struct.Luau::Parser::MatchLexeme", align 4
-  %.sroa.0259 = alloca %"struct.Luau::Location", align 8
-  %.sroa.5261 = alloca [3 x i8], align 1
   %21 = alloca %"struct.Luau::Location", align 4
   %22 = alloca %"struct.Luau::Lexeme", align 8
   %23 = alloca %"struct.Luau::Lexeme", align 8
@@ -16581,8 +16577,6 @@ _ZN4Luau10TempVectorINS_12AstTablePropEE9push_backERKS1_.exit: ; preds = %133, %
   br i1 %.not, label %205, label %160
 
 160:                                              ; preds = %159
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0259, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0237, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.5261, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.12, i64 3, i1 false)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20)
   %.sroa.4269.0.copyload = load i64, ptr %50, align 4
   invoke void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(840) %0)
@@ -16761,17 +16755,15 @@ _ZN4Luau10TempVectorINS_12AstTablePropEE9push_backERKS1_.exit: ; preds = %133, %
   %.sroa.7266.0..sroa_idx = getelementptr inbounds nuw i8, ptr %203, i64 32
   store i32 %.0, ptr %.sroa.7266.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %203, i64 36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0259, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0237, i64 16, i1 false)
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %203, i64 52
   store i8 %.sroa.7.0, ptr %.sroa.9.0..sroa_idx, align 4
   %.sroa.10267.0..sroa_idx = getelementptr inbounds nuw i8, ptr %203, i64 53
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.10267.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.5261, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.10267.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.12, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20)
   br label %.thread288.invoke
 
 205:                                              ; preds = %159
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0272, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0237, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.5274, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.12, i64 3, i1 false)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19)
   %.sroa.4284.0.copyload = load i64, ptr %50, align 4
   invoke void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(840) %0)
@@ -16950,11 +16942,11 @@ _ZN4Luau10TempVectorINS_12AstTablePropEE9push_backERKS1_.exit: ; preds = %133, %
   %.sroa.7279.0..sroa_idx = getelementptr inbounds nuw i8, ptr %248, i64 32
   store i32 %.0, ptr %.sroa.7279.0..sroa_idx, align 8
   %.sroa.8280.0..sroa_idx = getelementptr inbounds nuw i8, ptr %248, i64 36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.8280.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0272, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.8280.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0237, i64 16, i1 false)
   %.sroa.9281.0..sroa_idx = getelementptr inbounds nuw i8, ptr %248, i64 52
   store i8 %.sroa.7.0, ptr %.sroa.9281.0..sroa_idx, align 4
   %.sroa.10282.0..sroa_idx = getelementptr inbounds nuw i8, ptr %248, i64 53
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.10282.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.5274, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.10282.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.12, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19)
   br label %337
 

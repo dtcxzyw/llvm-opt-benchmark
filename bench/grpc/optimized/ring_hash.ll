@@ -1307,7 +1307,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %lpad8.i.i
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #28
+  call void @__clang_call_terminate(ptr %25) #28, !noalias !11
   unreachable
 
 _ZNSt3mapIN9grpc_core18EndpointAddressSetESt10unique_ptrINS0_12_GLOBAL__N_18RingHash16RingHashEndpointENS0_16OrphanableDeleteEESt4lessIS1_ESaISt4pairIKS1_S7_EEED2Ev.exit.i.i: ; preds = %lpad8.i.i
@@ -2094,7 +2094,7 @@ terminate.lpad.i4.i.i.i.i:                        ; preds = %if.then.i.i3.i.i.i.
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #28
+  call void @__clang_call_terminate(ptr %33) #28, !noalias !19
   unreachable
 
 _ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i: ; preds = %if.then.i.i3.i.i.i.i, %if.else.i.i.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i.i
@@ -3138,13 +3138,13 @@ lpad63:                                           ; preds = %invoke.cont62
           cleanup
   %114 = load ptr, ptr %ref.tmp58, align 8
   %cmp.not.i50 = icmp eq ptr %114, null
-  br i1 %cmp.not.i50, label %ehcleanup.thread, label %if.then.i51
+  br i1 %cmp.not.i50, label %ehcleanup68, label %if.then.i51
 
 if.then.i51:                                      ; preds = %lpad63
   %vtable.i.i52 = load ptr, ptr %114, align 8
   %115 = load ptr, ptr %vtable.i.i52, align 8
   invoke void %115(ptr noundef nonnull align 8 dereferenceable(64) %114)
-          to label %ehcleanup.thread unwind label %terminate.lpad.i53
+          to label %ehcleanup68 unwind label %terminate.lpad.i53
 
 terminate.lpad.i53:                               ; preds = %if.then.i51
   %116 = landingpad { ptr, i32 }
@@ -3152,10 +3152,6 @@ terminate.lpad.i53:                               ; preds = %if.then.i51
   %117 = extractvalue { ptr, i32 } %116, 0
   call void @__clang_call_terminate(ptr %117) #28
   unreachable
-
-ehcleanup.thread:                                 ; preds = %if.then.i51, %lpad63
-  store ptr null, ptr %ref.tmp58, align 8
-  br label %ehcleanup68
 
 if.then.i56:                                      ; preds = %invoke.cont60
   %118 = landingpad { ptr, i32 }
@@ -3194,8 +3190,8 @@ _ZN9grpc_core18EndpointAddressSetD2Ev.exit:       ; preds = %if.end67
   %cmp = icmp ult i64 %inc, %sub.ptr.div.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !49
 
-ehcleanup68:                                      ; preds = %lpad41.loopexit, %lpad41.loopexit.split-lp, %if.then.i.i59, %if.then.i56, %ehcleanup.thread
-  %.pn4 = phi { ptr, i32 } [ %113, %ehcleanup.thread ], [ %118, %if.then.i56 ], [ %118, %if.then.i.i59 ], [ %lpad.loopexit, %lpad41.loopexit ], [ %lpad.loopexit.split-lp, %lpad41.loopexit.split-lp ]
+ehcleanup68:                                      ; preds = %lpad63, %if.then.i51, %lpad41.loopexit, %lpad41.loopexit.split-lp, %if.then.i.i59, %if.then.i56
+  %.pn4 = phi { ptr, i32 } [ %118, %if.then.i56 ], [ %118, %if.then.i.i59 ], [ %lpad.loopexit, %lpad41.loopexit ], [ %lpad.loopexit.split-lp, %lpad41.loopexit.split-lp ], [ %113, %if.then.i51 ], [ %113, %lpad63 ]
   call void @_ZN9grpc_core18EndpointAddressSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %address_set) #25
   br label %ehcleanup115
 
@@ -4775,7 +4771,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i9.i.i.
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #28
+  call void @__clang_call_terminate(ptr %58) #28, !noalias !67
   unreachable
 
 _ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEEaSEOS3_.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_18RingHash16RingHashEndpointEEaSEOS4_.exit.i.i.i
@@ -4808,7 +4804,7 @@ terminate.lpad.i.i26.i.i:                         ; preds = %if.then.i.i.i25.i.i
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #28
+  call void @__clang_call_terminate(ptr %61) #28, !noalias !67
   unreachable
 
 _ZN9grpc_core12_GLOBAL__N_18RingHash16RingHashEndpoint12EndpointInfoD2Ev.exit.i.i: ; preds = %if.then.i.i.i25.i.i, %invoke.cont28.i.i, %if.then.i.i11.i.i.i, %if.then.i.i19.i.i

@@ -661,7 +661,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #24
+  call void @__clang_call_terminate(ptr %23) #24, !noalias !15
   unreachable
 
 _ZN7rocksdb13PerfStepTimerD2Ev.exit.i:            ; preds = %if.end7.i.i.i, %invoke.cont10.i
@@ -1189,7 +1189,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #24
+  call void @__clang_call_terminate(ptr %23) #24, !noalias !71
   unreachable
 
 _ZN7rocksdb13PerfStepTimerD2Ev.exit.i:            ; preds = %if.end7.i.i.i, %invoke.cont10.i

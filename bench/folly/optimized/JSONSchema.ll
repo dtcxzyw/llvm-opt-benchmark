@@ -17041,7 +17041,7 @@ _ZN5boost10shared_ptrINS_16re_detail_10740026basic_regex_implementationIcNS_12re
   %466 = landingpad { ptr, i32 }
           catch ptr null
   %467 = extractvalue { ptr, i32 } %466, 0
-  call void @__clang_call_terminate(ptr %467) #45
+  call void @__clang_call_terminate(ptr %467) #45, !noalias !650
   unreachable
 
 _ZN5boost11basic_regexIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEaSERKS5_.exit.i.i: ; preds = %461, %.noexc.i.i.i.i.i.i.i, %450, %_ZN5boost10shared_ptrINS_16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEEC2ERKS8_.exit.i.i.i.i.i
@@ -17079,7 +17079,7 @@ _ZN5boost11basic_regexIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEaSERKS5_.
   %485 = landingpad { ptr, i32 }
           catch ptr null
   %486 = extractvalue { ptr, i32 } %485, 0
-  call void @__clang_call_terminate(ptr %486) #45
+  call void @__clang_call_terminate(ptr %486) #45, !noalias !650
   unreachable
 
 _ZN5boost11basic_regexIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEED2Ev.exit.i.i: ; preds = %480, %.noexc.i.i.i.i.i, %469, %_ZN5boost11basic_regexIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEaSERKS5_.exit.i.i

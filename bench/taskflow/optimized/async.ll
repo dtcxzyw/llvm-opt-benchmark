@@ -1171,7 +1171,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont8.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #38
+  call void @__clang_call_terminate(ptr %7) #38, !noalias !16
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i: ; preds = %invoke.cont8.i.i
@@ -1912,7 +1912,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont8.i
   %86 = landingpad { ptr, i32 }
           catch ptr null
   %87 = extractvalue { ptr, i32 } %86, 0
-  call void @__clang_call_terminate(ptr %87) #38
+  call void @__clang_call_terminate(ptr %87) #38, !noalias !23
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i: ; preds = %invoke.cont8.i
@@ -2631,7 +2631,7 @@ terminate.lpad.i.i.i.i.i310:                      ; preds = %invoke.cont21
   %167 = landingpad { ptr, i32 }
           catch ptr null
   %168 = extractvalue { ptr, i32 } %167, 0
-  call void @__clang_call_terminate(ptr %168) #38
+  call void @__clang_call_terminate(ptr %168) #38, !noalias !32
   unreachable
 
 _ZN2tf10ObjectPoolINS_4NodeELm65536EE10_this_heapEv.exit.i.i.i311: ; preds = %invoke.cont21
@@ -2825,7 +2825,7 @@ terminate.lpad.i.i.i.i345:                        ; preds = %.noexc.i.i.i
   %194 = landingpad { ptr, i32 }
           catch ptr null
   %195 = extractvalue { ptr, i32 } %194, 0
-  call void @__clang_call_terminate(ptr %195) #38
+  call void @__clang_call_terminate(ptr %195) #38, !noalias !32
   unreachable
 
 if.end.i.i.i:                                     ; preds = %.noexc.i.i.i
@@ -20139,7 +20139,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %call.i.noexc.i.i.i.
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #38
+  tail call void @__clang_call_terminate(ptr %1) #38, !noalias !256
   unreachable
 
 lpad.i.i.i.i.i.i.i.i.i:                           ; preds = %entry
@@ -20736,7 +20736,7 @@ lpad.i.i.i:                                       ; preds = %entry
   %4 = extractvalue { ptr, i32 } %2, 1
   %5 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #35
   %matches.i.i.i = icmp eq i32 %4, %5
-  %6 = tail call ptr @__cxa_begin_catch(ptr %3) #35
+  %6 = tail call ptr @__cxa_begin_catch(ptr %3) #35, !noalias !263
   br i1 %matches.i.i.i, label %catch8.i.i.i, label %catch.i.i.i
 
 catch8.i.i.i:                                     ; preds = %lpad.i.i.i
@@ -20789,7 +20789,7 @@ terminate.lpad.i.i.i:                             ; preds = %lpad10.i.i.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #38
+  tail call void @__clang_call_terminate(ptr %13) #38, !noalias !263
   unreachable
 
 unreachable.i.i.i:                                ; preds = %catch8.i.i.i
@@ -21038,7 +21038,7 @@ lpad.i.i.i:                                       ; preds = %entry
   %4 = extractvalue { ptr, i32 } %2, 1
   %5 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #35
   %matches.i.i.i = icmp eq i32 %4, %5
-  %6 = tail call ptr @__cxa_begin_catch(ptr %3) #35
+  %6 = tail call ptr @__cxa_begin_catch(ptr %3) #35, !noalias !272
   br i1 %matches.i.i.i, label %catch7.i.i.i, label %catch.i.i.i
 
 catch7.i.i.i:                                     ; preds = %lpad.i.i.i
@@ -21091,7 +21091,7 @@ terminate.lpad.i.i.i:                             ; preds = %lpad9.i.i.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #38
+  tail call void @__clang_call_terminate(ptr %13) #38, !noalias !272
   unreachable
 
 unreachable.i.i.i:                                ; preds = %catch7.i.i.i
@@ -21594,7 +21594,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %call.i.noexc.i.i.i.
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #38
+  tail call void @__clang_call_terminate(ptr %1) #38, !noalias !288
   unreachable
 
 lpad.i.i.i.i.i.i.i.i.i:                           ; preds = %entry
@@ -22038,7 +22038,7 @@ lpad.i.i.i:                                       ; preds = %entry
   %4 = extractvalue { ptr, i32 } %2, 1
   %5 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #35
   %matches.i.i.i = icmp eq i32 %4, %5
-  %6 = tail call ptr @__cxa_begin_catch(ptr %3) #35
+  %6 = tail call ptr @__cxa_begin_catch(ptr %3) #35, !noalias !295
   br i1 %matches.i.i.i, label %catch7.i.i.i, label %catch.i.i.i
 
 catch7.i.i.i:                                     ; preds = %lpad.i.i.i
@@ -22091,7 +22091,7 @@ terminate.lpad.i.i.i:                             ; preds = %lpad9.i.i.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #38
+  tail call void @__clang_call_terminate(ptr %13) #38, !noalias !295
   unreachable
 
 unreachable.i.i.i:                                ; preds = %catch7.i.i.i
@@ -22159,7 +22159,7 @@ lpad.i.i.i:                                       ; preds = %entry
   %4 = extractvalue { ptr, i32 } %2, 1
   %5 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #35
   %matches.i.i.i = icmp eq i32 %4, %5
-  %6 = tail call ptr @__cxa_begin_catch(ptr %3) #35
+  %6 = tail call ptr @__cxa_begin_catch(ptr %3) #35, !noalias !304
   br i1 %matches.i.i.i, label %catch7.i.i.i, label %catch.i.i.i
 
 catch7.i.i.i:                                     ; preds = %lpad.i.i.i
@@ -22212,7 +22212,7 @@ terminate.lpad.i.i.i:                             ; preds = %lpad9.i.i.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #38
+  tail call void @__clang_call_terminate(ptr %13) #38, !noalias !304
   unreachable
 
 unreachable.i.i.i:                                ; preds = %catch7.i.i.i

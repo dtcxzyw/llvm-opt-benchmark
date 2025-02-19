@@ -9069,7 +9069,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
   %30 = extractvalue { ptr, i8 } %29, 0
   %31 = and i64 %2, -2
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %33 = load ptr, ptr %32, align 8
+  %33 = load ptr, ptr %32, align 8, !noalias !142
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %53
 
@@ -9102,7 +9102,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
   %47 = extractvalue { ptr, i8 } %46, 0
   %48 = and i64 %2, -2
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  %50 = load ptr, ptr %49, align 8
+  %50 = load ptr, ptr %49, align 8, !noalias !148
   store ptr %50, ptr %0, align 8, !alias.scope !148
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %51, align 8, !alias.scope !148
@@ -10567,7 +10567,6 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  store i64 %.sroa.3.0.copyload.i, ptr %10, align 8
   %27 = load ptr, ptr %13, align 8
   %28 = getelementptr inbounds ptr, ptr %27, i64 %.sroa.3.0.copyload.i
   %29 = load ptr, ptr %28, align 8

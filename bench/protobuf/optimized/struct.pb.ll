@@ -4553,7 +4553,7 @@ entry:
   %call.i.i.i.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i) #24, !noalias !29
   %1 = extractvalue { i64, ptr } %call.i.i.i.i.i, 0
   %2 = extractvalue { i64, ptr } %call.i.i.i.i.i, 1
-  %call2.i.i = tail call { ptr, i32 } @_ZNK6google8protobuf8internal10KeyMapBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10FindHelperESt17basic_string_viewIcS6_EPN4absl12lts_2023080218container_internal14btree_iteratorINSE_10btree_nodeINSE_10map_paramsINS1_10VariantKeyEPNS1_8NodeBaseESt4lessISI_ENS1_12MapAllocatorISt4pairIKSI_SK_EEELi256ELb0EEEEERSQ_PSQ_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %1, ptr %2, ptr noundef null)
+  %call2.i.i = tail call { ptr, i32 } @_ZNK6google8protobuf8internal10KeyMapBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10FindHelperESt17basic_string_viewIcS6_EPN4absl12lts_2023080218container_internal14btree_iteratorINSE_10btree_nodeINSE_10map_paramsINS1_10VariantKeyEPNS1_8NodeBaseESt4lessISI_ENS1_12MapAllocatorISt4pairIKSI_SK_EEELi256ELb0EEEEERSQ_PSQ_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %1, ptr %2, ptr noundef null), !noalias !29
   %3 = extractvalue { ptr, i32 } %call2.i.i, 0
   %cmp.i.i = icmp eq ptr %3, null
   %cmp.not = icmp eq ptr %val, null
@@ -4580,7 +4580,7 @@ entry:
   %call.i.i.i.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i) #24, !noalias !34
   %1 = extractvalue { i64, ptr } %call.i.i.i.i.i, 0
   %2 = extractvalue { i64, ptr } %call.i.i.i.i.i, 1
-  %call2.i.i = tail call { ptr, i32 } @_ZNK6google8protobuf8internal10KeyMapBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10FindHelperESt17basic_string_viewIcS6_EPN4absl12lts_2023080218container_internal14btree_iteratorINSE_10btree_nodeINSE_10map_paramsINS1_10VariantKeyEPNS1_8NodeBaseESt4lessISI_ENS1_12MapAllocatorISt4pairIKSI_SK_EEELi256ELb0EEEEERSQ_PSQ_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %1, ptr %2, ptr noundef null)
+  %call2.i.i = tail call { ptr, i32 } @_ZNK6google8protobuf8internal10KeyMapBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10FindHelperESt17basic_string_viewIcS6_EPN4absl12lts_2023080218container_internal14btree_iteratorINSE_10btree_nodeINSE_10map_paramsINS1_10VariantKeyEPNS1_8NodeBaseESt4lessISI_ENS1_12MapAllocatorISt4pairIKSI_SK_EEELi256ELb0EEEEERSQ_PSQ_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %1, ptr %2, ptr noundef null), !noalias !34
   %3 = extractvalue { ptr, i32 } %call2.i.i, 0
   %cmp.i.i.i = icmp ne ptr %3, null
   br i1 %cmp.i.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE8iteratorppEv.exit.i.i.i.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE5eraseIS7_EEmRKT_.exit

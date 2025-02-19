@@ -1229,7 +1229,6 @@ define internal fastcc void @_ZL16getArrayTypeNameB5cxx11P16tagPyArrayObject(ptr
 
 20:                                               ; preds = %15, %19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
-  store ptr null, ptr %3, align 8
   %21 = load i64, ptr %6, align 8
   %22 = add nsw i64 %21, -1
   store i64 %22, ptr %6, align 8

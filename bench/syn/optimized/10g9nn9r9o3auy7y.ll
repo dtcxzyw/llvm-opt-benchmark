@@ -3532,17 +3532,17 @@ define internal fastcc void @_ZN3syn4expr7parsing12trailer_expr17h9c90536f6254e1
   %134 = load ptr, ptr %1, align 8, !noalias !563, !noundef !4
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %136 = load ptr, ptr %135, align 8, !noalias !563, !noundef !4
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %21)
-  call void @_ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %21, ptr noundef %134, ptr noundef %136, i8 noundef 3)
-  %137 = load i64, ptr %21, align 8, !range !17, !noundef !4
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %21), !noalias !563
+  call void @_ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %21, ptr noundef %134, ptr noundef %136, i8 noundef 3), !noalias !563
+  %137 = load i64, ptr %21, align 8, !range !17, !noalias !563, !noundef !4
   %.not951 = icmp eq i64 %137, 0
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %21), !noalias !563
   br i1 %.not951, label %138, label %142
 
 138:                                              ; preds = %2
   %139 = load ptr, ptr %1, align 8, !noalias !563, !noundef !4
   %140 = load ptr, ptr %135, align 8, !noalias !563, !noundef !4
-  %141 = tail call noundef zeroext i1 @"_ZN51_$LT$syn..lit..Lit$u20$as$u20$syn..token..Token$GT$4peek17h7fbf285aed4761f9E"(ptr noundef %139, ptr noundef %140)
+  %141 = tail call noundef zeroext i1 @"_ZN51_$LT$syn..lit..Lit$u20$as$u20$syn..token..Token$GT$4peek17h7fbf285aed4761f9E"(ptr noundef %139, ptr noundef %140), !noalias !563
   br i1 %141, label %367, label %363
 
 142:                                              ; preds = %2
@@ -4212,11 +4212,11 @@ _ZN3syn4expr7parsing10expr_group17h8a799366f8fa5198E.exit: ; preds = %164, %335,
 363:                                              ; preds = %138
   %364 = load ptr, ptr %1, align 8, !noalias !563, !noundef !4
   %365 = load ptr, ptr %135, align 8, !noalias !563, !noundef !4
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %41)
-  call void @_ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %41, ptr noundef %364, ptr noundef %365, i8 noundef 0)
-  %366 = load i64, ptr %41, align 8, !range !17, !noundef !4
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %41), !noalias !563
+  call void @_ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %41, ptr noundef %364, ptr noundef %365, i8 noundef 0), !noalias !563
+  %366 = load i64, ptr %41, align 8, !range !17, !noalias !563, !noundef !4
   %.not952 = icmp eq i64 %366, 0
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %41), !noalias !563
   br i1 %.not952, label %374, label %378
 
 367:                                              ; preds = %138
@@ -4247,7 +4247,7 @@ _ZN3syn4expr7parsing10expr_group17h8a799366f8fa5198E.exit: ; preds = %164, %335,
 374:                                              ; preds = %363
   %375 = load ptr, ptr %1, align 8, !noalias !563, !noundef !4
   %376 = load ptr, ptr %135, align 8, !noalias !563, !noundef !4
-  %377 = tail call noundef zeroext i1 @"_ZN3syn5ident7parsing66_$LT$impl$u20$syn..token..Token$u20$for$u20$proc_macro2..Ident$GT$4peek17h0ebdf99dedcda952E"(ptr noundef %375, ptr noundef %376)
+  %377 = tail call noundef zeroext i1 @"_ZN3syn5ident7parsing66_$LT$impl$u20$syn..token..Token$u20$for$u20$proc_macro2..Ident$GT$4peek17h0ebdf99dedcda952E"(ptr noundef %375, ptr noundef %376), !noalias !563
   br i1 %377, label %521, label %517
 
 378:                                              ; preds = %363
@@ -4738,7 +4738,7 @@ _ZN3syn4expr7parsing10expr_paren17hb0a6286303a3decdE.exit: ; preds = %458, %461
 517:                                              ; preds = %374
   %518 = load ptr, ptr %1, align 8, !noalias !563, !noundef !4
   %519 = load ptr, ptr %135, align 8, !noalias !563, !noundef !4
-  %520 = tail call noundef zeroext i1 @_ZN3syn5token7parsing10peek_punct17hb0dfc428ddeb4f9cE(ptr noundef %518, ptr noundef %519, ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.170.llvm.15435319159651575738, i64 noundef 2)
+  %520 = tail call noundef zeroext i1 @_ZN3syn5token7parsing10peek_punct17hb0dfc428ddeb4f9cE(ptr noundef %518, ptr noundef %519, ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.170.llvm.15435319159651575738, i64 noundef 2), !noalias !563
   br i1 %520, label %521, label %528
 
 521:                                              ; preds = %544, %540, %536, %532, %528, %517, %374
@@ -4779,31 +4779,31 @@ _ZN3syn4expr7parsing10expr_paren17hb0a6286303a3decdE.exit: ; preds = %458, %461
 528:                                              ; preds = %517
   %529 = load ptr, ptr %1, align 8, !noalias !563, !noundef !4
   %530 = load ptr, ptr %135, align 8, !noalias !563, !noundef !4
-  %531 = tail call noundef zeroext i1 @_ZN3syn5token7parsing10peek_punct17hb0dfc428ddeb4f9cE(ptr noundef %529, ptr noundef %530, ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.154.llvm.15435319159651575738, i64 noundef 1)
+  %531 = tail call noundef zeroext i1 @_ZN3syn5token7parsing10peek_punct17hb0dfc428ddeb4f9cE(ptr noundef %529, ptr noundef %530, ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.154.llvm.15435319159651575738, i64 noundef 1), !noalias !563
   br i1 %531, label %521, label %532
 
 532:                                              ; preds = %528
   %533 = load ptr, ptr %1, align 8, !noalias !563, !noundef !4
   %534 = load ptr, ptr %135, align 8, !noalias !563, !noundef !4
-  %535 = tail call noundef zeroext i1 @_ZN3syn5token7parsing12peek_keyword17h298c652335862277E(ptr noundef %533, ptr noundef %534, ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.82.llvm.15435319159651575738, i64 noundef 4)
+  %535 = tail call noundef zeroext i1 @_ZN3syn5token7parsing12peek_keyword17h298c652335862277E(ptr noundef %533, ptr noundef %534, ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.82.llvm.15435319159651575738, i64 noundef 4), !noalias !563
   br i1 %535, label %521, label %536
 
 536:                                              ; preds = %532
   %537 = load ptr, ptr %1, align 8, !noalias !563, !noundef !4
   %538 = load ptr, ptr %135, align 8, !noalias !563, !noundef !4
-  %539 = tail call noundef zeroext i1 @_ZN3syn5token7parsing12peek_keyword17h298c652335862277E(ptr noundef %537, ptr noundef %538, ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.80.llvm.15435319159651575738, i64 noundef 4)
+  %539 = tail call noundef zeroext i1 @_ZN3syn5token7parsing12peek_keyword17h298c652335862277E(ptr noundef %537, ptr noundef %538, ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.80.llvm.15435319159651575738, i64 noundef 4), !noalias !563
   br i1 %539, label %521, label %540
 
 540:                                              ; preds = %536
   %541 = load ptr, ptr %1, align 8, !noalias !563, !noundef !4
   %542 = load ptr, ptr %135, align 8, !noalias !563, !noundef !4
-  %543 = tail call noundef zeroext i1 @_ZN3syn5token7parsing12peek_keyword17h298c652335862277E(ptr noundef %541, ptr noundef %542, ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.88.llvm.15435319159651575738, i64 noundef 5)
+  %543 = tail call noundef zeroext i1 @_ZN3syn5token7parsing12peek_keyword17h298c652335862277E(ptr noundef %541, ptr noundef %542, ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.88.llvm.15435319159651575738, i64 noundef 5), !noalias !563
   br i1 %543, label %521, label %544
 
 544:                                              ; preds = %540
   %545 = load ptr, ptr %1, align 8, !noalias !563, !noundef !4
   %546 = load ptr, ptr %135, align 8, !noalias !563, !noundef !4
-  %547 = tail call noundef zeroext i1 @_ZN3syn5token7parsing12peek_keyword17h298c652335862277E(ptr noundef %545, ptr noundef %546, ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.30.llvm.15435319159651575738, i64 noundef 5)
+  %547 = tail call noundef zeroext i1 @_ZN3syn5token7parsing12peek_keyword17h298c652335862277E(ptr noundef %545, ptr noundef %546, ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.30.llvm.15435319159651575738, i64 noundef 5), !noalias !563
   br i1 %547, label %521, label %548
 
 548:                                              ; preds = %544
@@ -4813,11 +4813,11 @@ _ZN3syn4expr7parsing10expr_paren17hb0a6286303a3decdE.exit: ; preds = %458, %461
   br i1 %551, label %554, label %552
 
 552:                                              ; preds = %548
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %53)
-  call void @_ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %53, ptr noundef %549, ptr noundef %550, i8 noundef 1)
-  %553 = load i64, ptr %53, align 8, !range !17, !noundef !4
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %53), !noalias !563
+  call void @_ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %53, ptr noundef %549, ptr noundef %550, i8 noundef 1), !noalias !563
+  %553 = load i64, ptr %53, align 8, !range !17, !noalias !563, !noundef !4
   %.not953 = icmp eq i64 %553, 0
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %53), !noalias !563
   br i1 %.not953, label %558, label %564
 
 554:                                              ; preds = %548

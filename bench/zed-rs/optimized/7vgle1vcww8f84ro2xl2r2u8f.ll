@@ -4960,7 +4960,7 @@ common.resume:                                    ; preds = %31, %.body, %10
 31:                                               ; preds = %.body
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hd606caf365fd8e4bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
-          to label %common.resume unwind label %51
+          to label %common.resume unwind label %50
 
 "_ZN5alloc4sync16Arc$LT$T$C$A$GT$9downgrade17hf0d04b4ec5a7b43fE.exit": ; preds = %.noexc1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4998,12 +4998,11 @@ common.resume:                                    ; preds = %31, %.body, %10
   store ptr %7, ptr %48, align 8
   %49 = add i64 %34, 1
   store i64 %49, ptr %33, align 8, !alias.scope !872
-  %50 = load ptr, ptr %3, align 8, !nonnull !13, !noundef !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  ret ptr %50
+  ret ptr %7
 
-51:                                               ; preds = %31
-  %52 = landingpad { ptr, i32 }
+50:                                               ; preds = %31
+  %51 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable

@@ -5420,7 +5420,7 @@ terminate.lpad.i.i.i.i180:                        ; preds = %if.then.i.i.i.i.i.i
   %123 = landingpad { ptr, i32 }
           catch ptr null
   %124 = extractvalue { ptr, i32 } %123, 0
-  call void @__clang_call_terminate(ptr %124) #28
+  call void @__clang_call_terminate(ptr %124) #28, !noalias !174
   unreachable
 
 invoke.cont64:                                    ; preds = %.noexc187

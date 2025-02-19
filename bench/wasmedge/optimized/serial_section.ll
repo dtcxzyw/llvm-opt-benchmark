@@ -1539,7 +1539,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #21
+  call void @__clang_call_terminate(ptr %59) #21, !noalias !13
   unreachable
 
 .lr.ph.preheader.i:                               ; preds = %50
@@ -1602,7 +1602,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
   %85 = landingpad { ptr, i32 }
           catch ptr null
   %86 = extractvalue { ptr, i32 } %85, 0
-  call void @__clang_call_terminate(ptr %86) #21
+  call void @__clang_call_terminate(ptr %86) #21, !noalias !13
   unreachable
 
 _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17__normal_iteratorIPhS4_EE.exit.i: ; preds = %80
@@ -1617,7 +1617,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17_
   %89 = landingpad { ptr, i32 }
           catch ptr null
   %90 = extractvalue { ptr, i32 } %89, 0
-  tail call void @__clang_call_terminate(ptr %90) #21
+  tail call void @__clang_call_terminate(ptr %90) #21, !noalias !13
   unreachable
 
 "_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13ImportSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit": ; preds = %64, %87
@@ -1748,7 +1748,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #21
+  call void @__clang_call_terminate(ptr %59) #21, !noalias !19
   unreachable
 
 .lr.ph.preheader.i:                               ; preds = %50
@@ -1791,7 +1791,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #21
+  call void @__clang_call_terminate(ptr %76) #21, !noalias !22
   unreachable
 
 77:                                               ; preds = %66
@@ -1836,7 +1836,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
   %96 = landingpad { ptr, i32 }
           catch ptr null
   %97 = extractvalue { ptr, i32 } %96, 0
-  call void @__clang_call_terminate(ptr %97) #21
+  call void @__clang_call_terminate(ptr %97) #21, !noalias !19
   unreachable
 
 _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17__normal_iteratorIPhS4_EE.exit.i: ; preds = %91
@@ -1847,7 +1847,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17_
   %99 = landingpad { ptr, i32 }
           catch ptr null
   %100 = extractvalue { ptr, i32 } %99, 0
-  tail call void @__clang_call_terminate(ptr %100) #21
+  tail call void @__clang_call_terminate(ptr %100) #21, !noalias !19
   unreachable
 
 "_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST15FunctionSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit": ; preds = %4, %_ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17__normal_iteratorIPhS4_EE.exit.i
@@ -1979,7 +1979,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #21
+  call void @__clang_call_terminate(ptr %59) #21, !noalias !25
   unreachable
 
 .lr.ph.preheader.i:                               ; preds = %50
@@ -2042,7 +2042,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
   %85 = landingpad { ptr, i32 }
           catch ptr null
   %86 = extractvalue { ptr, i32 } %85, 0
-  call void @__clang_call_terminate(ptr %86) #21
+  call void @__clang_call_terminate(ptr %86) #21, !noalias !25
   unreachable
 
 _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17__normal_iteratorIPhS4_EE.exit.i: ; preds = %80
@@ -2057,7 +2057,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17_
   %89 = landingpad { ptr, i32 }
           catch ptr null
   %90 = extractvalue { ptr, i32 } %89, 0
-  tail call void @__clang_call_terminate(ptr %90) #21
+  tail call void @__clang_call_terminate(ptr %90) #21, !noalias !25
   unreachable
 
 "_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST12TableSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit": ; preds = %64, %87
@@ -2189,7 +2189,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #21
+  call void @__clang_call_terminate(ptr %59) #21, !noalias !31
   unreachable
 
 .lr.ph.preheader.i:                               ; preds = %50
@@ -2252,7 +2252,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
   %85 = landingpad { ptr, i32 }
           catch ptr null
   %86 = extractvalue { ptr, i32 } %85, 0
-  call void @__clang_call_terminate(ptr %86) #21
+  call void @__clang_call_terminate(ptr %86) #21, !noalias !31
   unreachable
 
 _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17__normal_iteratorIPhS4_EE.exit.i: ; preds = %80
@@ -2267,7 +2267,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17_
   %89 = landingpad { ptr, i32 }
           catch ptr null
   %90 = extractvalue { ptr, i32 } %89, 0
-  tail call void @__clang_call_terminate(ptr %90) #21
+  tail call void @__clang_call_terminate(ptr %90) #21, !noalias !31
   unreachable
 
 "_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13MemorySectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit": ; preds = %64, %87
@@ -2399,7 +2399,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #21
+  call void @__clang_call_terminate(ptr %59) #21, !noalias !37
   unreachable
 
 .lr.ph.preheader.i:                               ; preds = %50
@@ -2462,7 +2462,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
   %85 = landingpad { ptr, i32 }
           catch ptr null
   %86 = extractvalue { ptr, i32 } %85, 0
-  call void @__clang_call_terminate(ptr %86) #21
+  call void @__clang_call_terminate(ptr %86) #21, !noalias !37
   unreachable
 
 _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17__normal_iteratorIPhS4_EE.exit.i: ; preds = %80
@@ -2477,7 +2477,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17_
   %89 = landingpad { ptr, i32 }
           catch ptr null
   %90 = extractvalue { ptr, i32 } %89, 0
-  tail call void @__clang_call_terminate(ptr %90) #21
+  tail call void @__clang_call_terminate(ptr %90) #21, !noalias !37
   unreachable
 
 "_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13GlobalSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit": ; preds = %64, %87
@@ -2609,7 +2609,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #21
+  call void @__clang_call_terminate(ptr %59) #21, !noalias !43
   unreachable
 
 .lr.ph.preheader.i:                               ; preds = %50
@@ -2672,7 +2672,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
   %85 = landingpad { ptr, i32 }
           catch ptr null
   %86 = extractvalue { ptr, i32 } %85, 0
-  call void @__clang_call_terminate(ptr %86) #21
+  call void @__clang_call_terminate(ptr %86) #21, !noalias !43
   unreachable
 
 _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17__normal_iteratorIPhS4_EE.exit.i: ; preds = %80
@@ -2687,7 +2687,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17_
   %89 = landingpad { ptr, i32 }
           catch ptr null
   %90 = extractvalue { ptr, i32 } %89, 0
-  tail call void @__clang_call_terminate(ptr %90) #21
+  tail call void @__clang_call_terminate(ptr %90) #21, !noalias !43
   unreachable
 
 "_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST13ExportSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit": ; preds = %64, %87
@@ -2995,7 +2995,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #21
+  call void @__clang_call_terminate(ptr %59) #21, !noalias !49
   unreachable
 
 .lr.ph.preheader.i:                               ; preds = %50
@@ -3058,7 +3058,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
   %85 = landingpad { ptr, i32 }
           catch ptr null
   %86 = extractvalue { ptr, i32 } %85, 0
-  call void @__clang_call_terminate(ptr %86) #21
+  call void @__clang_call_terminate(ptr %86) #21, !noalias !49
   unreachable
 
 _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17__normal_iteratorIPhS4_EE.exit.i: ; preds = %80
@@ -3073,7 +3073,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17_
   %89 = landingpad { ptr, i32 }
           catch ptr null
   %90 = extractvalue { ptr, i32 } %89, 0
-  tail call void @__clang_call_terminate(ptr %90) #21
+  tail call void @__clang_call_terminate(ptr %90) #21, !noalias !49
   unreachable
 
 "_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST14ElementSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit": ; preds = %64, %87
@@ -3205,7 +3205,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #21
+  call void @__clang_call_terminate(ptr %59) #21, !noalias !55
   unreachable
 
 .lr.ph.preheader.i:                               ; preds = %50
@@ -3268,7 +3268,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
   %85 = landingpad { ptr, i32 }
           catch ptr null
   %86 = extractvalue { ptr, i32 } %85, 0
-  call void @__clang_call_terminate(ptr %86) #21
+  call void @__clang_call_terminate(ptr %86) #21, !noalias !55
   unreachable
 
 _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17__normal_iteratorIPhS4_EE.exit.i: ; preds = %80
@@ -3283,7 +3283,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17_
   %89 = landingpad { ptr, i32 }
           catch ptr null
   %90 = extractvalue { ptr, i32 } %89, 0
-  tail call void @__clang_call_terminate(ptr %90) #21
+  tail call void @__clang_call_terminate(ptr %90) #21, !noalias !55
   unreachable
 
 "_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST11CodeSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit": ; preds = %64, %87
@@ -3415,7 +3415,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #21
+  call void @__clang_call_terminate(ptr %59) #21, !noalias !61
   unreachable
 
 .lr.ph.preheader.i:                               ; preds = %50
@@ -3478,7 +3478,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.i:        ; preds = %_ZNSt6vectorIhSaIhE
   %85 = landingpad { ptr, i32 }
           catch ptr null
   %86 = extractvalue { ptr, i32 } %85, 0
-  call void @__clang_call_terminate(ptr %86) #21
+  call void @__clang_call_terminate(ptr %86) #21, !noalias !61
   unreachable
 
 _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17__normal_iteratorIPhS4_EE.exit.i: ; preds = %80
@@ -3493,7 +3493,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEEN9__gnu_cxx17_
   %89 = landingpad { ptr, i32 }
           catch ptr null
   %90 = extractvalue { ptr, i32 } %89, 0
-  tail call void @__clang_call_terminate(ptr %90) #21
+  tail call void @__clang_call_terminate(ptr %90) #21, !noalias !61
   unreachable
 
 "_ZNK8WasmEdge6Loader10Serializer23serializeSectionContentINS_3AST11DataSectionEZNKS1_16serializeSectionERKS4_RSt6vectorIhSaIhEEE3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERKT_hSA_OT0_.exit": ; preds = %64, %87

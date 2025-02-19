@@ -12487,7 +12487,7 @@ _ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8I
   %561 = landingpad { ptr, i32 }
           catch ptr null
   %562 = extractvalue { ptr, i32 } %561, 0
-  call void @__clang_call_terminate(ptr %562) #22
+  call void @__clang_call_terminate(ptr %562) #22, !noalias !417
   unreachable
 
 _ZN7testing8internal33MakePredicateFormatterFromMatcherIN12absl_testing15status_internal15StatusIsMatcherEEENS0_29PredicateFormatterFromMatcherIT_EES6_.exit292: ; preds = %548, %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i.i3.i287, %555, %558, %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i.i3.i287.thread
@@ -13461,7 +13461,7 @@ _ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8I
   %940 = landingpad { ptr, i32 }
           catch ptr null
   %941 = extractvalue { ptr, i32 } %940, 0
-  call void @__clang_call_terminate(ptr %941) #22
+  call void @__clang_call_terminate(ptr %941) #22, !noalias !446
   unreachable
 
 _ZN7testing8internal33MakePredicateFormatterFromMatcherIN12absl_testing15status_internal15StatusIsMatcherEEENS0_29PredicateFormatterFromMatcherIT_EES6_.exit442: ; preds = %927, %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i.i3.i437, %934, %937, %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i.i3.i437.thread
@@ -16937,7 +16937,7 @@ _ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8I
   %574 = landingpad { ptr, i32 }
           catch ptr null
   %575 = extractvalue { ptr, i32 } %574, 0
-  call void @__clang_call_terminate(ptr %575) #22
+  call void @__clang_call_terminate(ptr %575) #22, !noalias !513
   unreachable
 
 _ZN7testing8internal33MakePredicateFormatterFromMatcherIN12absl_testing15status_internal15StatusIsMatcherEEENS0_29PredicateFormatterFromMatcherIT_EES6_.exit300: ; preds = %561, %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i.i3.i295, %568, %571, %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i.i3.i295.thread
@@ -17911,7 +17911,7 @@ _ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8I
   %953 = landingpad { ptr, i32 }
           catch ptr null
   %954 = extractvalue { ptr, i32 } %953, 0
-  call void @__clang_call_terminate(ptr %954) #22
+  call void @__clang_call_terminate(ptr %954) #22, !noalias !542
   unreachable
 
 _ZN7testing8internal33MakePredicateFormatterFromMatcherIN12absl_testing15status_internal15StatusIsMatcherEEENS0_29PredicateFormatterFromMatcherIT_EES6_.exit450: ; preds = %940, %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i.i3.i445, %947, %950, %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i.i3.i445.thread
@@ -21525,7 +21525,7 @@ _ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8I
   %467 = landingpad { ptr, i32 }
           catch ptr null
   %468 = extractvalue { ptr, i32 } %467, 0
-  call void @__clang_call_terminate(ptr %468) #22
+  call void @__clang_call_terminate(ptr %468) #22, !noalias !610
   unreachable
 
 _ZN7testing8internal33MakePredicateFormatterFromMatcherIN12absl_testing15status_internal15StatusIsMatcherEEENS0_29PredicateFormatterFromMatcherIT_EES6_.exit223.sink.split.sink.split: ; preds = %_ZN7testing7MatcherIN12absl_testing15status_internal10StatusCodeEEC2ERKS4_.exit.i.i.i208, %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i.i.i210
@@ -22591,7 +22591,7 @@ _ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8I
   %850 = landingpad { ptr, i32 }
           catch ptr null
   %851 = extractvalue { ptr, i32 } %850, 0
-  call void @__clang_call_terminate(ptr %851) #22
+  call void @__clang_call_terminate(ptr %851) #22, !noalias !633
   unreachable
 
 _ZN7testing8internal33MakePredicateFormatterFromMatcherIN12absl_testing15status_internal15StatusIsMatcherEEENS0_29PredicateFormatterFromMatcherIT_EES6_.exit347.sink.split.sink.split: ; preds = %_ZN7testing7MatcherIN12absl_testing15status_internal10StatusCodeEEC2ERKS4_.exit.i.i.i332, %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i.i.i334

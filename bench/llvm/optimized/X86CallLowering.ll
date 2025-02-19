@@ -532,11 +532,16 @@ _ZN4llvm11SmallVectorINS_8RegisterELj4EED2Ev.exit.i: ; preds = %132, %_ZN4llvm11
 
 _ZN4llvm12CallLowering7ArgInfoD2Ev.exit:          ; preds = %_ZN4llvm11SmallVectorINS_8RegisterELj4EED2Ev.exit.i, %137
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %15) #15
-  br i1 %99, label %.critedge, label %139
+  br i1 %99, label %_ZN4llvm12CallLowering7ArgInfoD2Ev.exit..critedge_crit_edge, label %139
 
-.critedge:                                        ; preds = %50, %_ZN4llvm12CallLowering7ArgInfoD2Ev.exit, %57, %36
-  %.sroa.02.0.copyload = load ptr, ptr %10, align 8, !tbaa !151
-  %.sroa.2.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !152
+_ZN4llvm12CallLowering7ArgInfoD2Ev.exit..critedge_crit_edge: ; preds = %_ZN4llvm12CallLowering7ArgInfoD2Ev.exit
+  %.sroa.02.0.copyload.pre = load ptr, ptr %10, align 8, !tbaa !151
+  %.sroa.2.0.copyload.pre = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !152
+  br label %.critedge
+
+.critedge:                                        ; preds = %_ZN4llvm12CallLowering7ArgInfoD2Ev.exit..critedge_crit_edge, %50, %57, %36
+  %.sroa.2.0.copyload = phi ptr [ %.sroa.2.0.copyload.pre, %_ZN4llvm12CallLowering7ArgInfoD2Ev.exit..critedge_crit_edge ], [ %25, %50 ], [ %25, %57 ], [ %25, %36 ]
+  %.sroa.02.0.copyload = phi ptr [ %.sroa.02.0.copyload.pre, %_ZN4llvm12CallLowering7ArgInfoD2Ev.exit..critedge_crit_edge ], [ %24, %50 ], [ %24, %57 ], [ %24, %36 ]
   %138 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder11insertInstrENS_19MachineInstrBuilderE(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr %.sroa.02.0.copyload, ptr %.sroa.2.0.copyload) #15
   br label %139
 

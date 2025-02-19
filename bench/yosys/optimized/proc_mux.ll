@@ -8115,7 +8115,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
   %1944 = landingpad { ptr, i32 }
           catch ptr null
   %1945 = extractvalue { ptr, i32 } %1944, 0
-  call void @__clang_call_terminate(ptr %1945) #26
+  call void @__clang_call_terminate(ptr %1945) #26, !noalias !32
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i440:           ; preds = %1942, %1935, %1930
@@ -8202,7 +8202,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i440:           ; preds = %1942, %1935, %1930
   %1984 = landingpad { ptr, i32 }
           catch ptr null
   %1985 = extractvalue { ptr, i32 } %1984, 0
-  call void @__clang_call_terminate(ptr %1985) #26
+  call void @__clang_call_terminate(ptr %1985) #26, !noalias !32
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit38.i:            ; preds = %1982, %1975, %1970
@@ -8231,7 +8231,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit38.i:            ; preds = %1982, %1975, %1970
   %1999 = landingpad { ptr, i32 }
           catch ptr null
   %2000 = extractvalue { ptr, i32 } %1999, 0
-  call void @__clang_call_terminate(ptr %2000) #26
+  call void @__clang_call_terminate(ptr %2000) #26, !noalias !32
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit40.i:            ; preds = %1997, %1990, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit38.i

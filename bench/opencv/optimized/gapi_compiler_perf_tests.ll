@@ -2531,46 +2531,41 @@ _ZSt10_ConstructIN2cv11GCompileArgEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = 
   br label %.body
 
 .body6:                                           ; preds = %15
-  %.pr = load ptr, ptr %0, align 8
-  %.not.i.i.i = icmp eq ptr %.pr, null
-  br i1 %.not.i.i.i, label %.body, label %22
-
-22:                                               ; preds = %.body6
-  call void @_ZdlPv(ptr noundef nonnull %.pr) #30
+  call void @_ZdlPv(ptr noundef nonnull %4) #30
   br label %.body
 
 _ZNKSt14default_deleteIN2cv4util3any6holderEEclEPS3_.exit.i.i.i: ; preds = %_ZSt10_ConstructIN2cv11GCompileArgEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i
-  %23 = load ptr, ptr %9, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %25 = load ptr, ptr %24, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %9) #27
+  %22 = load ptr, ptr %9, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %24 = load ptr, ptr %23, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(8) %9) #27
   br label %_ZN2cv4util3anyD2Ev.exit.i
 
 _ZN2cv4util3anyD2Ev.exit.i:                       ; preds = %_ZNKSt14default_deleteIN2cv4util3any6holderEEclEPS3_.exit.i.i.i, %_ZSt10_ConstructIN2cv11GCompileArgEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i
   store ptr null, ptr %8, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %27 = load ptr, ptr %26, align 8
-  %.not.i.i1.i = icmp eq ptr %27, null
-  br i1 %.not.i.i1.i, label %_ZN2cv11GCompileArgD2Ev.exit, label %28
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %26 = load ptr, ptr %25, align 8
+  %.not.i.i1.i = icmp eq ptr %26, null
+  br i1 %.not.i.i1.i, label %_ZN2cv11GCompileArgD2Ev.exit, label %27
 
-28:                                               ; preds = %_ZN2cv4util3anyD2Ev.exit.i
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %30 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef 3)
-          to label %_ZN2cv11GCompileArgD2Ev.exit unwind label %31
+27:                                               ; preds = %_ZN2cv4util3anyD2Ev.exit.i
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %29 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 3)
+          to label %_ZN2cv11GCompileArgD2Ev.exit unwind label %30
 
-31:                                               ; preds = %28
-  %32 = landingpad { ptr, i32 }
+30:                                               ; preds = %27
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #29
+  %32 = extractvalue { ptr, i32 } %31, 0
+  call void @__clang_call_terminate(ptr %32) #29
   unreachable
 
-_ZN2cv11GCompileArgD2Ev.exit:                     ; preds = %_ZN2cv4util3anyD2Ev.exit.i, %28
+_ZN2cv11GCompileArgD2Ev.exit:                     ; preds = %_ZN2cv4util3anyD2Ev.exit.i, %27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #27
   ret void
 
-.body:                                            ; preds = %.body6.thread, %.body6, %22
-  %eh.lpad-body712 = phi { ptr, i32 } [ %21, %.body6.thread ], [ %16, %.body6 ], [ %16, %22 ]
+.body:                                            ; preds = %.body6.thread, %.body6
+  %eh.lpad-body712 = phi { ptr, i32 } [ %21, %.body6.thread ], [ %16, %.body6 ]
   call void @_ZN2cv11GCompileArgD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #27
   resume { ptr, i32 } %eh.lpad-body712
 }

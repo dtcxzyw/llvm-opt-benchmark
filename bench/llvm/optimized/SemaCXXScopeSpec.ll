@@ -5553,8 +5553,7 @@ _ZN5clanglsINS_11SourceRangeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exi
 ._crit_edge:                                      ; preds = %308, %286
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %301 = load ptr, ptr %300, align 8, !tbaa !737
-  %.sroa.02.0.copyload = load i64, ptr %22, align 8, !tbaa !12
-  %302 = call { ptr, ptr } @_ZN5clang14TypeLocBuilder19getTypeLocInContextERNS_10ASTContextENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(61) %24, ptr noundef nonnull align 8 dereferenceable(23216) %301, i64 %.sroa.02.0.copyload)
+  %302 = call { ptr, ptr } @_ZN5clang14TypeLocBuilder19getTypeLocInContextERNS_10ASTContextENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(61) %24, ptr noundef nonnull align 8 dereferenceable(23216) %301, i64 %273)
   %303 = extractvalue { ptr, ptr } %302, 0
   %304 = extractvalue { ptr, ptr } %302, 1
   call void @_ZN5clang12CXXScopeSpec6ExtendERNS_10ASTContextENS_14SourceLocationENS_7TypeLocES3_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(23216) %301, i32 %3, ptr %303, ptr %304, i32 %9) #16

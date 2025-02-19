@@ -1461,8 +1461,8 @@ _ZL31shouldSplitOnPredicatedArgumentRN4llvm8CallBaseERNS_14DomTreeUpdaterE.exit.
   br i1 %.not34.i.i.i.i, label %505, label %.critedge.i.i20.i.i
 
 505:                                              ; preds = %503
-  %506 = load ptr, ptr %501, align 8, !tbaa !120
-  %507 = load i32, ptr %502, align 8, !tbaa !178
+  %506 = load ptr, ptr %501, align 8, !tbaa !120, !noalias !175
+  %507 = load i32, ptr %502, align 8, !tbaa !178, !noalias !175
   %508 = zext i32 %507 to i64
   %509 = getelementptr inbounds nuw %"class.llvm::Use", ptr %506, i64 %508
   %510 = load ptr, ptr %509, align 8, !tbaa !117, !noalias !175
@@ -1498,7 +1498,7 @@ _ZL31shouldSplitOnPredicatedArgumentRN4llvm8CallBaseERNS_14DomTreeUpdaterE.exit.
   %526 = getelementptr inbounds nuw i8, ptr %.sroa.039.059.i.i.i.i, i64 24
   %spec.select.i.i.i.i.i.i21.i.i = select i1 %525, ptr null, ptr %526
   %527 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i.i21.i.i, i64 8
-  %528 = load ptr, ptr %527, align 8, !tbaa !82
+  %528 = load ptr, ptr %527, align 8, !tbaa !82, !noalias !175
   %529 = icmp eq ptr %528, null
   %530 = getelementptr inbounds i8, ptr %528, i64 -24
   %531 = select i1 %529, ptr null, ptr %530

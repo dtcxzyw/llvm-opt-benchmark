@@ -2238,9 +2238,9 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h0174ea6a5f6d6e5cE.
   br label %55
 
 38:                                               ; preds = %32, %43
-  %39 = phi i64 [ %.cast, %32 ], [ %.pre, %43 ]
-  %40 = load i64, ptr %11, align 8, !noundef !4
-  %41 = add i64 %40, %39
+  %39 = phi i64 [ %5, %32 ], [ %.pre25, %43 ]
+  %40 = phi i64 [ %.cast, %32 ], [ %.pre, %43 ]
+  %41 = add i64 %39, %40
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %41, ptr %42, align 8
   br label %55
@@ -2276,6 +2276,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h0174ea6a5f6d6e5cE.
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   %.pre = load i64, ptr %10, align 8
+  %.pre25 = load i64, ptr %11, align 8
   br label %38
 
 55:                                               ; preds = %38, %36
@@ -2351,9 +2352,9 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h66c0e166fe1391f7E.
   br label %56
 
 39:                                               ; preds = %33, %44
-  %40 = phi i64 [ %2, %33 ], [ %.pre, %44 ]
-  %41 = load i64, ptr %11, align 8, !noundef !4
-  %42 = add i64 %41, %40
+  %40 = phi i64 [ %5, %33 ], [ %.pre26, %44 ]
+  %41 = phi i64 [ %2, %33 ], [ %.pre, %44 ]
+  %42 = add i64 %40, %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %42, ptr %43, align 8
   store i64 0, ptr %0, align 8
@@ -2391,6 +2392,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h66c0e166fe1391f7E.
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   %.pre = load i64, ptr %9, align 8
+  %.pre26 = load i64, ptr %11, align 8
   br label %39
 
 56:                                               ; preds = %39, %37

@@ -36037,7 +36037,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %.noexc.i.i.i.i.i.i,
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #26
+  tail call void @__clang_call_terminate(ptr %10) #26, !noalias !173
   unreachable
 
 _ZSt19__relocate_object_aIN2lp13implied_boundES1_13std_allocatorIS1_EEvPT_PT0_RT1_.exit: ; preds = %.noexc.i.i.i.i.i.i

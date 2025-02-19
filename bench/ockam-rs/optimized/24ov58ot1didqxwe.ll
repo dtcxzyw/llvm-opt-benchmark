@@ -5081,7 +5081,7 @@ common.ret:                                       ; preds = %2042, %1337, %1172,
   %611 = getelementptr inbounds nuw i8, ptr %607, i64 24
   %612 = load ptr, ptr %611, align 8, !invariant.load !4, !noalias !744, !nonnull !4
   invoke void %612(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %61, ptr noundef nonnull align 1 %608, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8a4fadc9459a32d7E.exit.i.i" unwind label %613
+          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8a4fadc9459a32d7E.exit.i.i" unwind label %613, !noalias !745
 
 613:                                              ; preds = %602
   %614 = landingpad { ptr, i32 }
@@ -5253,9 +5253,9 @@ common.ret:                                       ; preds = %2042, %1337, %1172,
   %672 = extractvalue { ptr, ptr } %667, 0
   %673 = extractvalue { ptr, ptr } %667, 1
   %674 = getelementptr inbounds nuw i8, ptr %673, i64 24
-  %675 = load ptr, ptr %674, align 8, !invariant.load !4, !nonnull !4
+  %675 = load ptr, ptr %674, align 8, !invariant.load !4, !noalias !729, !nonnull !4
   %676 = invoke noundef zeroext i1 %675(ptr noundef align 1 %672, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %85)
-          to label %679 unwind label %677
+          to label %679 unwind label %677, !noalias !729
 
 677:                                              ; preds = %671
   %678 = landingpad { ptr, i32 }
@@ -5366,7 +5366,7 @@ common.ret:                                       ; preds = %2042, %1337, %1172,
   %705 = getelementptr inbounds nuw i8, ptr %83, i64 16
   store ptr %683, ptr %705, align 8, !alias.scope !781, !noalias !784
   invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %657, ptr noundef nonnull align 1 %672, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %673, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %84, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %83)
-          to label %708 unwind label %706
+          to label %708 unwind label %706, !noalias !729
 
 706:                                              ; preds = %702
   %707 = landingpad { ptr, i32 }
@@ -5716,7 +5716,7 @@ common.ret:                                       ; preds = %2042, %1337, %1172,
   %821 = getelementptr inbounds nuw i8, ptr %817, i64 24
   %822 = load ptr, ptr %821, align 8, !invariant.load !4, !noalias !818, !nonnull !4
   invoke void %822(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %76, ptr noundef nonnull align 1 %818, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h44f0dde4f527914eE.exit.i" unwind label %823
+          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h44f0dde4f527914eE.exit.i" unwind label %823, !noalias !729
 
 823:                                              ; preds = %814
   %824 = landingpad { ptr, i32 }
@@ -5884,9 +5884,9 @@ common.ret:                                       ; preds = %2042, %1337, %1172,
   %888 = extractvalue { ptr, ptr } %883, 0
   %889 = extractvalue { ptr, ptr } %883, 1
   %890 = getelementptr inbounds nuw i8, ptr %889, i64 24
-  %891 = load ptr, ptr %890, align 8, !invariant.load !4, !nonnull !4
+  %891 = load ptr, ptr %890, align 8, !invariant.load !4, !noalias !729, !nonnull !4
   %892 = invoke noundef zeroext i1 %891(ptr noundef align 1 %888, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %69)
-          to label %895 unwind label %893
+          to label %895 unwind label %893, !noalias !729
 
 893:                                              ; preds = %887
   %894 = landingpad { ptr, i32 }
@@ -5997,7 +5997,7 @@ common.ret:                                       ; preds = %2042, %1337, %1172,
   %921 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %899, ptr %921, align 8, !alias.scope !854, !noalias !857
   invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %873, ptr noundef nonnull align 1 %888, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %889, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %68, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %67)
-          to label %924 unwind label %922
+          to label %924 unwind label %922, !noalias !729
 
 922:                                              ; preds = %918
   %923 = landingpad { ptr, i32 }
@@ -6264,7 +6264,7 @@ common.ret:                                       ; preds = %2042, %1337, %1172,
   %997 = getelementptr inbounds nuw i8, ptr %993, i64 24
   %998 = load ptr, ptr %997, align 8, !invariant.load !4, !noalias !894, !nonnull !4
   invoke void %998(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %58, ptr noundef nonnull align 1 %994, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8a4fadc9459a32d7E.exit.i326.i" unwind label %999
+          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8a4fadc9459a32d7E.exit.i326.i" unwind label %999, !noalias !729
 
 999:                                              ; preds = %988
   %1000 = landingpad { ptr, i32 }
@@ -6414,9 +6414,9 @@ common.ret:                                       ; preds = %2042, %1337, %1172,
   %1050 = extractvalue { ptr, ptr } %1045, 0
   %1051 = extractvalue { ptr, ptr } %1045, 1
   %1052 = getelementptr inbounds nuw i8, ptr %1051, i64 24
-  %1053 = load ptr, ptr %1052, align 8, !invariant.load !4, !nonnull !4
+  %1053 = load ptr, ptr %1052, align 8, !invariant.load !4, !noalias !729, !nonnull !4
   %1054 = invoke noundef zeroext i1 %1053(ptr noundef align 1 %1050, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %50)
-          to label %1057 unwind label %1055
+          to label %1057 unwind label %1055, !noalias !729
 
 1055:                                             ; preds = %1049
   %1056 = landingpad { ptr, i32 }
@@ -6527,7 +6527,7 @@ common.ret:                                       ; preds = %2042, %1337, %1172,
   %1083 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store ptr %1061, ptr %1083, align 8, !alias.scope !930, !noalias !933
   invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1035, ptr noundef nonnull align 1 %1050, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1051, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %49, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %48)
-          to label %1086 unwind label %1084
+          to label %1086 unwind label %1084, !noalias !729
 
 1084:                                             ; preds = %1080
   %1085 = landingpad { ptr, i32 }
@@ -8306,7 +8306,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i.i: ;
   %1668 = getelementptr inbounds nuw i8, ptr %1664, i64 24
   %1669 = load ptr, ptr %1668, align 8, !invariant.load !4, !noalias !1083, !nonnull !4
   invoke void %1669(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %39, ptr noundef nonnull align 1 %1665, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8a4fadc9459a32d7E.exit.i" unwind label %1670
+          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8a4fadc9459a32d7E.exit.i" unwind label %1670, !noalias !1024
 
 1670:                                             ; preds = %1661
   %1671 = landingpad { ptr, i32 }
@@ -8555,9 +8555,9 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i.i: ;
   %1754 = extractvalue { ptr, ptr } %1749, 0
   %1755 = extractvalue { ptr, ptr } %1749, 1
   %1756 = getelementptr inbounds nuw i8, ptr %1755, i64 24
-  %1757 = load ptr, ptr %1756, align 8, !invariant.load !4, !nonnull !4
+  %1757 = load ptr, ptr %1756, align 8, !invariant.load !4, !noalias !1024, !nonnull !4
   %1758 = invoke noundef zeroext i1 %1757(ptr noundef align 1 %1754, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %32)
-          to label %1761 unwind label %1759
+          to label %1761 unwind label %1759, !noalias !1024
 
 1759:                                             ; preds = %1753
   %1760 = landingpad { ptr, i32 }
@@ -8668,7 +8668,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i.i: ;
   %1787 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %1765, ptr %1787, align 8, !alias.scope !1125, !noalias !1128
   invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1739, ptr noundef nonnull align 1 %1754, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1755, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
-          to label %1790 unwind label %1788
+          to label %1790 unwind label %1788, !noalias !1024
 
 1788:                                             ; preds = %1784
   %1789 = landingpad { ptr, i32 }
@@ -8850,9 +8850,9 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i.i: ;
   %1838 = extractvalue { ptr, ptr } %1837, 0
   %1839 = extractvalue { ptr, ptr } %1837, 1
   %1840 = getelementptr inbounds nuw i8, ptr %1839, i64 24
-  %1841 = load ptr, ptr %1840, align 8, !invariant.load !4, !nonnull !4
+  %1841 = load ptr, ptr %1840, align 8, !invariant.load !4, !noalias !1024, !nonnull !4
   %1842 = invoke noundef zeroext i1 %1841(ptr noundef align 1 %1838, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
-          to label %.noexc310.i unwind label %1845
+          to label %.noexc310.i unwind label %1845, !noalias !1024
 
 .noexc310.i:                                      ; preds = %.noexc309.i
   br i1 %1842, label %1843, label %1844
@@ -8861,7 +8861,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i.i: ;
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1153
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !1153
   invoke void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1830, ptr noundef nonnull align 1 %1838, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1839, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
-          to label %.noexc311.i unwind label %1845
+          to label %.noexc311.i unwind label %1845, !noalias !1024
 
 .noexc311.i:                                      ; preds = %1843
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1153
@@ -8913,7 +8913,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i.i: ;
   %1859 = getelementptr inbounds nuw i8, ptr %1855, i64 24
   %1860 = load ptr, ptr %1859, align 8, !invariant.load !4, !noalias !1157, !nonnull !4
   invoke void %1860(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %22, ptr noundef nonnull align 1 %1856, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8a4fadc9459a32d7E.exit313.i" unwind label %1861
+          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8a4fadc9459a32d7E.exit313.i" unwind label %1861, !noalias !1024
 
 1861:                                             ; preds = %1852
   %1862 = landingpad { ptr, i32 }
@@ -10531,7 +10531,7 @@ attributes #22 = { noreturn }
 !741 = distinct !{!741, !738, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8a4fadc9459a32d7E: argument 2"}
 !742 = !{!731, !733, !718}
 !743 = !{!737}
-!744 = !{!740, !737, !741}
+!744 = !{!740, !737, !741, !731, !733, !718}
 !745 = !{!731, !718}
 !746 = !{!747}
 !747 = distinct !{!747, !748, !"_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd95c18cdfdba436eE: argument 0"}
@@ -10605,7 +10605,7 @@ attributes #22 = { noreturn }
 !815 = !{i32 0, i32 1000000000}
 !816 = !{!720}
 !817 = !{!724}
-!818 = !{!727, !724, !728}
+!818 = !{!727, !724, !728, !718}
 !819 = !{!820}
 !820 = distinct !{!820, !821, !"_ZN4core3ptr211drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h1ed11b0d4f4e9497E: argument 0"}
 !821 = distinct !{!821, !"_ZN4core3ptr211drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h1ed11b0d4f4e9497E"}
@@ -10681,7 +10681,7 @@ attributes #22 = { noreturn }
 !891 = distinct !{!891, !889, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8a4fadc9459a32d7E: argument 0"}
 !892 = distinct !{!892, !889, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8a4fadc9459a32d7E: argument 2"}
 !893 = !{!888}
-!894 = !{!891, !888, !892}
+!894 = !{!891, !888, !892, !718}
 !895 = !{!896}
 !896 = distinct !{!896, !897, !"_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd95c18cdfdba436eE: argument 0"}
 !897 = distinct !{!897, !"_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd95c18cdfdba436eE"}
@@ -10870,7 +10870,7 @@ attributes #22 = { noreturn }
 !1080 = distinct !{!1080, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h728b79ce43dc77f1E"}
 !1081 = distinct !{!1081, !1080, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h728b79ce43dc77f1E: argument 1"}
 !1082 = !{!1011}
-!1083 = !{!1014, !1011, !1015}
+!1083 = !{!1014, !1011, !1015, !1005}
 !1084 = !{!1085}
 !1085 = distinct !{!1085, !1086, !"_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd95c18cdfdba436eE: argument 0"}
 !1086 = distinct !{!1086, !"_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd95c18cdfdba436eE"}
@@ -10944,7 +10944,7 @@ attributes #22 = { noreturn }
 !1154 = distinct !{!1154, !1155, !"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbfc38e509ba2b004E: argument 0"}
 !1155 = distinct !{!1155, !"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$7connect28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbfc38e509ba2b004E"}
 !1156 = !{!1019}
-!1157 = !{!1022, !1019, !1023}
+!1157 = !{!1022, !1019, !1023, !1005}
 !1158 = !{!1159}
 !1159 = distinct !{!1159, !1160, !"_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd95c18cdfdba436eE: argument 0"}
 !1160 = distinct !{!1160, !"_ZN4core3ptr215drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd95c18cdfdba436eE"}

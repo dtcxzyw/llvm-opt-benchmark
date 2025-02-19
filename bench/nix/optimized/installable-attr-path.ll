@@ -2086,7 +2086,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84: ; preds = %_ZN
   %208 = landingpad { ptr, i32 }
           catch ptr null
   %209 = extractvalue { ptr, i32 } %208, 0
-  call void @__clang_call_terminate(ptr %209) #28
+  call void @__clang_call_terminate(ptr %209) #28, !noalias !26
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIN3nix9StorePathEESt4lessIS5_ESaISt4pairIKS5_S9_EEED2Ev.exit.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.i.i.i.i
@@ -2226,18 +2226,18 @@ select.unfold:                                    ; preds = %_ZNKSt4lessINSt7__c
 
 248:                                              ; preds = %select.unfold
   %249 = getelementptr inbounds nuw i8, ptr %.sroa.01.04.i.i.i.i.i.i, i64 40
-  %250 = load i64, ptr %249, align 8
+  %250 = load i64, ptr %249, align 8, !noalias !26
   %251 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph, i64 40
-  %252 = load i64, ptr %251, align 8
+  %252 = load i64, ptr %251, align 8, !noalias !26
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %252, i64 %250)
   %253 = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
   br i1 %253, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %248
   %254 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph, i64 32
-  %255 = load ptr, ptr %254, align 8
-  %256 = load ptr, ptr %220, align 8
-  %257 = call i32 @memcmp(ptr noundef %256, ptr noundef %255, i64 noundef %.sroa.speculated.i.i.i.i) #24
+  %255 = load ptr, ptr %254, align 8, !noalias !26
+  %256 = load ptr, ptr %220, align 8, !noalias !26
+  %257 = call i32 @memcmp(ptr noundef %256, ptr noundef %255, i64 noundef %.sroa.speculated.i.i.i.i) #24, !noalias !26
   %.not.i.i.i.i110 = icmp eq i32 %257, 0
   br i1 %.not.i.i.i.i110, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
 
@@ -2261,38 +2261,38 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 .noexc111:                                        ; preds = %260
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %263, ptr noundef nonnull align 8 dereferenceable(32) %220)
-          to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_M_insert_IRKS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit unwind label %264
+          to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_M_insert_IRKS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit unwind label %264, !noalias !26
 
 264:                                              ; preds = %.noexc111
   %265 = landingpad { ptr, i32 }
           catch ptr null
   %266 = extractvalue { ptr, i32 } %265, 0
-  %267 = call ptr @__cxa_begin_catch(ptr %266) #24
-  call void @_ZdlPv(ptr noundef nonnull %262) #27
+  %267 = call ptr @__cxa_begin_catch(ptr %266) #24, !noalias !26
+  call void @_ZdlPv(ptr noundef nonnull %262) #27, !noalias !26
   invoke void @__cxa_rethrow() #25
-          to label %273 unwind label %268
+          to label %273 unwind label %268, !noalias !26
 
 268:                                              ; preds = %264
   %269 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %.body112 unwind label %270
+          to label %.body112 unwind label %270, !noalias !26
 
 270:                                              ; preds = %268
   %271 = landingpad { ptr, i32 }
           catch ptr null
   %272 = extractvalue { ptr, i32 } %271, 0
-  call void @__clang_call_terminate(ptr %272) #28
+  call void @__clang_call_terminate(ptr %272) #28, !noalias !26
   unreachable
 
 273:                                              ; preds = %264
   unreachable
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_M_insert_IRKS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit: ; preds = %.noexc111
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %261, ptr noundef nonnull %262, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %149) #24
-  %274 = load i64, ptr %153, align 8
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %261, ptr noundef nonnull %262, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %149) #24, !noalias !26
+  %274 = load i64, ptr %153, align 8, !noalias !26
   %275 = add i64 %274, 1
-  store i64 %275, ptr %153, align 8
+  store i64 %275, ptr %153, align 8, !noalias !26
   br label %.noexc7.i.i.i.i.i.i
 
 .noexc7.i.i.i.i.i.i:                              ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_M_insert_IRKS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit

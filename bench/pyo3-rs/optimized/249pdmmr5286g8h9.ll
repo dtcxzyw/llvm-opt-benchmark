@@ -1726,7 +1726,7 @@ _ZN17pyo3_build_config5impl_19CrossCompileEnvVars3any17h4acc57195d3ea712E.exit.t
   %63 = extractvalue { ptr, i64 } %59, 0
   %64 = extractvalue { ptr, i64 } %59, 1
   invoke void @_ZN3std3sys6os_str5bytes5Slice6to_str17h31807ed9729ceea1E(ptr nonnull sret([24 x i8]) align 8 %7, ptr align 1 %63, i64 %64)
-          to label %65 unwind label %60
+          to label %65 unwind label %60, !noalias !9
 
 65:                                               ; preds = %62
   %66 = load i64, ptr %7, align 8, !noalias !9
@@ -3659,7 +3659,7 @@ define void @_ZN17pyo3_build_config5impl_16find_interpreter17he93c80b7e2e41228E(
   %79 = extractvalue { ptr, i64 } %72, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !21
   invoke void @_ZN3std4path4Path4join17ha1ef6ac5cc9f34beE(ptr nonnull sret([24 x i8]) align 8 %4, ptr align 1 %78, i64 %79, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.139, i64 3)
-          to label %.noexc22.i unwind label %75
+          to label %.noexc22.i unwind label %75, !noalias !21
 
 .noexc22.i:                                       ; preds = %77
   %80 = invoke { ptr, i64 } @"_ZN105_$LT$std..ffi..os_str..OsString$u20$as$u20$core..ops..index..Index$LT$core..ops..range..RangeFull$GT$$GT$5index17h7541bfdb4f3df999E"(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.ca6e988e113f9f3b293ee61d3a823dd5.88)
@@ -3675,7 +3675,7 @@ define void @_ZN17pyo3_build_config5impl_16find_interpreter17he93c80b7e2e41228E(
   %84 = extractvalue { ptr, i64 } %80, 0
   %85 = extractvalue { ptr, i64 } %80, 1
   invoke void @_ZN3std4path4Path4join17ha1ef6ac5cc9f34beE(ptr nonnull sret([24 x i8]) align 8 %16, ptr align 1 %84, i64 %85, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.121, i64 6)
-          to label %86 unwind label %81
+          to label %86 unwind label %81, !noalias !21
 
 86:                                               ; preds = %83
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hac05c6ec097db537E"(ptr nonnull align 8 %4)
@@ -3752,7 +3752,7 @@ define void @_ZN17pyo3_build_config5impl_16find_interpreter17he93c80b7e2e41228E(
   %110 = extractvalue { ptr, i64 } %100, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !21
   invoke void @_ZN3std4path4Path4join17ha1ef6ac5cc9f34beE(ptr nonnull sret([24 x i8]) align 8 %3, ptr align 1 %109, i64 %110, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.139, i64 3)
-          to label %.noexc24.i unwind label %106
+          to label %.noexc24.i unwind label %106, !noalias !21
 
 .noexc24.i:                                       ; preds = %108
   %111 = invoke { ptr, i64 } @"_ZN105_$LT$std..ffi..os_str..OsString$u20$as$u20$core..ops..index..Index$LT$core..ops..range..RangeFull$GT$$GT$5index17h7541bfdb4f3df999E"(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.ca6e988e113f9f3b293ee61d3a823dd5.88)
@@ -3768,7 +3768,7 @@ define void @_ZN17pyo3_build_config5impl_16find_interpreter17he93c80b7e2e41228E(
   %115 = extractvalue { ptr, i64 } %111, 0
   %116 = extractvalue { ptr, i64 } %111, 1
   invoke void @_ZN3std4path4Path4join17ha1ef6ac5cc9f34beE(ptr nonnull sret([24 x i8]) align 8 %18, ptr align 1 %115, i64 %116, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.121, i64 6)
-          to label %117 unwind label %112
+          to label %117 unwind label %112, !noalias !21
 
 117:                                              ; preds = %114
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hac05c6ec097db537E"(ptr nonnull align 8 %3)

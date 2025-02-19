@@ -408,7 +408,6 @@ invoke.cont16:                                    ; preds = %invoke.cont12
 
 for.cond.preheader:                               ; preds = %invoke.cont16
   %m_vs.i = getelementptr inbounds nuw i8, ptr %m, i64 8
-  %power.promoted = load i32, ptr %power, align 4
   %7 = load i32, ptr %free_var, align 4
   %m_upper_dep.i = getelementptr inbounds nuw i8, ptr %product, i64 88
   %m_upper_dep3.i = getelementptr inbounds nuw i8, ptr %other_product, i64 88
@@ -416,7 +415,6 @@ for.cond.preheader:                               ; preds = %invoke.cont16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %_ZN13dep_intervals3mulILNS_11with_deps_tE0EEEvRKNS_9im_config8intervalES5_RS3_.exit
-  %storemerge.lcssa141151 = phi i32 [ %storemerge.lcssa141, %_ZN13dep_intervals3mulILNS_11with_deps_tE0EEEvRKNS_9im_config8intervalES5_RS3_.exit ], [ %power.promoted, %for.cond.preheader ]
   %i.0 = phi i32 [ %i.1.lcssa, %_ZN13dep_intervals3mulILNS_11with_deps_tE0EEEvRKNS_9im_config8intervalES5_RS3_.exit ], [ 0, %for.cond.preheader ]
   %8 = load ptr, ptr %m_vs.i, align 8
   %cmp.i.i = icmp eq ptr %8, null
@@ -454,7 +452,7 @@ land.rhs34:                                       ; preds = %land.rhs34.preheade
   %arrayidx.i106 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %15 = load i32, ptr %arrayidx.i106, align 4
   %cmp39 = icmp eq i32 %10, %15
-  br i1 %cmp39, label %for.inc, label %for.end.loopexit.split.loop.exit163
+  br i1 %cmp39, label %for.inc, label %for.end.loopexit.split.loop.exit160
 
 for.inc:                                          ; preds = %land.rhs34
   %inc43 = add i32 %storemerge144, 1
@@ -480,13 +478,13 @@ lpad13:                                           ; preds = %lpad13.loopexit.spl
   call void @_ZN16_scoped_intervalI13dep_intervalsED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %product) #18
   resume { ptr, i32 } %lpad.phi
 
-for.end.loopexit.split.loop.exit163:              ; preds = %land.rhs34
+for.end.loopexit.split.loop.exit160:              ; preds = %land.rhs34
   %16 = trunc nuw i64 %indvars.iv to i32
   br label %for.end
 
-for.end:                                          ; preds = %for.inc, %for.end.loopexit.split.loop.exit163, %for.body
-  %storemerge.lcssa141 = phi i32 [ 1, %for.body ], [ %storemerge144, %for.end.loopexit.split.loop.exit163 ], [ %14, %for.inc ]
-  %i.1.lcssa = phi i32 [ %i.1142, %for.body ], [ %16, %for.end.loopexit.split.loop.exit163 ], [ %11, %for.inc ]
+for.end:                                          ; preds = %for.inc, %for.end.loopexit.split.loop.exit160, %for.body
+  %storemerge.lcssa141 = phi i32 [ 1, %for.body ], [ %storemerge144, %for.end.loopexit.split.loop.exit160 ], [ %14, %for.inc ]
+  %i.1.lcssa = phi i32 [ %i.1142, %for.body ], [ %16, %for.end.loopexit.split.loop.exit160 ], [ %11, %for.inc ]
   invoke void @_ZN3nla15monomial_bounds12var2intervalEjR16_scoped_intervalI13dep_intervalsE(ptr noundef nonnull align 8 dereferenceable(192) %this, i32 noundef %10, ptr noundef nonnull align 8 dereferenceable(96) %vi)
           to label %invoke.cont44 unwind label %lpad13.loopexit
 
@@ -536,7 +534,7 @@ invoke.cont62:                                    ; preds = %invoke.cont61
           to label %invoke.cont67 unwind label %lpad13.loopexit
 
 invoke.cont67:                                    ; preds = %invoke.cont62
-  br i1 %call68, label %cleanup.loopexit, label %invoke.cont67.if.end71_crit_edge
+  br i1 %call68, label %cleanup, label %invoke.cont67.if.end71_crit_edge
 
 invoke.cont67.if.end71_crit_edge:                 ; preds = %invoke.cont67
   %.pre = load ptr, ptr %dep, align 8
@@ -585,7 +583,6 @@ _ZN13dep_intervals3mulILNS_11with_deps_tE0EEEvRKNS_9im_config8intervalES5_RS3_.e
   br label %for.cond
 
 for.end80:                                        ; preds = %invoke.cont23
-  store i32 %storemerge.lcssa141151, ptr %power, align 4
   br i1 %cmp, label %land.rhs82, label %cleanup
 
 land.rhs82:                                       ; preds = %for.end80
@@ -593,12 +590,8 @@ land.rhs82:                                       ; preds = %for.end80
   %call88 = invoke noundef zeroext i1 @_ZN3nla15monomial_bounds15propagate_valueERN13dep_intervals9im_config8intervalEj(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i, i32 noundef %25)
           to label %cleanup unwind label %lpad13.loopexit.split-lp
 
-cleanup.loopexit:                                 ; preds = %invoke.cont67
-  store i32 %storemerge.lcssa141, ptr %power, align 4
-  br label %cleanup
-
-cleanup:                                          ; preds = %cleanup.loopexit, %for.end80, %land.rhs82
-  %retval.1 = phi i1 [ false, %for.end80 ], [ %call88, %land.rhs82 ], [ true, %cleanup.loopexit ]
+cleanup:                                          ; preds = %invoke.cont67, %for.end80, %land.rhs82
+  %retval.1 = phi i1 [ false, %for.end80 ], [ %call88, %land.rhs82 ], [ true, %invoke.cont67 ]
   %26 = load ptr, ptr %other_product, align 8
   %m_imanager.i.i126 = getelementptr inbounds nuw i8, ptr %26, i64 752
   invoke void @_ZN16interval_managerIN13dep_intervals9im_configEE3delERNS1_8intervalE(ptr noundef nonnull align 8 dereferenceable(672) %m_imanager.i.i126, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i72)

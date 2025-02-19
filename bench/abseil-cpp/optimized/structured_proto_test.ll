@@ -4602,7 +4602,7 @@ _ZSt10_ConstructIN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseEJRK
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  %12 = tail call ptr @__cxa_begin_catch(ptr %11) #30
+  %12 = tail call ptr @__cxa_begin_catch(ptr %11) #30, !noalias !136
   tail call fastcc void @_ZSt8_DestroyIPN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseEEvT_S5_(ptr noundef nonnull %5, ptr noundef nonnull %.016.i.i.i.i.i.i.i.i), !noalias !136
   invoke void @__cxa_rethrow() #29
           to label %18 unwind label %13, !noalias !136
@@ -4617,7 +4617,7 @@ _ZSt10_ConstructIN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseEJRK
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #33
+  tail call void @__clang_call_terminate(ptr %17) #33, !noalias !136
   unreachable
 
 18:                                               ; preds = %9
@@ -4655,7 +4655,7 @@ _ZSt10_ConstructIN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseEJRK
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  %31 = tail call ptr @__cxa_begin_catch(ptr %30) #30
+  %31 = tail call ptr @__cxa_begin_catch(ptr %30) #30, !noalias !136
   %32 = load ptr, ptr %3, align 8, !tbaa !18, !noalias !136
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8, !noalias !136
@@ -4677,7 +4677,7 @@ common.resume.i:                                  ; preds = %.body.i, %35
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  tail call void @__clang_call_terminate(ptr %39) #33
+  tail call void @__clang_call_terminate(ptr %39) #33, !noalias !136
   unreachable
 
 40:                                               ; preds = %28

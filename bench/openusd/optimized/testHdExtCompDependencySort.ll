@@ -421,7 +421,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 31:                                               ; preds = %30
   store ptr %26, ptr %5, align 8
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %32, align 8
   %33 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
           to label %47 unwind label %34
 
@@ -1995,7 +1994,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 45:                                               ; preds = %44
   store ptr %40, ptr %8, align 8
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr null, ptr %46, align 8
   %47 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
           to label %61 unwind label %48
 
@@ -4240,7 +4238,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 44:                                               ; preds = %43
   store ptr %39, ptr %8, align 8
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr null, ptr %45, align 8
   %46 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
           to label %60 unwind label %47
 

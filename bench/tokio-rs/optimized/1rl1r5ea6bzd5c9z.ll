@@ -9030,7 +9030,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio4sync5watch15Sender$LT$T$GT$16send_i
           cleanup
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @_ZN3std9panicking3try8do_catch17h6615665ebd65b870E.llvm.6686154611312599027(ptr nonnull %3, ptr %17)
+  call void @_ZN3std9panicking3try8do_catch17h6615665ebd65b870E.llvm.6686154611312599027(ptr nonnull %3, ptr %17), !noalias !790
   %18 = load ptr, ptr %3, align 8, !noalias !785, !nonnull !5, !align !791, !noundef !5
   %19 = load ptr, ptr %11, align 8, !noalias !785, !nonnull !5, !align !33, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !785

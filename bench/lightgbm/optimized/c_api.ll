@@ -57128,7 +57128,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit14.i.i.i:            ; preds = %101, %._crit_edge.i
   %106 = landingpad { ptr, i32 }
           catch ptr null
   %107 = extractvalue { ptr, i32 } %106, 0
-  call void @__clang_call_terminate(ptr %107) #36
+  call void @__clang_call_terminate(ptr %107) #36, !noalias !718
   unreachable
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i:              ; preds = %87, %_ZNSt6vectorISt4pairIidESaIS1_EED2Ev.exit.i.i.i, %79
@@ -57146,7 +57146,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i:              ; preds = %87, %_ZNSt6vectorIS
   %113 = landingpad { ptr, i32 }
           catch ptr null
   %114 = extractvalue { ptr, i32 } %113, 0
-  call void @__clang_call_terminate(ptr %114) #36
+  call void @__clang_call_terminate(ptr %114) #36, !noalias !718
   unreachable
 
 _ZNSt8functionIFSt6vectorIdSaIdEEiEED2Ev.exit17.i.i.i: ; preds = %110, %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i
@@ -57621,7 +57621,6 @@ define void @_ZN15CSC_RowIteratorC2EPKviPKiS1_illi(ptr noundef nonnull align 8 d
 
 22:                                               ; preds = %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFSt4pairIidEiEEC2EOS3_.exit.i
 
 _ZNSt8functionIFSt4pairIidEiEEC2EOS3_.exit.i:     ; preds = %22, %16

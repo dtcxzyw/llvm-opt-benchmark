@@ -1291,7 +1291,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %_ZN
 64:                                               ; preds = %23
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !57
-  store ptr null, ptr %5, align 8, !tbaa !54
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !54
   store ptr %8, ptr %67, align 8, !tbaa !54

@@ -19419,8 +19419,7 @@ _ZN5clang14DeclaratorDecl17setTypeSourceInfoEPNS_14TypeSourceInfoE.exit: ; preds
 69:                                               ; preds = %_ZN5clang14DeclaratorDecl17setTypeSourceInfoEPNS_14TypeSourceInfoE.exit
   %70 = lshr i8 %67, 1
   %71 = and i8 %70, 3
-  %.sroa.1.0.copyload = load i8, ptr %8, align 8, !tbaa !34
-  call fastcc void @_ZL16applyNullabilityRN5clang4SemaEPNS_4DeclENS_15NullabilityKindEN12_GLOBAL__N_121VersionedInfoMetadataE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, i8 noundef zeroext %71, i8 %.sroa.1.0.copyload)
+  call fastcc void @_ZL16applyNullabilityRN5clang4SemaEPNS_4DeclENS_15NullabilityKindEN12_GLOBAL__N_121VersionedInfoMetadataE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, i8 noundef zeroext %71, i8 %9)
   br label %72
 
 72:                                               ; preds = %69, %_ZN5clang14DeclaratorDecl17setTypeSourceInfoEPNS_14TypeSourceInfoE.exit

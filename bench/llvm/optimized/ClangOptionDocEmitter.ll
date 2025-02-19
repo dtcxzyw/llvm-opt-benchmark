@@ -511,7 +511,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 164:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %.lr.ph.i
   %.0301.i = phi ptr [ %155, %.lr.ph.i ], [ %191, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
-  %165 = load ptr, ptr %.0301.i, align 8, !tbaa !16
+  %165 = load ptr, ptr %.0301.i, align 8, !tbaa !16, !noalias !29
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #21, !noalias !29
   %166 = call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %165, ptr nonnull @.str.26, i64 4) #21, !noalias !29
   %167 = extractvalue { ptr, i64 } %166, 0
@@ -547,12 +547,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   ]
 
 178:                                              ; preds = %._crit_edge.i.i.i.i.i
-  %179 = load i8, ptr %167, align 1, !tbaa !21
+  %179 = load i8, ptr %167, align 1, !tbaa !21, !noalias !29
   store i8 %179, ptr %177, align 1, !tbaa !21, !noalias !29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit.i
 
 180:                                              ; preds = %._crit_edge.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %177, ptr align 1 %167, i64 %168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %177, ptr align 1 %167, i64 %168, i1 false), !noalias !29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit.i: ; preds = %180, %178, %._crit_edge.i.i.i.i.i
@@ -618,7 +618,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 .lr.ph305.i:                                      ; preds = %._crit_edge.i, %296
   %.043303.i = phi ptr [ %297, %296 ], [ %161, %._crit_edge.i ]
-  %215 = load ptr, ptr %.043303.i, align 8, !tbaa !16
+  %215 = load ptr, ptr %.043303.i, align 8, !tbaa !16, !noalias !29
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 168
   %217 = load ptr, ptr %216, align 8, !tbaa !42, !noalias !29
   %218 = call noundef ptr @_ZN4llvm10StringInit3getERNS_12RecordKeeperENS_9StringRefENS0_12StringFormatE(ptr noundef nonnull align 8 dereferenceable(240) %217, ptr nonnull @.str.62, i64 10, i32 noundef 0) #21, !noalias !29
@@ -871,7 +871,7 @@ _ZNKSt8functionIFN12_GLOBAL__N_113DocumentationEPKN4llvm6RecordEEEclES5_.exit.i:
 
 306:                                              ; preds = %695, %.lr.ph310.i
   %.045308.i = phi ptr [ %193, %.lr.ph310.i ], [ %696, %695 ]
-  %307 = load ptr, ptr %.045308.i, align 8, !tbaa !16
+  %307 = load ptr, ptr %.045308.i, align 8, !tbaa !16, !noalias !29
   %308 = call noundef ptr @_ZNK4llvm6Record12getValueInitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %307, ptr nonnull @.str.39, i64 5) #21, !noalias !29
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 8
   %310 = load i8, ptr %309, align 8, !tbaa !87, !noalias !29
@@ -1027,12 +1027,12 @@ _ZNSt6vectorIPKN4llvm6RecordESaIS3_EE9push_backERKS3_.exit88.i: ; preds = %_ZNSt
   ]
 
 363:                                              ; preds = %._crit_edge.i.i.i.i90.i
-  %364 = load i8, ptr %352, align 1, !tbaa !21
+  %364 = load i8, ptr %352, align 1, !tbaa !21, !noalias !29
   store i8 %364, ptr %362, align 1, !tbaa !21, !noalias !29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit91.i
 
 365:                                              ; preds = %._crit_edge.i.i.i.i90.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %362, ptr align 1 %352, i64 %353, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %362, ptr align 1 %352, i64 %353, i1 false), !noalias !29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit91.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit91.i: ; preds = %365, %363, %._crit_edge.i.i.i.i90.i

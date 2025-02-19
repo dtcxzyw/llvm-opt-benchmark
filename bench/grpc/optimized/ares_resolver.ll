@@ -3130,7 +3130,7 @@ cleanup:                                          ; preds = %if.then.i.i.i82, %"
   call void %80(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %callback, ptr noundef nonnull align 16 dereferenceable(32) %callback) #26
   %81 = load i8, ptr %_M_engaged.i.i.i, align 1
   %tobool.i.i.i.i.i.i = trunc i8 %81 to i1
-  br i1 %tobool.i.i.i.i.i.i, label %if.then.i.i.i84, label %_ZN4absl12lts_2023080218container_internal11node_handleINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS1_18hash_policy_traitsIS10_vEESaISt4pairIKiSZ_EEvED2Ev.exit
+  br i1 %tobool.i.i.i.i.i.i, label %if.then.i.i.i84, label %_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_116HostnameQueryArgESt14default_deleteIS3_EED2Ev.exit
 
 if.then.i.i.i84:                                  ; preds = %cleanup
   %82 = load i8, ptr %_M_index.i.i, align 16
@@ -3143,87 +3143,79 @@ _ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashM
   store i8 -1, ptr %_M_index.i.i, align 16
   %.pre.i.i.i = load i8, ptr %_M_engaged.i.i.i, align 1
   %.pre.i85 = trunc i8 %.pre.i.i.i to i1
-  br i1 %.pre.i85, label %_ZNSt8optionalISaISt4pairIKiSt7variantIJN4absl12lts_2023080212AnyInvocableIFvNS4_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEEED2Ev.exit.sink.split.i.i, label %_ZN4absl12lts_2023080218container_internal11node_handleINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS1_18hash_policy_traitsIS10_vEESaISt4pairIKiSZ_EEvED2Ev.exit
+  br i1 %.pre.i85, label %_ZNSt8optionalISaISt4pairIKiSt7variantIJN4absl12lts_2023080212AnyInvocableIFvNS4_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEEED2Ev.exit.sink.split.i.i, label %_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_116HostnameQueryArgESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt8optionalISaISt4pairIKiSt7variantIJN4absl12lts_2023080212AnyInvocableIFvNS4_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEEED2Ev.exit.sink.split.i.i: ; preds = %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEEvE7destroyISaISt4pairIKiSZ_EEEEvPT_PNS1_13map_slot_typeIiSZ_EE.exit.i.i.i, %if.then.i.i.i84
   store i8 0, ptr %_M_engaged.i.i.i, align 1
-  br label %_ZN4absl12lts_2023080218container_internal11node_handleINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS1_18hash_policy_traitsIS10_vEESaISt4pairIKiSZ_EEvED2Ev.exit
-
-_ZN4absl12lts_2023080218container_internal11node_handleINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS1_18hash_policy_traitsIS10_vEESaISt4pairIKiSZ_EEvED2Ev.exit: ; preds = %cleanup, %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEEvE7destroyISaISt4pairIKiSZ_EEEEvPT_PNS1_13map_slot_typeIiSZ_EE.exit.i.i.i, %_ZNSt8optionalISaISt4pairIKiSt7variantIJN4absl12lts_2023080212AnyInvocableIFvNS4_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEEED2Ev.exit.sink.split.i.i
-  %84 = load ptr, ptr %hostname_qa, align 8
-  %cmp.not.i86 = icmp eq ptr %84, null
-  br i1 %cmp.not.i86, label %_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_116HostnameQueryArgESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_116HostnameQueryArgEEclEPS3_.exit.i
-
-_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_116HostnameQueryArgEEclEPS3_.exit.i: ; preds = %_ZN4absl12lts_2023080218container_internal11node_handleINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS1_18hash_policy_traitsIS10_vEESaISt4pairIKiSZ_EEvED2Ev.exit
-  %query_name.i.i.i.i = getelementptr inbounds nuw i8, ptr %84, i64 16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %query_name.i.i.i.i) #26
-  call void @_ZdlPv(ptr noundef nonnull %84) #29
   br label %_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_116HostnameQueryArgESt14default_deleteIS3_EED2Ev.exit
 
-_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_116HostnameQueryArgESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZN4absl12lts_2023080218container_internal11node_handleINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS1_18hash_policy_traitsIS10_vEESaISt4pairIKiSZ_EEvED2Ev.exit, %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_116HostnameQueryArgEEclEPS3_.exit.i
+_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_116HostnameQueryArgESt14default_deleteIS3_EED2Ev.exit: ; preds = %cleanup, %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEEvE7destroyISaISt4pairIKiSZ_EEEEvPT_PNS1_13map_slot_typeIiSZ_EE.exit.i.i.i, %_ZNSt8optionalISaISt4pairIKiSt7variantIJN4absl12lts_2023080212AnyInvocableIFvNS4_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEEED2Ev.exit.sink.split.i.i
+  %query_name.i.i.i.i = getelementptr inbounds nuw i8, ptr %arg, i64 16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %query_name.i.i.i.i) #26
+  call void @_ZdlPv(ptr noundef nonnull %arg) #29
   ret void
 
 lpad125:                                          ; preds = %for.end
-  %85 = landingpad { ptr, i32 }
+  %84 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup132
 
 lpad129:                                          ; preds = %invoke.cont126
-  %86 = landingpad { ptr, i32 }
+  %85 = landingpad { ptr, i32 }
           cleanup
-  %87 = load ptr, ptr %manager_.i.i.i.i.i.i77, align 16
-  call void %87(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp123, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp123) #26
+  %86 = load ptr, ptr %manager_.i.i.i.i.i.i77, align 16
+  call void %86(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp123, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp123) #26
   %.pre = load ptr, ptr %65, align 16
   br label %ehcleanup132
 
 ehcleanup132:                                     ; preds = %lpad129, %lpad125
-  %88 = phi ptr [ %.pre, %lpad129 ], [ %66, %lpad125 ]
-  %.pn = phi { ptr, i32 } [ %86, %lpad129 ], [ %85, %lpad125 ]
-  %tobool.not.i.i.i.i88 = icmp eq ptr %88, null
+  %87 = phi ptr [ %.pre, %lpad129 ], [ %66, %lpad125 ]
+  %.pn = phi { ptr, i32 } [ %85, %lpad129 ], [ %84, %lpad125 ]
+  %tobool.not.i.i.i.i88 = icmp eq ptr %87, null
   br i1 %tobool.not.i.i.i.i88, label %"_ZZN17grpc_event_engine12experimental12AresResolver22OnHostbynameDoneLockedEPviiP7hostentEN3$_1D2Ev.exit91", label %if.then.i.i.i.i89
 
 if.then.i.i.i.i89:                                ; preds = %ehcleanup132
-  call void @_ZdlPv(ptr noundef nonnull %88) #29
+  call void @_ZdlPv(ptr noundef nonnull %87) #29
   br label %"_ZZN17grpc_event_engine12experimental12AresResolver22OnHostbynameDoneLockedEPviiP7hostentEN3$_1D2Ev.exit91"
 
 "_ZZN17grpc_event_engine12experimental12AresResolver22OnHostbynameDoneLockedEPviiP7hostentEN3$_1D2Ev.exit91": ; preds = %ehcleanup132, %if.then.i.i.i.i89
-  %89 = load ptr, ptr %manager_5.i.i.i70, align 16
-  call void %89(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(56) %ref.tmp124, ptr noundef nonnull align 16 dereferenceable(56) %ref.tmp124) #26
+  %88 = load ptr, ptr %manager_5.i.i.i70, align 16
+  call void %88(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(56) %ref.tmp124, ptr noundef nonnull align 16 dereferenceable(56) %ref.tmp124) #26
   br label %ehcleanup133
 
 ehcleanup133:                                     ; preds = %"_ZZN17grpc_event_engine12experimental12AresResolver22OnHostbynameDoneLockedEPviiP7hostentEN3$_1D2Ev.exit91", %lpad71
   %.pn18 = phi { ptr, i32 } [ %50, %lpad71 ], [ %.pn, %"_ZZN17grpc_event_engine12experimental12AresResolver22OnHostbynameDoneLockedEPviiP7hostentEN3$_1D2Ev.exit91" ]
-  %90 = load ptr, ptr %result, align 8
-  %tobool.not.i.i.i92 = icmp eq ptr %90, null
+  %89 = load ptr, ptr %result, align 8
+  %tobool.not.i.i.i92 = icmp eq ptr %89, null
   br i1 %tobool.not.i.i.i92, label %ehcleanup134, label %if.then.i.i.i93
 
 if.then.i.i.i93:                                  ; preds = %ehcleanup133
-  call void @_ZdlPv(ptr noundef nonnull %90) #29
+  call void @_ZdlPv(ptr noundef nonnull %89) #29
   br label %ehcleanup134
 
 ehcleanup134:                                     ; preds = %if.then.i.i.i93, %ehcleanup133, %ehcleanup49, %lpad22
   %.pn20.pn.pn = phi { ptr, i32 } [ %.pn20.pn, %ehcleanup49 ], [ %13, %lpad22 ], [ %.pn18, %ehcleanup133 ], [ %.pn18, %if.then.i.i.i93 ]
-  %91 = load ptr, ptr %manager_5.i.i.i, align 16
-  call void %91(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %callback, ptr noundef nonnull align 16 dereferenceable(32) %callback) #26
+  %90 = load ptr, ptr %manager_5.i.i.i, align 16
+  call void %90(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %callback, ptr noundef nonnull align 16 dereferenceable(32) %callback) #26
   br label %ehcleanup136
 
 ehcleanup136:                                     ; preds = %ehcleanup134, %lpad5
   %.pn24 = phi { ptr, i32 } [ %4, %lpad5 ], [ %.pn20.pn.pn, %ehcleanup134 ]
-  %92 = load i8, ptr %_M_engaged.i.i.i, align 1
-  %tobool.i.i.i.i.i.i97 = trunc i8 %92 to i1
+  %91 = load i8, ptr %_M_engaged.i.i.i, align 1
+  %tobool.i.i.i.i.i.i97 = trunc i8 %91 to i1
   br i1 %tobool.i.i.i.i.i.i97, label %if.then.i.i.i98, label %ehcleanup138
 
 if.then.i.i.i98:                                  ; preds = %ehcleanup136
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i99 = getelementptr inbounds nuw i8, ptr %nh, i64 64
-  %93 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i99, align 16
-  %cmp.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i100 = icmp eq i8 %93, -1
+  %92 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i99, align 16
+  %cmp.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i100 = icmp eq i8 %92, -1
   br i1 %cmp.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i100, label %_ZNSt8optionalISaISt4pairIKiSt7variantIJN4absl12lts_2023080212AnyInvocableIFvNS4_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEEED2Ev.exit.sink.split.i.i106, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEEvE7destroyISaISt4pairIKiSZ_EEEEvPT_PNS1_13map_slot_typeIiSZ_EE.exit.i.i.i101
 
 _ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEEvE7destroyISaISt4pairIKiSZ_EEEEvPT_PNS1_13map_slot_typeIiSZ_EE.exit.i.i.i101: ; preds = %if.then.i.i.i98
   %second.i.i.i.i.i.i.i.i.i102 = getelementptr inbounds nuw i8, ptr %nh, i64 32
   %manager_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i103 = getelementptr inbounds nuw i8, ptr %nh, i64 48
-  %94 = load ptr, ptr %manager_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i103, align 16
-  call void %94(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(33) %second.i.i.i.i.i.i.i.i.i102, ptr noundef nonnull align 16 dereferenceable(33) %second.i.i.i.i.i.i.i.i.i102) #26
+  %93 = load ptr, ptr %manager_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i103, align 16
+  call void %93(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(33) %second.i.i.i.i.i.i.i.i.i102, ptr noundef nonnull align 16 dereferenceable(33) %second.i.i.i.i.i.i.i.i.i102) #26
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i99, align 16
   %.pre.i.i.i104 = load i8, ptr %_M_engaged.i.i.i, align 1
   %.pre.i105 = trunc i8 %.pre.i.i.i104 to i1

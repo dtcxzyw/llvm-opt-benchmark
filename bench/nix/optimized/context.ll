@@ -5269,7 +5269,7 @@ define linkonce_odr void @_ZNK2rc3GenINS_6detail3AnyEE7GenImplINS_3gen6detail6Ma
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #23
+  call void @__clang_call_terminate(ptr %17) #23, !noalias !41
   unreachable
 
 _ZN2rc10ShrinkableIN3nix9StorePathEED2Ev.exit5.i: ; preds = %11, %8
@@ -5536,7 +5536,7 @@ define linkonce_odr void @_ZNK2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplIN
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  %14 = call ptr @__cxa_begin_catch(ptr %13) #21
+  %14 = call ptr @__cxa_begin_catch(ptr %13) #21, !noalias !67
   store ptr null, ptr %3, align 8, !alias.scope !70, !noalias !67
   invoke void @__cxa_end_catch()
           to label %_ZNK2rc10ShrinkableIN3nix9StorePathEE7shrinksEv.exit.i unwind label %15, !noalias !67
@@ -5545,7 +5545,7 @@ define linkonce_odr void @_ZNK2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplIN
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #23
+  call void @__clang_call_terminate(ptr %17) #23, !noalias !67
   unreachable
 
 _ZNK2rc10ShrinkableIN3nix9StorePathEE7shrinksEv.exit.i: ; preds = %11, %2
@@ -5852,7 +5852,7 @@ _ZN2rc3SeqINS_10ShrinkableIN3nix9StorePathEEEED2Ev.exit: ; preds = %_ZNKSt14defa
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #23
+  call void @__clang_call_terminate(ptr %43) #23, !noalias !84
   unreachable
 
 _ZN2rc10ShrinkableINS_6detail3AnyEED2Ev.exit:     ; preds = %32
@@ -6583,7 +6583,7 @@ define linkonce_odr void @_ZNK2rc3GenIN3nix20NixStringContextElem7DrvDeepEE7GenI
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #23
+  tail call void @__clang_call_terminate(ptr %12) #23, !noalias !119
   unreachable
 
 _ZNK2rc2fn8ConstantINS_10ShrinkableIN3nix20NixStringContextElem7DrvDeepEEEEclIJRKNS_6RandomERiEEES6_DpOT_.exit: ; preds = %4
@@ -8505,7 +8505,7 @@ define linkonce_odr void @_ZNK2rc3GenINS_6detail3AnyEE7GenImplINS_3gen6detail6Ma
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #23
+  call void @__clang_call_terminate(ptr %17) #23, !noalias !207
   unreachable
 
 _ZN2rc10ShrinkableIhED2Ev.exit5.i:                ; preds = %11, %8
@@ -8746,7 +8746,7 @@ define linkonce_odr void @_ZNK2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplIN
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  %14 = call ptr @__cxa_begin_catch(ptr %13) #21
+  %14 = call ptr @__cxa_begin_catch(ptr %13) #21, !noalias !230
   store ptr null, ptr %3, align 8, !alias.scope !233, !noalias !230
   invoke void @__cxa_end_catch()
           to label %_ZNK2rc10ShrinkableIhE7shrinksEv.exit.i unwind label %15, !noalias !230
@@ -8755,7 +8755,7 @@ define linkonce_odr void @_ZNK2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplIN
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #23
+  call void @__clang_call_terminate(ptr %17) #23, !noalias !230
   unreachable
 
 _ZNK2rc10ShrinkableIhE7shrinksEv.exit.i:          ; preds = %11, %2
@@ -9059,7 +9059,7 @@ _ZN2rc3SeqINS_10ShrinkableIhEEED2Ev.exit:         ; preds = %_ZNKSt14default_del
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #23
+  call void @__clang_call_terminate(ptr %43) #23, !noalias !247
   unreachable
 
 _ZN2rc10ShrinkableINS_6detail3AnyEED2Ev.exit:     ; preds = %32
@@ -9732,7 +9732,7 @@ define linkonce_odr void @_ZNK2rc3GenINS_6detail3AnyEE7GenImplINS_3gen6detail6Ma
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #23
+  call void @__clang_call_terminate(ptr %17) #23, !noalias !262
   unreachable
 
 _ZN2rc10ShrinkableIN3nix17DerivedPathOpaqueEED2Ev.exit5.i: ; preds = %11, %8
@@ -9999,7 +9999,7 @@ define linkonce_odr void @_ZNK2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplIN
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  %14 = call ptr @__cxa_begin_catch(ptr %13) #21
+  %14 = call ptr @__cxa_begin_catch(ptr %13) #21, !noalias !288
   store ptr null, ptr %3, align 8, !alias.scope !291, !noalias !288
   invoke void @__cxa_end_catch()
           to label %_ZNK2rc10ShrinkableIN3nix17DerivedPathOpaqueEE7shrinksEv.exit.i unwind label %15, !noalias !288
@@ -10008,7 +10008,7 @@ define linkonce_odr void @_ZNK2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplIN
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #23
+  call void @__clang_call_terminate(ptr %17) #23, !noalias !288
   unreachable
 
 _ZNK2rc10ShrinkableIN3nix17DerivedPathOpaqueEE7shrinksEv.exit.i: ; preds = %11, %2
@@ -10312,7 +10312,7 @@ _ZN2rc3SeqINS_10ShrinkableIN3nix17DerivedPathOpaqueEEEED2Ev.exit: ; preds = %_ZN
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #23
+  call void @__clang_call_terminate(ptr %43) #23, !noalias !305
   unreachable
 
 _ZN2rc10ShrinkableINS_6detail3AnyEED2Ev.exit:     ; preds = %32
@@ -11151,7 +11151,7 @@ define linkonce_odr void @_ZNK2rc3GenIN3nix20NixStringContextElemEE7GenImplINS_2
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #23
+  tail call void @__clang_call_terminate(ptr %12) #23, !noalias !347
   unreachable
 
 _ZNK2rc2fn8ConstantINS_10ShrinkableIN3nix20NixStringContextElemEEEEclIJRKNS_6RandomERiEEES5_DpOT_.exit: ; preds = %4
@@ -11614,7 +11614,7 @@ define linkonce_odr void @_ZNK2rc3GenINS_6detail3AnyEE7GenImplINS_3gen6detail6Ma
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #23
+  call void @__clang_call_terminate(ptr %17) #23, !noalias !350
   unreachable
 
 _ZN2rc10ShrinkableIN3nix20NixStringContextElem7DrvDeepEED2Ev.exit5.i: ; preds = %11, %8
@@ -11881,7 +11881,7 @@ define linkonce_odr void @_ZNK2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplIN
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  %14 = call ptr @__cxa_begin_catch(ptr %13) #21
+  %14 = call ptr @__cxa_begin_catch(ptr %13) #21, !noalias !376
   store ptr null, ptr %3, align 8, !alias.scope !379, !noalias !376
   invoke void @__cxa_end_catch()
           to label %_ZNK2rc10ShrinkableIN3nix20NixStringContextElem7DrvDeepEE7shrinksEv.exit.i unwind label %15, !noalias !376
@@ -11890,7 +11890,7 @@ define linkonce_odr void @_ZNK2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplIN
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #23
+  call void @__clang_call_terminate(ptr %17) #23, !noalias !376
   unreachable
 
 _ZNK2rc10ShrinkableIN3nix20NixStringContextElem7DrvDeepEE7shrinksEv.exit.i: ; preds = %11, %2
@@ -12194,7 +12194,7 @@ _ZN2rc3SeqINS_10ShrinkableIN3nix20NixStringContextElem7DrvDeepEEEED2Ev.exit: ; p
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #23
+  call void @__clang_call_terminate(ptr %43) #23, !noalias !393
   unreachable
 
 _ZN2rc10ShrinkableINS_6detail3AnyEED2Ev.exit:     ; preds = %32
@@ -12925,7 +12925,7 @@ define linkonce_odr void @_ZNK2rc3GenINS_6detail3AnyEE7GenImplINS_3gen6detail6Ma
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #23
+  call void @__clang_call_terminate(ptr %17) #23, !noalias !408
   unreachable
 
 _ZN2rc10ShrinkableIN3nix22SingleDerivedPathBuiltEED2Ev.exit5.i: ; preds = %11, %8
@@ -13156,7 +13156,7 @@ define linkonce_odr void @_ZNK2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplIN
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  %14 = call ptr @__cxa_begin_catch(ptr %13) #21
+  %14 = call ptr @__cxa_begin_catch(ptr %13) #21, !noalias !428
   store ptr null, ptr %3, align 8, !alias.scope !431, !noalias !428
   invoke void @__cxa_end_catch()
           to label %_ZNK2rc10ShrinkableIN3nix22SingleDerivedPathBuiltEE7shrinksEv.exit.i unwind label %15, !noalias !428
@@ -13165,7 +13165,7 @@ define linkonce_odr void @_ZNK2rc10ShrinkableINS_6detail3AnyEE14ShrinkableImplIN
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #23
+  call void @__clang_call_terminate(ptr %17) #23, !noalias !428
   unreachable
 
 _ZNK2rc10ShrinkableIN3nix22SingleDerivedPathBuiltEE7shrinksEv.exit.i: ; preds = %11, %2
@@ -13584,7 +13584,7 @@ _ZN2rc3SeqINS_10ShrinkableIN3nix22SingleDerivedPathBuiltEEEED2Ev.exit: ; preds =
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #23
+  call void @__clang_call_terminate(ptr %43) #23, !noalias !448
   unreachable
 
 _ZN2rc10ShrinkableINS_6detail3AnyEED2Ev.exit:     ; preds = %32

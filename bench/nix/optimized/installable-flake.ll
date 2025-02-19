@@ -3898,7 +3898,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %470 = extractvalue { ptr, ptr } %467, 0
   store ptr %7, ptr %6, align 8, !noalias !38
   %471 = invoke ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_M_insert_IRKS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSJ_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %470, ptr noundef nonnull %468, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.011.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %472 unwind label %475
+          to label %472 unwind label %475, !noalias !38
 
 472:                                              ; preds = %469, %.noexc.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !38
@@ -4173,7 +4173,7 @@ _ZNSt10shared_ptrIN3nix10eval_cache10AttrCursorEED2Ev.exit49.i.i.i.i.i.i: ; pred
   %594 = extractvalue { ptr, ptr } %591, 0
   store ptr %7, ptr %5, align 8, !noalias !38
   %595 = invoke ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_M_insert_IS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSH_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %594, ptr noundef nonnull %592, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %596 unwind label %606
+          to label %596 unwind label %606, !noalias !38
 
 596:                                              ; preds = %593, %.noexc55.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !38

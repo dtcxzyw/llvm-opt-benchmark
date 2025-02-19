@@ -10578,17 +10578,11 @@ _ZNSt10unique_ptrIN4cvc58internal13SkolemManagerESt14default_deleteIS2_EED2Ev.ex
 .loopexit.loopexit:                               ; preds = %.critedge
   %lpad.loopexit339 = landingpad { ptr, i32 }
           catch ptr null
-  br label %.loopexit
+  br label %.body
 
 .loopexit.loopexit.split-lp:                      ; preds = %252, %_ZNK4cvc58internal11NodeManager20safeToReclaimZombiesEv.exit.i, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.loopexit.loopexit.split-lp, %.loopexit.loopexit
-  %434 = phi ptr [ %.ph, %.loopexit.loopexit ], [ %241, %.loopexit.loopexit.split-lp ]
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit339, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.loopexit.split-lp ]
-  store ptr %434, ptr %235, align 8
   br label %.body
 
 .loopexit.split-lp.loopexit:                      ; preds = %88, %75, %62
@@ -10601,10 +10595,10 @@ _ZNSt10unique_ptrIN4cvc58internal13SkolemManagerESt14default_deleteIS2_EED2Ev.ex
           catch ptr null
   br label %.body
 
-.body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %263, %46
-  %eh.lpad-body = phi { ptr, i32 } [ %47, %46 ], [ %264, %263 ], [ %lpad.phi, %.loopexit ], [ %lpad.loopexit330, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp331, %.loopexit.split-lp.loopexit.split-lp ]
-  %435 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %435) #34
+.body:                                            ; preds = %.loopexit.loopexit, %.loopexit.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %263, %46
+  %eh.lpad-body = phi { ptr, i32 } [ %47, %46 ], [ %264, %263 ], [ %lpad.loopexit330, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp331, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit339, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.loopexit.split-lp ]
+  %434 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  call void @__clang_call_terminate(ptr %434) #34
   unreachable
 }
 
@@ -26104,7 +26098,6 @@ _ZNSt6vectorISt10unique_ptrIN4cvc58internal6OracleESt14default_deleteIS3_EESaIS6
   br label %_ZNSt10unique_ptrIN4cvc58internal6OracleESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6OracleESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6OracleESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit, %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6OracleESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread
-  store ptr null, ptr %11, align 8, !tbaa !139
   %149 = load ptr, ptr %91, align 8, !tbaa !141
   %.not.i30 = icmp eq ptr %149, null
   br i1 %.not.i30, label %_ZNSt14_Function_baseD2Ev.exit, label %150

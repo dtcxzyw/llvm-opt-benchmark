@@ -4202,7 +4202,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35HdXformSchemaTokens_St
   %349 = landingpad { ptr, i32 }
           catch ptr null
   %350 = extractvalue { ptr, i32 } %349, 0
-  %351 = call ptr @__cxa_begin_catch(ptr %350) #23
+  %351 = call ptr @__cxa_begin_catch(ptr %350) #23, !noalias !46
   %352 = load ptr, ptr %344, align 8, !noalias !46
   %353 = getelementptr inbounds nuw i8, ptr %352, i64 8
   %354 = load ptr, ptr %353, align 8, !noalias !46
@@ -4220,7 +4220,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35HdXformSchemaTokens_St
   %358 = landingpad { ptr, i32 }
           catch ptr null
   %359 = extractvalue { ptr, i32 } %358, 0
-  call void @__clang_call_terminate(ptr %359) #25
+  call void @__clang_call_terminate(ptr %359) #25, !noalias !46
   unreachable
 
 360:                                              ; preds = %348
@@ -4852,7 +4852,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35HdXformSchemaTokens_St
   %640 = landingpad { ptr, i32 }
           catch ptr null
   %641 = extractvalue { ptr, i32 } %640, 0
-  %642 = call ptr @__cxa_begin_catch(ptr %641) #23
+  %642 = call ptr @__cxa_begin_catch(ptr %641) #23, !noalias !49
   %643 = load ptr, ptr %635, align 8, !noalias !49
   %644 = getelementptr inbounds nuw i8, ptr %643, i64 8
   %645 = load ptr, ptr %644, align 8, !noalias !49
@@ -4870,7 +4870,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35HdXformSchemaTokens_St
   %649 = landingpad { ptr, i32 }
           catch ptr null
   %650 = extractvalue { ptr, i32 } %649, 0
-  call void @__clang_call_terminate(ptr %650) #25
+  call void @__clang_call_terminate(ptr %650) #25, !noalias !49
   unreachable
 
 651:                                              ; preds = %639
@@ -6202,7 +6202,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35HdXformSchemaTokens_St
   %1157 = landingpad { ptr, i32 }
           catch ptr null
   %1158 = extractvalue { ptr, i32 } %1157, 0
-  %1159 = call ptr @__cxa_begin_catch(ptr %1158) #23
+  %1159 = call ptr @__cxa_begin_catch(ptr %1158) #23, !noalias !52
   %1160 = load ptr, ptr %1152, align 8, !noalias !52
   %1161 = getelementptr inbounds nuw i8, ptr %1160, i64 8
   %1162 = load ptr, ptr %1161, align 8, !noalias !52
@@ -6220,7 +6220,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35HdXformSchemaTokens_St
   %1166 = landingpad { ptr, i32 }
           catch ptr null
   %1167 = extractvalue { ptr, i32 } %1166, 0
-  call void @__clang_call_terminate(ptr %1167) #25
+  call void @__clang_call_terminate(ptr %1167) #25, !noalias !52
   unreachable
 
 1168:                                             ; preds = %1156
@@ -9038,7 +9038,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %111 = landingpad { ptr, i32 }
           catch ptr null
   %112 = extractvalue { ptr, i32 } %111, 0
-  %113 = call ptr @__cxa_begin_catch(ptr %112) #23
+  %113 = call ptr @__cxa_begin_catch(ptr %112) #23, !noalias !61
   %114 = load ptr, ptr %106, align 8, !noalias !61
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load ptr, ptr %115, align 8, !noalias !61
@@ -9056,7 +9056,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %120 = landingpad { ptr, i32 }
           catch ptr null
   %121 = extractvalue { ptr, i32 } %120, 0
-  call void @__clang_call_terminate(ptr %121) #25
+  call void @__clang_call_terminate(ptr %121) #25, !noalias !61
   unreachable
 
 122:                                              ; preds = %110
@@ -9097,7 +9097,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %134 = landingpad { ptr, i32 }
           catch ptr null
   %135 = extractvalue { ptr, i32 } %134, 0
-  %136 = call ptr @__cxa_begin_catch(ptr %135) #23
+  %136 = call ptr @__cxa_begin_catch(ptr %135) #23, !noalias !64
   %137 = load ptr, ptr %129, align 8, !noalias !64
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %139 = load ptr, ptr %138, align 8, !noalias !64
@@ -9115,7 +9115,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %143 = landingpad { ptr, i32 }
           catch ptr null
   %144 = extractvalue { ptr, i32 } %143, 0
-  call void @__clang_call_terminate(ptr %144) #25
+  call void @__clang_call_terminate(ptr %144) #25, !noalias !64
   unreachable
 
 145:                                              ; preds = %133
@@ -9198,7 +9198,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit293: ;
   %170 = landingpad { ptr, i32 }
           catch ptr null
   %171 = extractvalue { ptr, i32 } %170, 0
-  %172 = call ptr @__cxa_begin_catch(ptr %171) #23
+  %172 = call ptr @__cxa_begin_catch(ptr %171) #23, !noalias !67
   %173 = load ptr, ptr %165, align 8, !noalias !67
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %175 = load ptr, ptr %174, align 8, !noalias !67
@@ -9216,7 +9216,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit293: ;
   %179 = landingpad { ptr, i32 }
           catch ptr null
   %180 = extractvalue { ptr, i32 } %179, 0
-  call void @__clang_call_terminate(ptr %180) #25
+  call void @__clang_call_terminate(ptr %180) #25, !noalias !67
   unreachable
 
 181:                                              ; preds = %169
@@ -10093,7 +10093,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit366: ;
   %579 = landingpad { ptr, i32 }
           catch ptr null
   %580 = extractvalue { ptr, i32 } %579, 0
-  %581 = call ptr @__cxa_begin_catch(ptr %580) #23
+  %581 = call ptr @__cxa_begin_catch(ptr %580) #23, !noalias !77
   %582 = load ptr, ptr %574, align 8, !noalias !77
   %583 = getelementptr inbounds nuw i8, ptr %582, i64 8
   %584 = load ptr, ptr %583, align 8, !noalias !77
@@ -10111,7 +10111,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit366: ;
   %588 = landingpad { ptr, i32 }
           catch ptr null
   %589 = extractvalue { ptr, i32 } %588, 0
-  call void @__clang_call_terminate(ptr %589) #25
+  call void @__clang_call_terminate(ptr %589) #25, !noalias !77
   unreachable
 
 590:                                              ; preds = %578
@@ -10152,7 +10152,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit366: ;
   %602 = landingpad { ptr, i32 }
           catch ptr null
   %603 = extractvalue { ptr, i32 } %602, 0
-  %604 = call ptr @__cxa_begin_catch(ptr %603) #23
+  %604 = call ptr @__cxa_begin_catch(ptr %603) #23, !noalias !80
   %605 = load ptr, ptr %597, align 8, !noalias !80
   %606 = getelementptr inbounds nuw i8, ptr %605, i64 8
   %607 = load ptr, ptr %606, align 8, !noalias !80
@@ -10170,7 +10170,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit366: ;
   %611 = landingpad { ptr, i32 }
           catch ptr null
   %612 = extractvalue { ptr, i32 } %611, 0
-  call void @__clang_call_terminate(ptr %612) #25
+  call void @__clang_call_terminate(ptr %612) #25, !noalias !80
   unreachable
 
 613:                                              ; preds = %601
@@ -10253,7 +10253,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit379: ;
   %638 = landingpad { ptr, i32 }
           catch ptr null
   %639 = extractvalue { ptr, i32 } %638, 0
-  %640 = call ptr @__cxa_begin_catch(ptr %639) #23
+  %640 = call ptr @__cxa_begin_catch(ptr %639) #23, !noalias !83
   %641 = load ptr, ptr %633, align 8, !noalias !83
   %642 = getelementptr inbounds nuw i8, ptr %641, i64 8
   %643 = load ptr, ptr %642, align 8, !noalias !83
@@ -10271,7 +10271,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit379: ;
   %647 = landingpad { ptr, i32 }
           catch ptr null
   %648 = extractvalue { ptr, i32 } %647, 0
-  call void @__clang_call_terminate(ptr %648) #25
+  call void @__clang_call_terminate(ptr %648) #25, !noalias !83
   unreachable
 
 649:                                              ; preds = %637
@@ -10354,7 +10354,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit388: ;
   %674 = landingpad { ptr, i32 }
           catch ptr null
   %675 = extractvalue { ptr, i32 } %674, 0
-  %676 = call ptr @__cxa_begin_catch(ptr %675) #23
+  %676 = call ptr @__cxa_begin_catch(ptr %675) #23, !noalias !86
   %677 = load ptr, ptr %669, align 8, !noalias !86
   %678 = getelementptr inbounds nuw i8, ptr %677, i64 8
   %679 = load ptr, ptr %678, align 8, !noalias !86
@@ -10372,7 +10372,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit388: ;
   %683 = landingpad { ptr, i32 }
           catch ptr null
   %684 = extractvalue { ptr, i32 } %683, 0
-  call void @__clang_call_terminate(ptr %684) #25
+  call void @__clang_call_terminate(ptr %684) #25, !noalias !86
   unreachable
 
 685:                                              ; preds = %673
@@ -14953,7 +14953,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit222: ;
   %90 = landingpad { ptr, i32 }
           catch ptr null
   %91 = extractvalue { ptr, i32 } %90, 0
-  %92 = call ptr @__cxa_begin_catch(ptr %91) #23
+  %92 = call ptr @__cxa_begin_catch(ptr %91) #23, !noalias !109
   %93 = load ptr, ptr %85, align 8, !noalias !109
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load ptr, ptr %94, align 8, !noalias !109
@@ -14971,7 +14971,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit222: ;
   %99 = landingpad { ptr, i32 }
           catch ptr null
   %100 = extractvalue { ptr, i32 } %99, 0
-  call void @__clang_call_terminate(ptr %100) #25
+  call void @__clang_call_terminate(ptr %100) #25, !noalias !109
   unreachable
 
 101:                                              ; preds = %89
@@ -15051,7 +15051,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit230: ;
   %125 = landingpad { ptr, i32 }
           catch ptr null
   %126 = extractvalue { ptr, i32 } %125, 0
-  %127 = call ptr @__cxa_begin_catch(ptr %126) #23
+  %127 = call ptr @__cxa_begin_catch(ptr %126) #23, !noalias !112
   %128 = load ptr, ptr %120, align 8, !noalias !112
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %130 = load ptr, ptr %129, align 8, !noalias !112
@@ -15069,7 +15069,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit230: ;
   %134 = landingpad { ptr, i32 }
           catch ptr null
   %135 = extractvalue { ptr, i32 } %134, 0
-  call void @__clang_call_terminate(ptr %135) #25
+  call void @__clang_call_terminate(ptr %135) #25, !noalias !112
   unreachable
 
 136:                                              ; preds = %124
@@ -15815,7 +15815,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit292: ;
   %463 = landingpad { ptr, i32 }
           catch ptr null
   %464 = extractvalue { ptr, i32 } %463, 0
-  %465 = call ptr @__cxa_begin_catch(ptr %464) #23
+  %465 = call ptr @__cxa_begin_catch(ptr %464) #23, !noalias !121
   %466 = load ptr, ptr %458, align 8, !noalias !121
   %467 = getelementptr inbounds nuw i8, ptr %466, i64 8
   %468 = load ptr, ptr %467, align 8, !noalias !121
@@ -15833,7 +15833,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit292: ;
   %472 = landingpad { ptr, i32 }
           catch ptr null
   %473 = extractvalue { ptr, i32 } %472, 0
-  call void @__clang_call_terminate(ptr %473) #25
+  call void @__clang_call_terminate(ptr %473) #25, !noalias !121
   unreachable
 
 474:                                              ; preds = %462
@@ -54588,7 +54588,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i.i.i.i.i.i: ; preds 
   %90 = landingpad { ptr, i32 }
           catch ptr null
   %91 = extractvalue { ptr, i32 } %90, 0
-  tail call void @__clang_call_terminate(ptr %91) #25
+  tail call void @__clang_call_terminate(ptr %91) #25, !noalias !321
   unreachable
 
 _ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS0_7SdfPathENS0_7TfTokenENS0_6TfHashESt8equal_toIS2_ELj128EE18_InternalValueTypeES8_SaIS8_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %88, %75, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i.i.i.i.i.i
@@ -54684,7 +54684,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i.i.i.i.i.i25: ; pred
   %138 = landingpad { ptr, i32 }
           catch ptr null
   %139 = extractvalue { ptr, i32 } %138, 0
-  tail call void @__clang_call_terminate(ptr %139) #25
+  tail call void @__clang_call_terminate(ptr %139) #25, !noalias !328
   unreachable
 
 _ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapINS0_7SdfPathENS0_7TfTokenENS0_6TfHashESt8equal_toIS2_ELj128EE18_InternalValueTypeES8_SaIS8_EEvPT_PT0_RT1_.exit.i.i.i27: ; preds = %136, %123, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i.i.i.i.i.i25

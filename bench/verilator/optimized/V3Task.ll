@@ -3477,7 +3477,6 @@ _ZlsRSoPK7AstNode.exit275:                        ; preds = %633, %635
   %653 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %654 = load ptr, ptr %653, align 8
   store ptr %654, ptr %652, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   br label %_ZNSt6vectorISt4pairIP6AstVarP6AstArgESaIS5_EED2Ev.exit
 
 655:                                              ; preds = %644

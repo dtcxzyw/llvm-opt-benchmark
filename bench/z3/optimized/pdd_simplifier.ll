@@ -1075,12 +1075,7 @@ if.end8:                                          ; preds = %if.then3, %if.else,
   store i32 0, ptr %j.i, align 4
   %1 = load ptr, ptr %m_to_simplify, align 8
   %cmp.i.i = icmp eq ptr %1, null
-  br i1 %cmp.i.i, label %for.end.i.thread, label %_ZN2dd6solver13scoped_updateC2ER10ptr_vectorINS0_8equationEE.exit
-
-for.end.i.thread:                                 ; preds = %if.end8
-  %sz.i463 = getelementptr inbounds nuw i8, ptr %sc, i64 16
-  store i32 0, ptr %sz.i463, align 8
-  br label %_ZN2dd6solver13scoped_updateD2Ev.exit
+  br i1 %cmp.i.i, label %_ZN2dd6solver13scoped_updateD2Ev.exit, label %_ZN2dd6solver13scoped_updateC2ER10ptr_vectorINS0_8equationEE.exit
 
 _ZN2dd6solver13scoped_updateC2ER10ptr_vectorINS0_8equationEE.exit: ; preds = %if.end8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 -4
@@ -1693,8 +1688,8 @@ if.then.i.i308:                                   ; preds = %_ZN2dd6solver13scop
   store i32 %83, ptr %arrayidx.i.i310, align 4
   br label %_ZN2dd6solver13scoped_updateD2Ev.exit
 
-_ZN2dd6solver13scoped_updateD2Ev.exit:            ; preds = %for.end.i.thread, %for.end.i, %if.then.i.i308
-  %reduced.0.lcssa467 = phi i1 [ false, %for.end.i.thread ], [ %reduced.2, %for.end.i ], [ %reduced.0.lcssa471, %if.then.i.i308 ]
+_ZN2dd6solver13scoped_updateD2Ev.exit:            ; preds = %if.end8, %for.end.i, %if.then.i.i308
+  %reduced.0.lcssa467 = phi i1 [ %reduced.2, %for.end.i ], [ %reduced.0.lcssa471, %if.then.i.i308 ], [ false, %if.end8 ]
   %84 = load ptr, ptr %los, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %84, null
   br i1 %cmp.i.i.i.i.i.i, label %_ZN5u_mapIPN2dd6solver8equationEED2Ev.exit, label %for.cond.preheader.i.i.i.i.i.i

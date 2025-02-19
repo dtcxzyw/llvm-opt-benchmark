@@ -676,7 +676,7 @@ define hidden { ptr, i64 } @"_ZN4sec15point24EncodedPoint$LT$Size$GT$8to_bytes17
   %16 = extractvalue { ptr, i64 } %14, 1
   %17 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %17)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull readonly align 1 %0, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull readonly align 1 %0, i64 %11, i1 false), !noalias !219
   store ptr %15, ptr %4, align 8, !alias.scope !219, !noalias !224
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %16, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !219, !noalias !224

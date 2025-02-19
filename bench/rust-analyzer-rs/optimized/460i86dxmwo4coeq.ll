@@ -394,7 +394,7 @@ define internal void @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_
           filter [0 x ptr] zeroinitializer
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %18)
-          to label %23 unwind label %20
+          to label %23 unwind label %20, !noalias !130
 
 20:                                               ; preds = %16
   %21 = landingpad { ptr, i32 }
@@ -1390,7 +1390,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
   %31 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %30)
-          to label %34 unwind label %32
+          to label %34 unwind label %32, !noalias !282
 
 32:                                               ; preds = %28
   %33 = landingpad { ptr, i32 }

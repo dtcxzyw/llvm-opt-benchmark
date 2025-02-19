@@ -1271,7 +1271,7 @@ define hidden void @"_ZN2ui10components12context_menu11ContextMenu12custom_entry
 "_ZN108_$LT$settings_ui..appearance_settings_controls..UiFontFamilyControl$u20$as$u20$gpui..element..RenderOnce$GT$6render28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0fd18f00895cb7d7E.exit": ; preds = %21
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !305
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !301
-  call void @_ZN8settings14settings_store13SettingsStore20update_settings_file17h7a682291ce79f997E(ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %25, ptr noundef nonnull %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %23, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
+  call void @_ZN8settings14settings_store13SettingsStore20update_settings_file17h7a682291ce79f997E(ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %25, ptr noundef nonnull %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %23, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4), !noalias !284
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !305
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !299
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !299
@@ -2093,7 +2093,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 _ZN4core3ops8function6FnOnce9call_once17h89030274f6a65227E.exit: ; preds = %3
-  tail call void @_ZN8settings14settings_store13SettingsStore20update_settings_file17h9f4df6cd05e9eb49E(ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %11, ptr noundef nonnull %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %9, float noundef %5)
+  tail call void @_ZN8settings14settings_store13SettingsStore20update_settings_file17h9f4df6cd05e9eb49E(ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %11, ptr noundef nonnull %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %9, float noundef %5), !noalias !513
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !516
   ret void
 }
@@ -2271,7 +2271,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 _ZN4core3ops8function6FnOnce9call_once17hadbf3088e4ebf6a4E.exit: ; preds = %3
   %20 = fsub float %5, %6
-  tail call void @_ZN8settings14settings_store13SettingsStore20update_settings_file17h4a224f16f5b5a142E(ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %12, ptr noundef nonnull %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %10, float noundef %20)
+  tail call void @_ZN8settings14settings_store13SettingsStore20update_settings_file17h4a224f16f5b5a142E(ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %12, ptr noundef nonnull %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %10, float noundef %20), !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !605
   ret void
 }
@@ -2515,7 +2515,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 _ZN4core3ops8function6FnOnce9call_once17h55b024fcb2bdeb02E.exit: ; preds = %3
   %20 = fadd float %5, %6
-  tail call void @_ZN8settings14settings_store13SettingsStore20update_settings_file17h4a224f16f5b5a142E(ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %12, ptr noundef nonnull %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %10, float noundef %20)
+  tail call void @_ZN8settings14settings_store13SettingsStore20update_settings_file17h4a224f16f5b5a142E(ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %12, ptr noundef nonnull %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %10, float noundef %20), !noalias !736
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !737
   ret void
 }
@@ -8380,7 +8380,7 @@ attributes #40 = { nounwind }
 !373 = distinct !{!373, !372, !"_ZN8settings13settings_file20update_settings_file17h473b8f4d50fac76eE: argument 1"}
 !374 = distinct !{!374, !372, !"_ZN8settings13settings_file20update_settings_file17h473b8f4d50fac76eE: argument 2"}
 !375 = !{!374, !365}
-!376 = !{!377, !379, !371, !373, !374}
+!376 = !{!377, !379, !371, !373, !374, !365}
 !377 = distinct !{!377, !378, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6e2fa6da80731629E.llvm.10879722225161984294: argument 0"}
 !378 = distinct !{!378, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6e2fa6da80731629E.llvm.10879722225161984294"}
 !379 = distinct !{!379, !380, !"_ZN4core3ptr59drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$fs..Fs$GT$$GT$17h6d1647b6466d9515E.llvm.10879722225161984294: argument 0"}
@@ -8532,7 +8532,7 @@ attributes #40 = { nounwind }
 !525 = distinct !{!525, !526, !"_ZN8settings13settings_file20update_settings_file17h2c2697ffa0d15436E: argument 0"}
 !526 = distinct !{!526, !"_ZN8settings13settings_file20update_settings_file17h2c2697ffa0d15436E"}
 !527 = distinct !{!527, !526, !"_ZN8settings13settings_file20update_settings_file17h2c2697ffa0d15436E: argument 1"}
-!528 = !{!529, !531, !525, !527}
+!528 = !{!529, !531, !525, !527, !514}
 !529 = distinct !{!529, !530, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6e2fa6da80731629E.llvm.10879722225161984294: argument 0"}
 !530 = distinct !{!530, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6e2fa6da80731629E.llvm.10879722225161984294"}
 !531 = distinct !{!531, !532, !"_ZN4core3ptr59drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$fs..Fs$GT$$GT$17h6d1647b6466d9515E.llvm.10879722225161984294: argument 0"}
@@ -8616,7 +8616,7 @@ attributes #40 = { nounwind }
 !609 = distinct !{!609, !610, !"_ZN8settings13settings_file20update_settings_file17h62018fa76bda0620E: argument 0"}
 !610 = distinct !{!610, !"_ZN8settings13settings_file20update_settings_file17h62018fa76bda0620E"}
 !611 = distinct !{!611, !610, !"_ZN8settings13settings_file20update_settings_file17h62018fa76bda0620E: argument 1"}
-!612 = !{!613, !615, !609, !611}
+!612 = !{!613, !615, !609, !611, !599}
 !613 = distinct !{!613, !614, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6e2fa6da80731629E.llvm.10879722225161984294: argument 0"}
 !614 = distinct !{!614, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6e2fa6da80731629E.llvm.10879722225161984294"}
 !615 = distinct !{!615, !616, !"_ZN4core3ptr59drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$fs..Fs$GT$$GT$17h6d1647b6466d9515E.llvm.10879722225161984294: argument 0"}
@@ -8748,7 +8748,7 @@ attributes #40 = { nounwind }
 !741 = distinct !{!741, !742, !"_ZN8settings13settings_file20update_settings_file17h62018fa76bda0620E: argument 0"}
 !742 = distinct !{!742, !"_ZN8settings13settings_file20update_settings_file17h62018fa76bda0620E"}
 !743 = distinct !{!743, !742, !"_ZN8settings13settings_file20update_settings_file17h62018fa76bda0620E: argument 1"}
-!744 = !{!745, !747, !741, !743}
+!744 = !{!745, !747, !741, !743, !731}
 !745 = distinct !{!745, !746, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6e2fa6da80731629E.llvm.10879722225161984294: argument 0"}
 !746 = distinct !{!746, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6e2fa6da80731629E.llvm.10879722225161984294"}
 !747 = distinct !{!747, !748, !"_ZN4core3ptr59drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$fs..Fs$GT$$GT$17h6d1647b6466d9515E.llvm.10879722225161984294: argument 0"}

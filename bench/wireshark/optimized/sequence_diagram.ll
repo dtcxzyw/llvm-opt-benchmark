@@ -1990,7 +1990,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i.i: ; preds = %23
   %239 = landingpad { ptr, i32 }
           catch ptr null
   %240 = extractvalue { ptr, i32 } %239, 0
-  call void @__clang_call_terminate(ptr %240) #28
+  call void @__clang_call_terminate(ptr %240) #28, !noalias !26
   unreachable
 
 _Z18qSharedPointerCastI17QCPAxisTickerText13QCPAxisTickerE14QSharedPointerIT_ERKS2_IT0_E.exit: ; preds = %237, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i.i, %228
@@ -2129,7 +2129,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i.i123: ; preds = 
   %300 = landingpad { ptr, i32 }
           catch ptr null
   %301 = extractvalue { ptr, i32 } %300, 0
-  call void @__clang_call_terminate(ptr %301) #28
+  call void @__clang_call_terminate(ptr %301) #28, !noalias !37
   unreachable
 
 _Z18qSharedPointerCastI17QCPAxisTickerText13QCPAxisTickerE14QSharedPointerIT_ERKS2_IT0_E.exit128: ; preds = %298, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i.i123, %289
@@ -2252,7 +2252,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i.i140: ; preds = 
   %352 = landingpad { ptr, i32 }
           catch ptr null
   %353 = extractvalue { ptr, i32 } %352, 0
-  call void @__clang_call_terminate(ptr %353) #28
+  call void @__clang_call_terminate(ptr %353) #28, !noalias !47
   unreachable
 
 _Z18qSharedPointerCastI17QCPAxisTickerText13QCPAxisTickerE14QSharedPointerIT_ERKS2_IT0_E.exit145: ; preds = %350, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i.i140, %341
@@ -3042,7 +3042,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i.i: ; preds = %36
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #28
+  tail call void @__clang_call_terminate(ptr %43) #28, !noalias !59
   unreachable
 
 _Z18qSharedPointerCastI19QCPAxisTickerElided13QCPAxisTickerE14QSharedPointerIT_ERKS2_IT0_E.exit: ; preds = %40, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i.i, %31

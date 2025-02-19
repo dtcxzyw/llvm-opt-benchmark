@@ -5133,7 +5133,6 @@ _ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext1
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %3)
-  store i64 %6, ptr %4, align 8
   invoke void @_ZN14QReadWriteLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %_ZN12QWriteLockerD2Ev.exit unwind label %26
 
@@ -16809,7 +16808,6 @@ _ZN12QWriteLockerC2EP14QReadWriteLock.exit:
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %3)
-  store i64 %6, ptr %4, align 8
   invoke void @_ZN14QReadWriteLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %_ZN12QWriteLockerD2Ev.exit unwind label %16
 

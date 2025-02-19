@@ -48399,7 +48399,7 @@ _ZN4core4hash6Hasher9write_str17h000b580abd028e48E.exit.i19.i.i: ; preds = %391,
   %423 = tail call { ptr, i64 } @_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.4351852226057355877(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.06.i.i.i), !noalias !11323
   %424 = extractvalue { ptr, i64 } %423, 0
   %425 = extractvalue { ptr, i64 } %423, 1
-  tail call void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17hdaf3c64ce7294b9eE.llvm.4351852226057355877"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %424, i64 noundef %425)
+  tail call void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17hdaf3c64ce7294b9eE.llvm.4351852226057355877"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %424, i64 noundef %425), !noalias !11230
   %426 = load i64, ptr %1, align 8, !alias.scope !11324, !noalias !11329, !noundef !10
   %427 = tail call i64 @llvm.fshl.i64(i64 %426, i64 %426, i64 5)
   %428 = xor i64 %427, 255
@@ -65870,11 +65870,11 @@ default.unreachable:                              ; preds = %16
   %.sroa.415.1.i = phi i32 [ %42, %40 ], [ %29, %27 ], [ %22, %20 ], [ %.sroa.415.037.i, %34 ]
   %.sroa.716.1.i = phi ptr [ %.sroa.716.039.i, %40 ], [ %33, %27 ], [ %26, %20 ], [ %36, %34 ]
   %43 = getelementptr inbounds nuw [0 x { [2 x i64] }], ptr %9, i64 0, i64 %.sroa.7.036.i
-  store i32 %19, ptr %43, align 8
+  store i32 %19, ptr %43, align 8, !noalias !15423
   %.sroa.06.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %43, i64 4
-  store i32 %.sroa.415.1.i, ptr %.sroa.06.sroa.4.0..sroa_idx.i, align 4
+  store i32 %.sroa.415.1.i, ptr %.sroa.06.sroa.4.0..sroa_idx.i, align 4, !noalias !15423
   %.sroa.06.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store ptr %.sroa.716.1.i, ptr %.sroa.06.sroa.5.0..sroa_idx.i, align 8
+  store ptr %.sroa.716.1.i, ptr %.sroa.06.sroa.5.0..sroa_idx.i, align 8, !noalias !15423
   %44 = icmp eq i64 %14, 0
   br i1 %44, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h3c524bf2ab35f54dE.llvm.10169251571672223956.exit", label %.lr.ph.i
 
@@ -65953,7 +65953,7 @@ define hidden { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$
 
 "_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd339d187ea6221c7E.exit.i": ; preds = %20, %16
   %24 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %.sroa.7.027.i
-  store ptr %.sroa.6.0.val.i, ptr %24, align 8
+  store ptr %.sroa.6.0.val.i, ptr %24, align 8, !noalias !15429
   %25 = icmp eq i64 %14, 0
   br i1 %25, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h80ae8a3d21603c41E.llvm.10169251571672223956.exit", label %.lr.ph.i
 
@@ -65996,7 +65996,7 @@ define hidden { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
   %10 = shl i64 %5, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %8, ptr nonnull readonly align 4 %3, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %8, ptr nonnull readonly align 4 %3, i64 %10, i1 false), !noalias !15430
   store i64 %7, ptr %2, align 8, !alias.scope !15430, !noalias !15435
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !15430, !noalias !15435
@@ -66020,7 +66020,7 @@ define hidden { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$
   %8 = extractvalue { i64, ptr } %6, 1
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull readonly align 1 %3, i64 %5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull readonly align 1 %3, i64 %5, i1 false), !noalias !15436
   store i64 %7, ptr %2, align 8, !alias.scope !15436, !noalias !15441
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !15436, !noalias !15441
@@ -66079,9 +66079,9 @@ define hidden { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$
   %22 = add nuw nsw i64 %.sroa.7.032.i, 1
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.018.033.i, i64 16
   %24 = getelementptr inbounds nuw [0 x { [2 x i64] }], ptr %9, i64 0, i64 %.sroa.7.032.i
-  store ptr %.sroa.6.0.val.i, ptr %24, align 8
+  store ptr %.sroa.6.0.val.i, ptr %24, align 8, !noalias !15452
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i32 %.sroa.6.0.val17.i, ptr %25, align 8
+  store i32 %.sroa.6.0.val17.i, ptr %25, align 8, !noalias !15452
   %26 = icmp eq i64 %14, 0
   br i1 %26, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h11e46d7a49b8a9d8E.llvm.10169251571672223956.exit", label %.lr.ph.i
 

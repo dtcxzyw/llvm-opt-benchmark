@@ -19704,10 +19704,6 @@ ehcleanup:                                        ; preds = %lpad142, %lpad136
 
 invoke.cont.i:                                    ; preds = %if.end125, %invoke.cont127, %invoke.cont53
   %call.i.i.i20 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #34
-  %sub.i.i.i.i = sub i64 %call.i.i.i20, %call.i.i.i
-  %m_elapsed.i.i = getelementptr inbounds nuw i8, ptr %_rprt, i64 16
-  store i64 %sub.i.i.i.i, ptr %m_elapsed.i.i, align 8
-  store i8 0, ptr %m_running.i.i, align 8
   invoke void @_ZN3sat6solver9log_statsEv(ptr noundef nonnull align 8 dereferenceable(4408) %this)
           to label %cleanup.cont unwind label %terminate.lpad.i
 
@@ -22100,7 +22096,7 @@ lpad16:                                           ; preds = %_ZNK6vectorI5lboolL
 
 for.body.i.i18:                                   ; preds = %invoke.cont44, %invoke.cont35
   invoke void @_ZN8reslimit9pop_childEv(ptr noundef nonnull align 8 dereferenceable(40) %20)
-          to label %_ZN13scoped_limitsD2Ev.exit unwind label %terminate.lpad.i
+          to label %cleanup unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %for.body.i.i18
   %42 = landingpad { ptr, i32 }
@@ -22109,12 +22105,8 @@ terminate.lpad.i:                                 ; preds = %for.body.i.i18
   call void @__clang_call_terminate(ptr %43) #35
   unreachable
 
-_ZN13scoped_limitsD2Ev.exit:                      ; preds = %for.body.i.i18
-  store i32 0, ptr %m_sz.i, align 8
-  br label %cleanup
-
-cleanup:                                          ; preds = %for.end, %_ZN13scoped_limitsD2Ev.exit
-  %retval.0 = phi i32 [ %call36, %_ZN13scoped_limitsD2Ev.exit ], [ -1, %for.end ]
+cleanup:                                          ; preds = %for.body.i.i18, %for.end
+  %retval.0 = phi i32 [ -1, %for.end ], [ %call36, %for.body.i.i18 ]
   %m_local_search.i = getelementptr inbounds nuw i8, ptr %this, i64 4152
   %44 = load ptr, ptr %m_local_search.i, align 8
   %cmp.i.i20 = icmp eq ptr %44, null

@@ -1219,7 +1219,6 @@ if.end93:                                         ; preds = %if.end85, %if.end45
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %toggleable.i, i8 0, i64 28, i1 false)
   store ptr %call95, ptr %btn, align 8, !tbaa !79
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %btn, i64 8
-  store ptr null, ptr %_M_refcount.i.i, align 8, !tbaa !72
   %call.i166 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #34
           to label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IP11button_infoEET_.exit unwind label %lpad.i
 

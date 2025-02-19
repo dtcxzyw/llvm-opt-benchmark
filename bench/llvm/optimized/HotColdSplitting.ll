@@ -3734,7 +3734,7 @@ _ZNSt10unique_ptrIN4llvm17PostDominatorTreeESt14default_deleteIS1_EED2Ev.exit: ;
   %230 = call { ptr, i64 } @_ZNK4llvm10BasicBlock16getFirstNonPHIItEv(ptr noundef nonnull align 8 dereferenceable(80) %166) #21, !noalias !278
   %.fca.0.extract.i.i.i.i = extractvalue { ptr, i64 } %230, 0
   %231 = getelementptr inbounds i8, ptr %.fca.0.extract.i.i.i.i, i64 -24
-  %232 = load i8, ptr %231, align 8, !tbaa !93
+  %232 = load i8, ptr %231, align 8, !tbaa !93, !noalias !278
   switch i8 %232, label %_ZNK4llvm10BasicBlock7isEHPadEv.exit.i.i.i [
     i8 39, label %_ZN12_GLOBAL__N_115OutliningRegion18getEntryPointScoreERN4llvm10BasicBlockEj.exit.i
     i8 81, label %_ZN12_GLOBAL__N_115OutliningRegion18getEntryPointScoreERN4llvm10BasicBlockEj.exit.i
@@ -3973,7 +3973,7 @@ _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i:   ; preds = %.lr.ph.i.i.i.i.i
   %335 = call { ptr, i64 } @_ZNK4llvm10BasicBlock16getFirstNonPHIItEv(ptr noundef nonnull align 8 dereferenceable(80) %317) #21, !noalias !278
   %.fca.0.extract.i.i.i = extractvalue { ptr, i64 } %335, 0
   %336 = getelementptr inbounds i8, ptr %.fca.0.extract.i.i.i, i64 -24
-  %337 = load i8, ptr %336, align 8, !tbaa !93
+  %337 = load i8, ptr %336, align 8, !tbaa !93, !noalias !278
   switch i8 %337, label %_ZNK4llvm10BasicBlock7isEHPadEv.exit.i.i [
     i8 39, label %.critedge.i
     i8 81, label %.critedge.i
@@ -4069,7 +4069,7 @@ _ZN12_GLOBAL__N_115mayExtractBlockERKN4llvm10BasicBlockE.exit.thread206.i: ; pre
   %384 = call { ptr, i64 } @_ZNK4llvm10BasicBlock16getFirstNonPHIItEv(ptr noundef nonnull align 8 dereferenceable(80) %317) #21, !noalias !278
   %.fca.0.extract.i.i.i63.i = extractvalue { ptr, i64 } %384, 0
   %385 = getelementptr inbounds i8, ptr %.fca.0.extract.i.i.i63.i, i64 -24
-  %386 = load i8, ptr %385, align 8, !tbaa !93
+  %386 = load i8, ptr %385, align 8, !tbaa !93, !noalias !278
   switch i8 %386, label %_ZNK4llvm10BasicBlock7isEHPadEv.exit.i.i64.i [
     i8 39, label %_ZN12_GLOBAL__N_115OutliningRegion18getEntryPointScoreERN4llvm10BasicBlockEj.exit76.thread.i
     i8 81, label %_ZN12_GLOBAL__N_115OutliningRegion18getEntryPointScoreERN4llvm10BasicBlockEj.exit76.thread.i
@@ -4217,7 +4217,7 @@ _ZNK4llvm11df_iteratorINS_7InverseIPNS_10BasicBlockEEENS_23df_iterator_default_s
   %440 = call { ptr, i64 } @_ZNK4llvm10BasicBlock16getFirstNonPHIItEv(ptr noundef nonnull align 8 dereferenceable(80) %166) #21, !noalias !278
   %.fca.0.extract.i.i80.i = extractvalue { ptr, i64 } %440, 0
   %441 = getelementptr inbounds i8, ptr %.fca.0.extract.i.i80.i, i64 -24
-  %442 = load i8, ptr %441, align 8, !tbaa !93
+  %442 = load i8, ptr %441, align 8, !tbaa !93, !noalias !278
   switch i8 %442, label %_ZNK4llvm10BasicBlock7isEHPadEv.exit.i81.i [
     i8 39, label %_ZN12_GLOBAL__N_115mayExtractBlockERKN4llvm10BasicBlockE.exit96.thread.i
     i8 81, label %_ZN12_GLOBAL__N_115mayExtractBlockERKN4llvm10BasicBlockE.exit96.thread.i
@@ -4572,7 +4572,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.i: ; preds = %573
   %584 = call { ptr, i64 } @_ZNK4llvm10BasicBlock16getFirstNonPHIItEv(ptr noundef nonnull align 8 dereferenceable(80) %564) #21, !noalias !278
   %.fca.0.extract.i.i129.i = extractvalue { ptr, i64 } %584, 0
   %585 = getelementptr inbounds i8, ptr %.fca.0.extract.i.i129.i, i64 -24
-  %586 = load i8, ptr %585, align 8, !tbaa !93
+  %586 = load i8, ptr %585, align 8, !tbaa !93, !noalias !278
   switch i8 %586, label %_ZNK4llvm10BasicBlock7isEHPadEv.exit.i130.i [
     i8 39, label %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread.i
     i8 81, label %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread.i
@@ -4649,7 +4649,7 @@ _ZN12_GLOBAL__N_115mayExtractBlockERKN4llvm10BasicBlockE.exit145.thread226.i: ; 
   %620 = call { ptr, i64 } @_ZNK4llvm10BasicBlock16getFirstNonPHIItEv(ptr noundef nonnull align 8 dereferenceable(80) %564) #21, !noalias !278
   %.fca.0.extract.i.i.i147.i = extractvalue { ptr, i64 } %620, 0
   %621 = getelementptr inbounds i8, ptr %.fca.0.extract.i.i.i147.i, i64 -24
-  %622 = load i8, ptr %621, align 8, !tbaa !93
+  %622 = load i8, ptr %621, align 8, !tbaa !93, !noalias !278
   switch i8 %622, label %_ZNK4llvm10BasicBlock7isEHPadEv.exit.i.i148.i [
     i8 39, label %_ZN12_GLOBAL__N_115OutliningRegion18getEntryPointScoreERN4llvm10BasicBlockEj.exit160.thread.i
     i8 81, label %_ZN12_GLOBAL__N_115OutliningRegion18getEntryPointScoreERN4llvm10BasicBlockEj.exit160.thread.i

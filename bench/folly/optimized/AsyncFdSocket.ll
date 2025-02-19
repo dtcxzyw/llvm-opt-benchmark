@@ -6873,7 +6873,6 @@ define linkonce_odr void @_ZN5folly9SocketFdsC2ISt6vectorINS_4FileESaIS3_EEEET_(
   store ptr %6, ptr %16, align 8, !tbaa !296, !noalias !353
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %12, ptr %17, align 8, !tbaa !298, !noalias !353
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false), !noalias !353
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 -1, ptr %18, align 8, !tbaa !348, !noalias !353
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 32

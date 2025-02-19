@@ -2715,7 +2715,7 @@ _ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_EC2IPS5_S
   %140 = load ptr, ptr %139, align 8, !tbaa !797, !noalias !796
   store ptr %61, ptr %52, align 8, !tbaa !203, !noalias !796
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull align 8 dereferenceable(48) %61) #18, !noalias !796
-  call void @_ZN5clang4ento17ConstraintManager10assumeDualEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_11DefinedSValE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.796") align 8 %55, ptr noundef nonnull align 8 dereferenceable(56) %140, ptr noundef nonnull %52, ptr %.fca.0.extract7.i.i, i8 %.fca.1.extract8.i.i) #18
+  call void @_ZN5clang4ento17ConstraintManager10assumeDualEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_11DefinedSValE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.796") align 8 %55, ptr noundef nonnull align 8 dereferenceable(56) %140, ptr noundef nonnull %52, ptr %.fca.0.extract7.i.i, i8 %.fca.1.extract8.i.i) #18, !noalias !787
   %141 = load ptr, ptr %52, align 8, !tbaa !203, !noalias !796
   %.not.i.i.i.i.i = icmp eq ptr %141, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_ED2Ev.exit.i.i, label %142
@@ -3379,7 +3379,7 @@ _ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_EC2IPS5_S
   %430 = load ptr, ptr %429, align 8, !tbaa !797, !noalias !810
   store ptr %.sroa.0160.0.i, ptr %40, align 8, !tbaa !203, !noalias !810
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0160.0.i) #18, !noalias !810
-  call void @_ZN5clang4ento17ConstraintManager10assumeDualEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_11DefinedSValE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.796") align 8 %43, ptr noundef nonnull align 8 dereferenceable(56) %430, ptr noundef nonnull %40, ptr %.fca.0.extract7.i47.i, i8 %.fca.1.extract8.i48.i) #18
+  call void @_ZN5clang4ento17ConstraintManager10assumeDualEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_11DefinedSValE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.796") align 8 %43, ptr noundef nonnull align 8 dereferenceable(56) %430, ptr noundef nonnull %40, ptr %.fca.0.extract7.i47.i, i8 %.fca.1.extract8.i48.i) #18, !noalias !804
   %431 = load ptr, ptr %40, align 8, !tbaa !203, !noalias !810
   %.not.i.i.i.i49.i = icmp eq ptr %431, null
   br i1 %.not.i.i.i.i49.i, label %_ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_ED2Ev.exitthread-pre-split.i.i, label %432
@@ -4851,7 +4851,7 @@ _ZN4llvm11SmallVectorIcLj200EED2Ev.exit.i.i.i:    ; preds = %1084, %_ZNSt10uniqu
   %1097 = load ptr, ptr %1096, align 8, !tbaa !403, !noalias !822
   %1098 = getelementptr inbounds nuw i8, ptr %1097, i64 232
   %1099 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 8
-  %1100 = load ptr, ptr %1099, align 8, !tbaa !903
+  %1100 = load ptr, ptr %1099, align 8, !tbaa !903, !noalias !822
   store ptr %592, ptr %30, align 8, !tbaa !240, !noalias !822
   store i32 0, ptr %593, align 8, !tbaa !237, !noalias !822
   store i32 10, ptr %594, align 4, !tbaa !239, !noalias !822
@@ -4859,7 +4859,7 @@ _ZN4llvm11SmallVectorIcLj200EED2Ev.exit.i.i.i:    ; preds = %1084, %_ZNSt10uniqu
   store ptr %1098, ptr %596, align 8, !tbaa !905, !noalias !822
   store ptr %1100, ptr %597, align 8, !tbaa !906, !noalias !822
   %1101 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 24
-  %1102 = load ptr, ptr %1101, align 8, !tbaa !913
+  %1102 = load ptr, ptr %1101, align 8, !tbaa !913, !noalias !822
   %1103 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122FindUninitializedField4FindEPKN5clang4ento16TypedValueRegionE(ptr noundef nonnull align 8 dereferenceable(120) %30, ptr noundef nonnull %1102), !noalias !822
   br i1 %1103, label %1104, label %.critedge.i.i.i
 

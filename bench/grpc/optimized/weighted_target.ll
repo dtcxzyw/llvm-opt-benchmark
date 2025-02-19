@@ -2275,7 +2275,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %lpad4.i.i
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #30
+  call void @__clang_call_terminate(ptr %24) #30, !noalias !16
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN9grpc_core12_GLOBAL__N_116WeightedTargetLb13WeightedChildENS7_16OrphanableDeleteEESt4lessIS5_ESaISt4pairIKS5_SC_EEED2Ev.exit.i.i: ; preds = %lpad4.i.i
@@ -5280,7 +5280,6 @@ invoke.cont151:                                   ; preds = %invoke.cont148
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp142) #29
   %channel_control_helper_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %324 = load ptr, ptr %channel_control_helper_.i, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !71)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i199)
   %call.i200204 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
           to label %call.i200.noexc unwind label %lpad153
@@ -5312,7 +5311,6 @@ if.then.i.i4.i:                                   ; preds = %.noexc.i
   %sub.i.i.i.i.i = add nsw i64 %325, -1
   %328 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %329 = atomicrmw add ptr %328, i32 1 monotonic, align 4, !noalias !71
-  store ptr %call.i200204, ptr %ref.tmp157, align 8, !alias.scope !71
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %325)
           to label %invoke.cont158 unwind label %terminate.lpad.i.i, !noalias !71
 
@@ -5320,7 +5318,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i4.i
   %330 = landingpad { ptr, i32 }
           catch ptr null
   %331 = extractvalue { ptr, i32 } %330, 0
-  call void @__clang_call_terminate(ptr %331) #30
+  call void @__clang_call_terminate(ptr %331) #30, !noalias !71
   unreachable
 
 lpad1.i:                                          ; preds = %invoke.cont.i203

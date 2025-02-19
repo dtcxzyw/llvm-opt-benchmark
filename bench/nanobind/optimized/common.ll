@@ -5002,7 +5002,6 @@ _ZN8nanobind8iteratorppEv.exit.backedge:          ; preds = %_ZN8nanobind6detail
   unreachable
 
 250:                                              ; preds = %.noexc260
-  store ptr %248, ptr %2, align 8
   %251 = load i64, ptr %55, align 8
   %252 = add nsw i64 %251, -1
   store i64 %252, ptr %55, align 8

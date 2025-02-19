@@ -8798,7 +8798,7 @@ _ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa4450
   br label %10
 
 _ZN13mini_lsm_mvcc5table8iterator15SsTableIterator19seek_to_first_inner17haa44504c65aa9814E.llvm.1550959576235908194.exit: ; preds = %1
-  call void @_ZN13mini_lsm_mvcc5block8iterator13BlockIterator24create_and_seek_to_first17h260688168a6fe290E(ptr noalias noundef nonnull sret({ { { { i64, ptr }, i64 }, i64 }, { { { i64, ptr }, i64 }, i64 }, ptr, { i64, i64 }, i64 }) align 8 captures(none) dereferenceable(96) %.sroa.5.i, ptr noundef nonnull %.fca.1.extract.i)
+  call void @_ZN13mini_lsm_mvcc5block8iterator13BlockIterator24create_and_seek_to_first17h260688168a6fe290E(ptr noalias noundef nonnull sret({ { { { i64, ptr }, i64 }, i64 }, { { { i64, ptr }, i64 }, i64 }, ptr, { i64, i64 }, i64 }) align 8 captures(none) dereferenceable(96) %.sroa.5.i, ptr noundef nonnull %.fca.1.extract.i), !noalias !1691
   %.sroa.515.8.copyload = load i64, ptr %.sroa.5.i, align 8, !noalias !1688
   %.sroa.8.8..sroa.5.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.5.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.8.8..sroa.5.i.sroa_idx, i64 88, i1 false), !noalias !1688
@@ -12109,18 +12109,18 @@ common.resume.i.thread252.i.i.i.i.i:              ; preds = %803
   unreachable
 
 358:                                              ; preds = %.noexc57.i.i.i.i.i.i.i.i.i
-  store i64 1, ptr %.fca.0.extract.i.i.i.i.i.i.i.i.i.i.i, align 8
+  store i64 1, ptr %.fca.0.extract.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2367
   %.sroa.4.0..fca.0.extract.i.sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i.i.i.i.i.i.i.i.i, i64 8
-  store i64 1, ptr %.sroa.4.0..fca.0.extract.i.sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8
+  store i64 1, ptr %.sroa.4.0..fca.0.extract.i.sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2367
   %.sroa.5.0..fca.0.extract.i.sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  store i8 0, ptr %.sroa.5.0..fca.0.extract.i.sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8
+  store i8 0, ptr %.sroa.5.0..fca.0.extract.i.sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2367
   store ptr %.fca.0.extract.i.i.i.i.i.i.i.i.i.i.i, ptr %33, align 8, !noalias !2363
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32), !noalias !2363
-  %.val.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.fca.0.extract.i.i.i.i.i.i.i.i.i.i.i, align 8, !noundef !4
+  %.val.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.fca.0.extract.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2367, !noundef !4
   %359 = icmp ne i64 %.val.i.i.i.i.i.i.i.i.i.i, 0
   call void @llvm.assume(i1 %359)
   %360 = add i64 %.val.i.i.i.i.i.i.i.i.i.i, 1
-  store i64 %360, ptr %.fca.0.extract.i.i.i.i.i.i.i.i.i.i.i, align 8
+  store i64 %360, ptr %.fca.0.extract.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2367
   %361 = icmp eq i64 %360, 0
   br i1 %361, label %362, label %_ZN5alloc2rc10RcInnerPtr10inc_strong17h4d827484c953975fE.exit.i.i.i.i.i.i.i.i.i
 
@@ -13239,7 +13239,7 @@ default.unreachable.i.i.i.i.i.i.i.i.i:            ; preds = %.noexc20.i.i.i.i.i.
           cleanup
           catch ptr null
   %714 = extractvalue { ptr, i32 } %713, 0
-  call void @_ZN3std9panicking3try8do_catch17hea1cd7674423a189E.llvm.15938600225882126526(ptr nonnull %43, ptr %714)
+  call void @_ZN3std9panicking3try8do_catch17hea1cd7674423a189E.llvm.15938600225882126526(ptr nonnull %43, ptr %714), !noalias !2338
   %715 = load ptr, ptr %43, align 8, !noalias !2334, !nonnull !4, !align !443, !noundef !4
   %716 = load ptr, ptr %299, align 8, !noalias !2334, !nonnull !4, !align !11, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43), !noalias !2334

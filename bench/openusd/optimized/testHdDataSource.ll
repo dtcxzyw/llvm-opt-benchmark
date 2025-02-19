@@ -1212,7 +1212,7 @@ define dso_local noundef zeroext i1 @_Z31TestRetainedContainerDataSourcev() loca
   %90 = landingpad { ptr, i32 }
           catch ptr null
   %91 = extractvalue { ptr, i32 } %90, 0
-  %92 = tail call ptr @__cxa_begin_catch(ptr %91) #21
+  %92 = tail call ptr @__cxa_begin_catch(ptr %91) #21, !noalias !5
   %93 = load ptr, ptr %85, align 8, !noalias !5
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load ptr, ptr %94, align 8, !noalias !5
@@ -1234,7 +1234,7 @@ common.resume:                                    ; preds = %96, %_ZN32pxrIntern
   %99 = landingpad { ptr, i32 }
           catch ptr null
   %100 = extractvalue { ptr, i32 } %99, 0
-  tail call void @__clang_call_terminate(ptr %100) #24
+  tail call void @__clang_call_terminate(ptr %100) #24, !noalias !5
   unreachable
 
 101:                                              ; preds = %89
@@ -8145,7 +8145,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_35HdXformS
   %319 = landingpad { ptr, i32 }
           catch ptr null
   %320 = extractvalue { ptr, i32 } %319, 0
-  %321 = call ptr @__cxa_begin_catch(ptr %320) #21
+  %321 = call ptr @__cxa_begin_catch(ptr %320) #21, !noalias !35
   %322 = load ptr, ptr %314, align 8, !noalias !35
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 8
   %324 = load ptr, ptr %323, align 8, !noalias !35
@@ -8163,7 +8163,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_35HdXformS
   %328 = landingpad { ptr, i32 }
           catch ptr null
   %329 = extractvalue { ptr, i32 } %328, 0
-  call void @__clang_call_terminate(ptr %329) #24
+  call void @__clang_call_terminate(ptr %329) #24, !noalias !35
   unreachable
 
 330:                                              ; preds = %318
@@ -17827,7 +17827,7 @@ define dso_local noundef zeroext i1 @_Z20TestContainerSchemasv() local_unnamed_a
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  %61 = call ptr @__cxa_begin_catch(ptr %60) #21
+  %61 = call ptr @__cxa_begin_catch(ptr %60) #21, !noalias !69
   %62 = load ptr, ptr %54, align 8, !noalias !69
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8, !noalias !69
@@ -17845,7 +17845,7 @@ define dso_local noundef zeroext i1 @_Z20TestContainerSchemasv() local_unnamed_a
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #24
+  call void @__clang_call_terminate(ptr %69) #24, !noalias !69
   unreachable
 
 70:                                               ; preds = %58
@@ -17886,7 +17886,7 @@ define dso_local noundef zeroext i1 @_Z20TestContainerSchemasv() local_unnamed_a
   %82 = landingpad { ptr, i32 }
           catch ptr null
   %83 = extractvalue { ptr, i32 } %82, 0
-  %84 = call ptr @__cxa_begin_catch(ptr %83) #21
+  %84 = call ptr @__cxa_begin_catch(ptr %83) #21, !noalias !72
   %85 = load ptr, ptr %77, align 8, !noalias !72
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8, !noalias !72
@@ -17904,7 +17904,7 @@ define dso_local noundef zeroext i1 @_Z20TestContainerSchemasv() local_unnamed_a
   %91 = landingpad { ptr, i32 }
           catch ptr null
   %92 = extractvalue { ptr, i32 } %91, 0
-  call void @__clang_call_terminate(ptr %92) #24
+  call void @__clang_call_terminate(ptr %92) #24, !noalias !72
   unreachable
 
 93:                                               ; preds = %81
@@ -17945,7 +17945,7 @@ define dso_local noundef zeroext i1 @_Z20TestContainerSchemasv() local_unnamed_a
   %105 = landingpad { ptr, i32 }
           catch ptr null
   %106 = extractvalue { ptr, i32 } %105, 0
-  %107 = call ptr @__cxa_begin_catch(ptr %106) #21
+  %107 = call ptr @__cxa_begin_catch(ptr %106) #21, !noalias !75
   %108 = load ptr, ptr %100, align 8, !noalias !75
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %110 = load ptr, ptr %109, align 8, !noalias !75
@@ -17963,7 +17963,7 @@ define dso_local noundef zeroext i1 @_Z20TestContainerSchemasv() local_unnamed_a
   %114 = landingpad { ptr, i32 }
           catch ptr null
   %115 = extractvalue { ptr, i32 } %114, 0
-  call void @__clang_call_terminate(ptr %115) #24
+  call void @__clang_call_terminate(ptr %115) #24, !noalias !75
   unreachable
 
 116:                                              ; preds = %104

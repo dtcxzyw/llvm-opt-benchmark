@@ -483,7 +483,7 @@ define internal fastcc void @_ZN6uu_env14split_iterator13SplitIterator35check_an
   %40 = extractvalue { i64, ptr } %38, 1
   %41 = icmp ne ptr %40, null
   call void @llvm.assume(i1 %41)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr align 1 %36, i64 %37, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr align 1 %36, i64 %37, i1 false), !noalias !127
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4), !noalias !127
   store i64 %39, ptr %5, align 8, !noalias !133
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -965,7 +965,7 @@ _ZN6uu_env13string_parser12StringParser22skip_until_char_or_end17h8b3d743738e497
   %164 = extractvalue { i64, ptr } %162, 1
   %165 = icmp ne ptr %164, null
   call void @llvm.assume(i1 %165)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %164, ptr noundef nonnull align 1 dereferenceable(9) @anon.6126f6c3ba55af2b6950f393ac5adac1.3, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %164, ptr noundef nonnull align 1 dereferenceable(9) @anon.6126f6c3ba55af2b6950f393ac5adac1.3, i64 9, i1 false), !noalias !246
   store i64 %157, ptr %.sroa.241.sroa.2.0..sroa.241.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !246, !noalias !249
   store i64 %163, ptr %.sroa.241.sroa.3.0..sroa.241.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !246, !noalias !249
   store ptr %164, ptr %.sroa.241.sroa.4.0..sroa.241.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !246, !noalias !249
@@ -1723,7 +1723,7 @@ _ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468
   %248 = extractvalue { i64, ptr } %246, 1
   %249 = icmp ne ptr %248, null
   call void @llvm.assume(i1 %249)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %248, ptr align 1 %244, i64 %245, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %248, ptr align 1 %244, i64 %245, i1 false), !noalias !461
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30), !noalias !455
   store i64 %247, ptr %31, align 8, !noalias !462
   store ptr %248, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !462
@@ -2119,7 +2119,7 @@ _ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468
   %354 = extractvalue { i64, ptr } %352, 1
   %355 = icmp ne ptr %354, null
   call void @llvm.assume(i1 %355)
-  store i64 7234316398501129813, ptr %354, align 1
+  store i64 7234316398501129813, ptr %354, align 1, !noalias !566
   br label %440
 
 356:                                              ; preds = %345

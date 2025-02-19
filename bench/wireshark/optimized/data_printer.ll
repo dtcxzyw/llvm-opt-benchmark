@@ -1547,7 +1547,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit457:           ; preds = %442, %_ZN17QArrayDa
   %447 = landingpad { ptr, i32 }
           catch ptr null
   %448 = extractvalue { ptr, i32 } %447, 0
-  call void @__clang_call_terminate(ptr %448) #17
+  call void @__clang_call_terminate(ptr %448) #17, !noalias !11
   unreachable
 
 _ZN14QByteArrayViewC2I10QByteArrayTnNSt9enable_ifIXsr3stdE9is_same_vIT_S1_EEbE4typeELb1EEERKS3_.exit.i: ; preds = %444
@@ -1682,7 +1682,7 @@ _ZN7QStringpLE5QChar.exit471:                     ; preds = %_ZNK5QChar7isSpaceE
   %490 = landingpad { ptr, i32 }
           catch ptr null
   %491 = extractvalue { ptr, i32 } %490, 0
-  call void @__clang_call_terminate(ptr %491) #17
+  call void @__clang_call_terminate(ptr %491) #17, !noalias !15
   unreachable
 
 _ZN7QString8fromUtf8IvEES_RK10QByteArray.exit.i:  ; preds = %487

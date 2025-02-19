@@ -1368,7 +1368,6 @@ cleanup.cont:                                     ; preds = %_ZNSt6vectorISt10un
   %modifiedSettings.i.i.i.c = getelementptr inbounds nuw i8, ptr %16, i64 32
   call void @_ZN4YAML14SettingChangesD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %modifiedSettings.i.i.i.c) #16
   call void @_ZdlPv(ptr noundef nonnull %16) #18
-  store ptr null, ptr %pFinishedGroup, align 8
   %20 = load ptr, ptr %m_groups, align 8
   %21 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i27 = icmp eq ptr %20, %21

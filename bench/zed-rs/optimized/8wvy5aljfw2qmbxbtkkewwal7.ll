@@ -179,8 +179,8 @@ define hidden void @"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$
 
 33:                                               ; preds = %13
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %35 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
-  tail call void %35(ptr noundef %21)
+  %35 = load ptr, ptr %34, align 8, !noalias !11, !nonnull !4, !noundef !4
+  tail call void %35(ptr noundef %21), !noalias !11
   br label %41
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hddda8ff67055bba3E.exit.i.i": ; preds = %29, %27
@@ -417,8 +417,8 @@ define hidden void @"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$
 
 33:                                               ; preds = %13
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %35 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
-  tail call void %35(ptr noundef %21)
+  %35 = load ptr, ptr %34, align 8, !noalias !87, !nonnull !4, !noundef !4
+  tail call void %35(ptr noundef %21), !noalias !87
   br label %41
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hddda8ff67055bba3E.exit.i.i": ; preds = %29, %27
@@ -568,8 +568,8 @@ define hidden void @"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$
 
 33:                                               ; preds = %13
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %35 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
-  tail call void %35(ptr noundef %21)
+  %35 = load ptr, ptr %34, align 8, !noalias !130, !nonnull !4, !noundef !4
+  tail call void %35(ptr noundef %21), !noalias !130
   br label %41
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hddda8ff67055bba3E.exit.i.i": ; preds = %29, %27
@@ -715,8 +715,8 @@ define hidden void @"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$
 
 33:                                               ; preds = %13
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %35 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
-  tail call void %35(ptr noundef %21)
+  %35 = load ptr, ptr %34, align 8, !noalias !173, !nonnull !4, !noundef !4
+  tail call void %35(ptr noundef %21), !noalias !173
   br label %41
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hddda8ff67055bba3E.exit.i.i": ; preds = %29, %27
@@ -856,8 +856,8 @@ define hidden { i64, ptr } @"_ZN100_$LT$futures_util..future..future..fuse..Fuse
 
 31:                                               ; preds = %11
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %33 = load ptr, ptr %32, align 8, !nonnull !4, !noundef !4
-  tail call void %33(ptr noundef %19)
+  %33 = load ptr, ptr %32, align 8, !noalias !216, !nonnull !4, !noundef !4
+  tail call void %33(ptr noundef %19), !noalias !216
   br label %39
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hddda8ff67055bba3E.exit.i.i": ; preds = %27, %25
@@ -15208,8 +15208,8 @@ define hidden void @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$a
 
 29:                                               ; preds = %9
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %31 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
-  tail call void %31(ptr noundef %17)
+  %31 = load ptr, ptr %30, align 8, !noalias !2975, !nonnull !4, !noundef !4
+  tail call void %31(ptr noundef %17), !noalias !2975
   br label %37
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hddda8ff67055bba3E.exit.i": ; preds = %25, %23
@@ -15307,8 +15307,8 @@ define hidden { i64, ptr } @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$G
 
 28:                                               ; preds = %8
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %30 = load ptr, ptr %29, align 8, !nonnull !4, !noundef !4
-  tail call void %30(ptr noundef %16)
+  %30 = load ptr, ptr %29, align 8, !noalias !2996, !nonnull !4, !noundef !4
+  tail call void %30(ptr noundef %16), !noalias !2996
   br label %36
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hddda8ff67055bba3E.exit.i": ; preds = %24, %22
@@ -15396,8 +15396,8 @@ define hidden void @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$a
 
 29:                                               ; preds = %9
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %31 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
-  tail call void %31(ptr noundef %17)
+  %31 = load ptr, ptr %30, align 8, !noalias !3014, !nonnull !4, !noundef !4
+  tail call void %31(ptr noundef %17), !noalias !3014
   br label %37
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hddda8ff67055bba3E.exit.i": ; preds = %25, %23
@@ -15502,8 +15502,8 @@ define hidden void @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$a
 
 29:                                               ; preds = %9
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %31 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
-  tail call void %31(ptr noundef %17)
+  %31 = load ptr, ptr %30, align 8, !noalias !3040, !nonnull !4, !noundef !4
+  tail call void %31(ptr noundef %17), !noalias !3040
   br label %37
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hddda8ff67055bba3E.exit.i": ; preds = %25, %23
@@ -15602,8 +15602,8 @@ define hidden void @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$a
 
 29:                                               ; preds = %9
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %31 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
-  tail call void %31(ptr noundef %17)
+  %31 = load ptr, ptr %30, align 8, !noalias !3066, !nonnull !4, !noundef !4
+  tail call void %31(ptr noundef %17), !noalias !3066
   br label %37
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hddda8ff67055bba3E.exit.i": ; preds = %25, %23
@@ -15702,8 +15702,8 @@ define hidden void @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$a
 
 29:                                               ; preds = %9
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %31 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
-  tail call void %31(ptr noundef %17)
+  %31 = load ptr, ptr %30, align 8, !noalias !3092, !nonnull !4, !noundef !4
+  tail call void %31(ptr noundef %17), !noalias !3092
   br label %37
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hddda8ff67055bba3E.exit.i": ; preds = %25, %23

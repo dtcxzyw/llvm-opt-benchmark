@@ -983,120 +983,119 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
 define internal void @"_ZNSt17_Function_handlerIFvOSt8functionIFN3gmx24ObservablesReducerStatusENS1_20ReductionRequirementEEENS1_8ArrayRefIdEEEZNS1_10init_lincsEP8_IO_FILERK10gmx_mtop_tiNS7_IKNS1_11ListOfListsIiEEEEbiiPNS1_25ObservablesReducerBuilderEE3$_0E9_M_invokeERKSt9_Any_dataS6_OS8_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) #7 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i.i.i.i.i = alloca { i64, i64 }, align 8
   %4 = alloca %"class.std::function", align 8
-  %.sroa.0.i = alloca { i64, i64 }, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, i8 0, i64 16, i1 false)
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load ptr, ptr %7, align 8
-  %.not.i.i.not.i.i.i = icmp eq ptr %8, null
+  %5 = alloca %"class.std::function", align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %9 = load ptr, ptr %8, align 8
+  %.not.i.i.not.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.not.i.i.i, label %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.i.i, label %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.i.thread.i
 
 _ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.i.i: ; preds = %3
   %.sroa.0.0.copyload.i.i = load ptr, ptr %2, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 584
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 616
-  %12 = load i8, ptr %11, align 8
-  %13 = trunc i8 %12 to i1
-  br i1 %13, label %19, label %36
+  %10 = load ptr, ptr %0, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 584
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 616
+  %13 = load i8, ptr %12, align 8
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %20, label %37
 
 _ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.i.thread.i: ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %.sroa.0.0.copyload.i5.i = load ptr, ptr %2, align 8
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.2.0.copyload.i7.i = load ptr, ptr %.sroa.2.0..sroa_idx.i6.i, align 8
-  %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 584
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 616
-  %17 = load i8, ptr %16, align 8
-  %18 = trunc i8 %17 to i1
-  br i1 %18, label %21, label %38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
+  %.sroa.0.0.copyload.i3.i = load ptr, ptr %2, align 8
+  %.sroa.2.0..sroa_idx.i4.i = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sroa.2.0.copyload.i5.i = load ptr, ptr %.sroa.2.0..sroa_idx.i4.i, align 8
+  %15 = load ptr, ptr %0, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 584
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 616
+  %18 = load i8, ptr %17, align 8
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %22, label %39
 
-19:                                               ; preds = %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.i.i
+20:                                               ; preds = %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   br label %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.i.i.i.i.i
 
-21:                                               ; preds = %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.i.thread.i
+22:                                               ; preds = %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.i.thread.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false)
   br label %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.i.i.i.i.i
 
-_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.i.i.i.i.i: ; preds = %21, %19
-  %23 = phi ptr [ %22, %21 ], [ %20, %19 ]
-  %.sroa.0.0.copyload.i1019.i = phi ptr [ %.sroa.0.0.copyload.i5.i, %21 ], [ %.sroa.0.0.copyload.i.i, %19 ]
-  %.sroa.2.0.copyload.i1317.i = phi ptr [ %.sroa.2.0.copyload.i7.i, %21 ], [ %.sroa.2.0.copyload.i.i, %19 ]
-  %24 = phi ptr [ %14, %21 ], [ %9, %19 ]
-  %25 = phi ptr [ %15, %21 ], [ %10, %19 ]
+_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.i.i.i.i.i: ; preds = %22, %20
+  %24 = phi ptr [ %23, %22 ], [ %21, %20 ]
+  %.sroa.0.0.copyload.i817.i = phi ptr [ %.sroa.0.0.copyload.i3.i, %22 ], [ %.sroa.0.0.copyload.i.i, %20 ]
+  %.sroa.2.0.copyload.i1115.i = phi ptr [ %.sroa.2.0.copyload.i5.i, %22 ], [ %.sroa.2.0.copyload.i.i, %20 ]
+  %25 = phi ptr [ %15, %22 ], [ %10, %20 ]
+  %26 = phi ptr [ %16, %22 ], [ %11, %20 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(40) %25, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(40) %26, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 600
-  %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr %26, align 8
-  store ptr %8, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %24, i64 608
-  %30 = load ptr, ptr %29, align 8
-  store ptr %30, ptr %23, align 8
-  store ptr %6, ptr %29, align 8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEaSEOS4_.exit.i.i.i.i, label %31
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 600
+  %29 = load ptr, ptr %28, align 8
+  store ptr %29, ptr %27, align 8
+  store ptr %9, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 608
+  %31 = load ptr, ptr %30, align 8
+  store ptr %31, ptr %24, align 8
+  store ptr %7, ptr %30, align 8
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %29, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEaSEOS4_.exit.i.i.i.i, label %32
 
-31:                                               ; preds = %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.i.i.i.i.i
-  %32 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
-          to label %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEaSEOS4_.exit.i.i.i.i unwind label %33
+32:                                               ; preds = %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.i.i.i.i.i
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
+          to label %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEaSEOS4_.exit.i.i.i.i unwind label %34
 
-33:                                               ; preds = %31
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %32
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #40
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #40
   unreachable
 
-_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEaSEOS4_.exit.i.i.i.i: ; preds = %31, %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.i.i.i.i.i
+_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEaSEOS4_.exit.i.i.i.i: ; preds = %32, %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %"_ZSt10__invoke_rIvRZN3gmx10init_lincsEP8_IO_FILERK10gmx_mtop_tiNS0_8ArrayRefIKNS0_11ListOfListsIiEEEEbiiPNS0_25ObservablesReducerBuilderEE3$_0JSt8functionIFNS0_24ObservablesReducerStatusENS0_20ReductionRequirementEEENS6_IdEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit"
 
-36:                                               ; preds = %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 608
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 24, i1 false)
-  store ptr %6, ptr %37, align 8
+37:                                               ; preds = %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %10, i64 608
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 24, i1 false)
+  store ptr %7, ptr %38, align 8
   br label %_ZNSt19_Optional_base_implISt8functionIFN3gmx24ObservablesReducerStatusENS1_20ReductionRequirementEEESt14_Optional_baseIS5_Lb0ELb0EEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i
 
-38:                                               ; preds = %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.i.thread.i
-  %39 = getelementptr inbounds nuw i8, ptr %14, i64 608
-  store ptr %6, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %14, i64 600
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, i64 16, i1 false)
-  store ptr %8, ptr %40, align 8
+39:                                               ; preds = %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.i.thread.i
+  %40 = getelementptr inbounds nuw i8, ptr %15, i64 608
+  store ptr %7, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %15, i64 600
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  store ptr %9, ptr %41, align 8
   br label %_ZNSt19_Optional_base_implISt8functionIFN3gmx24ObservablesReducerStatusENS1_20ReductionRequirementEEESt14_Optional_baseIS5_Lb0ELb0EEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i
 
-_ZNSt19_Optional_base_implISt8functionIFN3gmx24ObservablesReducerStatusENS1_20ReductionRequirementEEESt14_Optional_baseIS5_Lb0ELb0EEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i: ; preds = %38, %36
-  %.sroa.0.0.copyload.i926.i = phi ptr [ %.sroa.0.0.copyload.i5.i, %38 ], [ %.sroa.0.0.copyload.i.i, %36 ]
-  %.sroa.2.0.copyload.i1224.i = phi ptr [ %.sroa.2.0.copyload.i7.i, %38 ], [ %.sroa.2.0.copyload.i.i, %36 ]
-  %41 = phi ptr [ %16, %38 ], [ %11, %36 ]
-  store i8 1, ptr %41, align 8
+_ZNSt19_Optional_base_implISt8functionIFN3gmx24ObservablesReducerStatusENS1_20ReductionRequirementEEESt14_Optional_baseIS5_Lb0ELb0EEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i: ; preds = %39, %37
+  %.sroa.0.0.copyload.i724.i = phi ptr [ %.sroa.0.0.copyload.i3.i, %39 ], [ %.sroa.0.0.copyload.i.i, %37 ]
+  %.sroa.2.0.copyload.i1022.i = phi ptr [ %.sroa.2.0.copyload.i5.i, %39 ], [ %.sroa.2.0.copyload.i.i, %37 ]
+  %42 = phi ptr [ %17, %39 ], [ %12, %37 ]
+  store i8 1, ptr %42, align 8
   br label %"_ZSt10__invoke_rIvRZN3gmx10init_lincsEP8_IO_FILERK10gmx_mtop_tiNS0_8ArrayRefIKNS0_11ListOfListsIiEEEEbiiPNS0_25ObservablesReducerBuilderEE3$_0JSt8functionIFNS0_24ObservablesReducerStatusENS0_20ReductionRequirementEEENS6_IdEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit"
 
 "_ZSt10__invoke_rIvRZN3gmx10init_lincsEP8_IO_FILERK10gmx_mtop_tiNS0_8ArrayRefIKNS0_11ListOfListsIiEEEEbiiPNS0_25ObservablesReducerBuilderEE3$_0JSt8functionIFNS0_24ObservablesReducerStatusENS0_20ReductionRequirementEEENS6_IdEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit": ; preds = %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEaSEOS4_.exit.i.i.i.i, %_ZNSt19_Optional_base_implISt8functionIFN3gmx24ObservablesReducerStatusENS1_20ReductionRequirementEEESt14_Optional_baseIS5_Lb0ELb0EEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i
-  %.sroa.2.0.copyload.i11.i = phi ptr [ %.sroa.2.0.copyload.i1317.i, %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEaSEOS4_.exit.i.i.i.i ], [ %.sroa.2.0.copyload.i1224.i, %_ZNSt19_Optional_base_implISt8functionIFN3gmx24ObservablesReducerStatusENS1_20ReductionRequirementEEESt14_Optional_baseIS5_Lb0ELb0EEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i ]
-  %.sroa.0.0.copyload.i8.i = phi ptr [ %.sroa.0.0.copyload.i1019.i, %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEaSEOS4_.exit.i.i.i.i ], [ %.sroa.0.0.copyload.i926.i, %_ZNSt19_Optional_base_implISt8functionIFN3gmx24ObservablesReducerStatusENS1_20ReductionRequirementEEESt14_Optional_baseIS5_Lb0ELb0EEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i ]
-  %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 624
-  store ptr %.sroa.0.0.copyload.i8.i, ptr %43, align 8
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %42, i64 632
-  store ptr %.sroa.2.0.copyload.i11.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
+  %.sroa.2.0.copyload.i9.i = phi ptr [ %.sroa.2.0.copyload.i1115.i, %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEaSEOS4_.exit.i.i.i.i ], [ %.sroa.2.0.copyload.i1022.i, %_ZNSt19_Optional_base_implISt8functionIFN3gmx24ObservablesReducerStatusENS1_20ReductionRequirementEEESt14_Optional_baseIS5_Lb0ELb0EEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i ]
+  %.sroa.0.0.copyload.i6.i = phi ptr [ %.sroa.0.0.copyload.i817.i, %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEaSEOS4_.exit.i.i.i.i ], [ %.sroa.0.0.copyload.i724.i, %_ZNSt19_Optional_base_implISt8functionIFN3gmx24ObservablesReducerStatusENS1_20ReductionRequirementEEESt14_Optional_baseIS5_Lb0ELb0EEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i ]
+  %43 = load ptr, ptr %0, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 624
+  store ptr %.sroa.0.0.copyload.i6.i, ptr %44, align 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %43, i64 632
+  store ptr %.sroa.2.0.copyload.i9.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   ret void
 }
 

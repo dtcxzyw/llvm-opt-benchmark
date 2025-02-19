@@ -2142,7 +2142,7 @@ _ZN5ZXing7Content9push_backEh.exit68.i.i:         ; preds = %_ZN5ZXing7Content9p
 
 619:                                              ; preds = %.body.i
   %620 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
-  %621 = call ptr @__cxa_begin_catch(ptr %620) #19
+  %621 = call ptr @__cxa_begin_catch(ptr %620) #19, !noalias !24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #19, !noalias !24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(43) %10, ptr noundef nonnull align 8 dereferenceable(32) %11) #19, !noalias !24
   %622 = getelementptr inbounds nuw i8, ptr %10, i64 32

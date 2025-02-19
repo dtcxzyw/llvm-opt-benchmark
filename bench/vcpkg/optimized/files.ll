@@ -11265,7 +11265,7 @@ _ZSt11make_uniqueIN5vcpkg14RealFilesystem17ExclusiveFileLockEJRKNS0_4PathERSt10e
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #32
+  tail call void @__clang_call_terminate(ptr %19) #32, !noalias !109
   unreachable
 
 _ZSt11make_uniqueIN5vcpkg14RealFilesystem17ExclusiveFileLockEJRKNS0_4PathERSt10error_codeEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %11
@@ -11430,7 +11430,7 @@ _ZSt11make_uniqueIN5vcpkg14RealFilesystem17ExclusiveFileLockEJRKNS0_4PathERSt10e
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #32
+  tail call void @__clang_call_terminate(ptr %22) #32, !noalias !113
   unreachable
 
 _ZSt11make_uniqueIN5vcpkg14RealFilesystem17ExclusiveFileLockEJRKNS0_4PathERSt10error_codeEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %14

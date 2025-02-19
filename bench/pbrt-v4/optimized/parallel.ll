@@ -2175,7 +2175,7 @@ define dso_local void @_ZN4pbrt13ParallelFor2DERKNS_7Bounds2IiEESt8functionIFvS1
 entry:
   %__args.i = alloca %"class.pbrt::Bounds2", align 8
   %loop = alloca %"class.pbrt::ParallelForLoop2D", align 8
-  %agg.tmp12.sroa.0 = alloca { i64, i64 }, align 8
+  %agg.tmp12.sroa.0 = alloca %"class.std::_Function_base", align 8
   %lock = alloca %"class.std::unique_lock", align 8
   %0 = load ptr, ptr @_ZN4pbrt11ParallelJob10threadPoolE, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -2248,7 +2248,7 @@ _ZN4pbrt14RunningThreadsEv.exit:                  ; preds = %if.end
   %high.val.i = tail call i32 @llvm.smin.i32(i32 %conv, i32 32)
   %retval.0.i = tail call i32 @llvm.smax.i32(i32 %high.val.i, i32 1)
   %_M_invoker2.i = getelementptr inbounds nuw i8, ptr %func, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp12.sroa.0, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp12.sroa.0, i8 0, i64 24, i1 false)
   %13 = load ptr, ptr %_M_invoker2.i, align 8
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %func, i64 16
   %14 = load ptr, ptr %_M_manager.i.i.i, align 8

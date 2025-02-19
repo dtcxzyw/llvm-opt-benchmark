@@ -176791,7 +176791,6 @@ _ZN5clang15ASTRecordReader8readTypeEv.exit:       ; preds = %_ZN5clang13serializ
   %217 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %218 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %219 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %219, i8 0, i64 32, i1 false)
   %220 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store i32 0, ptr %220, align 8
   store i16 %214, ptr %8, align 8, !tbaa !1857

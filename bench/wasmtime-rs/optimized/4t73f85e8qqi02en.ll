@@ -2193,7 +2193,7 @@ _ZN12sharded_slab3tid12REGISTRATION7__getit17h0ec26cc5004e3574E.llvm.18048807938
   %48 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr173drop_in_place$LT$alloc..boxed..Box$LT$$u5b$sharded_slab..page..Shared$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$u5d$$GT$$GT$17h78bdf1b9f2e67230E"(ptr %44, i64 %45) #26
-          to label %common.resume unwind label %49
+          to label %common.resume unwind label %49, !noalias !384
 
 49:                                               ; preds = %47
   %50 = landingpad { ptr, i32 }

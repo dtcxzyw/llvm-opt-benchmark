@@ -1191,7 +1191,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %_ZN9grpc_core13RefC
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #26
+  call void @__clang_call_terminate(ptr %37) #26, !noalias !21
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12_GLOBAL__N_15CdsLb12WatcherStateESt4lessIS5_ESaISt4pairIKS5_S9_EEED2Ev.exit.i.i: ; preds = %_ZN9grpc_core13RefCountedPtrI29grpc_tls_certificate_providerED2Ev.exit22.i.i
@@ -1344,7 +1344,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i12.i
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #26
+  call void @__clang_call_terminate(ptr %59) #26, !noalias !21
   unreachable
 
 lpad.body.i:                                      ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_111CdsLbConfigEED2Ev.exit.i.i, %lpad.i.i
@@ -4712,7 +4712,6 @@ invoke.cont15:                                    ; preds = %if.then
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont15
-  call void @llvm.experimental.noalias.scope.decl(metadata !65)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   %call.i78 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %call.i7.noexc unwind label %lpad19
@@ -4736,7 +4735,6 @@ if.then.i.i.i:                                    ; preds = %.noexc.i
   %sub.i.i.i.i.i = add nsw i64 %11, -1
   %12 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %13 = atomicrmw add ptr %12, i32 1 monotonic, align 4, !noalias !65
-  store ptr %call.i78, ptr %ref.tmp5, align 8, !alias.scope !65
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %11)
           to label %invoke.cont20 unwind label %terminate.lpad.i.i, !noalias !65
 
@@ -4744,7 +4742,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #26
+  call void @__clang_call_terminate(ptr %15) #26, !noalias !65
   unreachable
 
 lpad.i:                                           ; preds = %call.i7.noexc
@@ -5352,7 +5350,6 @@ invoke.cont.i.i.i.i:                              ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i) #24
   %channel_control_helper_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %parent_.val.i.i.i, i64 40
   %7 = load ptr, ptr %channel_control_helper_.i.i.i.i.i, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !68)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i)
   %call.i45.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %call.i4.noexc.i.i.i.i unwind label %lpad11.i.i.i.i
@@ -5384,7 +5381,6 @@ if.then.i.i4.i.i.i.i.i:                           ; preds = %.noexc.i.i.i.i.i
   %sub.i.i.i.i.i.i.i.i.i = add nsw i64 %8, -1
   %11 = inttoptr i64 %sub.i.i.i.i.i.i.i.i.i to ptr
   %12 = atomicrmw add ptr %11, i32 1 monotonic, align 4, !noalias !68
-  store ptr %call.i45.i.i.i.i, ptr %ref.tmp10.i.i.i.i, align 8, !alias.scope !68
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %8)
           to label %invoke.cont12.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i, !noalias !68
 
@@ -5392,7 +5388,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i4.i.i.i.
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #26
+  call void @__clang_call_terminate(ptr %14) #26, !noalias !68
   unreachable
 
 lpad1.i.i.i.i.i:                                  ; preds = %invoke.cont.i.i.i.i.i
@@ -6155,7 +6151,7 @@ if.then32.i.i.i.i.i:                              ; preds = %if.end24.i.i.i.i.i
   %certificate_provider_store_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 440
   %45 = load ptr, ptr %certificate_provider_store_.i.i.i.i.i.i, align 8, !noalias !71
   invoke void @_ZN9grpc_core24CertificateProviderStore30CreateOrGetCertificateProviderESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.grpc_core::RefCountedPtr.180") align 8 %ref.tmp33.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %45, i64 %40, ptr %41)
-          to label %_ZN9grpc_core13RefCountedPtrINS_22XdsCertificateProviderEEaSI29grpc_tls_certificate_providerEERS2_ONS0_IT_EE.exit.i.i.i.i.i unwind label %lpad34.i.i.i.i.i
+          to label %_ZN9grpc_core13RefCountedPtrINS_22XdsCertificateProviderEEaSI29grpc_tls_certificate_providerEERS2_ONS0_IT_EE.exit.i.i.i.i.i unwind label %lpad34.i.i.i.i.i, !noalias !71
 
 _ZN9grpc_core13RefCountedPtrINS_22XdsCertificateProviderEEaSI29grpc_tls_certificate_providerEERS2_ONS0_IT_EE.exit.i.i.i.i.i: ; preds = %if.then32.i.i.i.i.i
   %46 = load ptr, ptr %ref.tmp33.i.i.i.i.i, align 8, !noalias !71
@@ -6242,7 +6238,7 @@ cond.false.i.i.i.i.i:                             ; preds = %_ZN9grpc_core13RefC
 
 cond.end.i.i.i.i.i:                               ; preds = %cond.false.i.i.i.i.i, %cond.true.i.i.i.i.i
   invoke void @_ZN9grpc_core22XdsCertificateProvider32UpdateRootCertNameAndDistributorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS4_ENS_13RefCountedPtrI32grpc_tls_certificate_distributorEE(ptr noundef nonnull align 8 dereferenceable(136) %57, ptr noundef nonnull align 8 dereferenceable(32) %name_.i.i.i, i64 %42, ptr %43, ptr noundef nonnull %agg.tmp63.i.i.i.i.i)
-          to label %invoke.cont77.i.i.i.i.i unwind label %lpad76.i.i.i.i.i
+          to label %invoke.cont77.i.i.i.i.i unwind label %lpad76.i.i.i.i.i, !noalias !71
 
 invoke.cont77.i.i.i.i.i:                          ; preds = %cond.end.i.i.i.i.i
   %59 = load ptr, ptr %agg.tmp63.i.i.i.i.i, align 8, !noalias !71
@@ -6280,7 +6276,7 @@ if.then96.i.i.i.i.i:                              ; preds = %_ZN9grpc_core13RefC
   %certificate_provider_store_.i62.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %66, i64 440
   %67 = load ptr, ptr %certificate_provider_store_.i62.i.i.i.i.i, align 8, !noalias !71
   invoke void @_ZN9grpc_core24CertificateProviderStore30CreateOrGetCertificateProviderESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.grpc_core::RefCountedPtr.180") align 8 %ref.tmp97.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %67, i64 %62, ptr %63)
-          to label %_ZN9grpc_core13RefCountedPtrINS_22XdsCertificateProviderEEaSI29grpc_tls_certificate_providerEERS2_ONS0_IT_EE.exit70.i.i.i.i.i unwind label %lpad99.i.i.i.i.i
+          to label %_ZN9grpc_core13RefCountedPtrINS_22XdsCertificateProviderEEaSI29grpc_tls_certificate_providerEERS2_ONS0_IT_EE.exit70.i.i.i.i.i unwind label %lpad99.i.i.i.i.i, !noalias !71
 
 _ZN9grpc_core13RefCountedPtrINS_22XdsCertificateProviderEEaSI29grpc_tls_certificate_providerEERS2_ONS0_IT_EE.exit70.i.i.i.i.i: ; preds = %if.then96.i.i.i.i.i
   %68 = load ptr, ptr %ref.tmp97.i.i.i.i.i, align 8, !noalias !71
@@ -6411,7 +6407,7 @@ cond.false137.i.i.i.i.i:                          ; preds = %_ZN9grpc_core13RefC
 
 cond.end146.i.i.i.i.i:                            ; preds = %cond.false137.i.i.i.i.i, %cond.true134.i.i.i.i.i
   invoke void @_ZN9grpc_core22XdsCertificateProvider36UpdateIdentityCertNameAndDistributorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS4_ENS_13RefCountedPtrI32grpc_tls_certificate_distributorEE(ptr noundef nonnull align 8 dereferenceable(136) %86, ptr noundef nonnull align 8 dereferenceable(32) %name_.i.i.i, i64 %64, ptr %65, ptr noundef nonnull %agg.tmp130.i.i.i.i.i)
-          to label %invoke.cont148.i.i.i.i.i unwind label %lpad147.i.i.i.i.i
+          to label %invoke.cont148.i.i.i.i.i unwind label %lpad147.i.i.i.i.i, !noalias !71
 
 invoke.cont148.i.i.i.i.i:                         ; preds = %cond.end146.i.i.i.i.i
   %88 = load ptr, ptr %agg.tmp130.i.i.i.i.i, align 8, !noalias !71

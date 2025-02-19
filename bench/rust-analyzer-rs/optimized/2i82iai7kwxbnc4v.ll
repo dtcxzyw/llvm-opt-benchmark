@@ -1720,7 +1720,7 @@ define hidden void @_ZN17crossbeam_channel7channel9unbounded17h56ca39d53a05c57bE
   resume { ptr, i32 } %11
 
 _ZN17crossbeam_channel7counter3new17h989e3dbcf8a6c1ffE.exit: ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %7, ptr noundef nonnull align 128 dereferenceable(512) %2, i64 512, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %7, ptr noundef nonnull align 128 dereferenceable(512) %2, i64 512, i1 false), !noalias !208
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2), !noalias !208
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %.sroa.0)
   store i64 1, ptr %0, align 8
@@ -1796,7 +1796,7 @@ define hidden void @_ZN17crossbeam_channel7channel9unbounded17ha28c9d623729843fE
   resume { ptr, i32 } %11
 
 _ZN17crossbeam_channel7counter3new17h331b1ef7b614314fE.exit: ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %7, ptr noundef nonnull align 128 dereferenceable(512) %2, i64 512, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %7, ptr noundef nonnull align 128 dereferenceable(512) %2, i64 512, i1 false), !noalias !214
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2), !noalias !214
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %.sroa.0)
   store i64 1, ptr %0, align 8

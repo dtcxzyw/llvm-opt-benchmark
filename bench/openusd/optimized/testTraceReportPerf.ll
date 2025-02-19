@@ -1347,7 +1347,7 @@ _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__27TraceReporterDataSou
   %301 = landingpad { ptr, i32 }
           catch ptr null
   %302 = extractvalue { ptr, i32 } %301, 0
-  call void @__clang_call_terminate(ptr %302) #23
+  call void @__clang_call_terminate(ptr %302) #23, !noalias !17
   unreachable
 
 .split200.us:                                     ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TraceReporternwEm.exit.i.us

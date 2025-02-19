@@ -4197,7 +4197,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib19Fdm2dBlackScholesOp14toMatrixDecompEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.59") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(1256) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib19Fdm2dBlackScholesOp14toMatrixDecompEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.59") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(1256) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca [3 x %"class.boost::numeric::ublas::compressed_matrix"], align 8
   %ref.tmp4 = alloca %"class.boost::numeric::ublas::matrix_binary", align 8
@@ -4311,7 +4311,7 @@ lpad2.i.i.i.i.i:                                  ; preds = %invoke.cont3.i.i.i.
   %8 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %lpad.i.body unwind label %terminate.lpad.i.i.i.i.i
+          to label %if.then.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %lpad2.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
@@ -4328,18 +4328,8 @@ lpad.i.body.thread:                               ; preds = %invoke.cont24
           cleanup
   br label %lpad26.body
 
-lpad.i.body:                                      ; preds = %lpad2.i.i.i.i.i
-  %.pr = load ptr, ptr %agg.result, align 8, !tbaa !112
-  %tobool.not.i.i.i = icmp eq ptr %.pr, null
-  br i1 %tobool.not.i.i.i, label %lpad26.body, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %lpad.i.body
-  %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  %12 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !114
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %.pr to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i) #27
+if.then.i.i.i:                                    ; preds = %lpad2.i.i.i.i.i
+  call void @_ZdlPvm(ptr noundef nonnull %call5.i.i.i.i31, i64 noundef 336) #27
   br label %lpad26.body
 
 invoke.cont27:                                    ; preds = %for.inc.i.i.i.i.i
@@ -4351,41 +4341,41 @@ arraydestroy.body:                                ; preds = %_ZN5boost7numeric5u
   %arraydestroy.elementPast = phi ptr [ %add.ptr.i.i, %invoke.cont27 ], [ %arraydestroy.element, %_ZN5boost7numeric5ublas17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS5_IdSaIdEEEED2Ev.exit ]
   %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -112
   %size_.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -16
-  %13 = load i64, ptr %size_.i.i, align 8, !tbaa !117
-  %tobool.not.i.i = icmp eq i64 %13, 0
+  %12 = load i64, ptr %size_.i.i, align 8, !tbaa !117
+  %tobool.not.i.i = icmp eq i64 %12, 0
   br i1 %tobool.not.i.i, label %_ZN5boost7numeric5ublas15unbounded_arrayIdSaIdEED2Ev.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %arraydestroy.body
   %data_.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -8
-  %14 = load ptr, ptr %data_.i.i, align 8, !tbaa !120
-  %mul.i.i.i = shl i64 %13, 3
-  call void @_ZdlPvm(ptr noundef %14, i64 noundef %mul.i.i.i) #27
+  %13 = load ptr, ptr %data_.i.i, align 8, !tbaa !120
+  %mul.i.i.i = shl i64 %12, 3
+  call void @_ZdlPvm(ptr noundef %13, i64 noundef %mul.i.i.i) #27
   br label %_ZN5boost7numeric5ublas15unbounded_arrayIdSaIdEED2Ev.exit.i
 
 _ZN5boost7numeric5ublas15unbounded_arrayIdSaIdEED2Ev.exit.i: ; preds = %if.then.i.i, %arraydestroy.body
   %size_.i1.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -40
-  %15 = load i64, ptr %size_.i1.i, align 8, !tbaa !121
-  %tobool.not.i2.i = icmp eq i64 %15, 0
+  %14 = load i64, ptr %size_.i1.i, align 8, !tbaa !121
+  %tobool.not.i2.i = icmp eq i64 %14, 0
   br i1 %tobool.not.i2.i, label %_ZN5boost7numeric5ublas15unbounded_arrayImSaImEED2Ev.exit.i, label %if.then.i3.i
 
 if.then.i3.i:                                     ; preds = %_ZN5boost7numeric5ublas15unbounded_arrayIdSaIdEED2Ev.exit.i
   %data_.i4.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -32
-  %16 = load ptr, ptr %data_.i4.i, align 8, !tbaa !124
-  %mul.i.i5.i = shl i64 %15, 3
-  call void @_ZdlPvm(ptr noundef %16, i64 noundef %mul.i.i5.i) #27
+  %15 = load ptr, ptr %data_.i4.i, align 8, !tbaa !124
+  %mul.i.i5.i = shl i64 %14, 3
+  call void @_ZdlPvm(ptr noundef %15, i64 noundef %mul.i.i5.i) #27
   br label %_ZN5boost7numeric5ublas15unbounded_arrayImSaImEED2Ev.exit.i
 
 _ZN5boost7numeric5ublas15unbounded_arrayImSaImEED2Ev.exit.i: ; preds = %if.then.i3.i, %_ZN5boost7numeric5ublas15unbounded_arrayIdSaIdEED2Ev.exit.i
   %size_.i6.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -64
-  %17 = load i64, ptr %size_.i6.i, align 8, !tbaa !121
-  %tobool.not.i7.i = icmp eq i64 %17, 0
+  %16 = load i64, ptr %size_.i6.i, align 8, !tbaa !121
+  %tobool.not.i7.i = icmp eq i64 %16, 0
   br i1 %tobool.not.i7.i, label %_ZN5boost7numeric5ublas17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS5_IdSaIdEEEED2Ev.exit, label %if.then.i8.i
 
 if.then.i8.i:                                     ; preds = %_ZN5boost7numeric5ublas15unbounded_arrayImSaImEED2Ev.exit.i
   %data_.i9.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -56
-  %18 = load ptr, ptr %data_.i9.i, align 8, !tbaa !124
-  %mul.i.i10.i = shl i64 %17, 3
-  call void @_ZdlPvm(ptr noundef %18, i64 noundef %mul.i.i10.i) #27
+  %17 = load ptr, ptr %data_.i9.i, align 8, !tbaa !124
+  %mul.i.i10.i = shl i64 %16, 3
+  call void @_ZdlPvm(ptr noundef %17, i64 noundef %mul.i.i10.i) #27
   br label %_ZN5boost7numeric5ublas17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS5_IdSaIdEEEED2Ev.exit
 
 _ZN5boost7numeric5ublas17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS5_IdSaIdEEEED2Ev.exit: ; preds = %_ZN5boost7numeric5ublas15unbounded_arrayImSaImEED2Ev.exit.i, %if.then.i8.i
@@ -4395,41 +4385,41 @@ _ZN5boost7numeric5ublas17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15
 arraydestroy.done28:                              ; preds = %_ZN5boost7numeric5ublas17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS5_IdSaIdEEEED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp9) #24
   %size_.i.i12 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 96
-  %19 = load i64, ptr %size_.i.i12, align 8, !tbaa !117
-  %tobool.not.i.i13 = icmp eq i64 %19, 0
+  %18 = load i64, ptr %size_.i.i12, align 8, !tbaa !117
+  %tobool.not.i.i13 = icmp eq i64 %18, 0
   br i1 %tobool.not.i.i13, label %_ZN5boost7numeric5ublas15unbounded_arrayIdSaIdEED2Ev.exit.i17, label %if.then.i.i14
 
 if.then.i.i14:                                    ; preds = %arraydestroy.done28
   %data_.i.i15 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 104
-  %20 = load ptr, ptr %data_.i.i15, align 8, !tbaa !120
-  %mul.i.i.i16 = shl i64 %19, 3
-  call void @_ZdlPvm(ptr noundef %20, i64 noundef %mul.i.i.i16) #27
+  %19 = load ptr, ptr %data_.i.i15, align 8, !tbaa !120
+  %mul.i.i.i16 = shl i64 %18, 3
+  call void @_ZdlPvm(ptr noundef %19, i64 noundef %mul.i.i.i16) #27
   br label %_ZN5boost7numeric5ublas15unbounded_arrayIdSaIdEED2Ev.exit.i17
 
 _ZN5boost7numeric5ublas15unbounded_arrayIdSaIdEED2Ev.exit.i17: ; preds = %if.then.i.i14, %arraydestroy.done28
   %size_.i1.i18 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 72
-  %21 = load i64, ptr %size_.i1.i18, align 8, !tbaa !121
-  %tobool.not.i2.i19 = icmp eq i64 %21, 0
+  %20 = load i64, ptr %size_.i1.i18, align 8, !tbaa !121
+  %tobool.not.i2.i19 = icmp eq i64 %20, 0
   br i1 %tobool.not.i2.i19, label %_ZN5boost7numeric5ublas15unbounded_arrayImSaImEED2Ev.exit.i23, label %if.then.i3.i20
 
 if.then.i3.i20:                                   ; preds = %_ZN5boost7numeric5ublas15unbounded_arrayIdSaIdEED2Ev.exit.i17
   %data_.i4.i21 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 80
-  %22 = load ptr, ptr %data_.i4.i21, align 8, !tbaa !124
-  %mul.i.i5.i22 = shl i64 %21, 3
-  call void @_ZdlPvm(ptr noundef %22, i64 noundef %mul.i.i5.i22) #27
+  %21 = load ptr, ptr %data_.i4.i21, align 8, !tbaa !124
+  %mul.i.i5.i22 = shl i64 %20, 3
+  call void @_ZdlPvm(ptr noundef %21, i64 noundef %mul.i.i5.i22) #27
   br label %_ZN5boost7numeric5ublas15unbounded_arrayImSaImEED2Ev.exit.i23
 
 _ZN5boost7numeric5ublas15unbounded_arrayImSaImEED2Ev.exit.i23: ; preds = %if.then.i3.i20, %_ZN5boost7numeric5ublas15unbounded_arrayIdSaIdEED2Ev.exit.i17
   %size_.i6.i24 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 48
-  %23 = load i64, ptr %size_.i6.i24, align 8, !tbaa !121
-  %tobool.not.i7.i25 = icmp eq i64 %23, 0
+  %22 = load i64, ptr %size_.i6.i24, align 8, !tbaa !121
+  %tobool.not.i7.i25 = icmp eq i64 %22, 0
   br i1 %tobool.not.i7.i25, label %_ZN5boost7numeric5ublas17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS5_IdSaIdEEEED2Ev.exit29, label %if.then.i8.i26
 
 if.then.i8.i26:                                   ; preds = %_ZN5boost7numeric5ublas15unbounded_arrayImSaImEED2Ev.exit.i23
   %data_.i9.i27 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 56
-  %24 = load ptr, ptr %data_.i9.i27, align 8, !tbaa !124
-  %mul.i.i10.i28 = shl i64 %23, 3
-  call void @_ZdlPvm(ptr noundef %24, i64 noundef %mul.i.i10.i28) #27
+  %23 = load ptr, ptr %data_.i9.i27, align 8, !tbaa !124
+  %mul.i.i10.i28 = shl i64 %22, 3
+  call void @_ZdlPvm(ptr noundef %23, i64 noundef %mul.i.i10.i28) #27
   br label %_ZN5boost7numeric5ublas17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS5_IdSaIdEEEED2Ev.exit29
 
 _ZN5boost7numeric5ublas17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS5_IdSaIdEEEED2Ev.exit29: ; preds = %_ZN5boost7numeric5ublas15unbounded_arrayImSaImEED2Ev.exit.i23, %if.then.i8.i26
@@ -4440,27 +4430,27 @@ _ZN5boost7numeric5ublas17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15
 
 lpad:                                             ; preds = %invoke.cont, %entry
   %arrayinit.endOfInit.0 = phi ptr [ %arrayinit.element, %invoke.cont ], [ %ref.tmp, %entry ]
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup42
 
 lpad6:                                            ; preds = %invoke.cont2
-  %26 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup40
 
 lpad10:                                           ; preds = %cond.false.i8, %cond.false.i
-  %27 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup37
 
 lpad23:                                           ; preds = %invoke.cont22
-  %28 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup37
 
-lpad26.body:                                      ; preds = %lpad.i.body.thread, %lpad.i.body, %if.then.i.i.i
-  %eh.lpad-body3237 = phi { ptr, i32 } [ %11, %lpad.i.body.thread ], [ %8, %lpad.i.body ], [ %8, %if.then.i.i.i ]
+lpad26.body:                                      ; preds = %lpad.i.body.thread, %if.then.i.i.i
+  %eh.lpad-body3238 = phi { ptr, i32 } [ %11, %lpad.i.body.thread ], [ %8, %if.then.i.i.i ]
   br label %arraydestroy.body30
 
 arraydestroy.body30:                              ; preds = %arraydestroy.body30, %lpad26.body
@@ -4471,14 +4461,14 @@ arraydestroy.body30:                              ; preds = %arraydestroy.body30
   br i1 %arraydestroy.done33, label %ehcleanup37, label %arraydestroy.body30
 
 ehcleanup37:                                      ; preds = %arraydestroy.body30, %lpad23, %lpad10
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %27, %lpad10 ], [ %28, %lpad23 ], [ %eh.lpad-body3237, %arraydestroy.body30 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %26, %lpad10 ], [ %27, %lpad23 ], [ %eh.lpad-body3238, %arraydestroy.body30 ]
   %cleanup.isactive.2 = phi i1 [ false, %lpad10 ], [ false, %lpad23 ], [ true, %arraydestroy.body30 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp9) #24
   call void @_ZN5boost7numeric5ublas17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS5_IdSaIdEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp5) #24
   br label %ehcleanup40
 
 ehcleanup40:                                      ; preds = %ehcleanup37, %lpad6
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup37 ], [ %26, %lpad6 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup37 ], [ %25, %lpad6 ]
   %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.2, %ehcleanup37 ], [ false, %lpad6 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ref.tmp5) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp4) #24
@@ -4486,7 +4476,7 @@ ehcleanup40:                                      ; preds = %ehcleanup37, %lpad6
 
 ehcleanup42:                                      ; preds = %ehcleanup40, %lpad
   %arrayinit.endOfInit.1 = phi ptr [ %arrayinit.element3, %ehcleanup40 ], [ %arrayinit.endOfInit.0, %lpad ]
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup40 ], [ %25, %lpad ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup40 ], [ %24, %lpad ]
   %cleanup.isactive.0 = phi i1 [ %cleanup.isactive.1, %ehcleanup40 ], [ false, %lpad ]
   %arraydestroy.isempty = icmp eq ptr %ref.tmp, %arrayinit.endOfInit.1
   %or.cond = select i1 %cleanup.isactive.0, i1 true, i1 %arraydestroy.isempty

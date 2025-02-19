@@ -5923,7 +5923,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17hf788d66a0fb343dcE.llvm.1
   unreachable
 
 "_ZN8sum_tree16SumTree$LT$T$GT$3new17h80901414a44ee77fE.exit.i": ; preds = %.noexc.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4464) %340, ptr noundef nonnull align 8 dereferenceable(4464) %43, i64 4464, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4464) %340, ptr noundef nonnull align 8 dereferenceable(4464) %43, i64 4464, i1 false), !noalias !1370
   call void @llvm.lifetime.end.p0(i64 4464, ptr nonnull %43), !noalias !1374
   call void @llvm.lifetime.end.p0(i64 207, ptr nonnull %.sroa.4.i.i)
   store ptr %340, ptr %46, align 8, !noalias !1370
@@ -19568,7 +19568,7 @@ attributes #47 = { cold noreturn nounwind }
 !1484 = !{!1485, !1478, !1480, !1482}
 !1485 = distinct !{!1485, !1486, !"_ZN99_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$arrayvec..arrayvec_impl..ArrayVecImpl$GT$7set_len17hc2a0ea42b572b996E.llvm.12044565186645129745: argument 0"}
 !1486 = distinct !{!1486, !"_ZN99_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$arrayvec..arrayvec_impl..ArrayVecImpl$GT$7set_len17hc2a0ea42b572b996E.llvm.12044565186645129745"}
-!1487 = !{!1488, !1490, !1492}
+!1487 = !{!1488, !1490, !1492, !1371, !1373}
 !1488 = distinct !{!1488, !1489, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h496b6fe77237a277E.llvm.13420854397776610736: argument 0"}
 !1489 = distinct !{!1489, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h496b6fe77237a277E.llvm.13420854397776610736"}
 !1490 = distinct !{!1490, !1491, !"_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$sum_tree..Node$LT$text..Fragment$GT$$GT$$GT$17hf421759a5b8e72fcE.llvm.13420854397776610736: argument 0"}

@@ -45452,12 +45452,12 @@ _ZL11getExprTextPKN5clang4ExprERKNS_13SourceManagerERKNS_11LangOptionsE.exit.i: 
   ]
 
 215:                                              ; preds = %._crit_edge.i.i.i.i
-  %216 = load i8, ptr %203, align 1, !tbaa !37
+  %216 = load i8, ptr %203, align 1, !tbaa !37, !noalias !3712
   store i8 %216, ptr %214, align 1, !tbaa !37, !noalias !3712
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i
 
 217:                                              ; preds = %._crit_edge.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %214, ptr nonnull align 1 %203, i64 %204, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %214, ptr nonnull align 1 %203, i64 %204, i1 false), !noalias !3712
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i: ; preds = %217, %215, %._crit_edge.i.i.i.i
@@ -45548,12 +45548,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   ]
 
 251:                                              ; preds = %._crit_edge.i.i.i38.i
-  %252 = load i8, ptr %203, align 1, !tbaa !37
+  %252 = load i8, ptr %203, align 1, !tbaa !37, !noalias !3712
   store i8 %252, ptr %250, align 1, !tbaa !37, !noalias !3712
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i39.i
 
 253:                                              ; preds = %._crit_edge.i.i.i38.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %250, ptr nonnull align 1 %203, i64 %204, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %250, ptr nonnull align 1 %203, i64 %204, i1 false), !noalias !3712
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i39.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i39.i: ; preds = %253, %251, %._crit_edge.i.i.i38.i
@@ -45609,12 +45609,12 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit40.i:        ; preds = %_ZNSt7__cxx1112basi
   ]
 
 273:                                              ; preds = %._crit_edge.i.i.i42.i
-  %274 = load i8, ptr %239, align 1, !tbaa !37
+  %274 = load i8, ptr %239, align 1, !tbaa !37, !noalias !3712
   store i8 %274, ptr %272, align 1, !tbaa !37, !noalias !3712
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i43.i
 
 275:                                              ; preds = %._crit_edge.i.i.i42.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %272, ptr nonnull align 1 %239, i64 %240, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %272, ptr nonnull align 1 %239, i64 %240, i1 false), !noalias !3712
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i43.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i43.i: ; preds = %275, %273, %._crit_edge.i.i.i42.i
@@ -69022,7 +69022,7 @@ _ZNK5clang10CXXNewExpr12getArraySizeEv.exit.i.i.i.i: ; preds = %889
   %901 = extractvalue { ptr, i64 } %900, 0
   %902 = extractvalue { ptr, i64 } %900, 1
   %903 = load i64, ptr %245, align 8, !tbaa !612, !noalias !5156
-  %904 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %77, i64 noundef 0, i64 noundef %903, ptr noundef %901, i64 noundef %902) #27
+  %904 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %77, i64 noundef 0, i64 noundef %903, ptr noundef %901, i64 noundef %902) #27, !noalias !5157
   br label %.critedge49.i.i.i.i
 
 905:                                              ; preds = %896
@@ -71865,12 +71865,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i228: ; preds
   ]
 
 2047:                                             ; preds = %._crit_edge.i.i.i31.i.i.i
-  %2048 = load i8, ptr %2032, align 1, !tbaa !37
+  %2048 = load i8, ptr %2032, align 1, !tbaa !37, !noalias !5241
   store i8 %2048, ptr %2046, align 1, !tbaa !37, !noalias !5241
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i32.i.i.i
 
 2049:                                             ; preds = %._crit_edge.i.i.i31.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2046, ptr nonnull align 1 %2032, i64 %2031, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2046, ptr nonnull align 1 %2032, i64 %2031, i1 false), !noalias !5241
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i32.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i32.i.i.i: ; preds = %2049, %2047, %._crit_edge.i.i.i31.i.i.i
@@ -72031,12 +72031,12 @@ _ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit.i.i.i.i: ; preds = %_ZNK5clan
   ]
 
 2098:                                             ; preds = %._crit_edge.i.i.i42.i.i.i
-  %2099 = load i8, ptr %2089, align 1, !tbaa !37
+  %2099 = load i8, ptr %2089, align 1, !tbaa !37, !noalias !5241
   store i8 %2099, ptr %2097, align 1, !tbaa !37, !noalias !5241
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i43.i.i.i
 
 2100:                                             ; preds = %._crit_edge.i.i.i42.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2097, ptr nonnull align 1 %2089, i64 %2088, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2097, ptr nonnull align 1 %2089, i64 %2088, i1 false), !noalias !5241
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i43.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i43.i.i.i: ; preds = %2100, %2098, %._crit_edge.i.i.i42.i.i.i
@@ -72813,12 +72813,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i106.i.i: ; preds
   ]
 
 2407:                                             ; preds = %._crit_edge.i.i.i31.i109.i.i
-  %2408 = load i8, ptr %2399, align 1, !tbaa !37
+  %2408 = load i8, ptr %2399, align 1, !tbaa !37, !noalias !5302
   store i8 %2408, ptr %2406, align 1, !tbaa !37, !noalias !5302
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i32.i110.i.i
 
 2409:                                             ; preds = %._crit_edge.i.i.i31.i109.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2406, ptr nonnull align 1 %2399, i64 %2398, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2406, ptr nonnull align 1 %2399, i64 %2398, i1 false), !noalias !5302
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i32.i110.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i32.i110.i.i: ; preds = %2409, %2407, %._crit_edge.i.i.i31.i109.i.i
@@ -73051,12 +73051,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44.i.i.i: ; preds 
   ]
 
 2507:                                             ; preds = %._crit_edge.i.i.i49.i.i.i
-  %2508 = load i8, ptr %2499, align 1, !tbaa !37
+  %2508 = load i8, ptr %2499, align 1, !tbaa !37, !noalias !5302
   store i8 %2508, ptr %2506, align 1, !tbaa !37, !noalias !5302
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i50.i.i.i
 
 2509:                                             ; preds = %._crit_edge.i.i.i49.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2506, ptr nonnull align 1 %2499, i64 %2498, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2506, ptr nonnull align 1 %2499, i64 %2498, i1 false), !noalias !5302
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i50.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i50.i.i.i: ; preds = %2509, %2507, %._crit_edge.i.i.i49.i.i.i

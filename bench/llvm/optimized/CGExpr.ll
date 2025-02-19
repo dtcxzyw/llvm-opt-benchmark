@@ -7217,8 +7217,8 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction13EmitTypeCheckENS1_13T
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 2088
   %.sroa.0.0.copyload.i.i = load i64, ptr %46, align 8
   %47 = and i64 %.sroa.0.0.copyload.i.i, 17609903308800
-  %.not223 = icmp eq i64 %47, 0
-  br i1 %.not223, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread, label %48
+  %.not225 = icmp eq i64 %47, 0
+  br i1 %.not225, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread, label %48
 
 48:                                               ; preds = %8
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7252,8 +7252,8 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %_ZNK4llvm4Type22get
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %.0.copyload.i.i.i.i.i1.i = load i64, ptr %63, align 8
   %64 = and i64 %.0.copyload.i.i.i.i.i1.i, 4
-  %.not224 = icmp eq i64 %64, 0
-  br i1 %.not224, label %_ZN5clang7CodeGen15CodeGenFunction20isNullPointerAllowedENS1_13TypeCheckKindE.exit, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread
+  %.not226 = icmp eq i64 %64, 0
+  br i1 %.not226, label %_ZN5clang7CodeGen15CodeGenFunction20isNullPointerAllowedENS1_13TypeCheckKindE.exit, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread
 
 _ZN5clang7CodeGen15CodeGenFunction20isNullPointerAllowedENS1_13TypeCheckKindE.exit: ; preds = %_ZNK5clang8QualType19isVolatileQualifiedEv.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #26
@@ -7282,12 +7282,12 @@ _ZN5clang7CodeGen15CodeGenFunction20isNullPointerAllowedENS1_13TypeCheckKindE.ex
   %switch.cast = trunc i32 %1 to i12
   %switch.downshift = lshr i12 1215, %switch.cast
   %switch.masked = trunc i12 %switch.downshift to i1
-  %.not225 = select i1 %79, i1 true, i1 %switch.masked
+  %.not227 = select i1 %79, i1 true, i1 %switch.masked
   %.sroa.0.0.copyload.i111 = load i64, ptr %46, align 8
   %80 = and i64 %.sroa.0.0.copyload.i111, 536870912
   %.not.i.i114 = icmp eq i64 %80, 0
-  %brmerge.not226 = and i1 %.not225, %.not.i.i114
-  %brmerge110 = or i1 %78, %brmerge.not226
+  %brmerge.not228 = and i1 %.not227, %.not.i.i114
+  %brmerge110 = or i1 %78, %brmerge.not228
   br i1 %brmerge110, label %100, label %81
 
 81:                                               ; preds = %_ZN5clang7CodeGen15CodeGenFunction20isNullPointerAllowedENS1_13TypeCheckKindE.exit
@@ -7305,7 +7305,7 @@ _ZN5clang7CodeGen15CodeGenFunction20isNullPointerAllowedENS1_13TypeCheckKindE.ex
   br i1 %89, label %100, label %90
 
 90:                                               ; preds = %81
-  br i1 %.not225, label %99, label %91
+  br i1 %.not227, label %99, label %91
 
 91:                                               ; preds = %90
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #26
@@ -7338,11 +7338,11 @@ _ZN5clang7CodeGen15CodeGenFunction20isNullPointerAllowedENS1_13TypeCheckKindE.ex
   %.0 = phi ptr [ null, %_ZN5clang7CodeGen15CodeGenFunction20isNullPointerAllowedENS1_13TypeCheckKindE.exit ], [ null, %81 ], [ %94, %91 ], [ null, %99 ]
   %.sroa.0.0.copyload.i115 = load i64, ptr %46, align 8
   %101 = and i64 %.sroa.0.0.copyload.i115, 17179869184
-  %.not.i.i118.not = icmp ne i64 %101, 0
+  %.not.i.i118 = icmp eq i64 %101, 0
   %102 = and i64 %.sroa.0.0.copyload.i, 17179869184
-  %.not.i.i122.not = icmp eq i64 %102, 0
-  %or.cond230 = and i1 %.not.i.i118.not, %.not.i.i122.not
-  br i1 %or.cond230, label %103, label %148
+  %.not.i.i122 = icmp ne i64 %102, 0
+  %or.cond223 = or i1 %.not.i.i118, %.not.i.i122
+  br i1 %or.cond223, label %148, label %103
 
 103:                                              ; preds = %100
   %104 = load ptr, ptr %62, align 16, !tbaa !699
@@ -7434,11 +7434,11 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit: ;
   store ptr null, ptr %21, align 8, !tbaa !760
   %.sroa.0.0.copyload.i127 = load i64, ptr %46, align 8
   %149 = and i64 %.sroa.0.0.copyload.i127, 524288
-  %.not.i.i130.not = icmp ne i64 %149, 0
+  %.not.i.i130 = icmp eq i64 %149, 0
   %150 = and i64 %.sroa.0.0.copyload.i, 524288
-  %.not.i.i134.not = icmp eq i64 %150, 0
-  %or.cond231 = and i1 %.not.i.i130.not, %.not.i.i134.not
-  br i1 %or.cond231, label %151, label %192
+  %.not.i.i134 = icmp ne i64 %150, 0
+  %or.cond224 = or i1 %.not.i.i130, %.not.i.i134
+  br i1 %or.cond224, label %192, label %151
 
 151:                                              ; preds = %148
   %.not.i.not.i = icmp eq i64 %5, 0
@@ -7476,8 +7476,8 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit: ;
 
 .thread:                                          ; preds = %157, %165
   %.sroa.0184.1221 = phi i8 [ %.sroa.0184.1, %165 ], [ %.sroa.0184.0.extract.trunc185, %157 ]
-  %.not228 = icmp eq i8 %.sroa.0184.1221, 0
-  br i1 %.not228, label %192, label %167
+  %.not230 = icmp eq i8 %.sroa.0184.1221, 0
+  br i1 %.not230, label %192, label %167
 
 167:                                              ; preds = %.thread
   br i1 %71, label %168, label %174
@@ -14354,7 +14354,6 @@ _ZNK5clang18ArraySubscriptExpr7getBaseEv.exit200: ; preds = %560, %568, %573, %_
   call void @_ZN5clang7CodeGen15CodeGenFunction24EmitPointerWithAlignmentEPKNS_4ExprEPNS0_14LValueBaseInfoEPNS0_14TBAAAccessInfoENS0_14KnownNonNull_tE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::Address") align 8 %30, ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef %581, ptr noundef nonnull %28, ptr noundef nonnull %29, i32 noundef 0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #26
   %582 = call fastcc noundef ptr @"_ZZN5clang7CodeGen15CodeGenFunction22EmitArraySubscriptExprEPKNS_18ArraySubscriptExprEbENK3$_0clEb"(ptr noundef nonnull align 8 dereferenceable(40) %19, i1 noundef zeroext true)
-  store ptr %582, ptr %31, align 8, !tbaa !760
   %583 = call { ptr, i64 } @_ZN5clang7CodeGen15CodeGenFunction10getVLASizeEPKNS_17VariableArrayTypeE(ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef nonnull %539) #26
   %584 = extractvalue { ptr, i64 } %583, 0
   %585 = load ptr, ptr %533, align 8, !tbaa !59

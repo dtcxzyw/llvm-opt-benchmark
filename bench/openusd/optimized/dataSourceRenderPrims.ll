@@ -1134,7 +1134,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %22, %
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  %43 = call ptr @__cxa_begin_catch(ptr %42) #22
+  %43 = call ptr @__cxa_begin_catch(ptr %42) #22, !noalias !6
   %44 = load ptr, ptr %18, align 8, !noalias !6
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8, !noalias !6
@@ -1152,7 +1152,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %22, %
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #21
+  call void @__clang_call_terminate(ptr %51) #21, !noalias !6
   unreachable
 
 52:                                               ; preds = %40
@@ -2116,7 +2116,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %22, %
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  %43 = call ptr @__cxa_begin_catch(ptr %42) #22
+  %43 = call ptr @__cxa_begin_catch(ptr %42) #22, !noalias !17
   %44 = load ptr, ptr %18, align 8, !noalias !17
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8, !noalias !17
@@ -2134,7 +2134,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %22, %
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #21
+  call void @__clang_call_terminate(ptr %51) #21, !noalias !17
   unreachable
 
 52:                                               ; preds = %40
@@ -2976,7 +2976,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %22, %
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  %43 = call ptr @__cxa_begin_catch(ptr %42) #22
+  %43 = call ptr @__cxa_begin_catch(ptr %42) #22, !noalias !20
   %44 = load ptr, ptr %18, align 8, !noalias !20
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8, !noalias !20
@@ -2994,7 +2994,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %22, %
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #21
+  call void @__clang_call_terminate(ptr %51) #21, !noalias !20
   unreachable
 
 52:                                               ; preds = %40
@@ -3836,7 +3836,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %22, %
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  %43 = call ptr @__cxa_begin_catch(ptr %42) #22
+  %43 = call ptr @__cxa_begin_catch(ptr %42) #22, !noalias !23
   %44 = load ptr, ptr %18, align 8, !noalias !23
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8, !noalias !23
@@ -3854,7 +3854,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %22, %
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #21
+  call void @__clang_call_terminate(ptr %51) #21, !noalias !23
   unreachable
 
 52:                                               ; preds = %40
@@ -8800,9 +8800,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %99 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %100 = load ptr, ptr %99, align 8
-  store ptr null, ptr %99, align 8
   store ptr %100, ptr %98, align 8
-  store ptr null, ptr %7, align 8
   %101 = load ptr, ptr %5, align 8
   %.not.i.i23 = icmp eq ptr %101, null
   br i1 %.not.i.i23, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit, label %102
@@ -13099,9 +13097,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %102 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %103 = load ptr, ptr %102, align 8
-  store ptr null, ptr %102, align 8
   store ptr %103, ptr %101, align 8
-  store ptr null, ptr %7, align 8
   %104 = load ptr, ptr %5, align 8
   %.not.i.i29 = icmp eq ptr %104, null
   br i1 %.not.i.i29, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit, label %105
@@ -14485,9 +14481,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %93 = load ptr, ptr %92, align 8
-  store ptr null, ptr %92, align 8
   store ptr %93, ptr %91, align 8
-  store ptr null, ptr %7, align 8
   %94 = load ptr, ptr %5, align 8
   %.not.i.i14 = icmp eq ptr %94, null
   br i1 %.not.i.i14, label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit, label %95

@@ -4077,7 +4077,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEEC2
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  %77 = call ptr @__cxa_begin_catch(ptr %76) #22
+  %77 = call ptr @__cxa_begin_catch(ptr %76) #22, !noalias !10
   %78 = load ptr, ptr %72, align 8, !noalias !10
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8, !noalias !10
@@ -4095,7 +4095,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEEC2
   %84 = landingpad { ptr, i32 }
           catch ptr null
   %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #23
+  call void @__clang_call_terminate(ptr %85) #23, !noalias !10
   unreachable
 
 86:                                               ; preds = %74
@@ -4204,7 +4204,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %131 = landingpad { ptr, i32 }
           catch ptr null
   %132 = extractvalue { ptr, i32 } %131, 0
-  %133 = call ptr @__cxa_begin_catch(ptr %132) #22
+  %133 = call ptr @__cxa_begin_catch(ptr %132) #22, !noalias !7
   %134 = load ptr, ptr %54, align 8, !noalias !7
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %136 = load ptr, ptr %135, align 8, !noalias !7
@@ -4222,7 +4222,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %140 = landingpad { ptr, i32 }
           catch ptr null
   %141 = extractvalue { ptr, i32 } %140, 0
-  call void @__clang_call_terminate(ptr %141) #23
+  call void @__clang_call_terminate(ptr %141) #23, !noalias !7
   unreachable
 
 142:                                              ; preds = %130
@@ -4841,7 +4841,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEEC2
   %410 = landingpad { ptr, i32 }
           catch ptr null
   %411 = extractvalue { ptr, i32 } %410, 0
-  %412 = call ptr @__cxa_begin_catch(ptr %411) #22
+  %412 = call ptr @__cxa_begin_catch(ptr %411) #22, !noalias !27
   %413 = load ptr, ptr %343, align 8, !noalias !27
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 8
   %415 = load ptr, ptr %414, align 8, !noalias !27
@@ -4859,7 +4859,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEEC2
   %419 = landingpad { ptr, i32 }
           catch ptr null
   %420 = extractvalue { ptr, i32 } %419, 0
-  call void @__clang_call_terminate(ptr %420) #23
+  call void @__clang_call_terminate(ptr %420) #23, !noalias !27
   unreachable
 
 421:                                              ; preds = %409
@@ -8523,7 +8523,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEEC2
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  %32 = call ptr @__cxa_begin_catch(ptr %31) #22
+  %32 = call ptr @__cxa_begin_catch(ptr %31) #22, !noalias !52
   %33 = load ptr, ptr %27, align 8, !noalias !52
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8, !noalias !52
@@ -8541,7 +8541,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #23
+  call void @__clang_call_terminate(ptr %40) #23, !noalias !52
   unreachable
 
 41:                                               ; preds = %29
@@ -8852,7 +8852,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEEC2
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  %32 = call ptr @__cxa_begin_catch(ptr %31) #22
+  %32 = call ptr @__cxa_begin_catch(ptr %31) #22, !noalias !55
   %33 = load ptr, ptr %27, align 8, !noalias !55
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8, !noalias !55
@@ -8870,7 +8870,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #23
+  call void @__clang_call_terminate(ptr %40) #23, !noalias !55
   unreachable
 
 41:                                               ; preds = %29
@@ -9645,7 +9645,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEEC2
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  %79 = call ptr @__cxa_begin_catch(ptr %78) #22
+  %79 = call ptr @__cxa_begin_catch(ptr %78) #22, !noalias !68
   %80 = load ptr, ptr %74, align 8, !noalias !68
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load ptr, ptr %81, align 8, !noalias !68
@@ -9663,7 +9663,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEEC2
   %86 = landingpad { ptr, i32 }
           catch ptr null
   %87 = extractvalue { ptr, i32 } %86, 0
-  call void @__clang_call_terminate(ptr %87) #23
+  call void @__clang_call_terminate(ptr %87) #23, !noalias !68
   unreachable
 
 88:                                               ; preds = %76
@@ -9782,7 +9782,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %135 = landingpad { ptr, i32 }
           catch ptr null
   %136 = extractvalue { ptr, i32 } %135, 0
-  %137 = call ptr @__cxa_begin_catch(ptr %136) #22
+  %137 = call ptr @__cxa_begin_catch(ptr %136) #22, !noalias !65
   %138 = load ptr, ptr %52, align 8, !noalias !65
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %140 = load ptr, ptr %139, align 8, !noalias !65
@@ -9800,7 +9800,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %144 = landingpad { ptr, i32 }
           catch ptr null
   %145 = extractvalue { ptr, i32 } %144, 0
-  call void @__clang_call_terminate(ptr %145) #23
+  call void @__clang_call_terminate(ptr %145) #23, !noalias !65
   unreachable
 
 146:                                              ; preds = %134
@@ -12643,7 +12643,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i: ; preds = %50, %
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  %75 = call ptr @__cxa_begin_catch(ptr %74) #22
+  %75 = call ptr @__cxa_begin_catch(ptr %74) #22, !noalias !96
   %76 = load ptr, ptr %70, align 8, !noalias !96
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load ptr, ptr %77, align 8, !noalias !96
@@ -12661,7 +12661,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i: ; preds = %50, %
   %82 = landingpad { ptr, i32 }
           catch ptr null
   %83 = extractvalue { ptr, i32 } %82, 0
-  call void @__clang_call_terminate(ptr %83) #23
+  call void @__clang_call_terminate(ptr %83) #23, !noalias !96
   unreachable
 
 84:                                               ; preds = %72
@@ -12803,7 +12803,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i: ; preds = %135, %131
   %142 = landingpad { ptr, i32 }
           catch ptr null
   %143 = extractvalue { ptr, i32 } %142, 0
-  %144 = call ptr @__cxa_begin_catch(ptr %143) #22
+  %144 = call ptr @__cxa_begin_catch(ptr %143) #22, !noalias !93
   %145 = load ptr, ptr %31, align 8, !noalias !93
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %147 = load ptr, ptr %146, align 8, !noalias !93
@@ -12821,7 +12821,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i: ; preds = %135, %131
   %151 = landingpad { ptr, i32 }
           catch ptr null
   %152 = extractvalue { ptr, i32 } %151, 0
-  call void @__clang_call_terminate(ptr %152) #23
+  call void @__clang_call_terminate(ptr %152) #23, !noalias !93
   unreachable
 
 153:                                              ; preds = %141
@@ -15288,7 +15288,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !116
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec4iEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !116
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !116
   invoke void @__cxa_rethrow() #21
@@ -15308,7 +15308,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !116
   unreachable
 
 73:                                               ; preds = %64
@@ -15458,7 +15458,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !122
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec3iEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !122
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !122
   invoke void @__cxa_rethrow() #21
@@ -15478,7 +15478,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !122
   unreachable
 
 73:                                               ; preds = %64
@@ -15628,7 +15628,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !128
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec2iEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !128
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !128
   invoke void @__cxa_rethrow() #21
@@ -15648,7 +15648,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !128
   unreachable
 
 73:                                               ; preds = %64
@@ -15798,7 +15798,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !134
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec4hEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !134
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !134
   invoke void @__cxa_rethrow() #21
@@ -15818,7 +15818,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !134
   unreachable
 
 73:                                               ; preds = %64
@@ -15968,7 +15968,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !140
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec3hEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !140
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !140
   invoke void @__cxa_rethrow() #21
@@ -15988,7 +15988,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !140
   unreachable
 
 73:                                               ; preds = %64
@@ -16138,7 +16138,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !146
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec2hEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !146
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !146
   invoke void @__cxa_rethrow() #21
@@ -16158,7 +16158,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !146
   unreachable
 
 73:                                               ; preds = %64
@@ -16308,7 +16308,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !152
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec4fEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !152
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !152
   invoke void @__cxa_rethrow() #21
@@ -16328,7 +16328,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !152
   unreachable
 
 73:                                               ; preds = %64
@@ -16478,7 +16478,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !158
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec3fEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !158
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !158
   invoke void @__cxa_rethrow() #21
@@ -16498,7 +16498,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !158
   unreachable
 
 73:                                               ; preds = %64
@@ -16648,7 +16648,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !164
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec2fEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !164
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !164
   invoke void @__cxa_rethrow() #21
@@ -16668,7 +16668,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !164
   unreachable
 
 73:                                               ; preds = %64
@@ -16818,7 +16818,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !170
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec4dEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !170
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !170
   invoke void @__cxa_rethrow() #21
@@ -16838,7 +16838,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !170
   unreachable
 
 73:                                               ; preds = %64
@@ -16988,7 +16988,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !176
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec3dEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !176
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !176
   invoke void @__cxa_rethrow() #21
@@ -17008,7 +17008,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !176
   unreachable
 
 73:                                               ; preds = %64
@@ -17158,7 +17158,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !182
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec2dEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !182
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !182
   invoke void @__cxa_rethrow() #21
@@ -17178,7 +17178,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !182
   unreachable
 
 73:                                               ; preds = %64
@@ -17328,7 +17328,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !188
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix4fEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !188
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !188
   invoke void @__cxa_rethrow() #21
@@ -17348,7 +17348,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !188
   unreachable
 
 73:                                               ; preds = %64
@@ -17498,7 +17498,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !194
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix3fEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !194
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !194
   invoke void @__cxa_rethrow() #21
@@ -17518,7 +17518,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !194
   unreachable
 
 73:                                               ; preds = %64
@@ -17668,7 +17668,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !200
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix2fEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !200
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !200
   invoke void @__cxa_rethrow() #21
@@ -17688,7 +17688,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !200
   unreachable
 
 73:                                               ; preds = %64
@@ -17838,7 +17838,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !206
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix4dEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !206
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !206
   invoke void @__cxa_rethrow() #21
@@ -17858,7 +17858,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !206
   unreachable
 
 73:                                               ; preds = %64
@@ -18008,7 +18008,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !212
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix3dEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !212
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !212
   invoke void @__cxa_rethrow() #21
@@ -18028,7 +18028,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !212
   unreachable
 
 73:                                               ; preds = %64
@@ -18178,7 +18178,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !218
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix2dEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !218
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !218
   invoke void @__cxa_rethrow() #21
@@ -18198,7 +18198,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !218
   unreachable
 
 73:                                               ; preds = %64
@@ -18348,7 +18348,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !224
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange3fEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !224
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !224
   invoke void @__cxa_rethrow() #21
@@ -18368,7 +18368,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !224
   unreachable
 
 73:                                               ; preds = %64
@@ -18518,7 +18518,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !230
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange3dEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !230
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !230
   invoke void @__cxa_rethrow() #21
@@ -18538,7 +18538,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !230
   unreachable
 
 73:                                               ; preds = %64
@@ -18688,7 +18688,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !236
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange2fEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !236
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !236
   invoke void @__cxa_rethrow() #21
@@ -18708,7 +18708,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !236
   unreachable
 
 73:                                               ; preds = %64
@@ -18858,7 +18858,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !242
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange2dEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !242
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !242
   invoke void @__cxa_rethrow() #21
@@ -18878,7 +18878,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !242
   unreachable
 
 73:                                               ; preds = %64
@@ -19028,7 +19028,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !248
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange1fEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !248
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !248
   invoke void @__cxa_rethrow() #21
@@ -19048,7 +19048,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !248
   unreachable
 
 73:                                               ; preds = %64
@@ -19198,7 +19198,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !254
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange1dEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !254
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !254
   invoke void @__cxa_rethrow() #21
@@ -19218,7 +19218,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !254
   unreachable
 
 73:                                               ; preds = %64
@@ -19368,7 +19368,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !260
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfIntervalEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !260
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !260
   invoke void @__cxa_rethrow() #21
@@ -19388,7 +19388,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !260
   unreachable
 
 73:                                               ; preds = %64
@@ -19538,7 +19538,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !266
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_8GfRect2iEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !266
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !266
   invoke void @__cxa_rethrow() #21
@@ -19558,7 +19558,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !266
   unreachable
 
 73:                                               ; preds = %64
@@ -19708,7 +19708,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !272
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfQuathEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !272
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !272
   invoke void @__cxa_rethrow() #21
@@ -19728,7 +19728,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !272
   unreachable
 
 73:                                               ; preds = %64
@@ -19878,7 +19878,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !278
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfQuatfEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !278
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !278
   invoke void @__cxa_rethrow() #21
@@ -19898,7 +19898,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !278
   unreachable
 
 73:                                               ; preds = %64
@@ -20048,7 +20048,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !284
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfQuatdEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !284
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !284
   invoke void @__cxa_rethrow() #21
@@ -20068,7 +20068,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !284
   unreachable
 
 73:                                               ; preds = %64
@@ -20218,7 +20218,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !290
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_12GfQuaternionEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !290
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !290
   invoke void @__cxa_rethrow() #21
@@ -20238,7 +20238,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !290
   unreachable
 
 73:                                               ; preds = %64
@@ -20388,7 +20388,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !296
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_11GfDualQuathEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !296
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !296
   invoke void @__cxa_rethrow() #21
@@ -20408,7 +20408,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !296
   unreachable
 
 73:                                               ; preds = %64
@@ -20558,7 +20558,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !302
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_11GfDualQuatfEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !302
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !302
   invoke void @__cxa_rethrow() #21
@@ -20578,7 +20578,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !302
   unreachable
 
 73:                                               ; preds = %64
@@ -20728,7 +20728,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !308
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_11GfDualQuatdEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !308
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !308
   invoke void @__cxa_rethrow() #21
@@ -20748,7 +20748,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !308
   unreachable
 
 73:                                               ; preds = %64
@@ -20898,7 +20898,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !314
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIbED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !314
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !314
   invoke void @__cxa_rethrow() #21
@@ -20918,7 +20918,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !314
   unreachable
 
 73:                                               ; preds = %64
@@ -21068,7 +21068,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !320
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIcED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !320
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !320
   invoke void @__cxa_rethrow() #21
@@ -21088,7 +21088,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !320
   unreachable
 
 73:                                               ; preds = %64
@@ -21238,7 +21238,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !326
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIhED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !326
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !326
   invoke void @__cxa_rethrow() #21
@@ -21258,7 +21258,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !326
   unreachable
 
 73:                                               ; preds = %64
@@ -21408,7 +21408,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !332
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIsED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !332
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !332
   invoke void @__cxa_rethrow() #21
@@ -21428,7 +21428,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !332
   unreachable
 
 73:                                               ; preds = %64
@@ -21578,7 +21578,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !338
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceItED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !338
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !338
   invoke void @__cxa_rethrow() #21
@@ -21598,7 +21598,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !338
   unreachable
 
 73:                                               ; preds = %64
@@ -21748,7 +21748,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !344
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIiED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !344
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !344
   invoke void @__cxa_rethrow() #21
@@ -21768,7 +21768,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !344
   unreachable
 
 73:                                               ; preds = %64
@@ -21918,7 +21918,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !350
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIjED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !350
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !350
   invoke void @__cxa_rethrow() #21
@@ -21938,7 +21938,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !350
   unreachable
 
 73:                                               ; preds = %64
@@ -22088,7 +22088,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !356
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIlED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !356
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !356
   invoke void @__cxa_rethrow() #21
@@ -22108,7 +22108,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !356
   unreachable
 
 73:                                               ; preds = %64
@@ -22258,7 +22258,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !362
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceImED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !362
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !362
   invoke void @__cxa_rethrow() #21
@@ -22278,7 +22278,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !362
   unreachable
 
 73:                                               ; preds = %64
@@ -22428,7 +22428,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !368
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIdED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !368
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !368
   invoke void @__cxa_rethrow() #21
@@ -22448,7 +22448,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !368
   unreachable
 
 73:                                               ; preds = %64
@@ -22598,7 +22598,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !374
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIfED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !374
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !374
   invoke void @__cxa_rethrow() #21
@@ -22618,7 +22618,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !374
   unreachable
 
 73:                                               ; preds = %64
@@ -22768,7 +22768,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !380
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_8pxr_half4halfEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !380
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !380
   invoke void @__cxa_rethrow() #21
@@ -22788,7 +22788,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !380
   unreachable
 
 73:                                               ; preds = %64
@@ -22938,7 +22938,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !386
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !386
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !386
   invoke void @__cxa_rethrow() #21
@@ -22958,7 +22958,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !386
   unreachable
 
 73:                                               ; preds = %64
@@ -23108,7 +23108,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22
+  %67 = tail call ptr @__cxa_begin_catch(ptr %66) #22, !noalias !392
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7TfTokenEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %24) #22, !noalias !392
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 128) #20, !noalias !392
   invoke void @__cxa_rethrow() #21
@@ -23128,7 +23128,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #23
+  tail call void @__clang_call_terminate(ptr %72) #23, !noalias !392
   unreachable
 
 73:                                               ; preds = %64

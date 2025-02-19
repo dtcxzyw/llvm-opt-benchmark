@@ -4422,11 +4422,8 @@ define linkonce_odr void @_ZN5folly16VirtualEventBase20runInEventBaseThreadINS_8
   br label %_ZN5folly8FunctionIFvvEEC2EOS2_.exit
 
 _ZN5folly8FunctionIFvvEEC2EOS2_.exit:             ; preds = %2, %26
-  store ptr null, ptr %3, align 16, !tbaa !58
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %28, align 16, !tbaa !15
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store ptr null, ptr %29, align 8, !tbaa !17
   %30 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #31
           to label %.noexc unwind label %60
 

@@ -19132,9 +19132,9 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %2
 _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.9435049372332397451.exit.i: ; preds = %.noexc67
   %.sroa.5108.0..sroa_idx = getelementptr inbounds nuw i8, ptr %321, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %321, i8 0, i64 16, i1 false)
-  store i64 %317, ptr %.sroa.5108.0..sroa_idx, align 8
+  store i64 %317, ptr %.sroa.5108.0..sroa_idx, align 8, !noalias !2382
   %.sroa.6109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %321, i64 24
-  store i64 %319, ptr %.sroa.6109.0..sroa_idx, align 8
+  store i64 %319, ptr %.sroa.6109.0..sroa_idx, align 8, !noalias !2382
   store i32 %298, ptr %302, align 8, !noalias !2400
   store i32 %300, ptr %303, align 4, !noalias !2400
   store i64 332001841582190916, ptr %304, align 8, !noalias !2400
@@ -19172,13 +19172,13 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.9435049372332397451.ex
 
 _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.9435049372332397451.exit.i70: ; preds = %.noexc71
   %334 = getelementptr inbounds nuw i8, ptr %325, i64 728
-  store i64 0, ptr %331, align 8
+  store i64 0, ptr %331, align 8, !noalias !2401
   %.sroa.4111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %331, i64 8
-  store i64 %118, ptr %.sroa.4111.0..sroa_idx, align 8
+  store i64 %118, ptr %.sroa.4111.0..sroa_idx, align 8, !noalias !2401
   %.sroa.5112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %331, i64 16
-  store i64 %99, ptr %.sroa.5112.0..sroa_idx, align 8
+  store i64 %99, ptr %.sroa.5112.0..sroa_idx, align 8, !noalias !2401
   %.sroa.6113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %331, i64 24
-  store i64 %119, ptr %.sroa.6113.0..sroa_idx, align 8
+  store i64 %119, ptr %.sroa.6113.0..sroa_idx, align 8, !noalias !2401
   %335 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %327, ptr %335, align 8, !noalias !2406
   %336 = getelementptr inbounds nuw i8, ptr %6, i64 28
@@ -19556,9 +19556,9 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.9435049372332397451.ex
   %107 = getelementptr inbounds nuw i8, ptr %86, i64 728
   %.sroa.532.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, i8 0, i64 16, i1 false)
-  store i64 %98, ptr %.sroa.532.0..sroa_idx, align 8
+  store i64 %98, ptr %.sroa.532.0..sroa_idx, align 8, !noalias !2505
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 24
-  store i64 %106, ptr %.sroa.6.0..sroa_idx, align 8
+  store i64 %106, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !2505
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %100, ptr %108, align 8, !noalias !2508
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 28
@@ -20046,13 +20046,13 @@ define void @_ZN7channel12channel_chat11ChannelChat14message_update17h9bc98fb97c
 
 _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.9435049372332397451.exit.i: ; preds = %.noexc30
   %172 = getelementptr inbounds nuw i8, ptr %163, i64 728
-  store i64 1, ptr %169, align 8
+  store i64 1, ptr %169, align 8, !noalias !2612
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i64 %49, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %49, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !2612
   %.sroa.543.0..sroa_idx = getelementptr inbounds nuw i8, ptr %169, i64 16
-  store i64 %161, ptr %.sroa.543.0..sroa_idx, align 8
+  store i64 %161, ptr %.sroa.543.0..sroa_idx, align 8, !noalias !2612
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store i64 %162, ptr %.sroa.6.0..sroa_idx, align 8
+  store i64 %162, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !2612
   %173 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 %165, ptr %173, align 8, !noalias !2617
   %174 = getelementptr inbounds nuw i8, ptr %11, i64 28

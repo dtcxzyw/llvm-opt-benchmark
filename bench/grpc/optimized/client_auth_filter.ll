@@ -1712,7 +1712,6 @@ terminate.lpad.i.i41:                             ; preds = %if.then.i.i39
   unreachable
 
 "_ZZN9grpc_core16ClientAuthFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES1_EEEN3$_0D2Ev.exit": ; preds = %invoke.cont32, %if.then.i.i39
-  store ptr null, ptr %39, align 8
   %70 = load ptr, ptr %agg.tmp17, align 16
   %destroy.i = getelementptr inbounds nuw i8, ptr %70, i64 8
   %71 = load ptr, ptr %destroy.i, align 8
@@ -3649,7 +3648,7 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #26
+  call void @__clang_call_terminate(ptr %14) #26, !noalias !74
   unreachable
 
 _ZN9grpc_core8DestructINS_14promise_detail11PromiseLikeINS_12ArenaPromiseIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEEvEEEEvPT_.exit.cont.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i
@@ -3742,7 +3741,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i4.i.i.i.
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #26
+  call void @__clang_call_terminate(ptr %22) #26, !noalias !92
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i4.i.i.i.i.i.i.i.i, %invoke.cont5.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i
@@ -3759,7 +3758,7 @@ terminate.lpad.i8.i.i.i.i.i.i.i.i:                ; preds = %if.then.i.i7.i.i.i.
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #26
+  call void @__clang_call_terminate(ptr %25) #26, !noalias !92
   unreachable
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i.i.i.i.i.i.i
@@ -3794,7 +3793,7 @@ terminate.lpad.i4.i.i.i.i29.i.i.i.i.i:            ; preds = %if.then.i.i3.i.i.i.
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #26
+  call void @__clang_call_terminate(ptr %30) #26, !noalias !92
   unreachable
 
 "_ZN9grpc_core14promise_detail7CurriedIZNS_16ClientAuthFilter20GetCallCredsMetadataENS_8CallArgsEE3$_0N4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEclEv.exit.i.i.i.i.i.i": ; preds = %if.then.i.i3.i.i.i.i28.i.i.i.i.i, %if.else.i.i3.i.i.i.i.i.i.i
@@ -3895,10 +3894,7 @@ invoke.cont11.i.i:                                ; preds = %delete.notnull.i.i.
   %47 = getelementptr inbounds nuw i8, ptr %next_promise.i.i, i64 8
   store i8 %35, ptr %47, align 8, !alias.scope !136, !noalias !73
   %48 = getelementptr inbounds nuw i8, ptr %next_promise.i.i, i64 16
-  store i64 %39, ptr %48, align 8, !alias.scope !136, !noalias !73
-  %client_initial_metadata_outstanding.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %next_promise.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false), !noalias !129
-  store ptr %42, ptr %client_initial_metadata_outstanding.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !136, !noalias !73
   %polling_entity.i.i.i.i.i.i.i1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %next_promise.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %polling_entity.i.i.i.i.i.i.i1.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %polling_entity.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !73
   store i64 0, ptr %next_promise.i.i, align 8, !alias.scope !136, !noalias !73
@@ -3944,7 +3940,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %_ZN9grpc_core8Activ
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #26
+  call void @__clang_call_terminate(ptr %57) #26, !noalias !73
   unreachable
 
 _ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %invoke.cont11.i.i
@@ -3980,7 +3976,7 @@ terminate.lpad.i4.i.i.i.i.i.i:                    ; preds = %invoke.cont6.i.i
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
-  call void @__clang_call_terminate(ptr %63) #26
+  call void @__clang_call_terminate(ptr %63) #26, !noalias !73
   unreachable
 
 sw.bb16.i.i:                                      ; preds = %if.then.i.thread.i.i, %entry
@@ -4280,7 +4276,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.end9.i.i
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #26
+  call void @__clang_call_terminate(ptr %18) #26, !noalias !172
   unreachable
 
 _ZN9grpc_core8DestructINS_14promise_detail11PromiseLikeINS_12ArenaPromiseIN4absl12lts_202308026StatusEEEvEEEEvPT_.exit.i.i: ; preds = %if.end9.i.i
@@ -4348,7 +4344,7 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %_ZN9grpc_core8Activ
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #26
+  call void @__clang_call_terminate(ptr %33) #26, !noalias !205
   unreachable
 
 _ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i.i.i.i.i.i.i: ; preds = %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i
@@ -4418,7 +4414,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %_ZN9grpc_core8Activ
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  call void @__clang_call_terminate(ptr %45) #26
+  call void @__clang_call_terminate(ptr %45) #26, !noalias !172
   unreachable
 
 _ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %invoke.cont11.i.i
@@ -4468,7 +4464,7 @@ terminate.lpad.i.i.i16.i.i:                       ; preds = %if.then.i.i.i.i15.i
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #26
+  call void @__clang_call_terminate(ptr %52) #26, !noalias !172
   unreachable
 
 _ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i15.i.i, %if.then.i14.i.i, %cleanup.i.i
@@ -4575,7 +4571,7 @@ terminate.lpad.i.i.i40.i.i:                       ; preds = %if.end35.i.i
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #26
+  call void @__clang_call_terminate(ptr %76) #26, !noalias !172
   unreachable
 
 _ZN9grpc_core8DestructINS_14promise_detail11PromiseLikeINS_12ArenaPromiseIN4absl12lts_202308028StatusOrINS_8CallArgsEEEEEvEEEEvPT_.exit.i.i: ; preds = %if.end35.i.i
@@ -4609,7 +4605,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i44.i
   %79 = landingpad { ptr, i32 }
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #26
+  call void @__clang_call_terminate(ptr %80) #26, !noalias !172
   unreachable
 
 _ZN9grpc_core8DestructINS_14promise_detail18OncePromiseFactoryINS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES3_EEEEEEvPT_.exit.i.i: ; preds = %if.then.i.i.i.i44.i.i, %invoke.cont38.i.i

@@ -189,7 +189,7 @@ invoke.cont7.i.i.i.i.i:                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  %2 = tail call ptr @__cxa_begin_catch(ptr %1) #16
+  %2 = tail call ptr @__cxa_begin_catch(ptr %1) #16, !noalias !4
   %vtable.i.i = load ptr, ptr %call.i, align 8, !noalias !4
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 48
   %3 = load ptr, ptr %vfn.i.i, align 8, !noalias !4
@@ -211,7 +211,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %lpad6.i.i.i.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #18
+  tail call void @__clang_call_terminate(ptr %6) #18, !noalias !4
   unreachable
 
 unreachable.i.i.i.i.i:                            ; preds = %invoke.cont7.i.i.i.i.i

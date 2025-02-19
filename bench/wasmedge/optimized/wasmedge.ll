@@ -5539,7 +5539,7 @@ _ZNSt6vectorIhSaIhEEaSEOS1_.exit.i.i.i.i.i.i.i.i: ; preds = %29
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #40
+  call void @__clang_call_terminate(ptr %44) #40, !noalias !40
   unreachable
 
 "_ZNO5cxx208expectedISt6vectorIhSaIhEEN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlT_E_EEDaOS9_.exit.thread.i.i": ; preds = %29
@@ -5575,7 +5575,7 @@ _ZNSt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS2_EEaSEOS5_.exit.i.i
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #40
+  call void @__clang_call_terminate(ptr %55) #40, !noalias !40
   unreachable
 
 "_ZNO5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlT_E0_EEDaOSC_.exit.thread.i.i": ; preds = %"_ZNO5cxx208expectedISt6vectorIhSaIhEEN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlT_E_EEDaOS9_.exit.i._ZNO5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlT_E0_EEDaOSC_.exit.thread.i_crit_edge.i", %"_ZNO5cxx208expectedISt6vectorIhSaIhEEN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlT_E_EEDaOS9_.exit.thread.i.i"
@@ -5658,7 +5658,7 @@ _ZNSt10filesystem7__cxx114pathC2ERKS1_.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc.i
 .body.i.i.i.i.i.i.i.i:                            ; preds = %72, %67
   %eh.lpad-body.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %73, %72 ], [ %68, %67 ]
   %74 = extractvalue { ptr, i32 } %eh.lpad-body.i.i.i.i.i.i.i.i, 0
-  call void @__clang_call_terminate(ptr %74) #40
+  call void @__clang_call_terminate(ptr %74) #40, !noalias !96
   unreachable
 
 "_ZSt6invokeIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlT_E1_JN8WasmEdge4LLVM4DataEEENSt13invoke_resultIS1_JDpT0_EE4typeEOS1_DpOS7_.exit.i.i.i.i": ; preds = %71, %_ZNSt10filesystem7__cxx114pathC2ERKS1_.exit.i.i.i.i.i.i.i.i
@@ -5929,7 +5929,7 @@ _ZNSt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS2_EEaSEOS5_.exit.i.i
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #40
+  call void @__clang_call_terminate(ptr %32) #40, !noalias !99
   unreachable
 
 "_ZNO5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlT_E_EEDaOSC_.exit.thread.i.i": ; preds = %23
@@ -6006,7 +6006,7 @@ _ZNSt10filesystem7__cxx114pathC2ERKS1_.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc.i
 .body.i.i.i.i.i.i.i.i:                            ; preds = %47, %42
   %eh.lpad-body.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %48, %47 ], [ %43, %42 ]
   %49 = extractvalue { ptr, i32 } %eh.lpad-body.i.i.i.i.i.i.i.i, 0
-  call void @__clang_call_terminate(ptr %49) #40
+  call void @__clang_call_terminate(ptr %49) #40, !noalias !140
   unreachable
 
 "_ZSt6invokeIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlT_E0_JN8WasmEdge4LLVM4DataEEENSt13invoke_resultIS1_JDpT0_EE4typeEOS1_DpOS7_.exit.i.i.i.i": ; preds = %46, %_ZNSt10filesystem7__cxx114pathC2ERKS1_.exit.i.i.i.i.i.i.i.i
@@ -11340,7 +11340,7 @@ define noundef ptr @WasmEdge_FunctionInstanceCreate(ptr noundef %0, ptr noundef 
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #40
+  call void @__clang_call_terminate(ptr %17) #40, !noalias !161
   unreachable
 
 _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i: ; preds = %.noexc
@@ -11371,7 +11371,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i: ; preds = %.noexc
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #40
+  call void @__clang_call_terminate(ptr %30) #40, !noalias !161
   unreachable
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_112CAPIHostFuncESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i
@@ -11430,7 +11430,7 @@ define noundef ptr @WasmEdge_FunctionInstanceCreateBinding(ptr noundef %0, ptr n
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #40
+  call void @__clang_call_terminate(ptr %18) #40, !noalias !164
   unreachable
 
 _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i: ; preds = %.noexc
@@ -11463,7 +11463,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i: ; preds = %.noexc
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #40
+  call void @__clang_call_terminate(ptr %32) #40, !noalias !164
   unreachable
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_112CAPIHostFuncESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i
@@ -12311,7 +12311,7 @@ _ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i.i.i.i: ; preds = %3
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #40
+  tail call void @__clang_call_terminate(ptr %43) #40, !noalias !174
   unreachable
 
 _ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEj.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
@@ -13286,7 +13286,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %9
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  tail call void @__clang_call_terminate(ptr %23) #40
+  tail call void @__clang_call_terminate(ptr %23) #40, !noalias !184
   unreachable
 
 24:                                               ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i

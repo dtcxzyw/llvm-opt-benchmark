@@ -41536,7 +41536,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %_ZN5folly6detail19T
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #38
+  call void @__clang_call_terminate(ptr %9) #38, !noalias !389
   unreachable
 
 _ZZN5folly3f146detail11F14BasicMapINS1_21VectorContainerPolicyISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIcEESt10unique_ptrIN3re23RE2ESt14default_deleteISG_EEvvvSt17integral_constantIbLb1EEEEE7emplaceIJRS4_IN8facebook5velox10StringViewESC_ESJ_EEES4_INS1_23VectorContainerIteratorIPS4_IKSD_SJ_EEEbEDpOT_ENKUlS12_E_clIJRSV_SD_SJ_EEEDaS12_.exit.i: ; preds = %_ZN5folly6detail19TemporaryEmplaceKeyISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIcEESaIS2_IKSB_St10unique_ptrIN3re23RE2ESt14default_deleteISF_EEEEEC2IJRS2_IN8facebook5velox10StringViewESA_EEEERSK_OSt5tupleIJDpT_EE.exit

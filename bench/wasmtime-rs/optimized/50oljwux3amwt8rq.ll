@@ -495,7 +495,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds [0 x { [6 x i64] }], ptr %17, i64 0, i64 %26
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   %.pr = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %36 = icmp eq i64 %.pr, 0
   br i1 %36, label %.thread, label %.lr.ph

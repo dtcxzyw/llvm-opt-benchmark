@@ -3184,8 +3184,8 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6v
   %137 = call { ptr, i64 } @_ZNK4llvm2gi11RuleMatcher9getOpcodeEv(ptr noundef nonnull align 8 dereferenceable(472) %.02544.i) #29, !noalias !172
   %138 = extractvalue { ptr, i64 } %137, 0
   %139 = extractvalue { ptr, i64 } %137, 1
-  %140 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %138, i64 %139) #29
-  %141 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJRjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr %138, i64 %139, i32 noundef %140, ptr noundef nonnull align 4 dereferenceable(4) %17)
+  %140 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %138, i64 %139) #29, !noalias !172
+  %141 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJRjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr %138, i64 %139, i32 noundef %140, ptr noundef nonnull align 4 dereferenceable(4) %17), !noalias !172
   %.fca.1.extract.i = extractvalue { ptr, i8 } %141, 1
   %142 = trunc i8 %.fca.1.extract.i to i1
   br i1 %142, label %143, label %146

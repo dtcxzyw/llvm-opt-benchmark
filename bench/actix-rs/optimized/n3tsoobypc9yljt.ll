@@ -97,7 +97,7 @@ _ZN10actix_http6header3map9HeaderMap3get17h414954298c47259cE.exit.thread: ; pred
 
 19:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !11
-  call void @"_ZN94_$LT$actix_http..header..shared..http_date..HttpDate$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hc8f3912d739635e6E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %16)
+  call void @"_ZN94_$LT$actix_http..header..shared..http_date..HttpDate$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hc8f3912d739635e6E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %16), !noalias !11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %20 = load i64, ptr %4, align 8, !range !17, !alias.scope !14, !noalias !18, !noundef !7
   %trunc.i.i = trunc nuw i64 %20 to i1
@@ -269,7 +269,7 @@ _ZN10actix_http6header3map9HeaderMap3get17h414954298c47259cE.exit.thread.i: ; pr
 
 23:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !88
-  call void @"_ZN94_$LT$actix_http..header..shared..http_date..HttpDate$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hc8f3912d739635e6E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %19, i64 noundef %20)
+  call void @"_ZN94_$LT$actix_http..header..shared..http_date..HttpDate$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hc8f3912d739635e6E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %19, i64 noundef %20), !noalias !88
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
   %24 = load i64, ptr %3, align 8, !range !17, !alias.scope !91, !noalias !94, !noundef !7
   %trunc.i.i.i = trunc nuw i64 %24 to i1
@@ -431,7 +431,7 @@ _ZN10actix_http6header3map9HeaderMap3get17h414954298c47259cE.exit.thread.i: ; pr
 
 23:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !154
-  call void @"_ZN94_$LT$actix_http..header..shared..http_date..HttpDate$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hc8f3912d739635e6E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %19, i64 noundef %20)
+  call void @"_ZN94_$LT$actix_http..header..shared..http_date..HttpDate$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hc8f3912d739635e6E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %19, i64 noundef %20), !noalias !154
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
   %24 = load i64, ptr %3, align 8, !range !17, !alias.scope !157, !noalias !160, !noundef !7
   %trunc.i.i.i = trunc nuw i64 %24 to i1
@@ -684,7 +684,7 @@ _ZN10actix_http6header3map9HeaderMap3get17h414954298c47259cE.exit.thread: ; pred
 
 19:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !244
-  call void @"_ZN94_$LT$actix_http..header..shared..http_date..HttpDate$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hc8f3912d739635e6E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %16)
+  call void @"_ZN94_$LT$actix_http..header..shared..http_date..HttpDate$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hc8f3912d739635e6E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %16), !noalias !244
   tail call void @llvm.experimental.noalias.scope.decl(metadata !247)
   %20 = load i64, ptr %4, align 8, !range !17, !alias.scope !247, !noalias !250, !noundef !7
   %trunc.i.i = trunc nuw i64 %20 to i1
@@ -953,7 +953,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   %7 = tail call { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h192c8ab52c844b44E"(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !305
   %8 = extractvalue { ptr, i64 } %7, 0
   %9 = extractvalue { ptr, i64 } %7, 1
-  call void @"_ZN89_$LT$actix_web..http..header..entity..EntityTag$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h8cb5ed4cd597aa40E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef %9)
+  call void @"_ZN89_$LT$actix_web..http..header..entity..EntityTag$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h8cb5ed4cd597aa40E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef %9), !noalias !305
   %10 = load i64, ptr %6, align 8, !range !214, !noalias !308, !noundef !7
   %11 = icmp eq i64 %10, -9223372036854775808
   br i1 %11, label %13, label %12
@@ -2931,7 +2931,7 @@ common.resume:                                    ; preds = %.body, %.body13.i
   unreachable
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17ha7cb28d7d7f9ad7fE.exit.i": ; preds = %.noexc.i.i.i
-  store ptr %.sroa.2.i.sroa.6.0.copyload.i, ptr %82, align 8
+  store ptr %.sroa.2.i.sroa.6.0.copyload.i, ptr %82, align 8, !noalias !692
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !689
   br label %100
 

@@ -876,7 +876,7 @@ invoke.cont10.i:                                  ; preds = %invoke.cont8.i
   %10 = extractvalue { i64, ptr } %call11.i, 0
   %11 = extractvalue { i64, ptr } %call11.i, 1
   invoke fastcc void @"_ZZN9grpc_core12_GLOBAL__N_117UserAgentFromArgsERKNS_11ChannelArgsESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clES7_"(ptr nonnull %fields.i, i64 %10, ptr %11)
-          to label %invoke.cont13.i unwind label %lpad12.i
+          to label %invoke.cont13.i unwind label %lpad12.i, !noalias !19
 
 invoke.cont13.i:                                  ; preds = %invoke.cont10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i) #25, !noalias !19
@@ -1478,7 +1478,6 @@ if.else.i.i.i.i.i:                                ; preds = %_ZN9grpc_core10GetC
 invoke.cont13:                                    ; preds = %if.then.i.i.i.i.i13, %if.else.i.i.i.i.i
   %retval.0.i.i.i.i.i = phi ptr [ %add.ptr3.i.i.i.i.i, %if.then.i.i.i.i.i13 ], [ %call4.i.i.i.i.i15, %if.else.i.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %retval.0.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(40) %ref.tmp, i64 32, i1 false)
-  store ptr @_ZN9grpc_core20arena_promise_detail4NullISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE6vtableE, ptr %ref.tmp, align 16
   %fn_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i, i64 32
   store i64 %19, ptr %fn_.i.i.i.i.i.i, align 16
   store ptr %retval.0.i.i.i.i.i, ptr %arg.i, align 16
@@ -3718,7 +3717,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #24
+  tail call void @__clang_call_terminate(ptr %14) #24, !noalias !72
   unreachable
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %_ZNK9grpc_core5Slice3RefEv.exit.i.i.i.i
@@ -4760,7 +4759,6 @@ invoke.cont4:                                     ; preds = %if.else.i.i.i.i.i, 
   store i64 %3, ptr %retval.0.i.i.i.i.i, align 16
   %next_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %next_.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) %next_.i.i, i64 32, i1 false)
-  store ptr @_ZN9grpc_core20arena_promise_detail4NullISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE6vtableE, ptr %next_.i.i, align 16
   store ptr %retval.0.i.i.i.i.i, ptr %arg.i, align 16
   %6 = load ptr, ptr %agg.tmp1, align 16
   %destroy.i = getelementptr inbounds nuw i8, ptr %6, i64 8

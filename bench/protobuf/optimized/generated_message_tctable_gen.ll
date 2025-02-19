@@ -3232,7 +3232,7 @@ call.i.i102.i.noexc.i:                            ; preds = %while.body.i.i
   %359 = extractvalue { i64, ptr } %call83.i.i, 0
   %360 = extractvalue { i64, ptr } %call83.i.i, 1
   invoke void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp81.i.i, ptr noundef nonnull @.str, i32 noundef 289, i64 %359, ptr %360) #21
-          to label %.noexc51.i unwind label %lpad6.loopexit.split-lp.i
+          to label %.noexc51.i unwind label %lpad6.loopexit.split-lp.i, !noalias !6
 
 .noexc51.i:                                       ; preds = %call.i.i102.i.noexc.i
   invoke void @_ZNK6google8protobuf15FieldDescriptor11DebugStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp85.i.i, ptr noundef nonnull align 8 dereferenceable(88) %310)

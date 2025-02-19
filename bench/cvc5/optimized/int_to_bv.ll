@@ -430,7 +430,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit279: ; preds = %_ZSt
   %167 = landingpad { ptr, i32 }
           catch ptr null
   %168 = extractvalue { ptr, i32 } %167, 0
-  call void @__clang_call_terminate(ptr %168) #24
+  call void @__clang_call_terminate(ptr %168) #24, !noalias !247
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %164, %162
@@ -469,7 +469,7 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %164, %162
   %179 = landingpad { ptr, i32 }
           catch ptr null
   %180 = extractvalue { ptr, i32 } %179, 0
-  call void @__clang_call_terminate(ptr %180) #24
+  call void @__clang_call_terminate(ptr %180) #24, !noalias !247
   unreachable
 
 _ZN4cvc58internal15NodeDfsIterableD2Ev.exit.i:    ; preds = %175, %172
@@ -520,7 +520,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit.i: ; preds = %193, %1
   %202 = landingpad { ptr, i32 }
           catch ptr null
   %203 = extractvalue { ptr, i32 } %202, 0
-  call void @__clang_call_terminate(ptr %203) #24
+  call void @__clang_call_terminate(ptr %203) #24, !noalias !247
   unreachable
 
 204:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i
@@ -807,7 +807,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit.i: ; preds = %342, %340, %335
   %356 = landingpad { ptr, i32 }
           catch ptr null
   %357 = extractvalue { ptr, i32 } %356, 0
-  call void @__clang_call_terminate(ptr %357) #24
+  call void @__clang_call_terminate(ptr %357) #24, !noalias !247
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.i: ; preds = %354, %348, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit.i
@@ -1015,7 +1015,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i: ; preds = %459, %457, %452
   %472 = landingpad { ptr, i32 }
           catch ptr null
   %473 = extractvalue { ptr, i32 } %472, 0
-  call void @__clang_call_terminate(ptr %473) #24
+  call void @__clang_call_terminate(ptr %473) #24, !noalias !247
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit115.i: ; preds = %470, %464, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i
@@ -1150,7 +1150,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit124.i: ; preds = %517, %515, %
   %531 = landingpad { ptr, i32 }
           catch ptr null
   %532 = extractvalue { ptr, i32 } %531, 0
-  call void @__clang_call_terminate(ptr %532) #24
+  call void @__clang_call_terminate(ptr %532) #24, !noalias !247
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit127.i: ; preds = %529, %523, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit124.i
@@ -1178,7 +1178,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit127.i: ; preds = %529, %523, %_ZN4
   %544 = landingpad { ptr, i32 }
           catch ptr null
   %545 = extractvalue { ptr, i32 } %544, 0
-  call void @__clang_call_terminate(ptr %545) #24
+  call void @__clang_call_terminate(ptr %545) #24, !noalias !247
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit130.i: ; preds = %542, %536, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit127.i
@@ -1206,7 +1206,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit130.i: ; preds = %542, %536, %_ZN4
   %557 = landingpad { ptr, i32 }
           catch ptr null
   %558 = extractvalue { ptr, i32 } %557, 0
-  call void @__clang_call_terminate(ptr %558) #24
+  call void @__clang_call_terminate(ptr %558) #24, !noalias !247
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit133.i: ; preds = %555, %549, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit130.i
@@ -1329,7 +1329,7 @@ _ZNK4cvc58internal12NodeTemplateILb0EE11getMetaKindEv.exit.i: ; preds = %576
   %600 = landingpad { ptr, i32 }
           catch ptr null
   %601 = extractvalue { ptr, i32 } %600, 0
-  call void @__clang_call_terminate(ptr %601) #24
+  call void @__clang_call_terminate(ptr %601) #24, !noalias !247
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit137.i: ; preds = %598, %592, %588
@@ -1476,7 +1476,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEES3_St4hashIS3_ESt8equal
   %677 = landingpad { ptr, i32 }
           catch ptr null
   %678 = extractvalue { ptr, i32 } %677, 0
-  call void @__clang_call_terminate(ptr %678) #24
+  call void @__clang_call_terminate(ptr %678) #24, !noalias !247
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit149.i: ; preds = %675, %669, %665
@@ -1591,7 +1591,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit155.i: ; preds = %714, %712, %
   %728 = landingpad { ptr, i32 }
           catch ptr null
   %729 = extractvalue { ptr, i32 } %728, 0
-  call void @__clang_call_terminate(ptr %729) #24
+  call void @__clang_call_terminate(ptr %729) #24, !noalias !247
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit158.i: ; preds = %726, %720, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit155.i
@@ -1735,7 +1735,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit168.i: ; preds = %777, %775, %
   %790 = landingpad { ptr, i32 }
           catch ptr null
   %791 = extractvalue { ptr, i32 } %790, 0
-  call void @__clang_call_terminate(ptr %791) #24
+  call void @__clang_call_terminate(ptr %791) #24, !noalias !247
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit171.i: ; preds = %788, %782, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit168.i
@@ -1763,7 +1763,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit171.i: ; preds = %788, %782, %_ZN4
   %803 = landingpad { ptr, i32 }
           catch ptr null
   %804 = extractvalue { ptr, i32 } %803, 0
-  call void @__clang_call_terminate(ptr %804) #24
+  call void @__clang_call_terminate(ptr %804) #24, !noalias !247
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit174.i: ; preds = %801, %795, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit171.i
@@ -1831,7 +1831,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit174.i: ; preds = %801, %795, %_ZN4
   %822 = landingpad { ptr, i32 }
           catch ptr null
   %823 = extractvalue { ptr, i32 } %822, 0
-  call void @__clang_call_terminate(ptr %823) #24
+  call void @__clang_call_terminate(ptr %823) #24, !noalias !247
   unreachable
 
 _ZN4cvc58internal15NodeDfsIterableD2Ev.exit176.i: ; preds = %818, %815
@@ -1890,7 +1890,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit178.i: ; preds = %837, %835, %
   %850 = landingpad { ptr, i32 }
           catch ptr null
   %851 = extractvalue { ptr, i32 } %850, 0
-  call void @__clang_call_terminate(ptr %851) #24
+  call void @__clang_call_terminate(ptr %851) #24, !noalias !247
   unreachable
 
 852:                                              ; preds = %837, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit.i

@@ -1265,7 +1265,7 @@ _ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang4ento9CallEventEE
   %.sroa.0214.2.i = phi i64 [ %.sroa.0214.3.i, %_ZN4llvm14SmallBitVector3setEj.exit.i7.i.i.i ], [ %.sroa.0214.1.i, %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang4ento9CallEventEEEvRKT_RN4llvm14SmallBitVectorE.exit.i.i.i ]
   %168 = phi i64 [ %228, %_ZN4llvm14SmallBitVector3setEj.exit.i7.i.i.i ], [ %160, %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang4ento9CallEventEEEvRKT_RN4llvm14SmallBitVectorE.exit.i.i.i ]
   %.026.i.i.i.i = phi ptr [ %229, %_ZN4llvm14SmallBitVector3setEj.exit.i7.i.i.i ], [ %165, %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang4ento9CallEventEEEvRKT_RN4llvm14SmallBitVectorE.exit.i.i.i ]
-  %169 = load ptr, ptr %.026.i.i.i.i, align 8, !tbaa !96
+  %169 = load ptr, ptr %.026.i.i.i.i, align 8, !tbaa !96, !noalias !68
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 96
   %171 = load i32, ptr %170, align 8, !noalias !68
   %172 = lshr i32 %171, 20

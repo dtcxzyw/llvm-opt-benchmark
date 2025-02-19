@@ -4079,7 +4079,7 @@ define hidden void @_ZN14assistant_tool13tool_registry12ToolRegistry13register_t
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !1079
   %37 = extractvalue { ptr, i64 } %32, 0
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %38, ptr noundef nonnull readonly align 1 dereferenceable(3) %26, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %38, ptr noundef nonnull readonly align 1 dereferenceable(3) %26, i64 3, i1 false), !noalias !1084
   %39 = icmp eq i64 %16, 0
   br i1 %39, label %"_ZN96_$LT$alloc..sync..Arc$LT$str$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17hbaaaf4219b455a3dE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.13361645166614471590.exit.i.i1.i.i4.i"
 
@@ -70631,7 +70631,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17h36
   %29 = tail call { ptr, i64 } @"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h70725251c69bfb68E.llvm.16973415199813822637"(ptr noalias noundef nonnull readonly align 8 dereferenceable(1064) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.67305b18c184f225f01899949de559b5.5.llvm.16973415199813822637), !noalias !16934
   %30 = extractvalue { ptr, i64 } %29, 0
   %31 = extractvalue { ptr, i64 } %29, 1
-  %32 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc11980a96861e096E"(ptr noalias noundef nonnull readonly align 8 %27, i64 noundef %28, ptr noalias noundef nonnull readonly align 8 %30, i64 noundef %31), !noalias !16920
+  %32 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc11980a96861e096E"(ptr noalias noundef nonnull readonly align 8 %27, i64 noundef %28, ptr noalias noundef nonnull readonly align 8 %30, i64 noundef %31), !noalias !16934
   br i1 %32, label %33, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hbd4e0cf14bb5e047E.exit.thread.i"
 
 33:                                               ; preds = %.lr.ph.i
@@ -97754,7 +97754,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h2b89
   %28 = tail call { ptr, i64 } @"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h70725251c69bfb68E.llvm.16973415199813822637"(ptr noalias noundef nonnull readonly align 8 dereferenceable(1064) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.67305b18c184f225f01899949de559b5.5.llvm.16973415199813822637), !noalias !23556
   %29 = extractvalue { ptr, i64 } %28, 0
   %30 = extractvalue { ptr, i64 } %28, 1
-  %31 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc11980a96861e096E"(ptr noalias noundef nonnull readonly align 8 %26, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 %29, i64 noundef %30), !noalias !23542
+  %31 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc11980a96861e096E"(ptr noalias noundef nonnull readonly align 8 %26, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 %29, i64 noundef %30), !noalias !23556
   br i1 %31, label %32, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hbd4e0cf14bb5e047E.exit.thread"
 
 32:                                               ; preds = %.lr.ph
@@ -105007,8 +105007,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h5c2c21fa6f1666f5E.exit.i: ; preds = %"
   tail call void @llvm.assume(i1 %115)
   %116 = tail call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4), !noalias !24733
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 88
-  %118 = load ptr, ptr %117, align 8, !invariant.load !9, !nonnull !9
-  call void %118(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %12, ptr noundef nonnull align 1 %110, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %116)
+  %118 = load ptr, ptr %117, align 8, !invariant.load !9, !noalias !24733, !nonnull !9
+  call void %118(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %12, ptr noundef nonnull align 1 %110, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %116), !noalias !24733
   br label %119
 
 119:                                              ; preds = %113, %112
@@ -135185,7 +135185,7 @@ attributes #64 = { "function-inline-cost-multiplier"="2" }
 !24740 = !{!24741, !24736}
 !24741 = distinct !{!24741, !24742, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h721f959844fa3836E: argument 1"}
 !24742 = distinct !{!24742, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h721f959844fa3836E"}
-!24743 = !{!24744, !24739}
+!24743 = !{!24744, !24739, !24731, !24734}
 !24744 = distinct !{!24744, !24742, !"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h721f959844fa3836E: argument 0"}
 !24745 = !{!24746, !24748, !24749, !24751, !24752, !24739, !24736, !24731, !24734}
 !24746 = distinct !{!24746, !24747, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h10edc035aa86ef7fE.llvm.16595843094761361803: argument 0"}

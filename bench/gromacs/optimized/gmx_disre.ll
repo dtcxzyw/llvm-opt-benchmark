@@ -3934,7 +3934,6 @@ _ZNSt10unique_ptrIN3gmx7MDAtomsESt14default_deleteIS1_EED2Ev.exit: ; preds = %14
   br i1 %1504, label %1505, label %_ZNSt8optionalI13t_cluster_ndxED2Ev.exit
 
 1505:                                             ; preds = %_ZNSt10unique_ptrIN3gmx7MDAtomsESt14default_deleteIS1_EED2Ev.exit
-  store i8 0, ptr %310, align 8
   %1506 = load ptr, ptr %472, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %1506, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i.i.i.i, label %1507

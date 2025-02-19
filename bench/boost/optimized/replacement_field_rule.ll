@@ -255,7 +255,7 @@ define void @_ZNK5boost4urls6detail17identifier_rule_t5parseERPKcS4_(ptr dead_on
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #12
+  call void @__clang_call_terminate(ptr %17) #12, !noalias !25
   unreachable
 
 _ZN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined13cs_delim_ruleINS1_9lut_charsEEEJNS4_15optional_rule_tINS4_12token_rule_tIS6_EEEEEE5applyILm0ELm0EEENSt9enable_ifIXltT_plLi1EsZT1_EvE4typeERPKcSI_RKSt17integral_constantImXT_EERKSK_ImXT0_EE.exit.i.i: ; preds = %4
@@ -921,7 +921,7 @@ define linkonce_odr hidden void @_ZN5boost4urls7grammar6detail14parse_sequenceIL
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #12
+  call void @__clang_call_terminate(ptr %24) #12, !noalias !135
   unreachable
 
 _ZNK5boost4urls7grammar22implementation_defined12tuple_rule_tINS2_14squelch_rule_tINS2_13ch_delim_ruleEEEJNS0_6detail18format_spec_rule_tEEE5parseERPKcSB_.exit.i.i: ; preds = %17

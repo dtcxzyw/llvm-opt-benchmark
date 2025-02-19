@@ -536,7 +536,7 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i: ; preds = %_ZNK4llvm14C
   %.sroa.21.0.i = extractvalue { ptr, i32 } %.pn.i, 1
   %.sroa.0196.0.i = extractvalue { ptr, i32 } %.pn.i, 0
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.0196.0.i, i64 24
-  %73 = load i32, ptr %72, align 8, !tbaa !22
+  %73 = load i32, ptr %72, align 8, !tbaa !22, !noalias !244
   switch i32 %73, label %.thread224.i [
     i32 187, label %74
     i32 56, label %110
@@ -546,7 +546,7 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i: ; preds = %_ZNK4llvm14C
 
 74:                                               ; preds = %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.0196.0.i, i64 40
-  %76 = load ptr, ptr %75, align 8, !tbaa !247
+  %76 = load ptr, ptr %75, align 8, !tbaa !247, !noalias !244
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load ptr, ptr %77, align 8, !tbaa !3, !noalias !244
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
@@ -568,7 +568,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit143.i: ; preds =
 
 _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit143..thread224_crit_edge.i: ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit143.i
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.0196.0.i, i64 24
-  %.pre.i = load i32, ptr %85, align 8, !tbaa !22
+  %.pre.i = load i32, ptr %85, align 8, !tbaa !22, !noalias !244
   br label %.thread224.i
 
 86:                                               ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit143.i
@@ -598,7 +598,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit143..thread224_c
   %.0.i.i.i144.i = phi i64 [ %.0.i.i.i.i145.i, %92 ], [ %101, %99 ]
   %103 = add nsw i64 %.0.i.i.i144.i, %.3.i
   %104 = load ptr, ptr %10, align 8, !tbaa !249, !noalias !244
-  %105 = load ptr, ptr %75, align 8, !tbaa !247
+  %105 = load ptr, ptr %75, align 8, !tbaa !247, !noalias !244
   %.sroa.054.0.copyload.i = load ptr, ptr %105, align 8, !tbaa !238, !noalias !244
   %.sroa.255.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %105, i64 8
   %.sroa.255.0.copyload.i = load i32, ptr %.sroa.255.0..sroa_idx.i, align 8, !tbaa !248, !noalias !244
@@ -610,7 +610,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit143..thread224_c
 
 110:                                              ; preds = %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i
   %111 = getelementptr inbounds nuw i8, ptr %.sroa.0196.0.i, i64 40
-  %112 = load ptr, ptr %111, align 8, !tbaa !247
+  %112 = load ptr, ptr %111, align 8, !tbaa !247, !noalias !244
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 40
   %114 = load ptr, ptr %113, align 8, !tbaa !3, !noalias !244
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 24
@@ -659,7 +659,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit148.i: ; preds =
 
 140:                                              ; preds = %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i
   %141 = getelementptr inbounds nuw i8, ptr %.sroa.0196.0.i, i64 32
-  %142 = load i16, ptr %141, align 8
+  %142 = load i16, ptr %141, align 8, !noalias !244
   %143 = and i16 %142, 896
   %.not.i = icmp eq i16 %143, 0
   br i1 %.not.i, label %.loopexit, label %144
@@ -673,7 +673,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit148.i: ; preds =
 148:                                              ; preds = %144
   %149 = select i1 %145, i64 2, i64 3
   %150 = getelementptr inbounds nuw i8, ptr %.sroa.0196.0.i, i64 40
-  %151 = load ptr, ptr %150, align 8, !tbaa !247
+  %151 = load ptr, ptr %150, align 8, !tbaa !247, !noalias !244
   %152 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %151, i64 %149
   %153 = load ptr, ptr %152, align 8, !tbaa !3, !noalias !244
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 24
@@ -751,7 +751,7 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i.backedge: ; preds = %178
 
 .thread224.i..thread224.thread272.i_crit_edge:    ; preds = %.thread224.i
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sroa.0196.0.i, i64 40
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !247
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !247, !noalias !244
   %.phi.trans.insert72 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   %.pre73 = load ptr, ptr %.phi.trans.insert72, align 8, !tbaa !3, !noalias !244
   %.phi.trans.insert74 = getelementptr inbounds nuw i8, ptr %.pre73, i64 24

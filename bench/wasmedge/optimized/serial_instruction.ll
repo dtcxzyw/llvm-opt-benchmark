@@ -6605,7 +6605,7 @@ define internal fastcc void @"_ZZNK8WasmEdge6Loader10Serializer20serializeInstru
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #18
+  call void @__clang_call_terminate(ptr %13) #18, !noalias !26
   unreachable
 
 _ZNK8WasmEdge6Loader10Serializer17logSerializeErrorENS_7ErrCodeENS_11ASTNodeAttrE.exit: ; preds = %.noexc2.i

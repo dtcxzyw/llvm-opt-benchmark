@@ -11585,7 +11585,7 @@ define void @_ZN15context_servers4init17hbd9c18f56e6d301fE(ptr noalias noundef a
   resume { ptr, i32 } %29
 
 _ZN15context_servers8registry21ContextServerRegistry8register17h639e88c19053a244E.exit: ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false), !noalias !2501
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2), !noalias !2501
   call void @_ZN4gpui3app10AppContext10set_global17hf7c36384d48372d6E(ptr noalias noundef nonnull align 8 dereferenceable(1176) %0, ptr noundef nonnull %25)
   %33 = call { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hca4f2c3ea5fa8ec1E.llvm.17150838474276201228(ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 1, i64 noundef 0, i1 noundef zeroext false), !noalias !2504
@@ -14397,7 +14397,7 @@ attributes #38 = { noreturn nounwind }
 !1981 = distinct !{!1981, !1979, !"_ZN63_$LT$schemars..schema..Schema$u20$as$u20$core..clone..Clone$GT$5clone17h6e475f596f568e54E: argument 0"}
 !1982 = !{!1981, !1978, !1975}
 !1983 = !{!1978, !1975}
-!1984 = !{!1985}
+!1984 = !{!1985, !1975}
 !1985 = distinct !{!1985, !1986, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h5e210c383094fd63E: argument 0"}
 !1986 = distinct !{!1986, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h5e210c383094fd63E"}
 !1987 = !{!1988}
@@ -14410,7 +14410,7 @@ attributes #38 = { noreturn nounwind }
 !1994 = distinct !{!1994, !1992, !"_ZN63_$LT$schemars..schema..Schema$u20$as$u20$core..clone..Clone$GT$5clone17h6e475f596f568e54E: argument 0"}
 !1995 = !{!1994, !1991, !1988}
 !1996 = !{!1991, !1988}
-!1997 = !{!1998}
+!1997 = !{!1998, !1988}
 !1998 = distinct !{!1998, !1999, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h5e210c383094fd63E: argument 0"}
 !1999 = distinct !{!1999, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h5e210c383094fd63E"}
 !2000 = !{!2001}
@@ -14444,7 +14444,7 @@ attributes #38 = { noreturn nounwind }
 !2028 = distinct !{!2028, !2026, !"_ZN63_$LT$schemars..schema..Schema$u20$as$u20$core..clone..Clone$GT$5clone17h6e475f596f568e54E: argument 0"}
 !2029 = !{!2028, !2025, !2022}
 !2030 = !{!2025, !2022}
-!2031 = !{!2032}
+!2031 = !{!2032, !2022}
 !2032 = distinct !{!2032, !2033, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h5e210c383094fd63E: argument 0"}
 !2033 = distinct !{!2033, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h5e210c383094fd63E"}
 !2034 = !{!2035}
@@ -14460,7 +14460,7 @@ attributes #38 = { noreturn nounwind }
 !2044 = distinct !{!2044, !2042, !"_ZN63_$LT$schemars..schema..Schema$u20$as$u20$core..clone..Clone$GT$5clone17h6e475f596f568e54E: argument 0"}
 !2045 = !{!2044, !2041, !2038}
 !2046 = !{!2041, !2038}
-!2047 = !{!2048}
+!2047 = !{!2048, !2038}
 !2048 = distinct !{!2048, !2049, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h5e210c383094fd63E: argument 0"}
 !2049 = distinct !{!2049, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h5e210c383094fd63E"}
 !2050 = !{!2051}
@@ -14473,7 +14473,7 @@ attributes #38 = { noreturn nounwind }
 !2057 = distinct !{!2057, !2055, !"_ZN63_$LT$schemars..schema..Schema$u20$as$u20$core..clone..Clone$GT$5clone17h6e475f596f568e54E: argument 0"}
 !2058 = !{!2057, !2054, !2051}
 !2059 = !{!2054, !2051}
-!2060 = !{!2061}
+!2060 = !{!2061, !2051}
 !2061 = distinct !{!2061, !2062, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h5e210c383094fd63E: argument 0"}
 !2062 = distinct !{!2062, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h5e210c383094fd63E"}
 !2063 = !{!2064}
@@ -14486,7 +14486,7 @@ attributes #38 = { noreturn nounwind }
 !2070 = distinct !{!2070, !2068, !"_ZN63_$LT$schemars..schema..Schema$u20$as$u20$core..clone..Clone$GT$5clone17h6e475f596f568e54E: argument 0"}
 !2071 = !{!2070, !2067, !2064}
 !2072 = !{!2067, !2064}
-!2073 = !{!2074}
+!2073 = !{!2074, !2064}
 !2074 = distinct !{!2074, !2075, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h5e210c383094fd63E: argument 0"}
 !2075 = distinct !{!2075, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h5e210c383094fd63E"}
 !2076 = !{!2077}

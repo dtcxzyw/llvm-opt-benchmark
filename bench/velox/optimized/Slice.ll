@@ -4990,7 +4990,7 @@ terminate.lpad.i.i:                               ; preds = %.noexc.i.i, %if.the
   %313 = landingpad { ptr, i32 }
           catch ptr null
   %314 = extractvalue { ptr, i32 } %313, 0
-  call void @__clang_call_terminate(ptr %314) #26
+  call void @__clang_call_terminate(ptr %314) #26, !noalias !23
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit.i: ; preds = %.noexc.i.i, %if.then.i226.i, %_ZNSt10shared_ptrIN8facebook5velox11ArrayVectorEED2Ev.exit.i
@@ -5026,7 +5026,7 @@ terminate.lpad.i236.i:                            ; preds = %.noexc.i237.i, %if.
   %320 = landingpad { ptr, i32 }
           catch ptr null
   %321 = extractvalue { ptr, i32 } %320, 0
-  call void @__clang_call_terminate(ptr %321) #26
+  call void @__clang_call_terminate(ptr %321) #26, !noalias !23
   unreachable
 
 ehcleanup.i:                                      ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox11ArrayVectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, %lpad13.i

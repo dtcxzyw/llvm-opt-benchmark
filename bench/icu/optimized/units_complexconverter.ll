@@ -1238,7 +1238,6 @@ entry:
   %ref.tmp = alloca %"class.icu_75::MeasureUnitImpl", align 8
   %formattableQuantity114 = alloca %"class.icu_75::Formattable", align 8
   %ref.tmp124 = alloca %"class.icu_75::MeasureUnitImpl", align 8
-  store double %quantity, ptr %quantity.addr, align 8
   store i32 0, ptr %agg.result, align 8
   %fPool.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %stackArray.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24

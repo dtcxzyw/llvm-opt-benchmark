@@ -931,7 +931,7 @@ define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4int
   %7 = extractvalue { i64, ptr } %5, 1
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !120
   store i64 %6, ptr %0, align 8, !alias.scope !120, !noalias !125
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !120, !noalias !125
@@ -5444,7 +5444,7 @@ define hidden noundef nonnull ptr @_ZN11wasi_common9snapshots9preview_05types5Er
   %10 = extractvalue { i64, ptr } %7, 1
   %11 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %11)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1043
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store i64 %9, ptr %5, align 8
@@ -5453,8 +5453,8 @@ define hidden noundef nonnull ptr @_ZN11wasi_common9snapshots9preview_05types5Er
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %2, ptr %.sroa.5.0..sroa_idx, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %0, ptr %12, align 8, !noalias !1043
-  store i64 3, ptr %4, align 8, !noalias !1043
+  store ptr %0, ptr %12, align 8, !noalias !1048
+  store i64 3, ptr %4, align 8, !noalias !1048
   %13 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17h59be39756985a9b6E.llvm.5331966815222788767"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) @anon.d795119150f63e27fa6f1b4ce1c75725.81.llvm.5331966815222788767, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
@@ -6637,6 +6637,11 @@ attributes #20 = { cold noreturn nounwind }
 !1040 = !{!1041}
 !1041 = distinct !{!1041, !1042, !"_ZN8bitflags6traits5Flags6remove17h8616bc72b1a8cec6E.llvm.11423182251827145186: argument 0"}
 !1042 = distinct !{!1042, !"_ZN8bitflags6traits5Flags6remove17h8616bc72b1a8cec6E.llvm.11423182251827145186"}
-!1043 = !{!1044}
-!1044 = distinct !{!1044, !1045, !"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$7context17hc41d23b66e174ee0E: argument 0"}
-!1045 = distinct !{!1045, !"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$7context17hc41d23b66e174ee0E"}
+!1043 = !{!1044, !1046}
+!1044 = distinct !{!1044, !1045, !"_ZN76_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h2819a56d10705f4fE.llvm.11423182251827145186: argument 0"}
+!1045 = distinct !{!1045, !"_ZN76_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h2819a56d10705f4fE.llvm.11423182251827145186"}
+!1046 = distinct !{!1046, !1047, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hac5dd56a0d18fb7dE.llvm.11423182251827145186: argument 0"}
+!1047 = distinct !{!1047, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hac5dd56a0d18fb7dE.llvm.11423182251827145186"}
+!1048 = !{!1049}
+!1049 = distinct !{!1049, !1050, !"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$7context17hc41d23b66e174ee0E: argument 0"}
+!1050 = distinct !{!1050, !"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$7context17hc41d23b66e174ee0E"}

@@ -1403,7 +1403,7 @@ _ZN4llvm3rdf13DataFlowGraph5buildEv.exit.i:       ; preds = %125, %_ZNK4llvm4Pas
   store i32 0, ptr %132, align 8, !tbaa !26, !alias.scope !351, !noalias !336
   %133 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store i32 4, ptr %133, align 4, !tbaa !27, !alias.scope !351, !noalias !336
-  %134 = call { ptr, i32 } @_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE(ptr noundef nonnull align 8 dereferenceable(32) %.fca.0.extract26.i, ptr noundef nonnull align 8 dereferenceable(736) %19) #22
+  %134 = call { ptr, i32 } @_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE(ptr noundef nonnull align 8 dereferenceable(32) %.fca.0.extract26.i, ptr noundef nonnull align 8 dereferenceable(736) %19) #22, !noalias !336
   %.fca.1.extract8.i.i = extractvalue { ptr, i32 } %134, 1
   %135 = icmp eq i32 %.fca.1.extract8.i.i, 0
   %.sroa.011.020.i.i = extractvalue { ptr, i32 } %134, 0
@@ -1414,7 +1414,7 @@ _ZN4llvm3rdf13DataFlowGraph5buildEv.exit.i:       ; preds = %125, %_ZNK4llvm4Pas
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm3rdf13DataFlowGraph5buildEv.exit.i, %151
   %.sroa.011.023.i.i = phi ptr [ %154, %151 ], [ %.sroa.011.020.i.i, %_ZN4llvm3rdf13DataFlowGraph5buildEv.exit.i ]
   %.sroa.8.022.i.i = phi i32 [ %153, %151 ], [ %.fca.1.extract8.i.i, %_ZN4llvm3rdf13DataFlowGraph5buildEv.exit.i ]
-  %136 = load i16, ptr %.sroa.011.023.i.i, align 8, !tbaa !354
+  %136 = load i16, ptr %.sroa.011.023.i.i, align 8, !tbaa !354, !noalias !336
   %137 = and i16 %136, 31
   %138 = icmp eq i16 %137, 13
   br i1 %138, label %139, label %151
@@ -1447,7 +1447,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
 
 151:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_backES5_.exit.i.i, %.lr.ph.i.i
   %152 = getelementptr inbounds nuw i8, ptr %.sroa.011.023.i.i, i64 4
-  %153 = load i32, ptr %152, align 4, !tbaa !356
+  %153 = load i32, ptr %152, align 4, !tbaa !356, !noalias !336
   %154 = call noundef ptr @_ZNK4llvm3rdf13DataFlowGraph3ptrEj(ptr noundef nonnull align 8 dereferenceable(736) %19, i32 noundef %153) #22, !noalias !336
   %.not.i.i = icmp eq ptr %154, %.fca.0.extract26.i
   br i1 %.not.i.i, label %_ZNK4llvm3rdf8CodeNode10members_ifIPFbNS0_8NodeAddrIPNS0_8NodeBaseEEEEEENS_11SmallVectorIS6_Lj4EEET_RKNS0_13DataFlowGraphE.exit.i, label %.lr.ph.i.i, !llvm.loop !357
@@ -1531,7 +1531,7 @@ _ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit.i: ; pred
 .lr.ph.i82.i:                                     ; preds = %176, %195
   %.sroa.011.023.i83.i = phi ptr [ %198, %195 ], [ %.sroa.011.020.i79.i, %176 ]
   %.sroa.8.022.i84.i = phi i32 [ %197, %195 ], [ %.fca.1.extract8.i78.i, %176 ]
-  %180 = load i16, ptr %.sroa.011.023.i83.i, align 8, !tbaa !354
+  %180 = load i16, ptr %.sroa.011.023.i83.i, align 8, !tbaa !354, !noalias !336
   %181 = and i16 %180, 31
   %182 = icmp eq i16 %181, 6
   br i1 %182, label %183, label %195
@@ -1564,7 +1564,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
 
 195:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_backES5_.exit.i88.i, %.lr.ph.i82.i
   %196 = getelementptr inbounds nuw i8, ptr %.sroa.011.023.i83.i, i64 4
-  %197 = load i32, ptr %196, align 4, !tbaa !356
+  %197 = load i32, ptr %196, align 4, !tbaa !356, !noalias !336
   %198 = call noundef ptr @_ZNK4llvm3rdf13DataFlowGraph3ptrEj(ptr noundef nonnull align 8 dereferenceable(736) %19, i32 noundef %197) #22, !noalias !336
   %.not.i85.i = icmp eq ptr %198, %177
   br i1 %.not.i85.i, label %_ZNK4llvm3rdf8CodeNode10members_ifIPFbNS0_8NodeAddrIPNS0_8NodeBaseEEEEEENS_11SmallVectorIS6_Lj4EEET_RKNS0_13DataFlowGraphE.exit90.i, label %.lr.ph.i82.i, !llvm.loop !357
@@ -1636,7 +1636,7 @@ _ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit92.i: ; pr
 .lr.ph.i97.i:                                     ; preds = %209, %228
   %.sroa.011.023.i98.i = phi ptr [ %231, %228 ], [ %.sroa.011.020.i94.i, %209 ]
   %.sroa.8.022.i99.i = phi i32 [ %230, %228 ], [ %.fca.1.extract8.i93.i, %209 ]
-  %213 = load i16, ptr %.sroa.011.023.i98.i, align 8, !tbaa !354
+  %213 = load i16, ptr %.sroa.011.023.i98.i, align 8, !tbaa !354, !noalias !336
   %214 = and i16 %213, 31
   %215 = icmp eq i16 %214, 17
   br i1 %215, label %216, label %228
@@ -1669,7 +1669,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
 
 228:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_backES5_.exit.i103.i, %.lr.ph.i97.i
   %229 = getelementptr inbounds nuw i8, ptr %.sroa.011.023.i98.i, i64 4
-  %230 = load i32, ptr %229, align 4, !tbaa !356
+  %230 = load i32, ptr %229, align 4, !tbaa !356, !noalias !336
   %231 = call noundef ptr @_ZNK4llvm3rdf13DataFlowGraph3ptrEj(ptr noundef nonnull align 8 dereferenceable(736) %19, i32 noundef %230) #22, !noalias !336
   %.not.i100.i = icmp eq ptr %231, %210
   br i1 %.not.i100.i, label %_ZNK4llvm3rdf8CodeNode10members_ifIPFbNS0_8NodeAddrIPNS0_8NodeBaseEEEEEENS_11SmallVectorIS6_Lj4EEET_RKNS0_13DataFlowGraphE.exit105.i, label %.lr.ph.i97.i, !llvm.loop !357
@@ -2113,7 +2113,7 @@ _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread.i: ; preds = %_ZNK4l
 .lr.ph.i112.i:                                    ; preds = %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread.i, %462
   %.sroa.011.023.i113.i = phi ptr [ %465, %462 ], [ %.sroa.011.020.i109.i, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread.i ]
   %.sroa.8.022.i114.i = phi i32 [ %464, %462 ], [ %.fca.1.extract8.i108.i, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread.i ]
-  %447 = load i16, ptr %.sroa.011.023.i113.i, align 8, !tbaa !354
+  %447 = load i16, ptr %.sroa.011.023.i113.i, align 8, !tbaa !354, !noalias !336
   %448 = and i16 %447, 31
   %449 = icmp eq i16 %448, 6
   br i1 %449, label %450, label %462
@@ -2146,7 +2146,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
 
 462:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_backES5_.exit.i118.i, %.lr.ph.i112.i
   %463 = getelementptr inbounds nuw i8, ptr %.sroa.011.023.i113.i, i64 4
-  %464 = load i32, ptr %463, align 4, !tbaa !356
+  %464 = load i32, ptr %463, align 4, !tbaa !356, !noalias !336
   %465 = call noundef ptr @_ZNK4llvm3rdf13DataFlowGraph3ptrEj(ptr noundef nonnull align 8 dereferenceable(736) %19, i32 noundef %464) #22, !noalias !336
   %.not.i115.i = icmp eq ptr %465, %240
   br i1 %.not.i115.i, label %_ZNK4llvm3rdf8CodeNode10members_ifIPFbNS0_8NodeAddrIPNS0_8NodeBaseEEEEEENS_11SmallVectorIS6_Lj4EEET_RKNS0_13DataFlowGraphE.exit120.i, label %.lr.ph.i112.i, !llvm.loop !357

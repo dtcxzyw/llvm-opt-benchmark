@@ -3051,7 +3051,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %lpad22.i.i
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #30
+  call void @__clang_call_terminate(ptr %29) #30, !noalias !27
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN9grpc_core12_GLOBAL__N_110PriorityLb13ChildPriorityENS7_16OrphanableDeleteEESt4lessIS5_ESaISt4pairIKS5_SC_EEED2Ev.exit.i.i: ; preds = %lpad22.i.i
@@ -5789,7 +5789,6 @@ if.then:                                          ; preds = %entry
   call void @_ZN4absl12lts_2023080216UnavailableErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %status, i64 39, ptr nonnull @.str.48)
   %channel_control_helper_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %channel_control_helper_.i, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !67)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   %call.i42 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
           to label %call.i.noexc unwind label %lpad
@@ -5821,7 +5820,6 @@ if.then.i.i4.i:                                   ; preds = %.noexc.i
   %sub.i.i.i.i.i = add nsw i64 %3, -1
   %6 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %7 = atomicrmw add ptr %6, i32 1 monotonic, align 4, !noalias !67
-  store ptr %call.i42, ptr %ref.tmp, align 8, !alias.scope !67
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %3)
           to label %invoke.cont unwind label %terminate.lpad.i.i, !noalias !67
 
@@ -5829,7 +5827,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i4.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #30
+  call void @__clang_call_terminate(ptr %9) #30, !noalias !67
   unreachable
 
 lpad1.i:                                          ; preds = %invoke.cont.i
@@ -6062,7 +6060,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #30
+  call void @__clang_call_terminate(ptr %43) #30, !noalias !73
   unreachable
 
 _ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_110PriorityLb13ChildPriority13FailoverTimerENS0_16OrphanableDeleteEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i.i, %invoke.cont13.i.i
@@ -8820,7 +8818,6 @@ if.then15:                                        ; preds = %land.lhs.true
 
 invoke.cont19:                                    ; preds = %if.then15
   %18 = load ptr, ptr %ref.tmp16, align 8
-  store ptr null, ptr %ref.tmp16, align 8
   %19 = load ptr, ptr %failover_timer_, align 8
   store ptr %18, ptr %failover_timer_, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %19, null

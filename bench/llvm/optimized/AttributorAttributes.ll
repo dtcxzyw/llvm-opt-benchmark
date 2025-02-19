@@ -160669,20 +160669,20 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %165
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_121AAHeapToStackFunction8getAPIntERN4llvm10AttributorERKNS1_17AbstractAttributeERNS1_5ValueE.exit, label %171
 
 171:                                              ; preds = %170
-  %172 = load i8, ptr %167, align 8, !tbaa !156
+  %172 = load i8, ptr %167, align 8, !tbaa !156, !noalias !3465
   %173 = icmp eq i8 %172, 17
   br i1 %173, label %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.i, label %_ZN12_GLOBAL__N_121AAHeapToStackFunction8getAPIntERN4llvm10AttributorERKNS1_17AbstractAttributeERNS1_5ValueE.exit
 
 _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.i: ; preds = %171
   %174 = getelementptr inbounds nuw i8, ptr %167, i64 24
   %175 = getelementptr inbounds nuw i8, ptr %167, i64 32
-  %176 = load i32, ptr %175, align 8, !tbaa !191
+  %176 = load i32, ptr %175, align 8, !tbaa !191, !noalias !3465
   store i32 %176, ptr %52, align 8, !tbaa !191, !alias.scope !3465
   %177 = icmp ult i32 %176, 65
   br i1 %177, label %178, label %180
 
 178:                                              ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.i
-  %179 = load i64, ptr %174, align 8, !tbaa !13
+  %179 = load i64, ptr %174, align 8, !tbaa !13, !noalias !3465
   store i64 %179, ptr %14, align 8, !tbaa !13, !alias.scope !3465
   br label %_ZN12_GLOBAL__N_121AAHeapToStackFunction8getAPIntERN4llvm10AttributorERKNS1_17AbstractAttributeERNS1_5ValueE.exit
 
@@ -161134,20 +161134,20 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %83
   br i1 %.not.i.i.i, label %.thread123, label %89
 
 89:                                               ; preds = %88
-  %90 = load i8, ptr %85, align 8, !tbaa !156
+  %90 = load i8, ptr %85, align 8, !tbaa !156, !noalias !3472
   %91 = icmp eq i8 %90, 17
   br i1 %91, label %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.i, label %.thread123
 
 _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.i: ; preds = %89
   %92 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %93 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  %94 = load i32, ptr %93, align 8, !tbaa !191
+  %94 = load i32, ptr %93, align 8, !tbaa !191, !noalias !3472
   store i32 %94, ptr %53, align 8, !tbaa !191, !alias.scope !3472
   %95 = icmp ult i32 %94, 65
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.i
-  %97 = load i64, ptr %92, align 8, !tbaa !13
+  %97 = load i64, ptr %92, align 8, !tbaa !13, !noalias !3472
   br label %.thread
 
 .thread:                                          ; preds = %_ZN4llvm5APIntD2Ev.exit.i, %96

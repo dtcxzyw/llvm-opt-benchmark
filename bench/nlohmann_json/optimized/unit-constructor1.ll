@@ -28278,7 +28278,7 @@ lpad2.i.i.i.i.i9364:                              ; preds = %invoke.cont3.i.i.i.
   %2605 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %lpad.i5025.body unwind label %terminate.lpad.i.i.i.i.i9365
+          to label %if.then.i.i.i5027 unwind label %terminate.lpad.i.i.i.i.i9365
 
 terminate.lpad.i.i.i.i.i9365:                     ; preds = %lpad2.i.i.i.i.i9364
   %2606 = landingpad { ptr, i32 }
@@ -28295,13 +28295,8 @@ lpad.i5025.body.thread:                           ; preds = %_ZN8nlohmann16json_
           cleanup
   br label %lpad8823.body
 
-lpad.i5025.body:                                  ; preds = %lpad2.i.i.i.i.i9364
-  %.pr9618 = load ptr, ptr %source8809, align 8
-  %tobool.not.i.i.i5026 = icmp eq ptr %.pr9618, null
-  br i1 %tobool.not.i.i.i5026, label %lpad8823.body, label %if.then.i.i.i5027
-
-if.then.i.i.i5027:                                ; preds = %lpad.i5025.body
-  call void @_ZdlPv(ptr noundef nonnull %.pr9618) #26
+if.then.i.i.i5027:                                ; preds = %lpad2.i.i.i.i.i9364
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i9376) #26
   br label %lpad8823.body
 
 invoke.cont8824:                                  ; preds = %for.inc.i.i.i.i.i9369
@@ -28441,8 +28436,8 @@ lpad8805:                                         ; preds = %invoke.cont8803
           cleanup
   br label %ehcleanup8897
 
-lpad8823.body:                                    ; preds = %lpad.i5025.body.thread, %lpad.i5025.body, %if.then.i.i.i5027
-  %eh.lpad-body937710111 = phi { ptr, i32 } [ %2608, %lpad.i5025.body.thread ], [ %2605, %lpad.i5025.body ], [ %2605, %if.then.i.i.i5027 ]
+lpad8823.body:                                    ; preds = %lpad.i5025.body.thread, %if.then.i.i.i5027
+  %eh.lpad-body937710111 = phi { ptr, i32 } [ %2608, %lpad.i5025.body.thread ], [ %2605, %if.then.i.i.i5027 ]
   br label %arraydestroy.body8834
 
 arraydestroy.body8834:                            ; preds = %arraydestroy.body8834, %lpad8823.body
@@ -28553,7 +28548,7 @@ lpad2.i.i.i.i.i9393:                              ; preds = %invoke.cont3.i.i.i.
   %2636 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %lpad.i5087.body unwind label %terminate.lpad.i.i.i.i.i9394
+          to label %if.then.i.i.i5089 unwind label %terminate.lpad.i.i.i.i.i9394
 
 terminate.lpad.i.i.i.i.i9394:                     ; preds = %lpad2.i.i.i.i.i9393
   %2637 = landingpad { ptr, i32 }
@@ -28570,13 +28565,8 @@ lpad.i5087.body.thread:                           ; preds = %_ZN8nlohmann16json_
           cleanup
   br label %lpad8922.body
 
-lpad.i5087.body:                                  ; preds = %lpad2.i.i.i.i.i9393
-  %.pr9619 = load ptr, ptr %source8908, align 8
-  %tobool.not.i.i.i5088 = icmp eq ptr %.pr9619, null
-  br i1 %tobool.not.i.i.i5088, label %lpad8922.body, label %if.then.i.i.i5089
-
-if.then.i.i.i5089:                                ; preds = %lpad.i5087.body
-  call void @_ZdlPv(ptr noundef nonnull %.pr9619) #26
+if.then.i.i.i5089:                                ; preds = %lpad2.i.i.i.i.i9393
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i9405) #26
   br label %lpad8922.body
 
 invoke.cont8923:                                  ; preds = %for.inc.i.i.i.i.i9398
@@ -28813,8 +28803,8 @@ lpad8904:                                         ; preds = %invoke.cont8902
           cleanup
   br label %ehcleanup9031
 
-lpad8922.body:                                    ; preds = %lpad.i5087.body.thread, %lpad.i5087.body, %if.then.i.i.i5089
-  %eh.lpad-body940610114 = phi { ptr, i32 } [ %2639, %lpad.i5087.body.thread ], [ %2636, %lpad.i5087.body ], [ %2636, %if.then.i.i.i5089 ]
+lpad8922.body:                                    ; preds = %lpad.i5087.body.thread, %if.then.i.i.i5089
+  %eh.lpad-body940610114 = phi { ptr, i32 } [ %2639, %lpad.i5087.body.thread ], [ %2636, %if.then.i.i.i5089 ]
   br label %arraydestroy.body8933
 
 arraydestroy.body8933:                            ; preds = %arraydestroy.body8933, %lpad8922.body
@@ -28942,7 +28932,7 @@ lpad2.i.i.i.i.i9422:                              ; preds = %invoke.cont3.i.i.i.
   %2680 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %lpad.i5168.body unwind label %terminate.lpad.i.i.i.i.i9423
+          to label %if.then.i.i.i5170 unwind label %terminate.lpad.i.i.i.i.i9423
 
 terminate.lpad.i.i.i.i.i9423:                     ; preds = %lpad2.i.i.i.i.i9422
   %2681 = landingpad { ptr, i32 }
@@ -28959,13 +28949,8 @@ lpad.i5168.body.thread:                           ; preds = %_ZN8nlohmann16json_
           cleanup
   br label %lpad9056.body
 
-lpad.i5168.body:                                  ; preds = %lpad2.i.i.i.i.i9422
-  %.pr9623 = load ptr, ptr %source9042, align 8
-  %tobool.not.i.i.i5169 = icmp eq ptr %.pr9623, null
-  br i1 %tobool.not.i.i.i5169, label %lpad9056.body, label %if.then.i.i.i5170
-
-if.then.i.i.i5170:                                ; preds = %lpad.i5168.body
-  call void @_ZdlPv(ptr noundef nonnull %.pr9623) #26
+if.then.i.i.i5170:                                ; preds = %lpad2.i.i.i.i.i9422
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i9434) #26
   br label %lpad9056.body
 
 invoke.cont9057:                                  ; preds = %for.inc.i.i.i.i.i9427
@@ -29094,8 +29079,8 @@ lpad9038:                                         ; preds = %invoke.cont9036
           cleanup
   br label %ehcleanup9130
 
-lpad9056.body:                                    ; preds = %lpad.i5168.body.thread, %lpad.i5168.body, %if.then.i.i.i5170
-  %eh.lpad-body943510117 = phi { ptr, i32 } [ %2683, %lpad.i5168.body.thread ], [ %2680, %lpad.i5168.body ], [ %2680, %if.then.i.i.i5170 ]
+lpad9056.body:                                    ; preds = %lpad.i5168.body.thread, %if.then.i.i.i5170
+  %eh.lpad-body943510117 = phi { ptr, i32 } [ %2683, %lpad.i5168.body.thread ], [ %2680, %if.then.i.i.i5170 ]
   br label %arraydestroy.body9067
 
 arraydestroy.body9067:                            ; preds = %arraydestroy.body9067, %lpad9056.body
@@ -29206,7 +29191,7 @@ lpad2.i.i.i.i.i9451:                              ; preds = %invoke.cont3.i.i.i.
   %2709 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %lpad.i5231.body unwind label %terminate.lpad.i.i.i.i.i9452
+          to label %if.then.i.i.i5233 unwind label %terminate.lpad.i.i.i.i.i9452
 
 terminate.lpad.i.i.i.i.i9452:                     ; preds = %lpad2.i.i.i.i.i9451
   %2710 = landingpad { ptr, i32 }
@@ -29223,13 +29208,8 @@ lpad.i5231.body.thread:                           ; preds = %_ZN8nlohmann16json_
           cleanup
   br label %lpad9155.body
 
-lpad.i5231.body:                                  ; preds = %lpad2.i.i.i.i.i9451
-  %.pr9624 = load ptr, ptr %source9141, align 8
-  %tobool.not.i.i.i5232 = icmp eq ptr %.pr9624, null
-  br i1 %tobool.not.i.i.i5232, label %lpad9155.body, label %if.then.i.i.i5233
-
-if.then.i.i.i5233:                                ; preds = %lpad.i5231.body
-  call void @_ZdlPv(ptr noundef nonnull %.pr9624) #26
+if.then.i.i.i5233:                                ; preds = %lpad2.i.i.i.i.i9451
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i9463) #26
   br label %lpad9155.body
 
 invoke.cont9156:                                  ; preds = %for.inc.i.i.i.i.i9456
@@ -29466,8 +29446,8 @@ lpad9137:                                         ; preds = %invoke.cont9135
           cleanup
   br label %ehcleanup9264
 
-lpad9155.body:                                    ; preds = %lpad.i5231.body.thread, %lpad.i5231.body, %if.then.i.i.i5233
-  %eh.lpad-body946410120 = phi { ptr, i32 } [ %2712, %lpad.i5231.body.thread ], [ %2709, %lpad.i5231.body ], [ %2709, %if.then.i.i.i5233 ]
+lpad9155.body:                                    ; preds = %lpad.i5231.body.thread, %if.then.i.i.i5233
+  %eh.lpad-body946410120 = phi { ptr, i32 } [ %2712, %lpad.i5231.body.thread ], [ %2709, %if.then.i.i.i5233 ]
   br label %arraydestroy.body9166
 
 arraydestroy.body9166:                            ; preds = %arraydestroy.body9166, %lpad9155.body
@@ -36382,7 +36362,6 @@ if.then.i6721:                                    ; preds = %invoke.cont11932
   %m_value.i.i.i6722 = getelementptr inbounds nuw i8, ptr %jobject11720, i64 8
   %3491 = load ptr, ptr %m_value.i.i.i6722, align 8, !noalias !198
   %add.ptr.i.i.i.i.i6723 = getelementptr inbounds nuw i8, ptr %3491, i64 8
-  store ptr %add.ptr.i.i.i.i.i6723, ptr %m_it.i.i.i6715, align 8, !alias.scope !198
   %_M_parent.i.i.i.i.i6724 = getelementptr inbounds nuw i8, ptr %3491, i64 16
   %3492 = load ptr, ptr %_M_parent.i.i.i.i.i6724, align 8, !noalias !192
   %cmp.not6.i.i.i.i6725 = icmp eq ptr %3492, null
@@ -36399,7 +36378,7 @@ terminate.lpad.i.i.i.i.i.i6731:                   ; preds = %while.body.i.i.i.i6
   %3493 = landingpad { ptr, i32 }
           catch ptr null
   %3494 = extractvalue { ptr, i32 } %3493, 0
-  call void @__clang_call_terminate(ptr %3494) #24
+  call void @__clang_call_terminate(ptr %3494) #24, !noalias !192
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i6732: ; preds = %while.body.i.i.i.i6726
@@ -36424,7 +36403,7 @@ terminate.lpad.i.i.i.i.i6739:                     ; preds = %lor.lhs.false.i.i.i
   %3495 = landingpad { ptr, i32 }
           catch ptr null
   %3496 = extractvalue { ptr, i32 } %3495, 0
-  call void @__clang_call_terminate(ptr %3496) #24
+  call void @__clang_call_terminate(ptr %3496) #24, !noalias !192
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i: ; preds = %lor.lhs.false.i.i.i
@@ -36473,7 +36452,6 @@ if.then.i6748:                                    ; preds = %invoke.cont11939
   %m_value.i.i.i6749 = getelementptr inbounds nuw i8, ptr %jobject11720, i64 8
   %3500 = load ptr, ptr %m_value.i.i.i6749, align 8, !noalias !205
   %add.ptr.i.i.i.i.i6750 = getelementptr inbounds nuw i8, ptr %3500, i64 8
-  store ptr %add.ptr.i.i.i.i.i6750, ptr %m_it.i.i.i6742, align 8, !alias.scope !205
   %_M_parent.i.i.i.i.i6751 = getelementptr inbounds nuw i8, ptr %3500, i64 16
   %3501 = load ptr, ptr %_M_parent.i.i.i.i.i6751, align 8, !noalias !199
   %cmp.not6.i.i.i.i6752 = icmp eq ptr %3501, null
@@ -36490,7 +36468,7 @@ terminate.lpad.i.i.i.i.i.i6758:                   ; preds = %while.body.i.i.i.i6
   %3502 = landingpad { ptr, i32 }
           catch ptr null
   %3503 = extractvalue { ptr, i32 } %3502, 0
-  call void @__clang_call_terminate(ptr %3503) #24
+  call void @__clang_call_terminate(ptr %3503) #24, !noalias !199
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i6759: ; preds = %while.body.i.i.i.i6753
@@ -36515,7 +36493,7 @@ terminate.lpad.i.i.i.i.i6771:                     ; preds = %lor.lhs.false.i.i.i
   %3504 = landingpad { ptr, i32 }
           catch ptr null
   %3505 = extractvalue { ptr, i32 } %3504, 0
-  call void @__clang_call_terminate(ptr %3505) #24
+  call void @__clang_call_terminate(ptr %3505) #24, !noalias !199
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i6772: ; preds = %lor.lhs.false.i.i.i6768

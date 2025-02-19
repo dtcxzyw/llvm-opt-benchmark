@@ -690,7 +690,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2ERKS2_.e
   %118 = landingpad { ptr, i32 }
           catch ptr null
   %119 = extractvalue { ptr, i32 } %118, 0
-  %120 = call ptr @__cxa_begin_catch(ptr %119) #26
+  %120 = call ptr @__cxa_begin_catch(ptr %119) #26, !noalias !10
   %121 = load ptr, ptr %115, align 8, !noalias !10
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load ptr, ptr %122, align 8, !noalias !10
@@ -708,7 +708,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2ERKS2_.e
   %127 = landingpad { ptr, i32 }
           catch ptr null
   %128 = extractvalue { ptr, i32 } %127, 0
-  call void @__clang_call_terminate(ptr %128) #27
+  call void @__clang_call_terminate(ptr %128) #27, !noalias !10
   unreachable
 
 129:                                              ; preds = %117
@@ -827,7 +827,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %176 = landingpad { ptr, i32 }
           catch ptr null
   %177 = extractvalue { ptr, i32 } %176, 0
-  %178 = call ptr @__cxa_begin_catch(ptr %177) #26
+  %178 = call ptr @__cxa_begin_catch(ptr %177) #26, !noalias !7
   %179 = load ptr, ptr %82, align 8, !noalias !7
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %181 = load ptr, ptr %180, align 8, !noalias !7
@@ -845,7 +845,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %185 = landingpad { ptr, i32 }
           catch ptr null
   %186 = extractvalue { ptr, i32 } %185, 0
-  call void @__clang_call_terminate(ptr %186) #27
+  call void @__clang_call_terminate(ptr %186) #27, !noalias !7
   unreachable
 
 187:                                              ; preds = %175
@@ -3161,7 +3161,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrR
   %303 = landingpad { ptr, i32 }
           catch ptr null
   %304 = extractvalue { ptr, i32 } %303, 0
-  %305 = call ptr @__cxa_begin_catch(ptr %304) #26
+  %305 = call ptr @__cxa_begin_catch(ptr %304) #26, !noalias !42
   %306 = load ptr, ptr %300, align 8, !noalias !42
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 8
   %308 = load ptr, ptr %307, align 8, !noalias !42
@@ -3179,7 +3179,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrR
   %312 = landingpad { ptr, i32 }
           catch ptr null
   %313 = extractvalue { ptr, i32 } %312, 0
-  call void @__clang_call_terminate(ptr %313) #27
+  call void @__clang_call_terminate(ptr %313) #27, !noalias !42
   unreachable
 
 314:                                              ; preds = %302
@@ -3319,7 +3319,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_EmptyConta
   %370 = landingpad { ptr, i32 }
           catch ptr null
   %371 = extractvalue { ptr, i32 } %370, 0
-  %372 = call ptr @__cxa_begin_catch(ptr %371) #26
+  %372 = call ptr @__cxa_begin_catch(ptr %371) #26, !noalias !45
   %373 = load ptr, ptr %367, align 8, !noalias !45
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 8
   %375 = load ptr, ptr %374, align 8, !noalias !45
@@ -3337,7 +3337,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_EmptyConta
   %379 = landingpad { ptr, i32 }
           catch ptr null
   %380 = extractvalue { ptr, i32 } %379, 0
-  call void @__clang_call_terminate(ptr %380) #27
+  call void @__clang_call_terminate(ptr %380) #27, !noalias !45
   unreachable
 
 381:                                              ; preds = %369
@@ -3447,7 +3447,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %424 = landingpad { ptr, i32 }
           catch ptr null
   %425 = extractvalue { ptr, i32 } %424, 0
-  %426 = call ptr @__cxa_begin_catch(ptr %425) #26
+  %426 = call ptr @__cxa_begin_catch(ptr %425) #26, !noalias !35
   %427 = load ptr, ptr %236, align 8, !noalias !35
   %428 = getelementptr inbounds nuw i8, ptr %427, i64 8
   %429 = load ptr, ptr %428, align 8, !noalias !35
@@ -3465,7 +3465,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %433 = landingpad { ptr, i32 }
           catch ptr null
   %434 = extractvalue { ptr, i32 } %433, 0
-  call void @__clang_call_terminate(ptr %434) #27
+  call void @__clang_call_terminate(ptr %434) #27, !noalias !35
   unreachable
 
 435:                                              ; preds = %423
@@ -3931,7 +3931,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_52HdExtComputationPrimva
   %648 = landingpad { ptr, i32 }
           catch ptr null
   %649 = extractvalue { ptr, i32 } %648, 0
-  %650 = call ptr @__cxa_begin_catch(ptr %649) #26
+  %650 = call ptr @__cxa_begin_catch(ptr %649) #26, !noalias !48
   %651 = load ptr, ptr %645, align 8, !noalias !48
   %652 = getelementptr inbounds nuw i8, ptr %651, i64 8
   %653 = load ptr, ptr %652, align 8, !noalias !48
@@ -3949,7 +3949,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_52HdExtComputationPrimva
   %657 = landingpad { ptr, i32 }
           catch ptr null
   %658 = extractvalue { ptr, i32 } %657, 0
-  call void @__clang_call_terminate(ptr %658) #27
+  call void @__clang_call_terminate(ptr %658) #27, !noalias !48
   unreachable
 
 659:                                              ; preds = %647
@@ -5449,7 +5449,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ExtComputa
   %167 = landingpad { ptr, i32 }
           catch ptr null
   %168 = extractvalue { ptr, i32 } %167, 0
-  %169 = call ptr @__cxa_begin_catch(ptr %168) #26
+  %169 = call ptr @__cxa_begin_catch(ptr %168) #26, !noalias !77
   %170 = load ptr, ptr %164, align 8, !noalias !77
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %172 = load ptr, ptr %171, align 8, !noalias !77
@@ -5467,7 +5467,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ExtComputa
   %176 = landingpad { ptr, i32 }
           catch ptr null
   %177 = extractvalue { ptr, i32 } %176, 0
-  call void @__clang_call_terminate(ptr %177) #27
+  call void @__clang_call_terminate(ptr %177) #27, !noalias !77
   unreachable
 
 178:                                              ; preds = %166
@@ -5585,7 +5585,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %230 = landingpad { ptr, i32 }
           catch ptr null
   %231 = extractvalue { ptr, i32 } %230, 0
-  %232 = call ptr @__cxa_begin_catch(ptr %231) #26
+  %232 = call ptr @__cxa_begin_catch(ptr %231) #26, !noalias !74
   %233 = load ptr, ptr %112, align 8, !noalias !74
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %235 = load ptr, ptr %234, align 8, !noalias !74
@@ -5603,7 +5603,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %239 = landingpad { ptr, i32 }
           catch ptr null
   %240 = extractvalue { ptr, i32 } %239, 0
-  call void @__clang_call_terminate(ptr %240) #27
+  call void @__clang_call_terminate(ptr %240) #27, !noalias !74
   unreachable
 
 241:                                              ; preds = %229
@@ -7030,7 +7030,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ExtComputa
   %132 = landingpad { ptr, i32 }
           catch ptr null
   %133 = extractvalue { ptr, i32 } %132, 0
-  %134 = call ptr @__cxa_begin_catch(ptr %133) #26
+  %134 = call ptr @__cxa_begin_catch(ptr %133) #26, !noalias !89
   %135 = load ptr, ptr %129, align 8, !noalias !89
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %137 = load ptr, ptr %136, align 8, !noalias !89
@@ -7048,7 +7048,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_ExtComputa
   %141 = landingpad { ptr, i32 }
           catch ptr null
   %142 = extractvalue { ptr, i32 } %141, 0
-  call void @__clang_call_terminate(ptr %142) #27
+  call void @__clang_call_terminate(ptr %142) #27, !noalias !89
   unreachable
 
 143:                                              ; preds = %131
@@ -7166,7 +7166,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %195 = landingpad { ptr, i32 }
           catch ptr null
   %196 = extractvalue { ptr, i32 } %195, 0
-  %197 = call ptr @__cxa_begin_catch(ptr %196) #26
+  %197 = call ptr @__cxa_begin_catch(ptr %196) #26, !noalias !86
   %198 = load ptr, ptr %77, align 8, !noalias !86
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %200 = load ptr, ptr %199, align 8, !noalias !86
@@ -7184,7 +7184,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %204 = landingpad { ptr, i32 }
           catch ptr null
   %205 = extractvalue { ptr, i32 } %204, 0
-  call void @__clang_call_terminate(ptr %205) #27
+  call void @__clang_call_terminate(ptr %205) #27, !noalias !86
   unreachable
 
 206:                                              ; preds = %194
@@ -8009,7 +8009,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i: ; preds = %166, %_ZN
   %191 = landingpad { ptr, i32 }
           catch ptr null
   %192 = extractvalue { ptr, i32 } %191, 0
-  call void @__clang_call_terminate(ptr %192) #27
+  call void @__clang_call_terminate(ptr %192) #27, !noalias !93
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i16.i: ; preds = %._ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i16_crit_edge.i, %.critedge.i
@@ -20572,7 +20572,7 @@ define linkonce_odr void @_ZSt15__copy_move_ditILb1EN32pxrInternal_v0_24__pxrRes
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #27
+  call void @__clang_call_terminate(ptr %59) #27, !noalias !400
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit.i.i.i.i: ; preds = %56, %43, %.lr.ph.i.i.i.i

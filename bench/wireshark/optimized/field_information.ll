@@ -990,7 +990,7 @@ _ZN7QStringC2EPKc.exit:                           ; preds = %27
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #19
+  call void @__clang_call_terminate(ptr %43) #19, !noalias !6
   unreachable
 
 _ZN7QStringD2Ev.exit.i:                           ; preds = %39

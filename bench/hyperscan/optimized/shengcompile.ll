@@ -3264,7 +3264,7 @@ terminate.lpad.i.i171.i:                          ; preds = %_ZNSt6vectorIjSaIjE
   %132 = landingpad { ptr, i32 }
           catch ptr null
   %133 = extractvalue { ptr, i32 } %132, 0
-  call void @__clang_call_terminate(ptr %133) #27
+  call void @__clang_call_terminate(ptr %133) #27, !noalias !200
   unreachable
 
 ehcleanup.i:                                      ; preds = %lpad35.i, %lpad12.i
@@ -4264,7 +4264,7 @@ terminate.lpad.i.i172.i:                          ; preds = %_ZNSt6vectorIjSaIjE
   %132 = landingpad { ptr, i32 }
           catch ptr null
   %133 = extractvalue { ptr, i32 } %132, 0
-  call void @__clang_call_terminate(ptr %133) #27
+  call void @__clang_call_terminate(ptr %133) #27, !noalias !213
   unreachable
 
 ehcleanup.i:                                      ; preds = %lpad38.i, %lpad12.i
@@ -5104,7 +5104,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i121.i
   %112 = landingpad { ptr, i32 }
           catch ptr null
   %113 = extractvalue { ptr, i32 } %112, 0
-  call void @__clang_call_terminate(ptr %113) #27
+  call void @__clang_call_terminate(ptr %113) #27, !noalias !224
   unreachable
 
 _ZN3ue212bytecode_ptrI3NFAED2Ev.exit.i:           ; preds = %if.then.i.i121.i, %cleanup.i, %cleanup.thread.i
@@ -5158,7 +5158,7 @@ terminate.lpad.i.i130.i:                          ; preds = %_ZNSt6vectorIjSaIjE
   %120 = landingpad { ptr, i32 }
           catch ptr null
   %121 = extractvalue { ptr, i32 } %120, 0
-  call void @__clang_call_terminate(ptr %121) #27
+  call void @__clang_call_terminate(ptr %121) #27, !noalias !224
   unreachable
 
 ehcleanup.i:                                      ; preds = %lpad38.i, %lpad12.i

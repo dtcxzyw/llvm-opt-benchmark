@@ -9727,7 +9727,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
 
 23:                                               ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIlSaIlEEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEE4findIS9_EENSL_8iteratorERKT_.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %46
+  br label %41
 
 _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIlSaIlEEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEE8iteratorptEv.exit: ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 32
@@ -9737,47 +9737,41 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7
   %28 = ptrtoint ptr %26 to i64
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %26, %27
-  br i1 %.not.i.i.i.i, label %34, label %31
+  br i1 %.not.i.i.i.i, label %.thread, label %33
 
-31:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIlSaIlEEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEE8iteratorptEv.exit
-  %32 = icmp ugt i64 %30, 9223372036854775800
-  br i1 %32, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i
+.thread:                                          ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIlSaIlEEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEE8iteratorptEv.exit
+  %31 = getelementptr inbounds i8, ptr null, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  store ptr %31, ptr %32, align 8
+  br label %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit
 
-.noexc.i.i:                                       ; preds = %31
+33:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIlSaIlEEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEE8iteratorptEv.exit
+  %34 = icmp ugt i64 %30, 9223372036854775800
+  br i1 %34, label %.noexc.i.i, label %35
+
+.noexc.i.i:                                       ; preds = %33
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #27
   unreachable
 
-_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i: ; preds = %31
-  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #30
-  br label %34
-
-34:                                               ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIlSaIlEEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEE8iteratorptEv.exit
-  %35 = phi ptr [ null, %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIlSaIlEEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEE8iteratorptEv.exit ], [ %33, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i ]
-  store ptr %35, ptr %0, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %35, i64 %30
+35:                                               ; preds = %33
+  %36 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #30
+  store ptr %36, ptr %0, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %30
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %37, ptr %38, align 8
-  %39 = load ptr, ptr %24, align 8
-  %40 = load ptr, ptr %25, align 8
-  %41 = ptrtoint ptr %40 to i64
-  %42 = ptrtoint ptr %39 to i64
-  %43 = sub i64 %41, %42
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %40, %39
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit, label %44
-
-44:                                               ; preds = %34
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %35, ptr align 8 %39, i64 %43, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %36, ptr align 8 %27, i64 %30, i1 false)
   br label %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit
 
-_ZNSt6vectorIlSaIlEEC2ERKS1_.exit:                ; preds = %34, %44
-  %45 = getelementptr inbounds i8, ptr %35, i64 %43
-  store ptr %45, ptr %36, align 8
-  br label %46
+_ZNSt6vectorIlSaIlEEC2ERKS1_.exit:                ; preds = %.thread, %35
+  %39 = phi ptr [ %31, %.thread ], [ %37, %35 ]
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %39, ptr %40, align 8
+  br label %41
 
-46:                                               ; preds = %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit, %23
+41:                                               ; preds = %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit, %23
   ret void
 }
 

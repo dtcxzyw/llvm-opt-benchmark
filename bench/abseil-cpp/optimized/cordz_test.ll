@@ -2585,13 +2585,13 @@ define internal void @_ZN4absl12_GLOBAL__N_134CordzTest_ConstructSmallArray_Test
 17:                                               ; preds = %10, %1
   %18 = landingpad { ptr, i32 }
           cleanup
-  br label %70
+  br label %69
 
 19:                                               ; preds = %13
   %20 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
-  br label %69
+  br label %68
 
 21:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
@@ -2670,7 +2670,7 @@ _ZN7testing7MessageD2Ev.exit12:                   ; preds = %_ZNKSt14default_del
   %.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %.pn, %40 ], [ %.pn, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i11 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
-  br label %69
+  br label %68
 
 45:                                               ; preds = %14, %_ZN7testing7MessageD2Ev.exit
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2721,34 +2721,33 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %45, %_ZNKSt14defaul
 
 _ZN4absl4CordD2Ev.exit:                           ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %59
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
-  %63 = load i32, ptr %2, align 4, !tbaa !100
-  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %63)
-          to label %64 unwind label %66
+  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %8)
+          to label %63 unwind label %65
 
-64:                                               ; preds = %_ZN4absl4CordD2Ev.exit
-  %65 = sext i32 %63 to i64
-  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %65)
-          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %66
+63:                                               ; preds = %_ZN4absl4CordD2Ev.exit
+  %64 = sext i32 %8 to i64
+  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %64)
+          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %65
 
-66:                                               ; preds = %64, %_ZN4absl4CordD2Ev.exit
-  %67 = landingpad { ptr, i32 }
+65:                                               ; preds = %63, %_ZN4absl4CordD2Ev.exit
+  %66 = landingpad { ptr, i32 }
           catch ptr null
-  %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #37
+  %67 = extractvalue { ptr, i32 } %66, 0
+  call void @__clang_call_terminate(ptr %67) #37
   unreachable
 
-_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %64
+_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %63
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
   ret void
 
-69:                                               ; preds = %_ZN7testing7MessageD2Ev.exit12, %19
+68:                                               ; preds = %_ZN7testing7MessageD2Ev.exit12, %19
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit12 ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
-  br label %70
+  br label %69
 
-70:                                               ; preds = %69, %17
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %69 ], [ %18, %17 ]
+69:                                               ; preds = %68, %17
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %68 ], [ %18, %17 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
   call void @_ZN4absl27CordzSamplingIntervalHelperD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %2) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
@@ -6000,13 +5999,13 @@ define internal void @_ZN4absl12_GLOBAL__N_134CordzTest_ConstructLargeArray_Test
 17:                                               ; preds = %10, %1
   %18 = landingpad { ptr, i32 }
           cleanup
-  br label %70
+  br label %69
 
 19:                                               ; preds = %13
   %20 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
-  br label %69
+  br label %68
 
 21:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
@@ -6085,7 +6084,7 @@ _ZN7testing7MessageD2Ev.exit12:                   ; preds = %_ZNKSt14default_del
   %.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %.pn, %40 ], [ %.pn, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i11 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
-  br label %69
+  br label %68
 
 45:                                               ; preds = %14, %_ZN7testing7MessageD2Ev.exit
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6136,34 +6135,33 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %45, %_ZNKSt14defaul
 
 _ZN4absl4CordD2Ev.exit:                           ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %59
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
-  %63 = load i32, ptr %2, align 4, !tbaa !100
-  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %63)
-          to label %64 unwind label %66
+  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %8)
+          to label %63 unwind label %65
 
-64:                                               ; preds = %_ZN4absl4CordD2Ev.exit
-  %65 = sext i32 %63 to i64
-  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %65)
-          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %66
+63:                                               ; preds = %_ZN4absl4CordD2Ev.exit
+  %64 = sext i32 %8 to i64
+  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %64)
+          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %65
 
-66:                                               ; preds = %64, %_ZN4absl4CordD2Ev.exit
-  %67 = landingpad { ptr, i32 }
+65:                                               ; preds = %63, %_ZN4absl4CordD2Ev.exit
+  %66 = landingpad { ptr, i32 }
           catch ptr null
-  %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #37
+  %67 = extractvalue { ptr, i32 } %66, 0
+  call void @__clang_call_terminate(ptr %67) #37
   unreachable
 
-_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %64
+_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %63
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
   ret void
 
-69:                                               ; preds = %_ZN7testing7MessageD2Ev.exit12, %19
+68:                                               ; preds = %_ZN7testing7MessageD2Ev.exit12, %19
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit12 ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
-  br label %70
+  br label %69
 
-70:                                               ; preds = %69, %17
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %69 ], [ %18, %17 ]
+69:                                               ; preds = %68, %17
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %68 ], [ %18, %17 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
   call void @_ZN4absl27CordzSamplingIntervalHelperD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %2) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
@@ -7409,19 +7407,19 @@ define internal void @_ZN4absl12_GLOBAL__N_141CordzTest_CopyConstructFromUnsampl
 36:                                               ; preds = %12, %1
   %37 = landingpad { ptr, i32 }
           cleanup
-  br label %98
+  br label %97
 
 38:                                               ; preds = %25
   %39 = landingpad { ptr, i32 }
           cleanup
-  br label %97
+  br label %96
 
 40:                                               ; preds = %27
   %41 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
-  br label %96
+  br label %95
 
 42:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
@@ -7500,7 +7498,7 @@ _ZN7testing7MessageD2Ev.exit18:                   ; preds = %_ZNKSt14default_del
   %.pn8.pn = phi { ptr, i32 } [ %56, %55 ], [ %.pn8, %61 ], [ %.pn8, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i17 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  br label %96
+  br label %95
 
 66:                                               ; preds = %33, %_ZN7testing7MessageD2Ev.exit
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -7569,40 +7567,39 @@ _ZN4absl4CordD2Ev.exit:                           ; preds = %_ZN7testing15Assert
 
 _ZN4absl4CordD2Ev.exit22:                         ; preds = %_ZN4absl4CordD2Ev.exit, %86
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
-  %90 = load i32, ptr %2, align 4, !tbaa !100
-  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %90)
-          to label %91 unwind label %93
+  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %10)
+          to label %90 unwind label %92
 
-91:                                               ; preds = %_ZN4absl4CordD2Ev.exit22
-  %92 = sext i32 %90 to i64
-  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %92)
-          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %93
+90:                                               ; preds = %_ZN4absl4CordD2Ev.exit22
+  %91 = sext i32 %10 to i64
+  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %91)
+          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %92
 
-93:                                               ; preds = %91, %_ZN4absl4CordD2Ev.exit22
-  %94 = landingpad { ptr, i32 }
+92:                                               ; preds = %90, %_ZN4absl4CordD2Ev.exit22
+  %93 = landingpad { ptr, i32 }
           catch ptr null
-  %95 = extractvalue { ptr, i32 } %94, 0
-  call void @__clang_call_terminate(ptr %95) #37
+  %94 = extractvalue { ptr, i32 } %93, 0
+  call void @__clang_call_terminate(ptr %94) #37
   unreachable
 
-_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %91
+_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %90
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
   ret void
 
-96:                                               ; preds = %_ZN7testing7MessageD2Ev.exit18, %40
+95:                                               ; preds = %_ZN7testing7MessageD2Ev.exit18, %40
   %.pn8.pn.pn = phi { ptr, i32 } [ %.pn8.pn, %_ZN7testing7MessageD2Ev.exit18 ], [ %41, %40 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
-  br label %97
+  br label %96
 
-97:                                               ; preds = %96, %38
-  %.pn8.pn.pn.pn = phi { ptr, i32 } [ %.pn8.pn.pn, %96 ], [ %39, %38 ]
+96:                                               ; preds = %95, %38
+  %.pn8.pn.pn.pn = phi { ptr, i32 } [ %.pn8.pn.pn, %95 ], [ %39, %38 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
-  br label %98
+  br label %97
 
-98:                                               ; preds = %97, %36
-  %.pn8.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8.pn.pn.pn, %97 ], [ %37, %36 ]
+97:                                               ; preds = %96, %36
+  %.pn8.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8.pn.pn.pn, %96 ], [ %37, %36 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
   call void @_ZN4absl27CordzSamplingIntervalHelperD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %2) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
@@ -9558,23 +9555,22 @@ define internal fastcc void @_ZN4absl12_GLOBAL__N_120MakeAppendStringCordENS_12T
   resume { ptr, i32 } %9
 
 _ZN4absl4Cord6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %5
-  %10 = load i32, ptr %2, align 4, !tbaa !100
-  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %10)
-          to label %11 unwind label %13
+  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %3)
+          to label %10 unwind label %12
 
-11:                                               ; preds = %_ZN4absl4Cord6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
-  %12 = sext i32 %10 to i64
-  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %12)
-          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %13
+10:                                               ; preds = %_ZN4absl4Cord6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
+  %11 = sext i32 %3 to i64
+  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %11)
+          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %12
 
-13:                                               ; preds = %11, %_ZN4absl4Cord6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
-  %14 = landingpad { ptr, i32 }
+12:                                               ; preds = %10, %_ZN4absl4Cord6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #37
+  %14 = extractvalue { ptr, i32 } %13, 0
+  tail call void @__clang_call_terminate(ptr %14) #37
   unreachable
 
-_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %11
+_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
   ret void
 }
@@ -12135,13 +12131,13 @@ define internal void @_ZN4absl12_GLOBAL__N_128CordzTest_MoveConstruct_Test8TestB
 18:                                               ; preds = %11, %1
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %77
+  br label %76
 
 20:                                               ; preds = %14
   %21 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
-  br label %76
+  br label %75
 
 22:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
@@ -12220,7 +12216,7 @@ _ZN7testing7MessageD2Ev.exit12:                   ; preds = %_ZNKSt14default_del
   %.pn.pn = phi { ptr, i32 } [ %36, %35 ], [ %.pn, %41 ], [ %.pn, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i11 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  br label %76
+  br label %75
 
 46:                                               ; preds = %15, %_ZN7testing7MessageD2Ev.exit
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -12289,36 +12285,35 @@ _ZN4absl4CordD2Ev.exit:                           ; preds = %_ZN7testing15Assert
 
 _ZN4absl4CordD2Ev.exit15:                         ; preds = %_ZN4absl4CordD2Ev.exit, %66
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
-  %70 = load i32, ptr %2, align 4, !tbaa !100
-  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %70)
-          to label %71 unwind label %73
+  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %9)
+          to label %70 unwind label %72
 
-71:                                               ; preds = %_ZN4absl4CordD2Ev.exit15
-  %72 = sext i32 %70 to i64
-  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %72)
-          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %73
+70:                                               ; preds = %_ZN4absl4CordD2Ev.exit15
+  %71 = sext i32 %9 to i64
+  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %71)
+          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %72
 
-73:                                               ; preds = %71, %_ZN4absl4CordD2Ev.exit15
-  %74 = landingpad { ptr, i32 }
+72:                                               ; preds = %70, %_ZN4absl4CordD2Ev.exit15
+  %73 = landingpad { ptr, i32 }
           catch ptr null
-  %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #37
+  %74 = extractvalue { ptr, i32 } %73, 0
+  call void @__clang_call_terminate(ptr %74) #37
   unreachable
 
-_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %71
+_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %70
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
   ret void
 
-76:                                               ; preds = %_ZN7testing7MessageD2Ev.exit12, %20
+75:                                               ; preds = %_ZN7testing7MessageD2Ev.exit12, %20
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit12 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
-  br label %77
+  br label %76
 
-77:                                               ; preds = %76, %18
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %76 ], [ %19, %18 ]
+76:                                               ; preds = %75, %18
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %75 ], [ %19, %18 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
   call void @_ZN4absl27CordzSamplingIntervalHelperD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %2) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
@@ -15473,17 +15468,17 @@ define internal void @_ZN4absl12_GLOBAL__N_153CordzUpdateTest_AssignSampledCordT
 42:                                               ; preds = %26, %1
   %43 = landingpad { ptr, i32 }
           cleanup
-  br label %260
+  br label %259
 
 44:                                               ; preds = %29
   %45 = landingpad { ptr, i32 }
           cleanup
-  br label %259
+  br label %258
 
 46:                                               ; preds = %37
   %47 = landingpad { ptr, i32 }
           cleanup
-  br label %258
+  br label %257
 
 48:                                               ; preds = %38
   %49 = landingpad { ptr, i32 }
@@ -15658,12 +15653,12 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 106:                                              ; preds = %_ZN7testing7MessageD2Ev.exit54, %48
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit54 ], [ %49, %48 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
-  br label %258
+  br label %257
 
 107:                                              ; preds = %95
   %108 = landingpad { ptr, i32 }
           cleanup
-  br label %257
+  br label %256
 
 109:                                              ; preds = %101
   %110 = landingpad { ptr, i32 }
@@ -15801,7 +15796,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 153:                                              ; preds = %_ZN7testing7MessageD2Ev.exit67, %109
   %.pn29.pn.pn = phi { ptr, i32 } [ %.pn29.pn, %_ZN7testing7MessageD2Ev.exit67 ], [ %110, %109 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #17
-  br label %257
+  br label %256
 
 154:                                              ; preds = %147
   %155 = landingpad { ptr, i32 }
@@ -15940,14 +15935,14 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 198:                                              ; preds = %_ZN7testing7MessageD2Ev.exit80, %154
   %.pn35.pn.pn = phi { ptr, i32 } [ %.pn35.pn, %_ZN7testing7MessageD2Ev.exit80 ], [ %155, %154 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #17
-  br label %257
+  br label %256
 
 199:                                              ; preds = %192
   %200 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #17
-  br label %256
+  br label %255
 
 201:                                              ; preds = %195
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #17
@@ -16026,7 +16021,7 @@ _ZN7testing7MessageD2Ev.exit93:                   ; preds = %_ZNKSt14default_del
   %.pn41.pn = phi { ptr, i32 } [ %215, %214 ], [ %.pn41, %220 ], [ %.pn41, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i92 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #17
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #17
-  br label %256
+  br label %255
 
 225:                                              ; preds = %195, %_ZN7testing7MessageD2Ev.exit90
   %226 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -16099,49 +16094,48 @@ _ZN4absl4CordD2Ev.exit:                           ; preds = %237, %240
 
 _ZN4absl4CordD2Ev.exit101:                        ; preds = %_ZN4absl4CordD2Ev.exit, %246
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
-  %250 = load i32, ptr %2, align 4, !tbaa !100
-  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %250)
-          to label %251 unwind label %253
+  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %24)
+          to label %250 unwind label %252
 
-251:                                              ; preds = %_ZN4absl4CordD2Ev.exit101
-  %252 = sext i32 %250 to i64
-  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %252)
-          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %253
+250:                                              ; preds = %_ZN4absl4CordD2Ev.exit101
+  %251 = sext i32 %24 to i64
+  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %251)
+          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %252
 
-253:                                              ; preds = %251, %_ZN4absl4CordD2Ev.exit101
-  %254 = landingpad { ptr, i32 }
+252:                                              ; preds = %250, %_ZN4absl4CordD2Ev.exit101
+  %253 = landingpad { ptr, i32 }
           catch ptr null
-  %255 = extractvalue { ptr, i32 } %254, 0
-  call void @__clang_call_terminate(ptr %255) #37
+  %254 = extractvalue { ptr, i32 } %253, 0
+  call void @__clang_call_terminate(ptr %254) #37
   unreachable
 
-_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %251
+_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %250
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
   ret void
 
-256:                                              ; preds = %_ZN7testing7MessageD2Ev.exit93, %199
+255:                                              ; preds = %_ZN7testing7MessageD2Ev.exit93, %199
   %.pn41.pn.pn = phi { ptr, i32 } [ %.pn41.pn, %_ZN7testing7MessageD2Ev.exit93 ], [ %200, %199 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #17
+  br label %256
+
+256:                                              ; preds = %255, %198, %153, %107
+  %.pn41.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn, %255 ], [ %.pn35.pn.pn, %198 ], [ %.pn29.pn.pn, %153 ], [ %108, %107 ]
+  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %9) #17
   br label %257
 
-257:                                              ; preds = %256, %198, %153, %107
-  %.pn41.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn, %256 ], [ %.pn35.pn.pn, %198 ], [ %.pn29.pn.pn, %153 ], [ %108, %107 ]
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %9) #17
+257:                                              ; preds = %256, %106, %46
+  %.pn41.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn.pn, %256 ], [ %.pn.pn.pn, %106 ], [ %47, %46 ]
+  call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   br label %258
 
-258:                                              ; preds = %257, %106, %46
-  %.pn41.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn.pn, %257 ], [ %.pn.pn.pn, %106 ], [ %47, %46 ]
-  call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
-  br label %259
-
-259:                                              ; preds = %258, %44
-  %.pn41.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn.pn.pn, %258 ], [ %45, %44 ]
+258:                                              ; preds = %257, %44
+  %.pn41.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn.pn.pn, %257 ], [ %45, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
-  br label %260
+  br label %259
 
-260:                                              ; preds = %259, %42
-  %.pn41.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn.pn.pn.pn, %259 ], [ %43, %42 ]
+259:                                              ; preds = %258, %42
+  %.pn41.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn.pn.pn.pn, %258 ], [ %43, %42 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
   call void @_ZN4absl27CordzSamplingIntervalHelperD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %2) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
@@ -16269,17 +16263,17 @@ define internal void @_ZN4absl12_GLOBAL__N_168CordzUpdateTest_AssignUnsampledCor
 46:                                               ; preds = %1
   %47 = landingpad { ptr, i32 }
           cleanup
-  br label %178
+  br label %177
 
 48:                                               ; preds = %26, %19
   %49 = landingpad { ptr, i32 }
           cleanup
-  br label %177
+  br label %176
 
 50:                                               ; preds = %36
   %51 = landingpad { ptr, i32 }
           cleanup
-  br label %176
+  br label %175
 
 52:                                               ; preds = %37
   %53 = landingpad { ptr, i32 }
@@ -16483,12 +16477,12 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %78, %_ZNKSt14defaul
 104:                                              ; preds = %_ZN7testing7MessageD2Ev.exit37, %52
   %.pn16.pn.pn = phi { ptr, i32 } [ %.pn16.pn, %_ZN7testing7MessageD2Ev.exit37 ], [ %53, %52 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #17
-  br label %176
+  br label %175
 
 105:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit
   %106 = landingpad { ptr, i32 }
           cleanup
-  br label %175
+  br label %174
 
 .loopexit.split:                                  ; preds = %.lr.ph.i, %97, %.noexc44
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -16503,7 +16497,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %78, %_ZNKSt14defaul
 .loopexit:                                        ; preds = %.loopexit.split, %.loopexit.split.us, %.loopexit.split-lp
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
   call void @_ZN4absl13cord_internal11CordzHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #17
-  br label %175
+  br label %174
 
 107:                                              ; preds = %.loopexit65
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #17
@@ -16623,7 +16617,7 @@ _ZN7testing7MessageD2Ev.exit54:                   ; preds = %_ZNKSt14default_del
   %.pn22.pn.pn = phi { ptr, i32 } [ %126, %125 ], [ %.pn22.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51 ], [ %.pn22.pn, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i53 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #17
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #17
-  br label %175
+  br label %174
 
 146:                                              ; preds = %.loopexit65, %_ZN7testing7MessageD2Ev.exit48
   %147 = load ptr, ptr %101, align 8, !tbaa !116
@@ -16691,44 +16685,43 @@ _ZN4absl4CordD2Ev.exit:                           ; preds = %_ZN7testing15Assert
 
 _ZN4absl4CordD2Ev.exit62:                         ; preds = %_ZN4absl4CordD2Ev.exit, %165
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #17
-  %169 = load i32, ptr %5, align 4, !tbaa !100
-  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %169)
-          to label %170 unwind label %172
+  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %18)
+          to label %169 unwind label %171
 
-170:                                              ; preds = %_ZN4absl4CordD2Ev.exit62
-  %171 = sext i32 %169 to i64
-  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %171)
-          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %172
+169:                                              ; preds = %_ZN4absl4CordD2Ev.exit62
+  %170 = sext i32 %18 to i64
+  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %170)
+          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %171
 
-172:                                              ; preds = %170, %_ZN4absl4CordD2Ev.exit62
-  %173 = landingpad { ptr, i32 }
+171:                                              ; preds = %169, %_ZN4absl4CordD2Ev.exit62
+  %172 = landingpad { ptr, i32 }
           catch ptr null
-  %174 = extractvalue { ptr, i32 } %173, 0
-  call void @__clang_call_terminate(ptr %174) #37
+  %173 = extractvalue { ptr, i32 } %172, 0
+  call void @__clang_call_terminate(ptr %173) #37
   unreachable
 
-_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %170
+_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %169
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
   ret void
 
-175:                                              ; preds = %105, %.loopexit, %_ZN7testing7MessageD2Ev.exit54
+174:                                              ; preds = %105, %.loopexit, %_ZN7testing7MessageD2Ev.exit54
   %.pn22.pn.pn.pn = phi { ptr, i32 } [ %.pn22.pn.pn, %_ZN7testing7MessageD2Ev.exit54 ], [ %lpad.phi, %.loopexit ], [ %106, %105 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #17
+  br label %175
+
+175:                                              ; preds = %174, %104, %50
+  %.pn22.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn22.pn.pn.pn, %174 ], [ %.pn16.pn.pn, %104 ], [ %51, %50 ]
+  call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #17
   br label %176
 
-176:                                              ; preds = %175, %104, %50
-  %.pn22.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn22.pn.pn.pn, %175 ], [ %.pn16.pn.pn, %104 ], [ %51, %50 ]
-  call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #17
-  br label %177
-
-177:                                              ; preds = %176, %48
-  %.pn22.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn22.pn.pn.pn.pn, %176 ], [ %49, %48 ]
+176:                                              ; preds = %175, %48
+  %.pn22.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn22.pn.pn.pn.pn, %175 ], [ %49, %48 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #17
-  br label %178
+  br label %177
 
-178:                                              ; preds = %177, %46
-  %.pn22.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn22.pn.pn.pn.pn.pn, %177 ], [ %47, %46 ]
+177:                                              ; preds = %176, %46
+  %.pn22.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn22.pn.pn.pn.pn.pn, %176 ], [ %47, %46 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #17
   call void @_ZN4absl27CordzSamplingIntervalHelperD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
@@ -16856,17 +16849,17 @@ define internal void @_ZN4absl12_GLOBAL__N_165CordzUpdateTest_AssignUnsampledCor
 46:                                               ; preds = %1
   %47 = landingpad { ptr, i32 }
           cleanup
-  br label %178
+  br label %177
 
 48:                                               ; preds = %26, %19
   %49 = landingpad { ptr, i32 }
           cleanup
-  br label %177
+  br label %176
 
 50:                                               ; preds = %36
   %51 = landingpad { ptr, i32 }
           cleanup
-  br label %176
+  br label %175
 
 52:                                               ; preds = %37
   %53 = landingpad { ptr, i32 }
@@ -17070,12 +17063,12 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %78, %_ZNKSt14defaul
 104:                                              ; preds = %_ZN7testing7MessageD2Ev.exit37, %52
   %.pn16.pn.pn = phi { ptr, i32 } [ %.pn16.pn, %_ZN7testing7MessageD2Ev.exit37 ], [ %53, %52 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #17
-  br label %176
+  br label %175
 
 105:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit
   %106 = landingpad { ptr, i32 }
           cleanup
-  br label %175
+  br label %174
 
 .loopexit.split:                                  ; preds = %.lr.ph.i, %97, %.noexc44
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -17090,7 +17083,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %78, %_ZNKSt14defaul
 .loopexit:                                        ; preds = %.loopexit.split, %.loopexit.split.us, %.loopexit.split-lp
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
   call void @_ZN4absl13cord_internal11CordzHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #17
-  br label %175
+  br label %174
 
 107:                                              ; preds = %.loopexit65
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #17
@@ -17210,7 +17203,7 @@ _ZN7testing7MessageD2Ev.exit54:                   ; preds = %_ZNKSt14default_del
   %.pn22.pn.pn = phi { ptr, i32 } [ %126, %125 ], [ %.pn22.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51 ], [ %.pn22.pn, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i53 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #17
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #17
-  br label %175
+  br label %174
 
 146:                                              ; preds = %.loopexit65, %_ZN7testing7MessageD2Ev.exit48
   %147 = load ptr, ptr %101, align 8, !tbaa !116
@@ -17278,44 +17271,43 @@ _ZN4absl4CordD2Ev.exit:                           ; preds = %_ZN7testing15Assert
 
 _ZN4absl4CordD2Ev.exit62:                         ; preds = %_ZN4absl4CordD2Ev.exit, %165
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #17
-  %169 = load i32, ptr %5, align 4, !tbaa !100
-  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %169)
-          to label %170 unwind label %172
+  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %18)
+          to label %169 unwind label %171
 
-170:                                              ; preds = %_ZN4absl4CordD2Ev.exit62
-  %171 = sext i32 %169 to i64
-  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %171)
-          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %172
+169:                                              ; preds = %_ZN4absl4CordD2Ev.exit62
+  %170 = sext i32 %18 to i64
+  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %170)
+          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %171
 
-172:                                              ; preds = %170, %_ZN4absl4CordD2Ev.exit62
-  %173 = landingpad { ptr, i32 }
+171:                                              ; preds = %169, %_ZN4absl4CordD2Ev.exit62
+  %172 = landingpad { ptr, i32 }
           catch ptr null
-  %174 = extractvalue { ptr, i32 } %173, 0
-  call void @__clang_call_terminate(ptr %174) #37
+  %173 = extractvalue { ptr, i32 } %172, 0
+  call void @__clang_call_terminate(ptr %173) #37
   unreachable
 
-_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %170
+_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %169
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
   ret void
 
-175:                                              ; preds = %105, %.loopexit, %_ZN7testing7MessageD2Ev.exit54
+174:                                              ; preds = %105, %.loopexit, %_ZN7testing7MessageD2Ev.exit54
   %.pn22.pn.pn.pn = phi { ptr, i32 } [ %.pn22.pn.pn, %_ZN7testing7MessageD2Ev.exit54 ], [ %lpad.phi, %.loopexit ], [ %106, %105 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #17
+  br label %175
+
+175:                                              ; preds = %174, %104, %50
+  %.pn22.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn22.pn.pn.pn, %174 ], [ %.pn16.pn.pn, %104 ], [ %51, %50 ]
+  call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #17
   br label %176
 
-176:                                              ; preds = %175, %104, %50
-  %.pn22.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn22.pn.pn.pn, %175 ], [ %.pn16.pn.pn, %104 ], [ %51, %50 ]
-  call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #17
-  br label %177
-
-177:                                              ; preds = %176, %48
-  %.pn22.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn22.pn.pn.pn.pn, %176 ], [ %49, %48 ]
+176:                                              ; preds = %175, %48
+  %.pn22.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn22.pn.pn.pn.pn, %175 ], [ %49, %48 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #17
-  br label %178
+  br label %177
 
-178:                                              ; preds = %177, %46
-  %.pn22.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn22.pn.pn.pn.pn.pn, %177 ], [ %47, %46 ]
+177:                                              ; preds = %176, %46
+  %.pn22.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn22.pn.pn.pn.pn.pn, %176 ], [ %47, %46 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #17
   call void @_ZN4absl27CordzSamplingIntervalHelperD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
@@ -17432,17 +17424,17 @@ _ZN4absl4CordC2ESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %27
 41:                                               ; preds = %1
   %42 = landingpad { ptr, i32 }
           cleanup
-  br label %259
+  br label %258
 
 43:                                               ; preds = %27, %25
   %44 = landingpad { ptr, i32 }
           cleanup
-  br label %258
+  br label %257
 
 45:                                               ; preds = %36
   %46 = landingpad { ptr, i32 }
           cleanup
-  br label %257
+  br label %256
 
 47:                                               ; preds = %37
   %48 = landingpad { ptr, i32 }
@@ -17617,12 +17609,12 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 105:                                              ; preds = %_ZN7testing7MessageD2Ev.exit54, %47
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit54 ], [ %48, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
-  br label %257
+  br label %256
 
 106:                                              ; preds = %94
   %107 = landingpad { ptr, i32 }
           cleanup
-  br label %256
+  br label %255
 
 108:                                              ; preds = %100
   %109 = landingpad { ptr, i32 }
@@ -17760,7 +17752,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 152:                                              ; preds = %_ZN7testing7MessageD2Ev.exit67, %108
   %.pn29.pn.pn = phi { ptr, i32 } [ %.pn29.pn, %_ZN7testing7MessageD2Ev.exit67 ], [ %109, %108 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #17
-  br label %256
+  br label %255
 
 153:                                              ; preds = %146
   %154 = landingpad { ptr, i32 }
@@ -17899,14 +17891,14 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 197:                                              ; preds = %_ZN7testing7MessageD2Ev.exit80, %153
   %.pn35.pn.pn = phi { ptr, i32 } [ %.pn35.pn, %_ZN7testing7MessageD2Ev.exit80 ], [ %154, %153 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #17
-  br label %256
+  br label %255
 
 198:                                              ; preds = %191
   %199 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #17
-  br label %255
+  br label %254
 
 200:                                              ; preds = %194
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #17
@@ -17985,7 +17977,7 @@ _ZN7testing7MessageD2Ev.exit93:                   ; preds = %_ZNKSt14default_del
   %.pn41.pn = phi { ptr, i32 } [ %214, %213 ], [ %.pn41, %219 ], [ %.pn41, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i92 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #17
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #17
-  br label %255
+  br label %254
 
 224:                                              ; preds = %194, %_ZN7testing7MessageD2Ev.exit90
   %225 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -18058,49 +18050,48 @@ _ZN4absl4CordD2Ev.exit:                           ; preds = %236, %239
 
 _ZN4absl4CordD2Ev.exit101:                        ; preds = %_ZN4absl4CordD2Ev.exit, %245
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
-  %249 = load i32, ptr %2, align 4, !tbaa !100
-  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %249)
-          to label %250 unwind label %252
+  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %24)
+          to label %249 unwind label %251
 
-250:                                              ; preds = %_ZN4absl4CordD2Ev.exit101
-  %251 = sext i32 %249 to i64
-  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %251)
-          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %252
+249:                                              ; preds = %_ZN4absl4CordD2Ev.exit101
+  %250 = sext i32 %24 to i64
+  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %250)
+          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %251
 
-252:                                              ; preds = %250, %_ZN4absl4CordD2Ev.exit101
-  %253 = landingpad { ptr, i32 }
+251:                                              ; preds = %249, %_ZN4absl4CordD2Ev.exit101
+  %252 = landingpad { ptr, i32 }
           catch ptr null
-  %254 = extractvalue { ptr, i32 } %253, 0
-  call void @__clang_call_terminate(ptr %254) #37
+  %253 = extractvalue { ptr, i32 } %252, 0
+  call void @__clang_call_terminate(ptr %253) #37
   unreachable
 
-_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %250
+_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %249
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
   ret void
 
-255:                                              ; preds = %_ZN7testing7MessageD2Ev.exit93, %198
+254:                                              ; preds = %_ZN7testing7MessageD2Ev.exit93, %198
   %.pn41.pn.pn = phi { ptr, i32 } [ %.pn41.pn, %_ZN7testing7MessageD2Ev.exit93 ], [ %199, %198 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #17
+  br label %255
+
+255:                                              ; preds = %254, %197, %152, %106
+  %.pn41.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn, %254 ], [ %.pn35.pn.pn, %197 ], [ %.pn29.pn.pn, %152 ], [ %107, %106 ]
+  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %9) #17
   br label %256
 
-256:                                              ; preds = %255, %197, %152, %106
-  %.pn41.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn, %255 ], [ %.pn35.pn.pn, %197 ], [ %.pn29.pn.pn, %152 ], [ %107, %106 ]
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %9) #17
+256:                                              ; preds = %255, %105, %45
+  %.pn41.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn.pn, %255 ], [ %.pn.pn.pn, %105 ], [ %46, %45 ]
+  call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   br label %257
 
-257:                                              ; preds = %256, %105, %45
-  %.pn41.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn.pn, %256 ], [ %.pn.pn.pn, %105 ], [ %46, %45 ]
-  call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
-  br label %258
-
-258:                                              ; preds = %257, %43
-  %.pn41.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn.pn.pn, %257 ], [ %44, %43 ]
+257:                                              ; preds = %256, %43
+  %.pn41.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn.pn.pn, %256 ], [ %44, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
-  br label %259
+  br label %258
 
-259:                                              ; preds = %258, %41
-  %.pn41.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn.pn.pn.pn, %258 ], [ %42, %41 ]
+258:                                              ; preds = %257, %41
+  %.pn41.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn.pn.pn.pn, %257 ], [ %42, %41 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
   call void @_ZN4absl27CordzSamplingIntervalHelperD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %2) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
@@ -18217,17 +18208,17 @@ _ZN4absl4CordC2ESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %27
 41:                                               ; preds = %1
   %42 = landingpad { ptr, i32 }
           cleanup
-  br label %259
+  br label %258
 
 43:                                               ; preds = %27, %25
   %44 = landingpad { ptr, i32 }
           cleanup
-  br label %258
+  br label %257
 
 45:                                               ; preds = %36
   %46 = landingpad { ptr, i32 }
           cleanup
-  br label %257
+  br label %256
 
 47:                                               ; preds = %37
   %48 = landingpad { ptr, i32 }
@@ -18402,12 +18393,12 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 105:                                              ; preds = %_ZN7testing7MessageD2Ev.exit54, %47
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit54 ], [ %48, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
-  br label %257
+  br label %256
 
 106:                                              ; preds = %94
   %107 = landingpad { ptr, i32 }
           cleanup
-  br label %256
+  br label %255
 
 108:                                              ; preds = %100
   %109 = landingpad { ptr, i32 }
@@ -18545,7 +18536,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 152:                                              ; preds = %_ZN7testing7MessageD2Ev.exit67, %108
   %.pn29.pn.pn = phi { ptr, i32 } [ %.pn29.pn, %_ZN7testing7MessageD2Ev.exit67 ], [ %109, %108 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #17
-  br label %256
+  br label %255
 
 153:                                              ; preds = %146
   %154 = landingpad { ptr, i32 }
@@ -18684,14 +18675,14 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 197:                                              ; preds = %_ZN7testing7MessageD2Ev.exit80, %153
   %.pn35.pn.pn = phi { ptr, i32 } [ %.pn35.pn, %_ZN7testing7MessageD2Ev.exit80 ], [ %154, %153 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #17
-  br label %256
+  br label %255
 
 198:                                              ; preds = %191
   %199 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #17
-  br label %255
+  br label %254
 
 200:                                              ; preds = %194
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #17
@@ -18770,7 +18761,7 @@ _ZN7testing7MessageD2Ev.exit93:                   ; preds = %_ZNKSt14default_del
   %.pn41.pn = phi { ptr, i32 } [ %214, %213 ], [ %.pn41, %219 ], [ %.pn41, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i92 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #17
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #17
-  br label %255
+  br label %254
 
 224:                                              ; preds = %194, %_ZN7testing7MessageD2Ev.exit90
   %225 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -18843,49 +18834,48 @@ _ZN4absl4CordD2Ev.exit:                           ; preds = %236, %239
 
 _ZN4absl4CordD2Ev.exit101:                        ; preds = %_ZN4absl4CordD2Ev.exit, %245
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
-  %249 = load i32, ptr %2, align 4, !tbaa !100
-  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %249)
-          to label %250 unwind label %252
+  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %24)
+          to label %249 unwind label %251
 
-250:                                              ; preds = %_ZN4absl4CordD2Ev.exit101
-  %251 = sext i32 %249 to i64
-  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %251)
-          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %252
+249:                                              ; preds = %_ZN4absl4CordD2Ev.exit101
+  %250 = sext i32 %24 to i64
+  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %250)
+          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %251
 
-252:                                              ; preds = %250, %_ZN4absl4CordD2Ev.exit101
-  %253 = landingpad { ptr, i32 }
+251:                                              ; preds = %249, %_ZN4absl4CordD2Ev.exit101
+  %252 = landingpad { ptr, i32 }
           catch ptr null
-  %254 = extractvalue { ptr, i32 } %253, 0
-  call void @__clang_call_terminate(ptr %254) #37
+  %253 = extractvalue { ptr, i32 } %252, 0
+  call void @__clang_call_terminate(ptr %253) #37
   unreachable
 
-_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %250
+_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %249
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
   ret void
 
-255:                                              ; preds = %_ZN7testing7MessageD2Ev.exit93, %198
+254:                                              ; preds = %_ZN7testing7MessageD2Ev.exit93, %198
   %.pn41.pn.pn = phi { ptr, i32 } [ %.pn41.pn, %_ZN7testing7MessageD2Ev.exit93 ], [ %199, %198 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #17
+  br label %255
+
+255:                                              ; preds = %254, %197, %152, %106
+  %.pn41.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn, %254 ], [ %.pn35.pn.pn, %197 ], [ %.pn29.pn.pn, %152 ], [ %107, %106 ]
+  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %9) #17
   br label %256
 
-256:                                              ; preds = %255, %197, %152, %106
-  %.pn41.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn, %255 ], [ %.pn35.pn.pn, %197 ], [ %.pn29.pn.pn, %152 ], [ %107, %106 ]
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %9) #17
+256:                                              ; preds = %255, %105, %45
+  %.pn41.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn.pn, %255 ], [ %.pn.pn.pn, %105 ], [ %46, %45 ]
+  call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   br label %257
 
-257:                                              ; preds = %256, %105, %45
-  %.pn41.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn.pn, %256 ], [ %.pn.pn.pn, %105 ], [ %46, %45 ]
-  call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
-  br label %258
-
-258:                                              ; preds = %257, %43
-  %.pn41.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn.pn.pn, %257 ], [ %44, %43 ]
+257:                                              ; preds = %256, %43
+  %.pn41.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn.pn.pn, %256 ], [ %44, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
-  br label %259
+  br label %258
 
-259:                                              ; preds = %258, %41
-  %.pn41.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn.pn.pn.pn, %258 ], [ %42, %41 ]
+258:                                              ; preds = %257, %41
+  %.pn41.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn.pn.pn.pn, %257 ], [ %42, %41 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
   call void @_ZN4absl27CordzSamplingIntervalHelperD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %2) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
@@ -19032,22 +19022,22 @@ _ZN4absl27CordzSamplingIntervalHelperC2Ei.exit:   ; preds = %.noexc35
 51:                                               ; preds = %.noexc35, %.noexc, %1
   %52 = landingpad { ptr, i32 }
           cleanup
-  br label %186
+  br label %185
 
 53:                                               ; preds = %21, %_ZN4absl27CordzSamplingIntervalHelperC2Ei.exit
   %54 = landingpad { ptr, i32 }
           cleanup
-  br label %185
+  br label %184
 
 55:                                               ; preds = %31, %24
   %56 = landingpad { ptr, i32 }
           cleanup
-  br label %184
+  br label %183
 
 57:                                               ; preds = %41
   %58 = landingpad { ptr, i32 }
           cleanup
-  br label %183
+  br label %182
 
 59:                                               ; preds = %42
   %60 = landingpad { ptr, i32 }
@@ -19251,12 +19241,12 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %85, %_ZNKSt14defaul
 111:                                              ; preds = %_ZN7testing7MessageD2Ev.exit45, %59
   %.pn19.pn.pn = phi { ptr, i32 } [ %.pn19.pn, %_ZN7testing7MessageD2Ev.exit45 ], [ %60, %59 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #17
-  br label %183
+  br label %182
 
 112:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit
   %113 = landingpad { ptr, i32 }
           cleanup
-  br label %182
+  br label %181
 
 .loopexit.split:                                  ; preds = %.lr.ph.i, %104, %.noexc52
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -19271,7 +19261,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %85, %_ZNKSt14defaul
 .loopexit:                                        ; preds = %.loopexit.split, %.loopexit.split.us, %.loopexit.split-lp
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
   call void @_ZN4absl13cord_internal11CordzHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #17
-  br label %182
+  br label %181
 
 114:                                              ; preds = %.loopexit73
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #17
@@ -19391,7 +19381,7 @@ _ZN7testing7MessageD2Ev.exit62:                   ; preds = %_ZNKSt14default_del
   %.pn25.pn.pn = phi { ptr, i32 } [ %133, %132 ], [ %.pn25.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59 ], [ %.pn25.pn, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i61 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #17
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #17
-  br label %182
+  br label %181
 
 153:                                              ; preds = %.loopexit73, %_ZN7testing7MessageD2Ev.exit56
   %154 = load ptr, ptr %108, align 8, !tbaa !116
@@ -19459,52 +19449,51 @@ _ZN4absl4CordD2Ev.exit:                           ; preds = %_ZN7testing15Assert
 
 _ZN4absl4CordD2Ev.exit70:                         ; preds = %_ZN4absl4CordD2Ev.exit, %172
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
-  %176 = load i32, ptr %6, align 4, !tbaa !100
-  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %176)
-          to label %177 unwind label %179
+  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %19)
+          to label %176 unwind label %178
 
-177:                                              ; preds = %_ZN4absl4CordD2Ev.exit70
-  %178 = sext i32 %176 to i64
-  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %178)
-          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %179
+176:                                              ; preds = %_ZN4absl4CordD2Ev.exit70
+  %177 = sext i32 %19 to i64
+  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %177)
+          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %178
 
-179:                                              ; preds = %177, %_ZN4absl4CordD2Ev.exit70
-  %180 = landingpad { ptr, i32 }
+178:                                              ; preds = %176, %_ZN4absl4CordD2Ev.exit70
+  %179 = landingpad { ptr, i32 }
           catch ptr null
-  %181 = extractvalue { ptr, i32 } %180, 0
-  call void @__clang_call_terminate(ptr %181) #37
+  %180 = extractvalue { ptr, i32 } %179, 0
+  call void @__clang_call_terminate(ptr %180) #37
   unreachable
 
-_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %177
+_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %176
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
   call void @_ZN4absl13cord_internal11CordzHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
   ret void
 
-182:                                              ; preds = %112, %.loopexit, %_ZN7testing7MessageD2Ev.exit62
+181:                                              ; preds = %112, %.loopexit, %_ZN7testing7MessageD2Ev.exit62
   %.pn25.pn.pn.pn = phi { ptr, i32 } [ %.pn25.pn.pn, %_ZN7testing7MessageD2Ev.exit62 ], [ %lpad.phi, %.loopexit ], [ %113, %112 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #17
+  br label %182
+
+182:                                              ; preds = %181, %111, %57
+  %.pn25.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn25.pn.pn.pn, %181 ], [ %.pn19.pn.pn, %111 ], [ %58, %57 ]
+  call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #17
   br label %183
 
-183:                                              ; preds = %182, %111, %57
-  %.pn25.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn25.pn.pn.pn, %182 ], [ %.pn19.pn.pn, %111 ], [ %58, %57 ]
-  call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #17
-  br label %184
-
-184:                                              ; preds = %183, %55
-  %.pn25.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn25.pn.pn.pn.pn, %183 ], [ %56, %55 ]
+183:                                              ; preds = %182, %55
+  %.pn25.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn25.pn.pn.pn.pn, %182 ], [ %56, %55 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #17
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #17
-  br label %185
+  br label %184
 
-185:                                              ; preds = %184, %53
-  %.pn25.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn25.pn.pn.pn.pn.pn, %184 ], [ %54, %53 ]
+184:                                              ; preds = %183, %53
+  %.pn25.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn25.pn.pn.pn.pn.pn, %183 ], [ %54, %53 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
   call void @_ZN4absl27CordzSamplingIntervalHelperD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %6) #17
-  br label %186
+  br label %185
 
-186:                                              ; preds = %185, %51
-  %.pn25.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn25.pn.pn.pn.pn.pn.pn.pn, %185 ], [ %52, %51 ]
+185:                                              ; preds = %184, %51
+  %.pn25.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn25.pn.pn.pn.pn.pn.pn.pn, %184 ], [ %52, %51 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
   call void @_ZN4absl13cord_internal11CordzHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
@@ -19602,13 +19591,13 @@ _ZN4absl4CordC2ESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %11
 24:                                               ; preds = %11, %1
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %83
+  br label %82
 
 26:                                               ; preds = %20
   %27 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
-  br label %82
+  br label %81
 
 28:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
@@ -19687,7 +19676,7 @@ _ZN7testing7MessageD2Ev.exit13:                   ; preds = %_ZNKSt14default_del
   %.pn.pn = phi { ptr, i32 } [ %42, %41 ], [ %.pn, %47 ], [ %.pn, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i12 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  br label %82
+  br label %81
 
 52:                                               ; preds = %21, %_ZN7testing7MessageD2Ev.exit
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -19756,34 +19745,33 @@ _ZN4absl4CordD2Ev.exit:                           ; preds = %_ZN7testing15Assert
 
 _ZN4absl4CordD2Ev.exit16:                         ; preds = %_ZN4absl4CordD2Ev.exit, %72
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
-  %76 = load i32, ptr %2, align 4, !tbaa !100
-  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %76)
-          to label %77 unwind label %79
+  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %9)
+          to label %76 unwind label %78
 
-77:                                               ; preds = %_ZN4absl4CordD2Ev.exit16
-  %78 = sext i32 %76 to i64
-  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %78)
-          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %79
+76:                                               ; preds = %_ZN4absl4CordD2Ev.exit16
+  %77 = sext i32 %9 to i64
+  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %77)
+          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %78
 
-79:                                               ; preds = %77, %_ZN4absl4CordD2Ev.exit16
-  %80 = landingpad { ptr, i32 }
+78:                                               ; preds = %76, %_ZN4absl4CordD2Ev.exit16
+  %79 = landingpad { ptr, i32 }
           catch ptr null
-  %81 = extractvalue { ptr, i32 } %80, 0
-  call void @__clang_call_terminate(ptr %81) #37
+  %80 = extractvalue { ptr, i32 } %79, 0
+  call void @__clang_call_terminate(ptr %80) #37
   unreachable
 
-_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %77
+_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %76
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
   ret void
 
-82:                                               ; preds = %_ZN7testing7MessageD2Ev.exit13, %26
+81:                                               ; preds = %_ZN7testing7MessageD2Ev.exit13, %26
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit13 ], [ %27, %26 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
-  br label %83
+  br label %82
 
-83:                                               ; preds = %82, %24
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %82 ], [ %25, %24 ]
+82:                                               ; preds = %81, %24
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %81 ], [ %25, %24 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
@@ -30202,12 +30190,12 @@ _ZNK4absl4Cord4sizeEv.exit:                       ; preds = %36, %32
 45:                                               ; preds = %27, %1
   %46 = landingpad { ptr, i32 }
           cleanup
-  br label %299
+  br label %298
 
 47:                                               ; preds = %_ZNK4absl4Cord4sizeEv.exit96, %_ZNK4absl4Cord4sizeEv.exit68, %_ZNK4absl4Cord4sizeEv.exit
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %298
+  br label %297
 
 49:                                               ; preds = %41
   %50 = landingpad { ptr, i32 }
@@ -30340,7 +30328,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 91:                                               ; preds = %_ZN7testing7MessageD2Ev.exit52, %49
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit52 ], [ %50, %49 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
-  br label %298
+  br label %297
 
 92:                                               ; preds = %87
   %93 = landingpad { ptr, i32 }
@@ -30496,7 +30484,7 @@ _ZNK4absl4Cord4sizeEv.exit68:                     ; preds = %136, %132
 145:                                              ; preds = %_ZN7testing7MessageD2Ev.exit61, %92
   %.pn28.pn.pn = phi { ptr, i32 } [ %.pn28.pn, %_ZN7testing7MessageD2Ev.exit61 ], [ %93, %92 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #17
-  br label %298
+  br label %297
 
 146:                                              ; preds = %141
   %147 = landingpad { ptr, i32 }
@@ -30629,7 +30617,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 188:                                              ; preds = %_ZN7testing7MessageD2Ev.exit76, %146
   %.pn32.pn.pn = phi { ptr, i32 } [ %.pn32.pn, %_ZN7testing7MessageD2Ev.exit76 ], [ %147, %146 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #17
-  br label %298
+  br label %297
 
 189:                                              ; preds = %184
   %190 = landingpad { ptr, i32 }
@@ -30794,14 +30782,14 @@ _ZNK4absl4Cord4sizeEv.exit96:                     ; preds = %233, %229
 246:                                              ; preds = %_ZN7testing7MessageD2Ev.exit89, %189
   %.pn36.pn.pn = phi { ptr, i32 } [ %.pn36.pn, %_ZN7testing7MessageD2Ev.exit89 ], [ %190, %189 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #17
-  br label %298
+  br label %297
 
 247:                                              ; preds = %237
   %248 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #17
-  br label %297
+  br label %296
 
 249:                                              ; preds = %243
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #17
@@ -30880,7 +30868,7 @@ _ZN7testing7MessageD2Ev.exit104:                  ; preds = %_ZNKSt14default_del
   %.pn42.pn = phi { ptr, i32 } [ %263, %262 ], [ %.pn42, %268 ], [ %.pn42, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i103 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #17
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #17
-  br label %297
+  br label %296
 
 273:                                              ; preds = %243, %_ZN7testing7MessageD2Ev.exit101
   %274 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -30931,38 +30919,37 @@ _ZN7testing15AssertionResultD2Ev.exit109:         ; preds = %273, %_ZNKSt14defau
 
 _ZN4absl4CordD2Ev.exit:                           ; preds = %_ZN7testing15AssertionResultD2Ev.exit109, %287
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
-  %291 = load i32, ptr %2, align 4, !tbaa !100
-  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %291)
-          to label %292 unwind label %294
+  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %25)
+          to label %291 unwind label %293
 
-292:                                              ; preds = %_ZN4absl4CordD2Ev.exit
-  %293 = sext i32 %291 to i64
-  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %293)
-          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %294
+291:                                              ; preds = %_ZN4absl4CordD2Ev.exit
+  %292 = sext i32 %25 to i64
+  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %292)
+          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %293
 
-294:                                              ; preds = %292, %_ZN4absl4CordD2Ev.exit
-  %295 = landingpad { ptr, i32 }
+293:                                              ; preds = %291, %_ZN4absl4CordD2Ev.exit
+  %294 = landingpad { ptr, i32 }
           catch ptr null
-  %296 = extractvalue { ptr, i32 } %295, 0
-  call void @__clang_call_terminate(ptr %296) #37
+  %295 = extractvalue { ptr, i32 } %294, 0
+  call void @__clang_call_terminate(ptr %295) #37
   unreachable
 
-_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %292
+_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %291
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
   ret void
 
-297:                                              ; preds = %_ZN7testing7MessageD2Ev.exit104, %247
+296:                                              ; preds = %_ZN7testing7MessageD2Ev.exit104, %247
   %.pn42.pn.pn = phi { ptr, i32 } [ %.pn42.pn, %_ZN7testing7MessageD2Ev.exit104 ], [ %248, %247 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #17
+  br label %297
+
+297:                                              ; preds = %296, %246, %188, %145, %91, %47
+  %.pn42.pn.pn.pn = phi { ptr, i32 } [ %.pn42.pn.pn, %296 ], [ %48, %47 ], [ %.pn36.pn.pn, %246 ], [ %.pn32.pn.pn, %188 ], [ %.pn28.pn.pn, %145 ], [ %.pn.pn.pn, %91 ]
+  call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
   br label %298
 
-298:                                              ; preds = %297, %246, %188, %145, %91, %47
-  %.pn42.pn.pn.pn = phi { ptr, i32 } [ %.pn42.pn.pn, %297 ], [ %48, %47 ], [ %.pn36.pn.pn, %246 ], [ %.pn32.pn.pn, %188 ], [ %.pn28.pn.pn, %145 ], [ %.pn.pn.pn, %91 ]
-  call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
-  br label %299
-
-299:                                              ; preds = %298, %45
-  %.pn42.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn42.pn.pn.pn, %298 ], [ %46, %45 ]
+298:                                              ; preds = %297, %45
+  %.pn42.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn42.pn.pn.pn, %297 ], [ %46, %45 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
   call void @_ZN4absl27CordzSamplingIntervalHelperD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %2) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
@@ -31080,12 +31067,12 @@ _ZNK4absl4Cord4sizeEv.exit:                       ; preds = %36, %32
 45:                                               ; preds = %27, %1
   %46 = landingpad { ptr, i32 }
           cleanup
-  br label %299
+  br label %298
 
 47:                                               ; preds = %_ZNK4absl4Cord4sizeEv.exit96, %_ZNK4absl4Cord4sizeEv.exit68, %_ZNK4absl4Cord4sizeEv.exit
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %298
+  br label %297
 
 49:                                               ; preds = %41
   %50 = landingpad { ptr, i32 }
@@ -31218,7 +31205,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 91:                                               ; preds = %_ZN7testing7MessageD2Ev.exit52, %49
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit52 ], [ %50, %49 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
-  br label %298
+  br label %297
 
 92:                                               ; preds = %87
   %93 = landingpad { ptr, i32 }
@@ -31374,7 +31361,7 @@ _ZNK4absl4Cord4sizeEv.exit68:                     ; preds = %136, %132
 145:                                              ; preds = %_ZN7testing7MessageD2Ev.exit61, %92
   %.pn28.pn.pn = phi { ptr, i32 } [ %.pn28.pn, %_ZN7testing7MessageD2Ev.exit61 ], [ %93, %92 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #17
-  br label %298
+  br label %297
 
 146:                                              ; preds = %141
   %147 = landingpad { ptr, i32 }
@@ -31507,7 +31494,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 188:                                              ; preds = %_ZN7testing7MessageD2Ev.exit76, %146
   %.pn32.pn.pn = phi { ptr, i32 } [ %.pn32.pn, %_ZN7testing7MessageD2Ev.exit76 ], [ %147, %146 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #17
-  br label %298
+  br label %297
 
 189:                                              ; preds = %184
   %190 = landingpad { ptr, i32 }
@@ -31672,14 +31659,14 @@ _ZNK4absl4Cord4sizeEv.exit96:                     ; preds = %233, %229
 246:                                              ; preds = %_ZN7testing7MessageD2Ev.exit89, %189
   %.pn36.pn.pn = phi { ptr, i32 } [ %.pn36.pn, %_ZN7testing7MessageD2Ev.exit89 ], [ %190, %189 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #17
-  br label %298
+  br label %297
 
 247:                                              ; preds = %237
   %248 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #17
-  br label %297
+  br label %296
 
 249:                                              ; preds = %243
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #17
@@ -31758,7 +31745,7 @@ _ZN7testing7MessageD2Ev.exit104:                  ; preds = %_ZNKSt14default_del
   %.pn42.pn = phi { ptr, i32 } [ %263, %262 ], [ %.pn42, %268 ], [ %.pn42, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i103 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #17
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #17
-  br label %297
+  br label %296
 
 273:                                              ; preds = %243, %_ZN7testing7MessageD2Ev.exit101
   %274 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -31809,38 +31796,37 @@ _ZN7testing15AssertionResultD2Ev.exit109:         ; preds = %273, %_ZNKSt14defau
 
 _ZN4absl4CordD2Ev.exit:                           ; preds = %_ZN7testing15AssertionResultD2Ev.exit109, %287
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
-  %291 = load i32, ptr %2, align 4, !tbaa !100
-  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %291)
-          to label %292 unwind label %294
+  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %25)
+          to label %291 unwind label %293
 
-292:                                              ; preds = %_ZN4absl4CordD2Ev.exit
-  %293 = sext i32 %291 to i64
-  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %293)
-          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %294
+291:                                              ; preds = %_ZN4absl4CordD2Ev.exit
+  %292 = sext i32 %25 to i64
+  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %292)
+          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %293
 
-294:                                              ; preds = %292, %_ZN4absl4CordD2Ev.exit
-  %295 = landingpad { ptr, i32 }
+293:                                              ; preds = %291, %_ZN4absl4CordD2Ev.exit
+  %294 = landingpad { ptr, i32 }
           catch ptr null
-  %296 = extractvalue { ptr, i32 } %295, 0
-  call void @__clang_call_terminate(ptr %296) #37
+  %295 = extractvalue { ptr, i32 } %294, 0
+  call void @__clang_call_terminate(ptr %295) #37
   unreachable
 
-_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %292
+_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %291
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
   ret void
 
-297:                                              ; preds = %_ZN7testing7MessageD2Ev.exit104, %247
+296:                                              ; preds = %_ZN7testing7MessageD2Ev.exit104, %247
   %.pn42.pn.pn = phi { ptr, i32 } [ %.pn42.pn, %_ZN7testing7MessageD2Ev.exit104 ], [ %248, %247 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #17
+  br label %297
+
+297:                                              ; preds = %296, %246, %188, %145, %91, %47
+  %.pn42.pn.pn.pn = phi { ptr, i32 } [ %.pn42.pn.pn, %296 ], [ %48, %47 ], [ %.pn36.pn.pn, %246 ], [ %.pn32.pn.pn, %188 ], [ %.pn28.pn.pn, %145 ], [ %.pn.pn.pn, %91 ]
+  call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
   br label %298
 
-298:                                              ; preds = %297, %246, %188, %145, %91, %47
-  %.pn42.pn.pn.pn = phi { ptr, i32 } [ %.pn42.pn.pn, %297 ], [ %48, %47 ], [ %.pn36.pn.pn, %246 ], [ %.pn32.pn.pn, %188 ], [ %.pn28.pn.pn, %145 ], [ %.pn.pn.pn, %91 ]
-  call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
-  br label %299
-
-299:                                              ; preds = %298, %45
-  %.pn42.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn42.pn.pn.pn, %298 ], [ %46, %45 ]
+298:                                              ; preds = %297, %45
+  %.pn42.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn42.pn.pn.pn, %297 ], [ %46, %45 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
   call void @_ZN4absl27CordzSamplingIntervalHelperD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %2) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
@@ -31954,19 +31940,19 @@ _ZNK4absl4Cord4sizeEv.exit:                       ; preds = %22, %18
 36:                                               ; preds = %12, %1
   %37 = landingpad { ptr, i32 }
           cleanup
-  br label %98
+  br label %97
 
 38:                                               ; preds = %_ZNK4absl4Cord4sizeEv.exit
   %39 = landingpad { ptr, i32 }
           cleanup
-  br label %97
+  br label %96
 
 40:                                               ; preds = %27
   %41 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
-  br label %96
+  br label %95
 
 42:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
@@ -32045,7 +32031,7 @@ _ZN7testing7MessageD2Ev.exit18:                   ; preds = %_ZNKSt14default_del
   %.pn8.pn = phi { ptr, i32 } [ %56, %55 ], [ %.pn8, %61 ], [ %.pn8, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i17 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  br label %96
+  br label %95
 
 66:                                               ; preds = %33, %_ZN7testing7MessageD2Ev.exit
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -32114,40 +32100,39 @@ _ZN4absl4CordD2Ev.exit:                           ; preds = %_ZN7testing15Assert
 
 _ZN4absl4CordD2Ev.exit22:                         ; preds = %_ZN4absl4CordD2Ev.exit, %86
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
-  %90 = load i32, ptr %2, align 4, !tbaa !100
-  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %90)
-          to label %91 unwind label %93
+  invoke void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef %10)
+          to label %90 unwind label %92
 
-91:                                               ; preds = %_ZN4absl4CordD2Ev.exit22
-  %92 = sext i32 %90 to i64
-  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %92)
-          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %93
+90:                                               ; preds = %_ZN4absl4CordD2Ev.exit22
+  %91 = sext i32 %10 to i64
+  invoke void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef %91)
+          to label %_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit unwind label %92
 
-93:                                               ; preds = %91, %_ZN4absl4CordD2Ev.exit22
-  %94 = landingpad { ptr, i32 }
+92:                                               ; preds = %90, %_ZN4absl4CordD2Ev.exit22
+  %93 = landingpad { ptr, i32 }
           catch ptr null
-  %95 = extractvalue { ptr, i32 } %94, 0
-  call void @__clang_call_terminate(ptr %95) #37
+  %94 = extractvalue { ptr, i32 } %93, 0
+  call void @__clang_call_terminate(ptr %94) #37
   unreachable
 
-_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %91
+_ZN4absl27CordzSamplingIntervalHelperD2Ev.exit:   ; preds = %90
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
   ret void
 
-96:                                               ; preds = %_ZN7testing7MessageD2Ev.exit18, %40
+95:                                               ; preds = %_ZN7testing7MessageD2Ev.exit18, %40
   %.pn8.pn.pn = phi { ptr, i32 } [ %.pn8.pn, %_ZN7testing7MessageD2Ev.exit18 ], [ %41, %40 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
-  br label %97
+  br label %96
 
-97:                                               ; preds = %96, %38
-  %.pn8.pn.pn.pn = phi { ptr, i32 } [ %.pn8.pn.pn, %96 ], [ %39, %38 ]
+96:                                               ; preds = %95, %38
+  %.pn8.pn.pn.pn = phi { ptr, i32 } [ %.pn8.pn.pn, %95 ], [ %39, %38 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
-  br label %98
+  br label %97
 
-98:                                               ; preds = %97, %36
-  %.pn8.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8.pn.pn.pn, %97 ], [ %37, %36 ]
+97:                                               ; preds = %96, %36
+  %.pn8.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8.pn.pn.pn, %96 ], [ %37, %36 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
   call void @_ZN4absl27CordzSamplingIntervalHelperD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %2) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17

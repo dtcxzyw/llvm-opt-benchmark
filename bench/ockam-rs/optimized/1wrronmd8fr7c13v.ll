@@ -2674,7 +2674,7 @@ _ZN10serde_json2de12ParserNumber5visit17he5c21cca040351d1E.exit: ; preds = %131,
   %144 = extractvalue { ptr, i64 } %143, 0
   %145 = icmp ne ptr %144, null
   tail call void @llvm.assume(i1 %145)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %144, ptr nonnull readonly align 1 %112, i64 %.sroa.4.0.copyload, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %144, ptr nonnull readonly align 1 %112, i64 %.sroa.4.0.copyload, i1 false), !noalias !5
   %.sroa.23123.1 = ptrtoint ptr %144 to i64
   %.sroa.35.1 = extractvalue { ptr, i64 } %143, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33)
@@ -3489,7 +3489,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %35 = extractvalue { ptr, i64 } %33, 1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr nonnull readonly align 1 %28, i64 %.sroa.4.0.copyload, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr nonnull readonly align 1 %28, i64 %.sroa.4.0.copyload, i1 false), !noalias !5
   br i1 %switch8, label %39, label %45
 
 37:                                               ; preds = %21
@@ -3512,7 +3512,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !803
   %43 = icmp ne ptr %41, null
   tail call void @llvm.assume(i1 %43)
-  %44 = tail call { ptr, i64 } @_ZN10serde_json3raw8RawValue10from_owned17h443cc87c3686db6dE(ptr noalias noundef nonnull align 1 %41, i64 noundef %42)
+  %44 = tail call { ptr, i64 } @_ZN10serde_json3raw8RawValue10from_owned17h443cc87c3686db6dE(ptr noalias noundef nonnull align 1 %41, i64 noundef %42), !noalias !803
   br label %51
 
 45:                                               ; preds = %31
@@ -3528,7 +3528,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !810
   %49 = icmp ne ptr %47, null
   tail call void @llvm.assume(i1 %49)
-  %50 = tail call { ptr, i64 } @_ZN10serde_json3raw8RawValue10from_owned17h443cc87c3686db6dE(ptr noalias noundef nonnull align 1 %47, i64 noundef %48)
+  %50 = tail call { ptr, i64 } @_ZN10serde_json3raw8RawValue10from_owned17h443cc87c3686db6dE(ptr noalias noundef nonnull align 1 %47, i64 noundef %48), !noalias !810
   br label %51
 
 51:                                               ; preds = %45, %39

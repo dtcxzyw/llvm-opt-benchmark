@@ -10153,7 +10153,7 @@ _ZN3std4path4Path4join17ha522c5ba8502312dE.exit.i: ; preds = %221
 
 238:                                              ; preds = %234
   %239 = invoke noundef nonnull ptr @"_ZN52_$LT$E$u20$as$u20$anyhow..context..ext..StdError$GT$11ext_context17hfbab931409241111E"(ptr noundef nonnull %236, ptr noalias noundef nonnull readonly align 1 @anon.4f193a9df297f94a133c1a4cc5967dbd.123, i64 noundef 31)
-          to label %312 unwind label %240
+          to label %312 unwind label %240, !noalias !2826
 
 240:                                              ; preds = %238
   %241 = landingpad { ptr, i32 }
@@ -10834,7 +10834,7 @@ _ZN3std4path4Path4join17ha522c5ba8502312dE.exit.i: ; preds = %221
 
 462:                                              ; preds = %460
   %463 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hf58b2008f19be6c9E"(ptr noundef nonnull %455)
-          to label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h9f915cce00588f3aE.exit187.i" unwind label %458
+          to label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h9f915cce00588f3aE.exit187.i" unwind label %458, !noalias !2826
 
 .thread539.i:                                     ; preds = %460
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.8384.i)
@@ -11157,7 +11157,7 @@ _ZN3std4path4Path4join17ha522c5ba8502312dE.exit.i: ; preds = %221
 
 559:                                              ; preds = %"_ZN8async_fs15set_permissions28_$u7b$$u7b$closure$u7d$$u7d$17hbc28952dc40df34bE.exit.thread.i"
   %560 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hf58b2008f19be6c9E"(ptr noundef nonnull %530)
-          to label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h9f915cce00588f3aE.exit214.i" unwind label %557
+          to label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h9f915cce00588f3aE.exit214.i" unwind label %557, !noalias !2826
 
 561:                                              ; preds = %"_ZN8async_fs15set_permissions28_$u7b$$u7b$closure$u7d$$u7d$17hbc28952dc40df34bE.exit.thread.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.8384.i)
@@ -11754,7 +11754,7 @@ _ZN13async_process7Command3arg17he1dd8b7173794780E.exit.i: ; preds = %_ZN13async
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %113), !noalias !2817
   store i8 0, ptr %742, align 1, !noalias !2817
   store ptr %.sroa.4.0.i28.i.i, ptr %113, align 8, !noalias !2817
-  %746 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h71bf7cbc1da3e59bE(ptr nonnull %.sroa.4.0.i28.i.i)
+  %746 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h71bf7cbc1da3e59bE(ptr nonnull %.sroa.4.0.i28.i.i), !noalias !2826
   %747 = icmp eq i8 %746, 22
   br i1 %747, label %765, label %762
 
@@ -12132,7 +12132,7 @@ _ZN4core3mem4drop17he68d6d08067830f5E.exit.i:     ; preds = %"_ZN4core3ptr59drop
   %866 = icmp ne ptr %865, null
   call void @llvm.assume(i1 %866)
   %867 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hf58b2008f19be6c9E"(ptr noundef nonnull %865)
-          to label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h9f915cce00588f3aE.exit292.i" unwind label %862
+          to label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h9f915cce00588f3aE.exit292.i" unwind label %862, !noalias !2826
 
 868:                                              ; preds = %"_ZN98_$LT$futures_util..io..read_to_end..ReadToEnd$LT$A$GT$$u20$as$u20$core..future..future..Future$GT$4poll17he1e6a986f64a4fc8E.exit.i"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %105), !noalias !2817

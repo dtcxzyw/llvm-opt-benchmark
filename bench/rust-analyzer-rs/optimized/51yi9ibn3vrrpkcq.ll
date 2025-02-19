@@ -8020,7 +8020,7 @@ _ZN3std9panicking3try17h8bae9ddf3f01f913E.exit.thread: ; preds = %2
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  call void @_ZN3std9panicking3try8do_catch17ha951047ba2d8676fE.llvm.4530540673358086267(ptr nonnull %3, ptr %5)
+  call void @_ZN3std9panicking3try8do_catch17ha951047ba2d8676fE.llvm.4530540673358086267(ptr nonnull %3, ptr %5), !noalias !745
   %6 = load ptr, ptr %3, align 8, !noalias !745, !nonnull !4, !align !712, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8, !noalias !745, !nonnull !4, !align !14, !noundef !4
@@ -8114,7 +8114,7 @@ _ZN3std9panicking3try17hec69bc03f5465bfeE.exit.thread: ; preds = %2
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  call void @_ZN3std9panicking3try8do_catch17h3c493802e9b9e851E.llvm.4530540673358086267(ptr nonnull %3, ptr %5)
+  call void @_ZN3std9panicking3try8do_catch17h3c493802e9b9e851E.llvm.4530540673358086267(ptr nonnull %3, ptr %5), !noalias !760
   %6 = load ptr, ptr %3, align 8, !noalias !760, !nonnull !4, !align !712, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8, !noalias !760, !nonnull !4, !align !14, !noundef !4
@@ -8208,7 +8208,7 @@ define hidden { i64, ptr } @_ZN5salsa5Cycle5catch17h778ecf11cd5cda57E(ptr noalia
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @_ZN3std9panicking3try8do_catch17hbfeff29d7de9ab21E.llvm.4530540673358086267(ptr nonnull %2, ptr %7)
+  call void @_ZN3std9panicking3try8do_catch17hbfeff29d7de9ab21E.llvm.4530540673358086267(ptr nonnull %2, ptr %7), !noalias !775
   %8 = load ptr, ptr %2, align 8, !noalias !775, !nonnull !4, !align !712, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8, !noalias !775, !nonnull !4, !align !14, !noundef !4
@@ -8268,7 +8268,7 @@ _ZN3std9panicking3try17hc62a7b1956cfec40E.exit.thread: ; preds = %2
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  call void @_ZN3std9panicking3try8do_catch17hfd74e82d23673ab5E.llvm.4530540673358086267(ptr nonnull %3, ptr %5)
+  call void @_ZN3std9panicking3try8do_catch17hfd74e82d23673ab5E.llvm.4530540673358086267(ptr nonnull %3, ptr %5), !noalias !789
   %6 = load ptr, ptr %3, align 8, !noalias !789, !nonnull !4, !align !712, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8, !noalias !789, !nonnull !4, !align !14, !noundef !4
@@ -8362,7 +8362,7 @@ _ZN3std9panicking3try17h8aa8651cb439763fE.exit.thread: ; preds = %2
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  call void @_ZN3std9panicking3try8do_catch17h2094e931483f5ae4E.llvm.4530540673358086267(ptr nonnull %3, ptr %5)
+  call void @_ZN3std9panicking3try8do_catch17h2094e931483f5ae4E.llvm.4530540673358086267(ptr nonnull %3, ptr %5), !noalias !804
   %6 = load ptr, ptr %3, align 8, !noalias !804, !nonnull !4, !align !712, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8, !noalias !804, !nonnull !4, !align !14, !noundef !4
@@ -8456,7 +8456,7 @@ define hidden { i64, ptr } @_ZN5salsa5Cycle5catch17ha4aa11f2aea7295bE(ptr noalia
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @_ZN3std9panicking3try8do_catch17h84ca0e98b60e0031E.llvm.4530540673358086267(ptr nonnull %2, ptr %7)
+  call void @_ZN3std9panicking3try8do_catch17h84ca0e98b60e0031E.llvm.4530540673358086267(ptr nonnull %2, ptr %7), !noalias !819
   %8 = load ptr, ptr %2, align 8, !noalias !819, !nonnull !4, !align !712, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8, !noalias !819, !nonnull !4, !align !14, !noundef !4
@@ -8520,7 +8520,7 @@ define hidden { i64, ptr } @_ZN5salsa5Cycle5catch17hb43007f72081fee4E(ptr noalia
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @_ZN3std9panicking3try8do_catch17h3e2e4328dddc15e3E.llvm.4530540673358086267(ptr nonnull %2, ptr %7)
+  call void @_ZN3std9panicking3try8do_catch17h3e2e4328dddc15e3E.llvm.4530540673358086267(ptr nonnull %2, ptr %7), !noalias !833
   %8 = load ptr, ptr %2, align 8, !noalias !833, !nonnull !4, !align !712, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8, !noalias !833, !nonnull !4, !align !14, !noundef !4
@@ -8595,7 +8595,7 @@ define hidden void @_ZN5salsa5Cycle5catch17hc1d1d9f667275fcfE(ptr noalias nounde
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @_ZN3std9panicking3try8do_catch17h34d6c689b47ec841E.llvm.4530540673358086267(ptr nonnull %3, ptr %8)
+  call void @_ZN3std9panicking3try8do_catch17h34d6c689b47ec841E.llvm.4530540673358086267(ptr nonnull %3, ptr %8), !noalias !847
   %9 = load ptr, ptr %3, align 8, !noalias !847, !nonnull !4, !align !712, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load ptr, ptr %10, align 8, !noalias !847, !nonnull !4, !align !14, !noundef !4

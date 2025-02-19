@@ -17189,12 +17189,12 @@ _ZN4llvm5ErrorD2Ev.exit66.i.i.i:                  ; preds = %135
   %152 = extractvalue { i32, ptr } %151, 0
   %153 = extractvalue { i32, ptr } %151, 1
   %154 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30, !noalias !1081
-  call void @_ZN4llvm11StringErrorC1ERKNS_5TwineESt10error_code(ptr noundef nonnull align 8 dereferenceable(57) %154, ptr noundef nonnull align 8 dereferenceable(34) %11, i32 %152, ptr %153) #27, !noalias !1086
+  call void @_ZN4llvm11StringErrorC1ERKNS_5TwineESt10error_code(ptr noundef nonnull align 8 dereferenceable(57) %154, ptr noundef nonnull align 8 dereferenceable(34) %11, i32 %152, ptr %153) #27, !noalias !1081
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %156 = load i8, ptr %155, align 8, !alias.scope !1035
   %157 = or i8 %156, 1
   store i8 %157, ptr %155, align 8, !alias.scope !1035
-  store ptr %154, ptr %0, align 8, !tbaa !271, !alias.scope !1087
+  store ptr %154, ptr %0, align 8, !tbaa !271, !alias.scope !1086
   %158 = load ptr, ptr %14, align 8, !tbaa !148, !noalias !1035
   %159 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %160 = icmp eq ptr %158, %159
@@ -17385,7 +17385,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4llvm8ExpectedIS
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm3lto11thinBackendERKNS2_6ConfigEjSt8functionIFNS1_8ExpectedISt10unique_ptrINS1_16CachedFileStreamESt14default_deleteIS9_EEEEjRKNS1_5TwineEEERNS1_6ModuleERKNS1_18ModuleSummaryIndexERKNS1_16FunctionImporter11ImportMapTyERKNS1_8DenseMapImPNS1_18GlobalValueSummaryENS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImSU_EEEEPNS1_9MapVectorINS1_9StringRefENS1_13BitcodeModuleENSS_IS14_jNSV_IS14_vEENSY_IS14_jEEEENS1_11SmallVectorISt4pairIS14_S15_ELj0EEEEEbSI_RKSt6vectorIhSaIhEEE3$_0E10_M_managerERSt9_Any_dataRKS1M_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !1090
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !1089
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm3lto11thinBackendERKNS2_6ConfigEjSt8functionIFNS1_8ExpectedISt10unique_ptrINS1_16CachedFileStreamESt14default_deleteIS9_EEEEjRKNS1_5TwineEEERNS1_6ModuleERKNS1_18ModuleSummaryIndexERKNS1_16FunctionImporter11ImportMapTyERKNS1_8DenseMapImPNS1_18GlobalValueSummaryENS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImSU_EEEEPNS1_9MapVectorINS1_9StringRefENS1_13BitcodeModuleENSS_IS14_jNSV_IS14_vEENSY_IS14_jEEEENS1_11SmallVectorISt4pairIS14_S15_ELj0EEEEEbSI_RKSt6vectorIhSaIhEEE3$_0E10_M_managerERSt9_Any_dataRKS1M_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm3lto11thinBackendERKNS2_6ConfigEjSt8functionIFNS1_8ExpectedISt10unique_ptrINS1_16CachedFileStreamESt14default_deleteIS9_EEEEjRKNS1_5TwineEEERNS1_6ModuleERKNS1_18ModuleSummaryIndexERKNS1_16FunctionImporter11ImportMapTyERKNS1_8DenseMapImPNS1_18GlobalValueSummaryENS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImSU_EEEEPNS1_9MapVectorINS1_9StringRefENS1_13BitcodeModuleENSS_IS14_jNSV_IS14_vEENSY_IS14_jEEEENS1_11SmallVectorISt4pairIS14_S15_ELj0EEEEEbSI_RKSt6vectorIhSaIhEEE3$_0E10_M_managerERSt9_Any_dataRKS1M_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -17418,10 +17418,10 @@ define internal void @_GLOBAL__sub_I_LTOBackend.cpp() #22 section ".text.startup
   store ptr %5, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %6) #27
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %8, ptr %6, align 8, !tbaa !25, !alias.scope !1092
+  store ptr %8, ptr %6, align 8, !tbaa !25, !alias.scope !1091
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 4, ptr %10, align 4, !tbaa !27, !alias.scope !1092
+  store i32 4, ptr %10, align 4, !tbaa !27, !alias.scope !1091
   store ptr @.str.1, ptr %8, align 8
   %.sroa.432.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 4, ptr %.sroa.432.0..sroa_idx.i, align 8
@@ -17451,7 +17451,7 @@ define internal void @_GLOBAL__sub_I_LTOBackend.cpp() #22 section ".text.startup
   store ptr @.str.6, ptr %.sroa.19.0..sroa_idx.i, align 8
   %.sroa.20.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 128
   store i64 42, ptr %.sroa.20.0..sroa_idx.i, align 8
-  store i32 3, ptr %9, align 8, !tbaa !26, !alias.scope !1092
+  store i32 3, ptr %9, align 8, !tbaa !26, !alias.scope !1091
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #27
   store ptr @.str.7, ptr %7, align 8, !tbaa !52
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -18629,12 +18629,11 @@ attributes #34 = { cold noreturn nounwind }
 !1083 = distinct !{!1083, !"_ZSt11make_uniqueIN4llvm11StringErrorEJNS0_5TwineESt10error_codeEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !1084 = distinct !{!1084, !1085, !"_ZN4llvm10make_errorINS_11StringErrorEJNS_5TwineESt10error_codeEEENS_5ErrorEDpOT0_: argument 0"}
 !1085 = distinct !{!1085, !"_ZN4llvm10make_errorINS_11StringErrorEJNS_5TwineESt10error_codeEEENS_5ErrorEDpOT0_"}
-!1086 = !{!1082, !1084}
-!1087 = !{!1088, !1029, !1026, !1023}
-!1088 = distinct !{!1088, !1089, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
-!1089 = distinct !{!1089, !"_ZN4llvm5Error11takePayloadEv"}
-!1090 = !{i64 0, i64 8, !1091, i64 8, i64 8, !714}
-!1091 = !{!1034, !1034, i64 0}
-!1092 = !{!1093}
-!1093 = distinct !{!1093, !1094, !"_ZN4llvm2cl6valuesIJNS0_15OptionEnumValueES2_S2_EEENS0_11ValuesClassEDpT_: argument 0"}
-!1094 = distinct !{!1094, !"_ZN4llvm2cl6valuesIJNS0_15OptionEnumValueES2_S2_EEENS0_11ValuesClassEDpT_"}
+!1086 = !{!1087, !1029, !1026, !1023}
+!1087 = distinct !{!1087, !1088, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
+!1088 = distinct !{!1088, !"_ZN4llvm5Error11takePayloadEv"}
+!1089 = !{i64 0, i64 8, !1090, i64 8, i64 8, !714}
+!1090 = !{!1034, !1034, i64 0}
+!1091 = !{!1092}
+!1092 = distinct !{!1092, !1093, !"_ZN4llvm2cl6valuesIJNS0_15OptionEnumValueES2_S2_EEENS0_11ValuesClassEDpT_: argument 0"}
+!1093 = distinct !{!1093, !"_ZN4llvm2cl6valuesIJNS0_15OptionEnumValueES2_S2_EEENS0_11ValuesClassEDpT_"}

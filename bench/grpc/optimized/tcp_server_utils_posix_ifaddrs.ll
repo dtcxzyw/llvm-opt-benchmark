@@ -228,7 +228,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i11.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #21
+  call void @__clang_call_terminate(ptr %9) #21, !noalias !4
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i:         ; preds = %if.then.i.i11.i, %invoke.cont14.i, %if.then.i.i.i, %if.then.i7.i
@@ -245,7 +245,7 @@ terminate.lpad.i15.i:                             ; preds = %if.then.i.i14.i
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #21
+  call void @__clang_call_terminate(ptr %12) #21, !noalias !4
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit16.i:       ; preds = %if.then.i.i14.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i
@@ -331,7 +331,7 @@ terminate.lpad.i31.i:                             ; preds = %if.then.i.i30.i
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #21
+  call void @__clang_call_terminate(ptr %22) #21, !noalias !4
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit32.i:       ; preds = %if.then.i.i30.i, %invoke.cont34.i, %if.then.i.i25.i, %if.then.i22.i
@@ -348,7 +348,7 @@ terminate.lpad.i36.i:                             ; preds = %if.then.i.i35.i
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #21
+  call void @__clang_call_terminate(ptr %25) #21, !noalias !4
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit37.i:       ; preds = %if.then.i.i35.i, %_ZN4absl12lts_202308026StatusD2Ev.exit32.i

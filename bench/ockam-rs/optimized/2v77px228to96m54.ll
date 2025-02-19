@@ -2492,7 +2492,7 @@ default.unreachable:                              ; preds = %"_ZN5tokio7runtime4
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @_ZN3std9panicking3try8do_catch17h5a4d779f9d5b25e8E.llvm.13811261307866518544(ptr nonnull %7, ptr %22)
+  call void @_ZN3std9panicking3try8do_catch17h5a4d779f9d5b25e8E.llvm.13811261307866518544(ptr nonnull %7, ptr %22), !noalias !529
   %23 = load ptr, ptr %7, align 8, !noalias !523, !nonnull !14, !align !475, !noundef !14
   %24 = load ptr, ptr %17, align 8, !noalias !523, !nonnull !14, !align !85, !noundef !14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !523
@@ -2520,7 +2520,7 @@ default.unreachable:                              ; preds = %"_ZN5tokio7runtime4
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @_ZN3std9panicking3try8do_catch17h536a67f0218cf541E.llvm.13811261307866518544(ptr nonnull %6, ptr %30)
+  call void @_ZN3std9panicking3try8do_catch17h536a67f0218cf541E.llvm.13811261307866518544(ptr nonnull %6, ptr %30), !noalias !534
   %31 = load ptr, ptr %6, align 8, !noalias !531, !nonnull !14, !align !475
   %32 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !531, !nonnull !14, !align !85
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !531
@@ -2803,7 +2803,7 @@ default.unreachable:                              ; preds = %"_ZN5tokio7runtime4
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @_ZN3std9panicking3try8do_catch17hdcaf6ae8e4988540E.llvm.13811261307866518544(ptr nonnull %7, ptr %22)
+  call void @_ZN3std9panicking3try8do_catch17hdcaf6ae8e4988540E.llvm.13811261307866518544(ptr nonnull %7, ptr %22), !noalias !580
   %23 = load ptr, ptr %7, align 8, !noalias !574, !nonnull !14, !align !475, !noundef !14
   %24 = load ptr, ptr %17, align 8, !noalias !574, !nonnull !14, !align !85, !noundef !14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !574
@@ -2831,7 +2831,7 @@ default.unreachable:                              ; preds = %"_ZN5tokio7runtime4
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @_ZN3std9panicking3try8do_catch17h3c2640dc338aed7fE.llvm.13811261307866518544(ptr nonnull %6, ptr %30)
+  call void @_ZN3std9panicking3try8do_catch17h3c2640dc338aed7fE.llvm.13811261307866518544(ptr nonnull %6, ptr %30), !noalias !585
   %31 = load ptr, ptr %6, align 8, !noalias !582, !nonnull !14, !align !475
   %32 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !582, !nonnull !14, !align !85
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !582
@@ -3943,7 +3943,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime9scheduler6Handle5spawn17h27
   %8 = load i64, ptr %0, align 8, !range !72, !noundef !14
   %trunc = trunc nuw i64 %8 to i1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %trunc, label %26, label %10
+  br i1 %trunc, label %24, label %10
 
 10:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !745)
@@ -3971,77 +3971,71 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime9scheduler6Handle5spawn17h27
 
 19:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h385aeed32f5ee8dfE.llvm.4723873805977257264.exit.i"
   invoke void @"_ZN5tokio7runtime9scheduler14current_thread134_$LT$impl$u20$tokio..runtime..task..Schedule$u20$for$u20$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$8schedule17hce4f290ca67a1caaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9, ptr noundef nonnull %18)
-          to label %.thread.i unwind label %21
+          to label %_ZN5tokio7runtime9scheduler14current_thread6Handle5spawn17h9141fcd44c33af63E.exit unwind label %20, !noalias !748
 
-.thread.i:                                        ; preds = %19
-  %20 = load ptr, ptr %7, align 8, !noalias !750, !nonnull !14, !noundef !14
-  br label %_ZN5tokio7runtime9scheduler14current_thread6Handle5spawn17h9141fcd44c33af63E.exit
-
-common.resume:                                    ; preds = %36, %21
-  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %37, %36 ]
+common.resume:                                    ; preds = %34, %20
+  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %35, %34 ]
   resume { ptr, i32 } %common.resume.op
 
-21:                                               ; preds = %19
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %19
+  %21 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr75drop_in_place$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$$RP$$GT$$GT$17h4e634d76bf1de239E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #23
-          to label %common.resume unwind label %23, !noalias !748
+          to label %common.resume unwind label %22, !noalias !748
 
-23:                                               ; preds = %21
-  %24 = landingpad { ptr, i32 }
+22:                                               ; preds = %20
+  %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #24, !noalias !748
   unreachable
 
-_ZN5tokio7runtime9scheduler14current_thread6Handle5spawn17h9141fcd44c33af63E.exit: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h385aeed32f5ee8dfE.llvm.4723873805977257264.exit.i", %.thread.i
-  %25 = phi ptr [ %20, %.thread.i ], [ %17, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h385aeed32f5ee8dfE.llvm.4723873805977257264.exit.i" ]
+_ZN5tokio7runtime9scheduler14current_thread6Handle5spawn17h9141fcd44c33af63E.exit: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h385aeed32f5ee8dfE.llvm.4723873805977257264.exit.i", %19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !750
-  br label %41
+  br label %38
 
-26:                                               ; preds = %3
+24:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !754)
-  %27 = load ptr, ptr %9, align 8, !alias.scope !754, !noalias !757, !nonnull !14, !noundef !14
+  %25 = load ptr, ptr %9, align 8, !alias.scope !754, !noalias !757, !nonnull !14, !noundef !14
   call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %4), !noalias !759
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %4, ptr noundef nonnull align 8 dereferenceable(432) %1, i64 432, i1 false), !noalias !754
-  %28 = atomicrmw add ptr %27, i64 1 monotonic, align 8, !noalias !760
-  %29 = icmp slt i64 %28, 0
-  br i1 %29, label %30, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8f9ae59be2773990E.llvm.4723873805977257264.exit.i"
+  %26 = atomicrmw add ptr %25, i64 1 monotonic, align 8, !noalias !760
+  %27 = icmp slt i64 %26, 0
+  br i1 %27, label %28, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8f9ae59be2773990E.llvm.4723873805977257264.exit.i"
 
-30:                                               ; preds = %26
+28:                                               ; preds = %24
   tail call void @llvm.trap()
   unreachable
 
-"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8f9ae59be2773990E.llvm.4723873805977257264.exit.i": ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %27, i64 104
-  %32 = call { ptr, ptr } @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$4bind17hb28e7b2156d74202E"(ptr noundef nonnull align 8 %31, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(432) %4, ptr noundef nonnull %27, i64 noundef %2), !noalias !759
-  %33 = extractvalue { ptr, ptr } %32, 0
-  %34 = extractvalue { ptr, ptr } %32, 1
+"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8f9ae59be2773990E.llvm.4723873805977257264.exit.i": ; preds = %24
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 104
+  %30 = call { ptr, ptr } @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$4bind17hb28e7b2156d74202E"(ptr noundef nonnull align 8 %29, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(432) %4, ptr noundef nonnull %25, i64 noundef %2), !noalias !759
+  %31 = extractvalue { ptr, ptr } %30, 0
+  %32 = extractvalue { ptr, ptr } %30, 1
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %4), !noalias !759
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !759
-  store ptr %33, ptr %5, align 8, !noalias !759
-  %35 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  invoke void @"_ZN5tokio7runtime9scheduler12multi_thread6worker73_$LT$impl$u20$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$34schedule_option_task_without_yield17h1523f7fa1e404d86E"(ptr noundef nonnull align 8 %35, ptr noundef %34)
-          to label %_ZN5tokio7runtime9scheduler12multi_thread6handle6Handle13bind_new_task17h6c3bb3c930723e57E.exit unwind label %36
+  store ptr %31, ptr %5, align 8, !noalias !759
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  invoke void @"_ZN5tokio7runtime9scheduler12multi_thread6worker73_$LT$impl$u20$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$34schedule_option_task_without_yield17h1523f7fa1e404d86E"(ptr noundef nonnull align 8 %33, ptr noundef %32)
+          to label %_ZN5tokio7runtime9scheduler12multi_thread6handle6Handle13bind_new_task17h6c3bb3c930723e57E.exit unwind label %34, !noalias !759
 
-36:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8f9ae59be2773990E.llvm.4723873805977257264.exit.i"
-  %37 = landingpad { ptr, i32 }
+34:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8f9ae59be2773990E.llvm.4723873805977257264.exit.i"
+  %35 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr75drop_in_place$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$$RP$$GT$$GT$17h4e634d76bf1de239E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #23
-          to label %common.resume unwind label %38, !noalias !759
+          to label %common.resume unwind label %36, !noalias !759
 
-38:                                               ; preds = %36
-  %39 = landingpad { ptr, i32 }
+36:                                               ; preds = %34
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #24, !noalias !759
   unreachable
 
 _ZN5tokio7runtime9scheduler12multi_thread6handle6Handle13bind_new_task17h6c3bb3c930723e57E.exit: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8f9ae59be2773990E.llvm.4723873805977257264.exit.i"
-  %40 = load ptr, ptr %5, align 8, !noalias !759, !nonnull !14, !noundef !14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !759
-  br label %41
+  br label %38
 
-41:                                               ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6handle6Handle13bind_new_task17h6c3bb3c930723e57E.exit, %_ZN5tokio7runtime9scheduler14current_thread6Handle5spawn17h9141fcd44c33af63E.exit
-  %.0 = phi ptr [ %40, %_ZN5tokio7runtime9scheduler12multi_thread6handle6Handle13bind_new_task17h6c3bb3c930723e57E.exit ], [ %25, %_ZN5tokio7runtime9scheduler14current_thread6Handle5spawn17h9141fcd44c33af63E.exit ]
+38:                                               ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6handle6Handle13bind_new_task17h6c3bb3c930723e57E.exit, %_ZN5tokio7runtime9scheduler14current_thread6Handle5spawn17h9141fcd44c33af63E.exit
+  %.0 = phi ptr [ %31, %_ZN5tokio7runtime9scheduler12multi_thread6handle6Handle13bind_new_task17h6c3bb3c930723e57E.exit ], [ %17, %_ZN5tokio7runtime9scheduler14current_thread6Handle5spawn17h9141fcd44c33af63E.exit ]
   ret ptr %.0
 }
 

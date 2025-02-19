@@ -4710,7 +4710,7 @@ define noundef zeroext i1 @_ZN15FilterListModel12dropMimeDataEPK9QMimeDataN2Qt10
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #25
+  call void @__clang_call_terminate(ptr %23) #25, !noalias !26
   unreachable
 
 _ZN7QStringD2Ev.exit.i:                           ; preds = %19

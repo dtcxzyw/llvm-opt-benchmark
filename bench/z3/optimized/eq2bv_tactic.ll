@@ -5947,7 +5947,6 @@ if.then.i.i.i90:                                  ; preds = %if.then.i95, %if.th
   %88 = load i32, ptr %m_ref_count.i.i.i.i97, align 4
   %inc.i.i.i.i = add i32 %88, 1
   store i32 %inc.i.i.i.i, ptr %m_ref_count.i.i.i.i97, align 4
-  store ptr %e1.0.i.sink, ptr %var, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k.i)
   %m_ref_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %e1.0.i.sink, i64 8
   store i32 %88, ptr %m_ref_count.i.i.i.i, align 4

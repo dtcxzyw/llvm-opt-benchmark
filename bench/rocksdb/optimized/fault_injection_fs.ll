@@ -3911,7 +3911,7 @@ terminate.lpad.i.i.i:                             ; preds = %.noexc
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #24
+  call void @__clang_call_terminate(ptr %4) #24, !noalias !38
   unreachable
 
 _ZN7rocksdb20FaultInjectionTestFS18IsFilesystemActiveEv.exit.i: ; preds = %.noexc
@@ -3956,6 +3956,7 @@ cond.false.i:                                     ; preds = %if.then.i
 
 cond.end.i:                                       ; preds = %cond.false.i
   %.pre.i = load ptr, ptr %ref.tmp.i, align 8
+  store ptr null, ptr %ref.tmp.i, align 8
   br label %.noexc2
 
 _ZN7rocksdb6StatusD2Ev.exit.i:                    ; preds = %cond.false.i

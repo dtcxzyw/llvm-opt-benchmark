@@ -2677,7 +2677,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
 
 39:                                               ; preds = %.noexc33
   call void @llvm.experimental.noalias.scope.decl(metadata !533)
-  %40 = load ptr, ptr %36, align 8, !alias.scope !533, !nonnull !5, !noundef !5
+  %40 = load ptr, ptr %36, align 8, !alias.scope !533, !noalias !532, !nonnull !5, !noundef !5
   %41 = atomicrmw add ptr %40, i64 1 monotonic, align 8, !noalias !536
   %42 = icmp slt i64 %41, 0
   br i1 %42, label %43, label %52
@@ -2708,7 +2708,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
 
 52:                                               ; preds = %39
   %53 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %54 = load ptr, ptr %53, align 8, !alias.scope !533, !nonnull !5, !align !103, !noundef !5
+  %54 = load ptr, ptr %53, align 8, !alias.scope !533, !noalias !532, !nonnull !5, !align !103, !noundef !5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !524
   store ptr %40, ptr %6, align 8, !noalias !524
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2787,7 +2787,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
 
 82:                                               ; preds = %.noexc10.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !569)
-  %83 = load ptr, ptr %79, align 8, !alias.scope !569, !nonnull !5, !noundef !5
+  %83 = load ptr, ptr %79, align 8, !alias.scope !569, !noalias !532, !nonnull !5, !noundef !5
   %84 = atomicrmw add ptr %83, i64 1 monotonic, align 8, !noalias !572
   %85 = icmp slt i64 %84, 0
   br i1 %85, label %86, label %87
@@ -2798,7 +2798,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
 
 87:                                               ; preds = %82
   %88 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %89 = load ptr, ptr %88, align 8, !alias.scope !569, !nonnull !5, !align !103, !noundef !5
+  %89 = load ptr, ptr %88, align 8, !alias.scope !569, !noalias !532, !nonnull !5, !align !103, !noundef !5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !573
   store ptr %83, ptr %3, align 8, !noalias !573
   store ptr %89, ptr %69, align 8, !noalias !573

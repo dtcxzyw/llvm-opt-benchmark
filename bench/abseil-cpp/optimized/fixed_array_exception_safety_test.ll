@@ -12791,7 +12791,7 @@ define internal fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafety
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #24
+  call void @__clang_call_terminate(ptr %19) #24, !noalias !216
   unreachable
 
 common.resume.i.i:                                ; preds = %_ZNSt14_Function_baseD2Ev.exit11.i.i, %15, %.body.i.i.i
@@ -15716,7 +15716,7 @@ define internal fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafety
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #24
+  call void @__clang_call_terminate(ptr %13) #24, !noalias !283
   unreachable
 
 common.resume.i.i:                                ; preds = %_ZNSt14_Function_baseD2Ev.exit11.i.i, %9, %.body.i.i.i

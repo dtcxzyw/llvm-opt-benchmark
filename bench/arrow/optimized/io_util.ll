@@ -16704,7 +16704,7 @@ _ZNSt3anyC2EOS_.exit.i.i:                         ; preds = %8
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #43
+  call void @__clang_call_terminate(ptr %19) #43, !noalias !829
   unreachable
 
 _ZNKSt3any4typeEv.exit.i.i.i.i.i.i:               ; preds = %15, %13, %.thread.i.i
@@ -16950,7 +16950,7 @@ _ZNSt3anyC2EOS_.exit.i.i:                         ; preds = %16
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #43
+  call void @__clang_call_terminate(ptr %27) #43, !noalias !832
   unreachable
 
 _ZNKSt3any4typeEv.exit.i.i.i.i.i.i:               ; preds = %23, %21, %.thread.i.i

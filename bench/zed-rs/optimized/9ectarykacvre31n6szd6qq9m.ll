@@ -66711,7 +66711,7 @@ default.unreachable:                              ; preds = %30, %11
 79:                                               ; preds = %77
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 104
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 24
-  %82 = call fastcc noundef zeroext i1 @"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hf02c10e1c2e89dcaE"(ptr noalias noundef align 8 dereferenceable(8) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %.sroa.0.0, ptr noalias noundef readonly align 8 dereferenceable(72) %81)
+  %82 = call fastcc noundef zeroext i1 @"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hf02c10e1c2e89dcaE"(ptr noalias noundef align 8 dereferenceable(8) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %.sroa.0.0, ptr noalias noundef readonly align 8 dereferenceable(72) %81), !noalias !18116
   br i1 %82, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hfdf6c82ef064c302E.llvm.4072102942979070205.exit.i, label %77
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hfdf6c82ef064c302E.llvm.4072102942979070205.exit.i: ; preds = %79
@@ -77163,7 +77163,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h5500ecc20c308c06E.exit: ; pre
   br i1 %121, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc250dca9abf7df4bE.exit.i.us.us.us", label %122
 
 122:                                              ; preds = %119
-  %.val.i.i.us.us.us = load i32, ptr %120, align 4, !alias.scope !20637, !noundef !5
+  %.val.i.i.us.us.us = load i32, ptr %120, align 4, !alias.scope !20637, !noalias !20621, !noundef !5
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc250dca9abf7df4bE.exit.i.us.us.us"
 
 .thread55.i.us.us.us:                             ; preds = %.noexc29.i.us.us.us
@@ -77210,7 +77210,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h5500ecc20c308c06E.exit: ; pre
   br i1 %132, label %134, label %133
 
 133:                                              ; preds = %130
-  %.val.i43.i.us.us.us = load i32, ptr %131, align 4, !alias.scope !20646, !noundef !5
+  %.val.i43.i.us.us.us = load i32, ptr %131, align 4, !alias.scope !20646, !noalias !20621, !noundef !5
   br label %134
 
 .thread59.i.us.us.us:                             ; preds = %.noexc40.i.us.us.us
@@ -77262,7 +77262,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h5500ecc20c308c06E.exit: ; pre
   br i1 %144, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h7880c0e8aeadc0bdE.exit.i.us.us.us", label %145
 
 145:                                              ; preds = %142
-  %.val.i45.i.us.us.us = load i32, ptr %143, align 4, !alias.scope !20655, !noundef !5
+  %.val.i45.i.us.us.us = load i32, ptr %143, align 4, !alias.scope !20655, !noalias !20621, !noundef !5
   %146 = add i32 %.val.i45.i.us.us.us, 1
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h7880c0e8aeadc0bdE.exit.i.us.us.us"
 
@@ -77309,7 +77309,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h5500ecc20c308c06E.exit: ; pre
 
 .noexc50.i.us.us.us:                              ; preds = %153
   %155 = extractvalue { ptr, ptr } %154, 1
-  store i32 %.sroa.04.0.i.us.us.us, ptr %155, align 4
+  store i32 %.sroa.04.0.i.us.us.us, ptr %155, align 4, !noalias !20621
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21), !noalias !20658
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17hf5ddfa846aab6ad7E.exit.i.us.us.us"
 
@@ -78419,7 +78419,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h07c6f42034fc220cE.exit: ; pre
   br i1 %162, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h10e591acec2be2d6E.exit.i", label %163
 
 163:                                              ; preds = %160
-  %.val.i.i = load i32, ptr %161, align 4, !alias.scope !20834, !noundef !5
+  %.val.i.i = load i32, ptr %161, align 4, !alias.scope !20834, !noalias !20813, !noundef !5
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h10e591acec2be2d6E.exit.i"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h10e591acec2be2d6E.exit.i": ; preds = %163, %160, %.thread56.i
@@ -78467,7 +78467,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h07c6f42034fc220cE.exit: ; pre
   br i1 %172, label %174, label %173
 
 173:                                              ; preds = %170
-  %.val.i45.i = load i32, ptr %171, align 4, !alias.scope !20843, !noundef !5
+  %.val.i45.i = load i32, ptr %171, align 4, !alias.scope !20843, !noalias !20813, !noundef !5
   br label %174
 
 174:                                              ; preds = %173, %170, %.thread60.i, %.thread58.i
@@ -78491,7 +78491,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h07c6f42034fc220cE.exit: ; pre
   br i1 %178, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h310e6f8c1a335628E.exit.i", label %179
 
 179:                                              ; preds = %176
-  %.val.i47.i = load i32, ptr %177, align 4, !alias.scope !20846, !noundef !5
+  %.val.i47.i = load i32, ptr %177, align 4, !alias.scope !20846, !noalias !20813, !noundef !5
   %180 = add i32 %.val.i47.i, 1
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h310e6f8c1a335628E.exit.i"
 
@@ -78524,7 +78524,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h07c6f42034fc220cE.exit: ; pre
 
 .noexc52.i:                                       ; preds = %186
   %188 = extractvalue { ptr, ptr } %187, 1
-  store i32 %.sroa.04.0.i, ptr %188, align 4
+  store i32 %.sroa.04.0.i, ptr %188, align 4, !noalias !20813
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20), !noalias !20849
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17hf5ddfa846aab6ad7E.exit.i"
 

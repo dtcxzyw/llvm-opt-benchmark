@@ -3949,7 +3949,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexPrimD2Ev.exit.i: ; preds = %3
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #22
+  call void @__clang_call_terminate(ptr %59) #22, !noalias !83
   unreachable
 
 60:                                               ; preds = %26, %21

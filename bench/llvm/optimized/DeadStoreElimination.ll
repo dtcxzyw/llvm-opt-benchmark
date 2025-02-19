@@ -23927,7 +23927,7 @@ _ZN4llvm11SmallVectorIPNS_18DbgAssignIntrinsicELj6EEC2INS_2at11DbgAssignItEvEET_
 
 116:                                              ; preds = %79
   %117 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %117, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %117, align 8, !noalias !924
   %118 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i = icmp eq i64 %118, 0
   %119 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
@@ -23940,7 +23940,7 @@ _ZN4llvm11SmallVectorIPNS_18DbgAssignIntrinsicELj6EEC2INS_2at11DbgAssignItEvEET_
 
 _ZNK4llvm6MDNode10getContextEv.exit.i.i.i.i.i:    ; preds = %121, %116
   %.0.i.i.i.i.i.i.i = phi ptr [ %122, %121 ], [ %120, %116 ]
-  %123 = call noundef ptr @_ZN4llvm15MetadataAsValue3getERNS_11LLVMContextEPNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i.i.i.i.i, ptr noundef nonnull %113) #19
+  %123 = call noundef ptr @_ZN4llvm15MetadataAsValue3getERNS_11LLVMContextEPNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i.i.i.i.i, ptr noundef nonnull %113) #19, !noalias !924
   %124 = load i32, ptr %80, align 4, !noalias !924
   %125 = and i32 %124, 134217727
   %126 = zext nneg i32 %125 to i64
@@ -23996,7 +23996,7 @@ _ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %142, %138
   %148 = call { ptr, i8 } @_ZN4llvm12DIExpression24createFragmentExpressionEPKS0_jj(ptr noundef %146, i32 noundef %147, i32 noundef %111) #19, !noalias !924
   %149 = extractvalue { ptr, i8 } %148, 0
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i12.i.i.i.i = load i64, ptr %150, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i12.i.i.i.i = load i64, ptr %150, align 8, !noalias !924
   %151 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i12.i.i.i.i, 4
   %.not.i.i.i13.i.i.i.i = icmp eq i64 %151, 0
   %152 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i12.i.i.i.i, -8
@@ -24009,7 +24009,7 @@ _ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %142, %138
 
 _ZNK4llvm6MDNode10getContextEv.exit.i14.i.i.i.i:  ; preds = %154, %.critedge.i.i.i.i
   %.0.i.i.i15.i.i.i.i = phi ptr [ %155, %154 ], [ %153, %.critedge.i.i.i.i ]
-  %156 = call noundef ptr @_ZN4llvm15MetadataAsValue3getERNS_11LLVMContextEPNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i15.i.i.i.i, ptr noundef nonnull %149) #19
+  %156 = call noundef ptr @_ZN4llvm15MetadataAsValue3getERNS_11LLVMContextEPNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i15.i.i.i.i, ptr noundef nonnull %149) #19, !noalias !924
   %157 = load i32, ptr %80, align 4, !noalias !924
   %158 = and i32 %157, 134217727
   %159 = zext nneg i32 %158 to i64
@@ -24172,7 +24172,7 @@ _ZN4llvm20DbgVariableIntrinsic13setExpressionEPNS_12DIExpressionE.exit22.i.i.i.i
 222:                                              ; preds = %202
   %223 = extractvalue { ptr, i8 } %219, 0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #19, !noalias !949
-  call void @_ZN4llvm17DbgRecordParamRefINS_12DIExpressionEEC1EPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %223) #19
+  call void @_ZN4llvm17DbgRecordParamRefINS_12DIExpressionEEC1EPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %223) #19, !noalias !949
   %224 = icmp eq ptr %8, %203
   br i1 %224, label %_ZN4llvm17DbgRecordParamRefINS_12DIExpressionEEaSEOS2_.exit.i.i.i.i.i, label %225
 
@@ -24215,7 +24215,7 @@ _ZN4llvm17DbgVariableRecord13setExpressionEPNS_12DIExpressionE.exit.i.i.i.i: ; p
   %235 = call { ptr, i8 } @_ZN4llvm12DIExpression24createFragmentExpressionEPKS0_jj(ptr noundef %233, i32 noundef %234, i32 noundef %218) #19, !noalias !949
   %236 = extractvalue { ptr, i8 } %235, 0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19, !noalias !949
-  call void @_ZN4llvm17DbgRecordParamRefINS_12DIExpressionEEC1EPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %236) #19
+  call void @_ZN4llvm17DbgRecordParamRefINS_12DIExpressionEEC1EPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %236) #19, !noalias !949
   %237 = icmp eq ptr %7, %203
   br i1 %237, label %_ZN4llvm17DbgRecordParamRefINS_12DIExpressionEEaSEOS2_.exit.i15.i.i.i.i, label %238
 

@@ -1101,11 +1101,7 @@ entry:
   %pendingByteEvents_ = getelementptr inbounds nuw i8, ptr %this, i64 600
   %1 = load i64, ptr %pendingByteEvents_, align 8
   %cmp.i.not = icmp eq i64 %1, 0
-  br i1 %cmp.i.not, label %if.else.i, label %invoke.cont4.thread
-
-invoke.cont4.thread:                              ; preds = %entry
-  store ptr null, ptr %_result, align 8
-  br label %if.then.i
+  br i1 %cmp.i.not, label %if.else.i, label %if.then.i
 
 if.else.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %comb.i.i)
@@ -1174,8 +1170,8 @@ lpad10:                                           ; preds = %invoke.cont9
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp8) #17
   unreachable
 
-if.then.i:                                        ; preds = %invoke.cont4.thread, %invoke.cont4.while.end_crit_edge
-  %6 = phi i64 [ %.pre, %invoke.cont4.while.end_crit_edge ], [ %1, %invoke.cont4.thread ]
+if.then.i:                                        ; preds = %entry, %invoke.cont4.while.end_crit_edge
+  %6 = phi i64 [ %.pre, %invoke.cont4.while.end_crit_edge ], [ %1, %entry ]
   %dec = add i64 %6, -1
   store i64 %dec, ptr %pendingByteEvents_, align 8
   %guardCount_.i2 = getelementptr inbounds nuw i8, ptr %this, i64 72

@@ -2476,7 +2476,7 @@ terminate.lpad.i.i.i:                             ; preds = %for.body
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #30
+  call void @__clang_call_terminate(ptr %7) #30, !noalias !142
   unreachable
 
 _ZNK5folly12SynchronizedIN8facebook5velox6common10SpillStatsENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEE4copyEv.exit: ; preds = %for.body

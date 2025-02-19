@@ -100,9 +100,11 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm15Dwar
   store i64 %26, ptr %27, align 8, !tbaa !150
   %28 = call noundef ptr @_ZNK4llvm10AsmPrinter16createTempSymbolERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(777) %1, ptr noundef nonnull align 8 dereferenceable(34) %6) #11
   %.pre = load i64, ptr %14, align 8, !tbaa !16
+  %.pre10.pre = load ptr, ptr %.fca.0.extract, align 8, !tbaa !140
   br label %29
 
 29:                                               ; preds = %12, %20
+  %.pre10 = phi ptr [ %.pre10.pre, %20 ], [ %9, %12 ]
   %30 = phi i64 [ %.pre, %20 ], [ %15, %12 ]
   %31 = phi ptr [ %28, %20 ], [ null, %12 ]
   store ptr %31, ptr %10, align 8, !tbaa !152
@@ -110,7 +112,6 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm15Dwar
   %32 = add i64 %3, 1
   %33 = add i64 %32, %30
   store i64 %33, ptr %14, align 8, !tbaa !16
-  %.pre10 = load ptr, ptr %.fca.0.extract, align 8, !tbaa !140
   br label %34
 
 34:                                               ; preds = %29, %4
@@ -176,9 +177,11 @@ define dso_local i64 @_ZN4llvm15DwarfStringPool8getEntryERNS_10AsmPrinterENS_9St
   store i64 %26, ptr %27, align 8, !tbaa !150
   %28 = call noundef ptr @_ZNK4llvm10AsmPrinter16createTempSymbolERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(777) %1, ptr noundef nonnull align 8 dereferenceable(34) %6) #11
   %.pre.i = load i64, ptr %14, align 8, !tbaa !16
+  %.pre10.pre.i = load ptr, ptr %.fca.0.extract.i, align 8, !tbaa !140
   br label %29
 
 29:                                               ; preds = %20, %12
+  %.pre10.i = phi ptr [ %.pre10.pre.i, %20 ], [ %9, %12 ]
   %30 = phi i64 [ %.pre.i, %20 ], [ %15, %12 ]
   %31 = phi ptr [ %28, %20 ], [ null, %12 ]
   store ptr %31, ptr %10, align 8, !tbaa !152
@@ -186,7 +189,6 @@ define dso_local i64 @_ZN4llvm15DwarfStringPool8getEntryERNS_10AsmPrinterENS_9St
   %32 = add i64 %3, 1
   %33 = add i64 %32, %30
   store i64 %33, ptr %14, align 8, !tbaa !16
-  %.pre10.i = load ptr, ptr %.fca.0.extract.i, align 8, !tbaa !140
   br label %_ZN4llvm15DwarfStringPool12getEntryImplERNS_10AsmPrinterENS_9StringRefE.exit
 
 _ZN4llvm15DwarfStringPool12getEntryImplERNS_10AsmPrinterENS_9StringRefE.exit: ; preds = %4, %29
@@ -242,9 +244,11 @@ define dso_local i64 @_ZN4llvm15DwarfStringPool15getIndexedEntryERNS_10AsmPrinte
   store i64 %26, ptr %27, align 8, !tbaa !150
   %28 = call noundef ptr @_ZNK4llvm10AsmPrinter16createTempSymbolERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(777) %1, ptr noundef nonnull align 8 dereferenceable(34) %6) #11
   %.pre.i = load i64, ptr %14, align 8, !tbaa !16
+  %.pre10.pre.i = load ptr, ptr %.fca.0.extract.i, align 8, !tbaa !140
   br label %29
 
 29:                                               ; preds = %20, %12
+  %.pre10.i = phi ptr [ %.pre10.pre.i, %20 ], [ %9, %12 ]
   %30 = phi i64 [ %.pre.i, %20 ], [ %15, %12 ]
   %31 = phi ptr [ %28, %20 ], [ null, %12 ]
   store ptr %31, ptr %10, align 8, !tbaa !152
@@ -252,7 +256,6 @@ define dso_local i64 @_ZN4llvm15DwarfStringPool15getIndexedEntryERNS_10AsmPrinte
   %32 = add i64 %3, 1
   %33 = add i64 %32, %30
   store i64 %33, ptr %14, align 8, !tbaa !16
-  %.pre10.i = load ptr, ptr %.fca.0.extract.i, align 8, !tbaa !140
   br label %_ZN4llvm15DwarfStringPool12getEntryImplERNS_10AsmPrinterENS_9StringRefE.exit
 
 _ZN4llvm15DwarfStringPool12getEntryImplERNS_10AsmPrinterENS_9StringRefE.exit: ; preds = %4, %29

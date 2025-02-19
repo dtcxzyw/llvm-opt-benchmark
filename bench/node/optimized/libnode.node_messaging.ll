@@ -10247,7 +10247,6 @@ if.end:                                           ; preds = %if.then.i, %_ZN2v88
   %isolate_.i = getelementptr inbounds nuw i8, ptr %env, i64 88
   %5 = load ptr, ptr %isolate_.i, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %5) #26
-  store ptr null, ptr %info, align 8
   %deserialize_info_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call11 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %deserialize_info_) #26
   %6 = extractvalue { i64, ptr } %call11, 0

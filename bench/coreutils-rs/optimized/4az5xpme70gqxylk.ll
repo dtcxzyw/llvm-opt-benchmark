@@ -375,7 +375,7 @@ common.resume:                                    ; preds = %.body, %126, %95
   resume { ptr, i32 } %common.resume.op
 
 _ZN6uucore4mods5error11UUsageError3new17h8740cfaf067424e2E.exit: ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false), !noalias !88
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16), !noalias !88
   br label %105
 
@@ -491,7 +491,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit81:  ; preds = %110, %114
   unreachable
 
 _ZN6uucore4mods5error12USimpleError3new17h16165e3877efb120E.exit: ; preds = %.noexc.i82
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %123, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %123, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !noalias !125
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12), !noalias !125
   br label %105
 
@@ -646,7 +646,7 @@ select.unfold:                                    ; preds = %148
           to label %179 unwind label %132
 
 166:                                              ; preds = %.noexc.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %156, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %156, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !158
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !158
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 8

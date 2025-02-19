@@ -57,7 +57,7 @@ define hidden void @"_ZN102_$LT$zvariant..dbus..ser..StructSeqSerializer$LT$W$GT
   %9 = tail call { ptr, i64 } @_ZN8zvariant9signature9Signature6as_str17h74bd6564ed4139afE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2), !noalias !13
   %10 = extractvalue { ptr, i64 } %9, 0
   %11 = extractvalue { ptr, i64 } %9, 1
-  tail call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hf34055908086c95eE"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %8, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %11)
+  tail call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hf34055908086c95eE"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %8, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %11), !noalias !5
   br label %13
 
 12:                                               ; preds = %3
@@ -901,7 +901,7 @@ define hidden void @"_ZN102_$LT$zvariant..dbus..ser..StructSeqSerializer$LT$W$GT
   %9 = tail call { ptr, i64 } @_ZN8zvariant9signature9Signature6as_str17h74bd6564ed4139afE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2), !noalias !393
   %10 = extractvalue { ptr, i64 } %9, 0
   %11 = extractvalue { ptr, i64 } %9, 1
-  tail call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hbd41827cf61056d7E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %8, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %11)
+  tail call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hbd41827cf61056d7E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(144) %8, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %11), !noalias !386
   br label %13
 
 12:                                               ; preds = %3

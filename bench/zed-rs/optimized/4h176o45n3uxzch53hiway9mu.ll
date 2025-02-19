@@ -19322,7 +19322,7 @@ define hidden void @"_ZN6picker15Picker$LT$D$GT$12uniform_list17had9d1101c81810c
   %24 = extractvalue { ptr, ptr } %20, 0
   %25 = extractvalue { ptr, ptr } %20, 1
   invoke void @_ZN4gpui12subscription12Subscription6detach17hf1558a2443b2cbddE(ptr noundef align 1 %24, ptr %25)
-          to label %28 unwind label %21
+          to label %28 unwind label %21, !noalias !2818
 
 26:                                               ; preds = %21
   %27 = landingpad { ptr, i32 }
@@ -34425,7 +34425,7 @@ attributes #44 = { "function-inline-cost-multiplier"="2" }
 !3048 = distinct !{!3048, !3046, !"_ZN63_$LT$schemars..schema..Schema$u20$as$u20$core..clone..Clone$GT$5clone17h6e475f596f568e54E: argument 0"}
 !3049 = !{!3048, !3045, !3042}
 !3050 = !{!3045, !3042}
-!3051 = !{!3052}
+!3051 = !{!3052, !3042}
 !3052 = distinct !{!3052, !3053, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h5af1ab4dcf9c3851E: argument 0"}
 !3053 = distinct !{!3053, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h5af1ab4dcf9c3851E"}
 !3054 = !{!3055}
@@ -34443,7 +34443,7 @@ attributes #44 = { "function-inline-cost-multiplier"="2" }
 !3066 = distinct !{!3066, !3064, !"_ZN63_$LT$schemars..schema..Schema$u20$as$u20$core..clone..Clone$GT$5clone17h6e475f596f568e54E: argument 0"}
 !3067 = !{!3066, !3063, !3060}
 !3068 = !{!3063, !3060}
-!3069 = !{!3070}
+!3069 = !{!3070, !3060}
 !3070 = distinct !{!3070, !3071, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h5af1ab4dcf9c3851E: argument 0"}
 !3071 = distinct !{!3071, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h5af1ab4dcf9c3851E"}
 !3072 = !{!3073}
@@ -34456,7 +34456,7 @@ attributes #44 = { "function-inline-cost-multiplier"="2" }
 !3079 = distinct !{!3079, !3077, !"_ZN63_$LT$schemars..schema..Schema$u20$as$u20$core..clone..Clone$GT$5clone17h6e475f596f568e54E: argument 0"}
 !3080 = !{!3079, !3076, !3073}
 !3081 = !{!3076, !3073}
-!3082 = !{!3083}
+!3082 = !{!3083, !3073}
 !3083 = distinct !{!3083, !3084, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h5af1ab4dcf9c3851E: argument 0"}
 !3084 = distinct !{!3084, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h5af1ab4dcf9c3851E"}
 !3085 = !{i8 0, i8 20}
@@ -34619,7 +34619,7 @@ attributes #44 = { "function-inline-cost-multiplier"="2" }
 !3242 = distinct !{!3242, !3240, !"_ZN63_$LT$schemars..schema..Schema$u20$as$u20$core..clone..Clone$GT$5clone17h6e475f596f568e54E: argument 0"}
 !3243 = !{!3242, !3239, !3236}
 !3244 = !{!3239, !3236}
-!3245 = !{!3246}
+!3245 = !{!3246, !3236}
 !3246 = distinct !{!3246, !3247, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h5af1ab4dcf9c3851E: argument 0"}
 !3247 = distinct !{!3247, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h5af1ab4dcf9c3851E"}
 !3248 = !{!3249}
@@ -34632,7 +34632,7 @@ attributes #44 = { "function-inline-cost-multiplier"="2" }
 !3255 = distinct !{!3255, !3253, !"_ZN63_$LT$schemars..schema..Schema$u20$as$u20$core..clone..Clone$GT$5clone17h6e475f596f568e54E: argument 0"}
 !3256 = !{!3255, !3252, !3249}
 !3257 = !{!3252, !3249}
-!3258 = !{!3259}
+!3258 = !{!3259, !3249}
 !3259 = distinct !{!3259, !3260, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h5af1ab4dcf9c3851E: argument 0"}
 !3260 = distinct !{!3260, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h5af1ab4dcf9c3851E"}
 !3261 = !{!3262}

@@ -5094,7 +5094,7 @@ _ZNSt4pairIN5Yosys5RTLIL6SigBitENS0_10TimingInfo7NameBitEEC2ERKS5_.exit.i.i: ; p
   %812 = landingpad { ptr, i32 }
           catch ptr null
   %813 = extractvalue { ptr, i32 } %812, 0
-  call void @__clang_call_terminate(ptr %813) #26
+  call void @__clang_call_terminate(ptr %813) #26, !noalias !39
   unreachable
 
 _ZNK5Yosys7hashlib4poolISt4pairINS_5RTLIL6SigBitENS_10TimingInfo7NameBitEENS0_8hash_opsIS7_EEE7do_hashERKS7_.exit.i: ; preds = %810, %803, %788, %768
@@ -5627,7 +5627,7 @@ _ZNSt4pairIN5Yosys5RTLIL6SigBitENS0_10TimingInfo7NameBitEEC2ERKS5_.exit.i.i182: 
   %1086 = landingpad { ptr, i32 }
           catch ptr null
   %1087 = extractvalue { ptr, i32 } %1086, 0
-  call void @__clang_call_terminate(ptr %1087) #26
+  call void @__clang_call_terminate(ptr %1087) #26, !noalias !47
   unreachable
 
 _ZNK5Yosys7hashlib4poolISt4pairINS_5RTLIL6SigBitENS_10TimingInfo7NameBitEENS0_8hash_opsIS7_EEE7do_hashERKS7_.exit.i186: ; preds = %1084, %1077, %1062, %1042

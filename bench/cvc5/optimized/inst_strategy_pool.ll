@@ -3642,62 +3642,61 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit47: ; preds = %179, %174, %181
 
 184:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit47
   store ptr %183, ptr %10, align 8, !tbaa !377
-  %185 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr null, ptr %185, align 8, !tbaa !382
-  %186 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-          to label %203 unwind label %187
+  %185 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
+          to label %202 unwind label %186
 
-187:                                              ; preds = %184
-  %188 = landingpad { ptr, i32 }
+186:                                              ; preds = %184
+  %187 = landingpad { ptr, i32 }
           catch ptr null
-  %189 = extractvalue { ptr, i32 } %188, 0
-  %190 = call ptr @__cxa_begin_catch(ptr %189) #24
-  %191 = icmp eq ptr %183, null
-  br i1 %191, label %196, label %192
+  %188 = extractvalue { ptr, i32 } %187, 0
+  %189 = call ptr @__cxa_begin_catch(ptr %188) #24
+  %190 = icmp eq ptr %183, null
+  br i1 %190, label %195, label %191
 
-192:                                              ; preds = %187
-  %193 = load ptr, ptr %183, align 8, !tbaa !3
-  %194 = getelementptr inbounds nuw i8, ptr %193, i64 40
-  %195 = load ptr, ptr %194, align 8
-  call void %195(ptr noundef nonnull align 8 dereferenceable(8) %183) #24
-  br label %196
+191:                                              ; preds = %186
+  %192 = load ptr, ptr %183, align 8, !tbaa !3
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 40
+  %194 = load ptr, ptr %193, align 8
+  call void %194(ptr noundef nonnull align 8 dereferenceable(8) %183) #24
+  br label %195
 
-196:                                              ; preds = %192, %187
+195:                                              ; preds = %191, %186
   invoke void @__cxa_rethrow() #26
-          to label %202 unwind label %197
+          to label %201 unwind label %196
 
-197:                                              ; preds = %196
-  %198 = landingpad { ptr, i32 }
+196:                                              ; preds = %195
+  %197 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %.body unwind label %199
+          to label %.body unwind label %198
 
-199:                                              ; preds = %197
-  %200 = landingpad { ptr, i32 }
+198:                                              ; preds = %196
+  %199 = landingpad { ptr, i32 }
           catch ptr null
-  %201 = extractvalue { ptr, i32 } %200, 0
-  call void @__clang_call_terminate(ptr %201) #25
+  %200 = extractvalue { ptr, i32 } %199, 0
+  call void @__clang_call_terminate(ptr %200) #25
   unreachable
 
-202:                                              ; preds = %196
+201:                                              ; preds = %195
   unreachable
 
-203:                                              ; preds = %184
-  %204 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  store i32 1, ptr %204, align 8, !tbaa !383
-  %205 = getelementptr inbounds nuw i8, ptr %186, i64 12
-  store i32 1, ptr %205, align 4, !tbaa !385
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN4cvc58internal6theory11quantifiers28TermTupleEnumeratorInterfaceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %186, align 8, !tbaa !3
-  %206 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  store ptr %183, ptr %206, align 8, !tbaa !386
-  store ptr %186, ptr %185, align 8, !tbaa !382
+202:                                              ; preds = %184
+  %203 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %185, i64 8
+  store i32 1, ptr %204, align 8, !tbaa !382
+  %205 = getelementptr inbounds nuw i8, ptr %185, i64 12
+  store i32 1, ptr %205, align 4, !tbaa !384
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN4cvc58internal6theory11quantifiers28TermTupleEnumeratorInterfaceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %185, align 8, !tbaa !3
+  %206 = getelementptr inbounds nuw i8, ptr %185, i64 16
+  store ptr %183, ptr %206, align 8, !tbaa !385
+  store ptr %185, ptr %203, align 8, !tbaa !387
   %207 = load ptr, ptr %12, align 8, !tbaa !250
   %208 = load i64, ptr %207, align 8
   %209 = and i64 %208, 1152920405095219200
   %.not.i.i48 = icmp eq i64 %209, 1152920405095219200
   br i1 %.not.i.i48, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit49, label %210, !prof !259
 
-210:                                              ; preds = %203
+210:                                              ; preds = %202
   %211 = add i64 %208, 1152920405095219200
   %212 = and i64 %211, 1152920405095219200
   %213 = and i64 %208, -1152920405095219201
@@ -3717,7 +3716,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit47: ; preds = %179, %174, %181
   call void @__clang_call_terminate(ptr %219) #25
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit49: ; preds = %203, %210, %216
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit49: ; preds = %202, %210, %216
   %220 = load ptr, ptr %11, align 8, !tbaa !250
   %221 = load i64, ptr %220, align 8
   %222 = and i64 %221, 1152920405095219200
@@ -3798,8 +3797,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit51: ; preds = %_ZN4cvc58internal12
           cleanup
   br label %.body
 
-.body:                                            ; preds = %197, %256
-  %eh.lpad-body = phi { ptr, i32 } [ %257, %256 ], [ %198, %197 ]
+.body:                                            ; preds = %196, %256
+  %eh.lpad-body = phi { ptr, i32 } [ %257, %256 ], [ %197, %196 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #24
   br label %258
 
@@ -4062,16 +4061,16 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i: ; 
   br i1 %370, label %372, label %379
 
 372:                                              ; preds = %368
-  store i32 0, ptr %204, align 8, !tbaa !383
-  store i32 0, ptr %205, align 4, !tbaa !385
-  %373 = load ptr, ptr %186, align 8, !tbaa !3
+  store i32 0, ptr %204, align 8, !tbaa !382
+  store i32 0, ptr %205, align 4, !tbaa !384
+  %373 = load ptr, ptr %185, align 8, !tbaa !3
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 16
   %375 = load ptr, ptr %374, align 8
-  call void %375(ptr noundef nonnull align 8 dereferenceable(16) %186) #24
-  %376 = load ptr, ptr %186, align 8, !tbaa !3
+  call void %375(ptr noundef nonnull align 8 dereferenceable(16) %185) #24
+  %376 = load ptr, ptr %185, align 8, !tbaa !3
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 24
   %378 = load ptr, ptr %377, align 8
-  call void %378(ptr noundef nonnull align 8 dereferenceable(16) %186) #24
+  call void %378(ptr noundef nonnull align 8 dereferenceable(16) %185) #24
   br label %_ZNSt12__shared_ptrIN4cvc58internal6theory11quantifiers28TermTupleEnumeratorInterfaceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 379:                                              ; preds = %368
@@ -4094,7 +4093,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %383, %381
   br i1 %385, label %386, label %_ZNSt12__shared_ptrIN4cvc58internal6theory11quantifiers28TermTupleEnumeratorInterfaceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !259
 
 386:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %186) #24
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %185) #24
   br label %_ZNSt12__shared_ptrIN4cvc58internal6theory11quantifiers28TermTupleEnumeratorInterfaceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN4cvc58internal6theory11quantifiers28TermTupleEnumeratorInterfaceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %372, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %386
@@ -4731,7 +4730,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; pre
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12__shared_ptrIN4cvc58internal6theory11quantifiers28TermTupleEnumeratorInterfaceELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !382
+  %3 = load ptr, ptr %2, align 8, !tbaa !387
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
@@ -4743,9 +4742,9 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN4cvc58internal6theory11qua
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !383
+  store i32 0, ptr %5, align 8, !tbaa !382
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !385
+  store i32 0, ptr %10, align 4, !tbaa !384
   %11 = load ptr, ptr %3, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -5990,7 +5989,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN4cvc58internal6theory1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN4cvc58internal6theory11quantifiers28TermTupleEnumeratorInterfaceELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !386
+  %3 = load ptr, ptr %2, align 8, !tbaa !385
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
@@ -6599,12 +6598,12 @@ attributes #29 = { nounwind willreturn memory(read) }
 !379 = !{!"p1 _ZTSN4cvc58internal6theory11quantifiers28TermTupleEnumeratorInterfaceE", !12, i64 0}
 !380 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !381, i64 0}
 !381 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !12, i64 0}
-!382 = !{!380, !381, i64 0}
-!383 = !{!384, !285, i64 8}
-!384 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !285, i64 8, !285, i64 12}
-!385 = !{!384, !285, i64 12}
-!386 = !{!387, !379, i64 16}
-!387 = !{!"_ZTSSt15_Sp_counted_ptrIPN4cvc58internal6theory11quantifiers28TermTupleEnumeratorInterfaceELN9__gnu_cxx12_Lock_policyE2EE", !384, i64 0, !379, i64 16}
+!382 = !{!383, !285, i64 8}
+!383 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !285, i64 8, !285, i64 12}
+!384 = !{!383, !285, i64 12}
+!385 = !{!386, !379, i64 16}
+!386 = !{!"_ZTSSt15_Sp_counted_ptrIPN4cvc58internal6theory11quantifiers28TermTupleEnumeratorInterfaceELN9__gnu_cxx12_Lock_policyE2EE", !383, i64 0, !379, i64 16}
+!387 = !{!380, !381, i64 0}
 !388 = !{!389, !390, i64 0}
 !389 = !{!"_ZTSSt18_Bit_iterator_base", !390, i64 0, !285, i64 8}
 !390 = !{!"p1 long", !12, i64 0}

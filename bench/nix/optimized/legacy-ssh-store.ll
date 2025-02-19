@@ -2224,7 +2224,7 @@ define internal fastcc void @"_ZN3nix8make_refINS_4PoolINS_14LegacySSHStore10Con
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #35
+  call void @__clang_call_terminate(ptr %21) #35, !noalias !10
   unreachable
 
 _ZNSt8functionIFbRKN3nix3refINS0_14LegacySSHStore10ConnectionEEEEED2Ev.exit.i.i.i.i.i.i.i: ; preds = %17, %15
@@ -2240,7 +2240,7 @@ _ZNSt8functionIFbRKN3nix3refINS0_14LegacySSHStore10ConnectionEEEEED2Ev.exit.i.i.
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #35
+  call void @__clang_call_terminate(ptr %27) #35, !noalias !10
   unreachable
 
 28:                                               ; preds = %1
@@ -2258,7 +2258,7 @@ _ZNSt8functionIFbRKN3nix3refINS0_14LegacySSHStore10ConnectionEEEEED2Ev.exit.i.i.
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #35
+  call void @__clang_call_terminate(ptr %35) #35, !noalias !10
   unreachable
 
 _ZNSt8functionIFbRKN3nix3refINS0_14LegacySSHStore10ConnectionEEEEED2Ev.exit7.i.i.i.i.i.i.i: ; preds = %31, %28
@@ -2274,7 +2274,7 @@ _ZNSt8functionIFbRKN3nix3refINS0_14LegacySSHStore10ConnectionEEEEED2Ev.exit7.i.i
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #35
+  call void @__clang_call_terminate(ptr %41) #35, !noalias !10
   unreachable
 
 common.resume:                                    ; preds = %.body, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix4PoolINS1_14LegacySSHStore10ConnectionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i

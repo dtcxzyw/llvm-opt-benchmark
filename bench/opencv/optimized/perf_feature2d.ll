@@ -1261,7 +1261,7 @@ common.resume:                                    ; preds = %125, %.body.i.i.i
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #30
+  call void @__clang_call_terminate(ptr %32) #30, !noalias !21
   unreachable
 
 33:                                               ; preds = %.noexc4

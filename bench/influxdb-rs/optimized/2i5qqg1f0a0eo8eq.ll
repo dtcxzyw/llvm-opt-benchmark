@@ -14402,7 +14402,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %30 = extractvalue { ptr, i64 } %29, 0
   %31 = icmp ne ptr %30, null
   tail call void @llvm.assume(i1 %31)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull readonly align 1 %26, i64 %.sroa.4.0.copyload, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull readonly align 1 %26, i64 %.sroa.4.0.copyload, i1 false), !noalias !4
   %.sroa.8.0 = extractvalue { ptr, i64 } %29, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   store ptr %30, ptr %0, align 8

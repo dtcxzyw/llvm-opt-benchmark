@@ -7699,9 +7699,6 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit361.us:
   unreachable
 
 565:                                              ; preds = %555
-  store i64 %463, ptr %7, align 8
-  store i64 %462, ptr %445, align 8
-  store i64 %461, ptr %446, align 8
   %566 = getelementptr inbounds nuw i8, ptr %535, i64 24
   store i8 1, ptr %14, align 1
   %567 = getelementptr inbounds [0 x ptr], ptr %566, i64 0, i64 %534

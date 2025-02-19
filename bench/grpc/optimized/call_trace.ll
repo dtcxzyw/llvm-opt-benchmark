@@ -593,18 +593,13 @@ invoke.cont16.thread:                             ; preds = %call7.i.i.i.i.i.i.i
   %.val1.pre.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 16), align 8, !noalias !12
   %second1823 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %.val1.pre.i.i.i.i.i.i, i64 %target.sroa.0.0.i.i.i.i.i.i.i.i, i32 0, i32 1
   %second18.val24 = load ptr, ptr %second1823, align 8
-  br label %_ZNSt10unique_ptrIZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterE13DerivedFilterSt14default_deleteIS4_EED2Ev.exit
+  br label %cleanup
 
 _ZNKSt14default_deleteIZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterE13DerivedFilterEclEPS4_.exit.i: ; preds = %for.body.i.i.i.i.i.i.i
   %second18 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %this.val7.i.i.i.i.i.i.i, i64 %and.i.i.i.i.i.i.i.i, i32 0, i32 1
   %second18.val = load ptr, ptr %second18, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name_str.i.i) #32
   call void @_ZdlPv(ptr noundef nonnull %call.i12) #33
-  br label %_ZNSt10unique_ptrIZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterE13DerivedFilterSt14default_deleteIS4_EED2Ev.exit
-
-_ZNSt10unique_ptrIZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterE13DerivedFilterSt14default_deleteIS4_EED2Ev.exit: ; preds = %invoke.cont16.thread, %_ZNKSt14default_deleteIZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterE13DerivedFilterEclEPS4_.exit.i
-  %second18.val26 = phi ptr [ %second18.val24, %invoke.cont16.thread ], [ %second18.val, %_ZNKSt14default_deleteIZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterE13DerivedFilterEclEPS4_.exit.i ]
-  store ptr null, ptr %ref.tmp12, align 8
   br label %cleanup
 
 lpad14:                                           ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPK19grpc_channel_filterSt10unique_ptrIZN9grpc_core23PromiseTracingFilterForES6_E13DerivedFilterSt14default_deleteIS9_EEEENS1_6HashEqIS6_vE4HashENSF_2EqESaISt4pairIKS6_SC_EEE28rehash_and_grow_if_necessaryEv.exit.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %while.end.i.i.i.i.i.i.i
@@ -613,8 +608,8 @@ lpad14:                                           ; preds = %_ZN4absl12lts_20230
   call fastcc void @_ZNSt10unique_ptrIZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterE13DerivedFilterSt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12) #32
   br label %ehcleanup
 
-cleanup:                                          ; preds = %_ZNSt10unique_ptrIZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterE13DerivedFilterSt14default_deleteIS4_EED2Ev.exit, %invoke.cont7
-  %retval.0 = phi ptr [ %second.val, %invoke.cont7 ], [ %second18.val26, %_ZNSt10unique_ptrIZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterE13DerivedFilterSt14default_deleteIS4_EED2Ev.exit ]
+cleanup:                                          ; preds = %_ZNKSt14default_deleteIZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterE13DerivedFilterEclEPS4_.exit.i, %invoke.cont16.thread, %invoke.cont7
+  %retval.0 = phi ptr [ %second.val, %invoke.cont7 ], [ %second18.val24, %invoke.cont16.thread ], [ %second18.val, %_ZNKSt14default_deleteIZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterE13DerivedFilterEclEPS4_.exit.i ]
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
@@ -897,7 +892,7 @@ terminate.lpad.i.i11.i:                           ; preds = %_ZN9grpc_core8Activ
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #34
+  call void @__clang_call_terminate(ptr %27) #34, !noalias !29
   unreachable
 
 _ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i.i: ; preds = %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i.i, %if.then.i.i.i, %invoke.cont13.i
@@ -950,7 +945,7 @@ terminate.lpad.i.i15.i:                           ; preds = %lpad12.i
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #34
+  call void @__clang_call_terminate(ptr %37) #34, !noalias !29
   unreachable
 
 ehcleanup15.i:                                    ; preds = %lpad12.i, %lpad10.i
@@ -1990,7 +1985,7 @@ entry:
   %call.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %cond.i2.i.i, ptr %cond.i.i.i) #32, !noalias !36
   %3 = extractvalue { i64, ptr } %call.i.i.i, 0
   %4 = extractvalue { i64, ptr } %call.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %3, ptr %4) #32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %3, ptr %4) #32, !noalias !36
   %5 = load i64, ptr %agg.tmp.i.i.i, align 8, !noalias !36
   %6 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   %7 = load ptr, ptr %6, align 8, !noalias !36
@@ -2052,7 +2047,7 @@ entry:
   %call.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %cond.i2.i.i, ptr %cond.i.i.i) #32, !noalias !39
   %3 = extractvalue { i64, ptr } %call.i.i.i, 0
   %4 = extractvalue { i64, ptr } %call.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %3, ptr %4) #32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %3, ptr %4) #32, !noalias !39
   %5 = load i64, ptr %agg.tmp.i.i.i, align 8, !noalias !39
   %6 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   %7 = load ptr, ptr %6, align 8, !noalias !39
@@ -2158,7 +2153,7 @@ entry:
   %call.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %cond.i2.i.i, ptr %cond.i.i.i) #32, !noalias !42
   %3 = extractvalue { i64, ptr } %call.i.i.i, 0
   %4 = extractvalue { i64, ptr } %call.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %3, ptr %4) #32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %3, ptr %4) #32, !noalias !42
   %5 = load i64, ptr %agg.tmp.i.i.i, align 8, !noalias !42
   %6 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   %7 = load ptr, ptr %6, align 8, !noalias !42
@@ -2220,7 +2215,7 @@ entry:
   %call.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %cond.i2.i.i, ptr %cond.i.i.i) #32, !noalias !45
   %3 = extractvalue { i64, ptr } %call.i.i.i, 0
   %4 = extractvalue { i64, ptr } %call.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %3, ptr %4) #32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %3, ptr %4) #32, !noalias !45
   %5 = load i64, ptr %agg.tmp.i.i.i, align 8, !noalias !45
   %6 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   %7 = load ptr, ptr %6, align 8, !noalias !45
@@ -2282,7 +2277,7 @@ entry:
   %call.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %cond.i2.i.i, ptr %cond.i.i.i) #32, !noalias !48
   %3 = extractvalue { i64, ptr } %call.i.i.i, 0
   %4 = extractvalue { i64, ptr } %call.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %3, ptr %4) #32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %3, ptr %4) #32, !noalias !48
   %5 = load i64, ptr %agg.tmp.i.i.i, align 8, !noalias !48
   %6 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   %7 = load ptr, ptr %6, align 8, !noalias !48
@@ -2344,7 +2339,7 @@ entry:
   %call.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %cond.i2.i.i, ptr %cond.i.i.i) #32, !noalias !51
   %3 = extractvalue { i64, ptr } %call.i.i.i, 0
   %4 = extractvalue { i64, ptr } %call.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %3, ptr %4) #32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %3, ptr %4) #32, !noalias !51
   %5 = load i64, ptr %agg.tmp.i.i.i, align 8, !noalias !51
   %6 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   %7 = load ptr, ptr %6, align 8, !noalias !51
@@ -2406,7 +2401,7 @@ entry:
   %call.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %cond.i2.i.i, ptr %cond.i.i.i) #32, !noalias !54
   %3 = extractvalue { i64, ptr } %call.i.i.i, 0
   %4 = extractvalue { i64, ptr } %call.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %3, ptr %4) #32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %3, ptr %4) #32, !noalias !54
   %5 = load i64, ptr %agg.tmp.i.i.i, align 8, !noalias !54
   %6 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   %7 = load ptr, ptr %6, align 8, !noalias !54
@@ -2468,7 +2463,7 @@ entry:
   %call.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %cond.i2.i.i, ptr %cond.i.i.i) #32, !noalias !57
   %3 = extractvalue { i64, ptr } %call.i.i.i, 0
   %4 = extractvalue { i64, ptr } %call.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %3, ptr %4) #32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %3, ptr %4) #32, !noalias !57
   %5 = load i64, ptr %agg.tmp.i.i.i, align 8, !noalias !57
   %6 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   %7 = load ptr, ptr %6, align 8, !noalias !57
@@ -2530,7 +2525,7 @@ entry:
   %call.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %cond.i2.i.i, ptr %cond.i.i.i) #32, !noalias !60
   %3 = extractvalue { i64, ptr } %call.i.i.i, 0
   %4 = extractvalue { i64, ptr } %call.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %3, ptr %4) #32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %3, ptr %4) #32, !noalias !60
   %5 = load i64, ptr %agg.tmp.i.i.i, align 8, !noalias !60
   %6 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   %7 = load ptr, ptr %6, align 8, !noalias !60
@@ -2592,7 +2587,7 @@ entry:
   %call.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %cond.i2.i.i, ptr %cond.i.i.i) #32, !noalias !63
   %3 = extractvalue { i64, ptr } %call.i.i.i, 0
   %4 = extractvalue { i64, ptr } %call.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %3, ptr %4) #32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %3, ptr %4) #32, !noalias !63
   %5 = load i64, ptr %agg.tmp.i.i.i, align 8, !noalias !63
   %6 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   %7 = load ptr, ptr %6, align 8, !noalias !63
@@ -2654,7 +2649,7 @@ entry:
   %call.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %cond.i2.i.i, ptr %cond.i.i.i) #32, !noalias !66
   %3 = extractvalue { i64, ptr } %call.i.i.i, 0
   %4 = extractvalue { i64, ptr } %call.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %3, ptr %4) #32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %3, ptr %4) #32, !noalias !66
   %5 = load i64, ptr %agg.tmp.i.i.i, align 8, !noalias !66
   %6 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   %7 = load ptr, ptr %6, align 8, !noalias !66
@@ -3437,7 +3432,7 @@ entry:
   %call.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %0, ptr %1) #32, !noalias !76
   %2 = extractvalue { i64, ptr } %call.i.i.i, 0
   %3 = extractvalue { i64, ptr } %call.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %2, ptr %3) #32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %2, ptr %3) #32, !noalias !76
   %4 = load i64, ptr %agg.tmp.i.i.i, align 8, !noalias !76
   %5 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   %6 = load ptr, ptr %5, align 8, !noalias !76
@@ -3495,7 +3490,7 @@ entry:
   %call.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %call.i.i.i1, ptr nonnull %cond.i) #32, !noalias !79
   %1 = extractvalue { i64, ptr } %call.i.i.i, 0
   %2 = extractvalue { i64, ptr } %call.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %1, ptr %2) #32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %1, ptr %2) #32, !noalias !79
   %3 = load i64, ptr %agg.tmp.i.i.i, align 8, !noalias !79
   %4 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   %5 = load ptr, ptr %4, align 8, !noalias !79
@@ -3551,7 +3546,7 @@ entry:
   %call.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %call.i.i.i1, ptr nonnull %cond.i) #32, !noalias !82
   %1 = extractvalue { i64, ptr } %call.i.i.i, 0
   %2 = extractvalue { i64, ptr } %call.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %1, ptr %2) #32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %1, ptr %2) #32, !noalias !82
   %3 = load i64, ptr %agg.tmp.i.i.i, align 8, !noalias !82
   %4 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   %5 = load ptr, ptr %4, align 8, !noalias !82
@@ -3613,7 +3608,7 @@ entry:
   %call.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %call.i.i.i1, ptr nonnull %cond.i) #32, !noalias !85
   %1 = extractvalue { i64, ptr } %call.i.i.i, 0
   %2 = extractvalue { i64, ptr } %call.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %1, ptr %2) #32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %1, ptr %2) #32, !noalias !85
   %3 = load i64, ptr %agg.tmp.i.i.i, align 8, !noalias !85
   %4 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   %5 = load ptr, ptr %4, align 8, !noalias !85
@@ -3667,7 +3662,7 @@ entry:
   %call.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 6, ptr nonnull @.str.45) #32, !noalias !88
   %0 = extractvalue { i64, ptr } %call.i.i.i, 0
   %1 = extractvalue { i64, ptr } %call.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %0, ptr %1) #32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %0, ptr %1) #32, !noalias !88
   %2 = load i64, ptr %agg.tmp.i.i.i, align 8, !noalias !88
   %3 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   %4 = load ptr, ptr %3, align 8, !noalias !88

@@ -265,7 +265,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #14
+  call void @__clang_call_terminate(ptr %36) #14, !noalias !13
   unreachable
 
 _ZN5boost4urls6detail18make_segments_iterINS0_13segments_base8iteratorEEENS1_13segments_iterIT_EES6_S6_.exit: ; preds = %3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i

@@ -18007,7 +18007,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit33.i:             ; preds = %1031, %_ZSt8_Destro
   %1053 = landingpad { ptr, i32 }
           catch ptr null
   %1054 = extractvalue { ptr, i32 } %1053, 0
-  call void @__clang_call_terminate(ptr %1054) #25
+  call void @__clang_call_terminate(ptr %1054) #25, !noalias !193
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i:              ; preds = %1051, %1044, %1039
@@ -18162,7 +18162,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit46.i:             ; preds = %1085, %_ZSt8_Destro
   %1099 = landingpad { ptr, i32 }
           catch ptr null
   %1100 = extractvalue { ptr, i32 } %1099, 0
-  call void @__clang_call_terminate(ptr %1100) #25
+  call void @__clang_call_terminate(ptr %1100) #25, !noalias !193
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit48.i:            ; preds = %1097, %1090, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit46.i
@@ -18891,7 +18891,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit24.i:             ; preds = %1284, %_ZSt8_Destro
   %1298 = landingpad { ptr, i32 }
           catch ptr null
   %1299 = extractvalue { ptr, i32 } %1298, 0
-  call void @__clang_call_terminate(ptr %1299) #25
+  call void @__clang_call_terminate(ptr %1299) #25, !noalias !196
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i408:           ; preds = %1296, %1289, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit24.i
@@ -30349,7 +30349,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit86.i:             ; preds = %206, %_ZSt8_Destroy
   %220 = landingpad { ptr, i32 }
           catch ptr null
   %221 = extractvalue { ptr, i32 } %220, 0
-  call void @__clang_call_terminate(ptr %221) #25
+  call void @__clang_call_terminate(ptr %221) #25, !noalias !296
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i:              ; preds = %218, %211, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit86.i
@@ -31194,7 +31194,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit26.i:             ; preds = %493, %_ZSt8_Destroy
   %507 = landingpad { ptr, i32 }
           catch ptr null
   %508 = extractvalue { ptr, i32 } %507, 0
-  call void @__clang_call_terminate(ptr %508) #25
+  call void @__clang_call_terminate(ptr %508) #25, !noalias !302
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i100:           ; preds = %505, %498, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit26.i

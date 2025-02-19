@@ -7614,7 +7614,6 @@ _ZN6duckdb21BufferPoolReservation6ResizeEm.exit:  ; preds = %228, %.sink.split.i
   store ptr %254, ptr %253, align 8, !tbaa !281
   %255 = load i64, ptr %13, align 8, !tbaa !95
   store i64 %255, ptr %252, align 8, !tbaa !95
-  store i64 0, ptr %13, align 8, !tbaa !95
   %256 = getelementptr inbounds nuw i8, ptr %254, i64 128
   %257 = zext i8 %251 to i64
   %258 = invoke noundef i64 @_ZN6duckdb13TaskScheduler17GetEstimatedCPUIdEv()

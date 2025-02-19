@@ -1417,7 +1417,6 @@ _ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i387:   ; preds = %_ZNSt8_Rb_treeIccSt
   br i1 %cmp.i4.i.i.i389, label %if.then.i.i402.sink.split, label %_ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i394
 
 _ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i394: ; preds = %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i387
-  %movingFromCamera.i391 = getelementptr inbounds nuw i8, ptr %this, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp7.i371, i8 0, i64 128, i1 false), !alias.scope !84
   invoke void @_ZN4pbrt12SquareMatrixILi4EEC1Ev(ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp7.i371)
           to label %.noexc881 unwind label %lpad40
@@ -1428,6 +1427,7 @@ _ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i394: ; preds = %_ZNSt3setIcS
           to label %invoke.cont41 unwind label %lpad40
 
 invoke.cont41:                                    ; preds = %.noexc881
+  %movingFromCamera.i391 = getelementptr inbounds nuw i8, ptr %this, i64 60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %movingFromCamera.i391, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp7.i371, i64 128, i1 false)
   %.pr744.pre = load ptr, ptr %_M_manager.i.i368, align 8
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i371)

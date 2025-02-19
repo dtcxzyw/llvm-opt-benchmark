@@ -66,7 +66,6 @@ entry:
   %ref.tmp = alloca %"class.pcg_extras::seed_seq_from", align 8
   call void @_ZNSt13random_deviceC2Ev(ptr noundef nonnull align 8 dereferenceable(5000) %ref.tmp)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %seeddata.i.i)
-  store i64 1442695040888963407, ptr %rng, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buffer.i.i.i.i)
   br label %for.body.i.i.i.i.i
 

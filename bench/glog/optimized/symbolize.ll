@@ -1021,7 +1021,6 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit95: ; preds =
   br i1 %.not106, label %_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit97, label %244
 
 244:                                              ; preds = %243
-  store i32 -1, ptr %12, align 4, !tbaa !7
   %245 = invoke i32 @close(i32 noundef %.pr)
           to label %_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit97 unwind label %246
 
@@ -1669,7 +1668,6 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit89: ; preds = %switch.
 
 223:                                              ; preds = %115, %.critedge.thread, %91, %65, %.critedge74
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9) #20
-  store i32 -1, ptr %8, align 4, !tbaa !7
   %224 = invoke i32 @close(i32 noundef %22)
           to label %229 unwind label %225
 
@@ -1689,7 +1687,6 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit89: ; preds = %switch.
 
 229:                                              ; preds = %.thread145, %223
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #20
-  store i32 -1, ptr %7, align 4, !tbaa !7
   %230 = invoke i32 @close(i32 noundef %14)
           to label %_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit94 unwind label %231
 

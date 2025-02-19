@@ -753,7 +753,6 @@ if.end17:                                         ; preds = %invoke.cont11
   br i1 %cmp.i33, label %if.end36, label %if.then21
 
 if.then21:                                        ; preds = %if.end17
-  store i32 0, ptr %localStatus, align 4
   %len.i.i = getelementptr inbounds nuw i8, ptr %baseUnitImpl, i64 152
   store i32 0, ptr %len.i.i, align 8
   %16 = load ptr, ptr %identifier7, align 8
@@ -846,7 +845,6 @@ if.end43:                                         ; preds = %invoke.cont37
   br i1 %cmp.i54, label %if.end85, label %if.then47
 
 if.then47:                                        ; preds = %if.end43
-  store i32 0, ptr %localStatus, align 4
   invoke void @_ZN6icu_7515MeasureUnitImpl9serializeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %simplifiedUnit, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont48 unwind label %lpad38
 
@@ -867,11 +865,7 @@ invoke.cont52:                                    ; preds = %invoke.cont48
 
 call3.i.noexc65:                                  ; preds = %invoke.cont52
   %cmp.i59 = icmp sgt i32 %call3.i66, 1
-  br i1 %cmp.i59, label %if.end.i62, label %if.then.i60
-
-if.then.i60:                                      ; preds = %call3.i.noexc65
-  store i32 16, ptr %localStatus, align 4
-  br label %invoke.cont54
+  br i1 %cmp.i59, label %if.end.i62, label %invoke.cont54
 
 if.end.i62:                                       ; preds = %call3.i.noexc65
   %35 = load ptr, ptr %pos_.i, align 8
@@ -882,8 +876,8 @@ if.end.i62:                                       ; preds = %call3.i.noexc65
   %call.i.i68 = invoke noundef i32 @_ZN6icu_759BytesTrie9readValueEPKhi(ptr noundef nonnull %incdec.ptr.i.i63, i32 noundef %shr.i.i64)
           to label %invoke.cont54 unwind label %lpad38
 
-invoke.cont54:                                    ; preds = %if.then.i60, %if.end.i62
-  %retval.0.i61 = phi i32 [ -1, %if.then.i60 ], [ %call.i.i68, %if.end.i62 ]
+invoke.cont54:                                    ; preds = %call3.i.noexc65, %if.end.i62
+  %retval.0.i61 = phi i32 [ %call.i.i68, %if.end.i62 ], [ -1, %call3.i.noexc65 ]
   %38 = load i32, ptr %status, align 4
   %cmp.i70 = icmp slt i32 %38, 1
   br i1 %cmp.i70, label %if.end61, label %cleanup

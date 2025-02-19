@@ -2516,7 +2516,7 @@ terminate.lpad.i.i.i:                             ; preds = %_ZNSt6vectorImSaImE
   %138 = landingpad { ptr, i32 }
           catch ptr null
   %139 = extractvalue { ptr, i32 } %138, 0
-  call void @__clang_call_terminate(ptr %139) #25
+  call void @__clang_call_terminate(ptr %139) #25, !noalias !58
   unreachable
 
 ehcleanup.i:                                      ; preds = %lpad.i15.thread.i.loopexit, %lpad.i15.thread.i.loopexit.split-lp, %lpad.loopexit.i, %lpad4.i, %lpad.loopexit.split-lp.i, %if.then.i.i3.i.i, %lpad.i15.i

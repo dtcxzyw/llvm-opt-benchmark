@@ -959,7 +959,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit.i.i:   ; preds = %102, %_ZN4llvm16dyn
 115:                                              ; preds = %196, %.lr.ph.i.i
   %.0125.i.i = phi ptr [ %108, %.lr.ph.i.i ], [ %197, %196 ]
   %116 = getelementptr inbounds nuw i8, ptr %.0125.i.i, i64 16
-  %117 = load ptr, ptr %116, align 8, !tbaa !134
+  %117 = load ptr, ptr %116, align 8, !tbaa !134, !noalias !116
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %117, align 8, !tbaa !51, !noalias !116
   %118 = and i64 %.sroa.0.0.copyload.i.i.i.i, -16
   %119 = inttoptr i64 %118 to ptr
@@ -1130,14 +1130,14 @@ _ZN12_GLOBAL__N_110CFGBuilder14appendBaseDtorEPN5clang8CFGBlockEPKNS1_16CXXBaseS
 200:                                              ; preds = %285, %.lr.ph129.i.i
   %.036127.i.i = phi ptr [ %112, %.lr.ph129.i.i ], [ %286, %285 ]
   %201 = getelementptr inbounds nuw i8, ptr %.036127.i.i, i64 12
-  %202 = load i8, ptr %201, align 4
+  %202 = load i8, ptr %201, align 4, !noalias !116
   %203 = and i8 %202, 1
   %.not120.i.i = icmp eq i8 %203, 0
   br i1 %.not120.i.i, label %204, label %285
 
 204:                                              ; preds = %200
   %205 = getelementptr inbounds nuw i8, ptr %.036127.i.i, i64 16
-  %206 = load ptr, ptr %205, align 8, !tbaa !134
+  %206 = load ptr, ptr %205, align 8, !tbaa !134, !noalias !116
   %.sroa.0.0.copyload.i.i51.i.i = load i64, ptr %206, align 8, !tbaa !51, !noalias !116
   %207 = and i64 %.sroa.0.0.copyload.i.i51.i.i, -16
   %208 = inttoptr i64 %207 to ptr

@@ -33015,7 +33015,7 @@ define linkonce_odr void @_ZN2cv19getRotationMatrix2DENS_6Point_IfEEdd(ptr dead_
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #22
+  call void @__clang_call_terminate(ptr %33) #22, !noalias !503
   unreachable
 
 _ZN2cv20getRotationMatrix2D_ENS_6Point_IfEEdd.exit: ; preds = %4, %30

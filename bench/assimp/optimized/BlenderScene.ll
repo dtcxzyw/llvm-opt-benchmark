@@ -27162,7 +27162,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %46 = load i32, ptr %45, align 8
   %47 = and i32 %46, 1
   %.not = icmp eq i32 %47, 0
-  br i1 %.not, label %48, label %100
+  br i1 %.not, label %48, label %99
 
 48:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %49 = call ptr @__cxa_allocate_exception(i64 16) #23
@@ -27211,18 +27211,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %_ZN
   call void @__cxa_free_exception(ptr nonnull %49) #23
   br label %.body
 
-63:                                               ; preds = %.invoke, %117
+63:                                               ; preds = %.invoke, %116
   %64 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN6Assimp7Blender5ErrorE
   br label %.body
 
-.body:                                            ; preds = %112, %130, %63, %61, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36
-  %.pn29 = phi { ptr, i32 } [ %62, %61 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36 ], [ %113, %112 ], [ %64, %63 ], [ %131, %130 ]
+.body:                                            ; preds = %111, %129, %63, %61, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36
+  %.pn29 = phi { ptr, i32 } [ %62, %61 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36 ], [ %112, %111 ], [ %64, %63 ], [ %130, %129 ]
   %.126 = extractvalue { ptr, i32 } %.pn29, 1
   %65 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #23
   %66 = icmp eq i32 %.126, %65
-  br i1 %66, label %67, label %160
+  br i1 %66, label %67, label %159
 
 67:                                               ; preds = %.body
   %.1 = extractvalue { ptr, i32 } %.pn29, 0
@@ -27233,149 +27233,149 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %_ZN
   %71 = load ptr, ptr %70, align 8
   %72 = call noundef ptr %71(ptr noundef nonnull align 8 dereferenceable(16) %68) #23
   invoke void @_ZN6Assimp7Blender9Structure19_defaultInitializerILi2EEclISt10shared_ptrINS0_8ElemBaseEEEEvRT_PKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %72)
-          to label %73 unwind label %140
+          to label %.thread unwind label %139
 
-73:                                               ; preds = %67
+.thread:                                          ; preds = %67
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #23
   call void @_ZNSt12__shared_ptrIN6Assimp7Blender8ElemBaseELN9__gnu_cxx12_Lock_policyE2EE5resetEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #23
   call void @__cxa_end_catch()
-  %.pr = load i64, ptr %8, align 8
-  br label %74
+  br label %141
 
-74:                                               ; preds = %_ZNK6Assimp7Blender9Structure7ConvertINS0_7PointerEEEvRT_RKNS0_12FileDatabaseE.exit, %73
-  %75 = phi i64 [ %storemerge.i, %_ZNK6Assimp7Blender9Structure7ConvertINS0_7PointerEEEvRT_RKNS0_12FileDatabaseE.exit ], [ %.pr, %73 ]
-  %.not31 = icmp eq i64 %75, 0
-  br i1 %.not31, label %142, label %76
+73:                                               ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit.i, %116
+  %storemerge.i = phi i64 [ %138, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit.i ], [ %117, %116 ]
+  store i64 %storemerge.i, ptr %8, align 8
+  %74 = icmp eq i64 %storemerge.i, 0
+  br i1 %74, label %141, label %75
 
-76:                                               ; preds = %74
-  %77 = call noundef ptr @_ZNK6Assimp7Blender9Structure25LocateFileBlockForAddressERKNS0_7PointerERKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(232) %4)
-  %78 = load ptr, ptr %11, align 8
-  %79 = load i64, ptr %77, align 8
-  %80 = load i64, ptr %8, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %77, i64 48
-  %82 = load i64, ptr %81, align 8
-  %83 = sub i64 %80, %82
-  %84 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr i8, ptr %85, i64 %79
-  %87 = getelementptr i8, ptr %86, i64 %83
-  %88 = getelementptr inbounds nuw i8, ptr %78, i64 24
-  store ptr %87, ptr %88, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %78, i64 40
-  %90 = load ptr, ptr %89, align 8
-  %91 = icmp ugt ptr %87, %90
-  br i1 %91, label %92, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
+75:                                               ; preds = %73
+  %76 = call noundef ptr @_ZNK6Assimp7Blender9Structure25LocateFileBlockForAddressERKNS0_7PointerERKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(232) %4)
+  %77 = load ptr, ptr %11, align 8
+  %78 = load i64, ptr %76, align 8
+  %79 = load i64, ptr %8, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %76, i64 48
+  %81 = load i64, ptr %80, align 8
+  %82 = sub i64 %79, %81
+  %83 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr i8, ptr %84, i64 %78
+  %86 = getelementptr i8, ptr %85, i64 %82
+  %87 = getelementptr inbounds nuw i8, ptr %77, i64 24
+  store ptr %86, ptr %87, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %77, i64 40
+  %89 = load ptr, ptr %88, align 8
+  %90 = icmp ugt ptr %86, %89
+  br i1 %90, label %91, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit
 
-92:                                               ; preds = %76
-  %93 = call ptr @__cxa_allocate_exception(i64 16) #23
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef nonnull @.str.307)
-          to label %94 unwind label %95
+91:                                               ; preds = %75
+  %92 = call ptr @__cxa_allocate_exception(i64 16) #23
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef nonnull @.str.307)
+          to label %93 unwind label %94
 
-94:                                               ; preds = %92
-  call void @__cxa_throw(ptr nonnull %93, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #24
+93:                                               ; preds = %91
+  call void @__cxa_throw(ptr nonnull %92, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #24
   unreachable
 
-common.resume:                                    ; preds = %160, %155, %95
-  %common.resume.op = phi { ptr, i32 } [ %96, %95 ], [ %156, %155 ], [ %.merged, %160 ]
+common.resume:                                    ; preds = %159, %154, %94
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %155, %154 ], [ %.merged, %159 ]
   resume { ptr, i32 } %common.resume.op
 
-95:                                               ; preds = %92
-  %96 = landingpad { ptr, i32 }
+94:                                               ; preds = %91
+  %95 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %93) #23
+  call void @__cxa_free_exception(ptr nonnull %92) #23
   br label %common.resume
 
-_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %76
-  %97 = getelementptr inbounds nuw i8, ptr %77, i64 64
-  %98 = load i64, ptr %97, align 8
-  %99 = call noundef zeroext i1 @_ZN6Assimp7Blender14readCustomDataERSt10shared_ptrINS0_8ElemBaseEEimRKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, i64 noundef %98, ptr noundef nonnull align 8 dereferenceable(232) %4)
-  br label %142
+_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %75
+  %96 = getelementptr inbounds nuw i8, ptr %76, i64 64
+  %97 = load i64, ptr %96, align 8
+  %98 = call noundef zeroext i1 @_ZN6Assimp7Blender14readCustomDataERSt10shared_ptrINS0_8ElemBaseEEimRKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, i64 noundef %97, ptr noundef nonnull align 8 dereferenceable(232) %4)
+  br label %141
 
-100:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %101 = load ptr, ptr %11, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %37, i64 72
-  %103 = load i64, ptr %102, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %101, i64 24
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 %103
-  store ptr %106, ptr %104, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %101, i64 40
-  %108 = load ptr, ptr %107, align 8
-  %109 = icmp ugt ptr %106, %108
-  br i1 %109, label %110, label %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit
+99:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %100 = load ptr, ptr %11, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %37, i64 72
+  %102 = load i64, ptr %101, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %100, i64 24
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds i8, ptr %104, i64 %102
+  store ptr %105, ptr %103, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %100, i64 40
+  %107 = load ptr, ptr %106, align 8
+  %108 = icmp ugt ptr %105, %107
+  br i1 %108, label %109, label %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit
 
-110:                                              ; preds = %100
-  %111 = call ptr @__cxa_allocate_exception(i64 16) #23
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull @.str.307)
-          to label %.invoke unwind label %112
+109:                                              ; preds = %99
+  %110 = call ptr @__cxa_allocate_exception(i64 16) #23
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull @.str.307)
+          to label %.invoke unwind label %111
 
-112:                                              ; preds = %110
-  %113 = landingpad { ptr, i32 }
+111:                                              ; preds = %109
+  %112 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN6Assimp7Blender5ErrorE
-  call void @__cxa_free_exception(ptr nonnull %111) #23
+  call void @__cxa_free_exception(ptr nonnull %110) #23
   br label %.body
 
-_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit: ; preds = %100
-  %114 = load i8, ptr %4, align 8, !range !8, !noundef !9
-  %115 = trunc nuw i8 %114 to i1
-  %116 = load ptr, ptr %11, align 8
-  br i1 %115, label %117, label %119
+_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit: ; preds = %99
+  %113 = load i8, ptr %4, align 8, !range !8, !noundef !9
+  %114 = trunc nuw i8 %113 to i1
+  %115 = load ptr, ptr %11, align 8
+  br i1 %114, label %116, label %118
 
-117:                                              ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit
-  %118 = invoke noundef i64 @_ZN6Assimp12StreamReaderILb1ELb1EE3GetImEET_v(ptr noundef nonnull align 8 dereferenceable(49) %116)
-          to label %_ZNK6Assimp7Blender9Structure7ConvertINS0_7PointerEEEvRT_RKNS0_12FileDatabaseE.exit unwind label %63
+116:                                              ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit
+  %117 = invoke noundef i64 @_ZN6Assimp12StreamReaderILb1ELb1EE3GetImEET_v(ptr noundef nonnull align 8 dereferenceable(49) %115)
+          to label %73 unwind label %63
 
-119:                                              ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit
-  %120 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
-  %123 = getelementptr inbounds nuw i8, ptr %116, i64 40
-  %124 = load ptr, ptr %123, align 8
-  %125 = icmp ugt ptr %122, %124
-  br i1 %125, label %126, label %132
+118:                                              ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit
+  %119 = getelementptr inbounds nuw i8, ptr %115, i64 24
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %115, i64 40
+  %123 = load ptr, ptr %122, align 8
+  %124 = icmp ugt ptr %121, %123
+  br i1 %124, label %125, label %131
 
-126:                                              ; preds = %119
-  %127 = call ptr @__cxa_allocate_exception(i64 16) #23
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %127, ptr noundef nonnull @.str.321)
-          to label %.invoke unwind label %130
+125:                                              ; preds = %118
+  %126 = call ptr @__cxa_allocate_exception(i64 16) #23
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %126, ptr noundef nonnull @.str.321)
+          to label %.invoke unwind label %129
 
-.invoke:                                          ; preds = %126, %110, %50
-  %128 = phi ptr [ %49, %50 ], [ %111, %110 ], [ %127, %126 ]
-  %129 = phi ptr [ @_ZTIN6Assimp7Blender5ErrorE, %50 ], [ @_ZTI17DeadlyImportError, %110 ], [ @_ZTI17DeadlyImportError, %126 ]
-  invoke void @__cxa_throw(ptr nonnull %128, ptr nonnull %129, ptr nonnull @_ZNSt13runtime_errorD2Ev) #24
+.invoke:                                          ; preds = %125, %109, %50
+  %127 = phi ptr [ %49, %50 ], [ %110, %109 ], [ %126, %125 ]
+  %128 = phi ptr [ @_ZTIN6Assimp7Blender5ErrorE, %50 ], [ @_ZTI17DeadlyImportError, %109 ], [ @_ZTI17DeadlyImportError, %125 ]
+  invoke void @__cxa_throw(ptr nonnull %127, ptr nonnull %128, ptr nonnull @_ZNSt13runtime_errorD2Ev) #24
           to label %.cont unwind label %63
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-130:                                              ; preds = %126
-  %131 = landingpad { ptr, i32 }
+129:                                              ; preds = %125
+  %130 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN6Assimp7Blender5ErrorE
-  call void @__cxa_free_exception(ptr nonnull %127) #23
+  call void @__cxa_free_exception(ptr nonnull %126) #23
   br label %.body
 
-132:                                              ; preds = %119
-  %133 = load i32, ptr %121, align 1
-  %.sroa.6.0.extract.shift.i.i.i = lshr i32 %133, 8
-  %.sroa.8.0.extract.shift.i.i.i = lshr i32 %133, 16
-  %.sroa.10.0.extract.shift.i.i.i = lshr i32 %133, 24
-  %134 = getelementptr inbounds nuw i8, ptr %116, i64 48
-  %135 = load i8, ptr %134, align 8, !range !8, !noundef !9
-  %136 = trunc nuw i8 %135 to i1
-  br i1 %136, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit.i, label %137
+131:                                              ; preds = %118
+  %132 = load i32, ptr %120, align 1
+  %.sroa.6.0.extract.shift.i.i.i = lshr i32 %132, 8
+  %.sroa.8.0.extract.shift.i.i.i = lshr i32 %132, 16
+  %.sroa.10.0.extract.shift.i.i.i = lshr i32 %132, 24
+  %133 = getelementptr inbounds nuw i8, ptr %115, i64 48
+  %134 = load i8, ptr %133, align 8, !range !8, !noundef !9
+  %135 = trunc nuw i8 %134 to i1
+  br i1 %135, label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit.i, label %136
 
-137:                                              ; preds = %132
-  %138 = and i32 %133, 255
+136:                                              ; preds = %131
+  %137 = and i32 %132, 255
   br label %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit.i
 
-_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit.i: ; preds = %137, %132
-  %.sroa.8.0.i.i.i = phi i32 [ %.sroa.8.0.extract.shift.i.i.i, %132 ], [ %.sroa.6.0.extract.shift.i.i.i, %137 ]
-  %.sroa.6.0.in.i.i.i = phi i32 [ %.sroa.6.0.extract.shift.i.i.i, %132 ], [ %.sroa.8.0.extract.shift.i.i.i, %137 ]
-  %.sroa.02.0.in.i.i.i = phi i32 [ %133, %132 ], [ %.sroa.10.0.extract.shift.i.i.i, %137 ]
-  %.sroa.10.0.i.i.i = phi i32 [ %.sroa.10.0.extract.shift.i.i.i, %132 ], [ %138, %137 ]
-  store ptr %122, ptr %120, align 8
+_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit.i: ; preds = %136, %131
+  %.sroa.8.0.i.i.i = phi i32 [ %.sroa.8.0.extract.shift.i.i.i, %131 ], [ %.sroa.6.0.extract.shift.i.i.i, %136 ]
+  %.sroa.6.0.in.i.i.i = phi i32 [ %.sroa.6.0.extract.shift.i.i.i, %131 ], [ %.sroa.8.0.extract.shift.i.i.i, %136 ]
+  %.sroa.02.0.in.i.i.i = phi i32 [ %132, %131 ], [ %.sroa.10.0.extract.shift.i.i.i, %136 ]
+  %.sroa.10.0.i.i.i = phi i32 [ %.sroa.10.0.extract.shift.i.i.i, %131 ], [ %137, %136 ]
+  store ptr %121, ptr %119, align 8
   %.sroa.10.0.insert.shift.i.i.i = shl nuw i32 %.sroa.10.0.i.i.i, 24
   %.sroa.8.0.insert.ext.i.i.i = shl i32 %.sroa.8.0.i.i.i, 16
   %.sroa.8.0.insert.shift.i.i.i = and i32 %.sroa.8.0.insert.ext.i.i.i, 16711680
@@ -27385,69 +27385,64 @@ _ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit.i: ; preds = %137, %132
   %.sroa.6.0.insert.insert.i.i.i = or disjoint i32 %.sroa.8.0.insert.insert.i.i.i, %.sroa.6.0.insert.shift.i.i.i
   %.sroa.02.0.insert.ext.i.i.i = and i32 %.sroa.02.0.in.i.i.i, 255
   %.sroa.02.0.insert.insert.i.i.i = or disjoint i32 %.sroa.6.0.insert.insert.i.i.i, %.sroa.02.0.insert.ext.i.i.i
-  %139 = zext i32 %.sroa.02.0.insert.insert.i.i.i to i64
-  br label %_ZNK6Assimp7Blender9Structure7ConvertINS0_7PointerEEEvRT_RKNS0_12FileDatabaseE.exit
+  %138 = zext i32 %.sroa.02.0.insert.insert.i.i.i to i64
+  br label %73
 
-_ZNK6Assimp7Blender9Structure7ConvertINS0_7PointerEEEvRT_RKNS0_12FileDatabaseE.exit: ; preds = %117, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit.i
-  %storemerge.i = phi i64 [ %139, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit.i ], [ %118, %117 ]
-  store i64 %storemerge.i, ptr %8, align 8
-  br label %74
-
-140:                                              ; preds = %67
-  %141 = landingpad { ptr, i32 }
+139:                                              ; preds = %67
+  %140 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #23
   invoke void @__cxa_end_catch()
-          to label %160 unwind label %161
+          to label %159 unwind label %160
 
-142:                                              ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit, %74
-  %.024 = phi i1 [ %99, %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit ], [ true, %74 ]
+141:                                              ; preds = %.thread, %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit, %73
+  %.024 = phi i1 [ %98, %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit ], [ true, %73 ], [ true, %.thread ]
   %sext = shl i64 %19, 32
-  %143 = ashr exact i64 %sext, 32
-  %144 = load ptr, ptr %11, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 16
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 %143
-  %148 = getelementptr inbounds nuw i8, ptr %144, i64 24
-  store ptr %147, ptr %148, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %144, i64 40
-  %150 = load ptr, ptr %149, align 8
-  %151 = icmp ugt ptr %147, %150
-  br i1 %151, label %152, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit42
+  %142 = ashr exact i64 %sext, 32
+  %143 = load ptr, ptr %11, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
+  %145 = load ptr, ptr %144, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 %142
+  %147 = getelementptr inbounds nuw i8, ptr %143, i64 24
+  store ptr %146, ptr %147, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %143, i64 40
+  %149 = load ptr, ptr %148, align 8
+  %150 = icmp ugt ptr %146, %149
+  br i1 %150, label %151, label %_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit42
 
-152:                                              ; preds = %142
-  %153 = call ptr @__cxa_allocate_exception(i64 16) #23
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %153, ptr noundef nonnull @.str.307)
-          to label %154 unwind label %155
+151:                                              ; preds = %141
+  %152 = call ptr @__cxa_allocate_exception(i64 16) #23
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %152, ptr noundef nonnull @.str.307)
+          to label %153 unwind label %154
 
-154:                                              ; preds = %152
-  call void @__cxa_throw(ptr nonnull %153, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #24
+153:                                              ; preds = %151
+  call void @__cxa_throw(ptr nonnull %152, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #24
   unreachable
 
-155:                                              ; preds = %152
-  %156 = landingpad { ptr, i32 }
+154:                                              ; preds = %151
+  %155 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %153) #23
+  call void @__cxa_free_exception(ptr nonnull %152) #23
   br label %common.resume
 
-_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit42: ; preds = %142
-  %157 = getelementptr inbounds nuw i8, ptr %4, i64 168
-  %158 = load i32, ptr %157, align 8
-  %159 = add i32 %158, 1
-  store i32 %159, ptr %157, align 8
+_ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit42: ; preds = %141
+  %156 = getelementptr inbounds nuw i8, ptr %4, i64 168
+  %157 = load i32, ptr %156, align 8
+  %158 = add i32 %157, 1
+  store i32 %158, ptr %156, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
   ret i1 %.024
 
-160:                                              ; preds = %140, %.body
-  %.merged = phi { ptr, i32 } [ %.pn29, %.body ], [ %141, %140 ]
+159:                                              ; preds = %139, %.body
+  %.merged = phi { ptr, i32 } [ %.pn29, %.body ], [ %140, %139 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
   br label %common.resume
 
-161:                                              ; preds = %140
-  %162 = landingpad { ptr, i32 }
+160:                                              ; preds = %139
+  %161 = landingpad { ptr, i32 }
           catch ptr null
-  %163 = extractvalue { ptr, i32 } %162, 0
-  call void @__clang_call_terminate(ptr %163) #26
+  %162 = extractvalue { ptr, i32 } %161, 0
+  call void @__clang_call_terminate(ptr %162) #26
   unreachable
 }
 

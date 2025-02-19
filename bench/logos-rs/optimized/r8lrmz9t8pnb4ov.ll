@@ -349,7 +349,7 @@ define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$l
   %103 = extractvalue { ptr, i64 } %98, 0
   %104 = extractvalue { ptr, i64 } %98, 1
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h6cffbc74c7ca780fE"(ptr nonnull sret([24 x i8]) align 8 %41, ptr align 4 %103, i64 %104)
-          to label %105 unwind label %100
+          to label %105 unwind label %100, !noalias !3
 
 105:                                              ; preds = %102
   %106 = invoke align 8 ptr @_ZN13logos_codegen9generator9Generator13generate_test17h8bbdc7d579d62f05E(ptr align 8 %1, ptr nonnull align 8 %41)

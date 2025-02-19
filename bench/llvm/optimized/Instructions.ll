@@ -3618,15 +3618,15 @@ _ZN4llvm11SmallVectorINS_17OperandBundleDefTIPNS_5ValueEEELj2EED2Ev.exit: ; pred
   %73 = sub nsw i64 0, %72
   %74 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %76 = load i32, ptr %75, align 8, !tbaa !137, !noalias !170
+  %76 = load i32, ptr %75, align 8, !tbaa !137, !noalias !173
   %77 = zext i32 %76 to i64
   %.idx6.i.i = shl nuw nsw i64 %77, 5
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 %.idx6.i.i
   %79 = getelementptr inbounds nuw i8, ptr %69, i64 12
-  %80 = load i32, ptr %79, align 4, !tbaa !140, !noalias !170
+  %80 = load i32, ptr %79, align 4, !tbaa !140, !noalias !173
   %81 = zext i32 %80 to i64
   %82 = sub nsw i64 %81, %77
-  %83 = load ptr, ptr %69, align 8, !tbaa !174, !noalias !170
+  %83 = load ptr, ptr %69, align 8, !tbaa !174, !noalias !173
   store ptr %78, ptr %6, align 8, !tbaa !99, !alias.scope !173
   store i64 %82, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !53, !alias.scope !173
   store ptr %83, ptr %26, align 8, !tbaa !175, !alias.scope !173
@@ -4798,15 +4798,15 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit:  ; preds = %2, %_ZNK4llvm8CallB
   %33 = sub nsw i64 0, %32
   %34 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %36 = load i32, ptr %35, align 8, !tbaa !137, !noalias !208
+  %36 = load i32, ptr %35, align 8, !tbaa !137, !noalias !211
   %37 = zext i32 %36 to i64
   %.idx6.i.i = shl nuw nsw i64 %37, 5
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx6.i.i
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 12
-  %40 = load i32, ptr %39, align 4, !tbaa !140, !noalias !208
+  %40 = load i32, ptr %39, align 4, !tbaa !140, !noalias !211
   %41 = zext i32 %40 to i64
   %42 = sub nsw i64 %41, %37
-  %43 = load ptr, ptr %29, align 8, !tbaa !174, !noalias !208
+  %43 = load ptr, ptr %29, align 8, !tbaa !174, !noalias !211
   store ptr %38, ptr %3, align 8, !tbaa !99, !alias.scope !211
   store i64 %42, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !53, !alias.scope !211
   store ptr %43, ptr %20, align 8, !tbaa !175, !alias.scope !211
@@ -5494,15 +5494,15 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit:  ; preds = %4, %_ZNK4llvm8CallB
   %37 = sub nsw i64 0, %36
   %38 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %40 = load i32, ptr %39, align 8, !tbaa !137, !noalias !230
+  %40 = load i32, ptr %39, align 8, !tbaa !137, !noalias !233
   %41 = zext i32 %40 to i64
   %.idx6.i.i = shl nuw nsw i64 %41, 5
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx6.i.i
   %43 = getelementptr inbounds nuw i8, ptr %33, i64 12
-  %44 = load i32, ptr %43, align 4, !tbaa !140, !noalias !230
+  %44 = load i32, ptr %43, align 4, !tbaa !140, !noalias !233
   %45 = zext i32 %44 to i64
   %46 = sub nsw i64 %45, %41
-  %47 = load ptr, ptr %33, align 8, !tbaa !174, !noalias !230
+  %47 = load ptr, ptr %33, align 8, !tbaa !174, !noalias !233
   store ptr %42, ptr %6, align 8, !tbaa !99, !alias.scope !233
   store i64 %46, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !53, !alias.scope !233
   store ptr %47, ptr %26, align 8, !tbaa !175, !alias.scope !233
@@ -26237,7 +26237,7 @@ attributes #37 = { nounwind willreturn memory(none) }
 !221 = !{!222, !218}
 !222 = distinct !{!222, !223, !"_ZNK4llvm8CallBase18getOperandBundleAtEj: argument 0"}
 !223 = distinct !{!223, !"_ZNK4llvm8CallBase18getOperandBundleAtEj"}
-!224 = !{!225}
+!224 = !{!225, !222, !218}
 !225 = distinct !{!225, !226, !"_ZNK4llvm8CallBase29operandBundleFromBundleOpInfoERKNS0_12BundleOpInfoE: argument 0"}
 !226 = distinct !{!226, !"_ZNK4llvm8CallBase29operandBundleFromBundleOpInfoERKNS0_12BundleOpInfoE"}
 !227 = !{!228}
@@ -26251,7 +26251,7 @@ attributes #37 = { nounwind willreturn memory(none) }
 !235 = !{!236}
 !236 = distinct !{!236, !237, !"_ZNK4llvm8CallBase18getOperandBundleAtEj: argument 0"}
 !237 = distinct !{!237, !"_ZNK4llvm8CallBase18getOperandBundleAtEj"}
-!238 = !{!239}
+!238 = !{!239, !236}
 !239 = distinct !{!239, !240, !"_ZNK4llvm8CallBase29operandBundleFromBundleOpInfoERKNS0_12BundleOpInfoE: argument 0"}
 !240 = distinct !{!240, !"_ZNK4llvm8CallBase29operandBundleFromBundleOpInfoERKNS0_12BundleOpInfoE"}
 !241 = distinct !{!241, !103}

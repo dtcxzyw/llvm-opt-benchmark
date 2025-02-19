@@ -2534,7 +2534,7 @@ lpad.i.i.i381:                                    ; preds = %invoke.cont281
   %174 = landingpad { ptr, i32 }
           catch ptr null
   %175 = extractvalue { ptr, i32 } %174, 0
-  %176 = call ptr @__cxa_begin_catch(ptr %175) #26
+  %176 = call ptr @__cxa_begin_catch(ptr %175) #26, !noalias !127
   invoke void @__cxa_rethrow() #28
           to label %unreachable.i.i.i384 unwind label %lpad5.i.i.i382, !noalias !127
 
@@ -2548,7 +2548,7 @@ terminate.lpad.i.i.i383:                          ; preds = %lpad5.i.i.i382
   %178 = landingpad { ptr, i32 }
           catch ptr null
   %179 = extractvalue { ptr, i32 } %178, 0
-  call void @__clang_call_terminate(ptr %179) #27
+  call void @__clang_call_terminate(ptr %179) #27, !noalias !127
   unreachable
 
 unreachable.i.i.i384:                             ; preds = %lpad.i.i.i381
@@ -2607,7 +2607,7 @@ terminate.lpad.i.i13.i:                           ; preds = %if.then.i.i.i.i.i39
   %185 = landingpad { ptr, i32 }
           catch ptr null
   %186 = extractvalue { ptr, i32 } %185, 0
-  call void @__clang_call_terminate(ptr %186) #27
+  call void @__clang_call_terminate(ptr %186) #27, !noalias !127
   unreachable
 
 lpad.i:                                           ; preds = %invoke.cont.i388, %cond.true.i.i.i

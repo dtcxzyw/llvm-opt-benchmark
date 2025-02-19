@@ -5919,7 +5919,7 @@ _ZN5vcpkg14ExpectedHolderINS_28SourceControlFileAndLocationEED2Ev.exit.i.i: ; pr
   %159 = landingpad { ptr, i32 }
           catch ptr null
   %160 = extractvalue { ptr, i32 } %159, 0
-  call void @__clang_call_terminate(ptr %160) #24
+  call void @__clang_call_terminate(ptr %160) #24, !noalias !114
   unreachable
 
 _ZNO5vcpkg9ExpectedTINS_12PortLocationENS_15LocalizedStringEE5errorEv.exit.i: ; preds = %152
@@ -10000,7 +10000,7 @@ _ZN5vcpkg9ExpectedTINS_28SourceControlFileAndLocationENS_15LocalizedStringEED2Ev
   %121 = extractvalue { ptr, i64 } %120, 0
   %122 = extractvalue { ptr, i64 } %120, 1
   invoke void @_ZN5vcpkg15LocalizedString8from_rawENS_10StringViewE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %16, ptr %121, i64 %122)
-          to label %123 unwind label %129
+          to label %123 unwind label %129, !noalias !184
 
 123:                                              ; preds = %118
   %124 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNO5vcpkg15LocalizedString10append_rawENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr nonnull @.str.29, i64 2)

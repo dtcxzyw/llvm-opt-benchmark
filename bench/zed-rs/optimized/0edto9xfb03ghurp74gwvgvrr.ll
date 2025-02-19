@@ -2194,7 +2194,7 @@ default.unreachable27:                            ; preds = %20, %3
   call void @llvm.experimental.noalias.scope.decl(metadata !539)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7), !noalias !542
   invoke void @"_ZN57_$LT$mime..Mime$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h1b5474ea47816485E"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %7, ptr noalias noundef nonnull readonly align 1 %77, i64 noundef %82)
-          to label %.noexc14.i unwind label %85
+          to label %.noexc14.i unwind label %85, !noalias !487
 
 .noexc14.i:                                       ; preds = %81
   %83 = load i64, ptr %7, align 8, !range !6, !noalias !542, !noundef !5

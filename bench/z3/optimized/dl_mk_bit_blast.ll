@@ -1287,7 +1287,6 @@ _ZN7datalog7context19add_model_converterEP15model_converter.exit: ; preds = %if.
   br label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit
 
 _ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit:    ; preds = %for.end90, %_ZN7datalog7context19add_model_converterEP15model_converter.exit
-  store ptr null, ptr %result, align 8
   %106 = load ptr, ptr %fml, align 8
   %tobool.not.i.i146 = icmp eq ptr %106, null
   br i1 %tobool.not.i.i146, label %return, label %if.then.i.i.i147

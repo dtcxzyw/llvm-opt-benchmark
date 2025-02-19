@@ -9651,7 +9651,7 @@ _ZNSt10unique_ptrI10git_objectN3nix7DeleterIXadL_Z15git_object_freeEEEEED2Ev.exi
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
-  call void @__clang_call_terminate(ptr %63) #31
+  call void @__clang_call_terminate(ptr %63) #31, !noalias !50
   unreachable
 
 _ZNSt16allocator_traitsISaISt10unique_ptrI10git_commitN3nix7DeleterIXadL_Z15git_commit_freeEEEEEEE7destroyIS5_EEvRS6_PT_.exit.i.i.i: ; preds = %60, %59
@@ -9671,7 +9671,7 @@ _ZNSt16allocator_traitsISaISt10unique_ptrI10git_commitN3nix7DeleterIXadL_Z15git_
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #31
+  call void @__clang_call_terminate(ptr %70) #31, !noalias !50
   unreachable
 
 _ZNSt5dequeISt10unique_ptrI10git_commitN3nix7DeleterIXadL_Z15git_commit_freeEEEEESaIS5_EE16_M_pop_front_auxEv.exit.i.i.i: ; preds = %67, %66

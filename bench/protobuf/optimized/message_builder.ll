@@ -3291,7 +3291,7 @@ for.body189:                                      ; preds = %for.body189.lr.ph, 
   %call.i.i271 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %171, ptr %172) #26, !noalias !67
   %173 = extractvalue { i64, ptr } %call.i.i271, 0
   %174 = extractvalue { i64, ptr } %call.i.i271, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, i64 %173, ptr %174) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, i64 %173, ptr %174) #26, !noalias !67
   %175 = load i64, ptr %agg.tmp.i.i, align 8, !noalias !67
   %176 = load ptr, ptr %154, align 8, !noalias !67
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp192, i64 %175, ptr %176, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
@@ -4534,7 +4534,7 @@ while.body.i:                                     ; preds = %_ZNK6google8protobu
   %call7.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i38) #26, !noalias !126
   %30 = extractvalue { i64, ptr } %call7.i, 0
   %31 = extractvalue { i64, ptr } %call7.i, 1
-  call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6.i, ptr noundef nonnull @.str, i32 noundef 50, i64 %30, ptr %31) #24
+  call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6.i, ptr noundef nonnull @.str, i32 noundef 50, i64 %30, ptr %31) #24, !noalias !126
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6.i) #25, !noalias !126
   unreachable
 

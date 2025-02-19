@@ -4178,7 +4178,7 @@ default.unreachable10:                            ; preds = %1
 .body.i.i:                                        ; preds = %18
   %22 = extractvalue { ptr, i32 } %19, 0
   %23 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h2c5105d83a07247fE(ptr noundef %22)
-          to label %28 unwind label %24
+          to label %28 unwind label %24, !noalias !765
 
 24:                                               ; preds = %.body.i.i
   %25 = landingpad { ptr, i32 }
@@ -4278,7 +4278,7 @@ default.unreachable10:                            ; preds = %1
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %53, %52 ], [ %51, %50 ], [ %47, %.body.i.i.i.i.i.i ]
   %54 = extractvalue { ptr, i32 } %eh.lpad-body.i.i, 0
   %55 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h2c5105d83a07247fE(ptr noundef %54)
-          to label %58 unwind label %56
+          to label %58 unwind label %56, !noalias !783
 
 56:                                               ; preds = %.body.i11.i
   %57 = landingpad { ptr, i32 }
@@ -4413,7 +4413,7 @@ default.unreachable14:                            ; preds = %1
 .body.i.i:                                        ; preds = %21
   %25 = extractvalue { ptr, i32 } %22, 0
   %26 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h2c5105d83a07247fE(ptr noundef %25)
-          to label %30 unwind label %27
+          to label %30 unwind label %27, !noalias !802
 
 27:                                               ; preds = %.body.i.i
   %28 = landingpad { ptr, i32 }
@@ -4462,7 +4462,7 @@ default.unreachable14:                            ; preds = %1
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
   %42 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h2c5105d83a07247fE(ptr noundef %41)
-          to label %45 unwind label %43
+          to label %45 unwind label %43, !noalias !812
 
 43:                                               ; preds = %39
   %44 = landingpad { ptr, i32 }
@@ -4679,7 +4679,7 @@ default.unreachable10:                            ; preds = %1
 .body.i.i:                                        ; preds = %18
   %22 = extractvalue { ptr, i32 } %19, 0
   %23 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h2c5105d83a07247fE(ptr noundef %22)
-          to label %28 unwind label %24
+          to label %28 unwind label %24, !noalias !837
 
 24:                                               ; preds = %.body.i.i
   %25 = landingpad { ptr, i32 }
@@ -4779,7 +4779,7 @@ default.unreachable10:                            ; preds = %1
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %53, %52 ], [ %51, %50 ], [ %47, %.body.i.i.i.i.i.i ]
   %54 = extractvalue { ptr, i32 } %eh.lpad-body.i.i, 0
   %55 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h2c5105d83a07247fE(ptr noundef %54)
-          to label %58 unwind label %56
+          to label %58 unwind label %56, !noalias !855
 
 56:                                               ; preds = %.body.i11.i
   %57 = landingpad { ptr, i32 }
@@ -4914,7 +4914,7 @@ default.unreachable14:                            ; preds = %1
 .body.i.i:                                        ; preds = %21
   %25 = extractvalue { ptr, i32 } %22, 0
   %26 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h2c5105d83a07247fE(ptr noundef %25)
-          to label %30 unwind label %27
+          to label %30 unwind label %27, !noalias !874
 
 27:                                               ; preds = %.body.i.i
   %28 = landingpad { ptr, i32 }
@@ -4963,7 +4963,7 @@ default.unreachable14:                            ; preds = %1
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
   %42 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h2c5105d83a07247fE(ptr noundef %41)
-          to label %45 unwind label %43
+          to label %45 unwind label %43, !noalias !884
 
 43:                                               ; preds = %39
   %44 = landingpad { ptr, i32 }
@@ -5834,7 +5834,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$21drop_
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
   %10 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h2c5105d83a07247fE(ptr noundef %9)
-          to label %13 unwind label %11
+          to label %13 unwind label %11, !noalias !1060
 
 11:                                               ; preds = %7
   %12 = landingpad { ptr, i32 }
@@ -6071,7 +6071,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$21drop_
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
   %10 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h2c5105d83a07247fE(ptr noundef %9)
-          to label %13 unwind label %11
+          to label %13 unwind label %11, !noalias !1106
 
 11:                                               ; preds = %7
   %12 = landingpad { ptr, i32 }
@@ -6811,7 +6811,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
   %17 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h2c5105d83a07247fE(ptr noundef %16)
-          to label %20 unwind label %18
+          to label %20 unwind label %18, !noalias !1303
 
 18:                                               ; preds = %14
   %19 = landingpad { ptr, i32 }
@@ -7085,7 +7085,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
   %17 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h2c5105d83a07247fE(ptr noundef %16)
-          to label %20 unwind label %18
+          to label %20 unwind label %18, !noalias !1386
 
 18:                                               ; preds = %14
   %19 = landingpad { ptr, i32 }

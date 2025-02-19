@@ -10109,7 +10109,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i: ; preds = %_ZN5Yosys7hashlib8
 
 833:                                              ; preds = %.body424
   %.0.i148 = extractvalue { ptr, i32 } %.pn.i, 0
-  %834 = call ptr @__cxa_begin_catch(ptr %.0.i148) #23
+  %834 = call ptr @__cxa_begin_catch(ptr %.0.i148) #23, !noalias !140
   %835 = invoke noundef ptr @_ZNK5Yosys5RTLIL8IdString5c_strEv(ptr noundef nonnull align 4 dereferenceable(4) %21)
           to label %836 unwind label %838, !noalias !140
 
@@ -10130,7 +10130,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i: ; preds = %_ZN5Yosys7hashlib8
   %841 = landingpad { ptr, i32 }
           catch ptr null
   %842 = extractvalue { ptr, i32 } %841, 0
-  call void @__clang_call_terminate(ptr %842) #25
+  call void @__clang_call_terminate(ptr %842) #25, !noalias !140
   unreachable
 
 .loopexit897.loopexit:                            ; preds = %_ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i
@@ -11453,7 +11453,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i442: ; preds = %_ZN5Yosys7hashl
 
 1388:                                             ; preds = %.body471
   %.0.i211 = extractvalue { ptr, i32 } %.pn.i208, 0
-  %1389 = call ptr @__cxa_begin_catch(ptr %.0.i211) #23
+  %1389 = call ptr @__cxa_begin_catch(ptr %.0.i211) #23, !noalias !153
   %1390 = invoke noundef ptr @_ZNK5Yosys5RTLIL8IdString5c_strEv(ptr noundef nonnull align 4 dereferenceable(4) %26)
           to label %1391 unwind label %1393, !noalias !153
 
@@ -11474,7 +11474,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i442: ; preds = %_ZN5Yosys7hashl
   %1396 = landingpad { ptr, i32 }
           catch ptr null
   %1397 = extractvalue { ptr, i32 } %1396, 0
-  call void @__clang_call_terminate(ptr %1397) #25
+  call void @__clang_call_terminate(ptr %1397) #25, !noalias !153
   unreachable
 
 .loopexit889.loopexit:                            ; preds = %_ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i442
@@ -12347,7 +12347,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i490: ; preds = %_ZN5Yosys7hashl
 
 1752:                                             ; preds = %.body519
   %.0.i247 = extractvalue { ptr, i32 } %.pn.i244, 0
-  %1753 = call ptr @__cxa_begin_catch(ptr %.0.i247) #23
+  %1753 = call ptr @__cxa_begin_catch(ptr %.0.i247) #23, !noalias !159
   %1754 = invoke noundef ptr @_ZNK5Yosys5RTLIL8IdString5c_strEv(ptr noundef nonnull align 4 dereferenceable(4) %27)
           to label %1755 unwind label %1757, !noalias !159
 
@@ -12368,7 +12368,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i490: ; preds = %_ZN5Yosys7hashl
   %1760 = landingpad { ptr, i32 }
           catch ptr null
   %1761 = extractvalue { ptr, i32 } %1760, 0
-  call void @__clang_call_terminate(ptr %1761) #25
+  call void @__clang_call_terminate(ptr %1761) #25, !noalias !159
   unreachable
 
 .loopexit881.loopexit:                            ; preds = %_ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i490
@@ -13027,7 +13027,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i.
 
 2018:                                             ; preds = %2014
   %2019 = extractvalue { ptr, i32 } %lpad.phi933, 0
-  %2020 = call ptr @__cxa_begin_catch(ptr %2019) #23
+  %2020 = call ptr @__cxa_begin_catch(ptr %2019) #23, !noalias !165
   %2021 = invoke noundef ptr @_ZNK5Yosys5RTLIL8IdString5c_strEv(ptr noundef nonnull align 4 dereferenceable(4) %29)
           to label %2022 unwind label %2024, !noalias !165
 
@@ -13048,7 +13048,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i.
   %2027 = landingpad { ptr, i32 }
           catch ptr null
   %2028 = extractvalue { ptr, i32 } %2027, 0
-  call void @__clang_call_terminate(ptr %2028) #25
+  call void @__clang_call_terminate(ptr %2028) #25, !noalias !165
   unreachable
 
 2029:                                             ; preds = %2012, %.noexc6.thread.i

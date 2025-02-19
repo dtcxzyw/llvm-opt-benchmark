@@ -5387,7 +5387,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceC2ERKSt10
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  %36 = tail call ptr @__cxa_begin_catch(ptr %35) #19
+  %36 = tail call ptr @__cxa_begin_catch(ptr %35) #19, !noalias !28
   %37 = load ptr, ptr %21, align 8, !noalias !28
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8, !noalias !28
@@ -5405,7 +5405,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceC2ERKSt10
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  tail call void @__clang_call_terminate(ptr %44) #20
+  tail call void @__clang_call_terminate(ptr %44) #20, !noalias !28
   unreachable
 
 45:                                               ; preds = %33

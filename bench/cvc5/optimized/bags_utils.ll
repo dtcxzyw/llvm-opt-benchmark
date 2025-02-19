@@ -2687,7 +2687,7 @@ _ZN4cvc58internal8RationalaSERKS1_.exit.i.i:      ; preds = %87, %84
   %89 = landingpad { ptr, i32 }
           catch ptr null
   %90 = extractvalue { ptr, i32 } %89, 0
-  call void @__clang_call_terminate(ptr %90) #24
+  call void @__clang_call_terminate(ptr %90) #24, !noalias !99
   unreachable
 
 91:                                               ; preds = %87, %.critedge.i.i.i
@@ -2700,7 +2700,7 @@ _ZN4cvc58internal8RationalaSERKS1_.exit.i.i:      ; preds = %87, %84
   %94 = landingpad { ptr, i32 }
           catch ptr null
   %95 = extractvalue { ptr, i32 } %94, 0
-  call void @__clang_call_terminate(ptr %95) #24
+  call void @__clang_call_terminate(ptr %95) #24, !noalias !99
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit6.i.i:         ; preds = %91
@@ -4183,7 +4183,7 @@ _ZN4cvc58internal8RationalaSERKS1_.exit.i.i:      ; preds = %83, %80
   %85 = landingpad { ptr, i32 }
           catch ptr null
   %86 = extractvalue { ptr, i32 } %85, 0
-  call void @__clang_call_terminate(ptr %86) #24
+  call void @__clang_call_terminate(ptr %86) #24, !noalias !139
   unreachable
 
 87:                                               ; preds = %83, %.critedge.i.i.i
@@ -4196,7 +4196,7 @@ _ZN4cvc58internal8RationalaSERKS1_.exit.i.i:      ; preds = %83, %80
   %90 = landingpad { ptr, i32 }
           catch ptr null
   %91 = extractvalue { ptr, i32 } %90, 0
-  call void @__clang_call_terminate(ptr %91) #24
+  call void @__clang_call_terminate(ptr %91) #24, !noalias !139
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit6.i.i:         ; preds = %87

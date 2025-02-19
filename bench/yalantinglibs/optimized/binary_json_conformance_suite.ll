@@ -14972,7 +14972,7 @@ lpad2.i.i.i.i.i:                                  ; preds = %invoke.cont3.i.i.i.
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %lpad.i84.body unwind label %terminate.lpad.i.i.i.i.i
+          to label %if.then.i.i.i85 unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %lpad2.i.i.i.i.i
   %24 = landingpad { ptr, i32 }
@@ -14989,13 +14989,8 @@ lpad.i84.body.thread:                             ; preds = %invoke.cont62
           cleanup
   br label %lpad64.body
 
-lpad.i84.body:                                    ; preds = %lpad2.i.i.i.i.i
-  %.pr = load ptr, ptr %values, align 8
-  %tobool.not.i.i.i = icmp eq ptr %.pr, null
-  br i1 %tobool.not.i.i.i, label %lpad64.body, label %if.then.i.i.i85
-
-if.then.i.i.i85:                                  ; preds = %lpad.i84.body
-  call void @_ZdlPv(ptr noundef nonnull %.pr) #24
+if.then.i.i.i85:                                  ; preds = %lpad2.i.i.i.i.i
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i295) #24
   br label %lpad64.body
 
 invoke.cont65:                                    ; preds = %for.inc.i.i.i.i.i
@@ -15799,8 +15794,8 @@ lpad61:                                           ; preds = %invoke.cont60
           cleanup
   br label %ehcleanup
 
-lpad64.body:                                      ; preds = %lpad.i84.body.thread, %lpad.i84.body, %if.then.i.i.i85
-  %eh.lpad-body296351 = phi { ptr, i32 } [ %26, %lpad.i84.body.thread ], [ %23, %lpad.i84.body ], [ %23, %if.then.i.i.i85 ]
+lpad64.body:                                      ; preds = %lpad.i84.body.thread, %if.then.i.i.i85
+  %eh.lpad-body296351 = phi { ptr, i32 } [ %26, %lpad.i84.body.thread ], [ %23, %if.then.i.i.i85 ]
   br label %arraydestroy.body68
 
 arraydestroy.body68:                              ; preds = %arraydestroy.body68, %lpad64.body

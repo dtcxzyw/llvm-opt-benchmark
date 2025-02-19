@@ -4902,7 +4902,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %304, %300, %"_ZN55_
   %354 = extractvalue { i64, ptr } %352, 1
   %355 = icmp ne ptr %354, null
   call void @llvm.assume(i1 %355)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %354, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.i, i64 %351, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %354, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.i, i64 %351, i1 false), !noalias !2178
   store i64 %353, ptr %0, align 8, !alias.scope !2178
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %354, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !2178

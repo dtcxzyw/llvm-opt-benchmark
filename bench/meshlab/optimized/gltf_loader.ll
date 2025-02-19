@@ -58587,7 +58587,6 @@ _ZN8tinygltf12_GLOBAL__N_18ArrayEndERKN8nlohmann10basic_jsonISt3mapSt6vectorNSt7
   %102 = load ptr, ptr %77, align 8
   store ptr %102, ptr %75, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %99, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEEaSEOS1_.exit.i, label %103
 
 103:                                              ; preds = %98
@@ -77307,7 +77306,6 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8, !noalias !1020
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store ptr %25, ptr %20, align 8, !alias.scope !1020
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.01.0.copyload = load ptr, ptr %26, align 8
   %27 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.01.0.copyload) #56

@@ -774,139 +774,140 @@ define hidden void @_ZN17duckdb_libpgquery8tokenizeEPKc(ptr dead_on_unwind noali
   br label %11
 
 11:                                               ; preds = %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE9push_backERKS1_.exit, %7
-  %12 = phi ptr [ %54, %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE9push_backERKS1_.exit ], [ null, %7 ]
-  %13 = phi ptr [ %55, %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE9push_backERKS1_.exit ], [ null, %7 ]
+  %12 = phi ptr [ %55, %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE9push_backERKS1_.exit ], [ null, %7 ]
+  %13 = phi ptr [ %56, %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE9push_backERKS1_.exit ], [ null, %7 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
   %14 = invoke noundef i32 @_ZN17duckdb_libpgquery10base_yylexEPNS_7YYSTYPEEPiPv(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %6)
-          to label %21 unwind label %17
+          to label %22 unwind label %18
 
 15:                                               ; preds = %.thread, %2
-  %16 = landingpad { ptr, i32 }
+  %16 = phi ptr [ %13, %.thread ], [ null, %2 ]
+  %17 = landingpad { ptr, i32 }
           cleanup
-  br label %58
+  br label %59
 
-17:                                               ; preds = %11
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %11
+  %19 = landingpad { ptr, i32 }
           catch ptr null
   store ptr %13, ptr %0, align 8
-  %19 = extractvalue { ptr, i32 } %18, 0
-  %20 = call ptr @__cxa_begin_catch(ptr %19) #15
+  %20 = extractvalue { ptr, i32 } %19, 0
+  %21 = call ptr @__cxa_begin_catch(ptr %20) #15
   invoke void @__cxa_end_catch()
-          to label %.thread unwind label %22
+          to label %.thread unwind label %23
 
-21:                                               ; preds = %11
-  switch i32 %14, label %27 [
+22:                                               ; preds = %11
+  switch i32 %14, label %28 [
     i32 0, label %.thread.loopexit
-    i32 258, label %30
-    i32 264, label %24
-    i32 259, label %24
-    i32 260, label %25
-    i32 261, label %25
-    i32 262, label %25
-    i32 263, label %26
-    i32 265, label %26
-    i32 268, label %26
-    i32 269, label %26
-    i32 274, label %26
-    i32 275, label %26
-    i32 276, label %26
+    i32 258, label %31
+    i32 264, label %25
+    i32 259, label %25
+    i32 260, label %26
+    i32 261, label %26
+    i32 262, label %26
+    i32 263, label %27
+    i32 265, label %27
+    i32 268, label %27
+    i32 269, label %27
+    i32 274, label %27
+    i32 275, label %27
+    i32 276, label %27
   ]
 
-22:                                               ; preds = %17
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %18
+  %24 = landingpad { ptr, i32 }
           cleanup
-  br label %56
+  br label %57
 
-24:                                               ; preds = %21, %21
-  br label %30
+25:                                               ; preds = %22, %22
+  br label %31
 
-25:                                               ; preds = %21, %21, %21
-  br label %30
+26:                                               ; preds = %22, %22, %22
+  br label %31
 
-26:                                               ; preds = %21, %21, %21, %21, %21, %21, %21
-  br label %30
+27:                                               ; preds = %22, %22, %22, %22, %22, %22, %22
+  br label %31
 
-27:                                               ; preds = %21
-  %28 = icmp sgt i32 %14, 254
-  %29 = select i1 %28, i64 4, i64 3
-  br label %30
+28:                                               ; preds = %22
+  %29 = icmp sgt i32 %14, 254
+  %30 = select i1 %29, i64 4, i64 3
+  br label %31
 
-30:                                               ; preds = %27, %21, %26, %25, %24
-  %.sroa.0.0 = phi i64 [ 3, %26 ], [ 2, %25 ], [ 1, %24 ], [ 0, %21 ], [ %29, %27 ]
-  %31 = load i32, ptr %5, align 4, !tbaa !37
-  %32 = load ptr, ptr %10, align 8, !tbaa !38
-  %.not.i = icmp eq ptr %12, %32
-  br i1 %.not.i, label %35, label %33
+31:                                               ; preds = %28, %22, %27, %26, %25
+  %.sroa.0.0 = phi i64 [ 3, %27 ], [ 2, %26 ], [ 1, %25 ], [ 0, %22 ], [ %30, %28 ]
+  %32 = load i32, ptr %5, align 4, !tbaa !37
+  %33 = load ptr, ptr %10, align 8, !tbaa !38
+  %.not.i = icmp eq ptr %12, %33
+  br i1 %.not.i, label %36, label %34
 
-33:                                               ; preds = %30
-  %.sroa.1128.0.insert.ext = zext i32 %31 to i64
+34:                                               ; preds = %31
+  %.sroa.1128.0.insert.ext = zext i32 %32 to i64
   %.sroa.1128.0.insert.shift = shl nuw i64 %.sroa.1128.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.1128.0.insert.shift, %.sroa.0.0
   store i64 %.sroa.0.0.insert.insert, ptr %12, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %34, ptr %9, align 8, !tbaa !41
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %35, ptr %9, align 8, !tbaa !41
   br label %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE9push_backERKS1_.exit
 
-35:                                               ; preds = %30
-  %36 = ptrtoint ptr %12 to i64
-  %37 = ptrtoint ptr %13 to i64
-  %38 = sub i64 %36, %37
-  %39 = icmp eq i64 %38, 9223372036854775800
-  br i1 %39, label %40, label %_ZNKSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+36:                                               ; preds = %31
+  %37 = ptrtoint ptr %12 to i64
+  %38 = ptrtoint ptr %13 to i64
+  %39 = sub i64 %37, %38
+  %40 = icmp eq i64 %39, 9223372036854775800
+  br i1 %40, label %41, label %_ZNKSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
-40:                                               ; preds = %35
+41:                                               ; preds = %36
   store ptr %13, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.480) #17
           to label %.noexc unwind label %.loopexit.split-lp
 
-.noexc:                                           ; preds = %40
+.noexc:                                           ; preds = %41
   unreachable
 
-_ZNKSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %35
-  %41 = ashr exact i64 %38, 3
-  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %41, i64 1)
-  %42 = add nsw i64 %.sroa.speculated.i.i.i, %41
-  %43 = icmp ult i64 %42, %41
-  %44 = call i64 @llvm.umin.i64(i64 %42, i64 1152921504606846975)
-  %45 = select i1 %43, i64 1152921504606846975, i64 %44
-  %.not.i.i.i = icmp ne i64 %45, 0
+_ZNKSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %36
+  %42 = ashr exact i64 %39, 3
+  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %42, i64 1)
+  %43 = add nsw i64 %.sroa.speculated.i.i.i, %42
+  %44 = icmp ult i64 %43, %42
+  %45 = call i64 @llvm.umin.i64(i64 %43, i64 1152921504606846975)
+  %46 = select i1 %44, i64 1152921504606846975, i64 %45
+  %.not.i.i.i = icmp ne i64 %46, 0
   call void @llvm.assume(i1 %.not.i.i.i)
-  %46 = shl nuw nsw i64 %45, 3
-  %47 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %46) #18
+  %47 = shl nuw nsw i64 %46, 3
+  %48 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #18
           to label %.noexc17 unwind label %.loopexit
 
 .noexc17:                                         ; preds = %_ZNKSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %48 = getelementptr inbounds i8, ptr %47, i64 %38
-  %.sroa.1128.0.insert.ext30 = zext i32 %31 to i64
+  %49 = getelementptr inbounds i8, ptr %48, i64 %39
+  %.sroa.1128.0.insert.ext30 = zext i32 %32 to i64
   %.sroa.1128.0.insert.shift31 = shl nuw i64 %.sroa.1128.0.insert.ext30, 32
   %.sroa.0.0.insert.insert22 = or disjoint i64 %.sroa.1128.0.insert.shift31, %.sroa.0.0
-  store i64 %.sroa.0.0.insert.insert22, ptr %48, align 4
-  %49 = icmp sgt i64 %38, 0
-  br i1 %49, label %50, label %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+  store i64 %.sroa.0.0.insert.insert22, ptr %49, align 4
+  %50 = icmp sgt i64 %39, 0
+  br i1 %50, label %51, label %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
 
-50:                                               ; preds = %.noexc17
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %47, ptr align 4 %13, i64 %38, i1 false)
+51:                                               ; preds = %.noexc17
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %48, ptr align 4 %13, i64 %39, i1 false)
   br label %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
 
-_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %50, %.noexc17
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
+_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %51, %.noexc17
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %.not.i17.i.i = icmp eq ptr %13, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %52
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %53
 
-52:                                               ; preds = %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+53:                                               ; preds = %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   call void @_ZdlPv(ptr noundef nonnull %13) #16
   br label %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
-_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %52, %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  store ptr %51, ptr %9, align 8, !tbaa !41
-  %53 = getelementptr inbounds nuw %"struct.duckdb_libpgquery::PGSimplifiedToken", ptr %47, i64 %45
-  store ptr %53, ptr %10, align 8, !tbaa !38
+_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %53, %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+  store ptr %52, ptr %9, align 8, !tbaa !41
+  %54 = getelementptr inbounds nuw %"struct.duckdb_libpgquery::PGSimplifiedToken", ptr %48, i64 %46
+  store ptr %54, ptr %10, align 8, !tbaa !38
   br label %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE9push_backERKS1_.exit
 
-_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE9push_backERKS1_.exit: ; preds = %33, %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
-  %54 = phi ptr [ %34, %33 ], [ %51, %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
-  %55 = phi ptr [ %13, %33 ], [ %47, %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
+_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE9push_backERKS1_.exit: ; preds = %34, %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
+  %55 = phi ptr [ %35, %34 ], [ %52, %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
+  %56 = phi ptr [ %13, %34 ], [ %48, %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
   br label %11
@@ -915,69 +916,69 @@ _ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE9push_backERKS1_.ex
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   store ptr %13, ptr %0, align 8
-  br label %56
+  br label %57
 
-.loopexit.split-lp:                               ; preds = %40
+.loopexit.split-lp:                               ; preds = %41
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %56
+  br label %57
 
-56:                                               ; preds = %.loopexit, %.loopexit.split-lp, %22
-  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+57:                                               ; preds = %.loopexit, %.loopexit.split-lp, %23
+  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
-  br label %58
+  br label %59
 
-.thread.loopexit:                                 ; preds = %21
+.thread.loopexit:                                 ; preds = %22
   store ptr %13, ptr %0, align 8
   br label %.thread
 
-.thread:                                          ; preds = %.thread.loopexit, %17
+.thread:                                          ; preds = %.thread.loopexit, %18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
   invoke void @_ZN17duckdb_libpgquery14scanner_finishEPv(ptr noundef %6)
-          to label %57 unwind label %15
+          to label %58 unwind label %15
 
-57:                                               ; preds = %.thread
+58:                                               ; preds = %.thread
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #15
   ret void
 
-58:                                               ; preds = %56, %15
-  %.pn15 = phi { ptr, i32 } [ %16, %15 ], [ %.pn, %56 ]
-  %59 = load ptr, ptr %0, align 8, !tbaa !42
-  %.not.i.i.i18 = icmp eq ptr %59, null
-  br i1 %.not.i.i.i18, label %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EED2Ev.exit, label %60
+59:                                               ; preds = %57, %15
+  %60 = phi ptr [ %16, %15 ], [ %13, %57 ]
+  %.pn15 = phi { ptr, i32 } [ %17, %15 ], [ %.pn, %57 ]
+  %.not.i.i.i18 = icmp eq ptr %60, null
+  br i1 %.not.i.i.i18, label %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EED2Ev.exit, label %61
 
-60:                                               ; preds = %58
-  call void @_ZdlPv(ptr noundef nonnull %59) #16
+61:                                               ; preds = %59
+  call void @_ZdlPv(ptr noundef nonnull %60) #16
   br label %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EED2Ev.exit: ; preds = %58, %60
+_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EED2Ev.exit: ; preds = %59, %61
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #15
   resume { ptr, i32 } %.pn15
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN17duckdb_libpgquery10base_yylexEPNS_7YYSTYPEEPiPv(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = load ptr, ptr %2, align 8, !tbaa !43
+  %4 = load ptr, ptr %2, align 8, !tbaa !42
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %6 = load i8, ptr %5, align 8, !tbaa !3, !range !45, !noundef !46
+  %6 = load i8, ptr %5, align 8, !tbaa !3, !range !44, !noundef !45
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %19
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 84
-  %10 = load i32, ptr %9, align 4, !tbaa !47
+  %10 = load i32, ptr %9, align 4, !tbaa !46
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %12 = load i64, ptr %11, align 8, !tbaa !22
   store i64 %12, ptr %0, align 8, !tbaa !22
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %14 = load i32, ptr %13, align 8, !tbaa !48
+  %14 = load i32, ptr %13, align 8, !tbaa !47
   store i32 %14, ptr %1, align 4, !tbaa !37
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  %16 = load i8, ptr %15, align 8, !tbaa !49
+  %16 = load i8, ptr %15, align 8, !tbaa !48
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %18 = load ptr, ptr %17, align 8, !tbaa !50
+  %18 = load ptr, ptr %17, align 8, !tbaa !49
   store i8 %16, ptr %18, align 1, !tbaa !22
   store i8 0, ptr %5, align 8, !tbaa !3
   br label %21
@@ -1002,25 +1003,25 @@ define hidden noundef i32 @_ZN17duckdb_libpgquery10base_yylexEPNS_7YYSTYPEEPiPv(
 
 24:                                               ; preds = %21, %23, %22
   %.038 = phi i64 [ 4, %23 ], [ 5, %22 ], [ 3, %21 ]
-  %25 = load ptr, ptr %4, align 8, !tbaa !51
+  %25 = load ptr, ptr %4, align 8, !tbaa !50
   %26 = load i32, ptr %1, align 4, !tbaa !37
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %25, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %.038
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store ptr %29, ptr %30, align 8, !tbaa !50
+  store ptr %29, ptr %30, align 8, !tbaa !49
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %32 = tail call noundef i32 @_ZN17duckdb_libpgquery10core_yylexEPNS_12core_YYSTYPEEPiPv(ptr noundef nonnull %31, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 84
-  store i32 %32, ptr %33, align 4, !tbaa !47
+  store i32 %32, ptr %33, align 4, !tbaa !46
   %34 = load i32, ptr %1, align 4, !tbaa !37
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store i32 %34, ptr %35, align 8, !tbaa !48
+  store i32 %34, ptr %35, align 8, !tbaa !47
   store i32 %26, ptr %1, align 4, !tbaa !37
-  %36 = load ptr, ptr %30, align 8, !tbaa !50
+  %36 = load ptr, ptr %30, align 8, !tbaa !49
   %37 = load i8, ptr %36, align 1, !tbaa !22
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  store i8 %37, ptr %38, align 8, !tbaa !49
+  store i8 %37, ptr %38, align 8, !tbaa !48
   store i8 0, ptr %36, align 1, !tbaa !22
   store i8 1, ptr %5, align 8, !tbaa !3
   switch i32 %.039, label %45 [
@@ -1177,48 +1178,48 @@ _ZNSt12_Vector_baseIN17duckdb_libpgquery9PGKeywordESaIS1_EE11_M_allocateEm.exit:
 .lr.ph.i.i.i.i:                                   ; preds = %36, %_ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %61, %_ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i ], [ %23, %36 ]
   %.0911.i.i.i.i = phi ptr [ %60, %_ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i ], [ %7, %36 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  call void @llvm.experimental.noalias.scope.decl(metadata !55)
+  call void @llvm.experimental.noalias.scope.decl(metadata !51)
+  call void @llvm.experimental.noalias.scope.decl(metadata !54)
   %44 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 16
-  store ptr %44, ptr %.012.i.i.i.i, align 8, !tbaa !18, !alias.scope !52, !noalias !55
-  %45 = load ptr, ptr %.0911.i.i.i.i, align 8, !tbaa !24, !alias.scope !55, !noalias !52
+  store ptr %44, ptr %.012.i.i.i.i, align 8, !tbaa !18, !alias.scope !51, !noalias !54
+  %45 = load ptr, ptr %.0911.i.i.i.i, align 8, !tbaa !24, !alias.scope !54, !noalias !51
   %46 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 16
   %47 = icmp eq ptr %45, %46
   br i1 %47, label %48, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i
 
 48:                                               ; preds = %.lr.ph.i.i.i.i
   %49 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
-  %50 = load i64, ptr %49, align 8, !tbaa !20, !alias.scope !55, !noalias !52
+  %50 = load i64, ptr %49, align 8, !tbaa !20, !alias.scope !54, !noalias !51
   %51 = icmp ult i64 %50, 16
   call void @llvm.assume(i1 %51)
   %52 = add nuw nsw i64 %50, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %44, ptr noundef nonnull align 8 dereferenceable(1) %46, i64 %52, i1 false), !alias.scope !57
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %44, ptr noundef nonnull align 8 dereferenceable(1) %46, i64 %52, i1 false), !alias.scope !56
   br label %_ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  store ptr %45, ptr %.012.i.i.i.i, align 8, !tbaa !24, !alias.scope !52, !noalias !55
-  %53 = load i64, ptr %46, align 8, !tbaa !22, !alias.scope !55, !noalias !52
-  store i64 %53, ptr %44, align 8, !tbaa !22, !alias.scope !52, !noalias !55
+  store ptr %45, ptr %.012.i.i.i.i, align 8, !tbaa !24, !alias.scope !51, !noalias !54
+  %53 = load i64, ptr %46, align 8, !tbaa !22, !alias.scope !54, !noalias !51
+  store i64 %53, ptr %44, align 8, !tbaa !22, !alias.scope !51, !noalias !54
   %.phi.trans.insert.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
-  %.pre.i.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i.i, align 8, !tbaa !20, !alias.scope !55, !noalias !52
+  %.pre.i.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i.i, align 8, !tbaa !20, !alias.scope !54, !noalias !51
   br label %_ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i
 
 _ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i, %48
   %54 = phi i64 [ %50, %48 ], [ %.pre.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i ]
   %55 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
   %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
-  store i64 %54, ptr %56, align 8, !tbaa !20, !alias.scope !52, !noalias !55
-  store ptr %46, ptr %.0911.i.i.i.i, align 8, !tbaa !24, !alias.scope !55, !noalias !52
-  store i64 0, ptr %55, align 8, !tbaa !20, !alias.scope !55, !noalias !52
-  store i8 0, ptr %46, align 1, !tbaa !22, !alias.scope !55, !noalias !52
+  store i64 %54, ptr %56, align 8, !tbaa !20, !alias.scope !51, !noalias !54
+  store ptr %46, ptr %.0911.i.i.i.i, align 8, !tbaa !24, !alias.scope !54, !noalias !51
+  store i64 0, ptr %55, align 8, !tbaa !20, !alias.scope !54, !noalias !51
+  store i8 0, ptr %46, align 1, !tbaa !22, !alias.scope !54, !noalias !51
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
-  %59 = load i8, ptr %58, align 8, !tbaa !25, !alias.scope !55, !noalias !52
-  store i8 %59, ptr %57, align 8, !tbaa !25, !alias.scope !52, !noalias !55
+  %59 = load i8, ptr %58, align 8, !tbaa !25, !alias.scope !54, !noalias !51
+  store i8 %59, ptr %57, align 8, !tbaa !25, !alias.scope !51, !noalias !54
   %60 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 40
   %61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 40
   %.not.i.i.i.i = icmp eq ptr %60, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN17duckdb_libpgquery9PGKeywordESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !58
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN17duckdb_libpgquery9PGKeywordESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !57
 
 _ZNSt6vectorIN17duckdb_libpgquery9PGKeywordESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %_ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i, %36
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %36 ], [ %61, %_ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i ]
@@ -1229,48 +1230,48 @@ _ZNSt6vectorIN17duckdb_libpgquery9PGKeywordESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorIN17duckdb_libpgquery9PGKeywordESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %_ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i33
   %.012.i.i.i.i28 = phi ptr [ %80, %_ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i33 ], [ %62, %_ZNSt6vectorIN17duckdb_libpgquery9PGKeywordESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   %.0911.i.i.i.i29 = phi ptr [ %79, %_ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i33 ], [ %1, %_ZNSt6vectorIN17duckdb_libpgquery9PGKeywordESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !59)
-  call void @llvm.experimental.noalias.scope.decl(metadata !62)
+  call void @llvm.experimental.noalias.scope.decl(metadata !58)
+  call void @llvm.experimental.noalias.scope.decl(metadata !61)
   %63 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 16
-  store ptr %63, ptr %.012.i.i.i.i28, align 8, !tbaa !18, !alias.scope !59, !noalias !62
-  %64 = load ptr, ptr %.0911.i.i.i.i29, align 8, !tbaa !24, !alias.scope !62, !noalias !59
+  store ptr %63, ptr %.012.i.i.i.i28, align 8, !tbaa !18, !alias.scope !58, !noalias !61
+  %64 = load ptr, ptr %.0911.i.i.i.i29, align 8, !tbaa !24, !alias.scope !61, !noalias !58
   %65 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 16
   %66 = icmp eq ptr %64, %65
   br i1 %66, label %67, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i30
 
 67:                                               ; preds = %.lr.ph.i.i.i.i27
   %68 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 8
-  %69 = load i64, ptr %68, align 8, !tbaa !20, !alias.scope !62, !noalias !59
+  %69 = load i64, ptr %68, align 8, !tbaa !20, !alias.scope !61, !noalias !58
   %70 = icmp ult i64 %69, 16
   call void @llvm.assume(i1 %70)
   %71 = add nuw nsw i64 %69, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %63, ptr noundef nonnull align 8 dereferenceable(1) %65, i64 %71, i1 false), !alias.scope !64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %63, ptr noundef nonnull align 8 dereferenceable(1) %65, i64 %71, i1 false), !alias.scope !63
   br label %_ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i33
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i30: ; preds = %.lr.ph.i.i.i.i27
-  store ptr %64, ptr %.012.i.i.i.i28, align 8, !tbaa !24, !alias.scope !59, !noalias !62
-  %72 = load i64, ptr %65, align 8, !tbaa !22, !alias.scope !62, !noalias !59
-  store i64 %72, ptr %63, align 8, !tbaa !22, !alias.scope !59, !noalias !62
+  store ptr %64, ptr %.012.i.i.i.i28, align 8, !tbaa !24, !alias.scope !58, !noalias !61
+  %72 = load i64, ptr %65, align 8, !tbaa !22, !alias.scope !61, !noalias !58
+  store i64 %72, ptr %63, align 8, !tbaa !22, !alias.scope !58, !noalias !61
   %.phi.trans.insert.i.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 8
-  %.pre.i.i.i.i.i32 = load i64, ptr %.phi.trans.insert.i.i.i.i.i31, align 8, !tbaa !20, !alias.scope !62, !noalias !59
+  %.pre.i.i.i.i.i32 = load i64, ptr %.phi.trans.insert.i.i.i.i.i31, align 8, !tbaa !20, !alias.scope !61, !noalias !58
   br label %_ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i33
 
 _ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i33: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i30, %67
   %73 = phi i64 [ %69, %67 ], [ %.pre.i.i.i.i.i32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i30 ]
   %74 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 8
   %75 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 8
-  store i64 %73, ptr %75, align 8, !tbaa !20, !alias.scope !59, !noalias !62
-  store ptr %65, ptr %.0911.i.i.i.i29, align 8, !tbaa !24, !alias.scope !62, !noalias !59
-  store i64 0, ptr %74, align 8, !tbaa !20, !alias.scope !62, !noalias !59
-  store i8 0, ptr %65, align 1, !tbaa !22, !alias.scope !62, !noalias !59
+  store i64 %73, ptr %75, align 8, !tbaa !20, !alias.scope !58, !noalias !61
+  store ptr %65, ptr %.0911.i.i.i.i29, align 8, !tbaa !24, !alias.scope !61, !noalias !58
+  store i64 0, ptr %74, align 8, !tbaa !20, !alias.scope !61, !noalias !58
+  store i8 0, ptr %65, align 1, !tbaa !22, !alias.scope !61, !noalias !58
   %76 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 32
   %77 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 32
-  %78 = load i8, ptr %77, align 8, !tbaa !25, !alias.scope !62, !noalias !59
-  store i8 %78, ptr %76, align 8, !tbaa !25, !alias.scope !59, !noalias !62
+  %78 = load i8, ptr %77, align 8, !tbaa !25, !alias.scope !61, !noalias !58
+  store i8 %78, ptr %76, align 8, !tbaa !25, !alias.scope !58, !noalias !61
   %79 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 40
   %80 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 40
   %.not.i.i.i.i34 = icmp eq ptr %79, %6
-  br i1 %.not.i.i.i.i34, label %_ZNSt6vectorIN17duckdb_libpgquery9PGKeywordESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36, label %.lr.ph.i.i.i.i27, !llvm.loop !58
+  br i1 %.not.i.i.i.i34, label %_ZNSt6vectorIN17duckdb_libpgquery9PGKeywordESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36, label %.lr.ph.i.i.i.i27, !llvm.loop !57
 
 _ZNSt6vectorIN17duckdb_libpgquery9PGKeywordESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36: ; preds = %_ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i33, %_ZNSt6vectorIN17duckdb_libpgquery9PGKeywordESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   %.0.lcssa.i.i.i.i35 = phi ptr [ %62, %_ZNSt6vectorIN17duckdb_libpgquery9PGKeywordESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %80, %_ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i33 ]
@@ -1411,26 +1412,25 @@ attributes #19 = { noreturn nounwind }
 !39 = !{!"_ZTSNSt12_Vector_baseIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE17_Vector_impl_dataE", !40, i64 0, !40, i64 8, !40, i64 16}
 !40 = !{!"p1 _ZTSN17duckdb_libpgquery17PGSimplifiedTokenE", !7, i64 0}
 !41 = !{!39, !40, i64 8}
-!42 = !{!39, !40, i64 0}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"p1 _ZTSN17duckdb_libpgquery18base_yy_extra_typeE", !7, i64 0}
-!45 = !{i8 0, i8 2}
-!46 = !{}
-!47 = !{!4, !12, i64 84}
-!48 = !{!4, !12, i64 96}
-!49 = !{!4, !8, i64 112}
-!50 = !{!4, !6, i64 104}
-!51 = !{!4, !6, i64 0}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!54 = distinct !{!54, !"_ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_"}
-!55 = !{!56}
-!56 = distinct !{!56, !54, !"_ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!57 = !{!53, !56}
-!58 = distinct !{!58, !34}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!61 = distinct !{!61, !"_ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_"}
-!62 = !{!63}
-!63 = distinct !{!63, !61, !"_ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!64 = !{!60, !63}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTSN17duckdb_libpgquery18base_yy_extra_typeE", !7, i64 0}
+!44 = !{i8 0, i8 2}
+!45 = !{}
+!46 = !{!4, !12, i64 84}
+!47 = !{!4, !12, i64 96}
+!48 = !{!4, !8, i64 112}
+!49 = !{!4, !6, i64 104}
+!50 = !{!4, !6, i64 0}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!53 = distinct !{!53, !"_ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_"}
+!54 = !{!55}
+!55 = distinct !{!55, !53, !"_ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!56 = !{!52, !55}
+!57 = distinct !{!57, !34}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"_ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!60 = distinct !{!60, !"_ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_"}
+!61 = !{!62}
+!62 = distinct !{!62, !60, !"_ZSt19__relocate_object_aIN17duckdb_libpgquery9PGKeywordES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!63 = !{!59, !62}

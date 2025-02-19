@@ -16201,11 +16201,9 @@ define internal void @_ZN5boost4asio6detail14signal_handlerIZNS_6cobalt6detail12
   %9 = alloca %"class.boost::asio::detail::binder2", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store ptr %10, ptr %7, align 8, !tbaa !546
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %11, align 8, !tbaa !548
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %1, ptr %12, align 8, !tbaa !549
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #32
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %14 = load ptr, ptr %13, align 8, !tbaa !52

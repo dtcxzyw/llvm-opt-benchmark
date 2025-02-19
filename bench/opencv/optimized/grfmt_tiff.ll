@@ -7052,7 +7052,6 @@ define hidden noundef zeroext i1 @_ZN2cv11TiffEncoder12writeLibTiffERKSt6vectorI
 100:                                              ; preds = %99
   store ptr %.0236, ptr %5, align 8
   %101 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %101, align 8
   %102 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
           to label %_ZN2cv3PtrIvEC2I4tiffPFvPvEEEPT_T0_.exit unwind label %103
 

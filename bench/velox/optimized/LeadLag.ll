@@ -4884,7 +4884,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %.noexc.i.i.i.i.i.i.
   %139 = landingpad { ptr, i32 }
           catch ptr null
   %140 = extractvalue { ptr, i32 } %139, 0
-  call void @__clang_call_terminate(ptr %140) #25
+  call void @__clang_call_terminate(ptr %140) #25, !noalias !27
   unreachable
 
 lpad3.i.i.i.i.i:                                  ; preds = %call3.i.i.i.noexc.i.i.i.i.i, %invoke.cont7.i.i.i.i.i, %_ZNKRSt8optionalIKjE5valueEv.exit.i.i.i.i.i.i, %if.end.i.i.invoke.i.i.i.i.i, %if.then4.i.i.i.i.i.i
@@ -9596,7 +9596,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %.noexc.i.i.i.i.i.i.
   %139 = landingpad { ptr, i32 }
           catch ptr null
   %140 = extractvalue { ptr, i32 } %139, 0
-  call void @__clang_call_terminate(ptr %140) #25
+  call void @__clang_call_terminate(ptr %140) #25, !noalias !79
   unreachable
 
 lpad3.i.i.i.i.i:                                  ; preds = %call3.i.i.i.noexc.i.i.i.i.i, %invoke.cont7.i.i.i.i.i, %_ZNKRSt8optionalIKjE5valueEv.exit.i.i.i.i.i.i, %if.end.i.i.invoke.i.i.i.i.i, %if.then4.i.i.i.i.i.i

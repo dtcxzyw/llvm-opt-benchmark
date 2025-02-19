@@ -5531,7 +5531,7 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %_ZNK4llvm4Type13get
   %.sroa.1028.0.i = phi ptr [ %42, %35 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #19, !noalias !550
   %45 = load ptr, ptr %14, align 8, !tbaa !429, !noalias !550
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.499") align 8 %9, ptr noundef nonnull align 8 dereferenceable(412423) %45, ptr noundef nonnull align 8 dereferenceable(8) %36, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.499") align 8 %9, ptr noundef nonnull align 8 dereferenceable(412423) %45, ptr noundef nonnull align 8 dereferenceable(8) %36, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !550
   %46 = load i8, ptr %9, align 8, !tbaa !553, !noalias !550
   switch i8 %46, label %48 [
     i8 10, label %47
@@ -11281,7 +11281,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTT
   %.sroa.1028.0.i = phi ptr [ %30, %21 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #19, !noalias !656
   %33 = load ptr, ptr %22, align 8, !tbaa !429, !noalias !656
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.499") align 8 %15, ptr noundef nonnull align 8 dereferenceable(412423) %33, ptr noundef nonnull align 8 dereferenceable(8) %25, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.499") align 8 %15, ptr noundef nonnull align 8 dereferenceable(412423) %33, ptr noundef nonnull align 8 dereferenceable(8) %25, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !656
   %34 = load i8, ptr %15, align 8, !tbaa !553, !noalias !656
   switch i8 %34, label %36 [
     i8 10, label %35
@@ -11347,7 +11347,7 @@ _ZNK4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE23getTypeLegalizationCostEPNS_4Ty
   %.sroa.1028.0.i184 = phi ptr [ %52, %_ZNK4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit ], [ %.sroa.1028.0.copyload.pre.i196, %_ZNK4llvm3EVTeqES0_.exit.thread30.i197 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #19, !noalias !659
   %55 = load ptr, ptr %22, align 8, !tbaa !429, !noalias !659
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.499") align 8 %14, ptr noundef nonnull align 8 dereferenceable(412423) %55, ptr noundef nonnull align 8 dereferenceable(8) %47, i16 %.sroa.026.0.i183, ptr %.sroa.1028.0.i184) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.499") align 8 %14, ptr noundef nonnull align 8 dereferenceable(412423) %55, ptr noundef nonnull align 8 dereferenceable(8) %47, i16 %.sroa.026.0.i183, ptr %.sroa.1028.0.i184) #19, !noalias !659
   %56 = load i8, ptr %14, align 8, !tbaa !553, !noalias !659
   switch i8 %56, label %58 [
     i8 10, label %57
@@ -11979,7 +11979,7 @@ _ZNK4llvm3EVTeqES0_.exit:                         ; preds = %8
   %.sroa.1028.0.i = phi ptr [ %23, %_ZNK4llvm3EVTeqES0_.exit ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #19, !noalias !668
   %26 = load ptr, ptr %12, align 8, !tbaa !429, !noalias !668
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.499") align 8 %11, ptr noundef nonnull align 8 dereferenceable(412423) %26, ptr noundef nonnull align 8 dereferenceable(8) %18, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.499") align 8 %11, ptr noundef nonnull align 8 dereferenceable(412423) %26, ptr noundef nonnull align 8 dereferenceable(8) %18, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !668
   %27 = load i8, ptr %11, align 8, !tbaa !553, !noalias !668
   switch i8 %27, label %29 [
     i8 10, label %28
@@ -12280,7 +12280,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTT
   %.sroa.1028.0.i = phi ptr [ %29, %22 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #19, !noalias !674
   %32 = load ptr, ptr %12, align 8, !tbaa !429, !noalias !674
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.499") align 8 %11, ptr noundef nonnull align 8 dereferenceable(412423) %32, ptr noundef nonnull align 8 dereferenceable(8) %23, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.499") align 8 %11, ptr noundef nonnull align 8 dereferenceable(412423) %32, ptr noundef nonnull align 8 dereferenceable(8) %23, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !674
   %33 = load i8, ptr %11, align 8, !tbaa !553, !noalias !674
   switch i8 %33, label %35 [
     i8 10, label %34
@@ -14256,7 +14256,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit900:        ; preds = %254
   %.sroa.1028.0.i = phi ptr [ %342, %333 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #19, !noalias !690
   %345 = load ptr, ptr %336, align 8, !tbaa !429, !noalias !690
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.499") align 8 %6, ptr noundef nonnull align 8 dereferenceable(412423) %345, ptr noundef nonnull align 8 dereferenceable(8) %335, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.499") align 8 %6, ptr noundef nonnull align 8 dereferenceable(412423) %345, ptr noundef nonnull align 8 dereferenceable(8) %335, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !690
   %346 = load i8, ptr %6, align 8, !tbaa !553, !noalias !690
   switch i8 %346, label %348 [
     i8 10, label %347
@@ -15680,7 +15680,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTT
   %.sroa.1028.0.i = phi ptr [ %32, %19 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #19, !noalias !701
   %35 = load ptr, ptr %26, align 8, !tbaa !429, !noalias !701
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.499") align 8 %6, ptr noundef nonnull align 8 dereferenceable(412423) %35, ptr noundef nonnull align 8 dereferenceable(8) %25, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.499") align 8 %6, ptr noundef nonnull align 8 dereferenceable(412423) %35, ptr noundef nonnull align 8 dereferenceable(8) %25, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !701
   %36 = load i8, ptr %6, align 8, !tbaa !553, !noalias !701
   switch i8 %36, label %_ZN4llvm15InstructionCostmLEl.exit.i [
     i8 10, label %37
@@ -16684,7 +16684,7 @@ _ZN4llvm7CmpInst17makeCmpResultTypeEPNS_4TypeE.exit: ; preds = %25, %35
   %.sroa.1028.0.i = phi ptr [ %53, %44 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #19, !noalias !718
   %56 = load ptr, ptr %47, align 8, !tbaa !429, !noalias !718
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.499") align 8 %5, ptr noundef nonnull align 8 dereferenceable(412423) %56, ptr noundef nonnull align 8 dereferenceable(8) %46, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.499") align 8 %5, ptr noundef nonnull align 8 dereferenceable(412423) %56, ptr noundef nonnull align 8 dereferenceable(8) %46, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !718
   %57 = load i8, ptr %5, align 8, !tbaa !553, !noalias !718
   switch i8 %57, label %_ZN4llvm15InstructionCostmLEl.exit.i [
     i8 10, label %58
@@ -19502,7 +19502,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12BasicTT
   %.sroa.1028.0.i = phi ptr [ %43, %35 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #19, !noalias !820
   %46 = load ptr, ptr %37, align 8, !tbaa !429, !noalias !820
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.499") align 8 %12, ptr noundef nonnull align 8 dereferenceable(412423) %46, ptr noundef nonnull align 8 dereferenceable(8) %36, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.499") align 8 %12, ptr noundef nonnull align 8 dereferenceable(412423) %46, ptr noundef nonnull align 8 dereferenceable(8) %36, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !820
   %47 = load i8, ptr %12, align 8, !tbaa !553, !noalias !820
   switch i8 %47, label %_ZN4llvm15InstructionCostmLEl.exit.i [
     i8 10, label %48
@@ -20375,7 +20375,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm16BasicTTIImplBaseINS_12BasicTTI
   %.sroa.1028.0.i = phi ptr [ %12, %2 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #19, !noalias !846
   %15 = load ptr, ptr %6, align 8, !tbaa !429, !noalias !846
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.499") align 8 %3, ptr noundef nonnull align 8 dereferenceable(412423) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.499") align 8 %3, ptr noundef nonnull align 8 dereferenceable(412423) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !846
   %16 = load i8, ptr %3, align 8, !tbaa !553, !noalias !846
   switch i8 %16, label %17 [
     i8 10, label %_ZNK4llvm16BasicTTIImplBaseINS_12BasicTTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit

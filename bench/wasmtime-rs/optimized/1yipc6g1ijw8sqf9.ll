@@ -4580,7 +4580,7 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
 
 24:                                               ; preds = %18, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17hed145260687aec40E.exit"
   %25 = getelementptr inbounds { [6 x i64] }, ptr %12, i64 %15
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull readonly align 8 dereferenceable(48) %5, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull readonly align 8 dereferenceable(48) %5, i64 48, i1 false)
   %26 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 536
   %28 = invoke { ptr, i64 } @"_ZN108_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h8492e52c9c12e6efE"(i64 %10, ptr nonnull %27, i64 11)
@@ -5527,7 +5527,7 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
 
 "_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12val_area_mut17h63940f49e6373780E.exit.i": ; preds = %26, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17hc3b221a74811b58fE.exit.i"
   %32 = getelementptr inbounds { [3 x i64] }, ptr %22, i64 %.sroa.6.0.copyload
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 276
   %34 = tail call { ptr, i64 } @"_ZN108_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h66dfa8afae9aa329E"(i64 %19, ptr nonnull %33, i64 11)
   store i16 %narrow, ptr %11, align 2
@@ -5641,7 +5641,7 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
 
 "_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12val_area_mut17h63940f49e6373780E.exit.i38": ; preds = %71, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17hc3b221a74811b58fE.exit.i37"
   %77 = getelementptr inbounds { [3 x i64] }, ptr %67, i64 %.sroa.527.0
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.06.0, i64 276
   %79 = invoke { ptr, i64 } @"_ZN108_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h66dfa8afae9aa329E"(i64 %64, ptr nonnull %78, i64 11)
           to label %86 unwind label %84
@@ -6929,7 +6929,7 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
 
 26:                                               ; preds = %20, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17hefc788ba368d13b1E.exit"
   %27 = getelementptr inbounds { [6 x i64] }, ptr %14, i64 %17
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull readonly align 8 dereferenceable(48) %7, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull readonly align 8 dereferenceable(48) %7, i64 48, i1 false)
   %28 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 536
   %30 = invoke { ptr, i64 } @"_ZN108_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h8492e52c9c12e6efE"(i64 %12, ptr nonnull %29, i64 11)

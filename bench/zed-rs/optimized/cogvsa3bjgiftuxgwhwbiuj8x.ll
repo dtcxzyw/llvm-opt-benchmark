@@ -3088,7 +3088,7 @@ default.unreachable164:                           ; preds = %.noexc.i33, %.noexc
   %92 = extractvalue { ptr, i64 } %91, 0
   %93 = extractvalue { ptr, i64 } %91, 1
   %94 = invoke noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hfaf1f4787fff8097E"(ptr noalias noundef nonnull readonly align 1 %92, i64 noundef %93, ptr noalias noundef nonnull align 8 dereferenceable(64) %18)
-          to label %"_ZN63_$LT$core..cell..Ref$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h339dce3fb65d4fb7E.exit.i" unwind label %95
+          to label %"_ZN63_$LT$core..cell..Ref$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h339dce3fb65d4fb7E.exit.i" unwind label %95, !noalias !560
 
 95:                                               ; preds = %97, %.noexc.i30, %82
   %96 = landingpad { ptr, i32 }

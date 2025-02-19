@@ -4255,7 +4255,7 @@ default.unreachable10:                            ; preds = %1
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @_ZN3std9panicking3try8do_catch17h29783d6d44a3afa2E.llvm.14829166003003082705(ptr nonnull %3, ptr %22)
+  call void @_ZN3std9panicking3try8do_catch17h29783d6d44a3afa2E.llvm.14829166003003082705(ptr nonnull %3, ptr %22), !noalias !998
   %23 = load ptr, ptr %3, align 8, !noalias !992, !nonnull !4, !align !965, !noundef !4
   %24 = load ptr, ptr %16, align 8, !noalias !992, !nonnull !4, !align !8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !992
@@ -4291,7 +4291,7 @@ default.unreachable10:                            ; preds = %1
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @_ZN3std9panicking3try8do_catch17h36179149092721b7E.llvm.14829166003003082705(ptr nonnull %2, ptr %30)
+  call void @_ZN3std9panicking3try8do_catch17h36179149092721b7E.llvm.14829166003003082705(ptr nonnull %2, ptr %30), !noalias !1003
   %31 = load ptr, ptr %2, align 8, !noalias !1000, !nonnull !4, !align !965
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %33 = load ptr, ptr %32, align 8, !noalias !1000, !nonnull !4, !align !8
@@ -4406,7 +4406,7 @@ default.unreachable13:                            ; preds = %1
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @_ZN3std9panicking3try8do_catch17hbd6f2408bb7a9f57E.llvm.14829166003003082705(ptr nonnull %7, ptr %24)
+  call void @_ZN3std9panicking3try8do_catch17hbd6f2408bb7a9f57E.llvm.14829166003003082705(ptr nonnull %7, ptr %24), !noalias !1018
   %25 = load ptr, ptr %7, align 8, !noalias !1012, !nonnull !4, !align !965, !noundef !4
   %26 = load ptr, ptr %19, align 8, !noalias !1012, !nonnull !4, !align !8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !1012
@@ -4435,7 +4435,7 @@ default.unreachable13:                            ; preds = %1
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @_ZN3std9panicking3try8do_catch17h6c4ab6406bb1ab4fE.llvm.14829166003003082705(ptr nonnull %6, ptr %32)
+  call void @_ZN3std9panicking3try8do_catch17h6c4ab6406bb1ab4fE.llvm.14829166003003082705(ptr nonnull %6, ptr %32), !noalias !1023
   %33 = load ptr, ptr %6, align 8, !noalias !1020, !nonnull !4, !align !965
   %34 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1020, !nonnull !4, !align !8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !1020
@@ -4605,7 +4605,7 @@ default.unreachable13:                            ; preds = %1
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @_ZN3std9panicking3try8do_catch17h775efe334043888aE.llvm.14829166003003082705(ptr nonnull %7, ptr %24)
+  call void @_ZN3std9panicking3try8do_catch17h775efe334043888aE.llvm.14829166003003082705(ptr nonnull %7, ptr %24), !noalias !1038
   %25 = load ptr, ptr %7, align 8, !noalias !1032, !nonnull !4, !align !965, !noundef !4
   %26 = load ptr, ptr %19, align 8, !noalias !1032, !nonnull !4, !align !8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !1032
@@ -4634,7 +4634,7 @@ default.unreachable13:                            ; preds = %1
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @_ZN3std9panicking3try8do_catch17hbc896c635ec57487E.llvm.14829166003003082705(ptr nonnull %6, ptr %32)
+  call void @_ZN3std9panicking3try8do_catch17hbc896c635ec57487E.llvm.14829166003003082705(ptr nonnull %6, ptr %32), !noalias !1043
   %33 = load ptr, ptr %6, align 8, !noalias !1040, !nonnull !4, !align !965
   %34 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1040, !nonnull !4, !align !8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !1040
@@ -4804,7 +4804,7 @@ default.unreachable13:                            ; preds = %1
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @_ZN3std9panicking3try8do_catch17h9cc8487fec5dbdb2E.llvm.14829166003003082705(ptr nonnull %7, ptr %24)
+  call void @_ZN3std9panicking3try8do_catch17h9cc8487fec5dbdb2E.llvm.14829166003003082705(ptr nonnull %7, ptr %24), !noalias !1058
   %25 = load ptr, ptr %7, align 8, !noalias !1052, !nonnull !4, !align !965, !noundef !4
   %26 = load ptr, ptr %19, align 8, !noalias !1052, !nonnull !4, !align !8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !1052
@@ -4833,7 +4833,7 @@ default.unreachable13:                            ; preds = %1
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @_ZN3std9panicking3try8do_catch17he8d5616ccd8674d1E.llvm.14829166003003082705(ptr nonnull %6, ptr %32)
+  call void @_ZN3std9panicking3try8do_catch17he8d5616ccd8674d1E.llvm.14829166003003082705(ptr nonnull %6, ptr %32), !noalias !1063
   %33 = load ptr, ptr %6, align 8, !noalias !1060, !nonnull !4, !align !965
   %34 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1060, !nonnull !4, !align !8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !1060
@@ -5003,7 +5003,7 @@ default.unreachable13:                            ; preds = %1
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @_ZN3std9panicking3try8do_catch17hc34179edbb38ba72E.llvm.14829166003003082705(ptr nonnull %7, ptr %24)
+  call void @_ZN3std9panicking3try8do_catch17hc34179edbb38ba72E.llvm.14829166003003082705(ptr nonnull %7, ptr %24), !noalias !1078
   %25 = load ptr, ptr %7, align 8, !noalias !1072, !nonnull !4, !align !965, !noundef !4
   %26 = load ptr, ptr %19, align 8, !noalias !1072, !nonnull !4, !align !8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !1072
@@ -5032,7 +5032,7 @@ default.unreachable13:                            ; preds = %1
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @_ZN3std9panicking3try8do_catch17hafd59c8c1124f607E.llvm.14829166003003082705(ptr nonnull %6, ptr %32)
+  call void @_ZN3std9panicking3try8do_catch17hafd59c8c1124f607E.llvm.14829166003003082705(ptr nonnull %6, ptr %32), !noalias !1083
   %33 = load ptr, ptr %6, align 8, !noalias !1080, !nonnull !4, !align !965
   %34 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1080, !nonnull !4, !align !8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !1080
@@ -5199,7 +5199,7 @@ default.unreachable10:                            ; preds = %1
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @_ZN3std9panicking3try8do_catch17h81521c72efd34f1aE.llvm.14829166003003082705(ptr nonnull %3, ptr %22)
+  call void @_ZN3std9panicking3try8do_catch17h81521c72efd34f1aE.llvm.14829166003003082705(ptr nonnull %3, ptr %22), !noalias !1098
   %23 = load ptr, ptr %3, align 8, !noalias !1092, !nonnull !4, !align !965, !noundef !4
   %24 = load ptr, ptr %16, align 8, !noalias !1092, !nonnull !4, !align !8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1092
@@ -5235,7 +5235,7 @@ default.unreachable10:                            ; preds = %1
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @_ZN3std9panicking3try8do_catch17h0a4ddb8e5f0af77aE.llvm.14829166003003082705(ptr nonnull %2, ptr %30)
+  call void @_ZN3std9panicking3try8do_catch17h0a4ddb8e5f0af77aE.llvm.14829166003003082705(ptr nonnull %2, ptr %30), !noalias !1103
   %31 = load ptr, ptr %2, align 8, !noalias !1100, !nonnull !4, !align !965
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %33 = load ptr, ptr %32, align 8, !noalias !1100, !nonnull !4, !align !8
@@ -5350,7 +5350,7 @@ default.unreachable13:                            ; preds = %1
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @_ZN3std9panicking3try8do_catch17h793092b80814f9d6E.llvm.14829166003003082705(ptr nonnull %7, ptr %24)
+  call void @_ZN3std9panicking3try8do_catch17h793092b80814f9d6E.llvm.14829166003003082705(ptr nonnull %7, ptr %24), !noalias !1118
   %25 = load ptr, ptr %7, align 8, !noalias !1112, !nonnull !4, !align !965, !noundef !4
   %26 = load ptr, ptr %19, align 8, !noalias !1112, !nonnull !4, !align !8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !1112
@@ -5379,7 +5379,7 @@ default.unreachable13:                            ; preds = %1
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @_ZN3std9panicking3try8do_catch17h906afeef1d15fbffE.llvm.14829166003003082705(ptr nonnull %6, ptr %32)
+  call void @_ZN3std9panicking3try8do_catch17h906afeef1d15fbffE.llvm.14829166003003082705(ptr nonnull %6, ptr %32), !noalias !1123
   %33 = load ptr, ptr %6, align 8, !noalias !1120, !nonnull !4, !align !965
   %34 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1120, !nonnull !4, !align !8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !1120
@@ -5549,7 +5549,7 @@ default.unreachable13:                            ; preds = %1
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @_ZN3std9panicking3try8do_catch17hcbea412094414952E.llvm.14829166003003082705(ptr nonnull %7, ptr %24)
+  call void @_ZN3std9panicking3try8do_catch17hcbea412094414952E.llvm.14829166003003082705(ptr nonnull %7, ptr %24), !noalias !1138
   %25 = load ptr, ptr %7, align 8, !noalias !1132, !nonnull !4, !align !965, !noundef !4
   %26 = load ptr, ptr %19, align 8, !noalias !1132, !nonnull !4, !align !8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !1132
@@ -5578,7 +5578,7 @@ default.unreachable13:                            ; preds = %1
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @_ZN3std9panicking3try8do_catch17h260fa378b8c94447E.llvm.14829166003003082705(ptr nonnull %6, ptr %32)
+  call void @_ZN3std9panicking3try8do_catch17h260fa378b8c94447E.llvm.14829166003003082705(ptr nonnull %6, ptr %32), !noalias !1143
   %33 = load ptr, ptr %6, align 8, !noalias !1140, !nonnull !4, !align !965
   %34 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1140, !nonnull !4, !align !8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !1140

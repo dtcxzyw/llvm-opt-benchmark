@@ -20017,9 +20017,9 @@ _ZNKSt8functionIFvRSt7promiseISt3setIN3nix9StorePathESt4lessIS3_ESaIS3_EEEEEclES
   br i1 %.not.i.i21.i.i.i, label %_ZNSt8functionIFvSt6futureIN3nix3refIKNS1_13ValidPathInfoEEEEEED2Ev.exit23.i.i.i, label %66
 
 66:                                               ; preds = %.body.i.i.i, %.body.thread.i.i.i
-  %.pn.ph36.i.i.i = phi { ptr, i32 } [ %64, %.body.thread.i.i.i ], [ %65, %.body.i.i.i ]
-  %.pr35.i.i.i = phi ptr [ @"_ZNSt17_Function_handlerIFvSt6futureIN3nix3refIKNS1_13ValidPathInfoEEEEEZZNS1_5Store16computeFSClosureERKSt3setINS1_9StorePathESt4lessISA_ESaISA_EERSE_bbbENK3$_2clERKSA_St8functionIFvRSt7promiseISE_EEEEUlS6_E_E10_M_managerERSt9_Any_dataRKST_St18_Manager_operation", %.body.thread.i.i.i ], [ %.pr.pre.i.i.i, %.body.i.i.i ]
-  %67 = invoke noundef zeroext i1 %.pr35.i.i.i(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
+  %.pn.ph35.i.i.i = phi { ptr, i32 } [ %64, %.body.thread.i.i.i ], [ %65, %.body.i.i.i ]
+  %.pr34.i.i.i = phi ptr [ @"_ZNSt17_Function_handlerIFvSt6futureIN3nix3refIKNS1_13ValidPathInfoEEEEEZZNS1_5Store16computeFSClosureERKSt3setINS1_9StorePathESt4lessISA_ESaISA_EERSE_bbbENK3$_2clERKSA_St8functionIFvRSt7promiseISE_EEEEUlS6_E_E10_M_managerERSt9_Any_dataRKST_St18_Manager_operation", %.body.thread.i.i.i ], [ %.pr.pre.i.i.i, %.body.i.i.i ]
+  %67 = invoke noundef zeroext i1 %.pr34.i.i.i(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvSt6futureIN3nix3refIKNS1_13ValidPathInfoEEEEEED2Ev.exit23.i.i.i unwind label %68
 
 68:                                               ; preds = %66
@@ -20030,7 +20030,7 @@ _ZNKSt8functionIFvRSt7promiseISt3setIN3nix9StorePathESt4lessIS3_ESaIS3_EEEEEclES
   unreachable
 
 _ZNSt8functionIFvSt6futureIN3nix3refIKNS1_13ValidPathInfoEEEEEED2Ev.exit23.i.i.i: ; preds = %66, %.body.i.i.i, %62
-  %.pn.pn.i.i.i = phi { ptr, i32 } [ %63, %62 ], [ %65, %.body.i.i.i ], [ %.pn.ph36.i.i.i, %66 ]
+  %.pn.pn.i.i.i = phi { ptr, i32 } [ %63, %62 ], [ %65, %.body.i.i.i ], [ %.pn.ph35.i.i.i, %66 ]
   call void @_ZNSt7promiseISt3setIN3nix9StorePathESt4lessIS2_ESaIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #31
   br label %.body.i.i
 

@@ -566,7 +566,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2ERKS2_.e
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  %80 = tail call ptr @__cxa_begin_catch(ptr %79) #22
+  %80 = tail call ptr @__cxa_begin_catch(ptr %79) #22, !noalias !8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %32) #22, !noalias !8
   tail call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef 40) #21, !noalias !8
   invoke void @__cxa_rethrow() #24
@@ -582,7 +582,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2ERKS2_.e
   %84 = landingpad { ptr, i32 }
           catch ptr null
   %85 = extractvalue { ptr, i32 } %84, 0
-  tail call void @__clang_call_terminate(ptr %85) #23
+  tail call void @__clang_call_terminate(ptr %85) #23, !noalias !8
   unreachable
 
 86:                                               ; preds = %77
@@ -3622,7 +3622,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2ERKS2_.e
   %172 = landingpad { ptr, i32 }
           catch ptr null
   %173 = extractvalue { ptr, i32 } %172, 0
-  %174 = call ptr @__cxa_begin_catch(ptr %173) #22
+  %174 = call ptr @__cxa_begin_catch(ptr %173) #22, !noalias !29
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129_HdMaterialBindingsDataSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %126) #22, !noalias !29
   call void @_ZdlPvm(ptr noundef nonnull %126, i64 noundef 40) #21, !noalias !29
   invoke void @__cxa_rethrow() #24
@@ -3638,7 +3638,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2ERKS2_.e
   %178 = landingpad { ptr, i32 }
           catch ptr null
   %179 = extractvalue { ptr, i32 } %178, 0
-  call void @__clang_call_terminate(ptr %179) #23
+  call void @__clang_call_terminate(ptr %179) #23, !noalias !29
   unreachable
 
 180:                                              ; preds = %171
@@ -3671,7 +3671,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2ERKS2_.e
   %190 = landingpad { ptr, i32 }
           catch ptr null
   %191 = extractvalue { ptr, i32 } %190, 0
-  %192 = call ptr @__cxa_begin_catch(ptr %191) #22
+  %192 = call ptr @__cxa_begin_catch(ptr %191) #22, !noalias !32
   %193 = load ptr, ptr %185, align 8, !noalias !32
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %195 = load ptr, ptr %194, align 8, !noalias !32
@@ -3689,7 +3689,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2ERKS2_.e
   %199 = landingpad { ptr, i32 }
           catch ptr null
   %200 = extractvalue { ptr, i32 } %199, 0
-  call void @__clang_call_terminate(ptr %200) #23
+  call void @__clang_call_terminate(ptr %200) #23, !noalias !32
   unreachable
 
 201:                                              ; preds = %189

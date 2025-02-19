@@ -2731,7 +2731,7 @@ _ZN5alloc3fmt6format17hce246aee5769fae0E.exit:    ; preds = %tailrecurse.i, %tai
   %25 = extractvalue { ptr, i64 } %23, 1
   %26 = icmp ne ptr %24, null
   tail call void @llvm.assume(i1 %26)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %24, ptr noundef nonnull align 1 dereferenceable(36) @anon.9eac952c03a1f862b507c37fd02baf21.33, i64 36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %24, ptr noundef nonnull align 1 dereferenceable(36) @anon.9eac952c03a1f862b507c37fd02baf21.33, i64 36, i1 false), !noalias !693
   store i64 8, ptr %0, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %24, ptr %.sroa.45.0..sroa_idx, align 8
@@ -3600,3 +3600,4 @@ attributes #31 = { cold noreturn nounwind }
 !690 = distinct !{!690, !691, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17haaeec7a011be426cE: argument 0"}
 !691 = distinct !{!691, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17haaeec7a011be426cE"}
 !692 = distinct !{!692, !691, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17haaeec7a011be426cE: argument 1"}
+!693 = !{!690}

@@ -1907,7 +1907,7 @@ terminate.lpad.i.i.i38:                           ; preds = %if.then.i.i.i.i.i, 
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #29, !noalias !94
   unreachable
 
 lpad.i:                                           ; preds = %_ZN5boost10shared_ptrIN8QuantLib30GeneralizedBlackScholesProcessEEC2ERKS3_.exit.i

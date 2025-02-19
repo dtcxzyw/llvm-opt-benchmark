@@ -2614,7 +2614,6 @@ cleanup111.thread:                                ; preds = %land.rhs.i.i, %if.e
   %m_manager.i210 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %6, ptr %m_manager.i210, align 8
   store ptr %call8, ptr %agg.result, align 8
-  store ptr null, ptr %dotstar, align 8
   br label %_ZN7obj_refI4expr11ast_managerED2Ev.exit220
 
 cleanup111.sink.split:                            ; preds = %if.then, %cleanup108.thread

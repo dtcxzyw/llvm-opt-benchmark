@@ -1082,7 +1082,6 @@ _ZN7msgpack2v14zonenwEm.exit:                     ; preds = %8
   %.sroa.4.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4.0..sroa_idx35, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4, i64 20, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %10, align 8
   %59 = load ptr, ptr %58, align 8
   store ptr %11, ptr %58, align 8
   %.not.i.i.i.i = icmp eq ptr %59, null
@@ -1137,7 +1136,6 @@ _ZN7msgpack2v14zone15finalizer_arrayD2Ev.exit.i.i.i.i.i.i: ; preds = %.noexc.i.i
   %.sroa.4.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4.0..sroa_idx36, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4, i64 20, i1 false)
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %10, align 8
   %79 = load ptr, ptr %78, align 8
   store ptr %11, ptr %78, align 8
   %.not.i.i.i.i17 = icmp eq ptr %79, null

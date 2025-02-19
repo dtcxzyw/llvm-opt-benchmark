@@ -860,7 +860,7 @@ _ZN8WasmEdge4LLVM6Module9addGlobalENS0_4TypeEb11LLVMLinkageNS0_5ValueEPKc.exit28
   %147 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 13, ptr nonnull @.str.9) #16, !noalias !53
   %148 = extractvalue { i64, ptr } %147, 0
   %149 = extractvalue { i64, ptr } %147, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %11, i64 %148, ptr %149) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %11, i64 %148, ptr %149) #16, !noalias !53
   %150 = load i64, ptr %11, align 8, !noalias !53
   %151 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %152 = load ptr, ptr %151, align 8, !noalias !53
@@ -1154,7 +1154,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmESaIS7
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %.lr.ph426.i
   %248 = extractvalue { i64, ptr } %245, 1
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %248, ptr noundef nonnull dereferenceable(7) @.str.14, i64 7)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %248, ptr noundef nonnull dereferenceable(7) @.str.14, i64 7), !noalias !53
   %249 = icmp eq i32 %bcmp.i.i, 0
   br i1 %249, label %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit.i, label %251
 
@@ -1170,7 +1170,7 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i103.i: ; preds = %251
   %255 = extractvalue { i64, ptr } %252, 1
-  %bcmp.i104.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %255, ptr noundef nonnull dereferenceable(10) @.str.15, i64 10)
+  %bcmp.i104.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %255, ptr noundef nonnull dereferenceable(10) @.str.15, i64 10), !noalias !53
   %256 = icmp eq i32 %bcmp.i104.i, 0
   br i1 %256, label %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit106.i, label %258
 
@@ -1186,7 +1186,7 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %258
   %261 = extractvalue { i64, ptr } %259, 1
-  %lhsc.i = load i8, ptr %261, align 1
+  %lhsc.i = load i8, ptr %261, align 1, !noalias !53
   %262 = icmp eq i8 %lhsc.i, 116
   br i1 %262, label %_ZN12_GLOBAL__N_110startsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i, label %332
 
@@ -1353,7 +1353,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit.i:             ; preds = %_ZNSt12_Vector_base
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i114.i: ; preds = %332
   %335 = extractvalue { i64, ptr } %333, 1
-  %lhsc390.i = load i8, ptr %335, align 1
+  %lhsc390.i = load i8, ptr %335, align 1, !noalias !53
   %336 = icmp eq i8 %lhsc390.i, 102
   br i1 %336, label %_ZN12_GLOBAL__N_110startsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit117.i, label %_ZN12_GLOBAL__N_110startsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit117.thread.i
 

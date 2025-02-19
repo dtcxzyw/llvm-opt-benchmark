@@ -1409,7 +1409,7 @@ define dso_local void @_ZN3tev7Channel13divideByAsyncERKS0_i(ptr dead_on_unwind 
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #26
+  call void @__clang_call_terminate(ptr %37) #26, !noalias !29
   unreachable
 
 38:                                               ; preds = %4
@@ -1781,7 +1781,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncImZNS_7Channe
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #26
+  call void @__clang_call_terminate(ptr %52) #26, !noalias !49
   unreachable
 
 53:                                               ; preds = %6
@@ -2510,7 +2510,7 @@ define dso_local void @_ZN3tev7Channel17multiplyWithAsyncERKS0_i(ptr dead_on_unw
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #26
+  call void @__clang_call_terminate(ptr %37) #26, !noalias !75
   unreachable
 
 38:                                               ; preds = %4
@@ -2873,7 +2873,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncImZNS_7Channe
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #26
+  call void @__clang_call_terminate(ptr %52) #26, !noalias !94
   unreachable
 
 53:                                               ; preds = %6
@@ -7963,7 +7963,7 @@ define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_7Chann
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #26
+  call void @__clang_call_terminate(ptr %41) #26, !noalias !338
   unreachable
 
 42:                                               ; preds = %7
@@ -43418,7 +43418,7 @@ define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_7Chann
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #26
+  call void @__clang_call_terminate(ptr %41) #26, !noalias !588
   unreachable
 
 42:                                               ; preds = %7

@@ -4601,7 +4601,6 @@ if.then23.i.i.i.i.i.i.i.i:                        ; preds = %invoke.cont21.i.i.i
 
 invoke.cont27.i.i.i.i.i.i.i.i:                    ; preds = %if.then23.i.i.i.i.i.i.i.i
   %335 = load ptr, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 8, !noalias !90
-  store ptr null, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 8, !noalias !90
   %336 = load ptr, ptr %n.i, align 8, !alias.scope !90
   store ptr %335, ptr %n.i, align 8, !alias.scope !90
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %336, null
@@ -4620,7 +4619,6 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %if.then.i.i.i.i.i.i
 
 _ZN3ue212bytecode_ptrI3NFAED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i706, %invoke.cont27.i.i.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i61.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i63.i.i.i.i.i.i.i.i, i64 16, i1 false)
-  store ptr null, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 8, !noalias !90
   %339 = load ptr, ptr %agg.tmp24.i.i.i.i.i.i.i.i, align 8, !noalias !90
   %cmp.not.i.i64.i.i.i.i.i.i.i.i = icmp eq ptr %339, null
   br i1 %cmp.not.i.i64.i.i.i.i.i.i.i.i, label %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit67.i.i.i.i.i.i.i.i, label %if.then.i.i65.i.i.i.i.i.i.i.i
@@ -41568,7 +41566,6 @@ _ZN3ue212bytecode_ptrI3NFAED2Ev.exit205:          ; preds = %invoke.cont151
   store ptr %126, ptr %agg.result, align 8
   %bytes3.i200 = getelementptr inbounds nuw i8, ptr %ref.tmp152, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i323, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i200, i64 16, i1 false)
-  store ptr null, ptr %ref.tmp152, align 8
   %127 = load ptr, ptr %agg.tmp153, align 8
   %cmp.not.i.i206 = icmp eq ptr %127, null
   br i1 %cmp.not.i.i206, label %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit209, label %if.then.i.i207
@@ -41585,7 +41582,6 @@ terminate.lpad.i.i208:                            ; preds = %if.then.i.i207
   unreachable
 
 _ZN3ue212bytecode_ptrI3NFAED2Ev.exit209:          ; preds = %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit205, %if.then.i.i207
-  store ptr null, ptr %agg.tmp153, align 8
   %130 = load ptr, ptr %agg.tmp, align 8
   %cmp.not.i.i210 = icmp eq ptr %130, null
   br i1 %cmp.not.i.i210, label %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit213, label %if.then.i.i211
@@ -41602,7 +41598,6 @@ terminate.lpad.i.i212:                            ; preds = %if.then.i.i211
   unreachable
 
 _ZN3ue212bytecode_ptrI3NFAED2Ev.exit213:          ; preds = %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit209, %if.then.i.i211
-  store ptr null, ptr %agg.tmp, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp152) #26
   %133 = load ptr, ptr %d, align 8
   %cmp.not.i.i214 = icmp eq ptr %133, null

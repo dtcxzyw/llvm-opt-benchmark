@@ -2119,7 +2119,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %lpad8.i.i
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #29
+  call void @__clang_call_terminate(ptr %25) #29, !noalias !10
   unreachable
 
 _ZNSt3mapI21grpc_resolved_addressN9grpc_core13RefCountedPtrINS1_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEEENS1_23ResolvedAddressLessThanESaISt4pairIKS0_S6_EEED2Ev.exit.i.i: ; preds = %lpad8.i.i
@@ -2131,7 +2131,7 @@ terminate.lpad.i.i10.i.i:                         ; preds = %_ZNSt3mapI21grpc_re
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #29
+  call void @__clang_call_terminate(ptr %27) #29, !noalias !10
   unreachable
 
 _ZNSt3mapIN9grpc_core18EndpointAddressSetENS0_13RefCountedPtrINS0_12_GLOBAL__N_118OutlierDetectionLb13EndpointStateEEESt4lessIS1_ESaISt4pairIKS1_S6_EEED2Ev.exit.i.i: ; preds = %_ZNSt3mapI21grpc_resolved_addressN9grpc_core13RefCountedPtrINS1_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEEENS1_23ResolvedAddressLessThanESaISt4pairIKS0_S6_EEED2Ev.exit.i.i
@@ -8631,7 +8631,7 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %_ZN9grpc_core13RefC
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #29
+  call void @__clang_call_terminate(ptr %65) #29, !noalias !83
   unreachable
 
 _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb13EndpointStateEED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb13EndpointStateEEaSEOS4_.exit.i.i.i.i.i.i.i
@@ -10660,7 +10660,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %_ZN9grpc_core13RefC
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #29
+  call void @__clang_call_terminate(ptr %33) #29, !noalias !117
   unreachable
 
 if.then.i11.i.i:                                  ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb13EndpointStateEEC2ERKS4_.exit.i.i.i
@@ -10748,7 +10748,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i36
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #29
+  call void @__clang_call_terminate(ptr %46) #29, !noalias !113
   unreachable
 
 _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit.i: ; preds = %delete.notnull.i.i.i.i, %if.end.i.i.i, %invoke.cont8.i
@@ -13401,7 +13401,7 @@ terminate.lpad.i.i.i:                             ; preds = %_ZN9grpc_core13RefC
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #29
+  tail call void @__clang_call_terminate(ptr %16) #29, !noalias !148
   unreachable
 
 invoke.cont15:                                    ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb13EndpointStateEEC2ERKS4_.exit.i.i

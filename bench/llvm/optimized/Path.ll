@@ -5590,7 +5590,6 @@ _ZN4llvmplERKNS_5TwineES2_.exit19:                ; preds = %_ZN4llvmplERKNS_5Tw
   %41 = extractvalue { ptr, i64 } %40, 0
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #32
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i8 1, ptr %42, align 8, !tbaa !43
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 33
   store i8 1, ptr %43, align 1, !tbaa !46
   %44 = load i8, ptr %41, align 1, !tbaa !10

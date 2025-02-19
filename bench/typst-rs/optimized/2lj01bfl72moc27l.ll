@@ -3464,7 +3464,7 @@ _ZN10ttf_parser6tables3svg16SvgDocumentsList4find17h603d677cde62fc58E.exit.threa
   %284 = extractvalue { i64, ptr } %280, 1
   %285 = icmp ne ptr %284, null
   call void @llvm.assume(i1 %285)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %284, ptr nonnull align 1 %276, i64 %278, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %284, ptr nonnull align 1 %276, i64 %278, i1 false), !noalias !492
   store i64 %283, ptr %29, align 8, !noalias !560
   %.sroa.459.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %284, ptr %.sroa.459.0..sroa_idx.i, align 8, !noalias !560
@@ -4697,7 +4697,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   %233 = extractvalue { ptr, i64 } %232, 0
   %234 = extractvalue { ptr, i64 } %232, 1
   invoke void @_ZN6base646engine6Engine6encode5inner17h8563cb9c88de0931E(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 1 dereferenceable(323) @anon.66413a75bd3e97e6ca35092844b5d7ed.127, ptr noalias noundef nonnull readonly align 1 %233, i64 noundef %234)
-          to label %_ZN6base646engine6Engine6encode17h1a302ea5ca5805c8E.exit.i unwind label %.thread26.i
+          to label %_ZN6base646engine6Engine6encode17h1a302ea5ca5805c8E.exit.i unwind label %.thread26.i, !noalias !887
 
 _ZN6base646engine6Engine6encode17h1a302ea5ca5805c8E.exit.i: ; preds = %.noexc18.i
   %235 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -9118,7 +9118,7 @@ attributes #21 = { nounwind }
 !599 = distinct !{!599, !600, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h41bdea673678d4a0E: argument 0"}
 !600 = distinct !{!600, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h41bdea673678d4a0E"}
 !601 = distinct !{!601, !600, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h41bdea673678d4a0E: argument 1"}
-!602 = !{!603}
+!602 = !{!603, !493}
 !603 = distinct !{!603, !604, !"_ZN75_$LT$xmlparser..Tokenizer$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h20ccfec39cdb7d95E: argument 0"}
 !604 = distinct !{!604, !"_ZN75_$LT$xmlparser..Tokenizer$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h20ccfec39cdb7d95E"}
 !605 = !{!606}

@@ -7741,7 +7741,6 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %1096, %_ZNSt6vector
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %28) #25
-  store i8 0, ptr %28, align 1, !tbaa !406
   %1121 = load ptr, ptr %1073, align 8, !tbaa !407
   %1122 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %1121, i64 %.01474
   %1123 = load ptr, ptr %1122, align 8, !tbaa !142
@@ -14191,7 +14190,6 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.us: ; preds = %92, %86, %.critedg
 
 100:                                              ; preds = %.lr.ph.split
   %101 = load ptr, ptr %6, align 8, !tbaa !92
-  store ptr %101, ptr %5, align 8, !tbaa !91
   %102 = load i64, ptr %101, align 8
   %103 = lshr i64 %102, 40
   %104 = trunc nuw nsw i64 %103 to i32

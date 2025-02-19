@@ -5291,7 +5291,7 @@ _ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEEC2ERKS5_.exit.i.i.i: ; preds = %14
   %1500 = landingpad { ptr, i32 }
           catch ptr null
   %1501 = extractvalue { ptr, i32 } %1500, 0
-  call void @__clang_call_terminate(ptr %1501) #24
+  call void @__clang_call_terminate(ptr %1501) #24, !noalias !39
   unreachable
 
 _ZNK5Yosys7hashlib4dictISt4pairIPNS_5RTLIL4CellENS3_8IdStringEENS3_7SigSpecENS0_8hash_opsIS7_EEE7do_hashERKS7_.exit.i.i: ; preds = %1498, %1491, %1477, %1460

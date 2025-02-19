@@ -4297,7 +4297,7 @@ lpad.i.i.i.i:                                     ; preds = %invoke.cont9
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %exn.slot.0.i.i.i.i = extractvalue { ptr, i32 } %5, 0
-  %6 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.0.i.i.i.i) #27
+  %6 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.0.i.i.i.i) #27, !noalias !120
   tail call void @_ZdaPv(ptr noundef nonnull %call.i.i) #28, !noalias !120
   invoke void @__cxa_rethrow() #25
           to label %unreachable.i.i.i.i unwind label %lpad5.i.i.i.i, !noalias !120
@@ -4316,7 +4316,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %lpad5.i.i.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #29
+  tail call void @__clang_call_terminate(ptr %9) #29, !noalias !120
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %lpad.i.i.i.i

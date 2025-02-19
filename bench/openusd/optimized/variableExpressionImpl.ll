@@ -57600,7 +57600,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINSt7__cxx1112basic
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  tail call void @__clang_call_terminate(ptr %33) #26
+  tail call void @__clang_call_terminate(ptr %33) #26, !noalias !3985
   unreachable
 
 _ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl18_ComparisonVisitorISt4lessEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr21IsSupportedScalarTypeIT_EE5valueENS0_10EvalResultEE4typeERKSC_.exit: ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_v.exit.i
@@ -68157,7 +68157,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINSt7__cxx1112basic
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  tail call void @__clang_call_terminate(ptr %33) #26
+  tail call void @__clang_call_terminate(ptr %33) #26, !noalias !4582
   unreachable
 
 _ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl18_ComparisonVisitorISt10less_equalEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr21IsSupportedScalarTypeIT_EE5valueENS0_10EvalResultEE4typeERKSC_.exit: ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_v.exit.i
@@ -78712,7 +78712,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINSt7__cxx1112basic
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  tail call void @__clang_call_terminate(ptr %33) #26
+  tail call void @__clang_call_terminate(ptr %33) #26, !noalias !5179
   unreachable
 
 _ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl18_ComparisonVisitorISt7greaterEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr21IsSupportedScalarTypeIT_EE5valueENS0_10EvalResultEE4typeERKSC_.exit: ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_v.exit.i
@@ -89267,7 +89267,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINSt7__cxx1112basic
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  tail call void @__clang_call_terminate(ptr %33) #26
+  tail call void @__clang_call_terminate(ptr %33) #26, !noalias !5776
   unreachable
 
 _ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl18_ComparisonVisitorISt13greater_equalEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr21IsSupportedScalarTypeIT_EE5valueENS0_10EvalResultEE4typeERKSC_.exit: ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_v.exit.i

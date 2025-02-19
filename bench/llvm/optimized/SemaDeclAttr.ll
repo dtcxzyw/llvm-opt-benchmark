@@ -7324,9 +7324,90 @@ define dso_local noundef ptr @_ZN5clang4Sema21mergeAvailabilityAttrEPNS_9NamedDe
   %63 = getelementptr inbounds nuw i8, ptr %25, i64 132
   %64 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %65 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  br label %66
+  %66 = and i64 %.sroa.0354.0.copyload, 9223372036854775807
+  %or.cond.i7.i = icmp eq i64 %66, 0
+  %67 = and i64 %.sroa.7355.0.copyload, 9223372034707292159
+  %68 = icmp eq i64 %67, 0
+  %or.cond13.i = select i1 %or.cond.i7.i, i1 %68, i1 false
+  %69 = trunc i64 %.sroa.0354.0.copyload to i32
+  %70 = lshr i64 %.sroa.0354.0.copyload, 32
+  %71 = trunc nuw i64 %70 to i32
+  %72 = and i32 %71, 2147483647
+  %73 = trunc i64 %.sroa.7355.0.copyload to i32
+  %74 = and i32 %73, 2147483647
+  %75 = lshr i64 %.sroa.7355.0.copyload, 32
+  %76 = trunc nuw i64 %75 to i32
+  %77 = and i32 %76, 2147483647
+  %78 = and i64 %.sroa.0348.0.copyload, 9223372036854775807
+  %or.cond.i.i174 = icmp eq i64 %78, 0
+  %79 = and i64 %.sroa.7350.0.copyload, 9223372034707292159
+  %80 = icmp eq i64 %79, 0
+  %or.cond9.i175 = select i1 %or.cond.i.i174, i1 %80, i1 false
+  %81 = trunc i64 %.sroa.0348.0.copyload to i32
+  %82 = lshr i64 %.sroa.0348.0.copyload, 32
+  %83 = trunc nuw i64 %82 to i32
+  %84 = and i32 %83, 2147483647
+  %85 = trunc i64 %.sroa.7350.0.copyload to i32
+  %86 = and i32 %85, 2147483647
+  %87 = lshr i64 %.sroa.7350.0.copyload, 32
+  %88 = trunc nuw i64 %87 to i32
+  %89 = and i32 %88, 2147483647
+  %90 = and i64 %.sroa.0342.0.copyload, 9223372036854775807
+  %or.cond.i.i187 = icmp eq i64 %90, 0
+  %91 = and i64 %.sroa.7344.0.copyload, 9223372034707292159
+  %92 = icmp eq i64 %91, 0
+  %or.cond9.i188 = select i1 %or.cond.i.i187, i1 %92, i1 false
+  %93 = trunc i64 %.sroa.0342.0.copyload to i32
+  %94 = lshr i64 %.sroa.0342.0.copyload, 32
+  %95 = trunc nuw i64 %94 to i32
+  %96 = and i32 %95, 2147483647
+  %97 = trunc i64 %.sroa.7344.0.copyload to i32
+  %98 = and i32 %97, 2147483647
+  %99 = lshr i64 %.sroa.7344.0.copyload, 32
+  %100 = trunc nuw i64 %99 to i32
+  %101 = and i32 %100, 2147483647
+  %.pre528 = and i64 %.sroa.0354.0.copyload, 9223372036854775807
+  %.pre529 = and i64 %.sroa.7355.0.copyload, 9223372034707292159
+  %102 = trunc i64 %.sroa.0354.0.copyload to i32
+  %103 = lshr i64 %.sroa.0354.0.copyload, 32
+  %104 = trunc nuw i64 %103 to i32
+  %105 = and i32 %104, 2147483647
+  %106 = trunc i64 %.sroa.7355.0.copyload to i32
+  %107 = and i32 %106, 2147483647
+  %108 = lshr i64 %.sroa.7355.0.copyload, 32
+  %109 = trunc nuw i64 %108 to i32
+  %110 = and i32 %109, 2147483647
+  %111 = and i64 %.sroa.0348.0.copyload, 9223372036854775807
+  %or.cond.i.i213 = icmp eq i64 %111, 0
+  %112 = and i64 %.sroa.7350.0.copyload, 9223372034707292159
+  %113 = icmp eq i64 %112, 0
+  %or.cond9.i214 = select i1 %or.cond.i.i213, i1 %113, i1 false
+  %114 = trunc i64 %.sroa.0348.0.copyload to i32
+  %115 = lshr i64 %.sroa.0348.0.copyload, 32
+  %116 = trunc nuw i64 %115 to i32
+  %117 = and i32 %116, 2147483647
+  %118 = trunc i64 %.sroa.7350.0.copyload to i32
+  %119 = and i32 %118, 2147483647
+  %120 = lshr i64 %.sroa.7350.0.copyload, 32
+  %121 = trunc nuw i64 %120 to i32
+  %122 = and i32 %121, 2147483647
+  %123 = and i64 %.sroa.0342.0.copyload, 9223372036854775807
+  %or.cond.i.i226 = icmp eq i64 %123, 0
+  %124 = and i64 %.sroa.7344.0.copyload, 9223372034707292159
+  %125 = icmp eq i64 %124, 0
+  %or.cond9.i227 = select i1 %or.cond.i.i226, i1 %125, i1 false
+  %126 = trunc i64 %.sroa.0342.0.copyload to i32
+  %127 = lshr i64 %.sroa.0342.0.copyload, 32
+  %128 = trunc nuw i64 %127 to i32
+  %129 = and i32 %128, 2147483647
+  %130 = trunc i64 %.sroa.7344.0.copyload to i32
+  %131 = and i32 %130, 2147483647
+  %132 = lshr i64 %.sroa.7344.0.copyload, 32
+  %133 = trunc nuw i64 %132 to i32
+  %134 = and i32 %133, 2147483647
+  br label %135
 
-66:                                               ; preds = %.lr.ph, %601
+135:                                              ; preds = %.lr.ph, %601
   %.1104497 = phi i1 [ false, %.lr.ph ], [ %.3106, %601 ]
   %.0110490 = phi i32 [ 0, %.lr.ph ], [ %.1111, %601 ]
   %.0116483 = phi i32 [ %43, %.lr.ph ], [ %.1117, %601 ]
@@ -7336,563 +7417,467 @@ define dso_local noundef ptr @_ZN5clang4Sema21mergeAvailabilityAttrEPNS_9NamedDe
   %.sroa.0348.1455 = phi i64 [ %.sroa.0348.0.copyload, %.lr.ph ], [ %.sroa.0348.3, %601 ]
   %.sroa.7344.1448 = phi i64 [ %.sroa.7344.0.copyload, %.lr.ph ], [ %.sroa.7344.3, %601 ]
   %.sroa.0342.1441 = phi i64 [ %.sroa.0342.0.copyload, %.lr.ph ], [ %.sroa.0342.3, %601 ]
-  %67 = zext i32 %.0110490 to i64
-  %68 = load ptr, ptr %41, align 8, !tbaa !45
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %67
-  %70 = load ptr, ptr %69, align 8, !tbaa !93
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
-  %72 = load i16, ptr %71, align 8
-  %73 = icmp ne i16 %72, 136
-  %.not133432 = icmp eq ptr %70, null
-  %.not133 = or i1 %.not133432, %73
-  br i1 %.not133, label %74, label %76
+  %136 = zext i32 %.0110490 to i64
+  %137 = load ptr, ptr %41, align 8, !tbaa !45
+  %138 = getelementptr inbounds nuw ptr, ptr %137, i64 %136
+  %139 = load ptr, ptr %138, align 8, !tbaa !93
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 32
+  %141 = load i16, ptr %140, align 8
+  %142 = icmp ne i16 %141, 136
+  %.not133432 = icmp eq ptr %139, null
+  %.not133 = or i1 %.not133432, %142
+  br i1 %.not133, label %143, label %145
 
-74:                                               ; preds = %66
-  %75 = add i32 %.0110490, 1
+143:                                              ; preds = %135
+  %144 = add i32 %.0110490, 1
   br label %601, !llvm.loop !1143
 
-76:                                               ; preds = %66
-  %77 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  %78 = load ptr, ptr %77, align 8, !tbaa !1144
-  %.not134 = icmp eq ptr %78, %3
-  br i1 %.not134, label %81, label %79
+145:                                              ; preds = %135
+  %146 = getelementptr inbounds nuw i8, ptr %139, i64 40
+  %147 = load ptr, ptr %146, align 8, !tbaa !1144
+  %.not134 = icmp eq ptr %147, %3
+  br i1 %.not134, label %150, label %148
 
-79:                                               ; preds = %76
-  %80 = add i32 %.0110490, 1
+148:                                              ; preds = %145
+  %149 = add i32 %.0110490, 1
   br label %601, !llvm.loop !1143
 
-81:                                               ; preds = %76
-  %82 = getelementptr inbounds nuw i8, ptr %70, i64 136
-  %83 = load ptr, ptr %82, align 8, !tbaa !1148
-  %.not135 = icmp eq ptr %83, %14
-  br i1 %.not135, label %86, label %84
+150:                                              ; preds = %145
+  %151 = getelementptr inbounds nuw i8, ptr %139, i64 136
+  %152 = load ptr, ptr %151, align 8, !tbaa !1148
+  %.not135 = icmp eq ptr %152, %14
+  br i1 %.not135, label %155, label %153
 
-84:                                               ; preds = %81
-  %85 = add i32 %.0110490, 1
+153:                                              ; preds = %150
+  %154 = add i32 %.0110490, 1
   br label %601, !llvm.loop !1143
 
-86:                                               ; preds = %81
-  %87 = getelementptr inbounds nuw i8, ptr %70, i64 128
-  %88 = load i32, ptr %87, align 8, !tbaa !1149
-  %89 = icmp slt i32 %88, %13
-  br i1 %89, label %.thread390, label %90
+155:                                              ; preds = %150
+  %156 = getelementptr inbounds nuw i8, ptr %139, i64 128
+  %157 = load i32, ptr %156, align 8, !tbaa !1149
+  %158 = icmp slt i32 %157, %13
+  br i1 %158, label %.thread390, label %159
 
-90:                                               ; preds = %86
-  %91 = icmp sgt i32 %88, %13
-  br i1 %91, label %92, label %104
+159:                                              ; preds = %155
+  %160 = icmp sgt i32 %157, %13
+  br i1 %160, label %161, label %173
 
-92:                                               ; preds = %90
-  %93 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %94 = load i32, ptr %42, align 8, !tbaa !46
-  %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds nuw ptr, ptr %68, i64 %95
-  %.not.i.i.i.i.i.i = icmp eq ptr %96, %93
-  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit, label %97
+161:                                              ; preds = %159
+  %162 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  %163 = load i32, ptr %42, align 8, !tbaa !46
+  %164 = zext i32 %163 to i64
+  %165 = getelementptr inbounds nuw ptr, ptr %137, i64 %164
+  %.not.i.i.i.i.i.i = icmp eq ptr %165, %162
+  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit, label %166
 
-97:                                               ; preds = %92
-  %98 = ptrtoint ptr %96 to i64
-  %99 = ptrtoint ptr %93 to i64
-  %100 = sub i64 %98, %99
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %69, ptr nonnull align 8 %93, i64 %100, i1 false)
+166:                                              ; preds = %161
+  %167 = ptrtoint ptr %165 to i64
+  %168 = ptrtoint ptr %162 to i64
+  %169 = sub i64 %167, %168
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %138, ptr nonnull align 8 %162, i64 %169, i1 false)
   %.pre.i = load i32, ptr %42, align 8, !tbaa !46
   br label %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit
 
-_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit: ; preds = %92, %97
-  %101 = phi i32 [ %94, %92 ], [ %.pre.i, %97 ]
-  %102 = add i32 %101, -1
-  store i32 %102, ptr %42, align 8, !tbaa !46
-  %103 = add i32 %.0116483, -1
+_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit: ; preds = %161, %166
+  %170 = phi i32 [ %163, %161 ], [ %.pre.i, %166 ]
+  %171 = add i32 %170, -1
+  store i32 %171, ptr %42, align 8, !tbaa !46
+  %172 = add i32 %.0116483, -1
   br label %601, !llvm.loop !1143
 
-104:                                              ; preds = %90
-  %105 = getelementptr inbounds nuw i8, ptr %70, i64 48
-  %.sroa.0.0.copyload.i = load i64, ptr %105, align 8, !tbaa !44
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %70, i64 56
+173:                                              ; preds = %159
+  %174 = getelementptr inbounds nuw i8, ptr %139, i64 48
+  %.sroa.0.0.copyload.i = load i64, ptr %174, align 8, !tbaa !44
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %139, i64 56
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !44
-  %106 = getelementptr inbounds nuw i8, ptr %70, i64 64
-  %.sroa.0.0.copyload.i163 = load i64, ptr %106, align 8, !tbaa !44
-  %.sroa.2.0..sroa_idx.i164 = getelementptr inbounds nuw i8, ptr %70, i64 72
+  %175 = getelementptr inbounds nuw i8, ptr %139, i64 64
+  %.sroa.0.0.copyload.i163 = load i64, ptr %175, align 8, !tbaa !44
+  %.sroa.2.0..sroa_idx.i164 = getelementptr inbounds nuw i8, ptr %139, i64 72
   %.sroa.2.0.copyload.i165 = load i64, ptr %.sroa.2.0..sroa_idx.i164, align 8, !tbaa !44
-  %107 = getelementptr inbounds nuw i8, ptr %70, i64 80
-  %.sroa.0.0.copyload.i168 = load i64, ptr %107, align 8, !tbaa !44
-  %.sroa.2.0..sroa_idx.i169 = getelementptr inbounds nuw i8, ptr %70, i64 88
+  %176 = getelementptr inbounds nuw i8, ptr %139, i64 80
+  %.sroa.0.0.copyload.i168 = load i64, ptr %176, align 8, !tbaa !44
+  %.sroa.2.0..sroa_idx.i169 = getelementptr inbounds nuw i8, ptr %139, i64 88
   %.sroa.2.0.copyload.i170 = load i64, ptr %.sroa.2.0..sroa_idx.i169, align 8, !tbaa !44
-  %108 = getelementptr inbounds nuw i8, ptr %70, i64 96
-  %109 = load i8, ptr %108, align 8, !tbaa !1150, !range !10, !noundef !11
-  %110 = trunc nuw i8 %109 to i1
-  %.val141 = load i64, ptr %5, align 8
-  %.val142 = load i64, ptr %.sroa.7355.0..sroa_idx, align 8
-  %111 = and i64 %.sroa.0.0.copyload.i, 9223372036854775807
-  %or.cond.i.i = icmp eq i64 %111, 0
-  %112 = and i64 %.sroa.2.0.copyload.i, 9223372034707292159
-  %113 = icmp eq i64 %112, 0
-  %or.cond9.i = select i1 %or.cond.i.i, i1 %113, i1 false
-  br i1 %or.cond9.i, label %155, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i
+  %177 = getelementptr inbounds nuw i8, ptr %139, i64 96
+  %178 = load i8, ptr %177, align 8, !tbaa !1150, !range !10, !noundef !11
+  %179 = trunc nuw i8 %178 to i1
+  %180 = and i64 %.sroa.0.0.copyload.i, 9223372036854775807
+  %or.cond.i.i = icmp eq i64 %180, 0
+  %181 = and i64 %.sroa.2.0.copyload.i, 9223372034707292159
+  %182 = icmp eq i64 %181, 0
+  %or.cond9.i = select i1 %or.cond.i.i, i1 %182, i1 false
+  %brmerge = select i1 %or.cond9.i, i1 true, i1 %or.cond13.i
+  br i1 %brmerge, label %212, label %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i
 
-_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i:    ; preds = %104
-  %114 = and i64 %.val141, 9223372036854775807
-  %or.cond.i7.i = icmp eq i64 %114, 0
-  %115 = and i64 %.val142, 9223372034707292159
-  %116 = icmp eq i64 %115, 0
-  %or.cond13.i = select i1 %or.cond.i7.i, i1 %116, i1 false
-  br i1 %or.cond13.i, label %155, label %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i
+_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i:   ; preds = %173
+  %183 = trunc i64 %.sroa.0.0.copyload.i to i32
+  %184 = icmp eq i32 %183, %69
+  br i1 %184, label %185, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i
 
-_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i:   ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i
-  %117 = trunc i64 %.sroa.0.0.copyload.i to i32
-  %118 = trunc i64 %.val141 to i32
-  %119 = icmp eq i32 %117, %118
-  br i1 %119, label %120, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i
+185:                                              ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i
+  %186 = xor i64 %.sroa.0354.0.copyload, %.sroa.0.0.copyload.i
+  %187 = and i64 %186, 9223372032559808512
+  %188 = icmp eq i64 %187, 0
+  br i1 %188, label %189, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i
 
-120:                                              ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i
-  %121 = xor i64 %.val141, %.sroa.0.0.copyload.i
-  %122 = and i64 %121, 9223372032559808512
-  %123 = icmp eq i64 %122, 0
-  br i1 %123, label %124, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i
+189:                                              ; preds = %185
+  %190 = xor i64 %.sroa.7355.0.copyload, %.sroa.2.0.copyload.i
+  %191 = and i64 %190, 9223372034707292159
+  %or.cond15.i = icmp eq i64 %191, 0
+  br i1 %or.cond15.i, label %212, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i
 
-124:                                              ; preds = %120
-  %125 = xor i64 %.val142, %.sroa.2.0.copyload.i
-  %126 = and i64 %125, 9223372034707292159
-  %or.cond15.i = icmp eq i64 %126, 0
-  br i1 %or.cond15.i, label %155, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i
+_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i: ; preds = %189, %185, %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i
+  br i1 %switch, label %192, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread364
 
-_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i: ; preds = %124, %120, %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i
-  br i1 %switch, label %127, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread364
+192:                                              ; preds = %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i
+  %193 = lshr i64 %.sroa.0.0.copyload.i, 32
+  %194 = trunc nuw i64 %193 to i32
+  %195 = and i32 %194, 2147483647
+  %196 = trunc i64 %.sroa.2.0.copyload.i to i32
+  %197 = and i32 %196, 2147483647
+  %198 = lshr i64 %.sroa.2.0.copyload.i, 32
+  %199 = trunc nuw i64 %198 to i32
+  %200 = and i32 %199, 2147483647
+  %201 = icmp ult i32 %183, %69
+  br i1 %201, label %212, label %202
 
-127:                                              ; preds = %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i
-  %128 = lshr i64 %.sroa.0.0.copyload.i, 32
-  %129 = trunc nuw i64 %128 to i32
-  %130 = and i32 %129, 2147483647
-  %131 = trunc i64 %.sroa.2.0.copyload.i to i32
-  %132 = and i32 %131, 2147483647
-  %133 = lshr i64 %.sroa.2.0.copyload.i, 32
-  %134 = trunc nuw i64 %133 to i32
-  %135 = and i32 %134, 2147483647
-  %136 = lshr i64 %.val141, 32
-  %137 = trunc nuw i64 %136 to i32
-  %138 = and i32 %137, 2147483647
-  %139 = trunc i64 %.val142 to i32
-  %140 = and i32 %139, 2147483647
-  %141 = lshr i64 %.val142, 32
-  %142 = trunc nuw i64 %141 to i32
-  %143 = and i32 %142, 2147483647
-  %144 = icmp ult i32 %117, %118
-  br i1 %144, label %155, label %145
+202:                                              ; preds = %192
+  %203 = icmp ult i32 %69, %183
+  br i1 %203, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362.thread, label %204
 
-145:                                              ; preds = %127
-  %146 = icmp ult i32 %118, %117
-  br i1 %146, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362.thread, label %147
+204:                                              ; preds = %202
+  %205 = icmp samesign ult i32 %195, %72
+  br i1 %205, label %212, label %206
 
-147:                                              ; preds = %145
-  %148 = icmp samesign ult i32 %130, %138
-  br i1 %148, label %155, label %149
+206:                                              ; preds = %204
+  %207 = icmp samesign ult i32 %72, %195
+  br i1 %207, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362.thread, label %208
 
-149:                                              ; preds = %147
-  %150 = icmp samesign ult i32 %138, %130
-  br i1 %150, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362.thread, label %151
+208:                                              ; preds = %206
+  %209 = icmp samesign ult i32 %197, %74
+  br i1 %209, label %212, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i
 
-151:                                              ; preds = %149
-  %152 = icmp samesign ult i32 %132, %140
-  br i1 %152, label %155, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i
+_ZN4llvmltERKNS_12VersionTupleES2_.exit.i:        ; preds = %208
+  %210 = icmp samesign uge i32 %74, %197
+  %211 = icmp samesign ult i32 %200, %77
+  %spec.select.i.i173 = select i1 %210, i1 %211, i1 false
+  br i1 %spec.select.i.i173, label %212, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362.thread
 
-_ZN4llvmltERKNS_12VersionTupleES2_.exit.i:        ; preds = %151
-  %153 = icmp samesign uge i32 %140, %132
-  %154 = icmp samesign ult i32 %135, %143
-  %spec.select.i.i173 = select i1 %153, i1 %154, i1 false
-  br i1 %spec.select.i.i173, label %155, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362.thread
+212:                                              ; preds = %173, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i, %192, %204, %208, %189
+  br i1 %or.cond9.i175, label %245, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i176
 
-155:                                              ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i, %127, %147, %151, %104, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i, %124
-  %.val143 = load i64, ptr %6, align 8
-  %.val144 = load i64, ptr %.sroa.7350.0..sroa_idx, align 8
-  %156 = and i64 %.val143, 9223372036854775807
-  %or.cond.i.i174 = icmp eq i64 %156, 0
-  %157 = and i64 %.val144, 9223372034707292159
-  %158 = icmp eq i64 %157, 0
-  %or.cond9.i175 = select i1 %or.cond.i.i174, i1 %158, i1 false
-  br i1 %or.cond9.i175, label %200, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i176
-
-_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i176: ; preds = %155
-  %159 = and i64 %.sroa.0.0.copyload.i163, 9223372036854775807
-  %or.cond.i7.i177 = icmp eq i64 %159, 0
-  %160 = and i64 %.sroa.2.0.copyload.i165, 9223372034707292159
-  %161 = icmp eq i64 %160, 0
-  %or.cond13.i178 = select i1 %or.cond.i7.i177, i1 %161, i1 false
-  br i1 %or.cond13.i178, label %200, label %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i179
+_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i176: ; preds = %212
+  %213 = and i64 %.sroa.0.0.copyload.i163, 9223372036854775807
+  %or.cond.i7.i177 = icmp eq i64 %213, 0
+  %214 = and i64 %.sroa.2.0.copyload.i165, 9223372034707292159
+  %215 = icmp eq i64 %214, 0
+  %or.cond13.i178 = select i1 %or.cond.i7.i177, i1 %215, i1 false
+  br i1 %or.cond13.i178, label %245, label %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i179
 
 _ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i179: ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i176
-  %162 = trunc i64 %.val143 to i32
-  %163 = trunc i64 %.sroa.0.0.copyload.i163 to i32
-  %164 = icmp eq i32 %162, %163
-  br i1 %164, label %165, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i180
+  %216 = trunc i64 %.sroa.0.0.copyload.i163 to i32
+  %217 = icmp eq i32 %81, %216
+  br i1 %217, label %218, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i180
 
-165:                                              ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i179
-  %166 = xor i64 %.val143, %.sroa.0.0.copyload.i163
-  %167 = and i64 %166, 9223372032559808512
-  %168 = icmp eq i64 %167, 0
-  br i1 %168, label %169, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i180
+218:                                              ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i179
+  %219 = xor i64 %.sroa.0348.0.copyload, %.sroa.0.0.copyload.i163
+  %220 = and i64 %219, 9223372032559808512
+  %221 = icmp eq i64 %220, 0
+  br i1 %221, label %222, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i180
 
-169:                                              ; preds = %165
-  %170 = xor i64 %.val144, %.sroa.2.0.copyload.i165
-  %171 = and i64 %170, 9223372034707292159
-  %or.cond15.i185 = icmp eq i64 %171, 0
-  br i1 %or.cond15.i185, label %200, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i180
+222:                                              ; preds = %218
+  %223 = xor i64 %.sroa.7350.0.copyload, %.sroa.2.0.copyload.i165
+  %224 = and i64 %223, 9223372034707292159
+  %or.cond15.i185 = icmp eq i64 %224, 0
+  br i1 %or.cond15.i185, label %245, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i180
 
-_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i180: ; preds = %169, %165, %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i179
-  br i1 %switch, label %172, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread364
+_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i180: ; preds = %222, %218, %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i179
+  br i1 %switch, label %225, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread364
 
-172:                                              ; preds = %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i180
-  %173 = lshr i64 %.val143, 32
-  %174 = trunc nuw i64 %173 to i32
-  %175 = and i32 %174, 2147483647
-  %176 = trunc i64 %.val144 to i32
-  %177 = and i32 %176, 2147483647
-  %178 = lshr i64 %.val144, 32
-  %179 = trunc nuw i64 %178 to i32
-  %180 = and i32 %179, 2147483647
-  %181 = lshr i64 %.sroa.0.0.copyload.i163, 32
-  %182 = trunc nuw i64 %181 to i32
-  %183 = and i32 %182, 2147483647
-  %184 = trunc i64 %.sroa.2.0.copyload.i165 to i32
-  %185 = and i32 %184, 2147483647
-  %186 = lshr i64 %.sroa.2.0.copyload.i165, 32
-  %187 = trunc nuw i64 %186 to i32
-  %188 = and i32 %187, 2147483647
-  %189 = icmp ult i32 %162, %163
-  br i1 %189, label %200, label %190
-
-190:                                              ; preds = %172
-  %191 = icmp ult i32 %163, %162
-  br i1 %191, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362, label %192
-
-192:                                              ; preds = %190
-  %193 = icmp samesign ult i32 %175, %183
-  br i1 %193, label %200, label %194
-
-194:                                              ; preds = %192
-  %195 = icmp samesign ult i32 %183, %175
-  br i1 %195, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362, label %196
-
-196:                                              ; preds = %194
-  %197 = icmp samesign ult i32 %177, %185
-  br i1 %197, label %200, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i183
-
-_ZN4llvmltERKNS_12VersionTupleES2_.exit.i183:     ; preds = %196
-  %198 = icmp samesign uge i32 %185, %177
-  %199 = icmp samesign ult i32 %180, %188
-  %spec.select.i.i184 = select i1 %198, i1 %199, i1 false
-  br i1 %spec.select.i.i184, label %200, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362
-
-200:                                              ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i183, %172, %192, %196, %155, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i176, %169
-  %.val147 = load i64, ptr %7, align 8
-  %.val148 = load i64, ptr %.sroa.7344.0..sroa_idx, align 8
-  %201 = and i64 %.val147, 9223372036854775807
-  %or.cond.i.i187 = icmp eq i64 %201, 0
-  %202 = and i64 %.val148, 9223372034707292159
-  %203 = icmp eq i64 %202, 0
-  %or.cond9.i188 = select i1 %or.cond.i.i187, i1 %203, i1 false
-  br i1 %or.cond9.i188, label %245, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i189
-
-_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i189: ; preds = %200
-  %204 = and i64 %.sroa.0.0.copyload.i168, 9223372036854775807
-  %or.cond.i7.i190 = icmp eq i64 %204, 0
-  %205 = and i64 %.sroa.2.0.copyload.i170, 9223372034707292159
-  %206 = icmp eq i64 %205, 0
-  %or.cond13.i191 = select i1 %or.cond.i7.i190, i1 %206, i1 false
-  br i1 %or.cond13.i191, label %245, label %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i192
-
-_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i192: ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i189
-  %207 = trunc i64 %.val147 to i32
-  %208 = trunc i64 %.sroa.0.0.copyload.i168 to i32
-  %209 = icmp eq i32 %207, %208
-  br i1 %209, label %210, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i193
-
-210:                                              ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i192
-  %211 = xor i64 %.val147, %.sroa.0.0.copyload.i168
-  %212 = and i64 %211, 9223372032559808512
-  %213 = icmp eq i64 %212, 0
-  br i1 %213, label %214, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i193
-
-214:                                              ; preds = %210
-  %215 = xor i64 %.val148, %.sroa.2.0.copyload.i170
-  %216 = and i64 %215, 9223372034707292159
-  %or.cond15.i198 = icmp eq i64 %216, 0
-  br i1 %or.cond15.i198, label %245, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i193
-
-_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i193: ; preds = %214, %210, %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i192
-  br i1 %switch, label %217, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread364
-
-217:                                              ; preds = %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i193
-  %218 = lshr i64 %.val147, 32
-  %219 = trunc nuw i64 %218 to i32
-  %220 = and i32 %219, 2147483647
-  %221 = trunc i64 %.val148 to i32
-  %222 = and i32 %221, 2147483647
-  %223 = lshr i64 %.val148, 32
-  %224 = trunc nuw i64 %223 to i32
-  %225 = and i32 %224, 2147483647
-  %226 = lshr i64 %.sroa.0.0.copyload.i168, 32
+225:                                              ; preds = %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i180
+  %226 = lshr i64 %.sroa.0.0.copyload.i163, 32
   %227 = trunc nuw i64 %226 to i32
   %228 = and i32 %227, 2147483647
-  %229 = trunc i64 %.sroa.2.0.copyload.i170 to i32
+  %229 = trunc i64 %.sroa.2.0.copyload.i165 to i32
   %230 = and i32 %229, 2147483647
-  %231 = lshr i64 %.sroa.2.0.copyload.i170, 32
+  %231 = lshr i64 %.sroa.2.0.copyload.i165, 32
   %232 = trunc nuw i64 %231 to i32
   %233 = and i32 %232, 2147483647
-  %234 = icmp ult i32 %207, %208
+  %234 = icmp ult i32 %81, %216
   br i1 %234, label %245, label %235
 
-235:                                              ; preds = %217
-  %236 = icmp ult i32 %208, %207
+235:                                              ; preds = %225
+  %236 = icmp ult i32 %216, %81
   br i1 %236, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362, label %237
 
 237:                                              ; preds = %235
-  %238 = icmp samesign ult i32 %220, %228
+  %238 = icmp samesign ult i32 %84, %228
   br i1 %238, label %245, label %239
 
 239:                                              ; preds = %237
-  %240 = icmp samesign ult i32 %228, %220
+  %240 = icmp samesign ult i32 %228, %84
   br i1 %240, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362, label %241
 
 241:                                              ; preds = %239
-  %242 = icmp samesign ult i32 %222, %230
-  br i1 %242, label %245, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i196
+  %242 = icmp samesign ult i32 %86, %230
+  br i1 %242, label %245, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i183
 
-_ZN4llvmltERKNS_12VersionTupleES2_.exit.i196:     ; preds = %241
-  %243 = icmp samesign uge i32 %230, %222
-  %244 = icmp samesign ult i32 %225, %233
-  %spec.select.i.i197 = select i1 %243, i1 %244, i1 false
-  br i1 %spec.select.i.i197, label %245, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362
+_ZN4llvmltERKNS_12VersionTupleES2_.exit.i183:     ; preds = %241
+  %243 = icmp samesign uge i32 %230, %86
+  %244 = icmp samesign ult i32 %89, %233
+  %spec.select.i.i184 = select i1 %243, i1 %244, i1 false
+  br i1 %spec.select.i.i184, label %245, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362
 
-245:                                              ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i196, %217, %237, %241, %200, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i189, %214
-  %246 = xor i1 %8, %110
-  %brmerge138 = or i1 %45, %110
-  %or.cond = and i1 %246, %brmerge138
-  br i1 %or.cond, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread
+245:                                              ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i183, %225, %237, %241, %212, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i176, %222
+  br i1 %or.cond9.i188, label %278, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i189
 
-_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit: ; preds = %245
-  br i1 %switch, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread364
+_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i189: ; preds = %245
+  %246 = and i64 %.sroa.0.0.copyload.i168, 9223372036854775807
+  %or.cond.i7.i190 = icmp eq i64 %246, 0
+  %247 = and i64 %.sroa.2.0.copyload.i170, 9223372034707292159
+  %248 = icmp eq i64 %247, 0
+  %or.cond13.i191 = select i1 %or.cond.i7.i190, i1 %248, i1 false
+  br i1 %or.cond13.i191, label %278, label %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i192
 
-_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362.thread: ; preds = %145, %149, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  br label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i202
+_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i192: ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i189
+  %249 = trunc i64 %.sroa.0.0.copyload.i168 to i32
+  %250 = icmp eq i32 %93, %249
+  br i1 %250, label %251, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i193
 
-_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362: ; preds = %190, %194, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i183, %235, %239, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i196, %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  br i1 %or.cond9.i, label %285, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362._ZNK4llvm12VersionTuple5emptyEv.exit.thread.i202_crit_edge
-
-_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362._ZNK4llvm12VersionTuple5emptyEv.exit.thread.i202_crit_edge: ; preds = %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362
-  %.pre504 = and i64 %.val141, 9223372036854775807
-  %.pre505 = and i64 %.val142, 9223372034707292159
-  br label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i202
-
-_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i202: ; preds = %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362._ZNK4llvm12VersionTuple5emptyEv.exit.thread.i202_crit_edge, %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362.thread
-  %.pre-phi506 = phi i64 [ %.pre505, %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362._ZNK4llvm12VersionTuple5emptyEv.exit.thread.i202_crit_edge ], [ %115, %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362.thread ]
-  %.pre-phi = phi i64 [ %.pre504, %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362._ZNK4llvm12VersionTuple5emptyEv.exit.thread.i202_crit_edge ], [ %114, %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362.thread ]
-  %or.cond.i7.i203 = icmp eq i64 %.pre-phi, 0
-  %247 = icmp eq i64 %.pre-phi506, 0
-  %or.cond13.i204 = select i1 %or.cond.i7.i203, i1 %247, i1 false
-  br i1 %or.cond13.i204, label %285, label %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i205
-
-_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i205: ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i202
-  %248 = trunc i64 %.sroa.0.0.copyload.i to i32
-  %249 = trunc i64 %.val141 to i32
-  %250 = icmp eq i32 %248, %249
-  br i1 %250, label %251, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i206
-
-251:                                              ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i205
-  %252 = xor i64 %.val141, %.sroa.0.0.copyload.i
+251:                                              ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i192
+  %252 = xor i64 %.sroa.0342.0.copyload, %.sroa.0.0.copyload.i168
   %253 = and i64 %252, 9223372032559808512
   %254 = icmp eq i64 %253, 0
-  br i1 %254, label %255, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i206
+  br i1 %254, label %255, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i193
 
 255:                                              ; preds = %251
-  %256 = xor i64 %.val142, %.sroa.2.0.copyload.i
+  %256 = xor i64 %.sroa.7344.0.copyload, %.sroa.2.0.copyload.i170
   %257 = and i64 %256, 9223372034707292159
-  %or.cond15.i211 = icmp eq i64 %257, 0
-  br i1 %or.cond15.i211, label %285, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i206
+  %or.cond15.i198 = icmp eq i64 %257, 0
+  br i1 %or.cond15.i198, label %278, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i193
 
-_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i206: ; preds = %255, %251, %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i205
-  %258 = lshr i64 %.sroa.0.0.copyload.i, 32
-  %259 = trunc nuw i64 %258 to i32
-  %260 = and i32 %259, 2147483647
-  %261 = trunc i64 %.sroa.2.0.copyload.i to i32
-  %262 = and i32 %261, 2147483647
-  %263 = lshr i64 %.sroa.2.0.copyload.i, 32
-  %264 = trunc nuw i64 %263 to i32
-  %265 = and i32 %264, 2147483647
-  %266 = lshr i64 %.val141, 32
-  %267 = trunc nuw i64 %266 to i32
-  %268 = and i32 %267, 2147483647
-  %269 = trunc i64 %.val142 to i32
-  %270 = and i32 %269, 2147483647
-  %271 = lshr i64 %.val142, 32
-  %272 = trunc nuw i64 %271 to i32
-  %273 = and i32 %272, 2147483647
-  %274 = icmp ult i32 %248, %249
-  br i1 %274, label %285, label %275
+_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i193: ; preds = %255, %251, %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i192
+  br i1 %switch, label %258, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread364
 
-275:                                              ; preds = %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i206
-  %276 = icmp ult i32 %249, %248
-  br i1 %276, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit212, label %277
+258:                                              ; preds = %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i193
+  %259 = lshr i64 %.sroa.0.0.copyload.i168, 32
+  %260 = trunc nuw i64 %259 to i32
+  %261 = and i32 %260, 2147483647
+  %262 = trunc i64 %.sroa.2.0.copyload.i170 to i32
+  %263 = and i32 %262, 2147483647
+  %264 = lshr i64 %.sroa.2.0.copyload.i170, 32
+  %265 = trunc nuw i64 %264 to i32
+  %266 = and i32 %265, 2147483647
+  %267 = icmp ult i32 %93, %249
+  br i1 %267, label %278, label %268
 
-277:                                              ; preds = %275
-  %278 = icmp samesign ult i32 %260, %268
-  br i1 %278, label %285, label %279
+268:                                              ; preds = %258
+  %269 = icmp ult i32 %249, %93
+  br i1 %269, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362, label %270
 
-279:                                              ; preds = %277
-  %280 = icmp samesign ult i32 %268, %260
-  br i1 %280, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit212, label %281
+270:                                              ; preds = %268
+  %271 = icmp samesign ult i32 %96, %261
+  br i1 %271, label %278, label %272
 
-281:                                              ; preds = %279
-  %282 = icmp samesign ult i32 %262, %270
-  br i1 %282, label %285, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i207
+272:                                              ; preds = %270
+  %273 = icmp samesign ult i32 %261, %96
+  br i1 %273, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362, label %274
 
-_ZN4llvmltERKNS_12VersionTupleES2_.exit.i207:     ; preds = %281
-  %283 = icmp samesign uge i32 %270, %262
-  %284 = icmp samesign ult i32 %265, %273
-  %spec.select.i.i208 = select i1 %283, i1 %284, i1 false
-  br i1 %spec.select.i.i208, label %285, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit212
+274:                                              ; preds = %272
+  %275 = icmp samesign ult i32 %98, %263
+  br i1 %275, label %278, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i196
 
-_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit212: ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i207, %279, %275
+_ZN4llvmltERKNS_12VersionTupleES2_.exit.i196:     ; preds = %274
+  %276 = icmp samesign uge i32 %263, %98
+  %277 = icmp samesign ult i32 %101, %266
+  %spec.select.i.i197 = select i1 %276, i1 %277, i1 false
+  br i1 %spec.select.i.i197, label %278, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362
+
+278:                                              ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i196, %258, %270, %274, %245, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i189, %255
+  %279 = xor i1 %8, %179
+  %brmerge138 = or i1 %45, %179
+  %or.cond = and i1 %279, %brmerge138
+  br i1 %or.cond, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread
+
+_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit: ; preds = %278
+  br i1 %switch, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread364
+
+_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362.thread: ; preds = %202, %206, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
+  br label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i202
+
+_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362: ; preds = %235, %239, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i183, %268, %272, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i196, %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
+  br i1 %or.cond9.i, label %309, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i202
+
+_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i202: ; preds = %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362, %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362.thread
+  %.pre-phi530 = phi i64 [ %67, %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362.thread ], [ %.pre529, %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362 ]
+  %.pre-phi = phi i64 [ %66, %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362.thread ], [ %.pre528, %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362 ]
+  %or.cond.i7.i203 = icmp eq i64 %.pre-phi, 0
+  %280 = icmp eq i64 %.pre-phi530, 0
+  %or.cond13.i204 = select i1 %or.cond.i7.i203, i1 %280, i1 false
+  br i1 %or.cond13.i204, label %309, label %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i205
+
+_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i205: ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i202
+  %281 = trunc i64 %.sroa.0.0.copyload.i to i32
+  %282 = icmp eq i32 %281, %102
+  br i1 %282, label %283, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i206
+
+283:                                              ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i205
+  %284 = xor i64 %.sroa.0354.0.copyload, %.sroa.0.0.copyload.i
+  %285 = and i64 %284, 9223372032559808512
+  %286 = icmp eq i64 %285, 0
+  br i1 %286, label %287, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i206
+
+287:                                              ; preds = %283
+  %288 = xor i64 %.sroa.7355.0.copyload, %.sroa.2.0.copyload.i
+  %289 = and i64 %288, 9223372034707292159
+  %or.cond15.i211 = icmp eq i64 %289, 0
+  br i1 %or.cond15.i211, label %309, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i206
+
+_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i206: ; preds = %287, %283, %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i205
+  %290 = lshr i64 %.sroa.0.0.copyload.i, 32
+  %291 = trunc nuw i64 %290 to i32
+  %292 = and i32 %291, 2147483647
+  %293 = trunc i64 %.sroa.2.0.copyload.i to i32
+  %294 = and i32 %293, 2147483647
+  %295 = lshr i64 %.sroa.2.0.copyload.i, 32
+  %296 = trunc nuw i64 %295 to i32
+  %297 = and i32 %296, 2147483647
+  %298 = icmp ult i32 %281, %102
+  br i1 %298, label %309, label %299
+
+299:                                              ; preds = %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i206
+  %300 = icmp ult i32 %102, %281
+  br i1 %300, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit212, label %301
+
+301:                                              ; preds = %299
+  %302 = icmp samesign ult i32 %292, %105
+  br i1 %302, label %309, label %303
+
+303:                                              ; preds = %301
+  %304 = icmp samesign ult i32 %105, %292
+  br i1 %304, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit212, label %305
+
+305:                                              ; preds = %303
+  %306 = icmp samesign ult i32 %294, %107
+  br i1 %306, label %309, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i207
+
+_ZN4llvmltERKNS_12VersionTupleES2_.exit.i207:     ; preds = %305
+  %307 = icmp samesign uge i32 %107, %294
+  %308 = icmp samesign ult i32 %297, %110
+  %spec.select.i.i208 = select i1 %307, i1 %308, i1 false
+  br i1 %spec.select.i.i208, label %309, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit212
+
+_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit212: ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i207, %303, %299
   store i64 %.sroa.0.0.copyload.i, ptr %23, align 8, !tbaa !44
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.7339.0..sroa_idx, align 8, !tbaa !44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !1151
   br label %422
 
-285:                                              ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i207, %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i206, %277, %281, %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i202, %255
-  %.val155 = load i64, ptr %6, align 8
-  %.val156 = load i64, ptr %.sroa.7350.0..sroa_idx, align 8
-  %286 = and i64 %.val155, 9223372036854775807
-  %or.cond.i.i213 = icmp eq i64 %286, 0
-  %287 = and i64 %.val156, 9223372034707292159
-  %288 = icmp eq i64 %287, 0
-  %or.cond9.i214 = select i1 %or.cond.i.i213, i1 %288, i1 false
-  br i1 %or.cond9.i214, label %329, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i215
+309:                                              ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i207, %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i206, %301, %305, %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread362, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i202, %287
+  br i1 %or.cond9.i214, label %341, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i215
 
-_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i215: ; preds = %285
-  %289 = and i64 %.sroa.0.0.copyload.i163, 9223372036854775807
-  %or.cond.i7.i216 = icmp eq i64 %289, 0
-  %290 = and i64 %.sroa.2.0.copyload.i165, 9223372034707292159
-  %291 = icmp eq i64 %290, 0
-  %or.cond13.i217 = select i1 %or.cond.i7.i216, i1 %291, i1 false
-  br i1 %or.cond13.i217, label %329, label %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i218
+_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i215: ; preds = %309
+  %310 = and i64 %.sroa.0.0.copyload.i163, 9223372036854775807
+  %or.cond.i7.i216 = icmp eq i64 %310, 0
+  %311 = and i64 %.sroa.2.0.copyload.i165, 9223372034707292159
+  %312 = icmp eq i64 %311, 0
+  %or.cond13.i217 = select i1 %or.cond.i7.i216, i1 %312, i1 false
+  br i1 %or.cond13.i217, label %341, label %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i218
 
 _ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i218: ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i215
-  %292 = trunc i64 %.val155 to i32
-  %293 = trunc i64 %.sroa.0.0.copyload.i163 to i32
-  %294 = icmp eq i32 %292, %293
-  br i1 %294, label %295, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i219
+  %313 = trunc i64 %.sroa.0.0.copyload.i163 to i32
+  %314 = icmp eq i32 %114, %313
+  br i1 %314, label %315, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i219
 
-295:                                              ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i218
-  %296 = xor i64 %.val155, %.sroa.0.0.copyload.i163
-  %297 = and i64 %296, 9223372032559808512
-  %298 = icmp eq i64 %297, 0
-  br i1 %298, label %299, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i219
+315:                                              ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i218
+  %316 = xor i64 %.sroa.0348.0.copyload, %.sroa.0.0.copyload.i163
+  %317 = and i64 %316, 9223372032559808512
+  %318 = icmp eq i64 %317, 0
+  br i1 %318, label %319, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i219
 
-299:                                              ; preds = %295
-  %300 = xor i64 %.val156, %.sroa.2.0.copyload.i165
-  %301 = and i64 %300, 9223372034707292159
-  %or.cond15.i224 = icmp eq i64 %301, 0
-  br i1 %or.cond15.i224, label %329, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i219
+319:                                              ; preds = %315
+  %320 = xor i64 %.sroa.7350.0.copyload, %.sroa.2.0.copyload.i165
+  %321 = and i64 %320, 9223372034707292159
+  %or.cond15.i224 = icmp eq i64 %321, 0
+  br i1 %or.cond15.i224, label %341, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i219
 
-_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i219: ; preds = %299, %295, %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i218
-  %302 = lshr i64 %.val155, 32
-  %303 = trunc nuw i64 %302 to i32
-  %304 = and i32 %303, 2147483647
-  %305 = trunc i64 %.val156 to i32
-  %306 = and i32 %305, 2147483647
-  %307 = lshr i64 %.val156, 32
-  %308 = trunc nuw i64 %307 to i32
-  %309 = and i32 %308, 2147483647
-  %310 = lshr i64 %.sroa.0.0.copyload.i163, 32
-  %311 = trunc nuw i64 %310 to i32
-  %312 = and i32 %311, 2147483647
-  %313 = trunc i64 %.sroa.2.0.copyload.i165 to i32
-  %314 = and i32 %313, 2147483647
-  %315 = lshr i64 %.sroa.2.0.copyload.i165, 32
-  %316 = trunc nuw i64 %315 to i32
-  %317 = and i32 %316, 2147483647
-  %318 = icmp ult i32 %292, %293
-  br i1 %318, label %329, label %319
+_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i219: ; preds = %319, %315, %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i218
+  %322 = lshr i64 %.sroa.0.0.copyload.i163, 32
+  %323 = trunc nuw i64 %322 to i32
+  %324 = and i32 %323, 2147483647
+  %325 = trunc i64 %.sroa.2.0.copyload.i165 to i32
+  %326 = and i32 %325, 2147483647
+  %327 = lshr i64 %.sroa.2.0.copyload.i165, 32
+  %328 = trunc nuw i64 %327 to i32
+  %329 = and i32 %328, 2147483647
+  %330 = icmp ult i32 %114, %313
+  br i1 %330, label %341, label %331
 
-319:                                              ; preds = %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i219
-  %320 = icmp ult i32 %293, %292
-  br i1 %320, label %.thread370, label %321
+331:                                              ; preds = %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i219
+  %332 = icmp ult i32 %313, %114
+  br i1 %332, label %.thread370, label %333
 
-321:                                              ; preds = %319
-  %322 = icmp samesign ult i32 %304, %312
-  br i1 %322, label %329, label %323
+333:                                              ; preds = %331
+  %334 = icmp samesign ult i32 %117, %324
+  br i1 %334, label %341, label %335
 
-323:                                              ; preds = %321
-  %324 = icmp samesign ult i32 %312, %304
-  br i1 %324, label %.thread370, label %325
+335:                                              ; preds = %333
+  %336 = icmp samesign ult i32 %324, %117
+  br i1 %336, label %.thread370, label %337
 
-325:                                              ; preds = %323
-  %326 = icmp samesign ult i32 %306, %314
-  br i1 %326, label %329, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i220
+337:                                              ; preds = %335
+  %338 = icmp samesign ult i32 %119, %326
+  br i1 %338, label %341, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i220
 
-_ZN4llvmltERKNS_12VersionTupleES2_.exit.i220:     ; preds = %325
-  %327 = icmp samesign uge i32 %314, %306
-  %328 = icmp samesign ult i32 %309, %317
-  %spec.select.i.i221 = select i1 %327, i1 %328, i1 false
-  br i1 %spec.select.i.i221, label %329, label %.thread370
+_ZN4llvmltERKNS_12VersionTupleES2_.exit.i220:     ; preds = %337
+  %339 = icmp samesign uge i32 %326, %119
+  %340 = icmp samesign ult i32 %122, %329
+  %spec.select.i.i221 = select i1 %339, i1 %340, i1 false
+  br i1 %spec.select.i.i221, label %341, label %.thread370
 
-.thread370:                                       ; preds = %319, %323, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i220
+.thread370:                                       ; preds = %331, %335, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i220
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !1151
   store i64 %.sroa.0.0.copyload.i163, ptr %24, align 8, !tbaa !44
   store i64 %.sroa.2.0.copyload.i165, ptr %.sroa.7335.0..sroa_idx, align 8, !tbaa !44
   br label %423
 
-329:                                              ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i220, %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i219, %321, %325, %285, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i215, %299
-  %.val159 = load i64, ptr %7, align 8
-  %.val160 = load i64, ptr %.sroa.7344.0..sroa_idx, align 8
-  %330 = and i64 %.val159, 9223372036854775807
-  %or.cond.i.i226 = icmp eq i64 %330, 0
-  %331 = and i64 %.val160, 9223372034707292159
-  %332 = icmp eq i64 %331, 0
-  %or.cond9.i227 = select i1 %or.cond.i.i226, i1 %332, i1 false
+341:                                              ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i220, %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i219, %333, %337, %309, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i215, %319
   br i1 %or.cond9.i227, label %373, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i228
 
-_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i228: ; preds = %329
-  %333 = and i64 %.sroa.0.0.copyload.i168, 9223372036854775807
-  %or.cond.i7.i229 = icmp eq i64 %333, 0
-  %334 = and i64 %.sroa.2.0.copyload.i170, 9223372034707292159
-  %335 = icmp eq i64 %334, 0
-  %or.cond13.i230 = select i1 %or.cond.i7.i229, i1 %335, i1 false
+_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i228: ; preds = %341
+  %342 = and i64 %.sroa.0.0.copyload.i168, 9223372036854775807
+  %or.cond.i7.i229 = icmp eq i64 %342, 0
+  %343 = and i64 %.sroa.2.0.copyload.i170, 9223372034707292159
+  %344 = icmp eq i64 %343, 0
+  %or.cond13.i230 = select i1 %or.cond.i7.i229, i1 %344, i1 false
   br i1 %or.cond13.i230, label %373, label %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i231
 
 _ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i231: ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i228
-  %336 = trunc i64 %.val159 to i32
-  %337 = trunc i64 %.sroa.0.0.copyload.i168 to i32
-  %338 = icmp eq i32 %336, %337
-  br i1 %338, label %339, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i232
+  %345 = trunc i64 %.sroa.0.0.copyload.i168 to i32
+  %346 = icmp eq i32 %126, %345
+  br i1 %346, label %347, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i232
 
-339:                                              ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i231
-  %340 = xor i64 %.val159, %.sroa.0.0.copyload.i168
-  %341 = and i64 %340, 9223372032559808512
-  %342 = icmp eq i64 %341, 0
-  br i1 %342, label %343, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i232
+347:                                              ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i231
+  %348 = xor i64 %.sroa.0342.0.copyload, %.sroa.0.0.copyload.i168
+  %349 = and i64 %348, 9223372032559808512
+  %350 = icmp eq i64 %349, 0
+  br i1 %350, label %351, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i232
 
-343:                                              ; preds = %339
-  %344 = xor i64 %.val160, %.sroa.2.0.copyload.i170
-  %345 = and i64 %344, 9223372034707292159
-  %or.cond15.i237 = icmp eq i64 %345, 0
+351:                                              ; preds = %347
+  %352 = xor i64 %.sroa.7344.0.copyload, %.sroa.2.0.copyload.i170
+  %353 = and i64 %352, 9223372034707292159
+  %or.cond15.i237 = icmp eq i64 %353, 0
   br i1 %or.cond15.i237, label %373, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i232
 
-_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i232: ; preds = %343, %339, %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i231
-  %346 = lshr i64 %.val159, 32
-  %347 = trunc nuw i64 %346 to i32
-  %348 = and i32 %347, 2147483647
-  %349 = trunc i64 %.val160 to i32
-  %350 = and i32 %349, 2147483647
-  %351 = lshr i64 %.val160, 32
-  %352 = trunc nuw i64 %351 to i32
-  %353 = and i32 %352, 2147483647
+_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i232: ; preds = %351, %347, %_ZNK4llvm12VersionTuple5emptyEv.exit8.thread.i231
   %354 = lshr i64 %.sroa.0.0.copyload.i168, 32
   %355 = trunc nuw i64 %354 to i32
   %356 = and i32 %355, 2147483647
@@ -7901,28 +7886,28 @@ _ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i232: ; preds = %343, %339, %_ZNK
   %359 = lshr i64 %.sroa.2.0.copyload.i170, 32
   %360 = trunc nuw i64 %359 to i32
   %361 = and i32 %360, 2147483647
-  %362 = icmp ult i32 %336, %337
+  %362 = icmp ult i32 %126, %345
   br i1 %362, label %373, label %363
 
 363:                                              ; preds = %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i232
-  %364 = icmp ult i32 %337, %336
+  %364 = icmp ult i32 %345, %126
   br i1 %364, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit238, label %365
 
 365:                                              ; preds = %363
-  %366 = icmp samesign ult i32 %348, %356
+  %366 = icmp samesign ult i32 %129, %356
   br i1 %366, label %373, label %367
 
 367:                                              ; preds = %365
-  %368 = icmp samesign ult i32 %356, %348
+  %368 = icmp samesign ult i32 %356, %129
   br i1 %368, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit238, label %369
 
 369:                                              ; preds = %367
-  %370 = icmp samesign ult i32 %350, %358
+  %370 = icmp samesign ult i32 %131, %358
   br i1 %370, label %373, label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i233
 
 _ZN4llvmltERKNS_12VersionTupleES2_.exit.i233:     ; preds = %369
-  %371 = icmp samesign uge i32 %358, %350
-  %372 = icmp samesign ult i32 %353, %361
+  %371 = icmp samesign uge i32 %358, %131
+  %372 = icmp samesign ult i32 %134, %361
   %spec.select.i.i234 = select i1 %371, i1 %372, i1 false
   br i1 %spec.select.i.i234, label %373, label %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit238
 
@@ -7932,9 +7917,9 @@ _ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit238: ; preds = %_ZN4llvmltERKN
   store i64 %.sroa.2.0.copyload.i170, ptr %.sroa.7335.0..sroa_idx, align 8, !tbaa !44
   br label %422
 
-373:                                              ; preds = %343, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i228, %329, %369, %365, %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i232, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i233
+373:                                              ; preds = %351, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i228, %341, %369, %365, %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i232, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i233
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %25) #24
-  %374 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  %374 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %.sroa.0.0.copyload.i.i = load i64, ptr %374, align 8
   %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload.i.i to i32
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %25, ptr noundef nonnull align 8 dereferenceable(8) %46, i32 %.sroa.0.0.extract.trunc.i, i32 noundef 6752, i1 noundef zeroext false) #24
@@ -8036,7 +8021,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit: ; preds = %404, 
 423:                                              ; preds = %.thread370, %422
   %.0.ph373 = phi i32 [ 1, %.thread370 ], [ %.0.ph, %422 ]
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %26) #24
-  %424 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  %424 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %.sroa.0.0.copyload.i.i244 = load i64, ptr %424, align 8
   %.sroa.0.0.extract.trunc.i245 = trunc i64 %.sroa.0.0.copyload.i.i244 to i32
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %26, ptr noundef nonnull align 8 dereferenceable(8) %46, i32 %.sroa.0.0.extract.trunc.i245, i32 noundef 6751, i1 noundef zeroext false) #24
@@ -8327,7 +8312,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit269: ; preds = %_Z
   br label %601
 
 _ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread364: ; preds = %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i, %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i180, %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i193, %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit
-  %559 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  %559 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %.sroa.0.0.copyload.i.i272 = load i64, ptr %559, align 8
   %.sroa.0.0.extract.trunc.i273 = trunc i64 %.sroa.0.0.copyload.i.i272 to i32
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %31, ptr noundef nonnull align 8 dereferenceable(8) %46, i32 %.sroa.0.0.extract.trunc.i273, i32 noundef 6750, i1 noundef zeroext false) #24
@@ -8339,7 +8324,7 @@ _ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread364: ; preds = %_ZN4llv
 
 560:                                              ; preds = %.thread375, %_ZL13versionsMatchRKN4llvm12VersionTupleES2_b.exit.thread364
   %561 = load ptr, ptr %41, align 8, !tbaa !45
-  %562 = getelementptr inbounds nuw ptr, ptr %561, i64 %67
+  %562 = getelementptr inbounds nuw ptr, ptr %561, i64 %136
   %563 = getelementptr inbounds nuw i8, ptr %562, i64 8
   %564 = load i32, ptr %42, align 8, !tbaa !46
   %565 = zext i32 %564 to i64
@@ -8362,7 +8347,7 @@ _ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit277: ; preds = %560, %
   %573 = add i32 %.0116483, -1
   br label %601, !llvm.loop !1143
 
-_ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %245
+_ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %278
   %574 = and i64 %.sroa.0354.1469, 9223372036854775807
   %or.cond.i = icmp eq i64 %574, 0
   %575 = and i64 %.sroa.7355.1476, 9223372034707292159
@@ -8384,7 +8369,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %245
   %or.cond424 = select i1 %or.cond.i280, i1 %582, i1 false
   %.sroa.7.0 = select i1 %or.cond424, i64 %.sroa.2.0.copyload.i170, i64 %.sroa.7344.1448
   %.sroa.0.0 = select i1 %or.cond424, i64 %.sroa.0.0.copyload.i168, i64 %.sroa.0342.1441
-  %583 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  %583 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %.sroa.0.0.copyload.i282 = load i64, ptr %583, align 8
   store i64 %.sroa.0299.0, ptr %33, align 8, !tbaa !44
   store i64 %.sroa.7303.0, ptr %.sroa.7303.0..sroa_idx306, align 8, !tbaa !44
@@ -8395,7 +8380,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %245
 
 585:                                              ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread
   %586 = load ptr, ptr %41, align 8, !tbaa !45
-  %587 = getelementptr inbounds nuw ptr, ptr %586, i64 %67
+  %587 = getelementptr inbounds nuw ptr, ptr %586, i64 %136
   %588 = getelementptr inbounds nuw i8, ptr %587, i64 8
   %589 = load i32, ptr %42, align 8, !tbaa !46
   %590 = zext i32 %589 to i64
@@ -8422,149 +8407,135 @@ _ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit285: ; preds = %585, %
   %600 = add i32 %.0110490, 1
   br label %601
 
-601:                                              ; preds = %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit277, %557, %599, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit285, %79, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit, %84, %74
-  %.sroa.0342.3 = phi i64 [ %.sroa.0342.1441, %74 ], [ %.sroa.0342.1441, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit ], [ %.sroa.0342.1441, %84 ], [ %.sroa.0342.1441, %79 ], [ %.sroa.0342.1441, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit277 ], [ %.sroa.0342.1441, %557 ], [ %.sroa.0342.1441, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit285 ], [ %.sroa.0.0, %599 ]
-  %.sroa.7344.3 = phi i64 [ %.sroa.7344.1448, %74 ], [ %.sroa.7344.1448, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit ], [ %.sroa.7344.1448, %84 ], [ %.sroa.7344.1448, %79 ], [ %.sroa.7344.1448, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit277 ], [ %.sroa.7344.1448, %557 ], [ %.sroa.7344.1448, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit285 ], [ %.sroa.7.0, %599 ]
-  %.sroa.0348.3 = phi i64 [ %.sroa.0348.1455, %74 ], [ %.sroa.0348.1455, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit ], [ %.sroa.0348.1455, %84 ], [ %.sroa.0348.1455, %79 ], [ %.sroa.0348.1455, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit277 ], [ %.sroa.0348.1455, %557 ], [ %.sroa.0348.1455, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit285 ], [ %.sroa.0299.0, %599 ]
-  %.sroa.7350.3 = phi i64 [ %.sroa.7350.1462, %74 ], [ %.sroa.7350.1462, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit ], [ %.sroa.7350.1462, %84 ], [ %.sroa.7350.1462, %79 ], [ %.sroa.7350.1462, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit277 ], [ %.sroa.7350.1462, %557 ], [ %.sroa.7350.1462, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit285 ], [ %.sroa.7303.0, %599 ]
-  %.sroa.0354.3 = phi i64 [ %.sroa.0354.1469, %74 ], [ %.sroa.0354.1469, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit ], [ %.sroa.0354.1469, %84 ], [ %.sroa.0354.1469, %79 ], [ %.sroa.0354.1469, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit277 ], [ %.sroa.0354.1469, %557 ], [ %.sroa.0354.1469, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit285 ], [ %.sroa.0310.0, %599 ]
-  %.sroa.7355.3 = phi i64 [ %.sroa.7355.1476, %74 ], [ %.sroa.7355.1476, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit ], [ %.sroa.7355.1476, %84 ], [ %.sroa.7355.1476, %79 ], [ %.sroa.7355.1476, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit277 ], [ %.sroa.7355.1476, %557 ], [ %.sroa.7355.1476, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit285 ], [ %.sroa.7313.0, %599 ]
-  %.1117 = phi i32 [ %.0116483, %74 ], [ %103, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit ], [ %.0116483, %84 ], [ %.0116483, %79 ], [ %573, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit277 ], [ %.0116483, %557 ], [ %598, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit285 ], [ %.0116483, %599 ]
-  %.1111 = phi i32 [ %75, %74 ], [ %.0110490, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit ], [ %85, %84 ], [ %80, %79 ], [ %.0110490, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit277 ], [ %558, %557 ], [ %.0110490, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit285 ], [ %600, %599 ]
-  %.3106 = phi i1 [ %.1104497, %74 ], [ %.1104497, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit ], [ %.1104497, %84 ], [ %.1104497, %79 ], [ true, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit277 ], [ true, %557 ], [ true, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit285 ], [ true, %599 ]
+601:                                              ; preds = %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit277, %557, %599, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit285, %148, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit, %153, %143
+  %.sroa.0342.3 = phi i64 [ %.sroa.0342.1441, %143 ], [ %.sroa.0342.1441, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit ], [ %.sroa.0342.1441, %153 ], [ %.sroa.0342.1441, %148 ], [ %.sroa.0342.1441, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit277 ], [ %.sroa.0342.1441, %557 ], [ %.sroa.0342.1441, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit285 ], [ %.sroa.0.0, %599 ]
+  %.sroa.7344.3 = phi i64 [ %.sroa.7344.1448, %143 ], [ %.sroa.7344.1448, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit ], [ %.sroa.7344.1448, %153 ], [ %.sroa.7344.1448, %148 ], [ %.sroa.7344.1448, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit277 ], [ %.sroa.7344.1448, %557 ], [ %.sroa.7344.1448, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit285 ], [ %.sroa.7.0, %599 ]
+  %.sroa.0348.3 = phi i64 [ %.sroa.0348.1455, %143 ], [ %.sroa.0348.1455, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit ], [ %.sroa.0348.1455, %153 ], [ %.sroa.0348.1455, %148 ], [ %.sroa.0348.1455, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit277 ], [ %.sroa.0348.1455, %557 ], [ %.sroa.0348.1455, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit285 ], [ %.sroa.0299.0, %599 ]
+  %.sroa.7350.3 = phi i64 [ %.sroa.7350.1462, %143 ], [ %.sroa.7350.1462, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit ], [ %.sroa.7350.1462, %153 ], [ %.sroa.7350.1462, %148 ], [ %.sroa.7350.1462, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit277 ], [ %.sroa.7350.1462, %557 ], [ %.sroa.7350.1462, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit285 ], [ %.sroa.7303.0, %599 ]
+  %.sroa.0354.3 = phi i64 [ %.sroa.0354.1469, %143 ], [ %.sroa.0354.1469, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit ], [ %.sroa.0354.1469, %153 ], [ %.sroa.0354.1469, %148 ], [ %.sroa.0354.1469, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit277 ], [ %.sroa.0354.1469, %557 ], [ %.sroa.0354.1469, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit285 ], [ %.sroa.0310.0, %599 ]
+  %.sroa.7355.3 = phi i64 [ %.sroa.7355.1476, %143 ], [ %.sroa.7355.1476, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit ], [ %.sroa.7355.1476, %153 ], [ %.sroa.7355.1476, %148 ], [ %.sroa.7355.1476, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit277 ], [ %.sroa.7355.1476, %557 ], [ %.sroa.7355.1476, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit285 ], [ %.sroa.7313.0, %599 ]
+  %.1117 = phi i32 [ %.0116483, %143 ], [ %172, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit ], [ %.0116483, %153 ], [ %.0116483, %148 ], [ %573, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit277 ], [ %.0116483, %557 ], [ %598, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit285 ], [ %.0116483, %599 ]
+  %.1111 = phi i32 [ %144, %143 ], [ %.0110490, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit ], [ %154, %153 ], [ %149, %148 ], [ %.0110490, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit277 ], [ %558, %557 ], [ %.0110490, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit285 ], [ %600, %599 ]
+  %.3106 = phi i1 [ %.1104497, %143 ], [ %.1104497, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit ], [ %.1104497, %153 ], [ %.1104497, %148 ], [ true, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit277 ], [ true, %557 ], [ true, %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE5eraseEPKS3_.exit285 ], [ true, %599 ]
   %.not = icmp eq i32 %.1111, %.1117
-  br i1 %.not, label %._crit_edge, label %66
+  br i1 %.not, label %._crit_edge, label %135
 
 ._crit_edge:                                      ; preds = %601
-  br i1 %.3106, label %602, label %.thread399
+  %602 = trunc i64 %.sroa.0354.3 to i32
+  %603 = trunc i64 %.sroa.0354.0.copyload to i32
+  %604 = icmp eq i32 %602, %603
+  %or.cond540 = select i1 %.3106, i1 %604, i1 false
+  br i1 %or.cond540, label %605, label %.thread399
 
-602:                                              ; preds = %._crit_edge
-  %603 = trunc i64 %.sroa.0354.3 to i32
-  %604 = load i64, ptr %5, align 8
-  %605 = trunc i64 %604 to i32
-  %606 = icmp eq i32 %603, %605
-  br i1 %606, label %607, label %.thread399
+605:                                              ; preds = %._crit_edge
+  %606 = xor i64 %.sroa.0354.0.copyload, %.sroa.0354.3
+  %607 = and i64 %606, 9223372032559808512
+  %608 = icmp eq i64 %607, 0
+  br i1 %608, label %609, label %.thread399
 
-607:                                              ; preds = %602
-  %608 = xor i64 %604, %.sroa.0354.3
-  %609 = and i64 %608, 9223372032559808512
-  %610 = icmp eq i64 %609, 0
-  br i1 %610, label %611, label %.thread399
+609:                                              ; preds = %605
+  %610 = xor i64 %.sroa.7355.0.copyload, %.sroa.7355.3
+  %611 = and i64 %610, 9223372034707292159
+  %or.cond426 = icmp eq i64 %611, 0
+  %612 = trunc i64 %.sroa.0348.3 to i32
+  %613 = trunc i64 %.sroa.0348.0.copyload to i32
+  %614 = icmp eq i32 %612, %613
+  %or.cond543 = select i1 %or.cond426, i1 %614, i1 false
+  br i1 %or.cond543, label %615, label %.thread399
 
-611:                                              ; preds = %607
-  %612 = load i64, ptr %.sroa.7355.0..sroa_idx, align 8
-  %613 = xor i64 %612, %.sroa.7355.3
-  %614 = and i64 %613, 9223372034707292159
-  %or.cond426 = icmp eq i64 %614, 0
-  br i1 %or.cond426, label %615, label %.thread399
+615:                                              ; preds = %609
+  %616 = xor i64 %.sroa.0348.0.copyload, %.sroa.0348.3
+  %617 = and i64 %616, 9223372032559808512
+  %618 = icmp eq i64 %617, 0
+  br i1 %618, label %619, label %.thread399
 
-615:                                              ; preds = %611
-  %616 = trunc i64 %.sroa.0348.3 to i32
-  %617 = load i64, ptr %6, align 8
-  %618 = trunc i64 %617 to i32
-  %619 = icmp eq i32 %616, %618
-  br i1 %619, label %620, label %.thread399
+619:                                              ; preds = %615
+  %620 = xor i64 %.sroa.7350.0.copyload, %.sroa.7350.3
+  %621 = and i64 %620, 9223372034707292159
+  %or.cond428 = icmp eq i64 %621, 0
+  %622 = trunc i64 %.sroa.0342.3 to i32
+  %623 = trunc i64 %.sroa.0342.0.copyload to i32
+  %624 = icmp eq i32 %622, %623
+  %or.cond546 = select i1 %or.cond428, i1 %624, i1 false
+  br i1 %or.cond546, label %625, label %.thread399
 
-620:                                              ; preds = %615
-  %621 = xor i64 %617, %.sroa.0348.3
-  %622 = and i64 %621, 9223372032559808512
-  %623 = icmp eq i64 %622, 0
-  br i1 %623, label %624, label %.thread399
+625:                                              ; preds = %619
+  %626 = xor i64 %.sroa.0342.0.copyload, %.sroa.0342.3
+  %627 = and i64 %626, 9223372032559808512
+  %628 = icmp eq i64 %627, 0
+  br i1 %628, label %629, label %.thread399
 
-624:                                              ; preds = %620
-  %625 = load i64, ptr %.sroa.7350.0..sroa_idx, align 8
-  %626 = xor i64 %625, %.sroa.7350.3
-  %627 = and i64 %626, 9223372034707292159
-  %or.cond428 = icmp eq i64 %627, 0
-  br i1 %or.cond428, label %628, label %.thread399
-
-628:                                              ; preds = %624
-  %629 = trunc i64 %.sroa.0342.3 to i32
-  %630 = load i64, ptr %7, align 8
-  %631 = trunc i64 %630 to i32
-  %632 = icmp eq i32 %629, %631
-  br i1 %632, label %633, label %.thread399
-
-633:                                              ; preds = %628
-  %634 = xor i64 %630, %.sroa.0342.3
-  %635 = and i64 %634, 9223372032559808512
-  %636 = icmp eq i64 %635, 0
-  br i1 %636, label %637, label %.thread399
-
-637:                                              ; preds = %633
-  %638 = load i64, ptr %.sroa.7344.0..sroa_idx, align 8
-  %639 = xor i64 %638, %.sroa.7344.3
-  %640 = and i64 %639, 9223372034707292159
-  %or.cond430 = icmp eq i64 %640, 0
+629:                                              ; preds = %625
+  %630 = xor i64 %.sroa.7344.0.copyload, %.sroa.7344.3
+  %631 = and i64 %630, 9223372034707292159
+  %or.cond430 = icmp eq i64 %631, 0
   br i1 %or.cond430, label %.thread390, label %.thread399
 
-.thread399:                                       ; preds = %40, %628, %633, %637, %615, %620, %624, %602, %607, %611, %15, %._crit_edge
-  %.sroa.7355.0412 = phi i64 [ %.sroa.7355.3, %._crit_edge ], [ %.sroa.7355.0.copyload, %15 ], [ %.sroa.7355.3, %611 ], [ %.sroa.7355.3, %607 ], [ %.sroa.7355.3, %602 ], [ %.sroa.7355.3, %624 ], [ %.sroa.7355.3, %620 ], [ %.sroa.7355.3, %615 ], [ %.sroa.7355.3, %637 ], [ %.sroa.7355.3, %633 ], [ %.sroa.7355.3, %628 ], [ %.sroa.7355.0.copyload, %40 ]
-  %.sroa.0354.0411 = phi i64 [ %.sroa.0354.3, %._crit_edge ], [ %.sroa.0354.0.copyload, %15 ], [ %.sroa.0354.3, %611 ], [ %.sroa.0354.3, %607 ], [ %.sroa.0354.3, %602 ], [ %.sroa.0354.3, %624 ], [ %.sroa.0354.3, %620 ], [ %.sroa.0354.3, %615 ], [ %.sroa.0354.3, %637 ], [ %.sroa.0354.3, %633 ], [ %.sroa.0354.3, %628 ], [ %.sroa.0354.0.copyload, %40 ]
-  %.sroa.7350.0410 = phi i64 [ %.sroa.7350.3, %._crit_edge ], [ %.sroa.7350.0.copyload, %15 ], [ %.sroa.7350.3, %611 ], [ %.sroa.7350.3, %607 ], [ %.sroa.7350.3, %602 ], [ %.sroa.7350.3, %624 ], [ %.sroa.7350.3, %620 ], [ %.sroa.7350.3, %615 ], [ %.sroa.7350.3, %637 ], [ %.sroa.7350.3, %633 ], [ %.sroa.7350.3, %628 ], [ %.sroa.7350.0.copyload, %40 ]
-  %.sroa.0348.0409 = phi i64 [ %.sroa.0348.3, %._crit_edge ], [ %.sroa.0348.0.copyload, %15 ], [ %.sroa.0348.3, %611 ], [ %.sroa.0348.3, %607 ], [ %.sroa.0348.3, %602 ], [ %.sroa.0348.3, %624 ], [ %.sroa.0348.3, %620 ], [ %.sroa.0348.3, %615 ], [ %.sroa.0348.3, %637 ], [ %.sroa.0348.3, %633 ], [ %.sroa.0348.3, %628 ], [ %.sroa.0348.0.copyload, %40 ]
-  %.sroa.7344.0408 = phi i64 [ %.sroa.7344.3, %._crit_edge ], [ %.sroa.7344.0.copyload, %15 ], [ %.sroa.7344.3, %611 ], [ %.sroa.7344.3, %607 ], [ %.sroa.7344.3, %602 ], [ %.sroa.7344.3, %624 ], [ %.sroa.7344.3, %620 ], [ %.sroa.7344.3, %615 ], [ %.sroa.7344.3, %637 ], [ %.sroa.7344.3, %633 ], [ %.sroa.7344.3, %628 ], [ %.sroa.7344.0.copyload, %40 ]
-  %.sroa.0342.0407 = phi i64 [ %.sroa.0342.3, %._crit_edge ], [ %.sroa.0342.0.copyload, %15 ], [ %.sroa.0342.3, %611 ], [ %.sroa.0342.3, %607 ], [ %.sroa.0342.3, %602 ], [ %.sroa.0342.3, %624 ], [ %.sroa.0342.3, %620 ], [ %.sroa.0342.3, %615 ], [ %.sroa.0342.3, %637 ], [ %.sroa.0342.3, %633 ], [ %.sroa.0342.3, %628 ], [ %.sroa.0342.0.copyload, %40 ]
-  %641 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i288 = load i64, ptr %641, align 8
+.thread399:                                       ; preds = %40, %625, %629, %615, %619, %605, %609, %15, %._crit_edge
+  %.sroa.7355.0412 = phi i64 [ %.sroa.7355.3, %._crit_edge ], [ %.sroa.7355.0.copyload, %15 ], [ %.sroa.7355.3, %609 ], [ %.sroa.7355.3, %605 ], [ %.sroa.7355.3, %619 ], [ %.sroa.7355.3, %615 ], [ %.sroa.7355.3, %629 ], [ %.sroa.7355.3, %625 ], [ %.sroa.7355.0.copyload, %40 ]
+  %.sroa.0354.0411 = phi i64 [ %.sroa.0354.3, %._crit_edge ], [ %.sroa.0354.0.copyload, %15 ], [ %.sroa.0354.3, %609 ], [ %.sroa.0354.3, %605 ], [ %.sroa.0354.3, %619 ], [ %.sroa.0354.3, %615 ], [ %.sroa.0354.3, %629 ], [ %.sroa.0354.3, %625 ], [ %.sroa.0354.0.copyload, %40 ]
+  %.sroa.7350.0410 = phi i64 [ %.sroa.7350.3, %._crit_edge ], [ %.sroa.7350.0.copyload, %15 ], [ %.sroa.7350.3, %609 ], [ %.sroa.7350.3, %605 ], [ %.sroa.7350.3, %619 ], [ %.sroa.7350.3, %615 ], [ %.sroa.7350.3, %629 ], [ %.sroa.7350.3, %625 ], [ %.sroa.7350.0.copyload, %40 ]
+  %.sroa.0348.0409 = phi i64 [ %.sroa.0348.3, %._crit_edge ], [ %.sroa.0348.0.copyload, %15 ], [ %.sroa.0348.3, %609 ], [ %.sroa.0348.3, %605 ], [ %.sroa.0348.3, %619 ], [ %.sroa.0348.3, %615 ], [ %.sroa.0348.3, %629 ], [ %.sroa.0348.3, %625 ], [ %.sroa.0348.0.copyload, %40 ]
+  %.sroa.7344.0408 = phi i64 [ %.sroa.7344.3, %._crit_edge ], [ %.sroa.7344.0.copyload, %15 ], [ %.sroa.7344.3, %609 ], [ %.sroa.7344.3, %605 ], [ %.sroa.7344.3, %619 ], [ %.sroa.7344.3, %615 ], [ %.sroa.7344.3, %629 ], [ %.sroa.7344.3, %625 ], [ %.sroa.7344.0.copyload, %40 ]
+  %.sroa.0342.0407 = phi i64 [ %.sroa.0342.3, %._crit_edge ], [ %.sroa.0342.0.copyload, %15 ], [ %.sroa.0342.3, %609 ], [ %.sroa.0342.3, %605 ], [ %.sroa.0342.3, %619 ], [ %.sroa.0342.3, %615 ], [ %.sroa.0342.3, %629 ], [ %.sroa.0342.3, %625 ], [ %.sroa.0342.0.copyload, %40 ]
+  %632 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.sroa.0.0.copyload.i288 = load i64, ptr %632, align 8
   store i64 %.sroa.0348.0409, ptr %35, align 8, !tbaa !44
   %.sroa.7350.0..sroa_idx351 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 %.sroa.7350.0410, ptr %.sroa.7350.0..sroa_idx351, align 8, !tbaa !44
   store i64 %.sroa.0342.0407, ptr %36, align 8, !tbaa !44
   %.sroa.7344.0..sroa_idx345 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 %.sroa.7344.0408, ptr %.sroa.7344.0..sroa_idx345, align 8, !tbaa !44
-  %642 = call fastcc noundef zeroext i1 @_ZL21checkAvailabilityAttrRN5clang4SemaENS_11SourceRangeEPNS_14IdentifierInfoEN4llvm12VersionTupleES6_S6_(ptr noundef nonnull align 8 dereferenceable(17504) %0, i64 %.sroa.0.0.copyload.i288, ptr noundef %3, i64 %.sroa.0354.0411, i64 %.sroa.7355.0412, ptr noundef nonnull byval(%"class.llvm::VersionTuple") align 8 %35, ptr noundef nonnull byval(%"class.llvm::VersionTuple") align 8 %36)
-  %brmerge139 = or i1 %switch, %642
-  br i1 %brmerge139, label %.thread390, label %643
+  %633 = call fastcc noundef zeroext i1 @_ZL21checkAvailabilityAttrRN5clang4SemaENS_11SourceRangeEPNS_14IdentifierInfoEN4llvm12VersionTupleES6_S6_(ptr noundef nonnull align 8 dereferenceable(17504) %0, i64 %.sroa.0.0.copyload.i288, ptr noundef %3, i64 %.sroa.0354.0411, i64 %.sroa.7355.0412, ptr noundef nonnull byval(%"class.llvm::VersionTuple") align 8 %35, ptr noundef nonnull byval(%"class.llvm::VersionTuple") align 8 %36)
+  %brmerge139 = or i1 %switch, %633
+  br i1 %brmerge139, label %.thread390, label %634
 
-643:                                              ; preds = %.thread399
-  %644 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %645 = load ptr, ptr %644, align 8, !tbaa !97
-  %646 = getelementptr inbounds nuw i8, ptr %645, i64 2192
-  %647 = getelementptr inbounds nuw i8, ptr %645, i64 2272
-  %648 = load i64, ptr %647, align 8, !tbaa !763
-  %649 = add i64 %648, 144
-  store i64 %649, ptr %647, align 8, !tbaa !763
-  %650 = load ptr, ptr %646, align 8, !tbaa !764
-  %651 = ptrtoint ptr %650 to i64
-  %652 = add i64 %651, 7
-  %653 = and i64 %652, -8
-  %654 = add i64 %653, 144
-  %655 = getelementptr inbounds nuw i8, ptr %645, i64 2200
-  %656 = load ptr, ptr %655, align 8, !tbaa !765
-  %657 = ptrtoint ptr %656 to i64
-  %.not.i.i.i.i = icmp ule i64 %654, %657
-  %658 = icmp ne ptr %650, null
-  %659 = and i1 %658, %.not.i.i.i.i
-  br i1 %659, label %660, label %663, !prof !766
+634:                                              ; preds = %.thread399
+  %635 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %636 = load ptr, ptr %635, align 8, !tbaa !97
+  %637 = getelementptr inbounds nuw i8, ptr %636, i64 2192
+  %638 = getelementptr inbounds nuw i8, ptr %636, i64 2272
+  %639 = load i64, ptr %638, align 8, !tbaa !763
+  %640 = add i64 %639, 144
+  store i64 %640, ptr %638, align 8, !tbaa !763
+  %641 = load ptr, ptr %637, align 8, !tbaa !764
+  %642 = ptrtoint ptr %641 to i64
+  %643 = add i64 %642, 7
+  %644 = and i64 %643, -8
+  %645 = add i64 %644, 144
+  %646 = getelementptr inbounds nuw i8, ptr %636, i64 2200
+  %647 = load ptr, ptr %646, align 8, !tbaa !765
+  %648 = ptrtoint ptr %647 to i64
+  %.not.i.i.i.i = icmp ule i64 %645, %648
+  %649 = icmp ne ptr %641, null
+  %650 = and i1 %649, %.not.i.i.i.i
+  br i1 %650, label %651, label %654, !prof !766
 
-660:                                              ; preds = %643
-  %661 = inttoptr i64 %654 to ptr
-  store ptr %661, ptr %646, align 8, !tbaa !764
-  %662 = inttoptr i64 %653 to ptr
+651:                                              ; preds = %634
+  %652 = inttoptr i64 %645 to ptr
+  store ptr %652, ptr %637, align 8, !tbaa !764
+  %653 = inttoptr i64 %644 to ptr
   br label %_ZnwmRKN5clang10ASTContextEm.exit
 
-663:                                              ; preds = %643
-  %664 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %646, i64 noundef 144, i64 noundef 144, i8 3)
-  %.pre = load ptr, ptr %644, align 8, !tbaa !97
+654:                                              ; preds = %634
+  %655 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %637, i64 noundef 144, i64 noundef 144, i8 3)
+  %.pre = load ptr, ptr %635, align 8, !tbaa !97
   br label %_ZnwmRKN5clang10ASTContextEm.exit
 
-_ZnwmRKN5clang10ASTContextEm.exit:                ; preds = %660, %663
-  %665 = phi ptr [ %645, %660 ], [ %.pre, %663 ]
-  %.0.i.i.i.i = phi ptr [ %662, %660 ], [ %664, %663 ]
-  %.sroa.0.0.copyload = load i64, ptr %5, align 8, !tbaa !44
-  %.sroa.2.0.copyload = load i64, ptr %.sroa.7355.0..sroa_idx, align 8, !tbaa !44
-  call void @_ZN5clang16AvailabilityAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoEN4llvm12VersionTupleES9_S9_bNS8_9StringRefEbSA_iS7_(ptr noundef nonnull align 8 dereferenceable(144) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(23216) %665, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3, i64 %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, ptr noundef nonnull byval(%"class.llvm::VersionTuple") align 8 %6, ptr noundef nonnull byval(%"class.llvm::VersionTuple") align 8 %7, i1 noundef zeroext %8, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %9, i1 noundef zeroext %10, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %11, i32 noundef %13, ptr noundef %14) #24
-  %666 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 34
-  %667 = load i8, ptr %666, align 2
-  %668 = select i1 %4, i8 4, i8 0
-  %669 = and i8 %667, -5
-  %670 = or disjoint i8 %669, %668
-  store i8 %670, ptr %666, align 2
+_ZnwmRKN5clang10ASTContextEm.exit:                ; preds = %651, %654
+  %656 = phi ptr [ %636, %651 ], [ %.pre, %654 ]
+  %.0.i.i.i.i = phi ptr [ %653, %651 ], [ %655, %654 ]
+  call void @_ZN5clang16AvailabilityAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoEN4llvm12VersionTupleES9_S9_bNS8_9StringRefEbSA_iS7_(ptr noundef nonnull align 8 dereferenceable(144) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(23216) %656, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3, i64 %.sroa.0354.0.copyload, i64 %.sroa.7355.0.copyload, ptr noundef nonnull byval(%"class.llvm::VersionTuple") align 8 %6, ptr noundef nonnull byval(%"class.llvm::VersionTuple") align 8 %7, i1 noundef zeroext %8, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %9, i1 noundef zeroext %10, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %11, i32 noundef %13, ptr noundef %14) #24
+  %657 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 34
+  %658 = load i8, ptr %657, align 2
+  %659 = select i1 %4, i8 4, i8 0
+  %660 = and i8 %658, -5
+  %661 = or disjoint i8 %660, %659
+  store i8 %661, ptr %657, align 2
   br label %.thread390
 
-.thread390:                                       ; preds = %86, %637, %.thread399, %_ZnwmRKN5clang10ASTContextEm.exit
-  %.5 = phi ptr [ %.0.i.i.i.i, %_ZnwmRKN5clang10ASTContextEm.exit ], [ null, %.thread399 ], [ null, %637 ], [ null, %86 ]
+.thread390:                                       ; preds = %155, %629, %.thread399, %_ZnwmRKN5clang10ASTContextEm.exit
+  %.5 = phi ptr [ %.0.i.i.i.i, %_ZnwmRKN5clang10ASTContextEm.exit ], [ null, %.thread399 ], [ null, %629 ], [ null, %155 ]
   ret ptr %.5
 }
 

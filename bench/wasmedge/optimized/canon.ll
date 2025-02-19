@@ -2761,7 +2761,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit:  ; preds = %7
           catch ptr null
   call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt7variantIJjN8WasmEdge3AST9Component11PrimValTypeEEESt6vectorINS5_12LabelValTypeESaIS9_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %12) #23, !noalias !59
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #25
+  call void @__clang_call_terminate(ptr %53) #25, !noalias !59
   unreachable
 
 _ZNK8WasmEdge3AST9Component8FuncType13getResultListEv.exit.i: ; preds = %._crit_edge.i.i, %49
@@ -2852,7 +2852,7 @@ _ZNK8WasmEdge3AST9Component8FuncType13getResultListEv.exit32.thread.i: ; preds =
           catch ptr null
   call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt7variantIJjN8WasmEdge3AST9Component11PrimValTypeEEESt6vectorINS5_12LabelValTypeESaIS9_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %13) #23, !noalias !59
   %83 = extractvalue { ptr, i32 } %82, 0
-  call void @__clang_call_terminate(ptr %83) #25
+  call void @__clang_call_terminate(ptr %83) #25, !noalias !59
   unreachable
 
 _ZNK8WasmEdge3AST9Component8FuncType13getResultListEv.exit32.i: ; preds = %81
@@ -2947,7 +2947,7 @@ _ZNK8WasmEdge3AST9Component8FuncType13getResultListEv.exit47.thread.i: ; preds =
           catch ptr null
   call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt7variantIJjN8WasmEdge3AST9Component11PrimValTypeEEESt6vectorINS5_12LabelValTypeESaIS9_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %14) #23, !noalias !59
   %110 = extractvalue { ptr, i32 } %109, 0
-  call void @__clang_call_terminate(ptr %110) #25
+  call void @__clang_call_terminate(ptr %110) #25, !noalias !59
   unreachable
 
 _ZNK8WasmEdge3AST9Component8FuncType13getResultListEv.exit47.i: ; preds = %108

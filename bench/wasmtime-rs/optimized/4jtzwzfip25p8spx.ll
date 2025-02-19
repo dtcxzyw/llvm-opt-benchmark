@@ -3731,7 +3731,7 @@ define hidden void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuild
   %20 = extractvalue { i64, ptr } %18, 1
   %21 = icmp ne ptr %20, null
   tail call void @llvm.assume(i1 %21)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %16, i64 %17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %16, i64 %17, i1 false), !noalias !598
   store i64 %19, ptr %5, align 8, !noalias !603
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %20, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !603
@@ -3761,7 +3761,7 @@ define hidden void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuild
   %29 = extractvalue { i64, ptr } %22, 1
   %30 = icmp ne ptr %29, null
   tail call void @llvm.assume(i1 %30)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %29, ptr noundef nonnull align 1 dereferenceable(15) @anon.38476532626945bb04fe24ad10240d6e.91, i64 15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %29, ptr noundef nonnull align 1 dereferenceable(15) @anon.38476532626945bb04fe24ad10240d6e.91, i64 15, i1 false), !noalias !598
   store i64 %28, ptr %4, align 8, !noalias !603
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %29, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !603
@@ -3841,7 +3841,7 @@ define hidden void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuild
   %20 = extractvalue { i64, ptr } %18, 1
   %21 = icmp ne ptr %20, null
   tail call void @llvm.assume(i1 %21)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %16, i64 %17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %16, i64 %17, i1 false), !noalias !611
   store i64 %19, ptr %5, align 8, !noalias !616
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %20, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !616
@@ -3871,7 +3871,7 @@ define hidden void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuild
   %29 = extractvalue { i64, ptr } %22, 1
   %30 = icmp ne ptr %29, null
   tail call void @llvm.assume(i1 %30)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %29, ptr noundef nonnull align 1 dereferenceable(15) @anon.38476532626945bb04fe24ad10240d6e.91, i64 15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %29, ptr noundef nonnull align 1 dereferenceable(15) @anon.38476532626945bb04fe24ad10240d6e.91, i64 15, i1 false), !noalias !611
   store i64 %28, ptr %4, align 8, !noalias !616
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %29, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !616
@@ -3951,7 +3951,7 @@ define hidden void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuild
   %20 = extractvalue { i64, ptr } %18, 1
   %21 = icmp ne ptr %20, null
   tail call void @llvm.assume(i1 %21)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %16, i64 %17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %16, i64 %17, i1 false), !noalias !624
   store i64 %19, ptr %5, align 8, !noalias !629
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %20, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !629
@@ -3981,7 +3981,7 @@ define hidden void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuild
   %29 = extractvalue { i64, ptr } %22, 1
   %30 = icmp ne ptr %29, null
   tail call void @llvm.assume(i1 %30)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %29, ptr noundef nonnull align 1 dereferenceable(15) @anon.38476532626945bb04fe24ad10240d6e.91, i64 15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %29, ptr noundef nonnull align 1 dereferenceable(15) @anon.38476532626945bb04fe24ad10240d6e.91, i64 15, i1 false), !noalias !624
   store i64 %28, ptr %4, align 8, !noalias !629
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %29, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !629
@@ -4061,7 +4061,7 @@ define hidden void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuild
   %20 = extractvalue { i64, ptr } %18, 1
   %21 = icmp ne ptr %20, null
   tail call void @llvm.assume(i1 %21)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %16, i64 %17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %16, i64 %17, i1 false), !noalias !637
   store i64 %19, ptr %5, align 8, !noalias !642
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %20, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !642
@@ -4091,7 +4091,7 @@ define hidden void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuild
   %29 = extractvalue { i64, ptr } %22, 1
   %30 = icmp ne ptr %29, null
   tail call void @llvm.assume(i1 %30)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %29, ptr noundef nonnull align 1 dereferenceable(15) @anon.38476532626945bb04fe24ad10240d6e.91, i64 15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %29, ptr noundef nonnull align 1 dereferenceable(15) @anon.38476532626945bb04fe24ad10240d6e.91, i64 15, i1 false), !noalias !637
   store i64 %28, ptr %4, align 8, !noalias !642
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %29, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !642
@@ -4171,7 +4171,7 @@ define hidden void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuild
   %20 = extractvalue { i64, ptr } %18, 1
   %21 = icmp ne ptr %20, null
   tail call void @llvm.assume(i1 %21)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %16, i64 %17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %16, i64 %17, i1 false), !noalias !650
   store i64 %19, ptr %5, align 8, !noalias !655
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %20, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !655
@@ -4201,7 +4201,7 @@ define hidden void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuild
   %29 = extractvalue { i64, ptr } %22, 1
   %30 = icmp ne ptr %29, null
   tail call void @llvm.assume(i1 %30)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %29, ptr noundef nonnull align 1 dereferenceable(15) @anon.38476532626945bb04fe24ad10240d6e.91, i64 15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %29, ptr noundef nonnull align 1 dereferenceable(15) @anon.38476532626945bb04fe24ad10240d6e.91, i64 15, i1 false), !noalias !650
   store i64 %28, ptr %4, align 8, !noalias !655
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %29, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !655
@@ -4281,7 +4281,7 @@ define hidden void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuild
   %20 = extractvalue { i64, ptr } %18, 1
   %21 = icmp ne ptr %20, null
   tail call void @llvm.assume(i1 %21)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %16, i64 %17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %16, i64 %17, i1 false), !noalias !663
   store i64 %19, ptr %5, align 8, !noalias !668
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %20, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !668
@@ -4311,7 +4311,7 @@ define hidden void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuild
   %29 = extractvalue { i64, ptr } %22, 1
   %30 = icmp ne ptr %29, null
   tail call void @llvm.assume(i1 %30)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %29, ptr noundef nonnull align 1 dereferenceable(15) @anon.38476532626945bb04fe24ad10240d6e.91, i64 15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %29, ptr noundef nonnull align 1 dereferenceable(15) @anon.38476532626945bb04fe24ad10240d6e.91, i64 15, i1 false), !noalias !663
   store i64 %28, ptr %4, align 8, !noalias !668
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %29, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !668
@@ -4391,7 +4391,7 @@ define hidden void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuild
   %20 = extractvalue { i64, ptr } %18, 1
   %21 = icmp ne ptr %20, null
   tail call void @llvm.assume(i1 %21)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %16, i64 %17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %16, i64 %17, i1 false), !noalias !676
   store i64 %19, ptr %5, align 8, !noalias !681
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %20, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !681
@@ -4421,7 +4421,7 @@ define hidden void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuild
   %29 = extractvalue { i64, ptr } %22, 1
   %30 = icmp ne ptr %29, null
   tail call void @llvm.assume(i1 %30)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %29, ptr noundef nonnull align 1 dereferenceable(15) @anon.38476532626945bb04fe24ad10240d6e.91, i64 15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %29, ptr noundef nonnull align 1 dereferenceable(15) @anon.38476532626945bb04fe24ad10240d6e.91, i64 15, i1 false), !noalias !676
   store i64 %28, ptr %4, align 8, !noalias !681
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %29, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !681
@@ -4501,7 +4501,7 @@ define hidden void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuild
   %20 = extractvalue { i64, ptr } %18, 1
   %21 = icmp ne ptr %20, null
   tail call void @llvm.assume(i1 %21)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %16, i64 %17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %16, i64 %17, i1 false), !noalias !689
   store i64 %19, ptr %5, align 8, !noalias !694
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %20, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !694
@@ -4531,7 +4531,7 @@ define hidden void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuild
   %29 = extractvalue { i64, ptr } %22, 1
   %30 = icmp ne ptr %29, null
   tail call void @llvm.assume(i1 %30)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %29, ptr noundef nonnull align 1 dereferenceable(15) @anon.38476532626945bb04fe24ad10240d6e.91, i64 15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %29, ptr noundef nonnull align 1 dereferenceable(15) @anon.38476532626945bb04fe24ad10240d6e.91, i64 15, i1 false), !noalias !689
   store i64 %28, ptr %4, align 8, !noalias !694
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %29, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !694
@@ -4611,7 +4611,7 @@ define hidden void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuild
   %20 = extractvalue { i64, ptr } %18, 1
   %21 = icmp ne ptr %20, null
   tail call void @llvm.assume(i1 %21)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %16, i64 %17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %16, i64 %17, i1 false), !noalias !702
   store i64 %19, ptr %5, align 8, !noalias !707
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %20, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !707
@@ -4641,7 +4641,7 @@ define hidden void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuild
   %29 = extractvalue { i64, ptr } %22, 1
   %30 = icmp ne ptr %29, null
   tail call void @llvm.assume(i1 %30)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %29, ptr noundef nonnull align 1 dereferenceable(15) @anon.38476532626945bb04fe24ad10240d6e.91, i64 15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %29, ptr noundef nonnull align 1 dereferenceable(15) @anon.38476532626945bb04fe24ad10240d6e.91, i64 15, i1 false), !noalias !702
   store i64 %28, ptr %4, align 8, !noalias !707
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %29, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !707
@@ -4721,7 +4721,7 @@ define hidden void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuild
   %20 = extractvalue { i64, ptr } %18, 1
   %21 = icmp ne ptr %20, null
   tail call void @llvm.assume(i1 %21)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %16, i64 %17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %16, i64 %17, i1 false), !noalias !715
   store i64 %19, ptr %5, align 8, !noalias !720
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %20, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !720
@@ -4751,7 +4751,7 @@ define hidden void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuild
   %29 = extractvalue { i64, ptr } %22, 1
   %30 = icmp ne ptr %29, null
   tail call void @llvm.assume(i1 %30)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %29, ptr noundef nonnull align 1 dereferenceable(15) @anon.38476532626945bb04fe24ad10240d6e.91, i64 15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %29, ptr noundef nonnull align 1 dereferenceable(15) @anon.38476532626945bb04fe24ad10240d6e.91, i64 15, i1 false), !noalias !715
   store i64 %28, ptr %4, align 8, !noalias !720
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %29, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !720

@@ -1608,9 +1608,6 @@ for.end.thread:                                   ; preds = %_ZN6bufferIP4exprLb
   store ptr null, ptr %sel1, align 8
   %m_manager.i258 = getelementptr inbounds nuw i8, ptr %sel1, i64 8
   store ptr %7, ptr %m_manager.i258, align 8
-  store ptr null, ptr %sel2, align 8
-  %m_manager.i134259 = getelementptr inbounds nuw i8, ptr %sel2, i64 8
-  store ptr %7, ptr %m_manager.i134259, align 8
   br label %_ZN7obj_refI4expr11ast_managerED2Ev.exit
 
 for.body.preheader:                               ; preds = %_ZN6bufferIP4exprLb0ELj16EE9push_backEOS1_.exit63

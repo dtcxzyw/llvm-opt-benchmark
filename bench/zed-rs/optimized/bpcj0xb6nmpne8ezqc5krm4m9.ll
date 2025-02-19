@@ -20455,7 +20455,7 @@ define hidden void @_ZN8language6buffer6Buffer4edit17h5ad98f2ee3d9a7e3E.llvm.451
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !4881
   %285 = extractvalue { ptr, i64 } %279, 0
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %286, ptr nonnull readonly align 1 %271, i64 %273, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %286, ptr nonnull readonly align 1 %271, i64 %273, i1 false), !noalias !4878
   call void @llvm.experimental.noalias.scope.decl(metadata !4902)
   call void @llvm.experimental.noalias.scope.decl(metadata !4905)
   call void @llvm.experimental.noalias.scope.decl(metadata !4908)

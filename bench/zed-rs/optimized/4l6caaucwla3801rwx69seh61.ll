@@ -15926,7 +15926,7 @@ define hidden void @"_ZN204_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %56 = extractvalue { ptr, i64 } %53, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !3588
   %57 = invoke { ptr, i64 } @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_box_in17h6096f4cf54c5ae8aE.llvm.2221560088564545942"(ptr noalias noundef nonnull align 1 %54, i64 noundef %56)
-          to label %62 unwind label %.loopexit
+          to label %62 unwind label %.loopexit, !noalias !3586
 
 58:                                               ; preds = %.noexc12.i.i.i
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -16247,7 +16247,7 @@ define hidden void @"_ZN204_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %50 = extractvalue { ptr, i64 } %47, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !3685
   %51 = invoke { ptr, i64 } @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_box_in17h6096f4cf54c5ae8aE.llvm.2221560088564545942"(ptr noalias noundef nonnull align 1 %48, i64 noundef %50)
-          to label %"_ZN82_$LT$serde_json..value..de..MapRefDeserializer$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17hee13bf6e4dbd6879E.exit.i.i.i" unwind label %55
+          to label %"_ZN82_$LT$serde_json..value..de..MapRefDeserializer$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17hee13bf6e4dbd6879E.exit.i.i.i" unwind label %55, !noalias !3678
 
 52:                                               ; preds = %.noexc12.i.i.i
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -29542,13 +29542,13 @@ define hidden void @_ZN9itertools9Itertools3tee17h53885353e48bba9fE(ptr dead_on_
   resume { ptr, i32 } %12
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17hfd3891fd5389a963E.llvm.3225449011375112997.exit.i": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false), !noalias !6913
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4), !noalias !6913
-  %15 = load i64, ptr %8, align 8, !noundef !5
+  %15 = load i64, ptr %8, align 8, !noalias !6913, !noundef !5
   %16 = icmp ne i64 %15, 0
   tail call void @llvm.assume(i1 %16)
   %17 = add i64 %15, 1
-  store i64 %17, ptr %8, align 8
+  store i64 %17, ptr %8, align 8, !noalias !6913
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %19, label %_ZN9itertools3tee3new17hb06a3fd36fda6f85E.exit
 

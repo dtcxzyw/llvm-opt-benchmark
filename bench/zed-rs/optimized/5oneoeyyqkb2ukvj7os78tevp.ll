@@ -3678,7 +3678,7 @@ default.unreachable:                              ; preds = %1
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
   %30 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h772e0283c130983aE(ptr noundef %29)
-          to label %33 unwind label %31
+          to label %33 unwind label %31, !noalias !489
 
 31:                                               ; preds = %27
   %32 = landingpad { ptr, i32 }
@@ -5552,8 +5552,8 @@ define hidden void @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$a
 
 29:                                               ; preds = %9
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %31 = load ptr, ptr %30, align 8, !nonnull !20, !noundef !20
-  tail call void %31(ptr noundef %17)
+  %31 = load ptr, ptr %30, align 8, !noalias !660, !nonnull !20, !noundef !20
+  tail call void %31(ptr noundef %17), !noalias !660
   br label %37
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hac15f2517742edd7E.exit.i": ; preds = %25, %23
@@ -5650,8 +5650,8 @@ define hidden { i32, i32 } @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$G
 
 27:                                               ; preds = %8
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %29 = load ptr, ptr %28, align 8, !nonnull !20, !noundef !20
-  tail call void %29(ptr noundef %16)
+  %29 = load ptr, ptr %28, align 8, !noalias !681, !nonnull !20, !noundef !20
+  tail call void %29(ptr noundef %16), !noalias !681
   br label %34
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hac15f2517742edd7E.exit.i": ; preds = %24, %21
@@ -5739,8 +5739,8 @@ define hidden void @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$a
 
 29:                                               ; preds = %9
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %31 = load ptr, ptr %30, align 8, !nonnull !20, !noundef !20
-  tail call void %31(ptr noundef %17)
+  %31 = load ptr, ptr %30, align 8, !noalias !699, !nonnull !20, !noundef !20
+  tail call void %31(ptr noundef %17), !noalias !699
   br label %37
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hac15f2517742edd7E.exit.i": ; preds = %25, %23

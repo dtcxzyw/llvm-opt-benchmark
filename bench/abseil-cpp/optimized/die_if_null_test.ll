@@ -3171,7 +3171,6 @@ _ZNSt10unique_ptrIiSt14default_deleteIiEE5resetEPi.exit: ; preds = %_ZNKSt14defa
 50:                                               ; preds = %_ZNSt10unique_ptrIiSt14default_deleteIiEE5resetEPi.exit
   store ptr %49, ptr %5, align 8, !tbaa !85
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %51, align 8, !tbaa !60
   %52 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
           to label %63 unwind label %53
 

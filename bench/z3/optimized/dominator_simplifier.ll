@@ -1381,7 +1381,6 @@ invoke.cont117:                                   ; preds = %if.end18.i.i.i213, 
   store ptr %95, ptr %m_manager.i231, align 8
   %96 = load ptr, ptr %r, align 8
   store ptr %96, ptr %agg.result, align 8
-  store ptr null, ptr %r, align 8
   br label %cleanup118
 
 cleanup118:                                       ; preds = %invoke.cont46, %invoke.cont117

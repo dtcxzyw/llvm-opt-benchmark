@@ -20509,7 +20509,7 @@ _ZN7testing7MessageD2Ev.exit88:                   ; preds = %_ZNKSt14default_del
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #30
   invoke void @__cxa_rethrow() #34
-          to label %282 unwind label %170
+          to label %275 unwind label %170
 
 169:                                              ; preds = %_ZN7testing7MessageD2Ev.exit88, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80
   %.pn46.pn.pn = phi { ptr, i32 } [ %.pn46.pn, %_ZN7testing7MessageD2Ev.exit88 ], [ %.pn42.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80 ]
@@ -20526,7 +20526,7 @@ _ZN7testing7MessageD2Ev.exit88:                   ; preds = %_ZNKSt14default_del
 172:                                              ; preds = %170, %169, %111
   %.pn50 = phi { ptr, i32 } [ %171, %170 ], [ %.pn46.pn.pn, %169 ], [ %.pn38.pn.pn, %111 ]
   invoke void @__cxa_end_catch()
-          to label %173 unwind label %279
+          to label %173 unwind label %272
 
 173:                                              ; preds = %172
   %.6 = extractvalue { ptr, i32 } %.pn50, 0
@@ -20624,12 +20624,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92: ; preds = %_ZN
   %216 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %271 unwind label %279
+          to label %264 unwind label %272
 
 217:                                              ; preds = %.critedge, %214
   %218 = landingpad { ptr, i32 }
           cleanup
-  br label %271
+  br label %264
 
 219:                                              ; preds = %209, %203, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92, %185
   %220 = landingpad { ptr, i32 }
@@ -20670,17 +20670,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95: ; preds = %_ZN
 233:                                              ; preds = %211
   %234 = landingpad { ptr, i32 }
           cleanup
-  br label %271
+  br label %264
 
 235:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95, %219
   %.pn54 = phi { ptr, i32 } [ %220, %219 ], [ %.pn52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95 ]
   invoke void @__cxa_end_catch()
-          to label %271 unwind label %279
+          to label %264 unwind label %272
 
 236:                                              ; preds = %177
   %237 = landingpad { ptr, i32 }
           cleanup
-  br label %271
+  br label %264
 
 238:                                              ; preds = %214, %211, %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #30
@@ -20748,7 +20748,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 _ZN7testing7MessageD2Ev.exit101:                  ; preds = %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i100, %253, %247
   %.pn60.pn = phi { ptr, i32 } [ %248, %247 ], [ %.pn60, %253 ], [ %.pn60, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i100 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #30
-  br label %271
+  br label %264
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %177, %_ZN7testing7MessageD2Ev.exit98
   %258 = load ptr, ptr %4, align 8, !tbaa !43
@@ -20759,69 +20759,51 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %260 = load i64, ptr %21, align 8, !tbaa !49
   %261 = icmp ult i64 %260, 16
   call void @llvm.assume(i1 %261)
-  br label %_ZN7testing8internal14TrueWithStringD2Ev.exit
+  br label %_ZN4absl17internal_statusor12StatusOrDataIiED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
   %262 = load i64, ptr %20, align 8, !tbaa !50
   %263 = add i64 %262, 1
   call void @_ZdlPvm(ptr noundef %258, i64 noundef %263) #32
-  br label %_ZN7testing8internal14TrueWithStringD2Ev.exit
+  br label %_ZN4absl17internal_statusor12StatusOrDataIiED2Ev.exit
 
-_ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZN4absl17internal_statusor12StatusOrDataIiED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #30
-  %264 = load i64, ptr %3, align 8, !tbaa !29
-  %265 = and i64 %264, 1
-  %.not.i.i.i102 = icmp eq i64 %265, 0
-  br i1 %.not.i.i.i102, label %266, label %_ZN4absl17internal_statusor12StatusOrDataIiED2Ev.exit
-
-266:                                              ; preds = %_ZN7testing8internal14TrueWithStringD2Ev.exit
-  %267 = inttoptr i64 %264 to ptr
-  invoke void @_ZNK4absl15status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %267)
-          to label %_ZN4absl17internal_statusor12StatusOrDataIiED2Ev.exit unwind label %268
-
-268:                                              ; preds = %266
-  %269 = landingpad { ptr, i32 }
-          catch ptr null
-  %270 = extractvalue { ptr, i32 } %269, 0
-  call void @__clang_call_terminate(ptr %270) #31
-  unreachable
-
-_ZN4absl17internal_statusor12StatusOrDataIiED2Ev.exit: ; preds = %_ZN7testing8internal14TrueWithStringD2Ev.exit, %266
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #30
   ret void
 
-271:                                              ; preds = %217, %236, %215, %235, %233, %_ZN7testing7MessageD2Ev.exit101
+264:                                              ; preds = %217, %236, %215, %235, %233, %_ZN7testing7MessageD2Ev.exit101
   %.pn60.pn.pn = phi { ptr, i32 } [ %.pn60.pn, %_ZN7testing7MessageD2Ev.exit101 ], [ %218, %217 ], [ %237, %236 ], [ %216, %215 ], [ %234, %233 ], [ %.pn54, %235 ]
-  %272 = load ptr, ptr %4, align 8, !tbaa !43
-  %273 = icmp eq ptr %272, %20
-  br i1 %273, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i104, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i103
+  %265 = load ptr, ptr %4, align 8, !tbaa !43
+  %266 = icmp eq ptr %265, %20
+  br i1 %266, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i104, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i103
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i104: ; preds = %271
-  %274 = load i64, ptr %21, align 8, !tbaa !49
-  %275 = icmp ult i64 %274, 16
-  call void @llvm.assume(i1 %275)
-  br label %278
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i104: ; preds = %264
+  %267 = load i64, ptr %21, align 8, !tbaa !49
+  %268 = icmp ult i64 %267, 16
+  call void @llvm.assume(i1 %268)
+  br label %271
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i103: ; preds = %271
-  %276 = load i64, ptr %20, align 8, !tbaa !50
-  %277 = add i64 %276, 1
-  call void @_ZdlPvm(ptr noundef %272, i64 noundef %277) #32
-  br label %278
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i103: ; preds = %264
+  %269 = load i64, ptr %20, align 8, !tbaa !50
+  %270 = add i64 %269, 1
+  call void @_ZdlPvm(ptr noundef %265, i64 noundef %270) #32
+  br label %271
 
-278:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i103, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i104
+271:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i103, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i104
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #30
   call void @_ZN4absl17internal_statusor12StatusOrDataIiED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #30
   resume { ptr, i32 } %.pn60.pn.pn
 
-279:                                              ; preds = %235, %215, %172
-  %280 = landingpad { ptr, i32 }
+272:                                              ; preds = %235, %215, %172
+  %273 = landingpad { ptr, i32 }
           catch ptr null
-  %281 = extractvalue { ptr, i32 } %280, 0
-  call void @__clang_call_terminate(ptr %281) #31
+  %274 = extractvalue { ptr, i32 } %273, 0
+  call void @__clang_call_terminate(ptr %274) #31
   unreachable
 
-282:                                              ; preds = %168
+275:                                              ; preds = %168
   unreachable
 }
 
@@ -23169,7 +23151,7 @@ _ZN7testing7MessageD2Ev.exit88:                   ; preds = %_ZNKSt14default_del
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #30
   invoke void @__cxa_rethrow() #34
-          to label %282 unwind label %170
+          to label %275 unwind label %170
 
 169:                                              ; preds = %_ZN7testing7MessageD2Ev.exit88, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80
   %.pn46.pn.pn = phi { ptr, i32 } [ %.pn46.pn, %_ZN7testing7MessageD2Ev.exit88 ], [ %.pn42.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80 ]
@@ -23186,7 +23168,7 @@ _ZN7testing7MessageD2Ev.exit88:                   ; preds = %_ZNKSt14default_del
 172:                                              ; preds = %170, %169, %111
   %.pn50 = phi { ptr, i32 } [ %171, %170 ], [ %.pn46.pn.pn, %169 ], [ %.pn38.pn.pn, %111 ]
   invoke void @__cxa_end_catch()
-          to label %173 unwind label %279
+          to label %173 unwind label %272
 
 173:                                              ; preds = %172
   %.6 = extractvalue { ptr, i32 } %.pn50, 0
@@ -23284,12 +23266,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92: ; preds = %_ZN
   %216 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %271 unwind label %279
+          to label %264 unwind label %272
 
 217:                                              ; preds = %.critedge, %214
   %218 = landingpad { ptr, i32 }
           cleanup
-  br label %271
+  br label %264
 
 219:                                              ; preds = %209, %203, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92, %185
   %220 = landingpad { ptr, i32 }
@@ -23330,17 +23312,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95: ; preds = %_ZN
 233:                                              ; preds = %211
   %234 = landingpad { ptr, i32 }
           cleanup
-  br label %271
+  br label %264
 
 235:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95, %219
   %.pn54 = phi { ptr, i32 } [ %220, %219 ], [ %.pn52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95 ]
   invoke void @__cxa_end_catch()
-          to label %271 unwind label %279
+          to label %264 unwind label %272
 
 236:                                              ; preds = %177
   %237 = landingpad { ptr, i32 }
           cleanup
-  br label %271
+  br label %264
 
 238:                                              ; preds = %214, %211, %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #30
@@ -23408,7 +23390,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 _ZN7testing7MessageD2Ev.exit101:                  ; preds = %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i100, %253, %247
   %.pn60.pn = phi { ptr, i32 } [ %248, %247 ], [ %.pn60, %253 ], [ %.pn60, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i100 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #30
-  br label %271
+  br label %264
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %177, %_ZN7testing7MessageD2Ev.exit98
   %258 = load ptr, ptr %4, align 8, !tbaa !43
@@ -23419,69 +23401,51 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %260 = load i64, ptr %21, align 8, !tbaa !49
   %261 = icmp ult i64 %260, 16
   call void @llvm.assume(i1 %261)
-  br label %_ZN7testing8internal14TrueWithStringD2Ev.exit
+  br label %_ZN4absl17internal_statusor12StatusOrDataIPiED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
   %262 = load i64, ptr %20, align 8, !tbaa !50
   %263 = add i64 %262, 1
   call void @_ZdlPvm(ptr noundef %258, i64 noundef %263) #32
-  br label %_ZN7testing8internal14TrueWithStringD2Ev.exit
+  br label %_ZN4absl17internal_statusor12StatusOrDataIPiED2Ev.exit
 
-_ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZN4absl17internal_statusor12StatusOrDataIPiED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #30
-  %264 = load i64, ptr %3, align 8, !tbaa !29
-  %265 = and i64 %264, 1
-  %.not.i.i.i102 = icmp eq i64 %265, 0
-  br i1 %.not.i.i.i102, label %266, label %_ZN4absl17internal_statusor12StatusOrDataIPiED2Ev.exit
-
-266:                                              ; preds = %_ZN7testing8internal14TrueWithStringD2Ev.exit
-  %267 = inttoptr i64 %264 to ptr
-  invoke void @_ZNK4absl15status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %267)
-          to label %_ZN4absl17internal_statusor12StatusOrDataIPiED2Ev.exit unwind label %268
-
-268:                                              ; preds = %266
-  %269 = landingpad { ptr, i32 }
-          catch ptr null
-  %270 = extractvalue { ptr, i32 } %269, 0
-  call void @__clang_call_terminate(ptr %270) #31
-  unreachable
-
-_ZN4absl17internal_statusor12StatusOrDataIPiED2Ev.exit: ; preds = %_ZN7testing8internal14TrueWithStringD2Ev.exit, %266
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #30
   ret void
 
-271:                                              ; preds = %217, %236, %215, %235, %233, %_ZN7testing7MessageD2Ev.exit101
+264:                                              ; preds = %217, %236, %215, %235, %233, %_ZN7testing7MessageD2Ev.exit101
   %.pn60.pn.pn = phi { ptr, i32 } [ %.pn60.pn, %_ZN7testing7MessageD2Ev.exit101 ], [ %218, %217 ], [ %237, %236 ], [ %216, %215 ], [ %234, %233 ], [ %.pn54, %235 ]
-  %272 = load ptr, ptr %4, align 8, !tbaa !43
-  %273 = icmp eq ptr %272, %20
-  br i1 %273, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i104, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i103
+  %265 = load ptr, ptr %4, align 8, !tbaa !43
+  %266 = icmp eq ptr %265, %20
+  br i1 %266, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i104, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i103
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i104: ; preds = %271
-  %274 = load i64, ptr %21, align 8, !tbaa !49
-  %275 = icmp ult i64 %274, 16
-  call void @llvm.assume(i1 %275)
-  br label %278
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i104: ; preds = %264
+  %267 = load i64, ptr %21, align 8, !tbaa !49
+  %268 = icmp ult i64 %267, 16
+  call void @llvm.assume(i1 %268)
+  br label %271
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i103: ; preds = %271
-  %276 = load i64, ptr %20, align 8, !tbaa !50
-  %277 = add i64 %276, 1
-  call void @_ZdlPvm(ptr noundef %272, i64 noundef %277) #32
-  br label %278
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i103: ; preds = %264
+  %269 = load i64, ptr %20, align 8, !tbaa !50
+  %270 = add i64 %269, 1
+  call void @_ZdlPvm(ptr noundef %265, i64 noundef %270) #32
+  br label %271
 
-278:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i103, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i104
+271:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i103, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i104
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #30
   call void @_ZN4absl17internal_statusor12StatusOrDataIPiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #30
   resume { ptr, i32 } %.pn60.pn.pn
 
-279:                                              ; preds = %235, %215, %172
-  %280 = landingpad { ptr, i32 }
+272:                                              ; preds = %235, %215, %172
+  %273 = landingpad { ptr, i32 }
           catch ptr null
-  %281 = extractvalue { ptr, i32 } %280, 0
-  call void @__clang_call_terminate(ptr %281) #31
+  %274 = extractvalue { ptr, i32 } %273, 0
+  call void @__clang_call_terminate(ptr %274) #31
   unreachable
 
-282:                                              ; preds = %168
+275:                                              ; preds = %168
   unreachable
 }
 
@@ -23996,7 +23960,7 @@ _ZN7testing7MessageD2Ev.exit88:                   ; preds = %_ZNKSt14default_del
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #30
   invoke void @__cxa_rethrow() #34
-          to label %282 unwind label %170
+          to label %275 unwind label %170
 
 169:                                              ; preds = %_ZN7testing7MessageD2Ev.exit88, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80
   %.pn46.pn.pn = phi { ptr, i32 } [ %.pn46.pn, %_ZN7testing7MessageD2Ev.exit88 ], [ %.pn42.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80 ]
@@ -24013,7 +23977,7 @@ _ZN7testing7MessageD2Ev.exit88:                   ; preds = %_ZNKSt14default_del
 172:                                              ; preds = %170, %169, %111
   %.pn50 = phi { ptr, i32 } [ %171, %170 ], [ %.pn46.pn.pn, %169 ], [ %.pn38.pn.pn, %111 ]
   invoke void @__cxa_end_catch()
-          to label %173 unwind label %279
+          to label %173 unwind label %272
 
 173:                                              ; preds = %172
   %.6 = extractvalue { ptr, i32 } %.pn50, 0
@@ -24111,12 +24075,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92: ; preds = %_ZN
   %216 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %271 unwind label %279
+          to label %264 unwind label %272
 
 217:                                              ; preds = %.critedge, %214
   %218 = landingpad { ptr, i32 }
           cleanup
-  br label %271
+  br label %264
 
 219:                                              ; preds = %209, %203, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92, %185
   %220 = landingpad { ptr, i32 }
@@ -24157,17 +24121,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95: ; preds = %_ZN
 233:                                              ; preds = %211
   %234 = landingpad { ptr, i32 }
           cleanup
-  br label %271
+  br label %264
 
 235:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95, %219
   %.pn54 = phi { ptr, i32 } [ %220, %219 ], [ %.pn52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95 ]
   invoke void @__cxa_end_catch()
-          to label %271 unwind label %279
+          to label %264 unwind label %272
 
 236:                                              ; preds = %177
   %237 = landingpad { ptr, i32 }
           cleanup
-  br label %271
+  br label %264
 
 238:                                              ; preds = %214, %211, %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #30
@@ -24235,7 +24199,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 _ZN7testing7MessageD2Ev.exit101:                  ; preds = %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i100, %253, %247
   %.pn60.pn = phi { ptr, i32 } [ %248, %247 ], [ %.pn60, %253 ], [ %.pn60, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i100 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #30
-  br label %271
+  br label %264
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %177, %_ZN7testing7MessageD2Ev.exit98
   %258 = load ptr, ptr %4, align 8, !tbaa !43
@@ -24246,69 +24210,51 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %260 = load i64, ptr %21, align 8, !tbaa !49
   %261 = icmp ult i64 %260, 16
   call void @llvm.assume(i1 %261)
-  br label %_ZN7testing8internal14TrueWithStringD2Ev.exit
+  br label %_ZN4absl17internal_statusor12StatusOrDataIPiED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
   %262 = load i64, ptr %20, align 8, !tbaa !50
   %263 = add i64 %262, 1
   call void @_ZdlPvm(ptr noundef %258, i64 noundef %263) #32
-  br label %_ZN7testing8internal14TrueWithStringD2Ev.exit
+  br label %_ZN4absl17internal_statusor12StatusOrDataIPiED2Ev.exit
 
-_ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZN4absl17internal_statusor12StatusOrDataIPiED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #30
-  %264 = load i64, ptr %3, align 8, !tbaa !29
-  %265 = and i64 %264, 1
-  %.not.i.i.i102 = icmp eq i64 %265, 0
-  br i1 %.not.i.i.i102, label %266, label %_ZN4absl17internal_statusor12StatusOrDataIPiED2Ev.exit
-
-266:                                              ; preds = %_ZN7testing8internal14TrueWithStringD2Ev.exit
-  %267 = inttoptr i64 %264 to ptr
-  invoke void @_ZNK4absl15status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %267)
-          to label %_ZN4absl17internal_statusor12StatusOrDataIPiED2Ev.exit unwind label %268
-
-268:                                              ; preds = %266
-  %269 = landingpad { ptr, i32 }
-          catch ptr null
-  %270 = extractvalue { ptr, i32 } %269, 0
-  call void @__clang_call_terminate(ptr %270) #31
-  unreachable
-
-_ZN4absl17internal_statusor12StatusOrDataIPiED2Ev.exit: ; preds = %_ZN7testing8internal14TrueWithStringD2Ev.exit, %266
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #30
   ret void
 
-271:                                              ; preds = %217, %236, %215, %235, %233, %_ZN7testing7MessageD2Ev.exit101
+264:                                              ; preds = %217, %236, %215, %235, %233, %_ZN7testing7MessageD2Ev.exit101
   %.pn60.pn.pn = phi { ptr, i32 } [ %.pn60.pn, %_ZN7testing7MessageD2Ev.exit101 ], [ %218, %217 ], [ %237, %236 ], [ %216, %215 ], [ %234, %233 ], [ %.pn54, %235 ]
-  %272 = load ptr, ptr %4, align 8, !tbaa !43
-  %273 = icmp eq ptr %272, %20
-  br i1 %273, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i104, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i103
+  %265 = load ptr, ptr %4, align 8, !tbaa !43
+  %266 = icmp eq ptr %265, %20
+  br i1 %266, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i104, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i103
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i104: ; preds = %271
-  %274 = load i64, ptr %21, align 8, !tbaa !49
-  %275 = icmp ult i64 %274, 16
-  call void @llvm.assume(i1 %275)
-  br label %278
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i104: ; preds = %264
+  %267 = load i64, ptr %21, align 8, !tbaa !49
+  %268 = icmp ult i64 %267, 16
+  call void @llvm.assume(i1 %268)
+  br label %271
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i103: ; preds = %271
-  %276 = load i64, ptr %20, align 8, !tbaa !50
-  %277 = add i64 %276, 1
-  call void @_ZdlPvm(ptr noundef %272, i64 noundef %277) #32
-  br label %278
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i103: ; preds = %264
+  %269 = load i64, ptr %20, align 8, !tbaa !50
+  %270 = add i64 %269, 1
+  call void @_ZdlPvm(ptr noundef %265, i64 noundef %270) #32
+  br label %271
 
-278:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i103, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i104
+271:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i103, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i104
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #30
   call void @_ZN4absl17internal_statusor12StatusOrDataIPiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #30
   resume { ptr, i32 } %.pn60.pn.pn
 
-279:                                              ; preds = %235, %215, %172
-  %280 = landingpad { ptr, i32 }
+272:                                              ; preds = %235, %215, %172
+  %273 = landingpad { ptr, i32 }
           catch ptr null
-  %281 = extractvalue { ptr, i32 } %280, 0
-  call void @__clang_call_terminate(ptr %281) #31
+  %274 = extractvalue { ptr, i32 } %273, 0
+  call void @__clang_call_terminate(ptr %274) #31
   unreachable
 
-282:                                              ; preds = %168
+275:                                              ; preds = %168
   unreachable
 }
 
@@ -27011,7 +26957,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %156 = landingpad { ptr, i32 }
           catch ptr null
   %157 = extractvalue { ptr, i32 } %156, 0
-  call void @__clang_call_terminate(ptr %157) #31
+  call void @__clang_call_terminate(ptr %157) #31, !noalias !401
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i, %134
@@ -28454,7 +28400,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %245 = landingpad { ptr, i32 }
           catch ptr null
   %246 = extractvalue { ptr, i32 } %245, 0
-  call void @__clang_call_terminate(ptr %246) #31
+  call void @__clang_call_terminate(ptr %246) #31, !noalias !445
   unreachable
 
 _ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.i.i: ; preds = %239, %235, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i, %232
@@ -28499,7 +28445,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %262 = landingpad { ptr, i32 }
           catch ptr null
   %263 = extractvalue { ptr, i32 } %262, 0
-  call void @__clang_call_terminate(ptr %263) #31
+  call void @__clang_call_terminate(ptr %263) #31, !noalias !445
   unreachable
 
 _ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.i.i.i: ; preds = %256, %251, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i, %247
@@ -28544,7 +28490,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %279 = landingpad { ptr, i32 }
           catch ptr null
   %280 = extractvalue { ptr, i32 } %279, 0
-  call void @__clang_call_terminate(ptr %280) #31
+  call void @__clang_call_terminate(ptr %280) #31, !noalias !445
   unreachable
 
 281:                                              ; preds = %.noexc7.i
@@ -42163,7 +42109,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_113InPlaceHelperEE8IsSharedEv
   %80 = landingpad { ptr, i32 }
           catch ptr null
   %81 = extractvalue { ptr, i32 } %80, 0
-  call void @__clang_call_terminate(ptr %81) #31
+  call void @__clang_call_terminate(ptr %81) #31, !noalias !838
   unreachable
 
 _ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_113InPlaceHelperEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %74, %70, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_113InPlaceHelperEE8IsSharedEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %67
@@ -42307,7 +42253,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_113InPlaceHelperEE8IsSharedEv
   %133 = landingpad { ptr, i32 }
           catch ptr null
   %134 = extractvalue { ptr, i32 } %133, 0
-  call void @__clang_call_terminate(ptr %134) #31
+  call void @__clang_call_terminate(ptr %134) #31, !noalias !838
   unreachable
 
 135:                                              ; preds = %.noexc7.i.i.i.i.i.i.i.i.i.i.i
@@ -68279,7 +68225,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_126ImplicitConstructibleFromA
   %81 = landingpad { ptr, i32 }
           catch ptr null
   %82 = extractvalue { ptr, i32 } %81, 0
-  call void @__clang_call_terminate(ptr %82) #31
+  call void @__clang_call_terminate(ptr %82) #31, !noalias !1323
   unreachable
 
 _ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %75, %71, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEE8IsSharedEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %68
@@ -68423,7 +68369,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_126ImplicitConstructibleFromA
   %134 = landingpad { ptr, i32 }
           catch ptr null
   %135 = extractvalue { ptr, i32 } %134, 0
-  call void @__clang_call_terminate(ptr %135) #31
+  call void @__clang_call_terminate(ptr %135) #31, !noalias !1323
   unreachable
 
 136:                                              ; preds = %.noexc7.i.i.i.i.i.i.i.i.i.i.i
@@ -75035,7 +74981,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_126ExplicitConstructibleFromA
   %81 = landingpad { ptr, i32 }
           catch ptr null
   %82 = extractvalue { ptr, i32 } %81, 0
-  call void @__clang_call_terminate(ptr %82) #31
+  call void @__clang_call_terminate(ptr %82) #31, !noalias !1503
   unreachable
 
 _ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %75, %71, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEE8IsSharedEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %68
@@ -75179,7 +75125,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_126ExplicitConstructibleFromA
   %134 = landingpad { ptr, i32 }
           catch ptr null
   %135 = extractvalue { ptr, i32 } %134, 0
-  call void @__clang_call_terminate(ptr %135) #31
+  call void @__clang_call_terminate(ptr %135) #31, !noalias !1503
   unreachable
 
 136:                                              ; preds = %.noexc7.i.i.i.i.i.i.i.i.i.i.i
@@ -86394,7 +86340,7 @@ define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatche
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  tail call void @__clang_call_terminate(ptr %42) #31
+  tail call void @__clang_call_terminate(ptr %42) #31, !noalias !1805
   unreachable
 
 43:                                               ; preds = %20
@@ -108462,7 +108408,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %85 = landingpad { ptr, i32 }
           catch ptr null
   %86 = extractvalue { ptr, i32 } %85, 0
-  call void @__clang_call_terminate(ptr %86) #31
+  call void @__clang_call_terminate(ptr %86) #31, !noalias !2476
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i, %63
@@ -108523,7 +108469,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %106 = landingpad { ptr, i32 }
           catch ptr null
   %107 = extractvalue { ptr, i32 } %106, 0
-  call void @__clang_call_terminate(ptr %107) #31
+  call void @__clang_call_terminate(ptr %107) #31, !noalias !2479
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherINS1_IN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i142, %_ZN12absl_testing12IsOkAndHoldsINS_15status_internal19IsOkAndHoldsMatcherIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEEEEENS2_INSt5decayIT_E4typeEEEOSC_.exit
@@ -108931,7 +108877,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %255 = landingpad { ptr, i32 }
           catch ptr null
   %256 = extractvalue { ptr, i32 } %255, 0
-  call void @__clang_call_terminate(ptr %256) #31
+  call void @__clang_call_terminate(ptr %256) #31, !noalias !2485
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i173: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i166, %233
@@ -108992,7 +108938,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %276 = landingpad { ptr, i32 }
           catch ptr null
   %277 = extractvalue { ptr, i32 } %276, 0
-  call void @__clang_call_terminate(ptr %277) #31
+  call void @__clang_call_terminate(ptr %277) #31, !noalias !2488
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherINS1_IN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i184: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i177, %_ZN12absl_testing12IsOkAndHoldsINS_15status_internal19IsOkAndHoldsMatcherIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEEEEENS2_INSt5decayIT_E4typeEEEOSC_.exit175
@@ -109575,7 +109521,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %486 = landingpad { ptr, i32 }
           catch ptr null
   %487 = extractvalue { ptr, i32 } %486, 0
-  call void @__clang_call_terminate(ptr %487) #31
+  call void @__clang_call_terminate(ptr %487) #31, !noalias !2494
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i255: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i248, %464
@@ -109636,7 +109582,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %507 = landingpad { ptr, i32 }
           catch ptr null
   %508 = extractvalue { ptr, i32 } %507, 0
-  call void @__clang_call_terminate(ptr %508) #31
+  call void @__clang_call_terminate(ptr %508) #31, !noalias !2497
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherINS1_IN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i266: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i259, %_ZN12absl_testing12IsOkAndHoldsINS_15status_internal19IsOkAndHoldsMatcherIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEEEEENS2_INSt5decayIT_E4typeEEEOSC_.exit257
@@ -110206,7 +110152,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %709 = landingpad { ptr, i32 }
           catch ptr null
   %710 = extractvalue { ptr, i32 } %709, 0
-  call void @__clang_call_terminate(ptr %710) #31
+  call void @__clang_call_terminate(ptr %710) #31, !noalias !2503
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i331: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i324, %687
@@ -110267,7 +110213,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %730 = landingpad { ptr, i32 }
           catch ptr null
   %731 = extractvalue { ptr, i32 } %730, 0
-  call void @__clang_call_terminate(ptr %731) #31
+  call void @__clang_call_terminate(ptr %731) #31, !noalias !2506
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherINS1_IN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i342: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i335, %_ZN12absl_testing12IsOkAndHoldsINS_15status_internal19IsOkAndHoldsMatcherIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEEEEENS2_INSt5decayIT_E4typeEEEOSC_.exit333
@@ -111987,7 +111933,7 @@ define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatche
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  tail call void @__clang_call_terminate(ptr %42) #31
+  tail call void @__clang_call_terminate(ptr %42) #31, !noalias !2594
   unreachable
 
 43:                                               ; preds = %20
@@ -113968,7 +113914,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %87 = landingpad { ptr, i32 }
           catch ptr null
   %88 = extractvalue { ptr, i32 } %87, 0
-  call void @__clang_call_terminate(ptr %88) #31
+  call void @__clang_call_terminate(ptr %88) #31, !noalias !2642
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i, %65
@@ -114029,7 +113975,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %108 = landingpad { ptr, i32 }
           catch ptr null
   %109 = extractvalue { ptr, i32 } %108, 0
-  call void @__clang_call_terminate(ptr %109) #31
+  call void @__clang_call_terminate(ptr %109) #31, !noalias !2645
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherINS1_IN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i111, %_ZN12absl_testing12IsOkAndHoldsINS_15status_internal19IsOkAndHoldsMatcherIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEEEEENS2_INSt5decayIT_E4typeEEEOSC_.exit
@@ -114535,7 +114481,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %289 = landingpad { ptr, i32 }
           catch ptr null
   %290 = extractvalue { ptr, i32 } %289, 0
-  call void @__clang_call_terminate(ptr %290) #31
+  call void @__clang_call_terminate(ptr %290) #31, !noalias !2651
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i154: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i147, %267
@@ -114596,7 +114542,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %310 = landingpad { ptr, i32 }
           catch ptr null
   %311 = extractvalue { ptr, i32 } %310, 0
-  call void @__clang_call_terminate(ptr %311) #31
+  call void @__clang_call_terminate(ptr %311) #31, !noalias !2654
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherINS1_IN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i165: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i158, %_ZN12absl_testing12IsOkAndHoldsINS_15status_internal19IsOkAndHoldsMatcherIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEEEEENS2_INSt5decayIT_E4typeEEEOSC_.exit156
@@ -115097,7 +115043,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %489 = landingpad { ptr, i32 }
           catch ptr null
   %490 = extractvalue { ptr, i32 } %489, 0
-  call void @__clang_call_terminate(ptr %490) #31
+  call void @__clang_call_terminate(ptr %490) #31, !noalias !2660
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i222: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i215, %467
@@ -115158,7 +115104,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %510 = landingpad { ptr, i32 }
           catch ptr null
   %511 = extractvalue { ptr, i32 } %510, 0
-  call void @__clang_call_terminate(ptr %511) #31
+  call void @__clang_call_terminate(ptr %511) #31, !noalias !2663
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherINS1_IN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i233: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i226, %_ZN12absl_testing12IsOkAndHoldsINS_15status_internal19IsOkAndHoldsMatcherIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEEEEENS2_INSt5decayIT_E4typeEEEOSC_.exit224
@@ -116477,7 +116423,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %91 = landingpad { ptr, i32 }
           catch ptr null
   %92 = extractvalue { ptr, i32 } %91, 0
-  call void @__clang_call_terminate(ptr %92) #31
+  call void @__clang_call_terminate(ptr %92) #31, !noalias !2668
   unreachable
 
 _ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.sink.split.i: ; preds = %82, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i
@@ -116538,7 +116484,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %112 = landingpad { ptr, i32 }
           catch ptr null
   %113 = extractvalue { ptr, i32 } %112, 0
-  call void @__clang_call_terminate(ptr %113) #31
+  call void @__clang_call_terminate(ptr %113) #31, !noalias !2678
   unreachable
 
 _ZN7testing18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i, %_ZN7testing7AnyWithIN12_GLOBAL__N_112CopyDetectorEEENS_18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIT_EEEERKNS_7MatcherIRKS7_EE.exit
@@ -116599,7 +116545,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %133 = landingpad { ptr, i32 }
           catch ptr null
   %134 = extractvalue { ptr, i32 } %133, 0
-  call void @__clang_call_terminate(ptr %134) #31
+  call void @__clang_call_terminate(ptr %134) #31, !noalias !2681
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS2_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i155, %_ZN12absl_testing12IsOkAndHoldsIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEEEENS_15status_internal19IsOkAndHoldsMatcherINSt5decayIT_E4typeEEEOSD_.exit
@@ -116998,7 +116944,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %274 = landingpad { ptr, i32 }
           catch ptr null
   %275 = extractvalue { ptr, i32 } %274, 0
-  call void @__clang_call_terminate(ptr %275) #31
+  call void @__clang_call_terminate(ptr %275) #31, !noalias !2684
   unreachable
 
 _ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.sink.split.i186: ; preds = %265, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i179
@@ -117059,7 +117005,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %295 = landingpad { ptr, i32 }
           catch ptr null
   %296 = extractvalue { ptr, i32 } %295, 0
-  call void @__clang_call_terminate(ptr %296) #31
+  call void @__clang_call_terminate(ptr %296) #31, !noalias !2694
   unreachable
 
 _ZN7testing18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i197: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i190, %_ZN7testing7AnyWithIN12_GLOBAL__N_112CopyDetectorEEENS_18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIT_EEEERKNS_7MatcherIRKS7_EE.exit188
@@ -117120,7 +117066,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %316 = landingpad { ptr, i32 }
           catch ptr null
   %317 = extractvalue { ptr, i32 } %316, 0
-  call void @__clang_call_terminate(ptr %317) #31
+  call void @__clang_call_terminate(ptr %317) #31, !noalias !2697
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS2_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i208: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i201, %_ZN12absl_testing12IsOkAndHoldsIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEEEENS_15status_internal19IsOkAndHoldsMatcherINSt5decayIT_E4typeEEEOSD_.exit199
@@ -117700,7 +117646,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %516 = landingpad { ptr, i32 }
           catch ptr null
   %517 = extractvalue { ptr, i32 } %516, 0
-  call void @__clang_call_terminate(ptr %517) #31
+  call void @__clang_call_terminate(ptr %517) #31, !noalias !2700
   unreachable
 
 _ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.sink.split.i275: ; preds = %507, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i268
@@ -117761,7 +117707,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %537 = landingpad { ptr, i32 }
           catch ptr null
   %538 = extractvalue { ptr, i32 } %537, 0
-  call void @__clang_call_terminate(ptr %538) #31
+  call void @__clang_call_terminate(ptr %538) #31, !noalias !2710
   unreachable
 
 _ZN7testing18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i286: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i279, %_ZN7testing7AnyWithIN12_GLOBAL__N_112CopyDetectorEEENS_18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIT_EEEERKNS_7MatcherIRKS7_EE.exit277
@@ -117822,7 +117768,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %558 = landingpad { ptr, i32 }
           catch ptr null
   %559 = extractvalue { ptr, i32 } %558, 0
-  call void @__clang_call_terminate(ptr %559) #31
+  call void @__clang_call_terminate(ptr %559) #31, !noalias !2713
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS2_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i297: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i290, %_ZN12absl_testing12IsOkAndHoldsIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEEEENS_15status_internal19IsOkAndHoldsMatcherINSt5decayIT_E4typeEEEOSD_.exit288
@@ -118403,7 +118349,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %758 = landingpad { ptr, i32 }
           catch ptr null
   %759 = extractvalue { ptr, i32 } %758, 0
-  call void @__clang_call_terminate(ptr %759) #31
+  call void @__clang_call_terminate(ptr %759) #31, !noalias !2716
   unreachable
 
 _ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.sink.split.i360: ; preds = %749, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i353
@@ -118464,7 +118410,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %779 = landingpad { ptr, i32 }
           catch ptr null
   %780 = extractvalue { ptr, i32 } %779, 0
-  call void @__clang_call_terminate(ptr %780) #31
+  call void @__clang_call_terminate(ptr %780) #31, !noalias !2726
   unreachable
 
 _ZN7testing18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i371: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i364, %_ZN7testing7AnyWithIN12_GLOBAL__N_112CopyDetectorEEENS_18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIT_EEEERKNS_7MatcherIRKS7_EE.exit362
@@ -118525,7 +118471,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %800 = landingpad { ptr, i32 }
           catch ptr null
   %801 = extractvalue { ptr, i32 } %800, 0
-  call void @__clang_call_terminate(ptr %801) #31
+  call void @__clang_call_terminate(ptr %801) #31, !noalias !2729
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS2_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i382: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i375, %_ZN12absl_testing12IsOkAndHoldsIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEEEENS_15status_internal19IsOkAndHoldsMatcherINSt5decayIT_E4typeEEEOSD_.exit373
@@ -123624,7 +123570,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %98 = landingpad { ptr, i32 }
           catch ptr null
   %99 = extractvalue { ptr, i32 } %98, 0
-  call void @__clang_call_terminate(ptr %99) #31
+  call void @__clang_call_terminate(ptr %99) #31, !noalias !2872
   unreachable
 
 _ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.sink.split.i: ; preds = %89, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i
@@ -123685,7 +123631,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %119 = landingpad { ptr, i32 }
           catch ptr null
   %120 = extractvalue { ptr, i32 } %119, 0
-  call void @__clang_call_terminate(ptr %120) #31
+  call void @__clang_call_terminate(ptr %120) #31, !noalias !2882
   unreachable
 
 _ZN7testing18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i, %_ZN7testing7AnyWithIN12_GLOBAL__N_112CopyDetectorEEENS_18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIT_EEEERKNS_7MatcherIRKS7_EE.exit
@@ -123746,7 +123692,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %140 = landingpad { ptr, i32 }
           catch ptr null
   %141 = extractvalue { ptr, i32 } %140, 0
-  call void @__clang_call_terminate(ptr %141) #31
+  call void @__clang_call_terminate(ptr %141) #31, !noalias !2885
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS2_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i124, %_ZN12absl_testing12IsOkAndHoldsIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEEEENS_15status_internal19IsOkAndHoldsMatcherINSt5decayIT_E4typeEEEOSD_.exit
@@ -124367,7 +124313,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %356 = landingpad { ptr, i32 }
           catch ptr null
   %357 = extractvalue { ptr, i32 } %356, 0
-  call void @__clang_call_terminate(ptr %357) #31
+  call void @__clang_call_terminate(ptr %357) #31, !noalias !2888
   unreachable
 
 _ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.sink.split.i186: ; preds = %347, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i179
@@ -124428,7 +124374,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %377 = landingpad { ptr, i32 }
           catch ptr null
   %378 = extractvalue { ptr, i32 } %377, 0
-  call void @__clang_call_terminate(ptr %378) #31
+  call void @__clang_call_terminate(ptr %378) #31, !noalias !2898
   unreachable
 
 _ZN7testing18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i197: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i190, %_ZN7testing7AnyWithIN12_GLOBAL__N_112CopyDetectorEEENS_18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIT_EEEERKNS_7MatcherIRKS7_EE.exit188
@@ -124489,7 +124435,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %398 = landingpad { ptr, i32 }
           catch ptr null
   %399 = extractvalue { ptr, i32 } %398, 0
-  call void @__clang_call_terminate(ptr %399) #31
+  call void @__clang_call_terminate(ptr %399) #31, !noalias !2901
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS2_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i208: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i201, %_ZN12absl_testing12IsOkAndHoldsIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEEEENS_15status_internal19IsOkAndHoldsMatcherINSt5decayIT_E4typeEEEOSD_.exit199
@@ -125057,7 +125003,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %596 = landingpad { ptr, i32 }
           catch ptr null
   %597 = extractvalue { ptr, i32 } %596, 0
-  call void @__clang_call_terminate(ptr %597) #31
+  call void @__clang_call_terminate(ptr %597) #31, !noalias !2904
   unreachable
 
 _ZN7testing8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEED2Ev.exit.sink.split.sink.split.i277: ; preds = %587, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i270
@@ -125118,7 +125064,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %617 = landingpad { ptr, i32 }
           catch ptr null
   %618 = extractvalue { ptr, i32 } %617, 0
-  call void @__clang_call_terminate(ptr %618) #31
+  call void @__clang_call_terminate(ptr %618) #31, !noalias !2914
   unreachable
 
 _ZN7testing18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i288: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i281, %_ZN7testing7AnyWithIN12_GLOBAL__N_112CopyDetectorEEENS_18PolymorphicMatcherINS_8internal16any_cast_matcher14AnyCastMatcherIT_EEEERKNS_7MatcherIRKS7_EE.exit279
@@ -125179,7 +125125,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %638 = landingpad { ptr, i32 }
           catch ptr null
   %639 = extractvalue { ptr, i32 } %638, 0
-  call void @__clang_call_terminate(ptr %639) #31
+  call void @__clang_call_terminate(ptr %639) #31, !noalias !2917
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS2_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i299: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i292, %_ZN12absl_testing12IsOkAndHoldsIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherIN12_GLOBAL__N_112CopyDetectorEEEEEEENS_15status_internal19IsOkAndHoldsMatcherINSt5decayIT_E4typeEEEOSD_.exit290
@@ -126356,7 +126302,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  tail call void @__clang_call_terminate(ptr %56) #31
+  tail call void @__clang_call_terminate(ptr %56) #31, !noalias !2923
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i, %33
@@ -126725,7 +126671,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %189 = landingpad { ptr, i32 }
           catch ptr null
   %190 = extractvalue { ptr, i32 } %189, 0
-  call void @__clang_call_terminate(ptr %190) #31
+  call void @__clang_call_terminate(ptr %190) #31, !noalias !2929
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i126: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i119, %167
@@ -127070,7 +127016,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %314 = landingpad { ptr, i32 }
           catch ptr null
   %315 = extractvalue { ptr, i32 } %314, 0
-  call void @__clang_call_terminate(ptr %315) #31
+  call void @__clang_call_terminate(ptr %315) #31, !noalias !2935
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i167: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i160, %292
@@ -127408,7 +127354,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %435 = landingpad { ptr, i32 }
           catch ptr null
   %436 = extractvalue { ptr, i32 } %435, 0
-  call void @__clang_call_terminate(ptr %436) #31
+  call void @__clang_call_terminate(ptr %436) #31, !noalias !2941
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i207: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i200, %413
@@ -127904,7 +127850,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  tail call void @__clang_call_terminate(ptr %56) #31
+  tail call void @__clang_call_terminate(ptr %56) #31, !noalias !2947
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i, %33
@@ -128254,7 +128200,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %182 = landingpad { ptr, i32 }
           catch ptr null
   %183 = extractvalue { ptr, i32 } %182, 0
-  call void @__clang_call_terminate(ptr %183) #31
+  call void @__clang_call_terminate(ptr %183) #31, !noalias !2953
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i126: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i119, %160
@@ -128590,7 +128536,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %304 = landingpad { ptr, i32 }
           catch ptr null
   %305 = extractvalue { ptr, i32 } %304, 0
-  call void @__clang_call_terminate(ptr %305) #31
+  call void @__clang_call_terminate(ptr %305) #31, !noalias !2959
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i165: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i158, %282
@@ -128926,7 +128872,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %426 = landingpad { ptr, i32 }
           catch ptr null
   %427 = extractvalue { ptr, i32 } %426, 0
-  call void @__clang_call_terminate(ptr %427) #31
+  call void @__clang_call_terminate(ptr %427) #31, !noalias !2965
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i204: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i197, %404
@@ -135986,7 +135932,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #31
+  call void @__clang_call_terminate(ptr %49) #31, !noalias !3054
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i, %26
@@ -136324,7 +136270,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   %170 = landingpad { ptr, i32 }
           catch ptr null
   %171 = extractvalue { ptr, i32 } %170, 0
-  call void @__clang_call_terminate(ptr %171) #31
+  call void @__clang_call_terminate(ptr %171) #31, !noalias !3060
   unreachable
 
 _ZN12absl_testing15status_internal19IsOkAndHoldsMatcherIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i240: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i233, %148

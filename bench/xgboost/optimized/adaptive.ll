@@ -2488,7 +2488,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 181:                                              ; preds = %176
   %182 = extractvalue { ptr, i32 } %177, 0
-  %183 = call ptr @__cxa_begin_catch(ptr %182) #8
+  %183 = call ptr @__cxa_begin_catch(ptr %182) #8, !noalias !31
   %184 = load ptr, ptr %183, align 8, !noalias !31
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 16
   %186 = load ptr, ptr %185, align 8, !noalias !31
@@ -2685,7 +2685,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i.i.i.i: ; preds = %.noexc.i.i.i.
   %235 = landingpad { ptr, i32 }
           catch ptr null
   %236 = extractvalue { ptr, i32 } %235, 0
-  call void @__clang_call_terminate(ptr %236) #31
+  call void @__clang_call_terminate(ptr %236) #31, !noalias !71
   unreachable
 
 "_ZN7xgboost10collectivelsIZNS0_6detail18TryApplyWithLabelsIRZNS_3obj6detail18UpdateTreeLeafHostEPKNS_7ContextERKSt6vectorIiSaIiEEiRKNS_8MetaInfoEfRKNS_16HostDeviceVectorIfEEfPNS_7RegTreeEE3$_0EENS0_6ResultES8_OT_EUlvE1_EENSt9enable_ifIXsr3stdE14is_invocable_vISQ_EESP_E4typeEOSP_SR_.exit.i.i": ; preds = %231
@@ -2757,7 +2757,7 @@ _ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.
   %248 = landingpad { ptr, i32 }
           catch ptr null
   %249 = extractvalue { ptr, i32 } %248, 0
-  call void @__clang_call_terminate(ptr %249) #31
+  call void @__clang_call_terminate(ptr %249) #31, !noalias !31
   unreachable
 
 "_ZN7xgboost10collective6detail18TryApplyWithLabelsIRZNS_3obj6detail18UpdateTreeLeafHostEPKNS_7ContextERKSt6vectorIiSaIiEEiRKNS_8MetaInfoEfRKNS_16HostDeviceVectorIfEEfPNS_7RegTreeEE3$_0EENS0_6ResultES7_OT_.exit.i": ; preds = %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i33.i.i, %_ZN7xgboost10collective6ResultD2Ev.exit31.i.i, %_ZN7xgboost10collective6ResultD2Ev.exit.i.i

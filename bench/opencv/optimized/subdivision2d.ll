@@ -2117,7 +2117,7 @@ define noundef i32 @_ZN2cv8Subdiv2D6insertENS_6Point_IfEE(ptr noundef nonnull al
 
 ._crit_edge72:                                    ; preds = %14
   %.0.pre = load i32, ptr %5, align 4
-  br label %341
+  br label %.loopexit
 
 ._crit_edge:                                      ; preds = %14
   %.pre = load i32, ptr %6, align 4
@@ -2138,12 +2138,12 @@ define noundef i32 @_ZN2cv8Subdiv2D6insertENS_6Point_IfEE(ptr noundef nonnull al
 .loopexit59:                                      ; preds = %202
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %348
+  br label %347
 
 .loopexit.split-lp:                               ; preds = %2, %128, %141, %144, %153
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %348
+  br label %347
 
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
@@ -2159,7 +2159,7 @@ define noundef i32 @_ZN2cv8Subdiv2D6insertENS_6Point_IfEE(ptr noundef nonnull al
 22:                                               ; preds = %20, %18
   %.pn48 = phi { ptr, i32 } [ %21, %20 ], [ %19, %18 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #32
-  br label %348
+  br label %347
 
 23:                                               ; preds = %14
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #32
@@ -2187,7 +2187,7 @@ define noundef i32 @_ZN2cv8Subdiv2D6insertENS_6Point_IfEE(ptr noundef nonnull al
 30:                                               ; preds = %28, %26
   %.pn46 = phi { ptr, i32 } [ %29, %28 ], [ %27, %26 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #32
-  br label %348
+  br label %347
 
 31:                                               ; preds = %14
   %32 = load i32, ptr %6, align 4
@@ -2326,7 +2326,7 @@ default.unreachable74:                            ; preds = %14
 127:                                              ; preds = %125, %123
   %.pn = phi { ptr, i32 } [ %126, %125 ], [ %124, %123 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #32
-  br label %348
+  br label %347
 
 128:                                              ; preds = %119
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2632,33 +2632,28 @@ _ZNSt6vectorIN2cv8Subdiv2D8QuadEdgeESaIS2_EE12emplace_backIJEEEvDpOT_.exit.i: ; 
   %exitcond.not = icmp eq i32 %340, %233
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
-.loopexit:                                        ; preds = %338, %325, %226
-  %storemerge64.lcssa = phi i32 [ %219, %226 ], [ %storemerge6465, %325 ], [ %storemerge, %338 ]
-  store i32 %storemerge64.lcssa, ptr %6, align 4
-  br label %341
+.loopexit:                                        ; preds = %325, %338, %226, %._crit_edge72
+  %.0 = phi i32 [ %.0.pre, %._crit_edge72 ], [ %130, %226 ], [ %130, %338 ], [ %130, %325 ]
+  %341 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %342 = load i32, ptr %341, align 8
+  %.not.i = icmp eq i32 %342, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %343
 
-341:                                              ; preds = %._crit_edge72, %.loopexit
-  %.0 = phi i32 [ %.0.pre, %._crit_edge72 ], [ %130, %.loopexit ]
-  %342 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %343 = load i32, ptr %342, align 8
-  %.not.i = icmp eq i32 %343, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %344
-
-344:                                              ; preds = %341
+343:                                              ; preds = %.loopexit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %4)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %345
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %344
 
-345:                                              ; preds = %344
-  %346 = landingpad { ptr, i32 }
+344:                                              ; preds = %343
+  %345 = landingpad { ptr, i32 }
           catch ptr null
-  %347 = extractvalue { ptr, i32 } %346, 0
-  call void @__clang_call_terminate(ptr %347) #31
+  %346 = extractvalue { ptr, i32 } %345, 0
+  call void @__clang_call_terminate(ptr %346) #31
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %341, %344
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.loopexit, %343
   ret i32 %.0
 
-348:                                              ; preds = %.loopexit59, %.loopexit.split-lp, %127, %30, %22
+347:                                              ; preds = %.loopexit59, %.loopexit.split-lp, %127, %30, %22
   %.pn48.pn = phi { ptr, i32 } [ %.pn48, %22 ], [ %.pn46, %30 ], [ %.pn, %127 ], [ %lpad.loopexit, %.loopexit59 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #32
   resume { ptr, i32 } %.pn48.pn
@@ -3184,7 +3179,7 @@ define noundef i32 @_ZN2cv8Subdiv2D11findNearestENS_6Point_IfEEPS2_(ptr noundef 
 15:                                               ; preds = %17, %14
   %16 = landingpad { ptr, i32 }
           cleanup
-  br label %195
+  br label %194
 
 17:                                               ; preds = %14, %3
   store i32 0, ptr %5, align 4
@@ -3199,37 +3194,36 @@ define noundef i32 @_ZN2cv8Subdiv2D11findNearestENS_6Point_IfEEPS2_(ptr noundef 
 
 ._crit_edge136:                                   ; preds = %19
   %.0.pre = load i32, ptr %5, align 4
-  br label %188
+  br label %.thread
 
 21:                                               ; preds = %19
-  store i32 0, ptr %5, align 4
-  %22 = load i32, ptr %6, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %24 = load ptr, ptr %23, align 8
-  %25 = load ptr, ptr %0, align 8
-  %26 = and i32 %22, -4
-  %27 = add nsw i32 %22, 1
-  %28 = and i32 %27, 3
-  %29 = or disjoint i32 %28, %26
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = ptrtoint ptr %31 to i64
-  %33 = ptrtoint ptr %25 to i64
-  %34 = sub i64 %32, %33
-  %35 = lshr exact i64 %34, 4
-  %36 = trunc i64 %35 to i32
-  %37 = icmp sgt i32 %36, 0
-  br i1 %37, label %.preheader70.lr.ph, label %.thread
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %0, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = ptrtoint ptr %26 to i64
+  %28 = ptrtoint ptr %24 to i64
+  %29 = sub i64 %27, %28
+  %30 = lshr exact i64 %29, 4
+  %31 = trunc i64 %30 to i32
+  %32 = icmp sgt i32 %31, 0
+  br i1 %32, label %.preheader70.lr.ph, label %.thread
 
 .preheader70.lr.ph:                               ; preds = %21
-  %38 = ashr i32 %22, 2
+  %33 = load i32, ptr %6, align 4
+  %34 = add nsw i32 %33, 1
+  %35 = and i32 %34, 3
+  %36 = and i32 %33, -4
+  %37 = or disjoint i32 %35, %36
+  %38 = ashr i32 %33, 2
   %39 = sext i32 %38 to i64
-  %40 = and i32 %22, 3
+  %40 = and i32 %33, 3
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %24, i64 %39, i32 1, i64 %41
+  %42 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %23, i64 %39, i32 1, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds %"struct.cv::Subdiv2D::Vertex", ptr %25, i64 %44, i32 2
+  %45 = getelementptr inbounds %"struct.cv::Subdiv2D::Vertex", ptr %24, i64 %44, i32 2
   %.sroa_idx60 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %46 = load float, ptr %.sroa_idx60, align 4
   %47 = load float, ptr %45, align 4
@@ -3248,13 +3242,13 @@ define noundef i32 @_ZN2cv8Subdiv2D11findNearestENS_6Point_IfEEPS2_(ptr noundef 
 
 .preheader70:                                     ; preds = %.preheader70.lr.ph, %171
   %.013103 = phi i32 [ 0, %.preheader70.lr.ph ], [ %173, %171 ]
-  %.lcssa9198102 = phi i32 [ %29, %.preheader70.lr.ph ], [ %172, %171 ]
+  %.lcssa9198102 = phi i32 [ %37, %.preheader70.lr.ph ], [ %172, %171 ]
   %57 = ashr i32 %.lcssa9198102, 2
   %58 = sext i32 %57 to i64
   %59 = and i32 %.lcssa9198102, 3
   %60 = xor i32 %59, 2
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %24, i64 %58, i32 1, i64 %61
+  %62 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %23, i64 %58, i32 1, i64 %61
   %63 = load i32, ptr %62, align 4
   %64 = icmp sgt i32 %63, 0
   br i1 %64, label %.lr.ph, label %.preheader70._crit_edge
@@ -3285,14 +3279,14 @@ define noundef i32 @_ZN2cv8Subdiv2D11findNearestENS_6Point_IfEEPS2_(ptr noundef 
 71:                                               ; preds = %69, %67
   %.pn = phi { ptr, i32 } [ %70, %69 ], [ %68, %67 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #32
-  br label %195
+  br label %194
 
 .lr.ph:                                           ; preds = %.preheader70, %103
   %72 = phi i32 [ %119, %103 ], [ %63, %.preheader70 ]
   %73 = phi i64 [ %115, %103 ], [ %58, %.preheader70 ]
   %74 = phi i32 [ %113, %103 ], [ %.lcssa9198102, %.preheader70 ]
   %75 = zext nneg i32 %72 to i64
-  %76 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %25, i64 %75, i32 2
+  %76 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %24, i64 %75, i32 2
   %.sroa_idx48 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %77 = load float, ptr %.sroa_idx48, align 4
   %78 = load float, ptr %76, align 4
@@ -3310,17 +3304,17 @@ define noundef i32 @_ZN2cv8Subdiv2D11findNearestENS_6Point_IfEEPS2_(ptr noundef 
   %87 = sext i32 %86 to i64
   %88 = and i32 %74, 3
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %24, i64 %87, i32 1, i64 %89
+  %90 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %23, i64 %87, i32 1, i64 %89
   %91 = load i32, ptr %90, align 4
   %92 = icmp sgt i32 %91, 0
   br i1 %92, label %.lr.ph93.preheader, label %.preheader._crit_edge
 
 .lr.ph93.preheader:                               ; preds = %.preheader
   %93 = zext nneg i32 %91 to i64
-  %.in106177 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %25, i64 %93, i32 2
-  %94 = load float, ptr %.in106177, align 4
-  %.in178 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %25, i64 %93, i32 2, i32 1
-  %95 = load float, ptr %.in178, align 4
+  %.in106175 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %24, i64 %93, i32 2
+  %94 = load float, ptr %.in106175, align 4
+  %.in176 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %24, i64 %93, i32 2, i32 1
+  %95 = load float, ptr %.in176, align 4
   %96 = fpext float %94 to double
   %97 = fsub double %50, %96
   %98 = fpext float %95 to double
@@ -3328,10 +3322,10 @@ define noundef i32 @_ZN2cv8Subdiv2D11findNearestENS_6Point_IfEEPS2_(ptr noundef 
   %100 = fmul double %99, %54
   %101 = call double @llvm.fmuladd.f64(double %97, double %51, double %100)
   %102 = fcmp olt double %101, 0.000000e+00
-  br i1 %102, label %.lr.ph93._crit_edge, label %.lr.ph179
+  br i1 %102, label %.lr.ph93._crit_edge, label %.lr.ph177
 
 103:                                              ; preds = %.lr.ph
-  %104 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %24, i64 %73
+  %104 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %23, i64 %73
   %105 = add i32 %74, 3
   %106 = and i32 %105, 3
   %107 = zext nneg i32 %106 to i64
@@ -3345,12 +3339,12 @@ define noundef i32 @_ZN2cv8Subdiv2D11findNearestENS_6Point_IfEEPS2_(ptr noundef 
   %115 = sext i32 %114 to i64
   %116 = xor i32 %112, 2
   %117 = zext nneg i32 %116 to i64
-  %118 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %24, i64 %115, i32 1, i64 %117
+  %118 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %23, i64 %115, i32 1, i64 %117
   %119 = load i32, ptr %118, align 4
   %120 = icmp sgt i32 %119, 0
   br i1 %120, label %.lr.ph, label %.preheader70._crit_edge, !llvm.loop !26
 
-.preheader._crit_edge:                            ; preds = %.preheader, %.lr.ph179
+.preheader._crit_edge:                            ; preds = %.preheader, %.lr.ph177
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %121 unwind label %123
@@ -3376,13 +3370,13 @@ define noundef i32 @_ZN2cv8Subdiv2D11findNearestENS_6Point_IfEEPS2_(ptr noundef 
 127:                                              ; preds = %125, %123
   %.pn21 = phi { ptr, i32 } [ %126, %125 ], [ %124, %123 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #32
-  br label %195
+  br label %194
 
-.lr.ph93:                                         ; preds = %.lr.ph179
+.lr.ph93:                                         ; preds = %.lr.ph177
   %128 = zext nneg i32 %151 to i64
-  %.in106 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %25, i64 %128, i32 2
+  %.in106 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %24, i64 %128, i32 2
   %129 = load float, ptr %.in106, align 4
-  %.in = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %25, i64 %128, i32 2, i32 1
+  %.in = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %24, i64 %128, i32 2, i32 1
   %130 = load float, ptr %.in, align 4
   %131 = fpext float %129 to double
   %132 = fsub double %50, %131
@@ -3391,12 +3385,12 @@ define noundef i32 @_ZN2cv8Subdiv2D11findNearestENS_6Point_IfEEPS2_(ptr noundef 
   %135 = fmul double %134, %54
   %136 = call double @llvm.fmuladd.f64(double %132, double %51, double %135)
   %137 = fcmp olt double %136, 0.000000e+00
-  br i1 %137, label %.lr.ph93._crit_edge, label %.lr.ph179, !llvm.loop !27
+  br i1 %137, label %.lr.ph93._crit_edge, label %.lr.ph177, !llvm.loop !27
 
-.lr.ph179:                                        ; preds = %.lr.ph93.preheader, %.lr.ph93
+.lr.ph177:                                        ; preds = %.lr.ph93.preheader, %.lr.ph93
   %138 = phi i32 [ %145, %.lr.ph93 ], [ %74, %.lr.ph93.preheader ]
   %139 = phi i64 [ %147, %.lr.ph93 ], [ %87, %.lr.ph93.preheader ]
-  %140 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %24, i64 %139
+  %140 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %23, i64 %139
   %141 = and i32 %138, 3
   %142 = zext nneg i32 %141 to i64
   %143 = getelementptr inbounds nuw [4 x i32], ptr %140, i64 0, i64 %142
@@ -3406,33 +3400,33 @@ define noundef i32 @_ZN2cv8Subdiv2D11findNearestENS_6Point_IfEEPS2_(ptr noundef 
   %147 = sext i32 %146 to i64
   %148 = and i32 %145, 3
   %149 = zext nneg i32 %148 to i64
-  %150 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %24, i64 %147, i32 1, i64 %149
+  %150 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %23, i64 %147, i32 1, i64 %149
   %151 = load i32, ptr %150, align 4
   %152 = icmp sgt i32 %151, 0
   br i1 %152, label %.lr.ph93, label %.preheader._crit_edge, !llvm.loop !27
 
 .lr.ph93._crit_edge:                              ; preds = %.lr.ph93, %.lr.ph93.preheader
-  %.lcssa174 = phi i32 [ %88, %.lr.ph93.preheader ], [ %148, %.lr.ph93 ]
-  %.lcssa172 = phi i64 [ %87, %.lr.ph93.preheader ], [ %147, %.lr.ph93 ]
-  %.lcssa169 = phi i32 [ %74, %.lr.ph93.preheader ], [ %145, %.lr.ph93 ]
-  %.lcssa167 = phi float [ %94, %.lr.ph93.preheader ], [ %129, %.lr.ph93 ]
-  %.lcssa165 = phi float [ %95, %.lr.ph93.preheader ], [ %130, %.lr.ph93 ]
-  %.lcssa163 = phi double [ %96, %.lr.ph93.preheader ], [ %131, %.lr.ph93 ]
-  %.lcssa161 = phi double [ %98, %.lr.ph93.preheader ], [ %133, %.lr.ph93 ]
-  %153 = xor i32 %.lcssa174, 2
+  %.lcssa173 = phi i32 [ %88, %.lr.ph93.preheader ], [ %148, %.lr.ph93 ]
+  %.lcssa171 = phi i64 [ %87, %.lr.ph93.preheader ], [ %147, %.lr.ph93 ]
+  %.lcssa168 = phi i32 [ %74, %.lr.ph93.preheader ], [ %145, %.lr.ph93 ]
+  %.lcssa166 = phi float [ %94, %.lr.ph93.preheader ], [ %129, %.lr.ph93 ]
+  %.lcssa164 = phi float [ %95, %.lr.ph93.preheader ], [ %130, %.lr.ph93 ]
+  %.lcssa162 = phi double [ %96, %.lr.ph93.preheader ], [ %131, %.lr.ph93 ]
+  %.lcssa160 = phi double [ %98, %.lr.ph93.preheader ], [ %133, %.lr.ph93 ]
+  %153 = xor i32 %.lcssa173, 2
   %154 = zext nneg i32 %153 to i64
-  %155 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %24, i64 %.lcssa172, i32 1, i64 %154
+  %155 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %23, i64 %.lcssa171, i32 1, i64 %154
   %156 = load i32, ptr %155, align 4
   %157 = sext i32 %156 to i64
-  %158 = getelementptr inbounds %"struct.cv::Subdiv2D::Vertex", ptr %25, i64 %157, i32 2
+  %158 = getelementptr inbounds %"struct.cv::Subdiv2D::Vertex", ptr %24, i64 %157, i32 2
   %159 = load float, ptr %158, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %158, i64 4
   %160 = load float, ptr %.sroa_idx, align 4
-  %161 = fsub float %159, %.lcssa167
-  %162 = fsub float %160, %.lcssa165
-  %163 = fsub double %.lcssa163, %55
+  %161 = fsub float %159, %.lcssa166
+  %162 = fsub float %160, %.lcssa164
+  %163 = fsub double %.lcssa162, %55
   %164 = fpext float %162 to double
-  %165 = fsub double %.lcssa161, %56
+  %165 = fsub double %.lcssa160, %56
   %166 = fpext float %161 to double
   %167 = fneg double %166
   %168 = fmul double %165, %167
@@ -3441,60 +3435,53 @@ define noundef i32 @_ZN2cv8Subdiv2D11findNearestENS_6Point_IfEEPS2_(ptr noundef 
   br i1 %170, label %174, label %171
 
 171:                                              ; preds = %.lr.ph93._crit_edge
-  %172 = xor i32 %.lcssa169, 2
+  %172 = xor i32 %.lcssa168, 2
   %173 = add nuw nsw i32 %.013103, 1
-  %exitcond.not = icmp eq i32 %173, %36
+  %exitcond.not = icmp eq i32 %173, %31
   br i1 %exitcond.not, label %.thread, label %.preheader70, !llvm.loop !28
 
-.thread:                                          ; preds = %171, %21
-  %.lcssa9198.lcssa = phi i32 [ %29, %21 ], [ %172, %171 ]
-  store i32 %.lcssa9198.lcssa, ptr %6, align 4
-  br label %188
-
 174:                                              ; preds = %.lr.ph93._crit_edge
-  store i32 %.lcssa169, ptr %6, align 4
-  %175 = add nsw i32 %.lcssa169, 3
+  %175 = add nsw i32 %.lcssa168, 3
   %176 = and i32 %175, 3
-  %177 = ashr i32 %.lcssa169, 2
+  %177 = ashr i32 %.lcssa168, 2
   %178 = sext i32 %177 to i64
   %179 = zext nneg i32 %176 to i64
-  %180 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %24, i64 %178, i32 1, i64 %179
+  %180 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %23, i64 %178, i32 1, i64 %179
   %181 = load i32, ptr %180, align 4
-  store i32 %181, ptr %5, align 4
   %182 = icmp ne ptr %2, null
   %183 = icmp sgt i32 %181, 0
   %or.cond3 = select i1 %182, i1 %183, i1 false
-  br i1 %or.cond3, label %184, label %188
+  br i1 %or.cond3, label %184, label %.thread
 
 184:                                              ; preds = %174
   %185 = zext nneg i32 %181 to i64
-  %186 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %25, i64 %185, i32 2
+  %186 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %24, i64 %185, i32 2
   %187 = load i64, ptr %186, align 4
   store i64 %187, ptr %2, align 4
-  br label %188
+  br label %.thread
 
-188:                                              ; preds = %.thread, %._crit_edge136, %174, %184
-  %.0 = phi i32 [ %.0.pre, %._crit_edge136 ], [ %181, %174 ], [ %181, %184 ], [ 0, %.thread ]
-  %189 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %190 = load i32, ptr %189, align 8
-  %.not.i = icmp eq i32 %190, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %191
+.thread:                                          ; preds = %171, %21, %._crit_edge136, %174, %184
+  %.0 = phi i32 [ %.0.pre, %._crit_edge136 ], [ %181, %174 ], [ %181, %184 ], [ 0, %21 ], [ 0, %171 ]
+  %188 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %189 = load i32, ptr %188, align 8
+  %.not.i = icmp eq i32 %189, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %190
 
-191:                                              ; preds = %188
+190:                                              ; preds = %.thread
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %4)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %192
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %191
 
-192:                                              ; preds = %191
-  %193 = landingpad { ptr, i32 }
+191:                                              ; preds = %190
+  %192 = landingpad { ptr, i32 }
           catch ptr null
-  %194 = extractvalue { ptr, i32 } %193, 0
-  call void @__clang_call_terminate(ptr %194) #31
+  %193 = extractvalue { ptr, i32 } %192, 0
+  call void @__clang_call_terminate(ptr %193) #31
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %188, %191
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.thread, %190
   ret i32 %.0
 
-195:                                              ; preds = %127, %71, %15
+194:                                              ; preds = %127, %71, %15
   %.pn21.pn = phi { ptr, i32 } [ %.pn21, %127 ], [ %.pn, %71 ], [ %16, %15 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #32
   resume { ptr, i32 } %.pn21.pn

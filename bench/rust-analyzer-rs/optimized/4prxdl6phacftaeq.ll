@@ -3027,7 +3027,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
   %32 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %31)
-          to label %36 unwind label %33
+          to label %36 unwind label %33, !noalias !498
 
 33:                                               ; preds = %29
   %34 = landingpad { ptr, i32 }
@@ -3248,7 +3248,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
   %32 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %31)
-          to label %36 unwind label %33
+          to label %36 unwind label %33, !noalias !540
 
 33:                                               ; preds = %29
   %34 = landingpad { ptr, i32 }
@@ -3462,7 +3462,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
   %34 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %33)
-          to label %37 unwind label %35
+          to label %37 unwind label %35, !noalias !573
 
 35:                                               ; preds = %31
   %36 = landingpad { ptr, i32 }
@@ -3672,7 +3672,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
   %34 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %33)
-          to label %37 unwind label %35
+          to label %37 unwind label %35, !noalias !608
 
 35:                                               ; preds = %31
   %36 = landingpad { ptr, i32 }

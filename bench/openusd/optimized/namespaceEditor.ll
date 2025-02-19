@@ -7417,7 +7417,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditor14_EditPro
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #23
+  call void @__clang_call_terminate(ptr %41) #23, !noalias !53
   unreachable
 
 common.resume:                                    ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__16WorkSingularTaskD2Ev.exit.i.i, %73, %.loopexit.split-lp129
@@ -24374,7 +24374,7 @@ _ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEC2IRKS1_TnNSt9enable
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #23
+  call void @__clang_call_terminate(ptr %53) #23, !noalias !226
   unreachable
 
 "_ZSt10__invoke_rISt8optionalIN32pxrInternal_v0_24__pxrReserved__7SdfPathEERZNS1_18UsdNamespaceEditor14_EditProcessor24_GatherTargetListOpEditsEvE3$_1JNS1_13SdfListOpTypeERKS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit": ; preds = %.thread.i.i, %35, %37, %50

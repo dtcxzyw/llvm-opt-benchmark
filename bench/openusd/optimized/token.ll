@@ -1440,7 +1440,7 @@ define linkonce_odr ptr @_ZN32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistry
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfMallocTag::Auto", align 8
   %8 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::TfToken::_Rep", align 8
   %9 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
-  br i1 %9, label %198, label %10
+  br i1 %9, label %197, label %10
 
 10:                                               ; preds = %3
   %11 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
@@ -1812,7 +1812,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfHashSetINS_7TfToken4_RepENS_16Tf_TokenRe
 _ZN32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistry19_ComputeCompareCodeEPKc.exit: ; preds = %168
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
-          to label %174 unwind label %193
+          to label %174 unwind label %192
 
 174:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistry19_ComputeCompareCodeEPKc.exit
   %175 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -1829,7 +1829,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistry19_ComputeCompareCodeEPKc
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %22, ptr %4, align 8
   %180 = invoke { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfToken4_RepES2_SaIS2_ENSt8__detail9_IdentityENS0_16Tf_TokenRegistry3_EqENS6_5_HashILi5EEENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIRKS2_SI_NS4_10_AllocNodeISaINS4_10_Hash_nodeIS2_Lb1EEEEEEEESt4pairINS4_14_Node_iteratorIS2_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %181 unwind label %195
+          to label %181 unwind label %194
 
 181:                                              ; preds = %174
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -1846,34 +1846,33 @@ _ZN32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistry19_ComputeCompareCodeEPKc
   br i1 %.not.i.i81, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit, label %188
 
 188:                                              ; preds = %181
-  %189 = load i32, ptr %165, align 8
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4_EndEiPNS0_11_ThreadDataE(i32 noundef %189, ptr noundef nonnull %164)
-          to label %.noexc.i unwind label %190
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4_EndEiPNS0_11_ThreadDataE(i32 noundef %166, ptr noundef nonnull %164)
+          to label %.noexc.i unwind label %189
 
 .noexc.i:                                         ; preds = %188
   store ptr null, ptr %7, align 8
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit
 
-190:                                              ; preds = %188
-  %191 = landingpad { ptr, i32 }
+189:                                              ; preds = %188
+  %190 = landingpad { ptr, i32 }
           catch ptr null
-  %192 = extractvalue { ptr, i32 } %191, 0
-  call void @__clang_call_terminate(ptr %192) #24
+  %191 = extractvalue { ptr, i32 } %190, 0
+  call void @__clang_call_terminate(ptr %191) #24
   unreachable
 
-193:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistry19_ComputeCompareCodeEPKc.exit
-  %194 = landingpad { ptr, i32 }
+192:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistry19_ComputeCompareCodeEPKc.exit
+  %193 = landingpad { ptr, i32 }
           cleanup
-  br label %197
+  br label %196
 
-195:                                              ; preds = %174
-  %196 = landingpad { ptr, i32 }
+194:                                              ; preds = %174
+  %195 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %177) #14
-  br label %197
+  br label %196
 
-197:                                              ; preds = %195, %193
-  %.pn = phi { ptr, i32 } [ %196, %195 ], [ %194, %193 ]
+196:                                              ; preds = %194, %192
+  %.pn = phi { ptr, i32 } [ %195, %194 ], [ %193, %192 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7) #14
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit84
 
@@ -1881,14 +1880,14 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit: ; preds = %.n
   %.sroa.097.1.in = phi i64 [ %90, %88 ], [ %187, %181 ], [ %187, %.noexc.i ]
   %.sroa.097.1 = inttoptr i64 %.sroa.097.1.in to ptr
   store atomic i8 0, ptr %23 release, align 4
-  br label %198
+  br label %197
 
-_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit84: ; preds = %197, %84
-  %.pn70 = phi { ptr, i32 } [ %85, %84 ], [ %.pn, %197 ]
+_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit84: ; preds = %196, %84
+  %.pn70 = phi { ptr, i32 } [ %85, %84 ], [ %.pn, %196 ]
   store atomic i8 0, ptr %23 release, align 4
   resume { ptr, i32 } %.pn70
 
-198:                                              ; preds = %3, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit
+197:                                              ; preds = %3, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit
   %.sroa.097.0 = phi ptr [ %.sroa.097.1, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit ], [ null, %3 ]
   ret ptr %.sroa.097.0
 }
@@ -2703,13 +2702,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfHashSetINS_7TfToken4_RepENS_16Tf_TokenRe
 
 _ZN32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistry19_ComputeCompareCodeEPKc.exit: ; preds = %161
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfToken4_RepC2EPKcjm(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull %1, i32 noundef %15, i64 noundef %166)
-          to label %167 unwind label %182
+          to label %167 unwind label %181
 
 167:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistry19_ComputeCompareCodeEPKc.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %17, ptr %4, align 8
   %168 = invoke { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfToken4_RepES2_SaIS2_ENSt8__detail9_IdentityENS0_16Tf_TokenRegistry3_EqENS6_5_HashILi5EEENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIRKS2_SI_NS4_10_AllocNodeISaINS4_10_Hash_nodeIS2_Lb1EEEEEEEESt4pairINS4_14_Node_iteratorIS2_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %169 unwind label %184
+          to label %169 unwind label %183
 
 169:                                              ; preds = %167
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -2727,35 +2726,34 @@ _ZN32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistry19_ComputeCompareCodeEPKc
   br i1 %.not.i.i81, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit, label %177
 
 177:                                              ; preds = %169
-  %178 = load i32, ptr %159, align 8
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4_EndEiPNS0_11_ThreadDataE(i32 noundef %178, ptr noundef nonnull %158)
-          to label %.noexc.i unwind label %179
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4_EndEiPNS0_11_ThreadDataE(i32 noundef %160, ptr noundef nonnull %158)
+          to label %.noexc.i unwind label %178
 
 .noexc.i:                                         ; preds = %177
   store ptr null, ptr %6, align 8
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit
 
-179:                                              ; preds = %177
-  %180 = landingpad { ptr, i32 }
+178:                                              ; preds = %177
+  %179 = landingpad { ptr, i32 }
           catch ptr null
-  %181 = extractvalue { ptr, i32 } %180, 0
-  call void @__clang_call_terminate(ptr %181) #24
+  %180 = extractvalue { ptr, i32 } %179, 0
+  call void @__clang_call_terminate(ptr %180) #24
   unreachable
 
-182:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistry19_ComputeCompareCodeEPKc.exit
-  %183 = landingpad { ptr, i32 }
+181:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistry19_ComputeCompareCodeEPKc.exit
+  %182 = landingpad { ptr, i32 }
           cleanup
-  br label %187
+  br label %186
 
-184:                                              ; preds = %167
-  %185 = landingpad { ptr, i32 }
+183:                                              ; preds = %167
+  %184 = landingpad { ptr, i32 }
           cleanup
-  %186 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %186) #14
-  br label %187
+  %185 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %185) #14
+  br label %186
 
-187:                                              ; preds = %184, %182
-  %.pn = phi { ptr, i32 } [ %185, %184 ], [ %183, %182 ]
+186:                                              ; preds = %183, %181
+  %.pn = phi { ptr, i32 } [ %184, %183 ], [ %182, %181 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %6) #14
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit84
 
@@ -2765,8 +2763,8 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit: ; preds = %.n
   store atomic i8 0, ptr %18 release, align 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistry8_IsEmptyEPKc.exit.thread
 
-_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit84: ; preds = %187, %78
-  %.pn70 = phi { ptr, i32 } [ %79, %78 ], [ %.pn, %187 ]
+_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit84: ; preds = %186, %78
+  %.pn70 = phi { ptr, i32 } [ %79, %78 ], [ %.pn, %186 ]
   store atomic i8 0, ptr %18 release, align 4
   resume { ptr, i32 } %.pn70
 

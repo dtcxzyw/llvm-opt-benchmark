@@ -6134,7 +6134,6 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue15UncheckedRemoveISt6vectorISt4pair
   store ptr %43, ptr %62, align 8
   store ptr %45, ptr %64, align 8
   store ptr %47, ptr %66, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_EEEvT_S7_(ptr noundef %63, ptr noundef %65)
           to label %_ZSt8_DestroyIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES3_EvT_S5_RSaIT0_E.exit.i.i.i unwind label %72
 

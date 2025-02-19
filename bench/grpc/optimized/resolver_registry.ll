@@ -964,9 +964,7 @@ ehcleanup69:                                      ; preds = %ehcleanup, %lpad60
 if.end70:                                         ; preds = %invoke.cont47
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp72) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
-  %agg.tmp3.sroa.0.0.copyload.i = load i64, ptr %target, align 8
-  %agg.tmp3.sroa.2.0.copyload.i = load ptr, ptr %0, align 8
-  %call.i85 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %agg.tmp3.sroa.0.0.copyload.i, ptr %agg.tmp3.sroa.2.0.copyload.i) #18
+  %call.i85 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %target.coerce0, ptr %target.coerce1) #18
   %27 = extractvalue { i64, ptr } %call.i85, 0
   %28 = extractvalue { i64, ptr } %call.i85, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %27, ptr %28) #18

@@ -2963,7 +2963,6 @@ _ZN5osgeo4proj15SQLiteStatement7executeEv.exit:   ; preds = %116
 
 140:                                              ; preds = %136
   %141 = load ptr, ptr %11, align 8
-  store ptr null, ptr %11, align 8
   %142 = load ptr, ptr %10, align 8
   store ptr %141, ptr %10, align 8
   %.not.i.i.i.i83 = icmp eq ptr %142, null
@@ -3055,7 +3054,6 @@ _ZN5osgeo4proj15SQLiteStatement7executeEv.exit88: ; preds = %171
 
 185:                                              ; preds = %177
   %186 = load ptr, ptr %13, align 8
-  store ptr null, ptr %13, align 8
   %187 = load ptr, ptr %10, align 8
   store ptr %186, ptr %10, align 8
   %.not.i.i.i.i89 = icmp eq ptr %187, null
@@ -5216,7 +5214,6 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 
 93:                                               ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
   %94 = load ptr, ptr %12, align 8
-  store ptr null, ptr %12, align 8
   store ptr %94, ptr %6, align 8
   %95 = load ptr, ptr %23, align 8
   %96 = invoke i32 @sqlite3_finalize(ptr noundef %95)
@@ -5474,7 +5471,6 @@ _ZNSt6vectorIxSaIxEED2Ev.exit85:                  ; preds = %87, %180, %179, %_Z
 
 182:                                              ; preds = %_ZNSt6vectorIxSaIxEED2Ev.exit85
   %183 = load ptr, ptr %14, align 8
-  store ptr null, ptr %14, align 8
   %184 = load ptr, ptr %6, align 8
   store ptr %183, ptr %6, align 8
   %.not.i.i.i.i86 = icmp eq ptr %184, null
@@ -5497,7 +5493,6 @@ _ZNKSt14default_deleteIN5osgeo4proj15SQLiteStatementEEclEPS2_.exit.i.i.i.i87: ; 
   br label %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit91
 
 _ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit91: ; preds = %_ZNKSt14default_deleteIN5osgeo4proj15SQLiteStatementEEclEPS2_.exit.i.i.i.i87, %182
-  store ptr null, ptr %14, align 8
   %.not164 = icmp eq ptr %183, null
   br i1 %.not164, label %299, label %191
 
@@ -5616,7 +5611,6 @@ _ZNSt6vectorIxSaIxEED2Ev.exit:                    ; preds = %151, %.loopexit.spl
 
 244:                                              ; preds = %242
   %245 = load ptr, ptr %15, align 8
-  store ptr null, ptr %15, align 8
   store ptr %245, ptr %6, align 8
   %246 = load ptr, ptr %23, align 8
   %247 = invoke i32 @sqlite3_finalize(ptr noundef %246)
@@ -5631,7 +5625,6 @@ _ZNSt6vectorIxSaIxEED2Ev.exit:                    ; preds = %151, %.loopexit.spl
 
 _ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit113: ; preds = %244
   call void @_ZdlPv(ptr noundef nonnull %23) #28
-  store ptr null, ptr %15, align 8
   %.not157 = icmp eq ptr %245, null
   br i1 %.not157, label %.thread, label %251
 

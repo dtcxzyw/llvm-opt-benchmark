@@ -61049,7 +61049,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36
   %478 = landingpad { ptr, i32 }
           catch ptr null
   %479 = extractvalue { ptr, i32 } %478, 0
-  call void @__clang_call_terminate(ptr %479) #56
+  call void @__clang_call_terminate(ptr %479) #56, !noalias !1117
   unreachable
 
 480:                                              ; preds = %"_ZNK5boost3nfp23named_parameter_combineINS0_15named_parameterIKZNS_9unit_test14runtime_config12_GLOBAL__N_119register_parametersERNS_7runtime16parameters_storeEE3$_0NS6_12_GLOBAL__N_110callback_tERSA_EENS1_INS2_IKNS3_13basic_cstringIKcEENSB_9env_var_tERSI_EENS2_ISI_NSB_13description_tESK_EEEEEixENS0_7keywordISC_Lb0EEE.exit.i.i.i.i"
@@ -77246,7 +77246,6 @@ _ZN5boost3anyD2Ev.exit144:                        ; preds = %241
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %262, i64 16
   store double 2.000000e+00, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !24
   %265 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i64 0, ptr %265, align 8
   %266 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #58
           to label %267 unwind label %.body190.thread
 
@@ -80548,7 +80547,6 @@ _ZNSt3anyD2Ev.exit118:                            ; preds = %225
   store double 2.000000e+00, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !24
   store ptr %247, ptr %249, align 8, !tbaa !24
   %250 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store i64 0, ptr %250, align 8
   %251 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #58
           to label %252 unwind label %.body162.thread
 
@@ -96528,7 +96526,7 @@ define linkonce_odr hidden void @_ZN5boost4bindIvNS_9unit_test17test_unit_fixtur
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #56
+  tail call void @__clang_call_terminate(ptr %31) #56, !noalias !1746
   unreachable
 
 32:                                               ; preds = %25, %.noexc.i.i.i.i.i.i, %8
@@ -96560,7 +96558,7 @@ define linkonce_odr hidden void @_ZN5boost4bindIvNS_9unit_test17test_unit_fixtur
   %47 = landingpad { ptr, i32 }
           catch ptr null
   %48 = extractvalue { ptr, i32 } %47, 0
-  tail call void @__clang_call_terminate(ptr %48) #56
+  tail call void @__clang_call_terminate(ptr %48) #56, !noalias !1746
   unreachable
 
 _ZN5boost4bindINS_4_mfi2mfIMNS_9unit_test17test_unit_fixtureEFvvEvS4_JEEEJNS_10shared_ptrIS4_EEEEENS_3_bi6bind_tINSA_11unspecifiedET_NSA_7list_avIJDpT0_EE4typeEEESD_SG_.exit: ; preds = %4

@@ -4418,7 +4418,7 @@ split.i.i:                                        ; preds = %889, %885
   %922 = phi i64 [ %.pre.i114.i.i, %.noexc115.i.i ], [ %916, %912 ]
   %923 = load ptr, ptr %.sroa.474.0..sroa_idx.i.i, align 8, !alias.scope !347, !noalias !304, !nonnull !4, !noundef !4
   %924 = getelementptr inbounds i8, ptr %923, i64 %922
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %924, ptr nonnull readonly align 1 %913, i64 %914, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %924, ptr nonnull readonly align 1 %913, i64 %914, i1 false), !noalias !325
   %925 = load i64, ptr %.sroa.575.0..sroa_idx.i.i, align 8, !alias.scope !347, !noalias !304, !noundef !4
   %926 = add i64 %925, %914
   store i64 %926, ptr %.sroa.575.0..sroa_idx.i.i, align 8, !alias.scope !347, !noalias !304
@@ -5569,7 +5569,7 @@ split.i.i:                                        ; preds = %889, %885
   %1366 = extractvalue { ptr, i64 } %1362, 0
   %1367 = extractvalue { ptr, i64 } %1362, 1
   %1368 = invoke noundef align 8 dereferenceable_or_null(64) ptr @_ZN14pulldown_cmark5parse7RefDefs3get17hf07cc4c4a35ae345E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %115, ptr noalias noundef nonnull readonly align 1 %1366, i64 noundef %1367)
-          to label %1369 unwind label %.thread55.i
+          to label %1369 unwind label %.thread55.i, !noalias !467
 
 1369:                                             ; preds = %1365
   %1370 = icmp eq ptr %1368, null

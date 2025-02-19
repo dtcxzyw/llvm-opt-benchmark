@@ -6173,7 +6173,7 @@ _ZN3tev10ThreadPool6globalEv.exit:                ; preds = %330, %327, %323
   %371 = landingpad { ptr, i32 }
           catch ptr null
   %372 = extractvalue { ptr, i32 } %371, 0
-  call void @__clang_call_terminate(ptr %372) #32
+  call void @__clang_call_terminate(ptr %372) #32, !noalias !36
   unreachable
 
 373:                                              ; preds = %.noexc81
@@ -6408,7 +6408,7 @@ _ZN4tlog6StreamlsIA37_cEERS0_RKT_.exit.i.i.i.i:   ; preds = %_ZN4tlog7warningEv.
   %463 = landingpad { ptr, i32 }
           catch ptr null
   %464 = extractvalue { ptr, i32 } %463, 0
-  call void @__clang_call_terminate(ptr %464) #32
+  call void @__clang_call_terminate(ptr %464) #32, !noalias !20
   unreachable
 
 _ZN3tev4TaskIvE11await_readyEv.exit.thread.i.i:   ; preds = %_ZN4tlog6StreamlsIA37_cEERS0_RKT_.exit.i.i.i.i, %452
@@ -6496,14 +6496,14 @@ _ZNSt3__16vectorIN3tev4TaskIvEENS_9allocatorIS3_EEED2B8ne190000Ev.exit.i.i: ; pr
   %486 = landingpad { ptr, i32 }
           catch ptr null
   %487 = extractvalue { ptr, i32 } %486, 0
-  call void @__clang_call_terminate(ptr %487) #32
+  call void @__clang_call_terminate(ptr %487) #32, !noalias !20
   unreachable
 
 488:                                              ; preds = %478, %444, %405, %403
   %.pn43.pn.pn.i.i = phi { ptr, i32 } [ %479, %478 ], [ %.pn4359.i.i, %405 ], [ %404, %403 ], [ %.pn.i.i, %444 ]
   call void @_ZNSt3__16vectorIN3tev4TaskIvEENS_9allocatorIS3_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %342) #27, !noalias !20
   %.5.i.i = extractvalue { ptr, i32 } %.pn43.pn.pn.i.i, 0
-  %489 = call ptr @__cxa_begin_catch(ptr %.5.i.i) #27
+  %489 = call ptr @__cxa_begin_catch(ptr %.5.i.i) #27, !noalias !20
   invoke void @_ZN3tev11TaskPromiseINS_4TaskIvEEvE19unhandled_exceptionEv(ptr noundef nonnull align 8 dereferenceable(24) %349)
           to label %490 unwind label %511, !noalias !20
 
@@ -6543,7 +6543,7 @@ _ZN3tev5Latch9countDownEv.exit.thread.i.i.i:      ; preds = %_ZN4tlog7warningEv.
   %502 = landingpad { ptr, i32 }
           catch ptr null
   %503 = extractvalue { ptr, i32 } %502, 0
-  call void @__clang_call_terminate(ptr %503) #32
+  call void @__clang_call_terminate(ptr %503) #32, !noalias !20
   unreachable
 
 _ZN3tev5Latch9countDownEv.exit.i50.i.i:           ; preds = %_ZN3tev15TaskPromiseBaseIvE11return_voidEv.exit.i.i
@@ -6620,7 +6620,7 @@ _ZN3tev11TaskPromiseINS_4TaskIvEEvED2Ev.exit.i.i: ; preds = %521, %517, %515
   %527 = landingpad { ptr, i32 }
           catch ptr null
   %528 = extractvalue { ptr, i32 } %527, 0
-  call void @__clang_call_terminate(ptr %528) #32
+  call void @__clang_call_terminate(ptr %528) #32, !noalias !20
   unreachable
 
 529:                                              ; preds = %401
@@ -49773,7 +49773,7 @@ define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNKS_9IpcP
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #32
+  call void @__clang_call_terminate(ptr %41) #32, !noalias !607
   unreachable
 
 42:                                               ; preds = %7

@@ -511,7 +511,6 @@ _ZN4node14MakeBaseObjectINS_4quic6PacketEJRPNS_11EnvironmentERPNS2_8ListenerERN2
 
 if.end29:                                         ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  store ptr null, ptr %agg.tmp30, align 8, !alias.scope !8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp30, i64 8
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(1280) ptr @_Znwm(i64 noundef 1280) #25, !noalias !11
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 8
@@ -537,7 +536,7 @@ if.end29:                                         ; preds = %entry
   %call.i.i1.i.i.i.i.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %call.i.i.i.i.i.i.i.i.i, ptr nonnull %diagnostic_label) #23, !noalias !8
   %4 = extractvalue { i64, ptr } %call.i.i1.i.i.i.i.i.i.i, 0
   %5 = extractvalue { i64, ptr } %call.i.i1.i.i.i.i.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i.i.i.i.i.i, i64 %4, ptr %5) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i.i.i.i.i.i, i64 %4, ptr %5) #23, !noalias !8
   %6 = load i64, ptr %agg.tmp.i.i.i.i.i.i.i.i.i, align 8, !noalias !8
   %7 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i.i.i.i.i.i, i64 8
   %8 = load ptr, ptr %7, align 8, !noalias !8
@@ -1122,7 +1121,7 @@ entry:
   %call.i.i1.i.i.i.i.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %call.i.i.i.i.i.i.i.i.i, ptr nonnull %diagnostic_label) #23, !noalias !19
   %0 = extractvalue { i64, ptr } %call.i.i1.i.i.i.i.i.i.i, 0
   %1 = extractvalue { i64, ptr } %call.i.i1.i.i.i.i.i.i.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i.i.i.i.i.i, i64 %0, ptr %1) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i.i.i.i.i.i, i64 %0, ptr %1) #23, !noalias !19
   %2 = load i64, ptr %agg.tmp.i.i.i.i.i.i.i.i.i, align 8, !noalias !19
   %3 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i.i.i.i.i.i, i64 8
   %4 = load ptr, ptr %3, align 8, !noalias !19

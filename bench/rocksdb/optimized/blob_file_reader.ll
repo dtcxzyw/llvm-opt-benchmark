@@ -2809,7 +2809,6 @@ invoke.cont25:                                    ; preds = %if.end21
   store i64 %23, ptr %call23, align 8
   %36 = getelementptr inbounds nuw i8, ptr %call23, i64 8
   store i64 %22, ptr %36, align 8
-  store ptr null, ptr %add.ptr.i.i.i.i.i2.i.i.i, align 8
   %data_.i = getelementptr inbounds nuw i8, ptr %call23, i64 16
   store ptr %21, ptr %data_.i, align 8
   %size_.i.i = getelementptr inbounds nuw i8, ptr %call23, i64 24
@@ -2861,7 +2860,6 @@ _ZNSt10unique_ptrIN7rocksdb12BlobContentsESt14default_deleteIS1_EE5resetEPS1_.ex
 _ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit67: ; preds = %if.then15, %_ZNSt10unique_ptrIN7rocksdb12BlobContentsESt14default_deleteIS1_EE5resetEPS1_.exit
   %cache_idx_.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %context, i64 16
   %.pre = load i64, ptr %cache_idx_.i.i.phi.trans.insert, align 8
-  store ptr null, ptr %add.ptr.i.i.i.i.i2.i.i.i, align 8
   %uncomp_cached_data_.i = getelementptr inbounds nuw i8, ptr %context, i64 8
   %cache_idx_.i.i = getelementptr inbounds nuw i8, ptr %context, i64 16
   %cmp.not.i68 = icmp eq i64 %.pre, -1

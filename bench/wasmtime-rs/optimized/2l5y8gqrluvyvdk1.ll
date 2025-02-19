@@ -492,7 +492,7 @@ _ZN14cranelift_isle7overlap6Errors10check_pair17hfd9ba8981b846d2fE.exit.i: ; pre
   br i1 %.not.not.not.i.not.not.not.not.not, label %175, label %176
 
 175:                                              ; preds = %173
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %174, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %174, i64 32, i1 false), !noalias !15
   invoke void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17h9268d28cc51c0da4E"(ptr nonnull sret({ ptr, [5 x i64] }) align 8 %23, ptr nonnull align 8 %51, ptr nonnull align 8 %25)
           to label %178 unwind label %.loopexit75.i, !noalias !15
 
@@ -591,7 +591,7 @@ _ZN14cranelift_isle7overlap6Errors10check_pair17hfd9ba8981b846d2fE.exit.i: ; pre
   %202 = extractvalue { i64, ptr } %199, 1
   %203 = icmp ne ptr %202, null
   call void @llvm.assume(i1 %203)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %202, ptr noundef nonnull align 1 dereferenceable(21) @anon.52c58e60444f7a11faa97e45e4d99f5f.5, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %202, ptr noundef nonnull align 1 dereferenceable(21) @anon.52c58e60444f7a11faa97e45e4d99f5f.5, i64 21, i1 false), !noalias !15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %168, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !15
   store i64 %201, ptr %167, align 8, !noalias !15
   store ptr %202, ptr %.sroa.018.sroa.2.0..sroa_idx.i, align 8, !noalias !15

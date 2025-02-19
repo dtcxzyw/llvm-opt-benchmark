@@ -4422,7 +4422,6 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hfc84c1ac67fee5
   %10 = extractvalue { ptr, i64 } %9, 0
   %11 = extractvalue { ptr, i64 } %9, 1
   tail call void @"_ZN4core3ptr54drop_in_place$LT$$u5b$image..animation..Frame$u5d$$GT$17h97f9282e745f6644E.llvm.10620417434063023195"(ptr noalias noundef nonnull align 8 %10, i64 noundef %11)
-  %.pre = load ptr, ptr %0, align 8
   br label %"_ZN4core3ptr46drop_in_place$LT$gpui..assets..RenderImage$GT$17hf0aed50b2a144ad2E.exit"
 
 12:                                               ; preds = %1
@@ -4459,22 +4458,21 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hfc84c1ac67fee5
   br label %"_ZN4core3ptr46drop_in_place$LT$gpui..assets..RenderImage$GT$17hf0aed50b2a144ad2E.exit"
 
 "_ZN4core3ptr46drop_in_place$LT$gpui..assets..RenderImage$GT$17hf0aed50b2a144ad2E.exit": ; preds = %8, %"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$image..animation..Frame$GT$$GT$17hfd4bc877f8908cdeE.llvm.10620417434063023195.exit.i.i.i"
-  %22 = phi ptr [ %.pre, %8 ], [ %3, %"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$image..animation..Frame$GT$$GT$17hfd4bc877f8908cdeE.llvm.10620417434063023195.exit.i.i.i" ]
-  %23 = icmp eq ptr %22, inttoptr (i64 -1 to ptr)
-  br i1 %23, label %"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Weak$LT$gpui..assets..RenderImage$C$$RF$alloc..alloc..Global$GT$$GT$17he99ac1cb7f2993b9E.exit", label %24
+  %22 = icmp eq ptr %3, inttoptr (i64 -1 to ptr)
+  br i1 %22, label %"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Weak$LT$gpui..assets..RenderImage$C$$RF$alloc..alloc..Global$GT$$GT$17he99ac1cb7f2993b9E.exit", label %23
 
-24:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$gpui..assets..RenderImage$GT$17hf0aed50b2a144ad2E.exit"
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %26 = atomicrmw sub ptr %25, i64 1 release, align 8, !noalias !1178
-  %27 = icmp eq i64 %26, 1
-  br i1 %27, label %28, label %"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Weak$LT$gpui..assets..RenderImage$C$$RF$alloc..alloc..Global$GT$$GT$17he99ac1cb7f2993b9E.exit"
+23:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$gpui..assets..RenderImage$GT$17hf0aed50b2a144ad2E.exit"
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %25 = atomicrmw sub ptr %24, i64 1 release, align 8, !noalias !1178
+  %26 = icmp eq i64 %25, 1
+  br i1 %26, label %27, label %"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Weak$LT$gpui..assets..RenderImage$C$$RF$alloc..alloc..Global$GT$$GT$17he99ac1cb7f2993b9E.exit"
 
-28:                                               ; preds = %24
+27:                                               ; preds = %23
   fence acquire
-  call void @__rust_dealloc(ptr noundef nonnull %22, i64 noundef 80, i64 noundef 8) #30, !noalias !1178
+  call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef 80, i64 noundef 8) #30, !noalias !1178
   br label %"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Weak$LT$gpui..assets..RenderImage$C$$RF$alloc..alloc..Global$GT$$GT$17he99ac1cb7f2993b9E.exit"
 
-"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Weak$LT$gpui..assets..RenderImage$C$$RF$alloc..alloc..Global$GT$$GT$17he99ac1cb7f2993b9E.exit": ; preds = %"_ZN4core3ptr46drop_in_place$LT$gpui..assets..RenderImage$GT$17hf0aed50b2a144ad2E.exit", %24, %28
+"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Weak$LT$gpui..assets..RenderImage$C$$RF$alloc..alloc..Global$GT$$GT$17he99ac1cb7f2993b9E.exit": ; preds = %"_ZN4core3ptr46drop_in_place$LT$gpui..assets..RenderImage$GT$17hf0aed50b2a144ad2E.exit", %23, %27
   ret void
 }
 
@@ -7827,7 +7825,7 @@ default.unreachable:                              ; preds = %330, %266, %262, %.
 
 317:                                              ; preds = %"_ZN8async_fs14create_dir_all28_$u7b$$u7b$closure$u7d$$u7d$17hab1ac91a3dd3eceeE.exit.thread.i.i"
   %318 = invoke noundef nonnull ptr @"_ZN52_$LT$E$u20$as$u20$anyhow..context..ext..StdError$GT$11ext_context17h8ace44df19363cafE"(ptr noundef nonnull %295, ptr noalias noundef nonnull readonly align 1 @anon.f80536a5c2ae8de169e955dc6588ac46.25, i64 noundef 29)
-          to label %319 unwind label %315
+          to label %319 unwind label %315, !noalias !1701
 
 319:                                              ; preds = %317
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17), !noalias !1728
@@ -9372,8 +9370,8 @@ define hidden { i64, ptr } @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$G
 
 28:                                               ; preds = %8
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %30 = load ptr, ptr %29, align 8, !nonnull !4, !noundef !4
-  tail call void %30(ptr noundef %16)
+  %30 = load ptr, ptr %29, align 8, !noalias !1975, !nonnull !4, !noundef !4
+  tail call void %30(ptr noundef %16), !noalias !1975
   br label %36
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hae227716574cc5f9E.exit.i": ; preds = %24, %22

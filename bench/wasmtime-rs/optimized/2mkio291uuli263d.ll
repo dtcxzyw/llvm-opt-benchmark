@@ -347,7 +347,7 @@ common.resume:                                    ; preds = %26, %14
   resume { ptr, i32 } %common.resume.op
 
 _ZN3std4sync4mpmc7counter3new17h12915be357100bbdE.exit: ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %11, ptr noundef nonnull align 8 dereferenceable(136) %4, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %11, ptr noundef nonnull align 8 dereferenceable(136) %4, i64 136, i1 false), !noalias !42
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4), !noalias !42
   br label %30
 
@@ -388,7 +388,7 @@ _ZN3std4sync4mpmc7counter3new17h12915be357100bbdE.exit: ; preds = %.noexc.i
   unreachable
 
 _ZN3std4sync4mpmc7counter3new17ha4e8a9b186736aabE.exit: ; preds = %.noexc.i47
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(640) %23, ptr noundef nonnull align 128 dereferenceable(640) %3, i64 640, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(640) %23, ptr noundef nonnull align 128 dereferenceable(640) %3, i64 640, i1 false), !noalias !45
   call void @llvm.lifetime.end.p0(i64 640, ptr nonnull %3), !noalias !45
   br label %30
 

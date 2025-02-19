@@ -399,7 +399,7 @@ define noundef i8 @_ZN14cranelift_wasm15code_translator11mem_op_size17h6e9fa4be8
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN14cranelift_wasm15code_translator14translate_icmp17h99826601e860d5b3E(i8 noundef %0, ptr noalias noundef align 8 dereferenceable(24) %1, ptr noalias noundef align 8 dereferenceable(248) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @_ZN14cranelift_wasm15code_translator14translate_icmp17h99826601e860d5b3E(i8 noundef %0, ptr noalias noundef align 8 dereferenceable(24) %1, ptr noalias noundef align 8 captures(none) dereferenceable(248) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { i8, [15 x i8] }, align 8
   %6 = alloca { ptr, i32, [1 x i32] }, align 8
@@ -426,13 +426,13 @@ define void @_ZN14cranelift_wasm15code_translator14translate_icmp17h99826601e860
   %18 = load i32, ptr %17, align 4, !noalias !32, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   %19 = icmp eq i64 %12, 0
-  br i1 %19, label %20, label %_ZN14cranelift_wasm5state20FuncTranslationState4pop217h448ff099b4232548E.exit
+  br i1 %19, label %20, label %_ZN14cranelift_wasm5state20FuncTranslationState5push117h726c1d7cebbd7a53E.exit
 
 20:                                               ; preds = %11
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1ebe03cf8da41ec25042ed3876485d5d.16.llvm.1704480944486436820) #9, !noalias !26
   unreachable
 
-_ZN14cranelift_wasm5state20FuncTranslationState4pop217h448ff099b4232548E.exit: ; preds = %11
+_ZN14cranelift_wasm5state20FuncTranslationState5push117h726c1d7cebbd7a53E.exit: ; preds = %11
   %21 = add i64 %8, -2
   store i64 %21, ptr %7, align 8, !alias.scope !36
   %22 = icmp ult i64 %21, %13
@@ -480,24 +480,9 @@ _ZN14cranelift_wasm5state20FuncTranslationState4pop217h448ff099b4232548E.exit: ;
   %46 = extractvalue { i32, ptr } %45, 0
   %47 = extractvalue { i32, ptr } %45, 1
   %48 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef readonly align 8 dereferenceable(416) %47, i32 noundef %46)
-  %49 = load i64, ptr %7, align 8, !alias.scope !49, !noundef !5
-  %50 = load i64, ptr %2, align 8, !alias.scope !49, !noundef !5
-  %51 = icmp eq i64 %49, %50
-  br i1 %51, label %52, label %_ZN14cranelift_wasm5state20FuncTranslationState5push117h726c1d7cebbd7a53E.exit
-
-52:                                               ; preds = %_ZN14cranelift_wasm5state20FuncTranslationState4pop217h448ff099b4232548E.exit
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb41522c29f662989E"(ptr noalias noundef nonnull align 8 dereferenceable(248) %2, i64 noundef %49)
-  %.pre.i.i = load i64, ptr %7, align 8, !alias.scope !49
-  br label %_ZN14cranelift_wasm5state20FuncTranslationState5push117h726c1d7cebbd7a53E.exit
-
-_ZN14cranelift_wasm5state20FuncTranslationState5push117h726c1d7cebbd7a53E.exit: ; preds = %_ZN14cranelift_wasm5state20FuncTranslationState4pop217h448ff099b4232548E.exit, %52
-  %53 = phi i64 [ %.pre.i.i, %52 ], [ %49, %_ZN14cranelift_wasm5state20FuncTranslationState4pop217h448ff099b4232548E.exit ]
-  %54 = load ptr, ptr %15, align 8, !alias.scope !49, !nonnull !5, !noundef !5
-  %55 = getelementptr inbounds i32, ptr %54, i64 %53
-  store i32 %48, ptr %55, align 4
-  %56 = load i64, ptr %7, align 8, !alias.scope !49, !noundef !5
-  %57 = add i64 %56, 1
-  store i64 %57, ptr %7, align 8, !alias.scope !49
+  store i32 %48, ptr %23, align 4
+  %49 = add i64 %8, -1
+  store i64 %49, ptr %7, align 8, !alias.scope !49
   ret void
 }
 
@@ -577,7 +562,7 @@ _ZN14cranelift_wasm5state20FuncTranslationState5push117h726c1d7cebbd7a53E.exit: 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN14cranelift_wasm15code_translator14translate_fcmp17h27f3739600337a2cE(i8 noundef %0, ptr noalias noundef align 8 dereferenceable(24) %1, ptr noalias noundef align 8 dereferenceable(248) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @_ZN14cranelift_wasm15code_translator14translate_fcmp17h27f3739600337a2cE(i8 noundef %0, ptr noalias noundef align 8 dereferenceable(24) %1, ptr noalias noundef align 8 captures(none) dereferenceable(248) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { i8, [15 x i8] }, align 8
   %6 = alloca { ptr, i32, [1 x i32] }, align 8
@@ -604,13 +589,13 @@ define void @_ZN14cranelift_wasm15code_translator14translate_fcmp17h27f373960033
   %18 = load i32, ptr %17, align 4, !noalias !82, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
   %19 = icmp eq i64 %12, 0
-  br i1 %19, label %20, label %_ZN14cranelift_wasm5state20FuncTranslationState4pop217h448ff099b4232548E.exit
+  br i1 %19, label %20, label %_ZN14cranelift_wasm5state20FuncTranslationState5push117h726c1d7cebbd7a53E.exit
 
 20:                                               ; preds = %11
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1ebe03cf8da41ec25042ed3876485d5d.16.llvm.1704480944486436820) #9, !noalias !76
   unreachable
 
-_ZN14cranelift_wasm5state20FuncTranslationState4pop217h448ff099b4232548E.exit: ; preds = %11
+_ZN14cranelift_wasm5state20FuncTranslationState5push117h726c1d7cebbd7a53E.exit: ; preds = %11
   %21 = add i64 %8, -2
   store i64 %21, ptr %7, align 8, !alias.scope !86
   %22 = icmp ult i64 %21, %13
@@ -658,24 +643,9 @@ _ZN14cranelift_wasm5state20FuncTranslationState4pop217h448ff099b4232548E.exit: ;
   %46 = extractvalue { i32, ptr } %45, 0
   %47 = extractvalue { i32, ptr } %45, 1
   %48 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef readonly align 8 dereferenceable(416) %47, i32 noundef %46)
-  %49 = load i64, ptr %7, align 8, !alias.scope !99, !noundef !5
-  %50 = load i64, ptr %2, align 8, !alias.scope !99, !noundef !5
-  %51 = icmp eq i64 %49, %50
-  br i1 %51, label %52, label %_ZN14cranelift_wasm5state20FuncTranslationState5push117h726c1d7cebbd7a53E.exit
-
-52:                                               ; preds = %_ZN14cranelift_wasm5state20FuncTranslationState4pop217h448ff099b4232548E.exit
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb41522c29f662989E"(ptr noalias noundef nonnull align 8 dereferenceable(248) %2, i64 noundef %49)
-  %.pre.i.i = load i64, ptr %7, align 8, !alias.scope !99
-  br label %_ZN14cranelift_wasm5state20FuncTranslationState5push117h726c1d7cebbd7a53E.exit
-
-_ZN14cranelift_wasm5state20FuncTranslationState5push117h726c1d7cebbd7a53E.exit: ; preds = %_ZN14cranelift_wasm5state20FuncTranslationState4pop217h448ff099b4232548E.exit, %52
-  %53 = phi i64 [ %.pre.i.i, %52 ], [ %49, %_ZN14cranelift_wasm5state20FuncTranslationState4pop217h448ff099b4232548E.exit ]
-  %54 = load ptr, ptr %15, align 8, !alias.scope !99, !nonnull !5, !noundef !5
-  %55 = getelementptr inbounds i32, ptr %54, i64 %53
-  store i32 %48, ptr %55, align 4
-  %56 = load i64, ptr %7, align 8, !alias.scope !99, !noundef !5
-  %57 = add i64 %56, 1
-  store i64 %57, ptr %7, align 8, !alias.scope !99
+  store i32 %48, ptr %23, align 4
+  %49 = add i64 %8, -1
+  store i64 %49, ptr %7, align 8, !alias.scope !99
   ret void
 }
 
@@ -1909,9 +1879,6 @@ declare hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..All
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
-
-; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb41522c29f662989E"(ptr noalias noundef align 8 dereferenceable(16), i64 noundef) unnamed_addr #2
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #3

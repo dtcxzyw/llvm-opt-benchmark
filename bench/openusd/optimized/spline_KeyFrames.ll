@@ -1308,7 +1308,6 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESaIS1_EE6insertEN9_
   br i1 %101, label %_ZN32pxrInternal_v0_24__pxrReserved__13TsKeyFrameMap4findERKd.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__13TsKeyFrameMap4findERKd.exit.thread
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TsKeyFrameMap4findERKd.exit.thread: ; preds = %.noexc32, %98
-  store ptr %97, ptr %9, align 8
   %102 = load ptr, ptr %8, align 8
   %.not.i.i.i50 = icmp eq ptr %102, null
   br i1 %.not.i.i.i50, label %_ZNSt6vectorIdSaIdEED2Ev.exit36, label %_ZNSt6vectorIdSaIdEED2Ev.exit36.sink.split

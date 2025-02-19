@@ -7445,7 +7445,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i: ; preds = %1
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #21
+  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #21, !noalias !56
   call void @_ZSt17current_exceptionv(ptr dead_on_unwind nonnull writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %2) #21, !noalias !56
   %12 = load ptr, ptr %2, align 8, !noalias !56
   store ptr null, ptr %2, align 8, !noalias !56
@@ -7459,13 +7459,13 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i: ; preds = %1
   %.not.i5.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i5.i.i.i.i.i, label %common.resume.i.i.i.i, label %common.resume.sink.split.i.i.i.i
 
-common.resume.sink.split.i.i.i.i:                 ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i, %13
-  %common.resume.op.ph.i.i.i.i = phi { ptr, i32 } [ %27, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i ], [ %14, %13 ]
+common.resume.sink.split.i.i.i.i:                 ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i, %13
+  %common.resume.op.ph.i.i.i.i = phi { ptr, i32 } [ %27, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i ], [ %14, %13 ]
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #21
   br label %common.resume.i.i.i.i
 
-common.resume.i.i.i.i:                            ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i, %common.resume.sink.split.i.i.i.i, %13
-  %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %14, %13 ], [ %27, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i ], [ %common.resume.op.ph.i.i.i.i, %common.resume.sink.split.i.i.i.i ]
+common.resume.i.i.i.i:                            ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i, %common.resume.sink.split.i.i.i.i, %13
+  %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %14, %13 ], [ %27, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i ], [ %common.resume.op.ph.i.i.i.i, %common.resume.sink.split.i.i.i.i ]
   resume { ptr, i32 } %common.resume.op.i.i.i.i
 
 "_ZN2cv4gapi3wip12_GLOBAL__N_114call_and_catchIRZZNS1_11async_applyERNS_12GComputationEOSt8functionIFvNSt15__exception_ptr13exception_ptrEEEOSt6vectorINS_7GRunArgESaISD_EEOSC_INS_4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSU_9OpaqueRefEEEESaISX_EEOSC_INS_11GCompileArgESaIS11_EEEN3$_0clEvEUlvE_NS2_12DummyContextEEES8_OT_OT0_.exit.i.i.i.i": ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i
@@ -7482,8 +7482,8 @@ common.resume.i.i.i.i:                            ; preds = %_ZNSt15__exception_
 _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i.i.i.i: ; preds = %15, %"_ZN2cv4gapi3wip12_GLOBAL__N_114call_and_catchIRZZNS1_11async_applyERNS_12GComputationEOSt8functionIFvNSt15__exception_ptr13exception_ptrEEEOSt6vectorINS_7GRunArgESaISD_EEOSC_INS_4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSU_9OpaqueRefEEEESaISX_EEOSC_INS_11GCompileArgESaIS11_EEEN3$_0clEvEUlvE_NS2_12DummyContextEEES8_OT_OT0_.exit.i.i.i.i", %"_ZN2cv4gapi3wip12_GLOBAL__N_114call_and_catchIRZZNS1_11async_applyERNS_12GComputationEOSt8functionIFvNSt15__exception_ptr13exception_ptrEEEOSt6vectorINS_7GRunArgESaISD_EEOSC_INS_4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSU_9OpaqueRefEEEESaISX_EEOSC_INS_11GCompileArgESaIS11_EEEN3$_0clEvEUlvE_NS2_12DummyContextEEES8_OT_OT0_.exit.thread.i.i.i.i"
   %16 = getelementptr inbounds nuw i8, ptr %.val, i64 104
   %17 = load ptr, ptr %16, align 8
-  %.not.i.i4.i.i.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i4.i.i.i.i, label %18, label %19
+  %.not.i.i.i.i.i.i = icmp eq ptr %17, null
+  br i1 %.not.i.i.i.i.i.i, label %18, label %19
 
 18:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i.i.i.i
   invoke void @_ZSt25__throw_bad_function_callv() #24
@@ -7500,8 +7500,8 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i.i.i.i: ; preds = %15, %"_ZN
 
 _ZNKSt8functionIFvNSt15__exception_ptr13exception_ptrEEEclES1_.exit.i.i.i.i: ; preds = %19
   %22 = load ptr, ptr %4, align 8
-  %.not.i6.i.i.i.i = icmp eq ptr %22, null
-  br i1 %.not.i6.i.i.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i, label %23
+  %.not.i5.i.i.i.i = icmp eq ptr %22, null
+  br i1 %.not.i5.i.i.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i, label %23
 
 23:                                               ; preds = %_ZNKSt8functionIFvNSt15__exception_ptr13exception_ptrEEEclES1_.exit.i.i.i.i
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #21
@@ -7509,8 +7509,8 @@ _ZNKSt8functionIFvNSt15__exception_ptr13exception_ptrEEEclES1_.exit.i.i.i.i: ; p
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i: ; preds = %23, %_ZNKSt8functionIFvNSt15__exception_ptr13exception_ptrEEEclES1_.exit.i.i.i.i
   %24 = load ptr, ptr %3, align 8
-  %.not.i7.i.i.i.i = icmp eq ptr %24, null
-  br i1 %.not.i7.i.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv4gapi3wip11async_applyERNS0_12GComputationEOSt8functionIFvNSt15__exception_ptr13exception_ptrEEEOSt6vectorINS0_7GRunArgESaISC_EEOSB_INS0_4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENST_9OpaqueRefEEEESaISW_EEOSB_INS0_11GCompileArgESaIS10_EEE3$_0JEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES18_E4typeEOS1B_DpOS1C_.exit", label %25
+  %.not.i6.i.i.i.i = icmp eq ptr %24, null
+  br i1 %.not.i6.i.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv4gapi3wip11async_applyERNS0_12GComputationEOSt8functionIFvNSt15__exception_ptr13exception_ptrEEEOSt6vectorINS0_7GRunArgESaISC_EEOSB_INS0_4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENST_9OpaqueRefEEEESaISW_EEOSB_INS0_11GCompileArgESaIS10_EEE3$_0JEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES18_E4typeEOS1B_DpOS1C_.exit", label %25
 
 25:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #21
@@ -7520,17 +7520,17 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i: ; preds = %23, %_ZNKSt8f
   %27 = landingpad { ptr, i32 }
           cleanup
   %28 = load ptr, ptr %4, align 8
-  %.not.i9.i.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i9.i.i.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i, label %29
+  %.not.i8.i.i.i.i = icmp eq ptr %28, null
+  br i1 %.not.i8.i.i.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i, label %29
 
 29:                                               ; preds = %26
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #21
-  br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i
+  br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i
 
-_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i: ; preds = %29, %26
+_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i: ; preds = %29, %26
   %30 = load ptr, ptr %3, align 8
-  %.not.i11.i.i.i.i = icmp eq ptr %30, null
-  br i1 %.not.i11.i.i.i.i, label %common.resume.i.i.i.i, label %common.resume.sink.split.i.i.i.i
+  %.not.i10.i.i.i.i = icmp eq ptr %30, null
+  br i1 %.not.i10.i.i.i.i, label %common.resume.i.i.i.i, label %common.resume.sink.split.i.i.i.i
 
 "_ZSt10__invoke_rIvRZN2cv4gapi3wip11async_applyERNS0_12GComputationEOSt8functionIFvNSt15__exception_ptr13exception_ptrEEEOSt6vectorINS0_7GRunArgESaISC_EEOSB_INS0_4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENST_9OpaqueRefEEEESaISW_EEOSB_INS0_11GCompileArgESaIS10_EEE3$_0JEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES18_E4typeEOS1B_DpOS1C_.exit": ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i, %25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -7750,7 +7750,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i: ; preds = %1
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  %13 = tail call ptr @__cxa_begin_catch(ptr %12) #21
+  %13 = tail call ptr @__cxa_begin_catch(ptr %12) #21, !noalias !59
   call void @_ZSt17current_exceptionv(ptr dead_on_unwind nonnull writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %4) #21, !noalias !59
   %14 = load ptr, ptr %4, align 8, !noalias !59
   store ptr null, ptr %4, align 8, !noalias !59
@@ -7764,13 +7764,13 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i: ; preds = %1
   %.not.i5.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i5.i.i.i.i.i, label %common.resume.i.i.i.i, label %common.resume.sink.split.i.i.i.i
 
-common.resume.sink.split.i.i.i.i:                 ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i, %15
-  %common.resume.op.ph.i.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i ], [ %16, %15 ]
+common.resume.sink.split.i.i.i.i:                 ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i, %15
+  %common.resume.op.ph.i.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i ], [ %16, %15 ]
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #21
   br label %common.resume.i.i.i.i
 
-common.resume.i.i.i.i:                            ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i, %common.resume.sink.split.i.i.i.i, %15
-  %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %.pn.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i ], [ %common.resume.op.ph.i.i.i.i, %common.resume.sink.split.i.i.i.i ]
+common.resume.i.i.i.i:                            ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i, %common.resume.sink.split.i.i.i.i, %15
+  %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %16, %15 ], [ %.pn.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i ], [ %common.resume.op.ph.i.i.i.i, %common.resume.sink.split.i.i.i.i ]
   resume { ptr, i32 } %common.resume.op.i.i.i.i
 
 "_ZN2cv4gapi3wip12_GLOBAL__N_114call_and_catchIRZZNS1_11async_applyERNS_12GComputationEOSt6vectorINS_7GRunArgESaIS7_EEOS6_INS_4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSO_9OpaqueRefEEEESaISR_EEOS6_INS_11GCompileArgESaISV_EEEN3$_0clEvEUlvE_NS2_12DummyContextEEENSt15__exception_ptr13exception_ptrEOT_OT0_.exit.i.i.i.i": ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i, %1
@@ -7784,8 +7784,8 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i.i.i.i: ; preds = %"_ZN2cv4g
   call void @_ZNSt15__exception_ptr13exception_ptr9_M_addrefEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #21
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %18 = load ptr, ptr %10, align 8
-  %.not.i.i.i7.i.i.i.i = icmp eq ptr %18, null
-  br i1 %.not.i.i.i7.i.i.i.i, label %19, label %_ZNSt7promiseIvE8_M_stateEv.exit.i.i.i.i.i
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %18, null
+  br i1 %.not.i.i.i.i.i.i.i, label %19, label %_ZNSt7promiseIvE8_M_stateEv.exit.i.i.i.i.i
 
 19:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i.i.i.i
   invoke void @_ZSt20__throw_future_errori(i32 noundef 3) #24
@@ -7842,8 +7842,8 @@ _ZNSt7promiseIvE8_M_stateEv.exit.i.i.i.i.i:       ; preds = %_ZNSt15__exception_
 37:                                               ; preds = %24, %22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %38 = load ptr, ptr %6, align 8
-  %.not.i8.i.i.i.i = icmp eq ptr %38, null
-  br i1 %.not.i8.i.i.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i, label %39
+  %.not.i7.i.i.i.i = icmp eq ptr %38, null
+  br i1 %.not.i7.i.i.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i, label %39
 
 39:                                               ; preds = %37
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #21
@@ -7857,27 +7857,27 @@ _ZNSt7promiseIvE8_M_stateEv.exit.i.i.i.i.i:       ; preds = %_ZNSt15__exception_
 .body.i.i.i.i:                                    ; preds = %40, %32, %29
   %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %41, %40 ], [ %30, %32 ], [ %30, %29 ]
   %42 = load ptr, ptr %6, align 8
-  %.not.i9.i.i.i.i = icmp eq ptr %42, null
-  br i1 %.not.i9.i.i.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i, label %43
+  %.not.i8.i.i.i.i = icmp eq ptr %42, null
+  br i1 %.not.i8.i.i.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i, label %43
 
 43:                                               ; preds = %.body.i.i.i.i
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #21
-  br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i
+  br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i
 
 44:                                               ; preds = %"_ZN2cv4gapi3wip12_GLOBAL__N_114call_and_catchIRZZNS1_11async_applyERNS_12GComputationEOSt6vectorINS_7GRunArgESaIS7_EEOS6_INS_4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSO_9OpaqueRefEEEESaISR_EEOS6_INS_11GCompileArgESaISV_EEEN3$_0clEvEUlvE_NS2_12DummyContextEEENSt15__exception_ptr13exception_ptrEOT_OT0_.exit.i.i.i.i"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   %45 = load ptr, ptr %10, align 8
-  %.not.i.i.i11.i.i.i.i = icmp eq ptr %45, null
-  br i1 %.not.i.i.i11.i.i.i.i, label %46, label %_ZNSt7promiseIvE8_M_stateEv.exit.i12.i.i.i.i
+  %.not.i.i.i10.i.i.i.i = icmp eq ptr %45, null
+  br i1 %.not.i.i.i10.i.i.i.i, label %46, label %_ZNSt7promiseIvE8_M_stateEv.exit.i11.i.i.i.i
 
 46:                                               ; preds = %44
   invoke void @_ZSt20__throw_future_errori(i32 noundef 3) #24
-          to label %.noexc14.i.i.i.i unwind label %66
+          to label %.noexc13.i.i.i.i unwind label %66
 
-.noexc14.i.i.i.i:                                 ; preds = %46
+.noexc13.i.i.i.i:                                 ; preds = %46
   unreachable
 
-_ZNSt7promiseIvE8_M_stateEv.exit.i12.i.i.i.i:     ; preds = %44
+_ZNSt7promiseIvE8_M_stateEv.exit.i11.i.i.i.i:     ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -7889,7 +7889,7 @@ _ZNSt7promiseIvE8_M_stateEv.exit.i12.i.i.i.i:     ; preds = %44
   invoke void @_ZNSt13__future_base13_State_baseV213_M_set_resultESt8functionIFSt10unique_ptrINS_12_Result_baseENS3_8_DeleterEEvEEb(ptr noundef nonnull align 8 dereferenceable(28) %45, ptr noundef nonnull %2, i1 noundef zeroext false)
           to label %51 unwind label %58
 
-51:                                               ; preds = %_ZNSt7promiseIvE8_M_stateEv.exit.i12.i.i.i.i
+51:                                               ; preds = %_ZNSt7promiseIvE8_M_stateEv.exit.i11.i.i.i.i
   %52 = load ptr, ptr %47, align 8
   %.not.i.i3.i.i.i.i.i = icmp eq ptr %52, null
   br i1 %.not.i.i3.i.i.i.i.i, label %_ZNSt7promiseIvE9set_valueEv.exit.i.i.i.i, label %53
@@ -7905,16 +7905,16 @@ _ZNSt7promiseIvE8_M_stateEv.exit.i12.i.i.i.i:     ; preds = %44
   call void @__clang_call_terminate(ptr %57) #20
   unreachable
 
-58:                                               ; preds = %_ZNSt7promiseIvE8_M_stateEv.exit.i12.i.i.i.i
+58:                                               ; preds = %_ZNSt7promiseIvE8_M_stateEv.exit.i11.i.i.i.i
   %59 = landingpad { ptr, i32 }
           cleanup
   %60 = load ptr, ptr %47, align 8
-  %.not.i.i4.i13.i.i.i.i = icmp eq ptr %60, null
-  br i1 %.not.i.i4.i13.i.i.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i, label %61
+  %.not.i.i4.i12.i.i.i.i = icmp eq ptr %60, null
+  br i1 %.not.i.i4.i12.i.i.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i, label %61
 
 61:                                               ; preds = %58
   %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
-          to label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i unwind label %63
+          to label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i unwind label %63
 
 63:                                               ; preds = %61
   %64 = landingpad { ptr, i32 }
@@ -7930,22 +7930,22 @@ _ZNSt7promiseIvE9set_valueEv.exit.i.i.i.i:        ; preds = %53, %51
 66:                                               ; preds = %46
   %67 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i
+  br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i: ; preds = %_ZNSt7promiseIvE9set_valueEv.exit.i.i.i.i, %39, %37
   %68 = load ptr, ptr %5, align 8
-  %.not.i17.i.i.i.i = icmp eq ptr %68, null
-  br i1 %.not.i17.i.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv4gapi3wip11async_applyERNS0_12GComputationEOSt6vectorINS0_7GRunArgESaIS6_EEOS5_INS0_4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSN_9OpaqueRefEEEESaISQ_EEOS5_INS0_11GCompileArgESaISU_EEE3$_0JEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES12_E4typeEOS15_DpOS16_.exit", label %69
+  %.not.i16.i.i.i.i = icmp eq ptr %68, null
+  br i1 %.not.i16.i.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv4gapi3wip11async_applyERNS0_12GComputationEOSt6vectorINS0_7GRunArgESaIS6_EEOS5_INS0_4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSN_9OpaqueRefEEEESaISQ_EEOS5_INS0_11GCompileArgESaISU_EEE3$_0JEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES12_E4typeEOS15_DpOS16_.exit", label %69
 
 69:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #21
   br label %"_ZSt10__invoke_rIvRZN2cv4gapi3wip11async_applyERNS0_12GComputationEOSt6vectorINS0_7GRunArgESaIS6_EEOS5_INS0_4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSN_9OpaqueRefEEEESaISQ_EEOS5_INS0_11GCompileArgESaISU_EEE3$_0JEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES12_E4typeEOS15_DpOS16_.exit"
 
-_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i: ; preds = %66, %61, %58, %43, %.body.i.i.i.i
+_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i: ; preds = %66, %61, %58, %43, %.body.i.i.i.i
   %.pn.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i.i, %43 ], [ %67, %66 ], [ %59, %61 ], [ %59, %58 ]
   %70 = load ptr, ptr %5, align 8
-  %.not.i19.i.i.i.i = icmp eq ptr %70, null
-  br i1 %.not.i19.i.i.i.i, label %common.resume.i.i.i.i, label %common.resume.sink.split.i.i.i.i
+  %.not.i18.i.i.i.i = icmp eq ptr %70, null
+  br i1 %.not.i18.i.i.i.i, label %common.resume.i.i.i.i, label %common.resume.sink.split.i.i.i.i
 
 "_ZSt10__invoke_rIvRZN2cv4gapi3wip11async_applyERNS0_12GComputationEOSt6vectorINS0_7GRunArgESaIS6_EEOS5_INS0_4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSN_9OpaqueRefEEEESaISQ_EEOS5_INS0_11GCompileArgESaISU_EEE3$_0JEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES12_E4typeEOS15_DpOS16_.exit": ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i, %69
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -8403,7 +8403,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i: ; preds = %13
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  %20 = tail call ptr @__cxa_begin_catch(ptr %19) #21
+  %20 = tail call ptr @__cxa_begin_catch(ptr %19) #21, !noalias !82
   call void @_ZSt17current_exceptionv(ptr dead_on_unwind nonnull writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %3) #21, !noalias !82
   %21 = load ptr, ptr %3, align 8, !noalias !82
   store ptr null, ptr %3, align 8, !noalias !82
@@ -8715,7 +8715,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i: ; preds = %15
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  %22 = tail call ptr @__cxa_begin_catch(ptr %21) #21
+  %22 = tail call ptr @__cxa_begin_catch(ptr %21) #21, !noalias !88
   call void @_ZSt17current_exceptionv(ptr dead_on_unwind nonnull writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %5) #21, !noalias !88
   %23 = load ptr, ptr %5, align 8, !noalias !88
   store ptr null, ptr %5, align 8, !noalias !88
@@ -9088,7 +9088,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i: ; preds = %1
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  %10 = tail call ptr @__cxa_begin_catch(ptr %9) #21
+  %10 = tail call ptr @__cxa_begin_catch(ptr %9) #21, !noalias !94
   call void @_ZSt17current_exceptionv(ptr dead_on_unwind nonnull writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %2) #21, !noalias !94
   %11 = load ptr, ptr %2, align 8, !noalias !94
   store ptr null, ptr %2, align 8, !noalias !94
@@ -9102,13 +9102,13 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i: ; preds = %1
   %.not.i5.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i5.i.i.i.i.i, label %common.resume.i.i.i.i, label %common.resume.sink.split.i.i.i.i
 
-common.resume.sink.split.i.i.i.i:                 ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i, %12
-  %common.resume.op.ph.i.i.i.i = phi { ptr, i32 } [ %26, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i ], [ %13, %12 ]
+common.resume.sink.split.i.i.i.i:                 ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i, %12
+  %common.resume.op.ph.i.i.i.i = phi { ptr, i32 } [ %26, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i ], [ %13, %12 ]
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #21
   br label %common.resume.i.i.i.i
 
-common.resume.i.i.i.i:                            ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i, %common.resume.sink.split.i.i.i.i, %12
-  %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i ], [ %common.resume.op.ph.i.i.i.i, %common.resume.sink.split.i.i.i.i ]
+common.resume.i.i.i.i:                            ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i, %common.resume.sink.split.i.i.i.i, %12
+  %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i ], [ %common.resume.op.ph.i.i.i.i, %common.resume.sink.split.i.i.i.i ]
   resume { ptr, i32 } %common.resume.op.i.i.i.i
 
 "_ZN2cv4gapi3wip12_GLOBAL__N_114call_and_catchIRZZNS1_5asyncERNS_9GCompiledEOSt8functionIFvNSt15__exception_ptr13exception_ptrEEEOSt6vectorINS_7GRunArgESaISD_EEOSC_INS_4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSU_9OpaqueRefEEEESaISX_EEEN3$_0clEvEUlvE_NS2_12DummyContextEEES8_OT_OT0_.exit.i.i.i.i": ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i
@@ -9125,8 +9125,8 @@ common.resume.i.i.i.i:                            ; preds = %_ZNSt15__exception_
 _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i.i.i.i: ; preds = %14, %"_ZN2cv4gapi3wip12_GLOBAL__N_114call_and_catchIRZZNS1_5asyncERNS_9GCompiledEOSt8functionIFvNSt15__exception_ptr13exception_ptrEEEOSt6vectorINS_7GRunArgESaISD_EEOSC_INS_4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSU_9OpaqueRefEEEESaISX_EEEN3$_0clEvEUlvE_NS2_12DummyContextEEES8_OT_OT0_.exit.i.i.i.i", %"_ZN2cv4gapi3wip12_GLOBAL__N_114call_and_catchIRZZNS1_5asyncERNS_9GCompiledEOSt8functionIFvNSt15__exception_ptr13exception_ptrEEEOSt6vectorINS_7GRunArgESaISD_EEOSC_INS_4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSU_9OpaqueRefEEEESaISX_EEEN3$_0clEvEUlvE_NS2_12DummyContextEEES8_OT_OT0_.exit.thread.i.i.i.i"
   %15 = getelementptr inbounds nuw i8, ptr %.val, i64 80
   %16 = load ptr, ptr %15, align 8
-  %.not.i.i4.i.i.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i4.i.i.i.i, label %17, label %18
+  %.not.i.i.i.i.i.i = icmp eq ptr %16, null
+  br i1 %.not.i.i.i.i.i.i, label %17, label %18
 
 17:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i.i.i.i
   invoke void @_ZSt25__throw_bad_function_callv() #24
@@ -9143,8 +9143,8 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i.i.i.i: ; preds = %14, %"_ZN
 
 _ZNKSt8functionIFvNSt15__exception_ptr13exception_ptrEEEclES1_.exit.i.i.i.i: ; preds = %18
   %21 = load ptr, ptr %4, align 8
-  %.not.i6.i.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i6.i.i.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i, label %22
+  %.not.i5.i.i.i.i = icmp eq ptr %21, null
+  br i1 %.not.i5.i.i.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i, label %22
 
 22:                                               ; preds = %_ZNKSt8functionIFvNSt15__exception_ptr13exception_ptrEEEclES1_.exit.i.i.i.i
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #21
@@ -9152,8 +9152,8 @@ _ZNKSt8functionIFvNSt15__exception_ptr13exception_ptrEEEclES1_.exit.i.i.i.i: ; p
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i: ; preds = %22, %_ZNKSt8functionIFvNSt15__exception_ptr13exception_ptrEEEclES1_.exit.i.i.i.i
   %23 = load ptr, ptr %3, align 8
-  %.not.i7.i.i.i.i = icmp eq ptr %23, null
-  br i1 %.not.i7.i.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv4gapi3wip5asyncERNS0_9GCompiledEOSt8functionIFvNSt15__exception_ptr13exception_ptrEEEOSt6vectorINS0_7GRunArgESaISC_EEOSB_INS0_4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENST_9OpaqueRefEEEESaISW_EEE3$_0JEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES14_E4typeEOS17_DpOS18_.exit", label %24
+  %.not.i6.i.i.i.i = icmp eq ptr %23, null
+  br i1 %.not.i6.i.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv4gapi3wip5asyncERNS0_9GCompiledEOSt8functionIFvNSt15__exception_ptr13exception_ptrEEEOSt6vectorINS0_7GRunArgESaISC_EEOSB_INS0_4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENST_9OpaqueRefEEEESaISW_EEE3$_0JEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES14_E4typeEOS17_DpOS18_.exit", label %24
 
 24:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #21
@@ -9163,17 +9163,17 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i: ; preds = %22, %_ZNKSt8f
   %26 = landingpad { ptr, i32 }
           cleanup
   %27 = load ptr, ptr %4, align 8
-  %.not.i9.i.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i9.i.i.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i, label %28
+  %.not.i8.i.i.i.i = icmp eq ptr %27, null
+  br i1 %.not.i8.i.i.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i, label %28
 
 28:                                               ; preds = %25
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #21
-  br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i
+  br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i
 
-_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i: ; preds = %28, %25
+_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i: ; preds = %28, %25
   %29 = load ptr, ptr %3, align 8
-  %.not.i11.i.i.i.i = icmp eq ptr %29, null
-  br i1 %.not.i11.i.i.i.i, label %common.resume.i.i.i.i, label %common.resume.sink.split.i.i.i.i
+  %.not.i10.i.i.i.i = icmp eq ptr %29, null
+  br i1 %.not.i10.i.i.i.i, label %common.resume.i.i.i.i, label %common.resume.sink.split.i.i.i.i
 
 "_ZSt10__invoke_rIvRZN2cv4gapi3wip5asyncERNS0_9GCompiledEOSt8functionIFvNSt15__exception_ptr13exception_ptrEEEOSt6vectorINS0_7GRunArgESaISC_EEOSB_INS0_4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENST_9OpaqueRefEEEESaISW_EEE3$_0JEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES14_E4typeEOS17_DpOS18_.exit": ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i, %24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -9378,7 +9378,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i: ; preds = %13
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  %19 = tail call ptr @__cxa_begin_catch(ptr %18) #21
+  %19 = tail call ptr @__cxa_begin_catch(ptr %18) #21, !noalias !97
   call void @_ZSt17current_exceptionv(ptr dead_on_unwind nonnull writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %3) #21, !noalias !97
   %20 = load ptr, ptr %3, align 8, !noalias !97
   store ptr null, ptr %3, align 8, !noalias !97
@@ -9655,7 +9655,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i: ; preds = %1
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  %12 = tail call ptr @__cxa_begin_catch(ptr %11) #21
+  %12 = tail call ptr @__cxa_begin_catch(ptr %11) #21, !noalias !103
   call void @_ZSt17current_exceptionv(ptr dead_on_unwind nonnull writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %4) #21, !noalias !103
   %13 = load ptr, ptr %4, align 8, !noalias !103
   store ptr null, ptr %4, align 8, !noalias !103
@@ -9669,13 +9669,13 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i: ; preds = %1
   %.not.i5.i.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i5.i.i.i.i.i, label %common.resume.i.i.i.i, label %common.resume.sink.split.i.i.i.i
 
-common.resume.sink.split.i.i.i.i:                 ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i, %14
-  %common.resume.op.ph.i.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i ], [ %15, %14 ]
+common.resume.sink.split.i.i.i.i:                 ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i, %14
+  %common.resume.op.ph.i.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i ], [ %15, %14 ]
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #21
   br label %common.resume.i.i.i.i
 
-common.resume.i.i.i.i:                            ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i, %common.resume.sink.split.i.i.i.i, %14
-  %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %.pn.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i ], [ %common.resume.op.ph.i.i.i.i, %common.resume.sink.split.i.i.i.i ]
+common.resume.i.i.i.i:                            ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i, %common.resume.sink.split.i.i.i.i, %14
+  %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %.pn.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i ], [ %common.resume.op.ph.i.i.i.i, %common.resume.sink.split.i.i.i.i ]
   resume { ptr, i32 } %common.resume.op.i.i.i.i
 
 "_ZN2cv4gapi3wip12_GLOBAL__N_114call_and_catchIRZZNS1_5asyncERNS_9GCompiledEOSt6vectorINS_7GRunArgESaIS7_EEOS6_INS_4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSO_9OpaqueRefEEEESaISR_EEEN3$_0clEvEUlvE_NS2_12DummyContextEEENSt15__exception_ptr13exception_ptrEOT_OT0_.exit.i.i.i.i": ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i, %1
@@ -9689,8 +9689,8 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i.i.i.i: ; preds = %"_ZN2cv4g
   call void @_ZNSt15__exception_ptr13exception_ptr9_M_addrefEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #21
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %17 = load ptr, ptr %9, align 8
-  %.not.i.i.i7.i.i.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i.i7.i.i.i.i, label %18, label %_ZNSt7promiseIvE8_M_stateEv.exit.i.i.i.i.i
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %17, null
+  br i1 %.not.i.i.i.i.i.i.i, label %18, label %_ZNSt7promiseIvE8_M_stateEv.exit.i.i.i.i.i
 
 18:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i.i.i.i
   invoke void @_ZSt20__throw_future_errori(i32 noundef 3) #24
@@ -9747,8 +9747,8 @@ _ZNSt7promiseIvE8_M_stateEv.exit.i.i.i.i.i:       ; preds = %_ZNSt15__exception_
 36:                                               ; preds = %23, %21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %37 = load ptr, ptr %6, align 8
-  %.not.i8.i.i.i.i = icmp eq ptr %37, null
-  br i1 %.not.i8.i.i.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i, label %38
+  %.not.i7.i.i.i.i = icmp eq ptr %37, null
+  br i1 %.not.i7.i.i.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i, label %38
 
 38:                                               ; preds = %36
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #21
@@ -9762,27 +9762,27 @@ _ZNSt7promiseIvE8_M_stateEv.exit.i.i.i.i.i:       ; preds = %_ZNSt15__exception_
 .body.i.i.i.i:                                    ; preds = %39, %31, %28
   %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %40, %39 ], [ %29, %31 ], [ %29, %28 ]
   %41 = load ptr, ptr %6, align 8
-  %.not.i9.i.i.i.i = icmp eq ptr %41, null
-  br i1 %.not.i9.i.i.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i, label %42
+  %.not.i8.i.i.i.i = icmp eq ptr %41, null
+  br i1 %.not.i8.i.i.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i, label %42
 
 42:                                               ; preds = %.body.i.i.i.i
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #21
-  br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i
+  br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i
 
 43:                                               ; preds = %"_ZN2cv4gapi3wip12_GLOBAL__N_114call_and_catchIRZZNS1_5asyncERNS_9GCompiledEOSt6vectorINS_7GRunArgESaIS7_EEOS6_INS_4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSO_9OpaqueRefEEEESaISR_EEEN3$_0clEvEUlvE_NS2_12DummyContextEEENSt15__exception_ptr13exception_ptrEOT_OT0_.exit.i.i.i.i"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   %44 = load ptr, ptr %9, align 8
-  %.not.i.i.i11.i.i.i.i = icmp eq ptr %44, null
-  br i1 %.not.i.i.i11.i.i.i.i, label %45, label %_ZNSt7promiseIvE8_M_stateEv.exit.i12.i.i.i.i
+  %.not.i.i.i10.i.i.i.i = icmp eq ptr %44, null
+  br i1 %.not.i.i.i10.i.i.i.i, label %45, label %_ZNSt7promiseIvE8_M_stateEv.exit.i11.i.i.i.i
 
 45:                                               ; preds = %43
   invoke void @_ZSt20__throw_future_errori(i32 noundef 3) #24
-          to label %.noexc14.i.i.i.i unwind label %65
+          to label %.noexc13.i.i.i.i unwind label %65
 
-.noexc14.i.i.i.i:                                 ; preds = %45
+.noexc13.i.i.i.i:                                 ; preds = %45
   unreachable
 
-_ZNSt7promiseIvE8_M_stateEv.exit.i12.i.i.i.i:     ; preds = %43
+_ZNSt7promiseIvE8_M_stateEv.exit.i11.i.i.i.i:     ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -9794,7 +9794,7 @@ _ZNSt7promiseIvE8_M_stateEv.exit.i12.i.i.i.i:     ; preds = %43
   invoke void @_ZNSt13__future_base13_State_baseV213_M_set_resultESt8functionIFSt10unique_ptrINS_12_Result_baseENS3_8_DeleterEEvEEb(ptr noundef nonnull align 8 dereferenceable(28) %44, ptr noundef nonnull %2, i1 noundef zeroext false)
           to label %50 unwind label %57
 
-50:                                               ; preds = %_ZNSt7promiseIvE8_M_stateEv.exit.i12.i.i.i.i
+50:                                               ; preds = %_ZNSt7promiseIvE8_M_stateEv.exit.i11.i.i.i.i
   %51 = load ptr, ptr %46, align 8
   %.not.i.i3.i.i.i.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i3.i.i.i.i.i, label %_ZNSt7promiseIvE9set_valueEv.exit.i.i.i.i, label %52
@@ -9810,16 +9810,16 @@ _ZNSt7promiseIvE8_M_stateEv.exit.i12.i.i.i.i:     ; preds = %43
   call void @__clang_call_terminate(ptr %56) #20
   unreachable
 
-57:                                               ; preds = %_ZNSt7promiseIvE8_M_stateEv.exit.i12.i.i.i.i
+57:                                               ; preds = %_ZNSt7promiseIvE8_M_stateEv.exit.i11.i.i.i.i
   %58 = landingpad { ptr, i32 }
           cleanup
   %59 = load ptr, ptr %46, align 8
-  %.not.i.i4.i13.i.i.i.i = icmp eq ptr %59, null
-  br i1 %.not.i.i4.i13.i.i.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i, label %60
+  %.not.i.i4.i12.i.i.i.i = icmp eq ptr %59, null
+  br i1 %.not.i.i4.i12.i.i.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i, label %60
 
 60:                                               ; preds = %57
   %61 = invoke noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
-          to label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i unwind label %62
+          to label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i unwind label %62
 
 62:                                               ; preds = %60
   %63 = landingpad { ptr, i32 }
@@ -9835,22 +9835,22 @@ _ZNSt7promiseIvE9set_valueEv.exit.i.i.i.i:        ; preds = %52, %50
 65:                                               ; preds = %45
   %66 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i
+  br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i: ; preds = %_ZNSt7promiseIvE9set_valueEv.exit.i.i.i.i, %38, %36
   %67 = load ptr, ptr %5, align 8
-  %.not.i17.i.i.i.i = icmp eq ptr %67, null
-  br i1 %.not.i17.i.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv4gapi3wip5asyncERNS0_9GCompiledEOSt6vectorINS0_7GRunArgESaIS6_EEOS5_INS0_4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSN_9OpaqueRefEEEESaISQ_EEE3$_0JEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESY_E4typeEOS11_DpOS12_.exit", label %68
+  %.not.i16.i.i.i.i = icmp eq ptr %67, null
+  br i1 %.not.i16.i.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv4gapi3wip5asyncERNS0_9GCompiledEOSt6vectorINS0_7GRunArgESaIS6_EEOS5_INS0_4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSN_9OpaqueRefEEEESaISQ_EEE3$_0JEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESY_E4typeEOS11_DpOS12_.exit", label %68
 
 68:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #21
   br label %"_ZSt10__invoke_rIvRZN2cv4gapi3wip5asyncERNS0_9GCompiledEOSt6vectorINS0_7GRunArgESaIS6_EEOS5_INS0_4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSN_9OpaqueRefEEEESaISQ_EEE3$_0JEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESY_E4typeEOS11_DpOS12_.exit"
 
-_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i.i: ; preds = %65, %60, %57, %42, %.body.i.i.i.i
+_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i.i.i: ; preds = %65, %60, %57, %42, %.body.i.i.i.i
   %.pn.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i.i, %42 ], [ %66, %65 ], [ %58, %60 ], [ %58, %57 ]
   %69 = load ptr, ptr %5, align 8
-  %.not.i19.i.i.i.i = icmp eq ptr %69, null
-  br i1 %.not.i19.i.i.i.i, label %common.resume.i.i.i.i, label %common.resume.sink.split.i.i.i.i
+  %.not.i18.i.i.i.i = icmp eq ptr %69, null
+  br i1 %.not.i18.i.i.i.i, label %common.resume.i.i.i.i, label %common.resume.sink.split.i.i.i.i
 
 "_ZSt10__invoke_rIvRZN2cv4gapi3wip5asyncERNS0_9GCompiledEOSt6vectorINS0_7GRunArgESaIS6_EEOS5_INS0_4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSN_9OpaqueRefEEEESaISQ_EEE3$_0JEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESY_E4typeEOS11_DpOS12_.exit": ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i, %68
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -10011,7 +10011,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i: ; preds = %15
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #21
+  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #21, !noalias !106
   call void @_ZSt17current_exceptionv(ptr dead_on_unwind nonnull writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %5) #21, !noalias !106
   %22 = load ptr, ptr %5, align 8, !noalias !106
   store ptr null, ptr %5, align 8, !noalias !106

@@ -5912,7 +5912,7 @@ default.unreachable:                              ; preds = %30, %11
 79:                                               ; preds = %77
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 104
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 24
-  %82 = call fastcc noundef zeroext i1 @"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h42a94c050a2df803E"(ptr noalias noundef align 8 dereferenceable(8) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %.sroa.0.0, ptr noalias noundef readonly align 8 dereferenceable(72) %81)
+  %82 = call fastcc noundef zeroext i1 @"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h42a94c050a2df803E"(ptr noalias noundef align 8 dereferenceable(8) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %.sroa.0.0, ptr noalias noundef readonly align 8 dereferenceable(72) %81), !noalias !1663
   br i1 %82, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h25a8ecfc2932a015E.llvm.3612665634329711074.exit.i, label %77
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h25a8ecfc2932a015E.llvm.3612665634329711074.exit.i: ; preds = %79

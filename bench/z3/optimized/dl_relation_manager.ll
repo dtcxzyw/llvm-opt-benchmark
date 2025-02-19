@@ -6684,16 +6684,7 @@ invoke.cont29:                                    ; preds = %invoke.cont21
 
 if.then31:                                        ; preds = %invoke.cont29
   %call33 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-          to label %invoke.cont32 unwind label %lpad24
-
-invoke.cont32:                                    ; preds = %if.then31
-  store ptr null, ptr %join_fun, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog16relation_manager39default_relation_intersection_filter_fnE, i64 16), ptr %call33, align 8
-  %m_join_fun.i = getelementptr inbounds nuw i8, ptr %call33, i64 8
-  store ptr %call14, ptr %m_join_fun.i, align 8
-  %m_union_fun.i = getelementptr inbounds nuw i8, ptr %call33, i64 16
-  store ptr null, ptr %m_union_fun.i, align 8
-  br label %if.then.i
+          to label %if.then.i.sink.split unwind label %lpad24
 
 lpad24:                                           ; preds = %if.then.i.i, %if.end45, %if.then31, %invoke.cont21
   %10 = landingpad { ptr, i32 }
@@ -6729,11 +6720,7 @@ land.lhs.true.i.i:                                ; preds = %call2.i.i.noexc
   %15 = load ptr, ptr %m_plugin.i.i.i, align 8
   %16 = load ptr, ptr %m_plugin.i, align 8
   %cmp.not.i.i = icmp eq ptr %15, %16
-  br i1 %cmp.not.i.i, label %invoke.cont48.thread38, label %if.then.i.i
-
-invoke.cont48.thread38:                           ; preds = %land.lhs.true.i.i
-  store ptr null, ptr %union_fun, align 8
-  br label %if.then.i
+  br i1 %cmp.not.i.i, label %if.then.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %vtable6.i.i = load ptr, ptr %16, align 8
@@ -6756,21 +6743,21 @@ lpad51:                                           ; preds = %if.end55
 if.end55:                                         ; preds = %invoke.cont48.thread, %invoke.cont48
   %19 = phi ptr [ %call2.i.i22, %invoke.cont48.thread ], [ %call8.i.i23, %invoke.cont48 ]
   %call57 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-          to label %cleanup unwind label %lpad51
+          to label %if.then.i.sink.split unwind label %lpad51
 
-cleanup:                                          ; preds = %if.end55
-  store ptr null, ptr %join_fun, align 8
-  store ptr null, ptr %union_fun, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog16relation_manager39default_relation_intersection_filter_fnE, i64 16), ptr %call57, align 8
-  %m_join_fun.i25 = getelementptr inbounds nuw i8, ptr %call57, i64 8
-  store ptr %call14, ptr %m_join_fun.i25, align 8
-  %m_union_fun.i26 = getelementptr inbounds nuw i8, ptr %call57, i64 16
-  store ptr %19, ptr %m_union_fun.i26, align 8
+if.then.i.sink.split:                             ; preds = %if.end55, %if.then31
+  %call33.sink50 = phi ptr [ %call33, %if.then31 ], [ %call57, %if.end55 ]
+  %.sink = phi ptr [ null, %if.then31 ], [ %19, %if.end55 ]
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog16relation_manager39default_relation_intersection_filter_fnE, i64 16), ptr %call33.sink50, align 8
+  %m_join_fun.i = getelementptr inbounds nuw i8, ptr %call33.sink50, i64 8
+  store ptr %call14, ptr %m_join_fun.i, align 8
+  %m_union_fun.i = getelementptr inbounds nuw i8, ptr %call33.sink50, i64 16
+  store ptr %.sink, ptr %m_union_fun.i, align 8
   br label %if.then.i
 
-if.then.i:                                        ; preds = %if.end37, %invoke.cont32, %invoke.cont48.thread38, %invoke.cont48, %cleanup
-  %.pr44 = phi ptr [ null, %invoke.cont32 ], [ %call14, %if.end37 ], [ null, %cleanup ], [ %call14, %invoke.cont48.thread38 ], [ %call14, %invoke.cont48 ]
-  %retval.1 = phi ptr [ %call33, %invoke.cont32 ], [ null, %if.end37 ], [ %call57, %cleanup ], [ null, %invoke.cont48.thread38 ], [ null, %invoke.cont48 ]
+if.then.i:                                        ; preds = %if.then.i.sink.split, %land.lhs.true.i.i, %if.end37, %invoke.cont48
+  %.pr44 = phi ptr [ %call14, %if.end37 ], [ %call14, %invoke.cont48 ], [ %call14, %land.lhs.true.i.i ], [ null, %if.then.i.sink.split ]
+  %retval.1 = phi ptr [ null, %if.end37 ], [ null, %invoke.cont48 ], [ null, %land.lhs.true.i.i ], [ %call33.sink50, %if.then.i.sink.split ]
   invoke void @_ZN7datalog16universal_deleteEPNS_13relation_baseE(ptr noundef nonnull %call22)
           to label %cleanup64 unwind label %terminate.lpad.i29
 

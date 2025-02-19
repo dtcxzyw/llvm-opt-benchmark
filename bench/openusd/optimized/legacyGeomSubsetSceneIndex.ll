@@ -1129,7 +1129,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i: ; preds = %164, %159
   %171 = landingpad { ptr, i32 }
           catch ptr null
   %172 = extractvalue { ptr, i32 } %171, 0
-  %173 = call ptr @__cxa_begin_catch(ptr %172) #23
+  %173 = call ptr @__cxa_begin_catch(ptr %172) #23, !noalias !11
   %174 = load ptr, ptr %107, align 8, !noalias !11
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %176 = load ptr, ptr %175, align 8, !noalias !11
@@ -1147,7 +1147,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i: ; preds = %164, %159
   %180 = landingpad { ptr, i32 }
           catch ptr null
   %181 = extractvalue { ptr, i32 } %180, 0
-  call void @__clang_call_terminate(ptr %181) #24
+  call void @__clang_call_terminate(ptr %181) #24, !noalias !11
   unreachable
 
 182:                                              ; preds = %170

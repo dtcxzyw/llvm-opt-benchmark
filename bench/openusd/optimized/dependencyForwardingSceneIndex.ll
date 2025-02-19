@@ -1274,7 +1274,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSERKS0_.exit: ; preds = %312, %_ZN
   %369 = landingpad { ptr, i32 }
           catch ptr null
   %370 = extractvalue { ptr, i32 } %369, 0
-  call void @__clang_call_terminate(ptr %370) #19
+  call void @__clang_call_terminate(ptr %370) #19, !noalias !17
   unreachable
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit.i.i: ; preds = %367, %354, %351, %346
@@ -1816,7 +1816,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   %84 = landingpad { ptr, i32 }
           catch ptr null
   %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #19
+  call void @__clang_call_terminate(ptr %85) #19, !noalias !27
   unreachable
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit.i.i: ; preds = %82, %69, %66, %61
@@ -2136,7 +2136,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   %79 = landingpad { ptr, i32 }
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #19
+  call void @__clang_call_terminate(ptr %80) #19, !noalias !47
   unreachable
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit.i.i: ; preds = %77, %64, %61, %56
@@ -2353,7 +2353,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   %192 = landingpad { ptr, i32 }
           catch ptr null
   %193 = extractvalue { ptr, i32 } %192, 0
-  call void @__clang_call_terminate(ptr %193) #19
+  call void @__clang_call_terminate(ptr %193) #19, !noalias !61
   unreachable
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_set_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorIS5_EELb0EEEE12destroy_nodeEPNS1_9list_nodeImEE.exit.i.i42: ; preds = %190, %177, %174, %169

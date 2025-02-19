@@ -810,7 +810,7 @@ define dso_local { i64, i32 } @_ZN4llvm10X86TTIImpl22getArithmeticInstrCostEjPNS
   %.sroa.1028.0.i = phi ptr [ %66, %58 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #19, !noalias !169
   %69 = load ptr, ptr %60, align 8, !tbaa !172, !noalias !169
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %9, ptr noundef nonnull align 8 dereferenceable(412423) %69, ptr noundef nonnull align 8 dereferenceable(8) %59, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %9, ptr noundef nonnull align 8 dereferenceable(412423) %69, ptr noundef nonnull align 8 dereferenceable(8) %59, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !169
   %70 = load i8, ptr %9, align 8, !tbaa !174, !noalias !169
   switch i8 %70, label %72 [
     i8 10, label %71
@@ -5913,7 +5913,7 @@ _ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit599: ; pr
   %.sroa.1028.0.i = phi ptr [ %468, %.critedge46 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #19, !noalias !215
   %471 = load ptr, ptr %10, align 8, !tbaa !172, !noalias !215
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %9, ptr noundef nonnull align 8 dereferenceable(412423) %471, ptr noundef nonnull align 8 dereferenceable(8) %463, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %9, ptr noundef nonnull align 8 dereferenceable(412423) %471, ptr noundef nonnull align 8 dereferenceable(8) %463, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !215
   %472 = load i8, ptr %9, align 8, !tbaa !174, !noalias !215
   switch i8 %472, label %474 [
     i8 10, label %473
@@ -5979,7 +5979,7 @@ _ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE23getTypeLegalizationCostEPNS_4Type
   %.sroa.1028.0.i605 = phi ptr [ %490, %_ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit ], [ %.sroa.1028.0.copyload.pre.i617, %_ZNK4llvm3EVTeqES0_.exit.thread30.i618 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #19, !noalias !218
   %493 = load ptr, ptr %10, align 8, !tbaa !172, !noalias !218
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %8, ptr noundef nonnull align 8 dereferenceable(412423) %493, ptr noundef nonnull align 8 dereferenceable(8) %485, i16 %.sroa.026.0.i604, ptr %.sroa.1028.0.i605) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %8, ptr noundef nonnull align 8 dereferenceable(412423) %493, ptr noundef nonnull align 8 dereferenceable(8) %485, i16 %.sroa.026.0.i604, ptr %.sroa.1028.0.i605) #19, !noalias !218
   %494 = load i8, ptr %8, align 8, !tbaa !174, !noalias !218
   switch i8 %494, label %496 [
     i8 10, label %495
@@ -8368,7 +8368,7 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %_ZNK4llvm4Type13get
   %.sroa.1028.0.i = phi ptr [ %42, %35 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #19, !noalias !236
   %45 = load ptr, ptr %14, align 8, !tbaa !172, !noalias !236
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %9, ptr noundef nonnull align 8 dereferenceable(412423) %45, ptr noundef nonnull align 8 dereferenceable(8) %36, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %9, ptr noundef nonnull align 8 dereferenceable(412423) %45, ptr noundef nonnull align 8 dereferenceable(8) %36, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !236
   %46 = load i8, ptr %9, align 8, !tbaa !174, !noalias !236
   switch i8 %46, label %48 [
     i8 10, label %47
@@ -8925,7 +8925,7 @@ define dso_local { i64, i32 } @_ZN4llvm10X86TTIImpl14getShuffleCostENS_19TargetT
   %.sroa.1028.0.i = phi ptr [ %46, %10 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #19, !noalias !252
   %49 = load ptr, ptr %40, align 8, !tbaa !172, !noalias !252
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %13, ptr noundef nonnull align 8 dereferenceable(412423) %49, ptr noundef nonnull align 8 dereferenceable(8) %39, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %13, ptr noundef nonnull align 8 dereferenceable(412423) %49, ptr noundef nonnull align 8 dereferenceable(8) %39, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !252
   %50 = load i8, ptr %13, align 8, !tbaa !174, !noalias !252
   switch i8 %50, label %52 [
     i8 10, label %51
@@ -9269,8 +9269,8 @@ _ZNK4llvm3MVT19getScalarSizeInBitsEv.exit498:     ; preds = %162, %166
 
 187:                                              ; preds = %180
   %188 = getelementptr inbounds nuw i32, ptr %3, i64 %4
-  %.not7.i.i.i.i.i = icmp eq i64 %4, 0
-  br i1 %.not7.i.i.i.i.i, label %"_ZN4llvm8count_ifIRNS_8ArrayRefIiEEZNS_10X86TTIImpl14getShuffleCostENS_19TargetTransformInfo11ShuffleKindEPNS_10VectorTypeES2_NS5_14TargetCostKindEiS8_NS1_IPKNS_5ValueEEEPKNS_11InstructionEE3$_0EEDaOT_T0_.exit", label %.lr.ph.i.i.i.i.i502
+  %.not4.i.i.i.i.i = icmp eq i64 %4, 0
+  br i1 %.not4.i.i.i.i.i, label %"_ZN4llvm8count_ifIRNS_8ArrayRefIiEEZNS_10X86TTIImpl14getShuffleCostENS_19TargetTransformInfo11ShuffleKindEPNS_10VectorTypeES2_NS5_14TargetCostKindEiS8_NS1_IPKNS_5ValueEEEPKNS_11InstructionEE3$_0EEDaOT_T0_.exit", label %.lr.ph.i.i.i.i.i502
 
 .lr.ph.i.i.i.i.i502:                              ; preds = %187
   %189 = ptrtoint ptr %3 to i64
@@ -9290,8 +9290,8 @@ _ZNK4llvm3MVT19getScalarSizeInBitsEv.exit498:     ; preds = %162, %166
   %196 = urem i64 %195, %4
   %197 = udiv i64 %196, %190
   %198 = udiv i64 %.sroa.2.0.copyload.i.i.i.i.i, %190
-  %.not6.i.i.i.i.i = icmp eq i64 %197, %198
-  br i1 %.not6.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm10X86TTIImpl14getShuffleCostENS2_19TargetTransformInfo11ShuffleKindEPNS2_10VectorTypeENS2_8ArrayRefIiEENS4_14TargetCostKindEiS7_NS8_IPKNS2_5ValueEEEPKNS2_11InstructionEE3$_2EclINS2_6detail14zip_enumeratorIJNSL_14index_iteratorEPKiEEEEEbT_.exit.thread.i.i.i.i.i", label %"_ZN4llvm6all_ofINS_6detail5zippyINS1_14zip_enumeratorEJNS1_12index_streamERNS_8ArrayRefIiEEEEEZNS_10X86TTIImpl14getShuffleCostENS_19TargetTransformInfo11ShuffleKindEPNS_10VectorTypeES6_NSA_14TargetCostKindEiSD_NS5_IPKNS_5ValueEEEPKNS_11InstructionEE3$_2EEbOT_T0_.exit"
+  %.not3.i.i.i.i.i = icmp eq i64 %197, %198
+  br i1 %.not3.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm10X86TTIImpl14getShuffleCostENS2_19TargetTransformInfo11ShuffleKindEPNS2_10VectorTypeENS2_8ArrayRefIiEENS4_14TargetCostKindEiS7_NS8_IPKNS2_5ValueEEEPKNS2_11InstructionEE3$_2EclINS2_6detail14zip_enumeratorIJNSL_14index_iteratorEPKiEEEEEbT_.exit.thread.i.i.i.i.i", label %"_ZN4llvm6all_ofINS_6detail5zippyINS1_14zip_enumeratorEJNS1_12index_streamERNS_8ArrayRefIiEEEEEZNS_10X86TTIImpl14getShuffleCostENS_19TargetTransformInfo11ShuffleKindEPNS_10VectorTypeES6_NSA_14TargetCostKindEiSD_NS5_IPKNS_5ValueEEEPKNS_11InstructionEE3$_2EEbOT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm10X86TTIImpl14getShuffleCostENS2_19TargetTransformInfo11ShuffleKindEPNS2_10VectorTypeENS2_8ArrayRefIiEENS4_14TargetCostKindEiS7_NS8_IPKNS2_5ValueEEEPKNS2_11InstructionEE3$_2EclINS2_6detail14zip_enumeratorIJNSL_14index_iteratorEPKiEEEEEbT_.exit.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm10X86TTIImpl14getShuffleCostENS2_19TargetTransformInfo11ShuffleKindEPNS2_10VectorTypeENS2_8ArrayRefIiEENS4_14TargetCostKindEiS7_NS8_IPKNS2_5ValueEEEPKNS2_11InstructionEE3$_2EclINS2_6detail14zip_enumeratorIJNSL_14index_iteratorEPKiEEEEEbT_.exit.i.i.i.i.i", %191
   %199 = add nuw nsw i64 %.sroa.2.0.copyload.i.i.i.i.i, 1
@@ -9482,7 +9482,7 @@ _ZNK4llvm3MVT20getVectorNumElementsEv.exit:       ; preds = %227, %229
   %.sroa.1028.0.i512 = phi ptr [ %245, %238 ], [ %.sroa.1028.0.copyload.pre.i524, %_ZNK4llvm3EVTeqES0_.exit.thread30.i525 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #19, !noalias !267
   %248 = load ptr, ptr %40, align 8, !tbaa !172, !noalias !267
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %12, ptr noundef nonnull align 8 dereferenceable(412423) %248, ptr noundef nonnull align 8 dereferenceable(8) %240, i16 %.sroa.026.0.i511, ptr %.sroa.1028.0.i512) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %12, ptr noundef nonnull align 8 dereferenceable(412423) %248, ptr noundef nonnull align 8 dereferenceable(8) %240, i16 %.sroa.026.0.i511, ptr %.sroa.1028.0.i512) #19, !noalias !267
   %249 = load i8, ptr %12, align 8, !tbaa !174, !noalias !267
   switch i8 %249, label %251 [
     i8 10, label %250
@@ -9698,7 +9698,7 @@ _ZNK4llvm3MVT20getVectorNumElementsEv.exit554:    ; preds = %329, %331
   %.sroa.1028.0.i558 = phi ptr [ %342, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit554 ], [ %.sroa.1028.0.copyload.pre.i570, %_ZNK4llvm3EVTeqES0_.exit.thread30.i571 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #19, !noalias !270
   %345 = load ptr, ptr %40, align 8, !tbaa !172, !noalias !270
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %11, ptr noundef nonnull align 8 dereferenceable(412423) %345, ptr noundef nonnull align 8 dereferenceable(8) %337, i16 %.sroa.026.0.i557, ptr %.sroa.1028.0.i558) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %11, ptr noundef nonnull align 8 dereferenceable(412423) %345, ptr noundef nonnull align 8 dereferenceable(8) %337, i16 %.sroa.026.0.i557, ptr %.sroa.1028.0.i558) #19, !noalias !270
   %346 = load i8, ptr %11, align 8, !tbaa !174, !noalias !270
   switch i8 %346, label %348 [
     i8 10, label %347
@@ -11108,8 +11108,7 @@ _ZN4llvmmlERKNS_15InstructionCostES2_.exit871:    ; preds = %_ZNK13CostKindCosts
 
 928:                                              ; preds = %.critedge467
   %.val490 = load ptr, ptr %8, align 8, !tbaa !187
-  %.val491 = load i64, ptr %64, align 8, !tbaa !183
-  %929 = call fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_5ValueEEEZNS_10X86TTIImpl14getShuffleCostENS_19TargetTransformInfo11ShuffleKindEPNS_10VectorTypeENS1_IiEENS8_14TargetCostKindEiSB_S5_PKNS_11InstructionEE3$_6EEbOT_T0_"(ptr %.val490, i64 %.val491)
+  %929 = call fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_5ValueEEEZNS_10X86TTIImpl14getShuffleCostENS_19TargetTransformInfo11ShuffleKindEPNS_10VectorTypeENS1_IiEENS8_14TargetCostKindEiSB_S5_PKNS_11InstructionEE3$_6EEbOT_T0_"(ptr %.val490, i64 %65)
   %.not1445 = icmp ne i32 %926, 2
   %brmerge470.not = and i1 %.not1445, %929
   %.sroa.2.0.insert.ext.i.i872 = zext i16 %.sroa.45.0 to i64
@@ -11935,7 +11934,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_10X86TTII
   %.sroa.1028.0.i = phi ptr [ %30, %21 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #19, !noalias !322
   %33 = load ptr, ptr %22, align 8, !tbaa !172, !noalias !322
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %15, ptr noundef nonnull align 8 dereferenceable(412423) %33, ptr noundef nonnull align 8 dereferenceable(8) %25, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %15, ptr noundef nonnull align 8 dereferenceable(412423) %33, ptr noundef nonnull align 8 dereferenceable(8) %25, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !322
   %34 = load i8, ptr %15, align 8, !tbaa !174, !noalias !322
   switch i8 %34, label %36 [
     i8 10, label %35
@@ -12001,7 +12000,7 @@ _ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE23getTypeLegalizationCostEPNS_4Type
   %.sroa.1028.0.i184 = phi ptr [ %52, %_ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit ], [ %.sroa.1028.0.copyload.pre.i196, %_ZNK4llvm3EVTeqES0_.exit.thread30.i197 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #19, !noalias !325
   %55 = load ptr, ptr %22, align 8, !tbaa !172, !noalias !325
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %14, ptr noundef nonnull align 8 dereferenceable(412423) %55, ptr noundef nonnull align 8 dereferenceable(8) %47, i16 %.sroa.026.0.i183, ptr %.sroa.1028.0.i184) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %14, ptr noundef nonnull align 8 dereferenceable(412423) %55, ptr noundef nonnull align 8 dereferenceable(8) %47, i16 %.sroa.026.0.i183, ptr %.sroa.1028.0.i184) #19, !noalias !325
   %56 = load i8, ptr %14, align 8, !tbaa !174, !noalias !325
   switch i8 %56, label %58 [
     i8 10, label %57
@@ -12664,7 +12663,7 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread:   ; preds = %_ZNK4llvm4Type13get
   %.sroa.1028.0.i = phi ptr [ %32, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #19, !noalias !334
   %35 = load ptr, ptr %26, align 8, !tbaa !172, !noalias !334
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %10, ptr noundef nonnull align 8 dereferenceable(412423) %35, ptr noundef nonnull align 8 dereferenceable(8) %25, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %10, ptr noundef nonnull align 8 dereferenceable(412423) %35, ptr noundef nonnull align 8 dereferenceable(8) %25, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !334
   %36 = load i8, ptr %10, align 8, !tbaa !174, !noalias !334
   switch i8 %36, label %38 [
     i8 10, label %37
@@ -13877,7 +13876,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_10X86TTII
   %.sroa.1028.0.i = phi ptr [ %30, %23 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #19, !noalias !338
   %33 = load ptr, ptr %13, align 8, !tbaa !172, !noalias !338
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %12, ptr noundef nonnull align 8 dereferenceable(412423) %33, ptr noundef nonnull align 8 dereferenceable(8) %24, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %12, ptr noundef nonnull align 8 dereferenceable(412423) %33, ptr noundef nonnull align 8 dereferenceable(8) %24, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !338
   %34 = load i8, ptr %12, align 8, !tbaa !174, !noalias !338
   switch i8 %34, label %36 [
     i8 10, label %35
@@ -14094,7 +14093,6 @@ define dso_local { i64, i32 } @_ZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_
   %6 = alloca %"struct.llvm::PatternMatch::apint_match", align 8
   %7 = alloca ptr, align 8
   %8 = alloca %"struct.llvm::PatternMatch::apint_match", align 8
-  %.sroa.48 = alloca [6 x i8], align 2
   %9 = alloca %"struct.std::pair", align 8
   %10 = alloca %"struct.std::pair", align 8
   %11 = alloca %"struct.std::pair", align 8
@@ -14121,7 +14119,7 @@ define dso_local { i64, i32 } @_ZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_
   %32 = load ptr, ptr %31, align 8, !tbaa !344
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load i32, ptr %33, align 8, !tbaa !358
-  switch i32 %34, label %1201 [
+  switch i32 %34, label %1200 [
     i32 1, label %103
     i32 14, label %35
     i32 15, label %36
@@ -14253,7 +14251,7 @@ define dso_local { i64, i32 } @_ZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_
   %74 = load ptr, ptr %73, align 8, !tbaa !243
   %75 = load ptr, ptr %74, align 8, !tbaa !163
   %76 = tail call { i64, i32 } @_ZN4llvm10X86TTIImpl16getCastInstrCostEjPNS_4TypeES2_NS_19TargetTransformInfo15CastContextHintENS3_14TargetCostKindEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 42, ptr noundef %32, ptr noundef %75, i8 noundef zeroext 0, i32 noundef %2, ptr noundef null)
-  br label %1205
+  br label %1204
 
 77:                                               ; preds = %3, %3
   br label %103
@@ -14312,7 +14310,6 @@ define dso_local { i64, i32 } @_ZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_
 103:                                              ; preds = %3, %99, %95, %91, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %56, %40, %39, %38, %37, %36, %35, %55, %43, %71, %59
   %.0533.ph = phi i32 [ 195, %59 ], [ %.4, %71 ], [ 195, %43 ], [ %.2, %55 ], [ 201, %35 ], [ 197, %36 ], [ 199, %37 ], [ 200, %38 ], [ 198, %39 ], [ 195, %40 ], [ 195, %56 ], [ 280, %77 ], [ 82, %78 ], [ 181, %79 ], [ 180, %80 ], [ 84, %81 ], [ 83, %82 ], [ 183, %83 ], [ 182, %84 ], [ 85, %85 ], [ 246, %86 ], [ 76, %87 ], [ 77, %91 ], [ 80, %95 ], [ 81, %99 ], [ 189, %3 ]
   %.0.ph = phi ptr [ %32, %59 ], [ %32, %71 ], [ %32, %43 ], [ %32, %55 ], [ %32, %35 ], [ %32, %36 ], [ %32, %37 ], [ %32, %38 ], [ %32, %39 ], [ %32, %40 ], [ %32, %56 ], [ %32, %77 ], [ %32, %78 ], [ %32, %79 ], [ %32, %80 ], [ %32, %81 ], [ %32, %82 ], [ %32, %83 ], [ %32, %84 ], [ %32, %85 ], [ %32, %86 ], [ %90, %87 ], [ %94, %91 ], [ %98, %95 ], [ %102, %99 ], [ %32, %3 ]
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.48)
   %104 = load ptr, ptr %.0.ph, align 8, !tbaa !168, !noalias !359
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %106 = load ptr, ptr %105, align 8, !tbaa !172, !noalias !359
@@ -14331,7 +14328,7 @@ define dso_local { i64, i32 } @_ZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_
   %.sroa.1028.0.i = phi ptr [ %111, %103 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #19, !noalias !359
   %114 = load ptr, ptr %105, align 8, !tbaa !172, !noalias !359
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %4, ptr noundef nonnull align 8 dereferenceable(412423) %114, ptr noundef nonnull align 8 dereferenceable(8) %104, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %4, ptr noundef nonnull align 8 dereferenceable(412423) %114, ptr noundef nonnull align 8 dereferenceable(8) %104, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !359
   %115 = load i8, ptr %4, align 8, !tbaa !174, !noalias !359
   switch i8 %115, label %117 [
     i8 10, label %116
@@ -15839,8 +15836,6 @@ _ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit964: ; pr
   store i32 %.sink.i, ptr %.sroa.30.0..sroa_idx1465, align 8
   %.sroa.41.0..sroa_idx1545 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i16 %.sroa.026.0.lcssa43.sink.i, ptr %.sroa.41.0..sroa_idx1545, align 8
-  %.sroa.48.0..sroa_idx1581 = getelementptr inbounds nuw i8, ptr %9, i64 18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48.0..sroa_idx1581, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48, i64 6, i1 false)
   %808 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.sroa.0.0.copyload.i965 = load i32, ptr %808, align 8, !tbaa !202
   %809 = call fastcc { i64, i32 } @"_ZZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEENK3$_0clEijSt4pairINS_15InstructionCostENS_3MVTEENS_13FastMathFlagsE"(ptr nonnull %0, ptr nonnull %1, i32 noundef %807, i32 noundef %.0.i960, ptr noundef nonnull byval(%"struct.std::pair") align 8 %9, i32 %.sroa.0.0.copyload.i965)
@@ -15944,8 +15939,6 @@ _ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit977: ; pr
   store i32 %.sink.i, ptr %.sroa.30.0..sroa_idx1467, align 8
   %.sroa.41.0..sroa_idx1547 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i16 %.sroa.026.0.lcssa43.sink.i, ptr %.sroa.41.0..sroa_idx1547, align 8
-  %.sroa.48.0..sroa_idx1582 = getelementptr inbounds nuw i8, ptr %10, i64 18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48.0..sroa_idx1582, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48, i64 6, i1 false)
   %851 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.sroa.0.0.copyload.i978 = load i32, ptr %851, align 8, !tbaa !202
   %852 = call fastcc { i64, i32 } @"_ZZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEENK3$_0clEijSt4pairINS_15InstructionCostENS_3MVTEENS_13FastMathFlagsE"(ptr nonnull %0, ptr nonnull %1, i32 noundef %.51617, i32 noundef %.0.i973, ptr noundef nonnull byval(%"struct.std::pair") align 8 %10, i32 %.sroa.0.0.copyload.i978)
@@ -16047,8 +16040,6 @@ _ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit990: ; pr
   store i32 %.sink.i, ptr %.sroa.30.0..sroa_idx1469, align 8
   %.sroa.41.0..sroa_idx1549 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i16 %.sroa.026.0.lcssa43.sink.i, ptr %.sroa.41.0..sroa_idx1549, align 8
-  %.sroa.48.0..sroa_idx1583 = getelementptr inbounds nuw i8, ptr %11, i64 18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48.0..sroa_idx1583, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48, i64 6, i1 false)
   %892 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.sroa.0.0.copyload.i991 = load i32, ptr %892, align 8, !tbaa !202
   %893 = call fastcc { i64, i32 } @"_ZZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEENK3$_0clEijSt4pairINS_15InstructionCostENS_3MVTEENS_13FastMathFlagsE"(ptr nonnull %0, ptr nonnull %1, i32 noundef %.51617, i32 noundef %.0.i986, ptr noundef nonnull byval(%"struct.std::pair") align 8 %11, i32 %.sroa.0.0.copyload.i991)
@@ -16172,8 +16163,6 @@ _ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1003: ; p
   store i32 %.sink.i, ptr %.sroa.30.0..sroa_idx1471, align 8
   %.sroa.41.0..sroa_idx1551 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i16 %.sroa.026.0.lcssa43.sink.i, ptr %.sroa.41.0..sroa_idx1551, align 8
-  %.sroa.48.0..sroa_idx1584 = getelementptr inbounds nuw i8, ptr %12, i64 18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48.0..sroa_idx1584, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48, i64 6, i1 false)
   %943 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.sroa.0.0.copyload.i1004 = load i32, ptr %943, align 8, !tbaa !202
   %944 = call fastcc { i64, i32 } @"_ZZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEENK3$_0clEijSt4pairINS_15InstructionCostENS_3MVTEENS_13FastMathFlagsE"(ptr nonnull %0, ptr nonnull %1, i32 noundef %942, i32 noundef %.0.i999, ptr noundef nonnull byval(%"struct.std::pair") align 8 %12, i32 %.sroa.0.0.copyload.i1004)
@@ -16183,15 +16172,15 @@ _ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1003: ; p
 
 .critedge644:                                     ; preds = %_ZSt9__find_ifIPKN4llvm13CostTblEntryTI13CostKindCostsEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15CostTableLookupIS2_EEPKNS1_IT_EENS0_8ArrayRefISB_EEiNS0_3MVTEEUlRS4_E_EEESA_SA_SA_T0_St26random_access_iterator_tag.exit1297.thread, %931, %_ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1003, %_ZSt9__find_ifIPKN4llvm13CostTblEntryTI13CostKindCostsEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15CostTableLookupIS2_EEPKNS1_IT_EENS0_8ArrayRefISB_EEiNS0_3MVTEEUlRS4_E_EEESA_SA_SA_T0_St26random_access_iterator_tag.exit1297, %.critedge640
   %945 = icmp sgt i32 %764, 5
-  br i1 %945, label %.lr.ph.i.preheader2091, label %.critedge648
+  br i1 %945, label %.lr.ph.i.preheader2089, label %.critedge648
 
-.lr.ph.i.preheader2091:                           ; preds = %.critedge644
+.lr.ph.i.preheader2089:                           ; preds = %.critedge644
   %946 = icmp eq i32 %.51617, 280
   %947 = icmp eq i16 %.sroa.026.0.lcssa43.sink.i, 12
   %948 = select i1 %946, i1 %947, i1 false
   br i1 %948, label %_ZSt9__find_ifIPKN4llvm13CostTblEntryTI13CostKindCostsEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15CostTableLookupIS2_EEPKNS1_IT_EENS0_8ArrayRefISB_EEiNS0_3MVTEEUlRS4_E_EEESA_SA_SA_T0_St26random_access_iterator_tag.exit, label %949
 
-949:                                              ; preds = %.lr.ph.i.preheader2091
+949:                                              ; preds = %.lr.ph.i.preheader2089
   %950 = icmp eq i16 %.sroa.026.0.lcssa43.sink.i, 111
   %951 = select i1 %946, i1 %950, i1 false
   br i1 %951, label %_ZSt9__find_ifIPKN4llvm13CostTblEntryTI13CostKindCostsEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15CostTableLookupIS2_EEPKNS1_IT_EENS0_8ArrayRefISB_EEiNS0_3MVTEEUlRS4_E_EEESA_SA_SA_T0_St26random_access_iterator_tag.exit, label %952
@@ -16215,14 +16204,14 @@ _ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1003: ; p
   %961 = select i1 %958, i1 %950, i1 false
   br i1 %961, label %_ZSt9__find_ifIPKN4llvm13CostTblEntryTI13CostKindCostsEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15CostTableLookupIS2_EEPKNS1_IT_EENS0_8ArrayRefISB_EEiNS0_3MVTEEUlRS4_E_EEESA_SA_SA_T0_St26random_access_iterator_tag.exit.thread, label %.critedge648.thread
 
-_ZSt9__find_ifIPKN4llvm13CostTblEntryTI13CostKindCostsEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15CostTableLookupIS2_EEPKNS1_IT_EENS0_8ArrayRefISB_EEiNS0_3MVTEEUlRS4_E_EEESA_SA_SA_T0_St26random_access_iterator_tag.exit: ; preds = %955, %952, %949, %.lr.ph.i.preheader2091
-  %.028.i.idx2059 = phi i64 [ 0, %.lr.ph.i.preheader2091 ], [ 24, %949 ], [ 48, %952 ], [ 72, %955 ]
-  %.028.i.ptr2063 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEE12SSE42CostTbl, i64 %.028.i.idx2059
+_ZSt9__find_ifIPKN4llvm13CostTblEntryTI13CostKindCostsEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15CostTableLookupIS2_EEPKNS1_IT_EENS0_8ArrayRefISB_EEiNS0_3MVTEEUlRS4_E_EEESA_SA_SA_T0_St26random_access_iterator_tag.exit: ; preds = %955, %952, %949, %.lr.ph.i.preheader2089
+  %.028.i.idx2057 = phi i64 [ 0, %.lr.ph.i.preheader2089 ], [ 24, %949 ], [ 48, %952 ], [ 72, %955 ]
+  %.028.i.ptr2061 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEE12SSE42CostTbl, i64 %.028.i.idx2057
   br label %_ZSt9__find_ifIPKN4llvm13CostTblEntryTI13CostKindCostsEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15CostTableLookupIS2_EEPKNS1_IT_EENS0_8ArrayRefISB_EEiNS0_3MVTEEUlRS4_E_EEESA_SA_SA_T0_St26random_access_iterator_tag.exit.thread
 
 _ZSt9__find_ifIPKN4llvm13CostTblEntryTI13CostKindCostsEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15CostTableLookupIS2_EEPKNS1_IT_EENS0_8ArrayRefISB_EEiNS0_3MVTEEUlRS4_E_EEESA_SA_SA_T0_St26random_access_iterator_tag.exit.thread: ; preds = %_ZSt9__find_ifIPKN4llvm13CostTblEntryTI13CostKindCostsEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15CostTableLookupIS2_EEPKNS1_IT_EENS0_8ArrayRefISB_EEiNS0_3MVTEEUlRS4_E_EEESA_SA_SA_T0_St26random_access_iterator_tag.exit, %960, %._crit_edge.loopexit.i
-  %.028.i2055 = phi ptr [ %.028.i.ptr2063, %_ZSt9__find_ifIPKN4llvm13CostTblEntryTI13CostKindCostsEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15CostTableLookupIS2_EEPKNS1_IT_EENS0_8ArrayRefISB_EEiNS0_3MVTEEUlRS4_E_EEESA_SA_SA_T0_St26random_access_iterator_tag.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEE12SSE42CostTbl, i64 120), %960 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEE12SSE42CostTbl, i64 96), %._crit_edge.loopexit.i ]
-  %962 = getelementptr inbounds nuw i8, ptr %.028.i2055, i64 8
+  %.028.i2053 = phi ptr [ %.028.i.ptr2061, %_ZSt9__find_ifIPKN4llvm13CostTblEntryTI13CostKindCostsEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15CostTableLookupIS2_EEPKNS1_IT_EENS0_8ArrayRefISB_EEiNS0_3MVTEEUlRS4_E_EEESA_SA_SA_T0_St26random_access_iterator_tag.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEE12SSE42CostTbl, i64 120), %960 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEE12SSE42CostTbl, i64 96), %._crit_edge.loopexit.i ]
+  %962 = getelementptr inbounds nuw i8, ptr %.028.i2053, i64 8
   switch i32 %2, label %.critedge648.thread [
     i32 0, label %_ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1016
     i32 1, label %963
@@ -16231,15 +16220,15 @@ _ZSt9__find_ifIPKN4llvm13CostTblEntryTI13CostKindCostsEEN9__gnu_cxx5__ops10_Iter
   ]
 
 963:                                              ; preds = %_ZSt9__find_ifIPKN4llvm13CostTblEntryTI13CostKindCostsEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15CostTableLookupIS2_EEPKNS1_IT_EENS0_8ArrayRefISB_EEiNS0_3MVTEEUlRS4_E_EEESA_SA_SA_T0_St26random_access_iterator_tag.exit.thread
-  %964 = getelementptr inbounds nuw i8, ptr %.028.i2055, i64 12
+  %964 = getelementptr inbounds nuw i8, ptr %.028.i2053, i64 12
   br label %_ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1016
 
 965:                                              ; preds = %_ZSt9__find_ifIPKN4llvm13CostTblEntryTI13CostKindCostsEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15CostTableLookupIS2_EEPKNS1_IT_EENS0_8ArrayRefISB_EEiNS0_3MVTEEUlRS4_E_EEESA_SA_SA_T0_St26random_access_iterator_tag.exit.thread
-  %966 = getelementptr inbounds nuw i8, ptr %.028.i2055, i64 16
+  %966 = getelementptr inbounds nuw i8, ptr %.028.i2053, i64 16
   br label %_ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1016
 
 967:                                              ; preds = %_ZSt9__find_ifIPKN4llvm13CostTblEntryTI13CostKindCostsEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15CostTableLookupIS2_EEPKNS1_IT_EENS0_8ArrayRefISB_EEiNS0_3MVTEEUlRS4_E_EEESA_SA_SA_T0_St26random_access_iterator_tag.exit.thread
-  %968 = getelementptr inbounds nuw i8, ptr %.028.i2055, i64 20
+  %968 = getelementptr inbounds nuw i8, ptr %.028.i2053, i64 20
   br label %_ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1016
 
 _ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1016: ; preds = %_ZSt9__find_ifIPKN4llvm13CostTblEntryTI13CostKindCostsEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15CostTableLookupIS2_EEPKNS1_IT_EENS0_8ArrayRefISB_EEiNS0_3MVTEEUlRS4_E_EEESA_SA_SA_T0_St26random_access_iterator_tag.exit.thread, %963, %965, %967
@@ -16249,14 +16238,12 @@ _ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1016: ; p
   br i1 %.not.i1013.not, label %.critedge648.thread, label %969
 
 969:                                              ; preds = %_ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1016
-  %970 = load i32, ptr %.028.i2055, align 4, !tbaa !198
+  %970 = load i32, ptr %.028.i2053, align 4, !tbaa !198
   store i64 %.sroa.020.1.lcssa.sink.i, ptr %13, align 8
   %.sroa.30.0..sroa_idx1473 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %.sink.i, ptr %.sroa.30.0..sroa_idx1473, align 8
   %.sroa.41.0..sroa_idx1553 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i16 %.sroa.026.0.lcssa43.sink.i, ptr %.sroa.41.0..sroa_idx1553, align 8
-  %.sroa.48.0..sroa_idx1585 = getelementptr inbounds nuw i8, ptr %13, i64 18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48.0..sroa_idx1585, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48, i64 6, i1 false)
   %971 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.sroa.0.0.copyload.i1017 = load i32, ptr %971, align 8, !tbaa !202
   %972 = call fastcc { i64, i32 } @"_ZZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEENK3$_0clEijSt4pairINS_15InstructionCostENS_3MVTEENS_13FastMathFlagsE"(ptr nonnull %0, ptr nonnull %1, i32 noundef %970, i32 noundef %.0.i1012, ptr noundef nonnull byval(%"struct.std::pair") align 8 %13, i32 %.sroa.0.0.copyload.i1017)
@@ -16313,8 +16300,6 @@ _ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1029: ; p
   store i32 %.sink.i, ptr %.sroa.30.0..sroa_idx1475, align 8
   %.sroa.41.0..sroa_idx1555 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i16 %.sroa.026.0.lcssa43.sink.i, ptr %.sroa.41.0..sroa_idx1555, align 8
-  %.sroa.48.0..sroa_idx1586 = getelementptr inbounds nuw i8, ptr %14, i64 18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48.0..sroa_idx1586, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48, i64 6, i1 false)
   %985 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.sroa.0.0.copyload.i1030 = load i32, ptr %985, align 8, !tbaa !202
   %986 = call fastcc { i64, i32 } @"_ZZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEENK3$_0clEijSt4pairINS_15InstructionCostENS_3MVTEENS_13FastMathFlagsE"(ptr nonnull %0, ptr nonnull %1, i32 noundef %984, i32 noundef %.0.i1025, ptr noundef nonnull byval(%"struct.std::pair") align 8 %14, i32 %.sroa.0.0.copyload.i1030)
@@ -16374,8 +16359,6 @@ _ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1042: ; p
   store i32 %.sink.i, ptr %.sroa.30.0..sroa_idx1477, align 8
   %.sroa.41.0..sroa_idx1557 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i16 %.sroa.026.0.lcssa43.sink.i, ptr %.sroa.41.0..sroa_idx1557, align 8
-  %.sroa.48.0..sroa_idx1587 = getelementptr inbounds nuw i8, ptr %15, i64 18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48.0..sroa_idx1587, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48, i64 6, i1 false)
   %1003 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.sroa.0.0.copyload.i1043 = load i32, ptr %1003, align 8, !tbaa !202
   %1004 = call fastcc { i64, i32 } @"_ZZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEENK3$_0clEijSt4pairINS_15InstructionCostENS_3MVTEENS_13FastMathFlagsE"(ptr nonnull %0, ptr nonnull %1, i32 noundef %1002, i32 noundef %.0.i1038, ptr noundef nonnull byval(%"struct.std::pair") align 8 %15, i32 %.sroa.0.0.copyload.i1043)
@@ -16435,8 +16418,6 @@ _ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1055: ; p
   store i32 %.sink.i, ptr %.sroa.30.0..sroa_idx1479, align 8
   %.sroa.41.0..sroa_idx1559 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i16 %.sroa.026.0.lcssa43.sink.i, ptr %.sroa.41.0..sroa_idx1559, align 8
-  %.sroa.48.0..sroa_idx1588 = getelementptr inbounds nuw i8, ptr %16, i64 18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48.0..sroa_idx1588, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48, i64 6, i1 false)
   %1021 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.sroa.0.0.copyload.i1056 = load i32, ptr %1021, align 8, !tbaa !202
   %1022 = call fastcc { i64, i32 } @"_ZZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEENK3$_0clEijSt4pairINS_15InstructionCostENS_3MVTEENS_13FastMathFlagsE"(ptr nonnull %0, ptr nonnull %1, i32 noundef %1020, i32 noundef %.0.i1051, ptr noundef nonnull byval(%"struct.std::pair") align 8 %16, i32 %.sroa.0.0.copyload.i1056)
@@ -16496,8 +16477,6 @@ _ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1068: ; p
   store i32 %.sink.i, ptr %.sroa.30.0..sroa_idx1481, align 8
   %.sroa.41.0..sroa_idx1561 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i16 %.sroa.026.0.lcssa43.sink.i, ptr %.sroa.41.0..sroa_idx1561, align 8
-  %.sroa.48.0..sroa_idx1589 = getelementptr inbounds nuw i8, ptr %17, i64 18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48.0..sroa_idx1589, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48, i64 6, i1 false)
   %1039 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.sroa.0.0.copyload.i1069 = load i32, ptr %1039, align 8, !tbaa !202
   %1040 = call fastcc { i64, i32 } @"_ZZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEENK3$_0clEijSt4pairINS_15InstructionCostENS_3MVTEENS_13FastMathFlagsE"(ptr nonnull %0, ptr nonnull %1, i32 noundef %1038, i32 noundef %.0.i1064, ptr noundef nonnull byval(%"struct.std::pair") align 8 %17, i32 %.sroa.0.0.copyload.i1069)
@@ -16563,8 +16542,6 @@ _ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1081: ; p
   store i32 %.sink.i, ptr %.sroa.30.0..sroa_idx1483, align 8
   %.sroa.41.0..sroa_idx1563 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i16 %.sroa.026.0.lcssa43.sink.i, ptr %.sroa.41.0..sroa_idx1563, align 8
-  %.sroa.48.0..sroa_idx1590 = getelementptr inbounds nuw i8, ptr %18, i64 18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48.0..sroa_idx1590, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48, i64 6, i1 false)
   %1061 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.sroa.0.0.copyload.i1082 = load i32, ptr %1061, align 8, !tbaa !202
   %1062 = call fastcc { i64, i32 } @"_ZZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEENK3$_0clEijSt4pairINS_15InstructionCostENS_3MVTEENS_13FastMathFlagsE"(ptr nonnull %0, ptr nonnull %1, i32 noundef %1060, i32 noundef %.0.i1077, ptr noundef nonnull byval(%"struct.std::pair") align 8 %18, i32 %.sroa.0.0.copyload.i1082)
@@ -16613,8 +16590,6 @@ _ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1094: ; p
   store i32 %.sink.i, ptr %.sroa.30.0..sroa_idx1485, align 8
   %.sroa.41.0..sroa_idx1565 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i16 %.sroa.026.0.lcssa43.sink.i, ptr %.sroa.41.0..sroa_idx1565, align 8
-  %.sroa.48.0..sroa_idx1591 = getelementptr inbounds nuw i8, ptr %19, i64 18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48.0..sroa_idx1591, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48, i64 6, i1 false)
   %1074 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.sroa.0.0.copyload.i1095 = load i32, ptr %1074, align 8, !tbaa !202
   %1075 = call fastcc { i64, i32 } @"_ZZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEENK3$_0clEijSt4pairINS_15InstructionCostENS_3MVTEENS_13FastMathFlagsE"(ptr nonnull %0, ptr nonnull %1, i32 noundef %1073, i32 noundef %.0.i1090, ptr noundef nonnull byval(%"struct.std::pair") align 8 %19, i32 %.sroa.0.0.copyload.i1095)
@@ -16680,8 +16655,6 @@ _ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1107: ; p
   store i32 %.sink.i, ptr %.sroa.30.0..sroa_idx1487, align 8
   %.sroa.41.0..sroa_idx1567 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i16 %.sroa.026.0.lcssa43.sink.i, ptr %.sroa.41.0..sroa_idx1567, align 8
-  %.sroa.48.0..sroa_idx1592 = getelementptr inbounds nuw i8, ptr %20, i64 18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48.0..sroa_idx1592, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48, i64 6, i1 false)
   %1096 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.sroa.0.0.copyload.i1108 = load i32, ptr %1096, align 8, !tbaa !202
   %1097 = call fastcc { i64, i32 } @"_ZZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEENK3$_0clEijSt4pairINS_15InstructionCostENS_3MVTEENS_13FastMathFlagsE"(ptr nonnull %0, ptr nonnull %1, i32 noundef %1095, i32 noundef %.0.i1103, ptr noundef nonnull byval(%"struct.std::pair") align 8 %20, i32 %.sroa.0.0.copyload.i1108)
@@ -16730,8 +16703,6 @@ _ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1120: ; p
   store i32 %.sink.i, ptr %.sroa.30.0..sroa_idx1489, align 8
   %.sroa.41.0..sroa_idx1569 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i16 %.sroa.026.0.lcssa43.sink.i, ptr %.sroa.41.0..sroa_idx1569, align 8
-  %.sroa.48.0..sroa_idx1593 = getelementptr inbounds nuw i8, ptr %21, i64 18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48.0..sroa_idx1593, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48, i64 6, i1 false)
   %1109 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.sroa.0.0.copyload.i1121 = load i32, ptr %1109, align 8, !tbaa !202
   %1110 = call fastcc { i64, i32 } @"_ZZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEENK3$_0clEijSt4pairINS_15InstructionCostENS_3MVTEENS_13FastMathFlagsE"(ptr nonnull %0, ptr nonnull %1, i32 noundef %1108, i32 noundef %.0.i1116, ptr noundef nonnull byval(%"struct.std::pair") align 8 %21, i32 %.sroa.0.0.copyload.i1121)
@@ -16748,9 +16719,9 @@ _ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1120: ; p
 
 .critedge680..critedge688_crit_edge:              ; preds = %.critedge680
   %.pre = zext i16 %.sroa.026.0.lcssa43.sink.i to i64
-  %.pre2105 = shl nuw nsw i64 %.pre, 32
-  %.pre2106 = zext nneg i32 %.51617 to i64
-  %.pre2107 = or disjoint i64 %.pre2105, %.pre2106
+  %.pre2103 = shl nuw nsw i64 %.pre, 32
+  %.pre2104 = zext nneg i32 %.51617 to i64
+  %.pre2105 = or disjoint i64 %.pre2103, %.pre2104
   br label %.critedge688
 
 1115:                                             ; preds = %.critedge680
@@ -16804,8 +16775,6 @@ _ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1133: ; p
   store i32 %.sink.i, ptr %.sroa.30.0..sroa_idx1491, align 8
   %.sroa.41.0..sroa_idx1571 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i16 %.sroa.026.0.lcssa43.sink.i, ptr %.sroa.41.0..sroa_idx1571, align 8
-  %.sroa.48.0..sroa_idx1594 = getelementptr inbounds nuw i8, ptr %22, i64 18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48.0..sroa_idx1594, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48, i64 6, i1 false)
   %1131 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.sroa.0.0.copyload.i1134 = load i32, ptr %1131, align 8, !tbaa !202
   %1132 = call fastcc { i64, i32 } @"_ZZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEENK3$_0clEijSt4pairINS_15InstructionCostENS_3MVTEENS_13FastMathFlagsE"(ptr nonnull %0, ptr nonnull %1, i32 noundef %1130, i32 noundef %.0.i1129, ptr noundef nonnull byval(%"struct.std::pair") align 8 %22, i32 %.sroa.0.0.copyload.i1134)
@@ -16854,8 +16823,6 @@ _ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1146: ; p
   store i32 %.sink.i, ptr %.sroa.30.0..sroa_idx1493, align 8
   %.sroa.41.0..sroa_idx1573 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i16 %.sroa.026.0.lcssa43.sink.i, ptr %.sroa.41.0..sroa_idx1573, align 8
-  %.sroa.48.0..sroa_idx1595 = getelementptr inbounds nuw i8, ptr %23, i64 18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48.0..sroa_idx1595, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48, i64 6, i1 false)
   %1144 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.sroa.0.0.copyload.i1147 = load i32, ptr %1144, align 8, !tbaa !202
   %1145 = call fastcc { i64, i32 } @"_ZZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEENK3$_0clEijSt4pairINS_15InstructionCostENS_3MVTEENS_13FastMathFlagsE"(ptr nonnull %0, ptr nonnull %1, i32 noundef %1143, i32 noundef %.0.i1142, ptr noundef nonnull byval(%"struct.std::pair") align 8 %23, i32 %.sroa.0.0.copyload.i1147)
@@ -16864,7 +16831,7 @@ _ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1146: ; p
   br label %.critedge699
 
 .critedge688:                                     ; preds = %.critedge680..critedge688_crit_edge, %1134, %_ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1146, %.critedge684
-  %.sroa.0.0.insert.insert.i.i1151.pre-phi = phi i64 [ %.pre2107, %.critedge680..critedge688_crit_edge ], [ %.sroa.0.0.insert.insert.i.i1125, %1134 ], [ %.sroa.0.0.insert.insert.i.i1125, %_ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1146 ], [ %.sroa.0.0.insert.insert.i.i1125, %.critedge684 ]
+  %.sroa.0.0.insert.insert.i.i1151.pre-phi = phi i64 [ %.pre2105, %.critedge680..critedge688_crit_edge ], [ %.sroa.0.0.insert.insert.i.i1125, %1134 ], [ %.sroa.0.0.insert.insert.i.i1125, %_ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1146 ], [ %.sroa.0.0.insert.insert.i.i1125, %.critedge684 ]
   %1146 = load ptr, ptr %159, align 8, !tbaa !3
   %1147 = getelementptr inbounds nuw i8, ptr %1146, i64 477
   %1148 = load i8, ptr %1147, align 1, !tbaa !152, !range !149, !noundef !150
@@ -16912,8 +16879,6 @@ _ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1159: ; p
   store i32 %.sink.i, ptr %.sroa.30.0..sroa_idx1495, align 8
   %.sroa.41.0..sroa_idx1575 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i16 %.sroa.026.0.lcssa43.sink.i, ptr %.sroa.41.0..sroa_idx1575, align 8
-  %.sroa.48.0..sroa_idx1596 = getelementptr inbounds nuw i8, ptr %24, i64 18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48.0..sroa_idx1596, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48, i64 6, i1 false)
   %1162 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.sroa.0.0.copyload.i1160 = load i32, ptr %1162, align 8, !tbaa !202
   %1163 = call fastcc { i64, i32 } @"_ZZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEENK3$_0clEijSt4pairINS_15InstructionCostENS_3MVTEENS_13FastMathFlagsE"(ptr nonnull %0, ptr nonnull %1, i32 noundef %1161, i32 noundef %.0.i1155, ptr noundef nonnull byval(%"struct.std::pair") align 8 %24, i32 %.sroa.0.0.copyload.i1160)
@@ -16962,8 +16927,6 @@ _ZNK13CostKindCostsixEN4llvm19TargetTransformInfo14TargetCostKindE.exit1172: ; p
   store i32 %.sink.i, ptr %.sroa.30.0..sroa_idx1497, align 8
   %.sroa.41.0..sroa_idx1577 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i16 %.sroa.026.0.lcssa43.sink.i, ptr %.sroa.41.0..sroa_idx1577, align 8
-  %.sroa.48.0..sroa_idx1597 = getelementptr inbounds nuw i8, ptr %25, i64 18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48.0..sroa_idx1597, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.48, i64 6, i1 false)
   %1175 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.sroa.0.0.copyload.i1173 = load i32, ptr %1175, align 8, !tbaa !202
   %1176 = call fastcc { i64, i32 } @"_ZZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEENK3$_0clEijSt4pairINS_15InstructionCostENS_3MVTEENS_13FastMathFlagsE"(ptr nonnull %0, ptr nonnull %1, i32 noundef %1174, i32 noundef %.0.i1168, ptr noundef nonnull byval(%"struct.std::pair") align 8 %25, i32 %.sroa.0.0.copyload.i1173)
@@ -17030,24 +16993,19 @@ _ZN4llvm15InstructionCostpLERKS0_.exit:           ; preds = %.critedge696
   %.0.i1186 = call i64 @llvm.sadd.sat.i64(i64 %.0.i1184, i64 %.fca.0.extract56)
   br label %.critedge699
 
-1200:                                             ; preds = %.critedge696
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.48)
-  br label %1201
-
-1201:                                             ; preds = %3, %1200
-  %1202 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_10X86TTIImplEE21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, i32 noundef %2)
-  br label %1205
+1200:                                             ; preds = %.critedge696, %3
+  %1201 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_10X86TTIImplEE21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, i32 noundef %2)
+  br label %1204
 
 .critedge699:                                     ; preds = %760, %757, %.thread.i2026, %_ZNK4llvm5Value9hasOneUseEv.exit32.i2042, %728, %706, %651, %648, %.thread.i2001, %_ZNK4llvm5Value9hasOneUseEv.exit32.i2017, %619, %597, %545, %542, %.thread.i1988, %_ZNK4llvm5Value9hasOneUseEv.exit32.i, %513, %491, %436, %433, %.thread.i895, %426, %393, %390, %.thread.i857, %383, %350, %347, %.thread.i819, %_ZNK4llvm5Value9hasOneUseEv.exit32.i835, %318, %296, %244, %241, %.thread.i781, %234, %197, %194, %.thread.i, %187, %156, %1173, %1160, %1142, %1129, %1107, %1094, %1072, %1059, %1037, %1019, %1001, %983, %969, %941, %891, %850, %806, %_ZN4llvm15InstructionCostpLERKS0_.exit
   %.sroa.01599.1 = phi i64 [ %.0.i1186, %_ZN4llvm15InstructionCostpLERKS0_.exit ], [ %.fca.0.extract113, %1173 ], [ %.fca.0.extract122, %1160 ], [ %.fca.0.extract131, %1142 ], [ %.fca.0.extract140, %1129 ], [ %.fca.0.extract149, %1107 ], [ %.fca.0.extract158, %1094 ], [ %.fca.0.extract167, %1072 ], [ %.fca.0.extract176, %1059 ], [ %.fca.0.extract185, %1037 ], [ %.fca.0.extract194, %1019 ], [ %.fca.0.extract203, %1001 ], [ %.fca.0.extract212, %983 ], [ %.fca.0.extract221, %969 ], [ %.fca.0.extract230, %941 ], [ %.fca.0.extract239, %891 ], [ %.fca.0.extract248, %850 ], [ %.fca.0.extract257, %806 ], [ %.sroa.020.1.lcssa.sink.i, %156 ], [ %.sroa.020.1.lcssa.sink.i, %187 ], [ %193, %.thread.i ], [ 9223372036854775807, %194 ], [ %spec.select.i.i42.i, %197 ], [ %.sroa.020.1.lcssa.sink.i, %234 ], [ %240, %.thread.i781 ], [ 9223372036854775807, %241 ], [ %spec.select.i.i42.i788, %244 ], [ 0, %318 ], [ 0, %_ZNK4llvm5Value9hasOneUseEv.exit32.i835 ], [ %.sroa.020.1.lcssa.sink.i, %296 ], [ %346, %.thread.i819 ], [ 9223372036854775807, %347 ], [ %spec.select.i.i42.i826, %350 ], [ %.sroa.020.1.lcssa.sink.i, %383 ], [ %389, %.thread.i857 ], [ 9223372036854775807, %390 ], [ %spec.select.i.i42.i864, %393 ], [ %.sroa.020.1.lcssa.sink.i, %426 ], [ %432, %.thread.i895 ], [ 9223372036854775807, %433 ], [ %spec.select.i.i42.i902, %436 ], [ 0, %513 ], [ 0, %_ZNK4llvm5Value9hasOneUseEv.exit32.i ], [ %.sroa.020.1.lcssa.sink.i, %491 ], [ %541, %.thread.i1988 ], [ 9223372036854775807, %542 ], [ %spec.select.i.i42.i1991, %545 ], [ 0, %619 ], [ 0, %_ZNK4llvm5Value9hasOneUseEv.exit32.i2017 ], [ %.sroa.020.1.lcssa.sink.i, %597 ], [ %647, %.thread.i2001 ], [ 9223372036854775807, %648 ], [ %spec.select.i.i42.i2008, %651 ], [ 0, %728 ], [ 0, %_ZNK4llvm5Value9hasOneUseEv.exit32.i2042 ], [ %.sroa.020.1.lcssa.sink.i, %706 ], [ %756, %.thread.i2026 ], [ 9223372036854775807, %757 ], [ %spec.select.i.i42.i2033, %760 ]
   %.sroa.44.1 = phi i32 [ %.sroa.44.8, %_ZN4llvm15InstructionCostpLERKS0_.exit ], [ %.fca.1.extract114, %1173 ], [ %.fca.1.extract123, %1160 ], [ %.fca.1.extract132, %1142 ], [ %.fca.1.extract141, %1129 ], [ %.fca.1.extract150, %1107 ], [ %.fca.1.extract159, %1094 ], [ %.fca.1.extract168, %1072 ], [ %.fca.1.extract177, %1059 ], [ %.fca.1.extract186, %1037 ], [ %.fca.1.extract195, %1019 ], [ %.fca.1.extract204, %1001 ], [ %.fca.1.extract213, %983 ], [ %.fca.1.extract222, %969 ], [ %.fca.1.extract231, %941 ], [ %.fca.1.extract240, %891 ], [ %.fca.1.extract249, %850 ], [ %.fca.1.extract258, %806 ], [ %.sink.i, %156 ], [ %.sink.i, %187 ], [ %.sink.i, %.thread.i ], [ %.sink.i, %194 ], [ %.sink.i, %197 ], [ %.sink.i, %234 ], [ %.sink.i, %.thread.i781 ], [ %.sink.i, %241 ], [ %.sink.i, %244 ], [ 0, %318 ], [ 0, %_ZNK4llvm5Value9hasOneUseEv.exit32.i835 ], [ %.sink.i, %296 ], [ %.sink.i, %.thread.i819 ], [ %.sink.i, %347 ], [ %.sink.i, %350 ], [ %.sink.i, %383 ], [ %.sink.i, %.thread.i857 ], [ %.sink.i, %390 ], [ %.sink.i, %393 ], [ %.sink.i, %426 ], [ %.sink.i, %.thread.i895 ], [ %.sink.i, %433 ], [ %.sink.i, %436 ], [ 0, %513 ], [ 0, %_ZNK4llvm5Value9hasOneUseEv.exit32.i ], [ %.sink.i, %491 ], [ %.sink.i, %.thread.i1988 ], [ %.sink.i, %542 ], [ %.sink.i, %545 ], [ 0, %619 ], [ 0, %_ZNK4llvm5Value9hasOneUseEv.exit32.i2017 ], [ %.sink.i, %597 ], [ %.sink.i, %.thread.i2001 ], [ %.sink.i, %648 ], [ %.sink.i, %651 ], [ 0, %728 ], [ 0, %_ZNK4llvm5Value9hasOneUseEv.exit32.i2042 ], [ %.sink.i, %706 ], [ %.sink.i, %.thread.i2026 ], [ %.sink.i, %757 ], [ %.sink.i, %760 ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.48)
-  %1203 = insertvalue { i64, i32 } poison, i64 %.sroa.01599.1, 0
-  %1204 = insertvalue { i64, i32 } %1203, i32 %.sroa.44.1, 1
-  br label %1205
+  %1202 = insertvalue { i64, i32 } poison, i64 %.sroa.01599.1, 0
+  %1203 = insertvalue { i64, i32 } %1202, i32 %.sroa.44.1, 1
+  br label %1204
 
-1205:                                             ; preds = %.critedge699, %1201, %72
-  %.fca.1.insert.merged = phi { i64, i32 } [ %1202, %1201 ], [ %1204, %.critedge699 ], [ %76, %72 ]
+1204:                                             ; preds = %.critedge699, %1200, %72
+  %.fca.1.insert.merged = phi { i64, i32 } [ %1201, %1200 ], [ %1203, %.critedge699 ], [ %76, %72 ]
   ret { i64, i32 } %.fca.1.insert.merged
 }
 
@@ -18622,7 +18580,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %7, %21
   %.sroa.1028.0.i = phi ptr [ %61, %53 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #19, !noalias !420
   %64 = load ptr, ptr %55, align 8, !tbaa !172, !noalias !420
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %8, ptr noundef nonnull align 8 dereferenceable(412423) %64, ptr noundef nonnull align 8 dereferenceable(8) %54, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %8, ptr noundef nonnull align 8 dereferenceable(412423) %64, ptr noundef nonnull align 8 dereferenceable(8) %54, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !420
   %65 = load i8, ptr %8, align 8, !tbaa !174, !noalias !420
   switch i8 %65, label %_ZN4llvm15InstructionCostmLEl.exit.i [
     i8 10, label %66
@@ -19250,7 +19208,7 @@ _ZNK4llvm3EVTeqES0_.exit:                         ; preds = %65
   %.sroa.1028.0.i = phi ptr [ %79, %_ZNK4llvm3EVTeqES0_.exit ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #19, !noalias !429
   %82 = load ptr, ptr %66, align 8, !tbaa !172, !noalias !429
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %9, ptr noundef nonnull align 8 dereferenceable(412423) %82, ptr noundef nonnull align 8 dereferenceable(8) %74, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %9, ptr noundef nonnull align 8 dereferenceable(412423) %82, ptr noundef nonnull align 8 dereferenceable(8) %74, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !429
   %83 = load i8, ptr %9, align 8, !tbaa !174, !noalias !429
   switch i8 %83, label %85 [
     i8 10, label %84
@@ -19850,7 +19808,7 @@ define dso_local { i64, i32 } @_ZN4llvm10X86TTIImpl24getScalarizationOverheadEPN
   %.sroa.1028.0.i = phi ptr [ %26, %7 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #19, !noalias !441
   %29 = load ptr, ptr %20, align 8, !tbaa !172, !noalias !441
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %8, ptr noundef nonnull align 8 dereferenceable(412423) %29, ptr noundef nonnull align 8 dereferenceable(8) %19, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %8, ptr noundef nonnull align 8 dereferenceable(412423) %29, ptr noundef nonnull align 8 dereferenceable(8) %19, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !441
   %30 = load i8, ptr %8, align 8, !tbaa !174, !noalias !441
   switch i8 %30, label %32 [
     i8 10, label %31
@@ -20801,7 +20759,7 @@ define dso_local { i64, i32 } @_ZN4llvm10X86TTIImpl25getReplicationShuffleCostEP
   %.sroa.1028.0.i = phi ptr [ %62, %48 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #19, !noalias !449
   %65 = load ptr, ptr %57, align 8, !tbaa !172, !noalias !449
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %10, ptr noundef nonnull align 8 dereferenceable(412423) %65, ptr noundef nonnull align 8 dereferenceable(8) %56, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %10, ptr noundef nonnull align 8 dereferenceable(412423) %65, ptr noundef nonnull align 8 dereferenceable(8) %56, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !449
   %66 = load i8, ptr %10, align 8, !tbaa !174, !noalias !449
   switch i8 %66, label %_ZN4llvm15InstructionCostmLEl.exit.i [
     i8 10, label %67
@@ -20847,7 +20805,7 @@ _ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE23getTypeLegalizationCostEPNS_4Type
   %.sroa.1028.0.i76 = phi ptr [ %76, %_ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit ], [ %.sroa.1028.0.copyload.pre.i88, %_ZNK4llvm3EVTeqES0_.exit.thread30.i89 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #19, !noalias !452
   %79 = load ptr, ptr %57, align 8, !tbaa !172, !noalias !452
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %9, ptr noundef nonnull align 8 dereferenceable(412423) %79, ptr noundef nonnull align 8 dereferenceable(8) %71, i16 %.sroa.026.0.i75, ptr %.sroa.1028.0.i76) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %9, ptr noundef nonnull align 8 dereferenceable(412423) %79, ptr noundef nonnull align 8 dereferenceable(8) %71, i16 %.sroa.026.0.i75, ptr %.sroa.1028.0.i76) #19, !noalias !452
   %80 = load i8, ptr %9, align 8, !tbaa !174, !noalias !452
   switch i8 %80, label %_ZN4llvm15InstructionCostmLEl.exit.i84 [
     i8 10, label %81
@@ -20893,7 +20851,7 @@ _ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE23getTypeLegalizationCostEPNS_4Type
   %.sroa.1028.0.i96 = phi ptr [ %90, %_ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit92 ], [ %.sroa.1028.0.copyload.pre.i108, %_ZNK4llvm3EVTeqES0_.exit.thread30.i109 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #19, !noalias !455
   %93 = load ptr, ptr %57, align 8, !tbaa !172, !noalias !455
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %8, ptr noundef nonnull align 8 dereferenceable(412423) %93, ptr noundef nonnull align 8 dereferenceable(8) %85, i16 %.sroa.026.0.i95, ptr %.sroa.1028.0.i96) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %8, ptr noundef nonnull align 8 dereferenceable(412423) %93, ptr noundef nonnull align 8 dereferenceable(8) %85, i16 %.sroa.026.0.i95, ptr %.sroa.1028.0.i96) #19, !noalias !455
   %94 = load i8, ptr %8, align 8, !tbaa !174, !noalias !455
   switch i8 %94, label %_ZN4llvm15InstructionCostmLEl.exit.i104 [
     i8 10, label %95
@@ -20939,7 +20897,7 @@ _ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE23getTypeLegalizationCostEPNS_4Type
   %.sroa.1028.0.i116 = phi ptr [ %104, %_ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit112 ], [ %.sroa.1028.0.copyload.pre.i128, %_ZNK4llvm3EVTeqES0_.exit.thread30.i129 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #19, !noalias !458
   %107 = load ptr, ptr %57, align 8, !tbaa !172, !noalias !458
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %7, ptr noundef nonnull align 8 dereferenceable(412423) %107, ptr noundef nonnull align 8 dereferenceable(8) %99, i16 %.sroa.026.0.i115, ptr %.sroa.1028.0.i116) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %7, ptr noundef nonnull align 8 dereferenceable(412423) %107, ptr noundef nonnull align 8 dereferenceable(8) %99, i16 %.sroa.026.0.i115, ptr %.sroa.1028.0.i116) #19, !noalias !458
   %108 = load i8, ptr %7, align 8, !tbaa !174, !noalias !458
   switch i8 %108, label %_ZN4llvm15InstructionCostmLEl.exit.i124 [
     i8 10, label %109
@@ -21267,7 +21225,7 @@ _ZNK4llvm3EVTeqES0_.exit:                         ; preds = %8
   %.sroa.1028.0.i = phi ptr [ %23, %_ZNK4llvm3EVTeqES0_.exit ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #19, !noalias !466
   %26 = load ptr, ptr %12, align 8, !tbaa !172, !noalias !466
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %11, ptr noundef nonnull align 8 dereferenceable(412423) %26, ptr noundef nonnull align 8 dereferenceable(8) %18, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %11, ptr noundef nonnull align 8 dereferenceable(412423) %26, ptr noundef nonnull align 8 dereferenceable(8) %18, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !466
   %27 = load i8, ptr %11, align 8, !tbaa !174, !noalias !466
   switch i8 %27, label %29 [
     i8 10, label %28
@@ -21632,7 +21590,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm4Type13get
   %.sroa.1028.0.i = phi ptr [ %86, %.thread ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #19, !noalias !475
   %89 = load ptr, ptr %80, align 8, !tbaa !172, !noalias !475
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %7, ptr noundef nonnull align 8 dereferenceable(412423) %89, ptr noundef nonnull align 8 dereferenceable(8) %79, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %7, ptr noundef nonnull align 8 dereferenceable(412423) %89, ptr noundef nonnull align 8 dereferenceable(8) %79, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !475
   %90 = load i8, ptr %7, align 8, !tbaa !174, !noalias !475
   switch i8 %90, label %92 [
     i8 10, label %91
@@ -22500,7 +22458,7 @@ _ZSt9__find_ifIPKN4llvm13CostTblEntryTIjEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15C
   %.sroa.1028.0.i = phi ptr [ %129, %.critedge314 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #19, !noalias !489
   %132 = load ptr, ptr %19, align 8, !tbaa !172, !noalias !489
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %6, ptr noundef nonnull align 8 dereferenceable(412423) %132, ptr noundef nonnull align 8 dereferenceable(8) %124, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %6, ptr noundef nonnull align 8 dereferenceable(412423) %132, ptr noundef nonnull align 8 dereferenceable(8) %124, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !489
   %133 = load i8, ptr %6, align 8, !tbaa !174, !noalias !489
   switch i8 %133, label %135 [
     i8 10, label %134
@@ -23452,7 +23410,7 @@ define dso_local { i64, i32 } @_ZN4llvm10X86TTIImpl22getMinMaxReductionCostEjPNS
   %.sroa.1028.0.i = phi ptr [ %24, %5 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #19, !noalias !493
   %27 = load ptr, ptr %18, align 8, !tbaa !172, !noalias !493
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %12, ptr noundef nonnull align 8 dereferenceable(412423) %27, ptr noundef nonnull align 8 dereferenceable(8) %17, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %12, ptr noundef nonnull align 8 dereferenceable(412423) %27, ptr noundef nonnull align 8 dereferenceable(8) %17, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !493
   %28 = load i8, ptr %12, align 8, !tbaa !174, !noalias !493
   switch i8 %28, label %30 [
     i8 10, label %29
@@ -24301,7 +24259,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_10X86TTII
   %.sroa.1028.0.i = phi ptr [ %32, %19 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #19, !noalias !497
   %35 = load ptr, ptr %26, align 8, !tbaa !172, !noalias !497
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %6, ptr noundef nonnull align 8 dereferenceable(412423) %35, ptr noundef nonnull align 8 dereferenceable(8) %25, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %6, ptr noundef nonnull align 8 dereferenceable(412423) %35, ptr noundef nonnull align 8 dereferenceable(8) %25, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !497
   %36 = load i8, ptr %6, align 8, !tbaa !174, !noalias !497
   switch i8 %36, label %_ZN4llvm15InstructionCostmLEl.exit.i [
     i8 10, label %37
@@ -25364,7 +25322,7 @@ define dso_local { i64, i32 } @_ZN4llvm10X86TTIImpl15getGSVectorCostEjNS_19Targe
   %.sroa.1028.0.i = phi ptr [ %93, %"_ZZN4llvm10X86TTIImpl15getGSVectorCostEjNS_19TargetTransformInfo14TargetCostKindEPNS_4TypeEPKNS_5ValueENS_5AlignEjENK3$_0clES7_RKNS_10DataLayoutE.exit" ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #19, !noalias !507
   %96 = load ptr, ptr %87, align 8, !tbaa !172, !noalias !507
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %9, ptr noundef nonnull align 8 dereferenceable(412423) %96, ptr noundef nonnull align 8 dereferenceable(8) %86, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %9, ptr noundef nonnull align 8 dereferenceable(412423) %96, ptr noundef nonnull align 8 dereferenceable(8) %86, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !507
   %97 = load i8, ptr %9, align 8, !tbaa !174, !noalias !507
   switch i8 %97, label %98 [
     i8 10, label %_ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit
@@ -25427,7 +25385,7 @@ _ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE23getTypeLegalizationCostEPNS_4Type
   %.sroa.1028.0.i55 = phi ptr [ %114, %_ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit ], [ %.sroa.1028.0.copyload.pre.i67, %_ZNK4llvm3EVTeqES0_.exit.thread30.i68 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #19, !noalias !510
   %117 = load ptr, ptr %87, align 8, !tbaa !172, !noalias !510
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %8, ptr noundef nonnull align 8 dereferenceable(412423) %117, ptr noundef nonnull align 8 dereferenceable(8) %109, i16 %.sroa.026.0.i54, ptr %.sroa.1028.0.i55) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %8, ptr noundef nonnull align 8 dereferenceable(412423) %117, ptr noundef nonnull align 8 dereferenceable(8) %109, i16 %.sroa.026.0.i54, ptr %.sroa.1028.0.i55) #19, !noalias !510
   %118 = load i8, ptr %8, align 8, !tbaa !174, !noalias !510
   switch i8 %118, label %119 [
     i8 10, label %_ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit71
@@ -27525,7 +27483,7 @@ define dso_local { i64, i32 } @_ZN4llvm10X86TTIImpl32getInterleavedMemoryOpCostA
   %.sroa.1028.0.i = phi ptr [ %28, %11 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #19, !noalias !562
   %31 = load ptr, ptr %22, align 8, !tbaa !172, !noalias !562
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %13, ptr noundef nonnull align 8 dereferenceable(412423) %31, ptr noundef nonnull align 8 dereferenceable(8) %21, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %13, ptr noundef nonnull align 8 dereferenceable(412423) %31, ptr noundef nonnull align 8 dereferenceable(8) %21, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !562
   %32 = load i8, ptr %13, align 8, !tbaa !174, !noalias !562
   switch i8 %32, label %_ZN4llvm15InstructionCostmLEl.exit.i [
     i8 10, label %33
@@ -27907,7 +27865,7 @@ _ZN4llvm5APIntD2Ev.exit234:                       ; preds = %153, %156, %159
   %.sroa.1028.0.i257 = phi ptr [ %197, %183 ], [ %.sroa.1028.0.copyload.pre.i269, %_ZNK4llvm3EVTeqES0_.exit.thread30.i270 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #19, !noalias !572
   %200 = load ptr, ptr %22, align 8, !tbaa !172, !noalias !572
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %12, ptr noundef nonnull align 8 dereferenceable(412423) %200, ptr noundef nonnull align 8 dereferenceable(8) %192, i16 %.sroa.026.0.i256, ptr %.sroa.1028.0.i257) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %12, ptr noundef nonnull align 8 dereferenceable(412423) %200, ptr noundef nonnull align 8 dereferenceable(8) %192, i16 %.sroa.026.0.i256, ptr %.sroa.1028.0.i257) #19, !noalias !572
   %201 = load i8, ptr %12, align 8, !tbaa !174, !noalias !572
   switch i8 %201, label %202 [
     i8 10, label %_ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit273
@@ -28226,7 +28184,7 @@ define dso_local { i64, i32 } @_ZN4llvm10X86TTIImpl26getInterleavedMemoryOpCostE
   %.sroa.1028.0.i = phi ptr [ %54, %46 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #19, !noalias !575
   %57 = load ptr, ptr %48, align 8, !tbaa !172, !noalias !575
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %12, ptr noundef nonnull align 8 dereferenceable(412423) %57, ptr noundef nonnull align 8 dereferenceable(8) %47, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %12, ptr noundef nonnull align 8 dereferenceable(412423) %57, ptr noundef nonnull align 8 dereferenceable(8) %47, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !575
   %58 = load i8, ptr %12, align 8, !tbaa !174, !noalias !575
   switch i8 %58, label %_ZN4llvm15InstructionCostmLEl.exit.i [
     i8 10, label %59
@@ -28661,7 +28619,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_10X86TTII
   %.sroa.1028.0.i = phi ptr [ %47, %39 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #19, !noalias !578
   %50 = load ptr, ptr %41, align 8, !tbaa !172, !noalias !578
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %12, ptr noundef nonnull align 8 dereferenceable(412423) %50, ptr noundef nonnull align 8 dereferenceable(8) %40, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %12, ptr noundef nonnull align 8 dereferenceable(412423) %50, ptr noundef nonnull align 8 dereferenceable(8) %40, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !578
   %51 = load i8, ptr %12, align 8, !tbaa !174, !noalias !578
   switch i8 %51, label %_ZN4llvm15InstructionCostmLEl.exit.i [
     i8 10, label %52
@@ -33190,7 +33148,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit897:        ; preds = %250
   %.sroa.1028.0.i = phi ptr [ %338, %329 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #19, !noalias !672
   %341 = load ptr, ptr %332, align 8, !tbaa !172, !noalias !672
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %6, ptr noundef nonnull align 8 dereferenceable(412423) %341, ptr noundef nonnull align 8 dereferenceable(8) %331, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %6, ptr noundef nonnull align 8 dereferenceable(412423) %341, ptr noundef nonnull align 8 dereferenceable(8) %331, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !672
   %342 = load i8, ptr %6, align 8, !tbaa !174, !noalias !672
   switch i8 %342, label %344 [
     i8 10, label %343
@@ -35455,7 +35413,7 @@ _ZN4llvm7CmpInst17makeCmpResultTypeEPNS_4TypeE.exit: ; preds = %25, %35
   %.sroa.1028.0.i = phi ptr [ %53, %44 ], [ %.sroa.1028.0.copyload.pre.i, %_ZNK4llvm3EVTeqES0_.exit.thread30.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #19, !noalias !690
   %56 = load ptr, ptr %47, align 8, !tbaa !172, !noalias !690
-  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %5, ptr noundef nonnull align 8 dereferenceable(412423) %56, ptr noundef nonnull align 8 dereferenceable(8) %46, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19
+  call void @_ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.353") align 8 %5, ptr noundef nonnull align 8 dereferenceable(412423) %56, ptr noundef nonnull align 8 dereferenceable(8) %46, i16 %.sroa.026.0.i, ptr %.sroa.1028.0.i) #19, !noalias !690
   %57 = load i8, ptr %5, align 8, !tbaa !174, !noalias !690
   switch i8 %57, label %_ZN4llvm15InstructionCostmLEl.exit.i [
     i8 10, label %58

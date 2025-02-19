@@ -2469,7 +2469,7 @@ define hidden void @_ZN3std6thread6scoped5scope17hb9fb8a4c153254bbE(ptr noalias 
   %eh.lpad-body.i = phi { ptr, i32 } [ %65, %64 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ]
   %66 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %67 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h98e826027047f96fE(ptr noundef %66)
-          to label %__rust_try.llvm.18333092558533072501.exit.i unwind label %68
+          to label %__rust_try.llvm.18333092558533072501.exit.i unwind label %68, !noalias !113
 
 68:                                               ; preds = %.body.i
   %69 = landingpad { ptr, i32 }

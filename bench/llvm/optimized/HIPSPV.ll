@@ -647,7 +647,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i: ; pr
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %15) #14, !noalias !93
   %192 = load ptr, ptr %164, align 8, !tbaa !100, !noalias !151
   call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %15, ptr noundef nonnull align 8 dereferenceable(15248) %192, i32 0, i32 noundef 440) #14, !noalias !93
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %15, ptr %166, i64 %167)
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %15, ptr %166, i64 %167), !noalias !93
   %193 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %194 = load i8, ptr %193, align 8, !tbaa !154, !range !160, !noalias !93, !noundef !161
   %195 = trunc nuw i8 %194 to i1
@@ -732,7 +732,7 @@ _ZN4llvm11SmallStringILj128EEC2ENS_9StringRefE.exit.i: ; preds = %_ZN4llvm15Smal
   %227 = phi ptr [ %.pre.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread.i.i ], [ %223, %222 ]
   %.pre8.i.i4.i.i = phi i64 [ %.pre8.pre.i.i.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread.i.i ], [ 0, %222 ]
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 %.pre8.i.i4.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %228, ptr align 1 %219, i64 %220, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %228, ptr align 1 %219, i64 %220, i1 false), !noalias !93
   %.pre.i.i.i.i = load i64, ptr %224, align 8, !tbaa !168, !noalias !93
   %229 = add i64 %.pre.i.i.i.i, %220
   store i64 %229, ptr %224, align 8, !tbaa !168, !noalias !93
@@ -844,7 +844,7 @@ _ZN4llvm11SmallStringILj128EE6assignENS_9StringRefE.exit.i: ; preds = %_ZN4llvm1
   %.pre8.i.i4.i14.i = phi i64 [ %.pre8.pre.i.i.i17.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread.i16.i ], [ 0, %262 ]
   %265 = load ptr, ptr %16, align 8, !tbaa !166, !noalias !93
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 %.pre8.i.i4.i14.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %266, ptr align 1 %219, i64 %220, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %266, ptr align 1 %219, i64 %220, i1 false), !noalias !93
   %.pre.i.i.i15.i = load i64, ptr %224, align 8, !tbaa !168, !noalias !93
   %267 = add i64 %.pre.i.i.i15.i, %220
   store i64 %267, ptr %224, align 8, !tbaa !168, !noalias !93

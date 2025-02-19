@@ -11387,14 +11387,14 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   %86 = landingpad { ptr, i32 }
           catch ptr null
   %87 = extractvalue { ptr, i32 } %86, 0
-  call void @__clang_call_terminate(ptr %87) #25
+  call void @__clang_call_terminate(ptr %87) #25, !noalias !39
   unreachable
 
 terminate.lpad.i.i.i:                             ; preds = %if.then2.i.i.i.i.i.i.i
   %88 = landingpad { ptr, i32 }
           catch ptr null
   %89 = extractvalue { ptr, i32 } %88, 0
-  call void @__clang_call_terminate(ptr %89) #25
+  call void @__clang_call_terminate(ptr %89) #25, !noalias !39
   unreachable
 
 lpad.i:                                           ; preds = %.noexc
@@ -14703,7 +14703,6 @@ if.then13:                                        ; preds = %for.body
 _ZN7obj_refI9func_decl11ast_managerED2Ev.exit:    ; preds = %if.then13
   %26 = load ptr, ptr %ref.tmp, align 8
   store ptr %26, ptr %fn, align 8
-  store ptr null, ptr %ref.tmp, align 8
   br label %for.end
 
 lpad:                                             ; preds = %if.then.i.i40, %if.then.i.i24, %for.end, %if.then13

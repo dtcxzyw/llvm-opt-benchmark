@@ -6665,7 +6665,7 @@ _ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread.i.i.i: ; preds = %_ZN
 _ZNK4llvm19MachineRegisterInfo22use_nodbg_instructionsENS_8RegisterE.exit: ; preds = %174, %171
   %.sroa.0.0.i.i83 = phi ptr [ %.0.i.i.i80, %171 ], [ %storemerge.i.i.i.i, %174 ]
   %177 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i83, i64 8
-  %178 = load ptr, ptr %177, align 8, !tbaa !439
+  %178 = load ptr, ptr %177, align 8, !tbaa !439, !noalias !542
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 68
   %180 = load i16, ptr %179, align 4, !tbaa !257, !noalias !542
   %181 = icmp eq i16 %180, 12
@@ -6693,7 +6693,7 @@ _ZNK4llvm19MachineRegisterInfo22use_nodbg_instructionsENS_8RegisterE.exit: ; pre
 .critedge2.i.i.i.i.i:                             ; preds = %.critedge2.i.i.i.i.i.backedge, %.critedge38.i.i.i.preheader
   %.pn.i.i.i.i.i = phi ptr [ %.sroa.042.067.i.i.i134, %.critedge38.i.i.i.preheader ], [ %storemerge.i.i.i.i.i, %.critedge2.i.i.i.i.i.backedge ]
   %storemerge.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i, i64 24
-  %storemerge.i.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i.i, align 8, !tbaa !272
+  %storemerge.i.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i.i, align 8, !tbaa !272, !noalias !542
   %.not.i.i.i.i.i52 = icmp eq ptr %storemerge.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i52, label %.critedge40.i.i.i, label %186
 

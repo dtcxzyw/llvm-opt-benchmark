@@ -18497,7 +18497,6 @@ entry:
   %w = alloca %"class.asio::detail::handler_work", align 8
   %handler = alloca %"class.asio::detail::binder1", align 8
   %handler_ = getelementptr inbounds nuw i8, ptr %base, i64 48
-  store ptr %handler_, ptr %p, align 8
   %v = getelementptr inbounds nuw i8, ptr %p, i64 8
   store ptr %base, ptr %v, align 8
   %p3 = getelementptr inbounds nuw i8, ptr %p, i64 16
@@ -46286,8 +46285,6 @@ entry:
   %p = alloca %"struct.asio::detail::wait_handler<(lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/yalantinglibs/yalantinglibs/include/ylt/coro_rpc/impl/coro_connection.hpp:490:9), asio::any_io_executor>::ptr", align 8
   %w = alloca %"class.asio::detail::handler_work.592", align 8
   %handler = alloca %"class.asio::detail::binder1.595", align 8
-  %handler_ = getelementptr inbounds nuw i8, ptr %base, i64 48
-  store ptr %handler_, ptr %p, align 8
   %v = getelementptr inbounds nuw i8, ptr %p, i64 8
   store ptr %base, ptr %v, align 8
   %p3 = getelementptr inbounds nuw i8, ptr %p, i64 16
@@ -46316,6 +46313,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %entry
   unreachable
 
 _ZN4asio6detail12handler_workIZN8coro_rpc15coro_connection11reset_timerEvEUlRKSt10error_codeE_NS_15any_io_executorEvEC2EOS9_.exit: ; preds = %entry
+  %handler_ = getelementptr inbounds nuw i8, ptr %base, i64 48
   %target_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %base, i64 104
   store ptr null, ptr %target_.i.i.i.i.i, align 8
   %prop_fns_.i.i.i.i = getelementptr inbounds nuw i8, ptr %w, i64 48
@@ -47636,12 +47634,9 @@ entry:
   %p = alloca %"struct.asio::detail::reactive_socket_recv_op<asio::mutable_buffers_1, asio::detail::read_op<asio::basic_stream_socket<asio::ip::tcp>, asio::mutable_buffers_1, const asio::mutable_buffer *, asio::detail::transfer_all_t, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/yalantinglibs/yalantinglibs/include/ylt/coro_io/coro_io.hpp:157:38)>, asio::any_io_executor>::ptr", align 8
   %w = alloca %"class.asio::detail::handler_work.641", align 8
   %handler = alloca %"class.asio::detail::binder2", align 8
-  %handler_ = getelementptr inbounds nuw i8, ptr %base, i64 96
-  store ptr %handler_, ptr %p, align 8
   %v = getelementptr inbounds nuw i8, ptr %p, i64 8
   store ptr %base, ptr %v, align 8
   %p2 = getelementptr inbounds nuw i8, ptr %p, i64 16
-  store ptr %base, ptr %p2, align 8
   %work_ = getelementptr inbounds nuw i8, ptr %base, i64 144
   %object_fns_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %w, i64 24
   %object_fns_2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %base, i64 168
@@ -47666,6 +47661,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %entry
   unreachable
 
 if.then.i:                                        ; preds = %entry
+  %handler_ = getelementptr inbounds nuw i8, ptr %base, i64 96
   %target_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %base, i64 176
   store ptr null, ptr %target_.i.i.i.i.i, align 8
   %prop_fns_.i.i.i.i = getelementptr inbounds nuw i8, ptr %w, i64 48
@@ -49393,12 +49389,9 @@ entry:
   %p = alloca %"struct.asio::detail::reactive_socket_recv_op<std::array<asio::mutable_buffer, 2>, asio::detail::read_op<asio::basic_stream_socket<asio::ip::tcp>, std::array<asio::mutable_buffer, 2>, const asio::mutable_buffer *, asio::detail::transfer_all_t, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/yalantinglibs/yalantinglibs/include/ylt/coro_io/coro_io.hpp:157:38)>, asio::any_io_executor>::ptr", align 8
   %w = alloca %"class.asio::detail::handler_work.662", align 8
   %handler = alloca %"class.asio::detail::binder2.665", align 8
-  %handler_ = getelementptr inbounds nuw i8, ptr %base, i64 112
-  store ptr %handler_, ptr %p, align 8
   %v = getelementptr inbounds nuw i8, ptr %p, i64 8
   store ptr %base, ptr %v, align 8
   %p2 = getelementptr inbounds nuw i8, ptr %p, i64 16
-  store ptr %base, ptr %p2, align 8
   %work_ = getelementptr inbounds nuw i8, ptr %base, i64 176
   %object_fns_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %w, i64 24
   %object_fns_2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %base, i64 200
@@ -49423,6 +49416,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %entry
   unreachable
 
 if.then.i:                                        ; preds = %entry
+  %handler_ = getelementptr inbounds nuw i8, ptr %base, i64 112
   %target_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %base, i64 208
   store ptr null, ptr %target_.i.i.i.i.i, align 8
   %prop_fns_.i.i.i.i = getelementptr inbounds nuw i8, ptr %w, i64 48
@@ -52712,12 +52706,9 @@ entry:
   %p = alloca %"struct.asio::detail::reactive_socket_send_op<std::array<asio::const_buffer, 2>, asio::detail::write_op<asio::basic_stream_socket<asio::ip::tcp>, std::array<asio::const_buffer, 2>, const asio::const_buffer *, asio::detail::transfer_all_t, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/yalantinglibs/yalantinglibs/include/ylt/coro_io/coro_io.hpp:193:39)>, asio::any_io_executor>::ptr", align 8
   %w = alloca %"class.asio::detail::handler_work.768", align 8
   %handler = alloca %"class.asio::detail::binder2.771", align 8
-  %handler_ = getelementptr inbounds nuw i8, ptr %base, i64 112
-  store ptr %handler_, ptr %p, align 8
   %v = getelementptr inbounds nuw i8, ptr %p, i64 8
   store ptr %base, ptr %v, align 8
   %p2 = getelementptr inbounds nuw i8, ptr %p, i64 16
-  store ptr %base, ptr %p2, align 8
   %work_ = getelementptr inbounds nuw i8, ptr %base, i64 176
   %object_fns_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %w, i64 24
   %object_fns_2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %base, i64 200
@@ -52742,6 +52733,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %entry
   unreachable
 
 if.then.i:                                        ; preds = %entry
+  %handler_ = getelementptr inbounds nuw i8, ptr %base, i64 112
   %target_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %base, i64 208
   store ptr null, ptr %target_.i.i.i.i.i, align 8
   %prop_fns_.i.i.i.i = getelementptr inbounds nuw i8, ptr %w, i64 48
@@ -53976,12 +53968,9 @@ entry:
   %p = alloca %"struct.asio::detail::reactive_socket_send_op<asio::detail::prepared_buffers<asio::const_buffer, 3>, asio::detail::write_op<asio::basic_stream_socket<asio::ip::tcp>, std::array<asio::const_buffer, 3>, const asio::const_buffer *, asio::detail::transfer_all_t, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/yalantinglibs/yalantinglibs/include/ylt/coro_io/coro_io.hpp:193:39)>, asio::any_io_executor>::ptr", align 8
   %w = alloca %"class.asio::detail::handler_work.790", align 8
   %handler = alloca %"class.asio::detail::binder2.793", align 8
-  %handler_ = getelementptr inbounds nuw i8, ptr %base, i64 136
-  store ptr %handler_, ptr %p, align 8
   %v = getelementptr inbounds nuw i8, ptr %p, i64 8
   store ptr %base, ptr %v, align 8
   %p2 = getelementptr inbounds nuw i8, ptr %p, i64 16
-  store ptr %base, ptr %p2, align 8
   %work_ = getelementptr inbounds nuw i8, ptr %base, i64 240
   %object_fns_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %w, i64 24
   %object_fns_2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %base, i64 264
@@ -54006,6 +53995,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %entry
   unreachable
 
 if.then.i:                                        ; preds = %entry
+  %handler_ = getelementptr inbounds nuw i8, ptr %base, i64 136
   %target_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %base, i64 272
   store ptr null, ptr %target_.i.i.i.i.i, align 8
   %prop_fns_.i.i.i.i = getelementptr inbounds nuw i8, ptr %w, i64 48

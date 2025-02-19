@@ -430,7 +430,7 @@ if.end26.i:                                       ; preds = %if.end21.i
   %18 = extractvalue { i64, ptr } %call30.i, 0
   %19 = extractvalue { i64, ptr } %call30.i, 1
   invoke void @_ZN9grpc_core3URI5ParseESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr") align 8 %ref.tmp27.i, i64 %18, ptr %19)
-          to label %invoke.cont31.i unwind label %lpad2.i
+          to label %invoke.cont31.i unwind label %lpad2.i, !noalias !4
 
 invoke.cont31.i:                                  ; preds = %if.end26.i
   %20 = load i64, ptr %ref.tmp27.i, align 8, !noalias !4
@@ -503,7 +503,7 @@ terminate.lpad.i4.i.i.i:                          ; preds = %if.then.i.i3.i.i.i
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #18
+  call void @__clang_call_terminate(ptr %29) #18, !noalias !4
   unreachable
 
 _ZN4absl12lts_202308028StatusOrIN9grpc_core3URIEED2Ev.exit.i: ; preds = %if.then.i.i3.i.i.i, %if.else.i.i47.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i
@@ -2046,7 +2046,7 @@ if.end.i:                                         ; preds = %_ZN9grpc_core12_GLO
   %5 = extractvalue { i64, ptr } %call4.i, 0
   %6 = extractvalue { i64, ptr } %call4.i, 1
   invoke void @_ZN9grpc_core16StringToSockaddrESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.16") align 8 %address.i, i64 %5, ptr %6)
-          to label %invoke.cont.i unwind label %lpad.i
+          to label %invoke.cont.i unwind label %lpad.i, !noalias !25
 
 invoke.cont.i:                                    ; preds = %if.end.i
   %7 = load i64, ptr %address.i, align 8, !noalias !25
@@ -2098,7 +2098,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #18
+  call void @__clang_call_terminate(ptr %13) #18, !noalias !25
   unreachable
 
 ehcleanup.i:                                      ; preds = %lpad13.i, %lpad5.i

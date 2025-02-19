@@ -7839,7 +7839,7 @@ terminate.lpad.i.i48:                             ; preds = %if.then2.i.i.i.i.i
           catch ptr null
   store ptr %ref.tmp.sroa.0.1.i, ptr %y1, align 8
   %98 = extractvalue { ptr, i32 } %97, 0
-  call void @__clang_call_terminate(ptr %98) #21
+  call void @__clang_call_terminate(ptr %98) #21, !noalias !29
   unreachable
 
 lpad.i44:                                         ; preds = %if.else.i.i, %if.then.i.i, %if.then.i

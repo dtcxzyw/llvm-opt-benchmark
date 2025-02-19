@@ -7177,7 +7177,7 @@ common.resume:                                    ; preds = %317, %.body236.i, %
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h725a3c4b1a6216a5E.exit.i": ; preds = %72
   %74 = extractvalue { ptr, i64 } %71, 0
-  %rhsc.i = load i8, ptr %74, align 1
+  %rhsc.i = load i8, ptr %74, align 1, !noalias !1649
   %75 = icmp eq i8 %rhsc.i, 40
   br i1 %75, label %76, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h725a3c4b1a6216a5E.exit.thread.i"
 
@@ -7731,7 +7731,7 @@ _ZN8zvariant3ser9to_writer17haa7b7d6b0aac0743E.exit.i.i: ; preds = %187, %182, %
   %222 = extractvalue { ptr, i64 } %217, 0
   %223 = extractvalue { ptr, i64 } %217, 1
   invoke void @_ZN4zbus7message6fields11QuickFields3new17h1e15e776ee91fe9dE(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %14, ptr noalias noundef nonnull readonly align 1 %222, i64 noundef %223, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %18)
-          to label %224 unwind label %218
+          to label %224 unwind label %218, !noalias !1649
 
 224:                                              ; preds = %221
   %225 = load i32, ptr %14, align 8, !range !1712, !noalias !1640, !noundef !5
@@ -8264,7 +8264,7 @@ common.resume:                                    ; preds = %295, %.body233.i, %
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h725a3c4b1a6216a5E.exit.i": ; preds = %73
   %75 = extractvalue { ptr, i64 } %72, 0
-  %rhsc.i = load i8, ptr %75, align 1
+  %rhsc.i = load i8, ptr %75, align 1, !noalias !1955
   %76 = icmp eq i8 %rhsc.i, 40
   br i1 %76, label %77, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h725a3c4b1a6216a5E.exit.thread.i"
 
@@ -8770,7 +8770,7 @@ common.resume:                                    ; preds = %295, %.body233.i, %
   %203 = extractvalue { ptr, i64 } %198, 0
   %204 = extractvalue { ptr, i64 } %198, 1
   invoke void @_ZN4zbus7message6fields11QuickFields3new17h1e15e776ee91fe9dE(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %14, ptr noalias noundef nonnull readonly align 1 %203, i64 noundef %204, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %18)
-          to label %205 unwind label %199
+          to label %205 unwind label %199, !noalias !1955
 
 205:                                              ; preds = %202
   %206 = load i32, ptr %14, align 8, !range !1712, !noalias !1946, !noundef !5
@@ -9294,7 +9294,7 @@ common.resume:                                    ; preds = %317, %.body236.i, %
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h725a3c4b1a6216a5E.exit.i": ; preds = %72
   %74 = extractvalue { ptr, i64 } %71, 0
-  %rhsc.i = load i8, ptr %74, align 1
+  %rhsc.i = load i8, ptr %74, align 1, !noalias !2228
   %75 = icmp eq i8 %rhsc.i, 40
   br i1 %75, label %76, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h725a3c4b1a6216a5E.exit.thread.i"
 
@@ -9848,7 +9848,7 @@ _ZN8zvariant3ser9to_writer17h2be5d6531e84f423E.exit.i.i: ; preds = %187, %182, %
   %222 = extractvalue { ptr, i64 } %217, 0
   %223 = extractvalue { ptr, i64 } %217, 1
   invoke void @_ZN4zbus7message6fields11QuickFields3new17h1e15e776ee91fe9dE(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %14, ptr noalias noundef nonnull readonly align 1 %222, i64 noundef %223, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %18)
-          to label %224 unwind label %218
+          to label %224 unwind label %218, !noalias !2228
 
 224:                                              ; preds = %221
   %225 = load i32, ptr %14, align 8, !range !1712, !noalias !2219, !noundef !5
@@ -10376,7 +10376,7 @@ common.resume:                                    ; preds = %317, %.body236.i, %
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h725a3c4b1a6216a5E.exit.i": ; preds = %72
   %74 = extractvalue { ptr, i64 } %71, 0
-  %rhsc.i = load i8, ptr %74, align 1
+  %rhsc.i = load i8, ptr %74, align 1, !noalias !2526
   %75 = icmp eq i8 %rhsc.i, 40
   br i1 %75, label %76, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h725a3c4b1a6216a5E.exit.thread.i"
 
@@ -10930,7 +10930,7 @@ _ZN8zvariant3ser9to_writer17h8db2177275dac5caE.exit.i.i: ; preds = %187, %182, %
   %222 = extractvalue { ptr, i64 } %217, 0
   %223 = extractvalue { ptr, i64 } %217, 1
   invoke void @_ZN4zbus7message6fields11QuickFields3new17h1e15e776ee91fe9dE(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %14, ptr noalias noundef nonnull readonly align 1 %222, i64 noundef %223, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %18)
-          to label %224 unwind label %218
+          to label %224 unwind label %218, !noalias !2526
 
 224:                                              ; preds = %221
   %225 = load i32, ptr %14, align 8, !range !1712, !noalias !2517, !noundef !5
@@ -11458,7 +11458,7 @@ common.resume:                                    ; preds = %316, %.body236.i, %
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h725a3c4b1a6216a5E.exit.i": ; preds = %71
   %73 = extractvalue { ptr, i64 } %70, 0
-  %rhsc.i = load i8, ptr %73, align 1
+  %rhsc.i = load i8, ptr %73, align 1, !noalias !2824
   %74 = icmp eq i8 %rhsc.i, 40
   br i1 %74, label %75, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h725a3c4b1a6216a5E.exit.thread.i"
 
@@ -12012,7 +12012,7 @@ _ZN8zvariant3ser9to_writer17h57b277b3cdbe21d8E.exit.i.i: ; preds = %186, %181, %
   %221 = extractvalue { ptr, i64 } %216, 0
   %222 = extractvalue { ptr, i64 } %216, 1
   invoke void @_ZN4zbus7message6fields11QuickFields3new17h1e15e776ee91fe9dE(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %14, ptr noalias noundef nonnull readonly align 1 %221, i64 noundef %222, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %18)
-          to label %223 unwind label %217
+          to label %223 unwind label %217, !noalias !2824
 
 223:                                              ; preds = %220
   %224 = load i32, ptr %14, align 8, !range !1712, !noalias !2815, !noundef !5
@@ -12545,7 +12545,7 @@ common.resume:                                    ; preds = %295, %.body233.i, %
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h725a3c4b1a6216a5E.exit.i": ; preds = %73
   %75 = extractvalue { ptr, i64 } %72, 0
-  %rhsc.i = load i8, ptr %75, align 1
+  %rhsc.i = load i8, ptr %75, align 1, !noalias !3127
   %76 = icmp eq i8 %rhsc.i, 40
   br i1 %76, label %77, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h725a3c4b1a6216a5E.exit.thread.i"
 
@@ -13051,7 +13051,7 @@ common.resume:                                    ; preds = %295, %.body233.i, %
   %203 = extractvalue { ptr, i64 } %198, 0
   %204 = extractvalue { ptr, i64 } %198, 1
   invoke void @_ZN4zbus7message6fields11QuickFields3new17h1e15e776ee91fe9dE(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %14, ptr noalias noundef nonnull readonly align 1 %203, i64 noundef %204, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %18)
-          to label %205 unwind label %199
+          to label %205 unwind label %199, !noalias !3127
 
 205:                                              ; preds = %202
   %206 = load i32, ptr %14, align 8, !range !1712, !noalias !3118, !noundef !5
@@ -17649,7 +17649,7 @@ define hidden void @"_ZN70_$LT$zbus..message..header..Header$u20$as$u20$zvariant
   %51 = phi i64 [ %.pre.i.i, %.noexc24.i ], [ %45, %41 ]
   %52 = load ptr, ptr %.sroa.4.0..sroa_idx76.i, align 8, !alias.scope !4309, !noalias !4288, !nonnull !5, !noundef !5
   %53 = getelementptr inbounds i8, ptr %52, i64 %51
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull readonly align 1 %42, i64 %43, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull readonly align 1 %42, i64 %43, i1 false), !noalias !4288
   %54 = load i64, ptr %.sroa.5.0..sroa_idx77.i, align 8, !alias.scope !4309, !noalias !4288, !noundef !5
   %55 = add i64 %54, %43
   store i64 %55, ptr %.sroa.5.0..sroa_idx77.i, align 8, !alias.scope !4309, !noalias !4288
@@ -17737,7 +17737,7 @@ define hidden void @"_ZN70_$LT$zbus..message..header..Header$u20$as$u20$zvariant
   %83 = phi i64 [ %.pre.i31.i, %.noexc32.i ], [ %77, %73 ]
   %84 = load ptr, ptr %.sroa.4.0..sroa_idx76.i, align 8, !alias.scope !4342, !noalias !4288, !nonnull !5, !noundef !5
   %85 = getelementptr inbounds i8, ptr %84, i64 %83
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %85, ptr nonnull readonly align 1 %74, i64 %75, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %85, ptr nonnull readonly align 1 %74, i64 %75, i1 false), !noalias !4288
   %86 = load i64, ptr %.sroa.5.0..sroa_idx77.i, align 8, !alias.scope !4342, !noalias !4288, !noundef !5
   %87 = add i64 %86, %75
   store i64 %87, ptr %.sroa.5.0..sroa_idx77.i, align 8, !alias.scope !4342, !noalias !4288
@@ -17820,7 +17820,7 @@ define hidden void @"_ZN70_$LT$zbus..message..header..Header$u20$as$u20$zvariant
   %115 = phi i64 [ %.pre.i40.i, %.noexc41.i ], [ %109, %105 ]
   %116 = load ptr, ptr %.sroa.4.0..sroa_idx76.i, align 8, !alias.scope !4375, !noalias !4288, !nonnull !5, !noundef !5
   %117 = getelementptr inbounds i8, ptr %116, i64 %115
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %117, ptr nonnull readonly align 1 %106, i64 %107, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %117, ptr nonnull readonly align 1 %106, i64 %107, i1 false), !noalias !4288
   %118 = load i64, ptr %.sroa.5.0..sroa_idx77.i, align 8, !alias.scope !4375, !noalias !4288, !noundef !5
   %119 = add i64 %118, %107
   store i64 %119, ptr %.sroa.5.0..sroa_idx77.i, align 8, !alias.scope !4375, !noalias !4288
@@ -17903,7 +17903,7 @@ define hidden void @"_ZN70_$LT$zbus..message..header..Header$u20$as$u20$zvariant
   %147 = phi i64 [ %.pre.i49.i, %.noexc50.i ], [ %141, %137 ]
   %148 = load ptr, ptr %.sroa.4.0..sroa_idx76.i, align 8, !alias.scope !4408, !noalias !4288, !nonnull !5, !noundef !5
   %149 = getelementptr inbounds i8, ptr %148, i64 %147
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %149, ptr nonnull readonly align 1 %138, i64 %139, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %149, ptr nonnull readonly align 1 %138, i64 %139, i1 false), !noalias !4288
   %150 = load i64, ptr %.sroa.5.0..sroa_idx77.i, align 8, !alias.scope !4408, !noalias !4288, !noundef !5
   %151 = add i64 %150, %139
   store i64 %151, ptr %.sroa.5.0..sroa_idx77.i, align 8, !alias.scope !4408, !noalias !4288
@@ -17986,7 +17986,7 @@ define hidden void @"_ZN70_$LT$zbus..message..header..Header$u20$as$u20$zvariant
   %179 = phi i64 [ %.pre.i58.i, %.noexc59.i ], [ %173, %169 ]
   %180 = load ptr, ptr %.sroa.4.0..sroa_idx76.i, align 8, !alias.scope !4441, !noalias !4288, !nonnull !5, !noundef !5
   %181 = getelementptr inbounds i8, ptr %180, i64 %179
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %181, ptr nonnull readonly align 1 %170, i64 %171, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %181, ptr nonnull readonly align 1 %170, i64 %171, i1 false), !noalias !4288
   %182 = load i64, ptr %.sroa.5.0..sroa_idx77.i, align 8, !alias.scope !4441, !noalias !4288, !noundef !5
   %183 = add i64 %182, %171
   store i64 %183, ptr %.sroa.5.0..sroa_idx77.i, align 8, !alias.scope !4441, !noalias !4288
@@ -18069,7 +18069,7 @@ define hidden void @"_ZN70_$LT$zbus..message..header..Header$u20$as$u20$zvariant
   %211 = phi i64 [ %.pre.i67.i, %.noexc68.i ], [ %205, %201 ]
   %212 = load ptr, ptr %.sroa.4.0..sroa_idx76.i, align 8, !alias.scope !4474, !noalias !4288, !nonnull !5, !noundef !5
   %213 = getelementptr inbounds i8, ptr %212, i64 %211
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %213, ptr nonnull readonly align 1 %202, i64 %203, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %213, ptr nonnull readonly align 1 %202, i64 %203, i1 false), !noalias !4288
   %214 = load i64, ptr %.sroa.5.0..sroa_idx77.i, align 8, !alias.scope !4474, !noalias !4288, !noundef !5
   %215 = add i64 %214, %203
   store i64 %215, ptr %.sroa.5.0..sroa_idx77.i, align 8, !alias.scope !4474, !noalias !4288

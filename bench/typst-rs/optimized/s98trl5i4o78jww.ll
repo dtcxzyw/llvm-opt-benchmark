@@ -4809,7 +4809,7 @@ define hidden noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initial
   %54 = extractvalue { ptr, i64 } %45, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !581
   invoke void @_ZN11miniz_oxide7deflate20compress_to_vec_zlib17he85615b097dd1484E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 %50, i64 noundef %54, i8 noundef 6)
-          to label %_ZN4core3ops8function6FnOnce9call_once17hd42ba51ed593a782E.exit.i.i unwind label %47
+          to label %_ZN4core3ops8function6FnOnce9call_once17hd42ba51ed593a782E.exit.i.i unwind label %47, !noalias !581
 
 55:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17hd42ba51ed593a782E.exit.i.i, %52
   %56 = invoke noundef align 8 dereferenceable(40) ptr @_ZN5typst9visualize5image6raster11RasterImage7dynamic17hdd73719c71bad7edE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11)

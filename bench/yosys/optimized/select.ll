@@ -98761,7 +98761,6 @@ _ZNSt6vectorIN5Yosys5RTLIL9SelectionESaIS2_EE9push_backERKS2_.exit461: ; preds =
 533:                                              ; preds = %._crit_edge1010
   store i8 1, ptr %28, align 8
   %534 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %534, i8 0, i64 48, i1 false)
   %535 = getelementptr inbounds nuw i8, ptr %28, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %535, i8 0, i64 48, i1 false)
   %536 = getelementptr inbounds nuw i8, ptr %2, i64 272
@@ -98921,7 +98920,6 @@ _ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringENS1_4poolIS4_NS1_8hash_o
 606:                                              ; preds = %605
   store i8 0, ptr %30, align 8
   %607 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %607, i8 0, i64 48, i1 false)
   %608 = getelementptr inbounds nuw i8, ptr %30, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %608, i8 0, i64 48, i1 false)
   %609 = getelementptr inbounds nuw i8, ptr %2, i64 272
@@ -101840,7 +101838,6 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %203, %208, %215
 224:                                              ; preds = %222
   store i8 1, ptr %11, align 8
   %225 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %225, i8 0, i64 48, i1 false)
   %226 = getelementptr inbounds nuw i8, ptr %11, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %226, i8 0, i64 48, i1 false)
   %227 = load ptr, ptr %113, align 8
@@ -102261,7 +102258,6 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit78:              ; preds = %399, %404, %411
 418:                                              ; preds = %415
   store i8 1, ptr %19, align 8
   %419 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %419, i8 0, i64 48, i1 false)
   %420 = getelementptr inbounds nuw i8, ptr %19, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %420, i8 0, i64 48, i1 false)
   %421 = getelementptr inbounds nuw i8, ptr %2, i64 272

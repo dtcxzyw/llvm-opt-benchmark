@@ -275,7 +275,7 @@ lpad2.i.i.i.i.i:                                  ; preds = %invoke.cont3.i.i.i.
   %4 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %lpad.i.body unwind label %terminate.lpad.i.i.i.i.i
+          to label %if.then.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %lpad2.i.i.i.i.i
   %5 = landingpad { ptr, i32 }
@@ -292,13 +292,8 @@ lpad.i.body.thread:                               ; preds = %entry
           cleanup
   br label %ehcleanup
 
-lpad.i.body:                                      ; preds = %lpad2.i.i.i.i.i
-  %.pr = load ptr, ptr %ref.tmp, align 8
-  %tobool.not.i.i.i = icmp eq ptr %.pr, null
-  br i1 %tobool.not.i.i.i, label %ehcleanup, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %lpad.i.body
-  call void @_ZdlPv(ptr noundef nonnull %.pr) #19
+if.then.i.i.i:                                    ; preds = %lpad2.i.i.i.i.i
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i9) #19
   br label %ehcleanup
 
 invoke.cont8:                                     ; preds = %for.inc.i.i.i.i.i
@@ -371,8 +366,8 @@ lpad7:                                            ; preds = %for.inc.i.i.i.i.i
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #20
   br label %ehcleanup
 
-ehcleanup:                                        ; preds = %lpad.i.body.thread, %if.then.i.i.i, %lpad.i.body, %lpad7
-  %.pn = phi { ptr, i32 } [ %17, %lpad7 ], [ %4, %if.then.i.i.i ], [ %4, %lpad.i.body ], [ %7, %lpad.i.body.thread ]
+ehcleanup:                                        ; preds = %lpad.i.body.thread, %if.then.i.i.i, %lpad7
+  %.pn = phi { ptr, i32 } [ %17, %lpad7 ], [ %4, %if.then.i.i.i ], [ %7, %lpad.i.body.thread ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #20
   resume { ptr, i32 } %.pn
 }
@@ -708,7 +703,7 @@ lpad2.i.i.i.i.i:                                  ; preds = %invoke.cont3.i.i.i.
   %4 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %lpad.i.body unwind label %terminate.lpad.i.i.i.i.i
+          to label %if.then.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %lpad2.i.i.i.i.i
   %5 = landingpad { ptr, i32 }
@@ -725,13 +720,8 @@ lpad.i.body.thread:                               ; preds = %invoke.cont5
           cleanup
   br label %ehcleanup
 
-lpad.i.body:                                      ; preds = %lpad2.i.i.i.i.i
-  %.pr = load ptr, ptr %ref.tmp, align 8
-  %tobool.not.i.i.i = icmp eq ptr %.pr, null
-  br i1 %tobool.not.i.i.i, label %ehcleanup, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %lpad.i.body
-  call void @_ZdlPv(ptr noundef nonnull %.pr) #19
+if.then.i.i.i:                                    ; preds = %lpad2.i.i.i.i.i
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i10) #19
   br label %ehcleanup
 
 invoke.cont9:                                     ; preds = %for.inc.i.i.i.i.i
@@ -826,8 +816,8 @@ lpad10:                                           ; preds = %invoke.cont9
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #20
   br label %ehcleanup
 
-ehcleanup:                                        ; preds = %lpad.i.body.thread, %if.then.i.i.i, %lpad.i.body, %lpad10
-  %.pn = phi { ptr, i32 } [ %18, %lpad10 ], [ %4, %if.then.i.i.i ], [ %4, %lpad.i.body ], [ %7, %lpad.i.body.thread ]
+ehcleanup:                                        ; preds = %lpad.i.body.thread, %if.then.i.i.i, %lpad10
+  %.pn = phi { ptr, i32 } [ %18, %lpad10 ], [ %4, %if.then.i.i.i ], [ %7, %lpad.i.body.thread ]
   br label %arraydestroy.body19
 
 arraydestroy.body19:                              ; preds = %arraydestroy.body19, %ehcleanup

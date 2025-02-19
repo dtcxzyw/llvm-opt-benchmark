@@ -23683,7 +23683,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
 130:                                              ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hba0d696285c50d4dE.exit.i.i"
   %131 = landingpad { ptr, i32 }
           cleanup
-  call void @__rust_dealloc(ptr noundef nonnull %127, i64 noundef 24, i64 noundef 4) #36
+  call void @__rust_dealloc(ptr noundef nonnull %127, i64 noundef 24, i64 noundef 4) #36, !noalias !3496
   br label %.body42.i
 
 132:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc68a406d0f243df5E.exit.i"
@@ -23712,7 +23712,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
   %switch.i.i.i = icmp ugt i8 %4, 1
   %..i.i.i = zext i1 %switch.i.i.i to i8
   %138 = getelementptr inbounds nuw i8, ptr %127, i64 17
-  store i8 %..i.i.i, ptr %138, align 1, !alias.scope !3514
+  store i8 %..i.i.i, ptr %138, align 1, !alias.scope !3514, !noalias !3496
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %24), !noalias !3479
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %23), !noalias !3479
   invoke void @"_ZN13project_panel22project_panel_settings1_118_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$project_panel..project_panel_settings..ProjectPanelSettingsContent$GT$9serialize17hfeabce1b946bf614E"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %23, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %.sroa.01.0.i)
@@ -23759,7 +23759,7 @@ _ZN10serde_json5value8to_value17hbc439479b1e21892E.exit.i: ; preds = %137
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %22), !noalias !3479
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %21), !noalias !3479
   invoke void @"_ZN13project_panel22project_panel_settings1_118_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$project_panel..project_panel_settings..ProjectPanelSettingsContent$GT$9serialize17hfeabce1b946bf614E"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %21, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %127)
-          to label %155 unwind label %151
+          to label %155 unwind label %151, !noalias !3496
 
 151:                                              ; preds = %150
   %152 = landingpad { ptr, i32 }
@@ -23976,7 +23976,7 @@ _ZN10serde_json5value8to_value17hbc439479b1e21892E.exit.i: ; preds = %137
 
 .thread18.i:                                      ; preds = %145, %.thread22.i
   %eh.lpad-body3121.i = phi { ptr, i32 } [ %139, %.thread22.i ], [ %146, %145 ]
-  call void @__rust_dealloc(ptr noundef nonnull %127, i64 noundef 24, i64 noundef 4) #36
+  call void @__rust_dealloc(ptr noundef nonnull %127, i64 noundef 24, i64 noundef 4) #36, !noalias !3496
   br label %.body42.i
 
 212:                                              ; preds = %.body33.i
@@ -24425,7 +24425,7 @@ default.unreachable247:                           ; preds = %120, %50, %2
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %86 = load ptr, ptr %85, align 8, !invariant.load !4, !noalias !3763, !nonnull !4
   invoke void %86(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %25, ptr noundef nonnull align 1 %82, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
-          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h22f9b84ed2112c15E.exit.i" unwind label %87
+          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h22f9b84ed2112c15E.exit.i" unwind label %87, !noalias !3761
 
 87:                                               ; preds = %80
   %88 = landingpad { ptr, i32 }
@@ -34979,7 +34979,7 @@ attributes #37 = { "function-inline-cost-multiplier"="2" }
 !3508 = distinct !{!3508, !3509, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc68a406d0f243df5E: argument 0"}
 !3509 = distinct !{!3509, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc68a406d0f243df5E"}
 !3510 = !{!3508, !3447, !3439}
-!3511 = !{!3512}
+!3511 = !{!3512, !3447, !3439}
 !3512 = distinct !{!3512, !3513, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h1e06ace6075405c4E: argument 0"}
 !3513 = distinct !{!3513, !"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clone_to_uninit17h1e06ace6075405c4E"}
 !3514 = !{!3515, !3517}
@@ -34998,14 +34998,14 @@ attributes #37 = { "function-inline-cost-multiplier"="2" }
 !3527 = !{!3520, !3523, !3447, !3439}
 !3528 = !{!3520, !3523}
 !3529 = !{!3525, !3447, !3439, !3448}
-!3530 = !{!3531, !3533, !3535}
+!3530 = !{!3531, !3533, !3535, !3447, !3439}
 !3531 = distinct !{!3531, !3532, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc9f4adddc0188cd3E.llvm.171792933132187708: argument 0"}
 !3532 = distinct !{!3532, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc9f4adddc0188cd3E.llvm.171792933132187708"}
 !3533 = distinct !{!3533, !3534, !"_ZN4core3ptr112drop_in_place$LT$alloc..boxed..Box$LT$project_panel..project_panel_settings..ProjectPanelSettingsContent$GT$$GT$17hae78f66a1eb09d92E.llvm.171792933132187708: argument 0"}
 !3534 = distinct !{!3534, !"_ZN4core3ptr112drop_in_place$LT$alloc..boxed..Box$LT$project_panel..project_panel_settings..ProjectPanelSettingsContent$GT$$GT$17hae78f66a1eb09d92E.llvm.171792933132187708"}
 !3535 = distinct !{!3535, !3536, !"_ZN10serde_json5value8to_value17h2b587c1ad40f9f0aE: argument 0"}
 !3536 = distinct !{!3536, !"_ZN10serde_json5value8to_value17h2b587c1ad40f9f0aE"}
-!3537 = !{!3538, !3540, !3535}
+!3537 = !{!3538, !3540, !3535, !3447, !3439}
 !3538 = distinct !{!3538, !3539, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc9f4adddc0188cd3E.llvm.171792933132187708: argument 0"}
 !3539 = distinct !{!3539, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc9f4adddc0188cd3E.llvm.171792933132187708"}
 !3540 = distinct !{!3540, !3541, !"_ZN4core3ptr112drop_in_place$LT$alloc..boxed..Box$LT$project_panel..project_panel_settings..ProjectPanelSettingsContent$GT$$GT$17hae78f66a1eb09d92E.llvm.171792933132187708: argument 0"}
@@ -35231,7 +35231,7 @@ attributes #37 = { "function-inline-cost-multiplier"="2" }
 !3760 = distinct !{!3760, !3757, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h22f9b84ed2112c15E: argument 2"}
 !3761 = !{!3750}
 !3762 = !{!3756}
-!3763 = !{!3759, !3756, !3760}
+!3763 = !{!3759, !3756, !3760, !3750}
 !3764 = !{i64 0, i64 -9223372036854775806}
 !3765 = !{!3766}
 !3766 = distinct !{!3766, !3767, !"_ZN4core3ptr218drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..string..String$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hb66db9146672eb1dE: argument 0"}

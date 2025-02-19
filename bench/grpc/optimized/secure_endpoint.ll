@@ -2944,7 +2944,6 @@ ehcleanup.i.i.i.i.i:                              ; preds = %if.then.i.i8.i.i.i.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i)
   %reclamation_handles_.i.i.i.i = getelementptr inbounds nuw i8, ptr %memory_owner.val.i, i64 112
   %31 = load ptr, ptr %ref.tmp.i.i.i.i, align 8
-  store ptr null, ptr %ref.tmp.i.i.i.i, align 8
   %32 = load ptr, ptr %reclamation_handles_.i.i.i.i, align 8
   store ptr %31, ptr %reclamation_handles_.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %32, null

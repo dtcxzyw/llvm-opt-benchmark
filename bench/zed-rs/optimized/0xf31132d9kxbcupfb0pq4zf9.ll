@@ -9720,7 +9720,7 @@ common.resume:                                    ; preds = %832, %957, %951, %9
   resume { ptr, i32 } %common.resume.op
 
 "_ZN68_$LT$alloc..sync..Arc$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h04b4f3c23318f61bE.exit.i": ; preds = %.noexc.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %100, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %100, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false), !noalias !1090
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !1090
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1093)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !1090
@@ -16288,7 +16288,7 @@ attributes #33 = { "function-inline-cost-multiplier"="2" }
 !1094 = distinct !{!1094, !1095, !"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h255fcd13f1219f3fE: argument 0"}
 !1095 = distinct !{!1095, !"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h255fcd13f1219f3fE"}
 !1096 = !{!1094, !1091}
-!1097 = !{!1098, !1100, !1094}
+!1097 = !{!1098, !1100, !1094, !1091}
 !1098 = distinct !{!1098, !1099, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h33d5fa7485281695E: argument 0"}
 !1099 = distinct !{!1099, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h33d5fa7485281695E"}
 !1100 = distinct !{!1100, !1101, !"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$alacritty_terminal..term..cell..CellExtra$GT$$GT$17ha141522db39fd31fE: argument 0"}

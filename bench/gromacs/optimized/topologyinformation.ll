@@ -873,7 +873,6 @@ define noundef ptr @_ZNK3gmx19TopologyInformation5atomsEv(ptr noundef nonnull al
 
 _ZN3gmx12_GLOBAL__N_19makeAtomsERKNS_19TopologyInformationE.exit: ; preds = %11, %14
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2)
-  store ptr null, ptr %3, align 8
   %15 = load ptr, ptr %4, align 8
   store ptr %8, ptr %4, align 8
   %.not.i.i.i.i = icmp eq ptr %15, null

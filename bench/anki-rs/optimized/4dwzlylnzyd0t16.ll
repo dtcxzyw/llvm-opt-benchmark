@@ -207,7 +207,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
   %79 = extractvalue { ptr, i64 } %76, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false), !noalias !4
   invoke void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h46ec407f749abbdaE"(ptr nonnull sret({ ptr, [5 x i64] }) align 8 %11, ptr nonnull align 8 %15, ptr align 1 %78, i64 %79, ptr nonnull align 8 %10)
-          to label %80 unwind label %.thread.i
+          to label %80 unwind label %.thread.i, !noalias !4
 
 80:                                               ; preds = %77
   invoke void @"_ZN4core3ptr143drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..vec..Vec$LT$i32$GT$$C$alloc..string..String$GT$$GT$$GT$17h8d5f315f7cbf0a42E"(ptr nonnull align 8 %11)
@@ -388,7 +388,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
   %135 = extractvalue { ptr, i64 } %131, 0
   %136 = extractvalue { ptr, i64 } %131, 1
   %137 = invoke align 8 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h0bc06fe540718d15E"(ptr nonnull align 8 %21, ptr align 1 %135, i64 %136)
-          to label %138 unwind label %132
+          to label %138 unwind label %132, !noalias !7
 
 138:                                              ; preds = %134
   %139 = icmp eq ptr %137, null
@@ -406,7 +406,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
   %145 = extractvalue { ptr, i64 } %141, 0
   %146 = extractvalue { ptr, i64 } %141, 1
   %147 = invoke align 8 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hb169d71c2954ac76E"(ptr nonnull align 8 %137, ptr align 4 %145, i64 %146)
-          to label %142 unwind label %132
+          to label %142 unwind label %132, !noalias !7
 
 148:                                              ; preds = %142
   %149 = getelementptr inbounds nuw i8, ptr %147, i64 16
@@ -474,7 +474,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
   %170 = extractvalue { ptr, i64 } %166, 0
   %171 = extractvalue { ptr, i64 } %166, 1
   %172 = invoke align 8 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h0bc06fe540718d15E"(ptr nonnull align 8 %21, ptr align 1 %170, i64 %171)
-          to label %173 unwind label %167
+          to label %173 unwind label %167, !noalias !10
 
 173:                                              ; preds = %169
   %174 = icmp eq ptr %172, null
@@ -492,7 +492,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
   %180 = extractvalue { ptr, i64 } %176, 0
   %181 = extractvalue { ptr, i64 } %176, 1
   %182 = invoke align 8 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hb169d71c2954ac76E"(ptr nonnull align 8 %172, ptr align 4 %180, i64 %181)
-          to label %177 unwind label %167
+          to label %177 unwind label %167, !noalias !10
 
 183:                                              ; preds = %177
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 16
@@ -602,7 +602,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
   %215 = extractvalue { ptr, i64 } %211, 0
   %216 = extractvalue { ptr, i64 } %211, 1
   %217 = invoke align 8 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h0bc06fe540718d15E"(ptr nonnull align 8 %21, ptr align 1 %215, i64 %216)
-          to label %218 unwind label %212
+          to label %218 unwind label %212, !noalias !13
 
 218:                                              ; preds = %214
   %219 = icmp eq ptr %217, null
@@ -620,7 +620,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
   %225 = extractvalue { ptr, i64 } %221, 0
   %226 = extractvalue { ptr, i64 } %221, 1
   %227 = invoke align 8 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hb169d71c2954ac76E"(ptr nonnull align 8 %217, ptr align 4 %225, i64 %226)
-          to label %222 unwind label %212
+          to label %222 unwind label %212, !noalias !13
 
 228:                                              ; preds = %222
   %229 = getelementptr inbounds nuw i8, ptr %227, i64 16

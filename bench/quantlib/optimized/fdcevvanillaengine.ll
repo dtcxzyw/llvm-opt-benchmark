@@ -1845,7 +1845,6 @@ _ZN5boost10shared_ptrIN8QuantLib27FdmTimeDepDirichletBoundaryEED2Ev.exit: ; pred
   store ptr %75, ptr %call5.i.i.i.i501, align 8, !tbaa !134
   %pn.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i501, i64 8
   store ptr %76, ptr %pn.i.i.i.i, align 8, !tbaa !37
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp119, i8 0, i64 16, i1 false)
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i501, i64 16
   store ptr %call5.i.i.i.i501, ptr %boundaries, align 8, !tbaa !136
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i181, align 8, !tbaa !138

@@ -12390,7 +12390,7 @@ if.end26:                                         ; preds = %if.end21
   %4 = extractvalue { i64, ptr } %call.i.i.i, 0
   %5 = extractvalue { i64, ptr } %call.i.i.i, 1
   invoke void @_ZN5folly15base64URLDecodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, i64 %4, ptr %5)
-          to label %invoke.cont.i.i unwind label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i
+          to label %invoke.cont.i.i unwind label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i, !noalias !122
 
 invoke.cont.i.i:                                  ; preds = %if.end26
   store i32 0, ptr %ref.tmp27, align 8, !alias.scope !122
@@ -12403,7 +12403,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i: ; preds = %if.end26
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %8) #30
+  %9 = call ptr @__cxa_begin_catch(ptr %8) #30, !noalias !122
   call void @_ZSt17current_exceptionv(ptr nonnull sret(%"class.std::__exception_ptr::exception_ptr") align 8 %ref.tmp1.i.i) #30, !noalias !122
   %10 = load i64, ptr %ref.tmp1.i.i, align 8, !noalias !123
   store i64 0, ptr %ref.tmp1.i.i, align 8, !noalias !123

@@ -8674,7 +8674,6 @@ _ZZN43ostream_test_write_to_ostream_max_size_Test8TestBodyEvEN14mock_streambuf12
 .noexc49:                                         ; preds = %39
   store i64 9223372036854775807, ptr %40, align 8, !tbaa !115
   store ptr %40, ptr %9, align 8, !tbaa !256
-  store ptr null, ptr %33, align 8, !tbaa !261
   %41 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
           to label %52 unwind label %42
 
@@ -8705,13 +8704,13 @@ _ZZN43ostream_test_write_to_ostream_max_size_Test8TestBodyEvEN14mock_streambuf12
 
 52:                                               ; preds = %.noexc49
   %53 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store i32 1, ptr %53, align 8, !tbaa !262
+  store i32 1, ptr %53, align 8, !tbaa !261
   %54 = getelementptr inbounds nuw i8, ptr %41, i64 12
-  store i32 1, ptr %54, align 4, !tbaa !264
+  store i32 1, ptr %54, align 4, !tbaa !263
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPlLN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %41, align 8, !tbaa !10
   %55 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  store ptr %40, ptr %55, align 8, !tbaa !265
-  store ptr %41, ptr %33, align 8, !tbaa !261
+  store ptr %40, ptr %55, align 8, !tbaa !264
+  store ptr %41, ptr %33, align 8, !tbaa !266
   %56 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
           to label %.noexc37 unwind label %160
 
@@ -8751,8 +8750,8 @@ _ZN7testing6ActionIFlPKvlEED2Ev.exit:             ; preds = %62, %60
   br i1 %68, label %70, label %77
 
 70:                                               ; preds = %_ZN7testing6ActionIFlPKvlEED2Ev.exit
-  store i32 0, ptr %53, align 8, !tbaa !262
-  store i32 0, ptr %54, align 4, !tbaa !264
+  store i32 0, ptr %53, align 8, !tbaa !261
+  store i32 0, ptr %54, align 4, !tbaa !263
   %71 = load ptr, ptr %41, align 8, !tbaa !10
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = load ptr, ptr %72, align 8
@@ -9813,8 +9812,8 @@ _ZNSt6vectorIPKvSaIS1_EE9push_backEOS1_.exit:     ; preds = %52, %_ZNSt6vectorIP
   store ptr %87, ptr %86, align 8, !tbaa !330
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %89 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %90 = load ptr, ptr %89, align 8, !tbaa !261
-  %91 = load ptr, ptr %88, align 8, !tbaa !261
+  %90 = load ptr, ptr %89, align 8, !tbaa !266
+  %91 = load ptr, ptr %88, align 8, !tbaa !266
   %.not.i.i.i.i.i = icmp eq ptr %90, %91
   br i1 %.not.i.i.i.i.i, label %_ZN7testing8internal15ExpectationBase15set_cardinalityERKNS_11CardinalityE.exit, label %92
 
@@ -9836,7 +9835,7 @@ _ZNSt6vectorIPKvSaIS1_EE9push_backEOS1_.exit:     ; preds = %52, %_ZNSt6vectorIP
 
 99:                                               ; preds = %93
   %100 = atomicrmw volatile add ptr %94, i32 1 acq_rel, align 4
-  %.pr.pre.i.i.i.i.i = load ptr, ptr %88, align 8, !tbaa !261
+  %.pr.pre.i.i.i.i.i = load ptr, ptr %88, align 8, !tbaa !266
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i: ; preds = %99, %96, %92
@@ -9852,9 +9851,9 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   br i1 %105, label %107, label %115
 
 107:                                              ; preds = %102
-  store i32 0, ptr %103, align 8, !tbaa !262
+  store i32 0, ptr %103, align 8, !tbaa !261
   %108 = getelementptr inbounds nuw i8, ptr %101, i64 12
-  store i32 0, ptr %108, align 4, !tbaa !264
+  store i32 0, ptr %108, align 4, !tbaa !263
   %109 = load ptr, ptr %101, align 8, !tbaa !10
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %111 = load ptr, ptr %110, align 8
@@ -9889,8 +9888,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %119,
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i.i: ; preds = %122, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %107, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i
-  store ptr %90, ptr %88, align 8, !tbaa !261
-  %.pr = load ptr, ptr %89, align 8, !tbaa !261
+  store ptr %90, ptr %88, align 8, !tbaa !266
+  %.pr = load ptr, ptr %89, align 8, !tbaa !266
   br label %_ZN7testing8internal15ExpectationBase15set_cardinalityERKNS_11CardinalityE.exit
 
 _ZN7testing8internal15ExpectationBase15set_cardinalityERKNS_11CardinalityE.exit: ; preds = %79, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i.i
@@ -9906,9 +9905,9 @@ _ZN7testing8internal15ExpectationBase15set_cardinalityERKNS_11CardinalityE.exit:
   br i1 %127, label %129, label %137
 
 129:                                              ; preds = %124
-  store i32 0, ptr %125, align 8, !tbaa !262
+  store i32 0, ptr %125, align 8, !tbaa !261
   %130 = getelementptr inbounds nuw i8, ptr %123, i64 12
-  store i32 0, ptr %130, align 4, !tbaa !264
+  store i32 0, ptr %130, align 4, !tbaa !263
   %131 = load ptr, ptr %123, align 8, !tbaa !10
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %133 = load ptr, ptr %132, align 8
@@ -9990,7 +9989,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZN
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal12ReturnActionIlED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !261
+  %3 = load ptr, ptr %2, align 8, !tbaa !266
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIlLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
@@ -10002,9 +10001,9 @@ define linkonce_odr hidden void @_ZN7testing8internal12ReturnActionIlED2Ev(ptr n
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !262
+  store i32 0, ptr %5, align 8, !tbaa !261
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !264
+  store i32 0, ptr %10, align 4, !tbaa !263
   %11 = load ptr, ptr %3, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -24431,13 +24430,13 @@ common.resume:                                    ; preds = %77, %111, %49
 
 _ZNSt10shared_ptrIN7testing8internal15ExpectationBaseEEC2INS1_16TypedExpectationIFlPKvlEEEvEEPT_.exit: ; preds = %35
   %55 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store i32 1, ptr %55, align 8, !tbaa !262
+  store i32 1, ptr %55, align 8, !tbaa !261
   %56 = getelementptr inbounds nuw i8, ptr %41, i64 12
-  store i32 1, ptr %56, align 4, !tbaa !264
+  store i32 1, ptr %56, align 4, !tbaa !263
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN7testing8internal16TypedExpectationIFlPKvlEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %41, align 8, !tbaa !10
   %57 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %9, ptr %57, align 8, !tbaa !747
-  store ptr %41, ptr %40, align 8, !tbaa !261
+  store ptr %41, ptr %40, align 8, !tbaa !266
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %59 = load ptr, ptr %58, align 8, !tbaa !512
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -24448,7 +24447,7 @@ _ZNSt10shared_ptrIN7testing8internal15ExpectationBaseEEC2INS1_16TypedExpectation
 62:                                               ; preds = %_ZNSt10shared_ptrIN7testing8internal15ExpectationBaseEEC2INS1_16TypedExpectationIFlPKvlEEEvEEPT_.exit
   store ptr %9, ptr %59, align 8, !tbaa !468
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store ptr %41, ptr %63, align 8, !tbaa !261
+  store ptr %41, ptr %63, align 8, !tbaa !266
   %64 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !9
   %.not.i.i.i.i.i.i.i22 = icmp eq i8 %64, 0
   br i1 %.not.i.i.i.i.i.i.i22, label %66, label %65
@@ -24529,7 +24528,7 @@ _ZNK7testing8internal11ThreadLocalIPNS_8SequenceEE3getEv.exit: ; preds = %_ZNSt6
   br label %111
 
 88:                                               ; preds = %76, %_ZNK7testing8internal11ThreadLocalIPNS_8SequenceEE3getEv.exit
-  %89 = load ptr, ptr %40, align 8, !tbaa !261
+  %89 = load ptr, ptr %40, align 8, !tbaa !266
   %.not.i.i = icmp eq ptr %89, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN7testing8internal15ExpectationBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %90
 
@@ -24541,9 +24540,9 @@ _ZNK7testing8internal11ThreadLocalIPNS_8SequenceEE3getEv.exit: ; preds = %_ZNSt6
   br i1 %93, label %95, label %103
 
 95:                                               ; preds = %90
-  store i32 0, ptr %91, align 8, !tbaa !262
+  store i32 0, ptr %91, align 8, !tbaa !261
   %96 = getelementptr inbounds nuw i8, ptr %89, i64 12
-  store i32 0, ptr %96, align 4, !tbaa !264
+  store i32 0, ptr %96, align 4, !tbaa !263
   %97 = load ptr, ptr %89, align 8, !tbaa !10
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load ptr, ptr %98, align 8
@@ -24599,7 +24598,7 @@ declare void @_ZN7testing11ExpectationC1ERKSt10shared_ptrINS_8internal15Expectat
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12__shared_ptrIN7testing8internal15ExpectationBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !261
+  %3 = load ptr, ptr %2, align 8, !tbaa !266
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
@@ -24611,9 +24610,9 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN7testing8internal15Expecta
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !262
+  store i32 0, ptr %5, align 8, !tbaa !261
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !264
+  store i32 0, ptr %10, align 4, !tbaa !263
   %11 = load ptr, ptr %3, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -25044,8 +25043,8 @@ _ZNKSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE12_M_c
   store ptr %22, ptr %21, align 8, !tbaa !468
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !261
-  store ptr %25, ptr %23, align 8, !tbaa !261
+  %25 = load ptr, ptr %24, align 8, !tbaa !266
+  store ptr %25, ptr %23, align 8, !tbaa !266
   %.not.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit, label %26
 
@@ -25078,9 +25077,9 @@ _ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEE
   store ptr %34, ptr %.012.i.i.i, align 8, !tbaa !468, !alias.scope !755, !noalias !758
   %35 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !261, !alias.scope !758, !noalias !755
-  store ptr null, ptr %36, align 8, !tbaa !261, !alias.scope !758, !noalias !755
-  store ptr %37, ptr %35, align 8, !tbaa !261, !alias.scope !755, !noalias !758
+  %37 = load ptr, ptr %36, align 8, !tbaa !266, !alias.scope !758, !noalias !755
+  store ptr null, ptr %36, align 8, !tbaa !266, !alias.scope !758, !noalias !755
+  store ptr %37, ptr %35, align 8, !tbaa !266, !alias.scope !755, !noalias !758
   store ptr null, ptr %.0911.i.i.i, align 8, !tbaa !468, !alias.scope !758, !noalias !755
   %38 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
@@ -25102,9 +25101,9 @@ _ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE11_S_re
   store ptr %41, ptr %.012.i.i.i18, align 8, !tbaa !468, !alias.scope !761, !noalias !764
   %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !261, !alias.scope !764, !noalias !761
-  store ptr null, ptr %43, align 8, !tbaa !261, !alias.scope !764, !noalias !761
-  store ptr %44, ptr %42, align 8, !tbaa !261, !alias.scope !761, !noalias !764
+  %44 = load ptr, ptr %43, align 8, !tbaa !266, !alias.scope !764, !noalias !761
+  store ptr null, ptr %43, align 8, !tbaa !266, !alias.scope !764, !noalias !761
+  store ptr %44, ptr %42, align 8, !tbaa !266, !alias.scope !761, !noalias !764
   store ptr null, ptr %.0911.i.i.i19, align 8, !tbaa !468, !alias.scope !764, !noalias !761
   %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
   %46 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 16
@@ -25270,7 +25269,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPlLN9__gnu_cxx12_Lock_po
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPlLN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #12 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !265
+  %3 = load ptr, ptr %2, align 8, !tbaa !264
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
@@ -25343,13 +25342,13 @@ common.resume:                                    ; preds = %15, %29
 _ZNSt10shared_ptrIN7testing15ActionInterfaceIFlPKvlEEEEC2IS5_vEEPT_.exit: ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 1, ptr %22, align 8, !tbaa !262
+  store i32 1, ptr %22, align 8, !tbaa !261
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 1, ptr %23, align 4, !tbaa !264
+  store i32 1, ptr %23, align 4, !tbaa !263
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN7testing15ActionInterfaceIFlPKvlEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !tbaa !10
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %24, align 8, !tbaa !781
-  store ptr %4, ptr %21, align 8, !tbaa !261
+  store ptr %4, ptr %21, align 8, !tbaa !266
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %25 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
           to label %_ZN7testing6ActionIFlPKvlEE13ActionAdapterD2Ev.exit unwind label %29
@@ -25359,7 +25358,7 @@ _ZN7testing6ActionIFlPKvlEE13ActionAdapterD2Ev.exit: ; preds = %_ZNSt10shared_pt
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %25, align 8, !tbaa !778
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %4, ptr %28, align 8, !tbaa !261
+  store ptr %4, ptr %28, align 8, !tbaa !266
   store ptr %25, ptr %0, align 8, !tbaa !783
   store ptr @_ZNSt17_Function_handlerIFlPKvlEN7testing6ActionIS2_E13ActionAdapterEE9_M_invokeERKSt9_Any_dataOS1_Ol, ptr %26, align 8, !tbaa !323
   store ptr @_ZNSt17_Function_handlerIFlPKvlEN7testing6ActionIS2_E13ActionAdapterEE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %27, align 8, !tbaa !274
@@ -25395,7 +25394,7 @@ define linkonce_odr hidden noundef i64 @_ZN7testing8internal12ReturnActionIlE4Im
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing6ActionIFlPKvlEE13ActionAdapterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !261
+  %3 = load ptr, ptr %2, align 8, !tbaa !266
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN7testing15ActionInterfaceIFlPKvlEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
@@ -25407,9 +25406,9 @@ define linkonce_odr hidden void @_ZN7testing6ActionIFlPKvlEE13ActionAdapterD2Ev(
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !262
+  store i32 0, ptr %5, align 8, !tbaa !261
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !264
+  store i32 0, ptr %10, align 4, !tbaa !263
   %11 = load ptr, ptr %3, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -25555,8 +25554,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt14_Function_base13_Base_mana
   store ptr %10, ptr %9, align 8, !tbaa !778
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !261
-  store ptr %13, ptr %11, align 8, !tbaa !261
+  %13 = load ptr, ptr %12, align 8, !tbaa !266
+  store ptr %13, ptr %11, align 8, !tbaa !266
   %.not.i.i.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIN7testing6ActionIFlPKvlEE13ActionAdapterEE15_M_init_functorIRKS7_EEvRSt9_Any_dataOT_.exit, label %14
 
@@ -25587,7 +25586,7 @@ _ZNSt14_Function_base13_Base_managerIN7testing6ActionIFlPKvlEE13ActionAdapterEE1
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !261
+  %27 = load ptr, ptr %26, align 8, !tbaa !266
   %.not.i.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i.i.i, label %_ZN7testing6ActionIFlPKvlEE13ActionAdapterD2Ev.exit.i, label %28
 
@@ -25599,9 +25598,9 @@ _ZNSt14_Function_base13_Base_managerIN7testing6ActionIFlPKvlEE13ActionAdapterEE1
   br i1 %31, label %33, label %41
 
 33:                                               ; preds = %28
-  store i32 0, ptr %29, align 8, !tbaa !262
+  store i32 0, ptr %29, align 8, !tbaa !261
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 12
-  store i32 0, ptr %34, align 4, !tbaa !264
+  store i32 0, ptr %34, align 4, !tbaa !263
   %35 = load ptr, ptr %27, align 8, !tbaa !10
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
@@ -33682,12 +33681,12 @@ attributes #40 = { nounwind willreturn memory(read) }
 !258 = !{!"p1 long", !18, i64 0}
 !259 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !260, i64 0}
 !260 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !18, i64 0}
-!261 = !{!259, !260, i64 0}
-!262 = !{!263, !6, i64 8}
-!263 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !6, i64 8, !6, i64 12}
-!264 = !{!263, !6, i64 12}
-!265 = !{!266, !258, i64 16}
-!266 = !{!"_ZTSSt15_Sp_counted_ptrIPlLN9__gnu_cxx12_Lock_policyE2EE", !263, i64 0, !258, i64 16}
+!261 = !{!262, !6, i64 8}
+!262 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !6, i64 8, !6, i64 12}
+!263 = !{!262, !6, i64 12}
+!264 = !{!265, !258, i64 16}
+!265 = !{!"_ZTSSt15_Sp_counted_ptrIPlLN9__gnu_cxx12_Lock_policyE2EE", !262, i64 0, !258, i64 16}
+!266 = !{!259, !260, i64 0}
 !267 = !{!268}
 !268 = distinct !{!268, !269, !"_ZNK7testing8internal12ReturnActionIlEcvNS_6ActionIT_EEIFlPKvlEEEv: argument 0"}
 !269 = distinct !{!269, !"_ZNK7testing8internal12ReturnActionIlEcvNS_6ActionIT_EEIFlPKvlEEEv"}
@@ -34169,7 +34168,7 @@ attributes #40 = { nounwind willreturn memory(read) }
 !745 = distinct !{!745, !746, !"_ZNK7testing8internal15DoDefaultActioncvNS_6ActionIT_EEIFlPKvlEEEv: argument 0"}
 !746 = distinct !{!746, !"_ZNK7testing8internal15DoDefaultActioncvNS_6ActionIT_EEIFlPKvlEEEv"}
 !747 = !{!748, !749, i64 16}
-!748 = !{!"_ZTSSt15_Sp_counted_ptrIPN7testing8internal16TypedExpectationIFlPKvlEEELN9__gnu_cxx12_Lock_policyE2EE", !263, i64 0, !749, i64 16}
+!748 = !{!"_ZTSSt15_Sp_counted_ptrIPN7testing8internal16TypedExpectationIFlPKvlEEELN9__gnu_cxx12_Lock_policyE2EE", !262, i64 0, !749, i64 16}
 !749 = !{!"p1 _ZTSN7testing8internal16TypedExpectationIFlPKvlEEE", !18, i64 0}
 !750 = !{!513, !461, i64 16}
 !751 = !{!752, !752, i64 0}
@@ -34203,7 +34202,7 @@ attributes #40 = { nounwind willreturn memory(read) }
 !779 = !{!"_ZTSSt12__shared_ptrIN7testing15ActionInterfaceIFlPKvlEEELN9__gnu_cxx12_Lock_policyE2EE", !780, i64 0, !259, i64 8}
 !780 = !{!"p1 _ZTSN7testing15ActionInterfaceIFlPKvlEEE", !18, i64 0}
 !781 = !{!782, !780, i64 16}
-!782 = !{!"_ZTSSt15_Sp_counted_ptrIPN7testing15ActionInterfaceIFlPKvlEEELN9__gnu_cxx12_Lock_policyE2EE", !263, i64 0, !780, i64 16}
+!782 = !{!"_ZTSSt15_Sp_counted_ptrIPN7testing15ActionInterfaceIFlPKvlEEELN9__gnu_cxx12_Lock_policyE2EE", !262, i64 0, !780, i64 16}
 !783 = !{!784, !784, i64 0}
 !784 = !{!"p1 _ZTSN7testing6ActionIFlPKvlEE13ActionAdapterE", !18, i64 0}
 !785 = !{!786, !786, i64 0}

@@ -5088,7 +5088,7 @@ lpad.i.i.i:                                       ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %exn.slot.0.i.i.i = extractvalue { ptr, i32 } %0, 0
-  %1 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.0.i.i.i) #34
+  %1 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.0.i.i.i) #34, !noalias !175
   invoke void @__cxa_rethrow() #36
           to label %unreachable.i.i.i unwind label %lpad5.i.i.i, !noalias !175
 
@@ -5106,7 +5106,7 @@ terminate.lpad.i.i.i:                             ; preds = %lpad5.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #35
+  tail call void @__clang_call_terminate(ptr %4) #35, !noalias !175
   unreachable
 
 unreachable.i.i.i:                                ; preds = %lpad.i.i.i
@@ -5168,7 +5168,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #35
+  call void @__clang_call_terminate(ptr %8) #35, !noalias !175
   unreachable
 
 if.then.i.i13.i:                                  ; preds = %if.then.i.i, %invoke.cont10.i
@@ -5205,7 +5205,7 @@ terminate.lpad.i.i15.i:                           ; preds = %if.then.i.i.i.i.i, 
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #35
+  call void @__clang_call_terminate(ptr %15) #35, !noalias !175
   unreachable
 
 lpad.i:                                           ; preds = %cond.true.i.i.i
@@ -5228,7 +5228,7 @@ terminate.lpad.i21.i:                             ; preds = %if.then.i19.i
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #35
+  call void @__clang_call_terminate(ptr %20) #35, !noalias !175
   unreachable
 
 ehcleanup.i:                                      ; preds = %if.then.i19.i, %lpad9.i, %lpad.i

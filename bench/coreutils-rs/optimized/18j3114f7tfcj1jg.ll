@@ -48,7 +48,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %21 = extractvalue { i64, ptr } %19, 1
   %22 = icmp ne ptr %21, null
   call void @llvm.assume(i1 %22)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %21, ptr noundef nonnull align 1 dereferenceable(3) @anon.f4f36e2827d9a98c41ad7a4676c02c03.4, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %21, ptr noundef nonnull align 1 dereferenceable(3) @anon.f4f36e2827d9a98c41ad7a4676c02c03.4, i64 3, i1 false), !noalias !3
   store i64 %20, ptr %0, align 8, !alias.scope !3
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %21, ptr %.sroa.24.0..sroa_idx.i, align 8, !alias.scope !3

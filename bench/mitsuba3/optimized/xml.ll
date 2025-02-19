@@ -29412,12 +29412,16 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIP4TaskEEEENS_19__allocati
 
 148:                                              ; preds = %127
   invoke fastcc void @"_ZZN7mitsuba3xml6detailL16instantiate_nodeERNS1_15XMLParseContextERKNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEERNS_17ThreadEnvironmentERNS4_13unordered_mapISA_P4TaskNS4_4hashISA_EENS4_8equal_toISA_EENS8_INS4_4pairISB_SH_EEEEEEbENK3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(44) %10)
-          to label %"_ZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4Pool.exit" unwind label %146
+          to label %"._ZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4Pool.exit_crit_edge" unwind label %146
 
-"_ZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4Pool.exit": ; preds = %139, %148, %126
-  %.1 = phi ptr [ null, %126 ], [ null, %148 ], [ %143, %139 ]
+"._ZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4Pool.exit_crit_edge": ; preds = %148
+  %.pre = load ptr, ptr %8, align 8
+  br label %"_ZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4Pool.exit"
+
+"_ZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4Pool.exit": ; preds = %"._ZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4Pool.exit_crit_edge", %139, %126
+  %149 = phi ptr [ %102, %126 ], [ %.pre, %"._ZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4Pool.exit_crit_edge" ], [ %132, %139 ]
+  %.1 = phi ptr [ null, %126 ], [ null, %"._ZN5drjit8do_asyncIRZN7mitsuba3xml6detailL16instantiate_nodeERNS3_15XMLParseContextERKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEERNS1_17ThreadEnvironmentERNS6_13unordered_mapISC_P4TaskNS6_4hashISC_EENS6_8equal_toISC_EENSA_INS6_4pairISD_SJ_EEEEEEbE3$_0EESJ_OT_PKPKSI_mP4Pool.exit_crit_edge" ], [ %143, %139 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %98) #30
-  %149 = load ptr, ptr %8, align 8
   %.not.i.i66 = icmp eq ptr %149, null
   br i1 %.not.i.i66, label %_ZNSt3__16vectorIP4TaskNS_9allocatorIS2_EEED2B8ne190000Ev.exit, label %150
 

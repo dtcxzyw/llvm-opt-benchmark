@@ -5546,7 +5546,6 @@ _ZNKSt8functionIFvRN4llvm11GlobalValueEEEclES2_.exit.i.i: ; preds = %32
 
 .thread.i.i:                                      ; preds = %58, %53, %48, %43
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #15
-  store i8 1, ptr %5, align 1, !tbaa !266
   br label %67
 
 63:                                               ; preds = %58

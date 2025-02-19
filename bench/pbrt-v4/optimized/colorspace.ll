@@ -2829,32 +2829,24 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc8
-  %retval.sroa.0.0 = phi <2 x float> [ zeroinitializer, %entry ], [ %retval.sroa.0.2, %for.inc8 ]
-  %retval.sroa.7.0 = phi float [ 0.000000e+00, %entry ], [ %retval.sroa.7.1, %for.inc8 ]
+  %0 = phi float [ 0.000000e+00, %entry ], [ %14, %for.inc8 ]
+  %1 = phi float [ 0.000000e+00, %entry ], [ %15, %for.inc8 ]
+  %2 = phi float [ 0.000000e+00, %entry ], [ %16, %for.inc8 ]
   %i.043 = phi i32 [ 0, %entry ], [ %inc9, %for.inc8 ]
   switch i32 %i.043, label %for.body3 [
-    i32 0, label %_ZN4pbrt3XYZixEi.exit.thread
-    i32 1, label %_ZN4pbrt3XYZixEi.exit.thread61
+    i32 0, label %for.body3.us
+    i32 1, label %for.body3.us26
   ]
 
-_ZN4pbrt3XYZixEi.exit.thread:                     ; preds = %for.body
-  %retval.sroa.0.0.vec.insert73 = insertelement <2 x float> %retval.sroa.0.0, float 0.000000e+00, i64 0
-  br label %for.body3.us
-
-_ZN4pbrt3XYZixEi.exit.thread61:                   ; preds = %for.body
-  %retval.sroa.0.4.vec.insert77 = insertelement <2 x float> %retval.sroa.0.0, float 0.000000e+00, i64 1
-  br label %for.body3.us26
-
-for.body3.us:                                     ; preds = %_ZNK4pbrt3XYZixEi.exit.us, %_ZN4pbrt3XYZixEi.exit.thread
-  %retval.sroa.0.1 = phi <2 x float> [ %retval.sroa.0.0.vec.insert73, %_ZN4pbrt3XYZixEi.exit.thread ], [ %retval.sroa.0.0.vec.insert71, %_ZNK4pbrt3XYZixEi.exit.us ]
-  %indvars.iv48 = phi i64 [ 0, %_ZN4pbrt3XYZixEi.exit.thread ], [ %indvars.iv.next49, %_ZNK4pbrt3XYZixEi.exit.us ]
-  %0 = phi float [ 0.000000e+00, %_ZN4pbrt3XYZixEi.exit.thread ], [ %add.us, %_ZNK4pbrt3XYZixEi.exit.us ]
+for.body3.us:                                     ; preds = %for.body, %_ZNK4pbrt3XYZixEi.exit.us
+  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %_ZNK4pbrt3XYZixEi.exit.us ], [ 0, %for.body ]
+  %3 = phi float [ %add.us, %_ZNK4pbrt3XYZixEi.exit.us ], [ 0.000000e+00, %for.body ]
   %call4.us = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi3EEixEi(ptr noundef nonnull align 4 dereferenceable(36) %m, i32 noundef 0)
-  %1 = extractvalue { ptr, i64 } %call4.us, 0
-  %arrayidx.i.us = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv48
-  %2 = load float, ptr %arrayidx.i.us, align 4
-  %3 = trunc nuw nsw i64 %indvars.iv48 to i32
-  switch i32 %3, label %if.end4.i13.us [
+  %4 = extractvalue { ptr, i64 } %call4.us, 0
+  %arrayidx.i.us = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv46
+  %5 = load float, ptr %arrayidx.i.us, align 4
+  %6 = trunc nuw nsw i64 %indvars.iv46 to i32
+  switch i32 %6, label %if.end4.i13.us [
     i32 0, label %_ZNK4pbrt3XYZixEi.exit.us
     i32 1, label %if.then3.i10.us
   ]
@@ -2868,23 +2860,21 @@ if.end4.i13.us:                                   ; preds = %for.body3.us
 _ZNK4pbrt3XYZixEi.exit.us:                        ; preds = %if.end4.i13.us, %if.then3.i10.us, %for.body3.us
   %retval.0.in.i.us = phi ptr [ %Y.i11, %if.then3.i10.us ], [ %Z.i14, %if.end4.i13.us ], [ %v, %for.body3.us ]
   %retval.0.i12.us = load float, ptr %retval.0.in.i.us, align 4
-  %mul.us = fmul float %2, %retval.0.i12.us
-  %add.us = fadd float %mul.us, %0
-  %retval.sroa.0.0.vec.insert71 = insertelement <2 x float> %retval.sroa.0.1, float %add.us, i64 0
-  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
-  %exitcond51.not = icmp eq i64 %indvars.iv.next49, 3
-  br i1 %exitcond51.not, label %for.inc8, label %for.body3.us, !llvm.loop !22
+  %mul.us = fmul float %5, %retval.0.i12.us
+  %add.us = fadd float %mul.us, %3
+  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
+  %exitcond49.not = icmp eq i64 %indvars.iv.next47, 3
+  br i1 %exitcond49.not, label %for.inc8, label %for.body3.us, !llvm.loop !22
 
-for.body3.us26:                                   ; preds = %_ZNK4pbrt3XYZixEi.exit.us33, %_ZN4pbrt3XYZixEi.exit.thread61
-  %retval.sroa.0.3 = phi <2 x float> [ %retval.sroa.0.4.vec.insert77, %_ZN4pbrt3XYZixEi.exit.thread61 ], [ %retval.sroa.0.4.vec.insert75, %_ZNK4pbrt3XYZixEi.exit.us33 ]
-  %indvars.iv = phi i64 [ 0, %_ZN4pbrt3XYZixEi.exit.thread61 ], [ %indvars.iv.next, %_ZNK4pbrt3XYZixEi.exit.us33 ]
-  %4 = phi float [ 0.000000e+00, %_ZN4pbrt3XYZixEi.exit.thread61 ], [ %add.us39, %_ZNK4pbrt3XYZixEi.exit.us33 ]
+for.body3.us26:                                   ; preds = %for.body, %_ZNK4pbrt3XYZixEi.exit.us33
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK4pbrt3XYZixEi.exit.us33 ], [ 0, %for.body ]
+  %7 = phi float [ %add.us39, %_ZNK4pbrt3XYZixEi.exit.us33 ], [ 0.000000e+00, %for.body ]
   %call4.us28 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi3EEixEi(ptr noundef nonnull align 4 dereferenceable(36) %m, i32 noundef 1)
-  %5 = extractvalue { ptr, i64 } %call4.us28, 0
-  %arrayidx.i.us30 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
-  %6 = load float, ptr %arrayidx.i.us30, align 4
-  %7 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %7, label %if.end4.i13.us32 [
+  %8 = extractvalue { ptr, i64 } %call4.us28, 0
+  %arrayidx.i.us30 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %9 = load float, ptr %arrayidx.i.us30, align 4
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
+  switch i32 %10, label %if.end4.i13.us32 [
     i32 0, label %_ZNK4pbrt3XYZixEi.exit.us33
     i32 1, label %if.then3.i10.us31
   ]
@@ -2898,22 +2888,21 @@ if.end4.i13.us32:                                 ; preds = %for.body3.us26
 _ZNK4pbrt3XYZixEi.exit.us33:                      ; preds = %if.end4.i13.us32, %if.then3.i10.us31, %for.body3.us26
   %retval.0.in.i.us34 = phi ptr [ %Y.i11, %if.then3.i10.us31 ], [ %Z.i14, %if.end4.i13.us32 ], [ %v, %for.body3.us26 ]
   %retval.0.i12.us35 = load float, ptr %retval.0.in.i.us34, align 4
-  %mul.us36 = fmul float %6, %retval.0.i12.us35
-  %add.us39 = fadd float %mul.us36, %4
-  %retval.sroa.0.4.vec.insert75 = insertelement <2 x float> %retval.sroa.0.3, float %add.us39, i64 1
+  %mul.us36 = fmul float %9, %retval.0.i12.us35
+  %add.us39 = fadd float %mul.us36, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %for.inc8, label %for.body3.us26, !llvm.loop !22
 
 for.body3:                                        ; preds = %for.body, %_ZNK4pbrt3XYZixEi.exit
-  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %_ZNK4pbrt3XYZixEi.exit ], [ 0, %for.body ]
+  %indvars.iv50 = phi i64 [ %indvars.iv.next51, %_ZNK4pbrt3XYZixEi.exit ], [ 0, %for.body ]
   %add42 = phi float [ %add, %_ZNK4pbrt3XYZixEi.exit ], [ 0.000000e+00, %for.body ]
   %call4 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi3EEixEi(ptr noundef nonnull align 4 dereferenceable(36) %m, i32 noundef %i.043)
-  %8 = extractvalue { ptr, i64 } %call4, 0
-  %arrayidx.i = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv52
-  %9 = load float, ptr %arrayidx.i, align 4
-  %10 = trunc nuw nsw i64 %indvars.iv52 to i32
-  switch i32 %10, label %if.end4.i13 [
+  %11 = extractvalue { ptr, i64 } %call4, 0
+  %arrayidx.i = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv50
+  %12 = load float, ptr %arrayidx.i, align 4
+  %13 = trunc nuw nsw i64 %indvars.iv50 to i32
+  switch i32 %13, label %if.end4.i13 [
     i32 0, label %_ZNK4pbrt3XYZixEi.exit
     i32 1, label %if.then3.i10
   ]
@@ -2927,22 +2916,25 @@ if.end4.i13:                                      ; preds = %for.body3
 _ZNK4pbrt3XYZixEi.exit:                           ; preds = %for.body3, %if.then3.i10, %if.end4.i13
   %retval.0.in.i = phi ptr [ %Y.i11, %if.then3.i10 ], [ %Z.i14, %if.end4.i13 ], [ %v, %for.body3 ]
   %retval.0.i12 = load float, ptr %retval.0.in.i, align 4
-  %mul = fmul float %9, %retval.0.i12
+  %mul = fmul float %12, %retval.0.i12
   %add = fadd float %mul, %add42
-  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %exitcond55.not = icmp eq i64 %indvars.iv.next53, 3
-  br i1 %exitcond55.not, label %for.inc8, label %for.body3, !llvm.loop !22
+  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
+  %exitcond53.not = icmp eq i64 %indvars.iv.next51, 3
+  br i1 %exitcond53.not, label %for.inc8, label %for.body3, !llvm.loop !22
 
 for.inc8:                                         ; preds = %_ZNK4pbrt3XYZixEi.exit.us33, %_ZNK4pbrt3XYZixEi.exit.us, %_ZNK4pbrt3XYZixEi.exit
-  %retval.sroa.0.2 = phi <2 x float> [ %retval.sroa.0.0, %_ZNK4pbrt3XYZixEi.exit ], [ %retval.sroa.0.0.vec.insert71, %_ZNK4pbrt3XYZixEi.exit.us ], [ %retval.sroa.0.4.vec.insert75, %_ZNK4pbrt3XYZixEi.exit.us33 ]
-  %retval.sroa.7.1 = phi float [ %add, %_ZNK4pbrt3XYZixEi.exit ], [ %retval.sroa.7.0, %_ZNK4pbrt3XYZixEi.exit.us ], [ %retval.sroa.7.0, %_ZNK4pbrt3XYZixEi.exit.us33 ]
+  %14 = phi float [ %add, %_ZNK4pbrt3XYZixEi.exit ], [ %0, %_ZNK4pbrt3XYZixEi.exit.us ], [ %0, %_ZNK4pbrt3XYZixEi.exit.us33 ]
+  %15 = phi float [ %1, %_ZNK4pbrt3XYZixEi.exit ], [ %add.us, %_ZNK4pbrt3XYZixEi.exit.us ], [ %1, %_ZNK4pbrt3XYZixEi.exit.us33 ]
+  %16 = phi float [ %2, %_ZNK4pbrt3XYZixEi.exit ], [ %2, %_ZNK4pbrt3XYZixEi.exit.us ], [ %add.us39, %_ZNK4pbrt3XYZixEi.exit.us33 ]
   %inc9 = add nuw nsw i32 %i.043, 1
-  %exitcond56.not = icmp eq i32 %inc9, 3
-  br i1 %exitcond56.not, label %for.end10, label %for.body, !llvm.loop !23
+  %exitcond54.not = icmp eq i32 %inc9, 3
+  br i1 %exitcond54.not, label %for.end10, label %for.body, !llvm.loop !23
 
 for.end10:                                        ; preds = %for.inc8
-  %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.2, 0
-  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %retval.sroa.7.1, 1
+  %17 = insertelement <2 x float> poison, float %15, i64 0
+  %retval.sroa.0.0.vec.insert73 = insertelement <2 x float> %17, float %16, i64 1
+  %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.0.vec.insert73, 0
+  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %14, 1
   ret { <2 x float>, float } %.fca.1.insert
 }
 

@@ -13867,7 +13867,7 @@ _ZSt10_ConstructISt10shared_ptrI4NodeEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.
   %388 = landingpad { ptr, i32 }
           catch ptr null
   %389 = extractvalue { ptr, i32 } %388, 0
-  call void @__clang_call_terminate(ptr %389) #36
+  call void @__clang_call_terminate(ptr %389) #36, !noalias !91
   unreachable
 
 _ZN2cv4util13make_optionalIRSt6vectorISt10shared_ptrI4NodeESaIS5_EEEENS0_8optionalINSt5decayIT_E4typeEEEOSB_.exit.i: ; preds = %_ZSt10_ConstructISt10shared_ptrI4NodeEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i, %.noexc2.i.thread.i.i

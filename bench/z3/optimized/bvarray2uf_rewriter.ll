@@ -3408,7 +3408,6 @@ if.then278:                                       ; preds = %_ZNK4decl18get_num_
 _ZN7obj_refI9func_decl11ast_managerED2Ev.exit688: ; preds = %if.then278
   %236 = load ptr, ptr %ref.tmp279, align 8
   store ptr %236, ptr %f_t257, align 8
-  store ptr null, ptr %ref.tmp279, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %param.i689)
   store ptr %236, ptr %param.i689, align 8
   %_M_index.i.i.i.i.i.i.i.i.i.i690 = getelementptr inbounds nuw i8, ptr %param.i689, i64 8

@@ -1030,14 +1030,15 @@ _ZNSt6vectorIPN4llvm14StringMapEntryIjEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exi
 
 40:                                               ; preds = %_ZNSt6vectorIPN4llvm14StringMapEntryIjEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %26) #32
+  %.pre.pre = load ptr, ptr %.fca.0.extract, align 8, !tbaa !73
   br label %_ZNSt6vectorIPN4llvm14StringMapEntryIjEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPN4llvm14StringMapEntryIjEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %40, %_ZNSt6vectorIPN4llvm14StringMapEntryIjEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
+  %.pre = phi ptr [ %.pre.pre, %40 ], [ %.pre8, %_ZNSt6vectorIPN4llvm14StringMapEntryIjEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i ]
   store ptr %35, ptr %5, align 8, !tbaa !71
   store ptr %39, ptr %6, align 8, !tbaa !68
   %41 = getelementptr inbounds nuw ptr, ptr %35, i64 %33
   store ptr %41, ptr %18, align 8, !tbaa !75
-  %.pre = load ptr, ptr %.fca.0.extract, align 8, !tbaa !73
   br label %_ZNSt6vectorIPN4llvm14StringMapEntryIjEESaIS3_EE9push_backEOS3_.exit
 
 _ZNSt6vectorIPN4llvm14StringMapEntryIjEESaIS3_EE9push_backEOS3_.exit: ; preds = %_ZNSt6vectorIPN4llvm14StringMapEntryIjEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %20, %3

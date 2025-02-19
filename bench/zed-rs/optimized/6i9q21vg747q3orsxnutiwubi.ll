@@ -15537,7 +15537,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i25
   %1199 = phi i64 [ %.pre.i.i.i74, %.noexc28.i ], [ %1191, %1188 ]
   %1200 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !3189, !noalias !3194, !nonnull !4, !noundef !4
   %1201 = getelementptr inbounds i8, ptr %1200, i64 %1199
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1201, ptr nonnull readonly align 1 %1189, i64 %1190, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1201, ptr nonnull readonly align 1 %1189, i64 %1190, i1 false), !noalias !3169
   %1202 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !3189, !noalias !3194, !noundef !4
   %1203 = add i64 %1202, %1190
   store i64 %1203, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !3189, !noalias !3194
@@ -20595,13 +20595,13 @@ attributes #45 = { cold "function-inline-cost-multiplier"="2" }
 !3260 = distinct !{!3260, !"_ZN16markdown_preview15markdown_parser14MarkdownParser16parse_code_block28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbd4e28229c7c1d83E"}
 !3261 = distinct !{!3261, !3260, !"_ZN16markdown_preview15markdown_parser14MarkdownParser16parse_code_block28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbd4e28229c7c1d83E: argument 1"}
 !3262 = !{!3254, !3163}
-!3263 = !{!3264, !3266, !3259, !3261, !3254, !3257}
+!3263 = !{!3264, !3266, !3259, !3261, !3254, !3257, !3163}
 !3264 = distinct !{!3264, !3265, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h92cad088aa153876E: argument 0"}
 !3265 = distinct !{!3265, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h92cad088aa153876E"}
 !3266 = distinct !{!3266, !3267, !"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$language..Language$GT$$GT$17h6216a5ae147c6864E: argument 0"}
 !3267 = distinct !{!3267, !"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$language..Language$GT$$GT$17h6216a5ae147c6864E"}
 !3268 = !{!3259, !3254, !3163}
-!3269 = !{!3270, !3272, !3259, !3261, !3254, !3257}
+!3269 = !{!3270, !3272, !3259, !3261, !3254, !3257, !3163}
 !3270 = distinct !{!3270, !3271, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h92cad088aa153876E: argument 0"}
 !3271 = distinct !{!3271, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h92cad088aa153876E"}
 !3272 = distinct !{!3272, !3273, !"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$language..Language$GT$$GT$17h6216a5ae147c6864E: argument 0"}
