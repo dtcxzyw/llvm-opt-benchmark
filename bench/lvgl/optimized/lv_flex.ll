@@ -330,8 +330,6 @@ place_content.exit:                               ; preds = %139, %134, %125, %1
   %or.cond213 = and i1 %26, %.not98
   %.sroa.speculated143 = select i1 %.not, i32 %.0178, i32 %.0180
   %149 = add nsw i32 %.087, %.sroa.speculated143
-  %spec.select214 = select i1 %.not, i32 %.0180, i32 %149
-  %.1181 = select i1 %or.cond213, i32 %spec.select214, i32 %.0180
   %150 = and i1 %.not, %or.cond213
   %.1179 = select i1 %150, i32 %149, i32 %.0178
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -342,12 +340,17 @@ place_content.exit:                               ; preds = %139, %134, %125, %1
   %153 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %154 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %155 = add i32 %.0176, %37
-  br i1 %26, label %.lr.ph231.split.us, label %.lr.ph231.split
+  br i1 %26, label %.lr.ph231.split.us.preheader, label %.lr.ph231.split
 
-.lr.ph231.split.us:                               ; preds = %.lr.ph231, %.cont135.us
-  %.185230.us = phi i32 [ %158, %.cont135.us ], [ %147, %.lr.ph231 ]
-  %.2229.us = phi i32 [ %spec.select219.us, %.cont135.us ], [ %.1179, %.lr.ph231 ]
-  %.2182228.us = phi i32 [ %spec.select218.us, %.cont135.us ], [ %.1181, %.lr.ph231 ]
+.lr.ph231.split.us.preheader:                     ; preds = %.lr.ph231
+  %spec.select214 = select i1 %.not, i32 %.0180, i32 %149
+  %.1181 = select i1 %.not98, i32 %spec.select214, i32 %.0180
+  br label %.lr.ph231.split.us
+
+.lr.ph231.split.us:                               ; preds = %.lr.ph231.split.us.preheader, %.cont135.us
+  %.185230.us = phi i32 [ %158, %.cont135.us ], [ %147, %.lr.ph231.split.us.preheader ]
+  %.2229.us = phi i32 [ %spec.select219.us, %.cont135.us ], [ %.1179, %.lr.ph231.split.us.preheader ]
+  %.2182228.us = phi i32 [ %spec.select218.us, %.cont135.us ], [ %.1181, %.lr.ph231.split.us.preheader ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7
   %156 = load i8, ptr %153, align 4
   %157 = or i8 %156, 1
@@ -409,7 +412,7 @@ place_content.exit:                               ; preds = %139, %134, %125, %1
   %177 = or i8 %176, 1
   store i8 %177, ptr %153, align 4
   %178 = call fastcc i32 @find_track_end(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %.185230.us233, i32 noundef %36, i32 noundef %38, ptr noundef %5)
-  call fastcc void @children_repos(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %.185230.us233, i32 noundef %178, i32 noundef %.2229.us234, i32 noundef %.1181, i32 noundef %36, i32 noundef %38, ptr noundef %5)
+  call fastcc void @children_repos(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %.185230.us233, i32 noundef %178, i32 noundef %.2229.us234, i32 noundef %.0180, i32 noundef %36, i32 noundef %38, ptr noundef %5)
   %179 = load ptr, ptr %154, align 8, !tbaa !56
   tail call void @lv_free(ptr noundef %179) #7
   %180 = load i32, ptr %5, align 8, !tbaa !52
@@ -431,7 +434,7 @@ place_content.exit:                               ; preds = %139, %134, %125, %1
   %189 = or i8 %188, 1
   store i8 %189, ptr %153, align 4
   %190 = call fastcc i32 @find_track_end(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %.185230, i32 noundef %36, i32 noundef %38, ptr noundef %5)
-  call fastcc void @children_repos(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %.185230, i32 noundef %190, i32 noundef %.1179, i32 noundef %.2182228, i32 noundef %36, i32 noundef %38, ptr noundef %5)
+  call fastcc void @children_repos(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %.185230, i32 noundef %190, i32 noundef %.0178, i32 noundef %.2182228, i32 noundef %36, i32 noundef %38, ptr noundef %5)
   %191 = load ptr, ptr %154, align 8, !tbaa !56
   tail call void @lv_free(ptr noundef %191) #7
   %192 = load i32, ptr %5, align 8, !tbaa !52

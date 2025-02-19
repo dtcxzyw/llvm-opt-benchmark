@@ -1439,8 +1439,7 @@ encrypt_xor_block.exit363.i:                      ; preds = %636
   %.val90121.i386.i = phi <2 x i64> [ %649, %.lr.ph586.preheader.i ], [ %614, %encrypt_xor_block.exit363.i ]
   %.val84120.i385.i = phi <16 x i8> [ %.val84120.i385.i.pre, %.lr.ph586.preheader.i ], [ %646, %encrypt_xor_block.exit363.i ]
   %650 = getelementptr i8, ptr %0, i64 %.6236.lcssa.i
-  %umax.i = call i64 @llvm.umax.i64(i64 %626, i64 1)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %650, ptr noundef nonnull align 16 dereferenceable(1) %16, i64 %umax.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %650, ptr noundef nonnull align 16 dereferenceable(1) %16, i64 %626, i1 false)
   %651 = getelementptr inbounds nuw i8, ptr %9, i64 240
   %652 = getelementptr i8, ptr %9, i64 256
   %.val83.pre.i381.i = load <2 x i64>, ptr %19, align 16
@@ -2654,8 +2653,7 @@ encrypt.exit.i:                                   ; preds = %568
   %625 = xor <2 x i64> %624, %623
   store <2 x i64> %625, ptr %13, align 16
   %626 = getelementptr i8, ptr %0, i64 %.4180.lcssa.i
-  %umax.i = call i64 @llvm.umax.i64(i64 %578, i64 1)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %626, ptr noundef nonnull align 16 dereferenceable(1) %13, i64 %umax.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %626, ptr noundef nonnull align 16 dereferenceable(1) %13, i64 %578, i1 false)
   br label %aes_gcm_decrypt_generic.exit
 
 ._crit_edge.i321.thread.i:                        ; preds = %encrypt.exit.i
@@ -3129,9 +3127,6 @@ declare <2 x i64> @llvm.fshl.v2i64(<2 x i64>, <2 x i64>, <2 x i64>) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #12
 
 attributes #0 = { nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+aes,+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

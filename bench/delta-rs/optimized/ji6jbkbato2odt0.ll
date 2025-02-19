@@ -22952,10 +22952,8 @@ common.resume:                                    ; preds = %.body105, %46, %.bo
 
 103:                                              ; preds = %97
   %104 = load i64, ptr %15, align 8, !range !991, !noalias !4142, !noundef !14
-  %trunc.i = trunc nuw i64 %104 to i1
   %105 = load ptr, ptr %64, align 8, !noalias !4142, !nonnull !14, !align !1020
   %106 = load i64, ptr %65, align 8, !noalias !4142
-  %.sroa.425.0.i = select i1 %trunc.i, i64 undef, i64 %106
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !4142
   %107 = load ptr, ptr %66, align 8, !noalias !4142, !nonnull !14, !noundef !14
   %108 = load i64, ptr %67, align 8, !noalias !4142, !noundef !14
@@ -22964,12 +22962,11 @@ common.resume:                                    ; preds = %.body105, %46, %.bo
           to label %109 unwind label %101, !noalias !4175
 
 109:                                              ; preds = %103
+  %trunc.i = trunc nuw i64 %104 to i1
   %110 = load i64, ptr %14, align 8, !range !991, !noalias !4142, !noundef !14
   %trunc30.i = trunc nuw i64 %110 to i1
   %111 = load ptr, ptr %68, align 8, !noalias !4142, !nonnull !14, !align !1020
   %112 = load i64, ptr %69, align 8, !noalias !4142
-  %.sroa.026.0.i = select i1 %trunc30.i, ptr null, ptr %111
-  %.sroa.428.0.i = select i1 %trunc30.i, i64 undef, i64 %112
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !4142
   %or.cond.i = select i1 %trunc.i, i1 true, i1 %trunc30.i
   br i1 %or.cond.i, label %113, label %120
@@ -23025,8 +23022,8 @@ common.resume:                                    ; preds = %.body105, %46, %.bo
   %132 = extractvalue { i64, ptr } %121, 0
   store i64 %132, ptr %20, align 8, !alias.scope !4199, !noalias !4202
   store ptr %122, ptr %.sroa.4.0..sroa_idx.i46.i, align 8, !alias.scope !4199, !noalias !4202
-  store i64 %.sroa.425.0.i, ptr %.sroa.5.0..sroa_idx10.i.i, align 8, !alias.scope !4199, !noalias !4202
-  invoke void @"_ZN92_$LT$object_store..aws..builder..AmazonS3ConfigKey$u20$as$u20$core..str..traits..FromStr$GT$8from_str17haeab0cc92a07b119E"(ptr noalias noundef nonnull sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %21, ptr noalias noundef nonnull readonly align 1 %122, i64 noundef %.sroa.425.0.i)
+  store i64 %106, ptr %.sroa.5.0..sroa_idx10.i.i, align 8, !alias.scope !4199, !noalias !4202
+  invoke void @"_ZN92_$LT$object_store..aws..builder..AmazonS3ConfigKey$u20$as$u20$core..str..traits..FromStr$GT$8from_str17haeab0cc92a07b119E"(ptr noalias noundef nonnull sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %21, ptr noalias noundef nonnull readonly align 1 %122, i64 noundef %106)
           to label %135 unwind label %133
 
 "_ZN4core3ptr116drop_in_place$LT$core..result..Result$LT$object_store..aws..builder..AmazonS3ConfigKey$C$object_store..Error$GT$$GT$17hcac5e1e0d782eb80E.exit50.i": ; preds = %147, %144, %133
@@ -23109,7 +23106,7 @@ common.resume:                                    ; preds = %.body105, %46, %.bo
   store ptr %163, ptr %.sroa.416.0..sroa_idx.i, align 8, !noalias !4142
   store i64 %158, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !4142
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16), !noalias !4142
-  %165 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h420683f68df27e58E"(i64 noundef %.sroa.428.0.i, i1 noundef zeroext false)
+  %165 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h420683f68df27e58E"(i64 noundef %112, i1 noundef zeroext false)
           to label %168 unwind label %182, !noalias !4175
 
 166:                                              ; preds = %168
@@ -23122,10 +23119,10 @@ common.resume:                                    ; preds = %.body105, %46, %.bo
   %170 = extractvalue { i64, ptr } %165, 1
   %171 = icmp ne ptr %170, null
   call void @llvm.assume(i1 %171)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %170, ptr nonnull align 1 %.sroa.026.0.i, i64 %.sroa.428.0.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %170, ptr nonnull align 1 %111, i64 %112, i1 false)
   store i64 %169, ptr %16, align 8, !noalias !4142
   store ptr %170, ptr %.sroa.421.0..sroa_idx.i, align 8, !noalias !4142
-  store i64 %.sroa.428.0.i, ptr %.sroa.522.0..sroa_idx.i, align 8, !noalias !4142
+  store i64 %112, ptr %.sroa.522.0..sroa_idx.i, align 8, !noalias !4142
   invoke void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h66ce8109465ca8e8E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef nonnull align 8 dereferenceable(48) %29, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %16)
           to label %172 unwind label %166, !noalias !4175
 

@@ -881,7 +881,6 @@ _ZN8lscolors8LsColors13indicator_for17hd25fc815184a6751E.exit: ; preds = %32, %2
   %102 = load ptr, ptr %101, align 8, !nonnull !4, !align !14
   %103 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %104 = load i64, ptr %103, align 8
-  %.sroa.6.0 = select i1 %trunc, i64 undef, i64 %104
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   br i1 %trunc, label %117, label %105
 
@@ -936,7 +935,7 @@ _ZN8lscolors8LsColors13indicator_for17hd25fc815184a6751E.exit: ; preds = %32, %2
   %.sroa.4.0..sroa_idx.i29 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %107, ptr %.sroa.4.0..sroa_idx.i29, align 8, !alias.scope !176, !noalias !179
   %.sroa.5.0..sroa_idx10.i = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i64 %.sroa.6.0, ptr %.sroa.5.0..sroa_idx10.i, align 8, !alias.scope !176, !noalias !179
+  store i64 %104, ptr %.sroa.5.0..sroa_idx10.i, align 8, !alias.scope !176, !noalias !179
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !181
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h49faf435f12094f1E.llvm.8271848126233039021"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
           to label %.noexc31 unwind label %131
@@ -1312,7 +1311,6 @@ _ZN8lscolors8LsColors13indicator_for17h9c3cdf1080826a28E.exit: ; preds = %32, %2
   %102 = load ptr, ptr %101, align 8, !nonnull !4, !align !14
   %103 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %104 = load i64, ptr %103, align 8
-  %.sroa.6.0 = select i1 %trunc, i64 undef, i64 %104
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   br i1 %trunc, label %117, label %105
 
@@ -1367,7 +1365,7 @@ _ZN8lscolors8LsColors13indicator_for17h9c3cdf1080826a28E.exit: ; preds = %32, %2
   %.sroa.4.0..sroa_idx.i29 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %107, ptr %.sroa.4.0..sroa_idx.i29, align 8, !alias.scope !269, !noalias !272
   %.sroa.5.0..sroa_idx10.i = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i64 %.sroa.6.0, ptr %.sroa.5.0..sroa_idx10.i, align 8, !alias.scope !269, !noalias !272
+  store i64 %104, ptr %.sroa.5.0..sroa_idx10.i, align 8, !alias.scope !269, !noalias !272
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !274
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h49faf435f12094f1E.llvm.8271848126233039021"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
           to label %.noexc31 unwind label %131

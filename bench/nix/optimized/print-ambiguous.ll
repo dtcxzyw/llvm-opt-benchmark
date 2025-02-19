@@ -1797,18 +1797,17 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 
 .lr.ph:                                           ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = icmp eq i64 %2, 0
-  br i1 %11, label %.split.i.i, label %.lr.ph41
+  br label %11
 
-12:                                               ; preds = %.lr.ph41
-  %13 = icmp eq i64 %28, 0
-  br i1 %13, label %.split.i.i, label %.lr.ph41, !llvm.loop !12
+11:                                               ; preds = %.lr.ph, %26
+  %12 = phi i64 [ %8, %.lr.ph ], [ %34, %26 ]
+  %.021 = phi i64 [ %2, %.lr.ph ], [ %27, %26 ]
+  %storemerge20 = phi ptr [ %1, %.lr.ph ], [ %31, %26 ]
+  %13 = icmp eq i64 %.021, 0
+  br i1 %13, label %.split.i.i, label %26
 
-.split.i.i:                                       ; preds = %12, %.lr.ph
-  %.lcssa37 = phi i64 [ %8, %.lr.ph ], [ %35, %12 ]
-  %.lcssa = phi i64 [ %7, %.lr.ph ], [ %34, %12 ]
-  %storemerge22.lcssa = phi ptr [ %1, %.lr.ph ], [ %32, %12 ]
-  %14 = add nsw i64 %.lcssa37, -2
+.split.i.i:                                       ; preds = %11
+  %14 = add nsw i64 %12, -2
   %15 = lshr i64 %14, 1
   br label %.split9.i.i
 
@@ -1816,46 +1815,39 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.0.i.i = phi i64 [ %15, %.split.i.i ], [ %18, %.split9.i.i ]
   %phi.call.i.i = getelementptr inbounds ptr, ptr %0, i64 %.0.i.i
   %16 = load ptr, ptr %phi.call.i.i, align 8
-  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_T0_SK_T1_T2_(ptr %0, i64 noundef %.0.i.i, i64 noundef %.lcssa37, ptr noundef %16, ptr %3)
+  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_T0_SK_T1_T2_(ptr %0, i64 noundef %.0.i.i, i64 noundef %12, ptr noundef %16, ptr %3)
   %17 = icmp eq i64 %.0.i.i, 0
   %18 = add nsw i64 %.0.i.i, -1
-  br i1 %17, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_SJ_SJ_T0_.exit, label %.split9.i.i, !llvm.loop !13
+  br i1 %17, label %.lr.ph.i.i, label %.split9.i.i, !llvm.loop !12
 
-_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_SJ_SJ_T0_.exit: ; preds = %.split9.i.i
-  %19 = icmp sgt i64 %.lcssa, 8
-  br i1 %19, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_SJ_SJ_T0_.exit
+.lr.ph.i.i:                                       ; preds = %.split9.i.i, %.lr.ph.i.i
+  %.sroa.0.05.i.i = phi ptr [ %19, %.lr.ph.i.i ], [ %storemerge20, %.split9.i.i ]
+  %19 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -8
+  %20 = load ptr, ptr %19, align 8
+  %21 = load ptr, ptr %0, align 8
+  store ptr %21, ptr %19, align 8
+  %22 = ptrtoint ptr %19 to i64
+  %23 = sub i64 %22, %5
+  %24 = ashr exact i64 %23, 3
+  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_T0_SK_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %24, ptr noundef %20, ptr %3)
+  %25 = icmp sgt i64 %23, 8
+  br i1 %25, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_SJ_SJ_T0_.exit, !llvm.loop !13
 
-.lr.ph.i.i:                                       ; preds = %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_SJ_SJ_T0_.exit, %.lr.ph.i.i
-  %.sroa.0.05.i.i = phi ptr [ %20, %.lr.ph.i.i ], [ %storemerge22.lcssa, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_SJ_SJ_T0_.exit ]
-  %20 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -8
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %0, align 8
-  store ptr %22, ptr %20, align 8
-  %23 = ptrtoint ptr %20 to i64
-  %24 = sub i64 %23, %5
-  %25 = ashr exact i64 %24, 3
-  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_T0_SK_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %25, ptr noundef %21, ptr %3)
-  %26 = icmp sgt i64 %24, 8
-  br i1 %26, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_SJ_SJ_T0_.exit, !llvm.loop !14
+26:                                               ; preds = %11
+  %27 = add nsw i64 %.021, -1
+  %28 = lshr i64 %12, 1
+  %29 = getelementptr inbounds nuw ptr, ptr %0, i64 %28
+  %30 = getelementptr inbounds i8, ptr %storemerge20, i64 -8
+  tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_SJ_SJ_SJ_T0_(ptr %0, ptr nonnull %10, ptr %29, ptr nonnull %30, ptr %3)
+  %31 = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEET_SJ_SJ_SJ_T0_(ptr nonnull %10, ptr %storemerge20, ptr %0, ptr %3)
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_SJ_T0_T1_(ptr %31, ptr %storemerge20, i64 noundef %27, ptr %3)
+  %32 = ptrtoint ptr %31 to i64
+  %33 = sub i64 %32, %5
+  %34 = ashr exact i64 %33, 3
+  %35 = icmp sgt i64 %34, 16
+  br i1 %35, label %11, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_SJ_SJ_T0_.exit, !llvm.loop !14
 
-.lr.ph41:                                         ; preds = %.lr.ph, %12
-  %storemerge2240 = phi ptr [ %32, %12 ], [ %1, %.lr.ph ]
-  %.02339 = phi i64 [ %28, %12 ], [ %2, %.lr.ph ]
-  %27 = phi i64 [ %35, %12 ], [ %8, %.lr.ph ]
-  %28 = add nsw i64 %.02339, -1
-  %29 = lshr i64 %27, 1
-  %30 = getelementptr inbounds nuw ptr, ptr %0, i64 %29
-  %31 = getelementptr inbounds i8, ptr %storemerge2240, i64 -8
-  tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_SJ_SJ_SJ_T0_(ptr %0, ptr nonnull %10, ptr %30, ptr nonnull %31, ptr %3)
-  %32 = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEET_SJ_SJ_SJ_T0_(ptr nonnull %10, ptr %storemerge2240, ptr %0, ptr %3)
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_SJ_T0_T1_(ptr %32, ptr %storemerge2240, i64 noundef %28, ptr %3)
-  %33 = ptrtoint ptr %32 to i64
-  %34 = sub i64 %33, %5
-  %35 = ashr exact i64 %34, 3
-  %36 = icmp sgt i64 %35, 16
-  br i1 %36, label %12, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_SJ_SJ_T0_.exit, !llvm.loop !12
-
-_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_SJ_SJ_T0_.exit: ; preds = %.lr.ph41, %.lr.ph.i.i, %4, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_SJ_SJ_T0_.exit
+_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_SJ_SJ_T0_.exit: ; preds = %26, %.lr.ph.i.i, %4
   ret void
 }
 

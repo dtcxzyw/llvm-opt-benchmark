@@ -150,8 +150,7 @@ gv_calloc.exit95.preheader135:                    ; preds = %gv_calloc.exit95.pr
 
 .preheader99.lr.ph:                               ; preds = %gv_calloc.exit95
   %59 = icmp sgt i32 %2, 0
-  %smax184 = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
-  %wide.trip.count185 = zext nneg i32 %smax184 to i64
+  %wide.trip.count185 = zext nneg i32 %1 to i64
   br i1 %59, label %.preheader99.us.preheader, label %.preheader99
 
 .preheader99.us.preheader:                        ; preds = %.preheader99.lr.ph

@@ -1208,7 +1208,7 @@ InitBlockEncoder.exit198:                         ; preds = %InitBlockEncoder.ex
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 %176
   %180 = load ptr, ptr %174, align 8, !tbaa !227
   %181 = getelementptr inbounds nuw i16, ptr %180, i64 %176
-  tail call fastcc void @BuildAndStoreHuffmanTree(ptr noundef %177, i64 noundef %175, i64 noundef 256, ptr noundef %24, ptr noundef %179, ptr noundef %181, ptr noundef %13, ptr noundef %14)
+  tail call fastcc void @BuildAndStoreHuffmanTree(ptr noundef %177, i64 noundef %175, i64 noundef 256, ptr noundef %24, ptr noundef %179, ptr noundef %181, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %182 = add nuw i64 %.026.i, 1
   %exitcond.not.i = icmp eq i64 %182, %162
   br i1 %exitcond.not.i, label %BuildAndStoreEntropyCodesLiteral.exit, label %.lr.ph.i, !llvm.loop !228
@@ -1253,7 +1253,7 @@ BuildAndStoreEntropyCodesLiteral.exit:            ; preds = %.lr.ph.i, %171
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 %200
   %204 = load ptr, ptr %198, align 8, !tbaa !227
   %205 = getelementptr inbounds nuw i16, ptr %204, i64 %200
-  tail call fastcc void @BuildAndStoreHuffmanTree(ptr noundef %201, i64 noundef %199, i64 noundef 704, ptr noundef %24, ptr noundef %203, ptr noundef %205, ptr noundef %13, ptr noundef %14)
+  tail call fastcc void @BuildAndStoreHuffmanTree(ptr noundef %201, i64 noundef %199, i64 noundef 704, ptr noundef %24, ptr noundef %203, ptr noundef %205, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %206 = add nuw i64 %.026.i202, 1
   %exitcond.not.i203 = icmp eq i64 %206, %186
   br i1 %exitcond.not.i203, label %BuildAndStoreEntropyCodesCommand.exit, label %.lr.ph.i201, !llvm.loop !231
@@ -1299,7 +1299,7 @@ BuildAndStoreEntropyCodesCommand.exit:            ; preds = %.lr.ph.i201, %195
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 %225
   %229 = load ptr, ptr %223, align 8, !tbaa !227
   %230 = getelementptr inbounds nuw i16, ptr %229, i64 %225
-  tail call fastcc void @BuildAndStoreHuffmanTree(ptr noundef %226, i64 noundef %224, i64 noundef range(i64 0, 4294967296) %211, ptr noundef %24, ptr noundef %228, ptr noundef %230, ptr noundef %13, ptr noundef %14)
+  tail call fastcc void @BuildAndStoreHuffmanTree(ptr noundef %226, i64 noundef %224, i64 noundef range(i64 0, 4294967296) %211, ptr noundef %24, ptr noundef %228, ptr noundef %230, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %231 = add nuw i64 %.026.i208, 1
   %exitcond.not.i209 = icmp eq i64 %231, %210
   br i1 %exitcond.not.i209, label %BuildAndStoreEntropyCodesDistance.exit, label %.lr.ph.i207, !llvm.loop !233
@@ -1341,7 +1341,7 @@ BuildAndStoreEntropyCodesDistance.exit:           ; preds = %.lr.ph.i207, %220
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %246, i64 14
   %.sroa.14.0.copyload = load i16, ptr %.sroa.14.0..sroa_idx, align 2, !tbaa !30
   %247 = zext i16 %.sroa.11.0.copyload to i64
-  tail call fastcc void @StoreSymbol(ptr noundef nonnull %26, i64 noundef %247, ptr noundef %13, ptr noundef %14)
+  tail call fastcc void @StoreSymbol(ptr noundef nonnull %26, i64 noundef %247, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %248 = lshr i32 %.sroa.7.0.copyload, 25
   %249 = shl nuw nsw i32 %248, 1
   %250 = and i32 %249, 128
@@ -2551,10 +2551,9 @@ StoreVarLenUint8.exit:                            ; preds = %6
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !408
 
 ._crit_edge:                                      ; preds = %.lr.ph, %46
-  tail call fastcc void @BuildAndStoreHuffmanTree(ptr noundef nonnull %0, i64 noundef %51, i64 noundef %51, ptr noundef %3, ptr noundef nonnull %52, ptr noundef nonnull %53, ptr noundef nonnull %4, ptr noundef %5)
+  tail call fastcc void @BuildAndStoreHuffmanTree(ptr noundef nonnull %0, i64 noundef %51, i64 noundef %51, ptr noundef %3, ptr noundef nonnull %52, ptr noundef nonnull %53, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %78 = getelementptr inbounds nuw i8, ptr %52, i64 %47
   %79 = getelementptr inbounds nuw i16, ptr %53, i64 %47
-  %umax = tail call i64 @llvm.umax.i64(i64 %1, i64 1)
   %.pre = load i64, ptr %4, align 8, !tbaa !3, !alias.scope !409, !noalias !412
   br label %80
 
@@ -2611,7 +2610,7 @@ StoreVarLenUint8.exit:                            ; preds = %6
   %118 = add i64 %110, %47
   store i64 %118, ptr %4, align 8, !tbaa !3, !alias.scope !419, !noalias !422
   %119 = add nuw i64 %.163, 1
-  %exitcond64.not = icmp eq i64 %119, %umax
+  %exitcond64.not = icmp eq i64 %119, %1
   br i1 %exitcond64.not, label %120, label %80, !llvm.loop !424
 
 120:                                              ; preds = %80
@@ -4163,7 +4162,7 @@ BuildHistograms.exit:                             ; preds = %110
   %121 = getelementptr inbounds nuw i8, ptr %13, i64 8944
   %122 = getelementptr inbounds nuw i8, ptr %13, i64 9084
   tail call void @BrotliBuildAndStoreHuffmanTreeFast(ptr noundef nonnull %113, ptr noundef nonnull %72, i64 noundef %119, i64 noundef %120, ptr noundef nonnull %121, ptr noundef nonnull %122, ptr noundef nonnull %9, ptr noundef %10)
-  tail call fastcc void @StoreDataWithHuffmanCodes(ptr noundef %1, i64 noundef %2, i64 noundef %4, ptr noundef %7, i64 noundef %8, ptr noundef nonnull %114, ptr noundef nonnull %115, ptr noundef nonnull %117, ptr noundef nonnull %118, ptr noundef nonnull %121, ptr noundef nonnull %122, ptr noundef nonnull %9, ptr noundef %10)
+  tail call fastcc void @StoreDataWithHuffmanCodes(ptr noundef %1, i64 noundef %2, i64 noundef %4, ptr noundef nonnull %7, i64 noundef %8, ptr noundef nonnull %114, ptr noundef nonnull %115, ptr noundef nonnull %117, ptr noundef nonnull %118, ptr noundef nonnull %121, ptr noundef nonnull %122, ptr noundef nonnull %9, ptr noundef %10)
   br label %123
 
 123:                                              ; preds = %BuildHistograms.exit, %._crit_edge107

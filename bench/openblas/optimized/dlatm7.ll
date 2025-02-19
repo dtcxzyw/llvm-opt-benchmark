@@ -142,10 +142,14 @@ define void @dlatm7_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 ._crit_edge184:                                   ; preds = %.lr.ph183, %47
   %.not155.not185 = icmp slt i32 %48, %12
-  %50 = sext i32 %48 to i64
-  br i1 %.not155.not185, label %.lr.ph188.preheader, label %._crit_edge189
+  br i1 %.not155.not185, label %.lr.ph188.preheader, label %._crit_edge184.._crit_edge189_crit_edge
+
+._crit_edge184.._crit_edge189_crit_edge:          ; preds = %._crit_edge184
+  %.pre = zext nneg i32 %48 to i64
+  br label %._crit_edge189
 
 .lr.ph188.preheader:                              ; preds = %._crit_edge184
+  %50 = sext i32 %48 to i64
   %51 = shl nsw i64 %50, 3
   %scevgep229 = getelementptr i8, ptr %5, i64 %51
   %52 = xor i32 %48, -1
@@ -156,10 +160,11 @@ define void @dlatm7_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep229, i8 0, i64 %56, i1 false), !tbaa !7
   br label %._crit_edge189
 
-._crit_edge189:                                   ; preds = %._crit_edge184, %.lr.ph188.preheader
+._crit_edge189:                                   ; preds = %._crit_edge184.._crit_edge189_crit_edge, %.lr.ph188.preheader
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge184.._crit_edge189_crit_edge ], [ %50, %.lr.ph188.preheader ]
   %57 = load double, ptr %1, align 8, !tbaa !7
   %58 = fdiv double 1.000000e+00, %57
-  %59 = getelementptr inbounds double, ptr %11, i64 %50
+  %59 = getelementptr inbounds double, ptr %11, i64 %.pre-phi
   store double %58, ptr %59, align 8, !tbaa !7
   br label %.loopexit167
 

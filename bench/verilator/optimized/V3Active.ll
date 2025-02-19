@@ -5638,7 +5638,7 @@ define linkonce_odr dso_local void @_ZN16LatchDetectGraph10latchCheckEP7AstNodeb
   store i64 %41, ptr %37, align 4
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.029.046.us, i64 8
   %.not32.us = icmp eq ptr %42, %17
-  br i1 %.not32.us, label %._crit_edge, label %.lr.ph.split.us
+  br i1 %.not32.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %124
   %.02147 = phi i8 [ %spec.select, %124 ], [ 0, %.lr.ph ]
@@ -5904,22 +5904,23 @@ _ZL14dumpGraphLevelv.exit:                        ; preds = %76, %95, %107
   %.not32 = icmp eq ptr %133, %17
   br i1 %.not32, label %._crit_edge, label %.lr.ph.split
 
-._crit_edge:                                      ; preds = %124, %.lr.ph.split.us, %3
-  %.021.lcssa = phi i8 [ 0, %3 ], [ %spec.select.us, %.lr.ph.split.us ], [ %spec.select, %124 ]
-  br i1 %2, label %134, label %140
+._crit_edge:                                      ; preds = %124, %3
+  %.021.lcssa = phi i8 [ 0, %3 ], [ %spec.select, %124 ]
+  br i1 %2, label %._crit_edge.thread, label %139
 
-134:                                              ; preds = %._crit_edge
-  %135 = trunc nuw i8 %.021.lcssa to i1
-  br i1 %135, label %140, label %136
+._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %._crit_edge
+  %.021.lcssa62 = phi i8 [ %.021.lcssa, %._crit_edge ], [ %spec.select.us, %.lr.ph.split.us ]
+  %134 = trunc nuw i8 %.021.lcssa62 to i1
+  br i1 %134, label %139, label %135
 
-136:                                              ; preds = %134
-  %137 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error11v3errorPrepB5cxx11E11V3ErrorCodeb(i8 71, i1 noundef zeroext true)
-  %138 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %139 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %138, ptr noundef nonnull @.str.39)
-  call void @_ZNK7AstNode10v3errorEndERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(112) %139)
-  br label %140
+135:                                              ; preds = %._crit_edge.thread
+  %136 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error11v3errorPrepB5cxx11E11V3ErrorCodeb(i8 71, i1 noundef zeroext true)
+  %137 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %138 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %137, ptr noundef nonnull @.str.39)
+  call void @_ZNK7AstNode10v3errorEndERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(112) %138)
+  br label %139
 
-140:                                              ; preds = %136, %134, %._crit_edge
+139:                                              ; preds = %135, %._crit_edge.thread, %._crit_edge
   ret void
 }
 

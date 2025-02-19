@@ -27059,7 +27059,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   invoke void @"_ZN4core3ptr81drop_in_place$LT$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$17hf61f7c8bb934f8d8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %49) #47
           to label %common.resume unwind label %308
 
-79:                                               ; preds = %305, %291, %290, %289, %288, %285, %284, %264, %261, %255, %254, %234, %231, %218, %212, %185, %165, %163, %162, %154, %152, %"_ZN4core3ptr64drop_in_place$LT$image..codecs..pnm..encoder..HeaderStrategy$GT$17hbb8599f6480bbb3dE.exit.i", %"_ZN97_$LT$image..codecs..jpeg..encoder..JpegEncoder$LT$W$GT$$u20$as$u20$image..image..ImageEncoder$GT$11write_image17h4efddede9c0a900bE.exit.i", %146, %143, %135, %132, %113, %.thread6.i, %84, %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.llvm.98706352026558795.exit.i, %130, %83, %68
+79:                                               ; preds = %305, %291, %290, %289, %288, %285, %284, %264, %261, %255, %254, %234, %231, %218, %212, %185, %165, %163, %162, %154, %152, %"_ZN4core3ptr64drop_in_place$LT$image..codecs..pnm..encoder..HeaderStrategy$GT$17hbb8599f6480bbb3dE.exit.i", %"_ZN97_$LT$image..codecs..jpeg..encoder..JpegEncoder$LT$W$GT$$u20$as$u20$image..image..ImageEncoder$GT$11write_image17h4efddede9c0a900bE.exit.i", %146, %143, %135, %132, %113, %.loopexit.i, %84, %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.llvm.98706352026558795.exit.i, %130, %83, %68
   %80 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -27124,7 +27124,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %98, ptr nonnull readonly align 1 %.sroa.03.0, i64 %.sroa.64.0, i1 false)
   %100 = getelementptr inbounds i8, ptr %98, i64 %.sroa.64.0
   %101 = icmp eq i64 %.sroa.64.0, 0
-  br i1 %101, label %.thread6.i, label %.lr.ph.i.i.i.i
+  br i1 %101, label %.loopexit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc.i, %.lr.ph.i.i.i.i
   %.sroa.0.06.i.i.i.i = phi ptr [ %102, %.lr.ph.i.i.i.i ], [ %98, %.noexc.i ]
@@ -27136,7 +27136,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %106 = or i8 %.0.i.i.i.i, %103
   store i8 %106, ptr %.sroa.0.06.i.i.i.i, align 1, !alias.scope !6968
   %107 = icmp eq ptr %102, %100
-  br i1 %107, label %.thread6.i, label %.lr.ph.i.i.i.i
+  br i1 %107, label %.loopexit.i, label %.lr.ph.i.i.i.i
 
 108:                                              ; preds = %96
   %109 = landingpad { ptr, i32 }
@@ -27144,7 +27144,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbefa171b5dae5d08E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %46) #47
           to label %.body unwind label %117, !noalias !6960
 
-.thread6.i:                                       ; preds = %.lr.ph.i.i.i.i, %.noexc.i
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i, %.noexc.i
   %110 = extractvalue { i64, ptr } %97, 0
   store i64 %110, ptr %47, align 8, !alias.scope !6971, !noalias !6976
   %.sroa.4.0..sroa_idx5.i.i.i = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -27155,7 +27155,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %36, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %46)
           to label %.noexc42 unwind label %79
 
-.noexc42:                                         ; preds = %.thread6.i
+.noexc42:                                         ; preds = %.loopexit.i
   %111 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %112 = load i64, ptr %111, align 8, !range !1617, !noalias !6979, !noundef !4
   %.not.i.i.i.i.i = icmp eq i64 %112, 0
@@ -28333,9 +28333,12 @@ define internal fastcc void @_ZN5image6codecs3dxt17decode_dxt_colors17h47d8c1f2a
   br label %86
 
 .thread:                                          ; preds = %86, %.preheader
-  %59 = add nsw i64 %3, -3
-  %60 = udiv i64 %59, %28
-  %61 = add nuw nsw i64 %60, 1
+  %59 = trunc nuw nsw i64 %3 to i8
+  %.lhs.trunc = add nsw i8 %59, -3
+  %.rhs.trunc = trunc nuw nsw i64 %28 to i8
+  %60 = udiv i8 %.lhs.trunc, %.rhs.trunc
+  %.zext = zext i8 %60 to i64
+  %61 = add nuw nsw i64 %.zext, 1
   br label %75
 
 .preheader:                                       ; preds = %27, %.preheader

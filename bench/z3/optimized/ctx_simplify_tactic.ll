@@ -10011,20 +10011,13 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %invoke.cont16, %if.
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !45
 
 for.end:                                          ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit
-  br i1 %spec.select, label %invoke.cont23, label %if.then17
+  br i1 %spec.select, label %invoke.cont23, label %if.end.i25
 
-if.then17:                                        ; preds = %for.end
-  %tobool.not.i21 = icmp eq ptr %t, null
-  br i1 %tobool.not.i21, label %if.end.i25, label %_ZN11ast_manager7inc_refEP3ast.exit.i22
-
-_ZN11ast_manager7inc_refEP3ast.exit.i22:          ; preds = %if.then17
+if.end.i25:                                       ; preds = %for.end
   %m_ref_count.i.i.i23 = getelementptr inbounds nuw i8, ptr %t, i64 8
   %25 = load i32, ptr %m_ref_count.i.i.i23, align 4
   %inc.i.i.i24 = add i32 %25, 1
   store i32 %inc.i.i.i24, ptr %m_ref_count.i.i.i23, align 4
-  br label %if.end.i25
-
-if.end.i25:                                       ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i22, %if.then17
   %26 = load ptr, ptr %r, align 8
   %tobool.not.i3.i26 = icmp eq ptr %26, null
   br i1 %tobool.not.i3.i26, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit34, label %if.then.i.i.i27

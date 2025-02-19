@@ -2670,19 +2670,11 @@ for.body.i64:                                     ; preds = %if.then34, %for.bod
 
 _ZN18OpenImageIO_v2_6_011swap_endianItEEvPT_i.exit69: ; preds = %for.body.i64, %if.then34
   switch i32 %type, label %if.end64 [
-    i32 13, label %if.then44
-    i32 11, label %if.then44
-    i32 9, label %if.then44
-    i32 4, label %if.then44
-    i32 18, label %if.then54
-    i32 17, label %if.then54
-    i32 16, label %if.then54
-    i32 12, label %if.then54
-    i32 10, label %if.then60
     i32 5, label %if.then60
+    i32 4, label %if.then44
   ]
 
-if.then44:                                        ; preds = %if.then31, %if.then31, %if.then31, %if.then31, %_ZN18OpenImageIO_v2_6_011swap_endianItEEvPT_i.exit69, %_ZN18OpenImageIO_v2_6_011swap_endianItEEvPT_i.exit69, %_ZN18OpenImageIO_v2_6_011swap_endianItEEvPT_i.exit69, %_ZN18OpenImageIO_v2_6_011swap_endianItEEvPT_i.exit69
+if.then44:                                        ; preds = %_ZN18OpenImageIO_v2_6_011swap_endianItEEvPT_i.exit69, %if.then31, %if.then31, %if.then31, %if.then31
   %cmp5.i70 = icmp sgt i32 %conv2, 0
   br i1 %cmp5.i70, label %for.body.i73, label %_ZN18OpenImageIO_v2_6_011swap_endianIjEEvPT_i.exit78
 
@@ -2698,17 +2690,14 @@ for.body.i73:                                     ; preds = %if.then44, %for.bod
 
 _ZN18OpenImageIO_v2_6_011swap_endianIjEEvPT_i.exit78: ; preds = %for.body.i73, %if.then44
   switch i32 %type, label %if.end64 [
-    i32 18, label %if.then54
-    i32 17, label %if.then54
-    i32 16, label %if.then54
-    i32 12, label %if.then54
-    i32 10, label %if.then60
     i32 5, label %if.then60
+    i32 10, label %if.then60
+    i32 12, label %if.then54
   ]
 
-if.then54:                                        ; preds = %if.then31, %if.then31, %if.then31, %if.then31, %_ZN18OpenImageIO_v2_6_011swap_endianItEEvPT_i.exit69, %_ZN18OpenImageIO_v2_6_011swap_endianItEEvPT_i.exit69, %_ZN18OpenImageIO_v2_6_011swap_endianItEEvPT_i.exit69, %_ZN18OpenImageIO_v2_6_011swap_endianItEEvPT_i.exit69, %_ZN18OpenImageIO_v2_6_011swap_endianIjEEvPT_i.exit78, %_ZN18OpenImageIO_v2_6_011swap_endianIjEEvPT_i.exit78, %_ZN18OpenImageIO_v2_6_011swap_endianIjEEvPT_i.exit78, %_ZN18OpenImageIO_v2_6_011swap_endianIjEEvPT_i.exit78
+if.then54:                                        ; preds = %_ZN18OpenImageIO_v2_6_011swap_endianIjEEvPT_i.exit78, %if.then31, %if.then31, %if.then31, %if.then31
   %cmp5.i79 = icmp sgt i32 %conv2, 0
-  br i1 %cmp5.i79, label %for.body.i82, label %_ZN18OpenImageIO_v2_6_011swap_endianImEEvPT_i.exit
+  br i1 %cmp5.i79, label %for.body.i82, label %if.end64
 
 for.body.i82:                                     ; preds = %if.then54, %for.body.i82
   %indvars.iv.i83 = phi i64 [ %indvars.iv.next.i85, %for.body.i82 ], [ 0, %if.then54 ]
@@ -2718,15 +2707,9 @@ for.body.i82:                                     ; preds = %if.then54, %for.bod
   store i64 %14, ptr %arrayidx.i84, align 8
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i83, 1
   %exitcond.not.i86 = icmp eq i64 %indvars.iv.next.i85, %conv1.i
-  br i1 %exitcond.not.i86, label %_ZN18OpenImageIO_v2_6_011swap_endianImEEvPT_i.exit, label %for.body.i82, !llvm.loop !223
+  br i1 %exitcond.not.i86, label %if.end64, label %for.body.i82, !llvm.loop !223
 
-_ZN18OpenImageIO_v2_6_011swap_endianImEEvPT_i.exit: ; preds = %for.body.i82, %if.then54
-  switch i32 %type, label %if.end64 [
-    i32 10, label %if.then60
-    i32 5, label %if.then60
-  ]
-
-if.then60:                                        ; preds = %if.then31, %if.then31, %_ZN18OpenImageIO_v2_6_011swap_endianItEEvPT_i.exit69, %_ZN18OpenImageIO_v2_6_011swap_endianItEEvPT_i.exit69, %_ZN18OpenImageIO_v2_6_011swap_endianIjEEvPT_i.exit78, %_ZN18OpenImageIO_v2_6_011swap_endianIjEEvPT_i.exit78, %_ZN18OpenImageIO_v2_6_011swap_endianImEEvPT_i.exit, %_ZN18OpenImageIO_v2_6_011swap_endianImEEvPT_i.exit
+if.then60:                                        ; preds = %_ZN18OpenImageIO_v2_6_011swap_endianIjEEvPT_i.exit78, %_ZN18OpenImageIO_v2_6_011swap_endianIjEEvPT_i.exit78, %_ZN18OpenImageIO_v2_6_011swap_endianItEEvPT_i.exit69, %if.then31, %if.then31
   %conv61 = shl i32 %conv2, 1
   %cmp5.i87 = icmp sgt i32 %conv61, 0
   br i1 %cmp5.i87, label %for.body.preheader.i88, label %if.end64
@@ -2745,29 +2728,29 @@ for.body.i90:                                     ; preds = %for.body.i90, %for.
   %exitcond.not.i94 = icmp eq i64 %indvars.iv.next.i93, %wide.trip.count.i89
   br i1 %exitcond.not.i94, label %if.end64, label %for.body.i90, !llvm.loop !222
 
-if.end64:                                         ; preds = %for.body.i90, %if.then60, %if.then31, %_ZN18OpenImageIO_v2_6_011swap_endianItEEvPT_i.exit69, %_ZN18OpenImageIO_v2_6_011swap_endianIjEEvPT_i.exit78, %_ZN18OpenImageIO_v2_6_011swap_endianImEEvPT_i.exit, %if.end29, %if.end20
+if.end64:                                         ; preds = %for.body.i82, %for.body.i90, %if.then54, %if.then60, %if.then31, %_ZN18OpenImageIO_v2_6_011swap_endianItEEvPT_i.exit69, %_ZN18OpenImageIO_v2_6_011swap_endianIjEEvPT_i.exit78, %if.end29, %if.end20
   %17 = load ptr, ptr %dirs, align 8
   %_M_finish.i96 = getelementptr inbounds nuw i8, ptr %dirs, i64 8
   %18 = load ptr, ptr %_M_finish.i96, align 8
-  %cmp.i.not103 = icmp eq ptr %17, %18
-  br i1 %cmp.i.not103, label %for.end, label %for.body.lr.ph
+  %cmp.i.not104 = icmp eq ptr %17, %18
+  br i1 %cmp.i.not104, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end64
   %19 = load i16, ptr %dir, align 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %__begin1.sroa.0.0104 = phi ptr [ %17, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
-  %20 = load i16, ptr %__begin1.sroa.0.0104, align 4
+  %__begin1.sroa.0.0105 = phi ptr [ %17, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
+  %20 = load i16, ptr %__begin1.sroa.0.0105, align 4
   %cmp75 = icmp eq i16 %20, %19
   br i1 %cmp75, label %if.then76, label %for.inc
 
 if.then76:                                        ; preds = %for.body
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__begin1.sroa.0.0104, ptr noundef nonnull align 4 dereferenceable(12) %dir, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__begin1.sroa.0.0105, ptr noundef nonnull align 4 dereferenceable(12) %dir, i64 12, i1 false)
   br label %return
 
 for.inc:                                          ; preds = %for.body
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.0104, i64 12
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.0105, i64 12
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %18
   br i1 %cmp.i.not, label %for.end, label %for.body
 

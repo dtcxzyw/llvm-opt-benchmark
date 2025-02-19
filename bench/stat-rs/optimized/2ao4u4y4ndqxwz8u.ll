@@ -919,12 +919,12 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
 28:                                               ; preds = %27, %24
   %29 = landingpad { ptr, i32 }
           cleanup
-  br label %70
+  br label %69
 
 30:                                               ; preds = %51, %48
   %31 = landingpad { ptr, i32 }
           cleanup
-  br label %70
+  br label %69
 
 32:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h78de848a7ae7b4a3E.exit.i"
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -979,33 +979,31 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   %not..i.i = xor i1 %57, true
   %58 = zext i1 %not..i.i to i64
   %spec.select8.i.i = add nuw nsw i64 %.sroa.0.011.i.i, %58
-  %59 = icmp samesign ult i64 %.sroa.0.011.i.i, 12
-  tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw ptr, ptr %45, i64 %.sroa.0.011.i.i
-  %61 = load ptr, ptr %60, align 8, !alias.scope !140, !noalias !143, !nonnull !4, !noundef !4
-  store ptr %6, ptr %61, align 8, !noalias !150
-  %62 = trunc nuw nsw i64 %.sroa.0.011.i.i to i16
-  %63 = getelementptr inbounds nuw i8, ptr %61, i64 184
-  store i16 %62, ptr %63, align 8, !noalias !151
+  %59 = getelementptr inbounds nuw ptr, ptr %45, i64 %.sroa.0.011.i.i
+  %60 = load ptr, ptr %59, align 8, !alias.scope !140, !noalias !143, !nonnull !4, !noundef !4
+  store ptr %6, ptr %60, align 8, !noalias !150
+  %61 = trunc nuw nsw i64 %.sroa.0.011.i.i to i16
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 184
+  store i16 %61, ptr %62, align 8, !noalias !151
   %.not.i.i.i.i = icmp samesign ugt i64 %spec.select8.i.i, %44
   %or.cond.i.i = select i1 %57, i1 true, i1 %.not.i.i.i.i
-  br i1 %or.cond.i.i, label %64, label %56
+  br i1 %or.cond.i.i, label %63, label %56
 
-64:                                               ; preds = %56
+63:                                               ; preds = %56
   store ptr %3, ptr %0, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %55, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store double %18, ptr %66, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %21, ptr %67, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %6, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %55, ptr %69, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %55, ptr %64, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store double %18, ptr %65, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %21, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %6, ptr %67, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %55, ptr %68, align 8
   ret void
 
-70:                                               ; preds = %30, %28
+69:                                               ; preds = %30, %28
   %.pn = phi { ptr, i32 } [ %31, %30 ], [ %29, %28 ]
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef 288, i64 noundef 8) #21
   resume { ptr, i32 } %.pn

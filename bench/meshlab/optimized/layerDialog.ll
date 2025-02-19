@@ -8992,7 +8992,6 @@ define void @_ZN11LayerDialog15meshItemClickedEP15QTreeWidgetItemi(ptr noundef n
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, null
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %spec.select.i = select i1 %.not.i, ptr null, ptr %15
   br i1 %.not.i, label %177, label %16
 
 16:                                               ; preds = %10
@@ -9045,8 +9044,8 @@ _ZNK10MainWindow3GLAEv.exit:                      ; preds = %20, %_ZNK10MainWind
 
 _ZNK10MainWindow3GLAEv.exit39:                    ; preds = %31, %35
   %.0.i38 = phi ptr [ %37, %35 ], [ null, %31 ]
-  %38 = tail call noundef ptr @_ZN12MeshDocument7getMeshEj(ptr noundef nonnull align 8 dereferenceable(192) %spec.select.i, i32 noundef %.0)
-  %39 = tail call noundef ptr @_ZN12MeshDocument7getMeshEj(ptr noundef nonnull align 8 dereferenceable(192) %spec.select.i, i32 noundef %.0)
+  %38 = tail call noundef ptr @_ZN12MeshDocument7getMeshEj(ptr noundef nonnull align 8 dereferenceable(192) %15, i32 noundef %.0)
+  %39 = tail call noundef ptr @_ZN12MeshDocument7getMeshEj(ptr noundef nonnull align 8 dereferenceable(192) %15, i32 noundef %.0)
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1204
   %41 = load i8, ptr %40, align 4
   %42 = trunc i8 %41 to i1
@@ -9060,7 +9059,7 @@ _ZNK10MainWindow3GLAEv.exit39:                    ; preds = %31, %35
   br i1 %46, label %47, label %.loopexit
 
 47:                                               ; preds = %44
-  %48 = tail call ptr @_ZN12MeshDocument12meshIteratorEv(ptr noundef nonnull align 8 dereferenceable(192) %spec.select.i)
+  %48 = tail call ptr @_ZN12MeshDocument12meshIteratorEv(ptr noundef nonnull align 8 dereferenceable(192) %15)
   %49 = tail call ptr @_ZN12MeshDocument9meshBeginEv(ptr noundef nonnull align 8 dereferenceable(192) %48)
   %50 = tail call ptr @_ZN12MeshDocument7meshEndEv(ptr noundef nonnull align 8 dereferenceable(192) %48)
   %.not9298 = icmp eq ptr %49, %50
@@ -9085,7 +9084,7 @@ _ZNK10MainWindow3GLAEv.exit42:                    ; preds = %47, %_ZNK10MainWind
   br i1 %59, label %60, label %87
 
 60:                                               ; preds = %.loopexit
-  %61 = tail call ptr @_ZN12MeshDocument12meshIteratorEv(ptr noundef nonnull align 8 dereferenceable(192) %spec.select.i)
+  %61 = tail call ptr @_ZN12MeshDocument12meshIteratorEv(ptr noundef nonnull align 8 dereferenceable(192) %15)
   %62 = tail call ptr @_ZN12MeshDocument9meshBeginEv(ptr noundef nonnull align 8 dereferenceable(192) %61)
   %63 = tail call ptr @_ZN12MeshDocument7meshEndEv(ptr noundef nonnull align 8 dereferenceable(192) %61)
   %.not93100 = icmp eq ptr %62, %63
@@ -9122,8 +9121,8 @@ _ZNK10MainWindow3GLAEv.exit45:                    ; preds = %60, %_ZNK10MainWind
 
 _ZNK10MainWindow3GLAEv.exit48:                    ; preds = %._crit_edge, %78
   %.0.i47 = phi ptr [ %80, %78 ], [ null, %._crit_edge ]
-  %81 = tail call noundef ptr @_ZN12MeshDocument7getMeshEj(ptr noundef nonnull align 8 dereferenceable(192) %spec.select.i, i32 noundef %.0)
-  %82 = tail call noundef ptr @_ZN12MeshDocument7getMeshEj(ptr noundef nonnull align 8 dereferenceable(192) %spec.select.i, i32 noundef %.0)
+  %81 = tail call noundef ptr @_ZN12MeshDocument7getMeshEj(ptr noundef nonnull align 8 dereferenceable(192) %15, i32 noundef %.0)
+  %82 = tail call noundef ptr @_ZN12MeshDocument7getMeshEj(ptr noundef nonnull align 8 dereferenceable(192) %15, i32 noundef %.0)
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 1204
   %84 = load i8, ptr %83, align 4
   %85 = trunc i8 %84 to i1

@@ -262,7 +262,7 @@ define internal void @finish_output_bmp(ptr noundef %0, ptr noundef readonly cap
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %8 = load i32, ptr %7, align 8, !tbaa !66
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %50, label %9
+  br i1 %.not, label %._crit_edge.thread, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -282,16 +282,16 @@ define internal void @finish_output_bmp(ptr noundef %0, ptr noundef readonly cap
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %16 = load i32, ptr %15, align 4, !tbaa !58
   %.not3640 = icmp eq i32 %16, 0
+  %.not37 = icmp eq ptr %6, null
   br i1 %.not3640, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
-  %.not39 = icmp eq ptr %6, null
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  br i1 %.not39, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not37, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.041.us = phi i32 [ %26, %.lr.ph.split.us ], [ %16, %.lr.ph ]
@@ -306,7 +306,7 @@ define internal void @finish_output_bmp(ptr noundef %0, ptr noundef readonly cap
   %30 = zext i32 %29 to i64
   %31 = tail call i64 @fwrite(ptr noundef %28, i64 noundef 1, i64 noundef %30, ptr noundef %4)
   %.not36.us = icmp eq i32 %26, 0
-  br i1 %.not36.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !73
+  br i1 %.not36.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !73
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.041 = phi i32 [ %41, %.lr.ph.split ], [ %16, %.lr.ph ]
@@ -329,34 +329,33 @@ define internal void @finish_output_bmp(ptr noundef %0, ptr noundef readonly cap
   %45 = zext i32 %44 to i64
   %46 = tail call i64 @fwrite(ptr noundef %43, i64 noundef 1, i64 noundef %45, ptr noundef %4)
   %.not36 = icmp eq i32 %41, 0
-  br i1 %.not36, label %._crit_edge.thread, label %.lr.ph.split, !llvm.loop !73
+  br i1 %.not36, label %._crit_edge.thread44, label %.lr.ph.split, !llvm.loop !73
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %14
-  %.not37 = icmp eq ptr %6, null
-  br i1 %.not37, label %50, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %14
+  br i1 %.not37, label %._crit_edge.thread, label %._crit_edge.thread44
 
-._crit_edge.thread:                               ; preds = %.lr.ph.split, %._crit_edge
+._crit_edge.thread44:                             ; preds = %.lr.ph.split, %._crit_edge
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %48 = load i32, ptr %47, align 8, !tbaa !78
   %49 = add nsw i32 %48, 1
   store i32 %49, ptr %47, align 8, !tbaa !78
-  br label %50
+  br label %._crit_edge.thread
 
-50:                                               ; preds = %._crit_edge, %._crit_edge.thread, %2
-  %51 = tail call i32 @fflush(ptr noundef %4)
-  %52 = tail call i32 @ferror(ptr noundef %4) #7
-  %.not38 = icmp eq i32 %52, 0
-  br i1 %.not38, label %57, label %53
+._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %._crit_edge, %._crit_edge.thread44, %2
+  %50 = tail call i32 @fflush(ptr noundef %4)
+  %51 = tail call i32 @ferror(ptr noundef %4) #7
+  %.not38 = icmp eq i32 %51, 0
+  br i1 %.not38, label %56, label %52
 
-53:                                               ; preds = %50
-  %54 = load ptr, ptr %0, align 8, !tbaa !31
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
-  store i32 37, ptr %55, align 8, !tbaa !32
-  %56 = load ptr, ptr %54, align 8, !tbaa !36
-  tail call void %56(ptr noundef nonnull %0) #7
-  br label %57
+52:                                               ; preds = %._crit_edge.thread
+  %53 = load ptr, ptr %0, align 8, !tbaa !31
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
+  store i32 37, ptr %54, align 8, !tbaa !32
+  %55 = load ptr, ptr %53, align 8, !tbaa !36
+  tail call void %55(ptr noundef nonnull %0) #7
+  br label %56
 
-57:                                               ; preds = %53, %50
+56:                                               ; preds = %52, %._crit_edge.thread
   ret void
 }
 

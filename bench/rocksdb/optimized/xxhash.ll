@@ -4557,18 +4557,14 @@ while.body:                                       ; preds = %if.end3, %while.bod
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 1 %spec.select23, i64 %cond, i1 false)
   %add = add i64 %cond, %pos.036
   %cmp10 = icmp ult i64 %add, %secretSize
-  br i1 %cmp10, label %while.body, label %while.end, !llvm.loop !27
+  br i1 %cmp10, label %while.body, label %for.body.lr.ph, !llvm.loop !27
 
-while.end:                                        ; preds = %while.body
+for.body.lr.ph:                                   ; preds = %while.body
   %div22 = lshr i64 %secretSize, 4
   %call.i.i = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef nonnull %spec.select23, i64 noundef %spec.select, i64 noundef 0, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL27XXH3_hashLong_128b_withSeedPKvmmS0_m) #32
   %0 = extractvalue { i64, i64 } %call.i.i, 0
   %1 = extractvalue { i64, i64 } %call.i.i, 1
   %or19.i2.i = tail call noundef i64 @llvm.bswap.i64(i64 %0)
-  %cmp1337.not = icmp ult i64 %secretSize, 16
-  br i1 %cmp1337.not, label %for.end, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %while.end
   %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %1)
   %invariant.op = xor i64 %or19.i.i, %or19.i2.i
   br label %for.body
@@ -4621,7 +4617,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %exitcond.not = icmp eq i64 %inc, %div22
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !28
 
-for.end:                                          ; preds = %for.body, %while.end
+for.end:                                          ; preds = %for.body
   %add.ptr17 = getelementptr inbounds i8, ptr %secretBuffer, i64 %secretSize
   %add.ptr18 = getelementptr inbounds i8, ptr %add.ptr17, i64 -16
   %dst.val.i28 = load i64, ptr %add.ptr18, align 1

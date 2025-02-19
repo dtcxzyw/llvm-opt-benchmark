@@ -6004,7 +6004,6 @@ ZSTD_cwksp_mark_tables_clean.exit.i.i:            ; preds = %244, %232
   br label %ZSTD_resetCCtx_byCopyingCDict.exit.i
 
 ZSTD_resetCCtx_byCopyingCDict.exit.i:             ; preds = %ZSTD_cwksp_mark_tables_clean.exit.i.i, %ZSTD_shouldAttachDict.exit.thread.i
-  %.1.i.i = phi i64 [ 0, %ZSTD_cwksp_mark_tables_clean.exit.i.i ], [ %130, %ZSTD_shouldAttachDict.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %10)
   br label %ZSTD_resetCCtx_usingCDict.exit
 
@@ -6061,7 +6060,7 @@ ZSTD_resetCCtx_byCopyingCDict.exit.i:             ; preds = %ZSTD_cwksp_mark_tab
   br label %ZSTD_resetCCtx_usingCDict.exit
 
 ZSTD_resetCCtx_usingCDict.exit:                   ; preds = %.thread, %290, %287, %ZSTD_resetCCtx_byCopyingCDict.exit.i, %ZSTD_resetCCtx_byAttachingCDict.exit.i, %258
-  %.0 = phi i64 [ %259, %258 ], [ %86, %ZSTD_resetCCtx_byAttachingCDict.exit.i ], [ %.1.i.i, %ZSTD_resetCCtx_byCopyingCDict.exit.i ], [ %288, %287 ], [ 0, %290 ], [ %261, %.thread ]
+  %.0 = phi i64 [ %259, %258 ], [ %86, %ZSTD_resetCCtx_byAttachingCDict.exit.i ], [ %130, %ZSTD_resetCCtx_byCopyingCDict.exit.i ], [ %288, %287 ], [ 0, %290 ], [ %261, %.thread ]
   ret i64 %.0
 }
 
@@ -14604,7 +14603,7 @@ ZSTD_fastSequenceLengthSum.exit:                  ; preds = %.lr.ph.i
 ZSTD_fastSequenceLengthSum.exit.thread:           ; preds = %132, %ZSTD_fastSequenceLengthSum.exit
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %147 = load i32, ptr %146, align 8, !tbaa !346
-  %148 = call i64 @ZSTD_copySequencesToSeqStoreExplicitBlockDelim(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %133, i64 noundef %.0.i, ptr noundef %1, i64 noundef %2, i32 noundef %147)
+  %148 = call i64 @ZSTD_copySequencesToSeqStoreExplicitBlockDelim(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %133, i64 noundef %.0.i, ptr noundef %1, i64 noundef %2, i32 noundef %147)
   %149 = icmp ult i64 %148, -119
   br i1 %149, label %150, label %152
 

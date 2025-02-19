@@ -8109,14 +8109,10 @@ _ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EE7reserveEm.exit.i: ; preds = %
           to label %.preheader.i198 unwind label %.loopexit54.i
 
 .preheader.i198:                                  ; preds = %_ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EE7reserveEm.exit.i
-  br i1 %.not67.i, label %._crit_edge.i, label %.lr.ph.preheader.i
+  br i1 %.not67.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %.preheader.i198
-  %smax.i = call i32 @llvm.smax.i32(i32 %2922, i32 1)
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %_ZN10open_spiel13TabularPolicyD2Ev.exit.i209, %.lr.ph.preheader.i
-  %.061.i = phi i32 [ %3049, %_ZN10open_spiel13TabularPolicyD2Ev.exit.i209 ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %.preheader.i198, %_ZN10open_spiel13TabularPolicyD2Ev.exit.i209
+  %.061.i = phi i32 [ %3049, %_ZN10open_spiel13TabularPolicyD2Ev.exit.i209 ], [ 0, %.preheader.i198 ]
   invoke void @_ZN10open_spiel10algorithms13CFRSolverBase23EvaluateAndUpdatePolicyEv(ptr noundef nonnull align 8 dereferenceable(5128) %10)
           to label %2942 unwind label %.loopexit.i199
 
@@ -8375,7 +8371,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZN10open_spiel13TabularPolicyD2Ev.exit.i209:     ; preds = %3046, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i208
   %3049 = add nuw nsw i32 %.061.i, 1
-  %exitcond.not.i = icmp eq i32 %3049, %smax.i
+  %exitcond.not.i = icmp eq i32 %3049, %2922
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !58
 
 3050:                                             ; preds = %.noexc.i191, %_ZN10open_spiel10algorithms12_GLOBAL__N_128TestGreenwaldSarfatiExample1Ev.exit
@@ -21230,7 +21226,7 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %
   %96 = shl i64 %7, 6
   %97 = add i64 %95, %96
   %98 = and i64 %97, -8
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %98) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %98) #25
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS4_ISA_dESaISD_EEEENS0_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_SF_EEE16initialize_slotsEv.exit, %._crit_edge
@@ -25372,11 +25368,11 @@ _ZNKSt6vectorIN10open_spiel13TabularPolicyESaIS1_EE12_M_check_lenEmPKc.exit: ; p
           to label %37 unwind label %.thread
 
 .thread:                                          ; preds = %_ZNKSt6vectorIN10open_spiel13TabularPolicyESaIS1_EE12_M_check_lenEmPKc.exit
-  %lpad.thr_comm46 = landingpad { ptr, i32 }
+  %lpad.thr_comm45 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %lpad.thr_comm46, 0
+  %35 = extractvalue { ptr, i32 } %lpad.thr_comm45, 0
   %36 = call ptr @__cxa_begin_catch(ptr %35) #27
-  br label %_ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.exit36
+  br label %.loopexit
 
 37:                                               ; preds = %_ZNKSt6vectorIN10open_spiel13TabularPolicyESaIS1_EE12_M_check_lenEmPKc.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -25428,7 +25424,7 @@ _ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.e
   %53 = load ptr, ptr %22, align 8
   %54 = load ptr, ptr %53, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(64) %22) #27
-  br label %_ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.exit36
+  br label %.loopexit
 
 55:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN10open_spiel13TabularPolicyES2_SaIS1_EET0_T_S5_S4_RT1_.exit
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -25436,7 +25432,7 @@ _ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.e
   %56 = extractvalue { ptr, i32 } %lpad.thr_comm, 0
   %57 = call ptr @__cxa_begin_catch(ptr %56) #27
   %.not4.i.i.i30 = icmp eq ptr %21, %39
-  br i1 %.not4.i.i.i30, label %_ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.exit36, label %.lr.ph.i.i.i31
+  br i1 %.not4.i.i.i30, label %.loopexit, label %.lr.ph.i.i.i31
 
 .lr.ph.i.i.i31:                                   ; preds = %55, %.lr.ph.i.i.i31
   %.05.i.i.i32 = phi ptr [ %60, %.lr.ph.i.i.i31 ], [ %21, %55 ]
@@ -25445,15 +25441,15 @@ _ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.e
   call void %59(ptr noundef nonnull align 8 dereferenceable(64) %.05.i.i.i32) #27
   %60 = getelementptr inbounds nuw i8, ptr %.05.i.i.i32, i64 64
   %.not.i.i.i33 = icmp eq ptr %.05.i.i.i32, %38
-  br i1 %.not.i.i.i33, label %_ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.exit36, label %.lr.ph.i.i.i31, !llvm.loop !51
+  br i1 %.not.i.i.i33, label %.loopexit, label %.lr.ph.i.i.i31, !llvm.loop !51
 
-61:                                               ; preds = %_ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.exit36
+61:                                               ; preds = %.loopexit
   %62 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %63 unwind label %64
 
-_ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.exit36: ; preds = %.lr.ph.i.i.i31, %55, %50, %.thread
+.loopexit:                                        ; preds = %.lr.ph.i.i.i31, %.thread, %50, %55
   call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %20) #25
   invoke void @__cxa_rethrow() #26
           to label %67 unwind label %61
@@ -25468,7 +25464,7 @@ _ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.e
   call void @__clang_call_terminate(ptr %66) #28
   unreachable
 
-67:                                               ; preds = %_ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.exit36
+67:                                               ; preds = %.loopexit
   unreachable
 }
 
@@ -25568,9 +25564,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #20
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

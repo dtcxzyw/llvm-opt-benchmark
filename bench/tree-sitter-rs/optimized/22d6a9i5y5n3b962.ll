@@ -1200,7 +1200,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hdc946adb8591f21dE.exit: ; preds = %.
 
 ._crit_edge:                                      ; preds = %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h81aa1d1501b9cae2E.exit", %138, %139, %146, %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$4push17h8ea37e2e752addfeE.exit"
   %.pre.i147 = phi ptr [ %.pre.i148, %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$4push17h8ea37e2e752addfeE.exit" ], [ %.pre151, %146 ], [ %.pre151, %139 ], [ %.pre151, %138 ], [ %.pre151, %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h81aa1d1501b9cae2E.exit" ]
-  %156 = phi i64 [ %124, %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$4push17h8ea37e2e752addfeE.exit" ], [ %127, %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h81aa1d1501b9cae2E.exit" ], [ 2, %138 ], [ %126, %139 ], [ %126, %146 ]
+  %156 = phi i64 [ %124, %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$4push17h8ea37e2e752addfeE.exit" ], [ 1, %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h81aa1d1501b9cae2E.exit" ], [ 2, %138 ], [ 3, %139 ], [ %126, %146 ]
   %157 = icmp ult i64 %.0.i, %1
   br i1 %157, label %40, label %28
 
@@ -21210,7 +21210,7 @@ common.resume:                                    ; preds = %287, %225
   %255 = load i64, ptr %.sroa.0.0275, align 8, !alias.scope !4302, !noundef !14
   %256 = icmp ult i64 %255, %.val1.i.i
   %257 = getelementptr inbounds [0 x { { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, { { { { i64, ptr }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { {} } }, i64, i64, i64, i64 }], ptr %.val.i.i, i64 0, i64 %255, i32 5
-  br i1 %256, label %.outer.i.us, label %.split, !prof !429
+  br i1 %256, label %.outer.i.us, label %.lr.ph.split.invoke.i, !prof !429
 
 .outer.i.us:                                      ; preds = %252, %.split.us.us
   %.023.ph.i.us = phi i64 [ %272, %.split.us.us ], [ %254, %252 ]
@@ -21279,13 +21279,8 @@ common.resume:                                    ; preds = %287, %225
   %285 = add nuw i64 %.022.lcssa.i.us, 1
   br label %.outer.i.us
 
-.split:                                           ; preds = %252
-  %.not288 = icmp ne i64 %254, 0
-  call void @llvm.assume(i1 %.not288)
-  br label %.lr.ph.split.invoke.i
-
-.lr.ph.split.invoke.i:                            ; preds = %"_ZN15tree_sitter_cli8generate12build_tables17report_state_info28_$u7b$$u7b$closure$u7d$$u7d$17h49d3da3578c682bcE.exit.i.us.i60.us", %"_ZN15tree_sitter_cli8generate12build_tables17report_state_info28_$u7b$$u7b$closure$u7d$$u7d$17h49d3da3578c682bcE.exit.i43.i.us.us", %.split
-  %286 = phi i64 [ %255, %.split ], [ %.val36.i.us.us, %"_ZN15tree_sitter_cli8generate12build_tables17report_state_info28_$u7b$$u7b$closure$u7d$$u7d$17h49d3da3578c682bcE.exit.i43.i.us.us" ], [ %.val39.us.i.us, %"_ZN15tree_sitter_cli8generate12build_tables17report_state_info28_$u7b$$u7b$closure$u7d$$u7d$17h49d3da3578c682bcE.exit.i.us.i60.us" ]
+.lr.ph.split.invoke.i:                            ; preds = %252, %"_ZN15tree_sitter_cli8generate12build_tables17report_state_info28_$u7b$$u7b$closure$u7d$$u7d$17h49d3da3578c682bcE.exit.i.us.i60.us", %"_ZN15tree_sitter_cli8generate12build_tables17report_state_info28_$u7b$$u7b$closure$u7d$$u7d$17h49d3da3578c682bcE.exit.i43.i.us.us"
+  %286 = phi i64 [ %.val36.i.us.us, %"_ZN15tree_sitter_cli8generate12build_tables17report_state_info28_$u7b$$u7b$closure$u7d$$u7d$17h49d3da3578c682bcE.exit.i43.i.us.us" ], [ %.val39.us.i.us, %"_ZN15tree_sitter_cli8generate12build_tables17report_state_info28_$u7b$$u7b$closure$u7d$$u7d$17h49d3da3578c682bcE.exit.i.us.i60.us" ], [ %255, %252 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %286, i64 noundef %.val1.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c13ca020c8cd2aed047f2b2cb7b89f8e.81) #17
           to label %.lr.ph.split.cont.i unwind label %287, !noalias !4302
 

@@ -2892,7 +2892,7 @@ _ZNSt3mapIN4cvc58internal8TypeNodeESt13unordered_setINS1_12NodeTemplateILb1EEESt
   %327 = load i64, ptr %326, align 8
   %328 = and i64 %327, 1099511627775
   %329 = icmp samesign ult i64 %317, %328
-  br i1 %329, label %.lr.ph.i.i.i.i89, label %379
+  br i1 %329, label %.lr.ph.i.i.i.i89, label %.lr.ph.i.i.i.i93
 
 .lr.ph.i.i.i.i89:                                 ; preds = %_ZNSt3mapIN4cvc58internal8TypeNodeESt13unordered_setINS1_12NodeTemplateILb1EEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EESt4lessIS2_ESaISt4pairIKS2_SB_EEE4findERSF_.exit88, %_ZNSt8_Rb_treeIN4cvc58internal8TypeNodeESt4pairIKS2_St13unordered_setINS1_12NodeTemplateILb1EEESt4hashIS7_ESt8equal_toIS7_ESaIS7_EEESt10_Select1stISE_ESt4lessIS2_ESaISE_EE14_M_lower_boundEPSt13_Rb_tree_nodeISE_EPSt18_Rb_tree_node_baseRS4_.exit.i.i85
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %32) #23
@@ -3017,17 +3017,12 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_Id
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %167, i8 0, i64 16, i1 false)
   %370 = load ptr, ptr %32, align 8, !tbaa !6
   %371 = icmp eq ptr %370, %165
-  br i1 %371, label %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEED2Ev.exit138, label %372
+  br i1 %371, label %379, label %372
 
 372:                                              ; preds = %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i137
   %373 = load i64, ptr %166, align 8, !tbaa !16
   %374 = shl i64 %373, 3
   call void @_ZdlPvm(ptr noundef %370, i64 noundef %374) #26
-  br label %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEED2Ev.exit138
-
-_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEED2Ev.exit138: ; preds = %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i137, %372
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %32) #23
-  %.pre = load ptr, ptr %163, align 8, !tbaa !357
   br label %379
 
 375:                                              ; preds = %286
@@ -3042,12 +3037,14 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_Id
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %32) #23
   br label %404
 
-379:                                              ; preds = %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEED2Ev.exit138, %_ZNSt3mapIN4cvc58internal8TypeNodeESt13unordered_setINS1_12NodeTemplateILb1EEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EESt4lessIS2_ESaISt4pairIKS2_SB_EEE4findERSF_.exit88
-  %380 = phi ptr [ %.pre, %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEED2Ev.exit138 ], [ %314, %_ZNSt3mapIN4cvc58internal8TypeNodeESt13unordered_setINS1_12NodeTemplateILb1EEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EESt4lessIS2_ESaISt4pairIKS2_SB_EEE4findERSF_.exit88 ]
-  %.not10.i.i.i.i92 = icmp eq ptr %380, null
+379:                                              ; preds = %372, %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i137
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %32) #23
+  %.pre = load ptr, ptr %163, align 8, !tbaa !357
+  %.not10.i.i.i.i92 = icmp eq ptr %.pre, null
   br i1 %.not10.i.i.i.i92, label %.critedge.i103, label %.lr.ph.i.i.i.i93
 
-.lr.ph.i.i.i.i93:                                 ; preds = %379
+.lr.ph.i.i.i.i93:                                 ; preds = %_ZNSt3mapIN4cvc58internal8TypeNodeESt13unordered_setINS1_12NodeTemplateILb1EEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EESt4lessIS2_ESaISt4pairIKS2_SB_EEE4findERSF_.exit88, %379
+  %380 = phi ptr [ %.pre, %379 ], [ %314, %_ZNSt3mapIN4cvc58internal8TypeNodeESt13unordered_setINS1_12NodeTemplateILb1EEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EESt4lessIS2_ESaISt4pairIKS2_SB_EEE4findERSF_.exit88 ]
   %381 = load ptr, ptr %29, align 8, !tbaa !31
   %382 = load i64, ptr %381, align 8
   %383 = and i64 %382, 1099511627775

@@ -60,8 +60,7 @@ define dso_local ptr @uv_setup_args(i32 noundef %0, ptr noundef readonly capture
   br i1 %.not, label %._crit_edge56, label %.lr.ph55.preheader
 
 .lr.ph55.preheader:                               ; preds = %19
-  %smax = tail call i32 @llvm.smax.i32(i32 %0, i32 2)
-  %wide.trip.count69 = zext nneg i32 %smax to i64
+  %wide.trip.count69 = zext nneg i32 %0 to i64
   br label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %.lr.ph55.preheader, %.lr.ph55
@@ -81,7 +80,7 @@ define dso_local ptr @uv_setup_args(i32 noundef %0, ptr noundef readonly capture
   br i1 %exitcond70.not, label %._crit_edge56.loopexit, label %.lr.ph55
 
 ._crit_edge56.loopexit:                           ; preds = %.lr.ph55
-  %28 = zext nneg i32 %smax to i64
+  %28 = zext nneg i32 %0 to i64
   br label %._crit_edge56
 
 ._crit_edge56:                                    ; preds = %19, %._crit_edge56.loopexit
@@ -217,9 +216,6 @@ define hidden void @uv__process_title_cleanup() local_unnamed_addr #0 {
 declare void @uv__free(ptr noundef) local_unnamed_addr #2
 
 declare i32 @uv_mutex_init(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #5

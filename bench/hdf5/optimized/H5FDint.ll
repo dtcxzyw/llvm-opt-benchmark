@@ -835,7 +835,7 @@ define range(i32 -1, -2147483648) i32 @H5FD_write(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5FD_read_vector(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @H5FD_read_vector(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.H5_user_cb_state_t, align 8
   %8 = alloca %struct.H5_user_cb_state_t, align 8
   %9 = alloca i32, align 4
@@ -910,14 +910,12 @@ define i32 @H5FD_read_vector(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
   br i1 %41, label %.preheader186, label %.preheader187.preheader
 
 .preheader187.preheader:                          ; preds = %.loopexit
-  %umax = tail call i32 @llvm.umax.i32(i32 %1, i32 1)
-  %wide.trip.count257 = zext i32 %umax to i64
+  %wide.trip.count257 = zext i32 %1 to i64
   br label %.preheader187
 
 .preheader186:                                    ; preds = %.loopexit
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %umax261 = tail call i32 @llvm.umax.i32(i32 %1, i32 1)
-  %wide.trip.count262 = zext i32 %umax261 to i64
+  %wide.trip.count262 = zext i32 %1 to i64
   br label %43
 
 43:                                               ; preds = %.preheader186, %91
@@ -1246,7 +1244,7 @@ declare i32 @H5CX_get_no_selection_io_cause(ptr noundef) local_unnamed_addr #2
 declare void @H5CX_set_no_selection_io_cause(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5FD_write_vector(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @H5FD_write_vector(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.H5_user_cb_state_t, align 8
   %8 = alloca %struct.H5_user_cb_state_t, align 8
   %9 = alloca i32, align 4
@@ -1315,8 +1313,7 @@ define i32 @H5FD_write_vector(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
 
 .loopexit:                                        ; preds = %.preheader156, %31
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %umax = tail call i32 @llvm.umax.i32(i32 %1, i32 1)
-  %wide.trip.count221 = zext i32 %umax to i64
+  %wide.trip.count221 = zext i32 %1 to i64
   br label %39
 
 39:                                               ; preds = %.loopexit, %87
@@ -1717,8 +1714,7 @@ define i32 @H5FD_read_selection(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br i1 %.not130, label %57, label %.preheader158.preheader
 
 .preheader158.preheader:                          ; preds = %56
-  %umax = call i32 @llvm.umax.i32(i32 %2, i32 1)
-  %wide.trip.count183 = zext i32 %umax to i64
+  %wide.trip.count183 = zext i32 %2 to i64
   br label %.preheader158
 
 57:                                               ; preds = %56
@@ -2687,7 +2683,7 @@ define internal fastcc i32 @H5FD__read_selection_translate(i32 noundef range(i32
 declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5FD_read_selection_id(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @H5FD_read_selection_id(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca [8 x ptr], align 16
   %11 = alloca [8 x ptr], align 16
   %12 = alloca %struct.H5_user_cb_state_t, align 8
@@ -2795,8 +2791,7 @@ define i32 @H5FD_read_selection_id(i32 noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not117, label %60, label %.preheader155.preheader
 
 .preheader155.preheader:                          ; preds = %59
-  %umax = call i32 @llvm.umax.i32(i32 %3, i32 1)
-  %wide.trip.count170 = zext i32 %umax to i64
+  %wide.trip.count170 = zext i32 %3 to i64
   br label %.preheader155
 
 60:                                               ; preds = %59
@@ -3119,8 +3114,7 @@ define i32 @H5FD_write_selection(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   br i1 %.not125, label %53, label %.preheader148.preheader
 
 .preheader148.preheader:                          ; preds = %52
-  %umax = call i32 @llvm.umax.i32(i32 %2, i32 1)
-  %wide.trip.count172 = zext i32 %umax to i64
+  %wide.trip.count172 = zext i32 %2 to i64
   br label %.preheader148
 
 53:                                               ; preds = %52
@@ -3290,7 +3284,7 @@ define i32 @H5FD_write_selection(ptr noundef %0, i32 noundef %1, i32 noundef %2,
 146:                                              ; preds = %.thread133, %140, %142, %136, %116, %95, %84, %77
   %.2114 = phi ptr [ null, %77 ], [ %75, %84 ], [ %.1113, %95 ], [ %.1113, %116 ], [ %.1113, %136 ], [ %.1113, %142 ], [ %.1113, %140 ], [ %.1113, %.thread133 ]
   %.2111 = phi ptr [ %10, %77 ], [ null, %84 ], [ %.1110, %95 ], [ %.1110, %116 ], [ %.1110, %136 ], [ %.1110, %142 ], [ %.1110, %140 ], [ %.1110, %.thread133 ]
-  %.1106 = phi i32 [ 0, %77 ], [ 0, %84 ], [ %96, %95 ], [ %108, %116 ], [ %umax, %136 ], [ %umax, %142 ], [ %umax, %140 ], [ %umax, %.thread133 ]
+  %.1106 = phi i32 [ 0, %77 ], [ 0, %84 ], [ %96, %95 ], [ %108, %116 ], [ %2, %136 ], [ %2, %142 ], [ %2, %140 ], [ %2, %.thread133 ]
   %.3 = phi i32 [ -1, %77 ], [ -1, %84 ], [ -1, %95 ], [ -1, %116 ], [ -1, %136 ], [ %128, %142 ], [ %128, %140 ], [ -1, %.thread133 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
   br label %154
@@ -4077,7 +4071,7 @@ define internal fastcc i32 @H5FD__write_selection_translate(i32 noundef range(i3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5FD_write_selection_id(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @H5FD_write_selection_id(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca [8 x ptr], align 16
   %11 = alloca [8 x ptr], align 16
   %12 = alloca %struct.H5_user_cb_state_t, align 8
@@ -4178,8 +4172,7 @@ define i32 @H5FD_write_selection_id(i32 noundef %0, ptr noundef %1, i32 noundef 
   br i1 %.not112, label %56, label %.preheader145.preheader
 
 .preheader145.preheader:                          ; preds = %55
-  %umax = call i32 @llvm.umax.i32(i32 %3, i32 1)
-  %wide.trip.count159 = zext i32 %umax to i64
+  %wide.trip.count159 = zext i32 %3 to i64
   br label %.preheader145
 
 56:                                               ; preds = %55

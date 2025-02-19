@@ -87,10 +87,6 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Softmax15forward_inplace
   %24 = icmp sgt i32 %22, 0
   br i1 %24, label %.lr.ph.preheader, label %.loopexit1027.thread
 
-.loopexit1027.thread:                             ; preds = %20
-  %25 = icmp eq i32 %18, 0
-  br label %210
-
 .lr.ph.preheader:                                 ; preds = %20
   %wide.trip.count = zext nneg i32 %22 to i64
   br label %.lr.ph
@@ -102,43 +98,47 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Softmax15forward_inplace
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.010051029 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.preheader ], [ %.sroa.speculated1000, %.lr.ph ]
-  %26 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv
-  %27 = load float, ptr %26, align 4
-  %28 = fcmp fast olt float %.010051029, %27
-  %.sroa.speculated1000 = select i1 %28, float %27, float %.010051029
+  %25 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv
+  %26 = load float, ptr %25, align 4
+  %27 = fcmp fast olt float %.010051029, %26
+  %.sroa.speculated1000 = select i1 %27, float %26, float %.010051029
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph1033.preheader, label %.lr.ph, !llvm.loop !4
 
 .lr.ph1036.preheader:                             ; preds = %.lr.ph1033
   %wide.trip.count1186 = zext nneg i32 %22 to i64
-  %29 = fdiv fast float 1.000000e+00, %34
+  %28 = fdiv fast float 1.000000e+00, %33
   br label %.lr.ph1036
 
 .lr.ph1033:                                       ; preds = %.lr.ph1033.preheader, %.lr.ph1033
   %indvars.iv1178 = phi i64 [ 0, %.lr.ph1033.preheader ], [ %indvars.iv.next1179, %.lr.ph1033 ]
-  %.07011032 = phi float [ 0.000000e+00, %.lr.ph1033.preheader ], [ %34, %.lr.ph1033 ]
-  %30 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv1178
-  %31 = load float, ptr %30, align 4
-  %32 = fsub fast float %31, %.sroa.speculated1000
-  %33 = tail call fast float @llvm.exp.f32(float %32)
-  store float %33, ptr %30, align 4
-  %34 = fadd fast float %33, %.07011032
+  %.07011032 = phi float [ 0.000000e+00, %.lr.ph1033.preheader ], [ %33, %.lr.ph1033 ]
+  %29 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv1178
+  %30 = load float, ptr %29, align 4
+  %31 = fsub fast float %30, %.sroa.speculated1000
+  %32 = tail call fast float @llvm.exp.f32(float %31)
+  store float %32, ptr %29, align 4
+  %33 = fadd fast float %32, %.07011032
   %indvars.iv.next1179 = add nuw nsw i64 %indvars.iv1178, 1
   %exitcond1182.not = icmp eq i64 %indvars.iv.next1179, %wide.trip.count1181
   br i1 %exitcond1182.not, label %.lr.ph1036.preheader, label %.lr.ph1033, !llvm.loop !6
 
 .lr.ph1036:                                       ; preds = %.lr.ph1036.preheader, %.lr.ph1036
   %indvars.iv1183 = phi i64 [ 0, %.lr.ph1036.preheader ], [ %indvars.iv.next1184, %.lr.ph1036 ]
-  %35 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv1183
-  %36 = load float, ptr %35, align 4
-  %37 = fmul fast float %36, %29
-  store float %37, ptr %35, align 4
+  %34 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv1183
+  %35 = load float, ptr %34, align 4
+  %36 = fmul fast float %35, %28
+  store float %36, ptr %34, align 4
   %indvars.iv.next1184 = add nuw nsw i64 %indvars.iv1183, 1
   %exitcond1187.not = icmp eq i64 %indvars.iv.next1184, %wide.trip.count1186
-  br i1 %exitcond1187.not, label %.loopexit1027, label %.lr.ph1036, !llvm.loop !7
+  br i1 %exitcond1187.not, label %.loopexit1027.thread, label %.lr.ph1036, !llvm.loop !7
 
-.loopexit1027:                                    ; preds = %.lr.ph1036, %3
+.loopexit1027.thread:                             ; preds = %.lr.ph1036, %20
+  %37 = icmp eq i32 %18, 0
+  br label %210
+
+.loopexit1027:                                    ; preds = %3
   %38 = icmp eq i32 %11, 2
   %39 = icmp eq i32 %18, 0
   %or.cond = select i1 %38, i1 %39, i1 false
@@ -522,7 +522,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Softmax15forward_inplace
   unreachable
 
 210:                                              ; preds = %.loopexit1027.thread, %190, %.loopexit1027
-  %211 = phi i1 [ %25, %.loopexit1027.thread ], [ %39, %190 ], [ %39, %.loopexit1027 ]
+  %211 = phi i1 [ %37, %.loopexit1027.thread ], [ %39, %190 ], [ %39, %.loopexit1027 ]
   %212 = phi i1 [ false, %.loopexit1027.thread ], [ %38, %190 ], [ %38, %.loopexit1027 ]
   %213 = icmp eq i32 %18, 1
   %or.cond5 = select i1 %212, i1 %213, i1 false
@@ -533,7 +533,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Softmax15forward_inplace
   %216 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %217 = load i32, ptr %216, align 8
   %218 = icmp sgt i32 %217, 0
-  br i1 %218, label %.lr.ph1075, label %.loopexit1022.thread
+  br i1 %218, label %.lr.ph1075, label %.loopexit1022
 
 .lr.ph1075:                                       ; preds = %214
   %219 = load i32, ptr %215, align 4
@@ -598,10 +598,10 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Softmax15forward_inplace
   %exitcond1238.not = icmp eq i64 %indvars.iv.next1235, %wide.trip.count1237
   br i1 %exitcond1238.not, label %.loopexit1022, label %221, !llvm.loop !18
 
-.loopexit1022:                                    ; preds = %._crit_edge1072, %210
+.loopexit1022:                                    ; preds = %._crit_edge1072, %214, %210
   %241 = icmp eq i32 %11, 3
   %or.cond7 = select i1 %241, i1 %211, i1 false
-  br i1 %or.cond7, label %242, label %.loopexit1022.thread
+  br i1 %or.cond7, label %242, label %415
 
 242:                                              ; preds = %.loopexit1022
   %243 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -900,7 +900,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Softmax15forward_inplace
   store i64 0, ptr %254, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %252, i8 0, i64 20, i1 false)
-  br i1 %.2708, label %.loopexit1022.thread, label %.loopexit
+  br i1 %.2708, label %415, label %.loopexit
 
 380:                                              ; preds = %373
   %381 = landingpad { ptr, i32 }
@@ -983,12 +983,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Softmax15forward_inplace
   call void @__clang_call_terminate(ptr %414) #13
   unreachable
 
-.loopexit1022.thread:                             ; preds = %214, %379, %.loopexit1022
-  %415 = phi i1 [ %241, %379 ], [ %241, %.loopexit1022 ], [ false, %214 ]
-  %or.cond13 = select i1 %415, i1 %213, i1 false
+415:                                              ; preds = %379, %.loopexit1022
+  %or.cond13 = select i1 %241, i1 %213, i1 false
   br i1 %or.cond13, label %416, label %631
 
-416:                                              ; preds = %.loopexit1022.thread
+416:                                              ; preds = %415
   %417 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %418 = load i32, ptr %417, align 4
   %419 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -1161,7 +1160,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Softmax15forward_inplace
   %504 = sext i32 %418 to i64
   %wide.trip.count1291 = zext nneg i32 %422 to i64
   %wide.trip.count1285 = zext nneg i32 %418 to i64
-  %brmerge1337 = or i1 %502, %503
+  %brmerge1340 = or i1 %502, %503
   br label %509
 
 .lr.ph1135:                                       ; preds = %._crit_edge1125
@@ -1171,7 +1170,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Softmax15forward_inplace
   %508 = sext i32 %418 to i64
   %wide.trip.count1302 = zext nneg i32 %422 to i64
   %wide.trip.count1296 = zext nneg i32 %418 to i64
-  %brmerge1340 = or i1 %506, %507
+  %brmerge1343 = or i1 %506, %507
   br label %542
 
 509:                                              ; preds = %.lr.ph1127, %._crit_edge1125
@@ -1190,7 +1189,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Softmax15forward_inplace
   %521 = load i64, ptr %477, align 8
   %522 = mul i64 %520, %521
   %523 = getelementptr inbounds i8, ptr %517, i64 %522
-  br i1 %brmerge1337, label %._crit_edge1125, label %.preheader1013.us.preheader
+  br i1 %brmerge1340, label %._crit_edge1125, label %.preheader1013.us.preheader
 
 .preheader1013.us.preheader:                      ; preds = %509
   %524 = load ptr, ptr %1, align 8
@@ -1243,7 +1242,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Softmax15forward_inplace
   %547 = load i64, ptr %477, align 8
   %548 = mul i64 %546, %547
   %549 = getelementptr inbounds i8, ptr %543, i64 %548
-  br i1 %brmerge1340, label %._crit_edge1133, label %.preheader1011.us.preheader
+  br i1 %brmerge1343, label %._crit_edge1133, label %.preheader1011.us.preheader
 
 .preheader1011.us.preheader:                      ; preds = %542
   %550 = load ptr, ptr %1, align 8
@@ -1446,9 +1445,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Softmax15forward_inplace
   call void @__clang_call_terminate(ptr %630) #13
   unreachable
 
-631:                                              ; preds = %595, %.loopexit1022.thread
+631:                                              ; preds = %595, %415
   %632 = icmp eq i32 %18, 2
-  %or.cond19 = select i1 %415, i1 %632, i1 false
+  %or.cond19 = select i1 %241, i1 %632, i1 false
   br i1 %or.cond19, label %633, label %.loopexit
 
 633:                                              ; preds = %631
@@ -1468,12 +1467,12 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Softmax15forward_inplace
   %644 = sext i32 %640 to i64
   %wide.trip.count1323 = zext nneg i32 %637 to i64
   %wide.trip.count1307 = zext nneg i32 %640 to i64
-  %brmerge1343 = select i1 %642, i1 true, i1 %643
+  %brmerge1346 = select i1 %642, i1 true, i1 %643
   br label %645
 
 645:                                              ; preds = %.lr.ph1170, %._crit_edge1149
   %indvars.iv1320 = phi i64 [ 0, %.lr.ph1170 ], [ %indvars.iv.next1321, %._crit_edge1149 ]
-  br i1 %brmerge1343, label %._crit_edge1149, label %.preheader1010.us.preheader
+  br i1 %brmerge1346, label %._crit_edge1149, label %.preheader1010.us.preheader
 
 .preheader1010.us.preheader:                      ; preds = %645
   %646 = load ptr, ptr %1, align 8

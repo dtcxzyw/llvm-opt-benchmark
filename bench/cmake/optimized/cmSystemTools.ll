@@ -6623,7 +6623,7 @@ _Z5MkdirPKcPKj.exit.us:                           ; preds = %.lr.ph, %_Z5MkdirPK
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %12 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 47) #39
   %.not17.us = icmp eq ptr %12, null
-  br i1 %.not17.us, label %._crit_edge, label %_Z5MkdirPKcPKj.exit.us, !llvm.loop !258
+  br i1 %.not17.us, label %._crit_edge.thread, label %_Z5MkdirPKcPKj.exit.us, !llvm.loop !258
 
 _Z5MkdirPKcPKj.exit:                              ; preds = %.lr.ph, %_Z5MkdirPKcPKj.exit
   %13 = phi ptr [ %17, %_Z5MkdirPKcPKj.exit ], [ %8, %.lr.ph ]
@@ -6636,26 +6636,31 @@ _Z5MkdirPKcPKj.exit:                              ; preds = %.lr.ph, %_Z5MkdirPK
   %.not17 = icmp eq ptr %17, null
   br i1 %.not17, label %._crit_edge, label %_Z5MkdirPKcPKj.exit, !llvm.loop !258
 
-._crit_edge:                                      ; preds = %_Z5MkdirPKcPKj.exit, %_Z5MkdirPKcPKj.exit.us, %.preheader
+._crit_edge:                                      ; preds = %_Z5MkdirPKcPKj.exit, %.preheader
   %18 = tail call ptr @mkdtemp(ptr noundef nonnull %0) #37
   %.not18 = icmp eq ptr %18, null
-  br i1 %.not18, label %23, label %19
+  br i1 %.not18, label %24, label %20
 
-19:                                               ; preds = %._crit_edge
+._crit_edge.thread:                               ; preds = %_Z5MkdirPKcPKj.exit.us
+  %19 = tail call ptr @mkdtemp(ptr noundef nonnull %0) #37
+  %.not1822 = icmp eq ptr %19, null
+  br i1 %.not1822, label %24, label %_Z18cmHasLiteralSuffixILm7EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread
+
+20:                                               ; preds = %._crit_edge
   %.not19 = icmp eq ptr %1, null
-  br i1 %.not19, label %_Z18cmHasLiteralSuffixILm7EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread, label %20
+  br i1 %.not19, label %_Z18cmHasLiteralSuffixILm7EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread, label %21
 
-20:                                               ; preds = %19
-  %21 = load i32, ptr %1, align 4, !tbaa !158
-  %22 = tail call i32 @chmod(ptr noundef nonnull %0, i32 noundef %21) #37
+21:                                               ; preds = %20
+  %22 = load i32, ptr %1, align 4, !tbaa !158
+  %23 = tail call i32 @chmod(ptr noundef nonnull %0, i32 noundef %22) #37
   br label %_Z18cmHasLiteralSuffixILm7EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread
 
-23:                                               ; preds = %._crit_edge
-  %24 = tail call i64 @_ZN5cmsys6Status11POSIX_errnoEv()
+24:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  %25 = tail call i64 @_ZN5cmsys6Status11POSIX_errnoEv()
   br label %_Z18cmHasLiteralSuffixILm7EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread
 
-_Z18cmHasLiteralSuffixILm7EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread: ; preds = %3, %20, %19, %_Z18cmHasLiteralSuffixILm7EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit, %2, %23
-  %.sroa.0.0 = phi i64 [ %24, %23 ], [ 94489280513, %2 ], [ 94489280513, %_Z18cmHasLiteralSuffixILm7EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit ], [ 0, %19 ], [ 0, %20 ], [ 94489280513, %3 ]
+_Z18cmHasLiteralSuffixILm7EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread: ; preds = %._crit_edge.thread, %3, %21, %20, %_Z18cmHasLiteralSuffixILm7EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit, %2, %24
+  %.sroa.0.0 = phi i64 [ %25, %24 ], [ 94489280513, %2 ], [ 94489280513, %_Z18cmHasLiteralSuffixILm7EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit ], [ 0, %20 ], [ 0, %21 ], [ 94489280513, %3 ], [ 0, %._crit_edge.thread ]
   ret i64 %.sroa.0.0
 }
 

@@ -3983,10 +3983,8 @@ define hidden ptr @threadControl_allVThreads(ptr noundef writeonly captures(none
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader21
   %.011.lcssa = phi i32 [ 0, %.preheader21 ], [ %8, %.lr.ph ]
-  %.not16 = icmp eq ptr %5, null
   %10 = icmp eq i32 %.011.lcssa, %4
-  %or.cond = select i1 %.not16, i1 true, i1 %10
-  br i1 %or.cond, label %12, label %11
+  br i1 %10, label %12, label %11
 
 11:                                               ; preds = %._crit_edge
   tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 2542, ptr noundef nonnull @.str.38) #6

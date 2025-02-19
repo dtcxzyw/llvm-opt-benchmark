@@ -7211,40 +7211,46 @@ define internal fastcc void @compress_finish_par(ptr %.16.val, ptr noundef captu
   tail call void @stream_close(ptr noundef %13) #19
   %14 = add nuw i64 %.0271.us, 1
   %exitcond6.not = icmp eq i64 %14, %1
-  br i1 %exitcond6.not, label %._crit_edge, label %.lr.ph.split.us
+  br i1 %exitcond6.not, label %._crit_edge.thread, label %.lr.ph.split.us
+
+._crit_edge.thread:                               ; preds = %.lr.ph.split.us
+  tail call void @free(ptr noundef nonnull %0) #19
+  br label %26
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.02 = phi i64 [ %18, %.lr.ph.split ], [ %6, %.lr.ph ]
-  %.0271 = phi i64 [ %26, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %.0271 = phi i64 [ %25, %.lr.ph.split ], [ 0, %.lr.ph ]
   %15 = getelementptr inbounds ptr, ptr %0, i64 %.0271
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i64 @stream_wtell(ptr noundef %16) #19
-  %18 = add i64 %17, %.02
-  %19 = load ptr, ptr %15, align 8
-  %20 = tail call i64 @stream_flush(ptr noundef %19) #19
+  %18 = load ptr, ptr %15, align 8
+  %19 = tail call i64 @stream_flush(ptr noundef %18) #19
+  %20 = load ptr, ptr %15, align 8
+  tail call void @stream_rewind(ptr noundef %20) #19
   %21 = load ptr, ptr %15, align 8
-  tail call void @stream_rewind(ptr noundef %21) #19
+  tail call void @stream_copy(ptr noundef %.16.val, ptr noundef %21, i64 noundef %17) #19
   %22 = load ptr, ptr %15, align 8
-  tail call void @stream_copy(ptr noundef %.16.val, ptr noundef %22, i64 noundef %17) #19
-  %23 = load ptr, ptr %15, align 8
-  %24 = tail call ptr @stream_data(ptr noundef %23) #19
-  tail call void @free(ptr noundef %24) #19
-  %25 = load ptr, ptr %15, align 8
-  tail call void @stream_close(ptr noundef %25) #19
-  %26 = add nuw i64 %.0271, 1
-  %exitcond.not = icmp eq i64 %26, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
+  %23 = tail call ptr @stream_data(ptr noundef %22) #19
+  tail call void @free(ptr noundef %23) #19
+  %24 = load ptr, ptr %15, align 8
+  tail call void @stream_close(ptr noundef %24) #19
+  %25 = add nuw i64 %.0271, 1
+  %exitcond.not = icmp eq i64 %25, %1
+  br i1 %exitcond.not, label %._crit_edge.thread9, label %.lr.ph.split
 
-._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %2
-  %.0.lcssa = phi i64 [ %6, %2 ], [ %10, %.lr.ph.split.us ], [ %18, %.lr.ph.split ]
+._crit_edge.thread9:                              ; preds = %.lr.ph.split
   tail call void @free(ptr noundef nonnull %0) #19
-  br i1 %.not.fr, label %27, label %28
+  br label %27
 
-27:                                               ; preds = %._crit_edge
-  tail call void @stream_wseek(ptr noundef %.16.val, i64 noundef %.0.lcssa) #19
-  br label %28
+._crit_edge:                                      ; preds = %2
+  tail call void @free(ptr noundef nonnull %0) #19
+  br i1 %.not.fr, label %26, label %27
 
-28:                                               ; preds = %27, %._crit_edge
+26:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  %.0.lcssa8 = phi i64 [ %10, %._crit_edge.thread ], [ %6, %._crit_edge ]
+  tail call void @stream_wseek(ptr noundef %.16.val, i64 noundef %.0.lcssa8) #19
+  br label %27
+
+27:                                               ; preds = %._crit_edge.thread9, %26, %._crit_edge
   ret void
 }
 

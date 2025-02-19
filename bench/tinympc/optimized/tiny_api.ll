@@ -15024,15 +15024,18 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0E
   store i32 %137, ptr %135, align 4
   %138 = add nsw i64 %.052209, 1
   %exitcond.not = icmp eq i64 %138, %60
-  br i1 %exitcond.not, label %._crit_edge, label %_ZN5Eigen9DenseBaseINS_5BlockINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEELi1ELin1ELb0EEEE4swapIS8_EEvRKNS0_IT_EE.exit, !llvm.loop !435
+  br i1 %exitcond.not, label %._crit_edge.thread222, label %_ZN5Eigen9DenseBaseINS_5BlockINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEELi1ELin1ELb0EEEE4swapIS8_EEvRKNS0_IT_EE.exit, !llvm.loop !435
 
-._crit_edge:                                      ; preds = %_ZN5Eigen9DenseBaseINS_5BlockINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEELi1ELin1ELb0EEEE4swapIS8_EEvRKNS0_IT_EE.exit, %_ZN5Eigen9DenseBaseINS_5BlockINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEELi1ELin1ELb0EEEE4swapIS8_EEvRKNS0_IT_EE.exit.loopexit.us
+._crit_edge:                                      ; preds = %_ZN5Eigen9DenseBaseINS_5BlockINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEELi1ELin1ELb0EEEE4swapIS8_EEvRKNS0_IT_EE.exit.loopexit.us
+  br i1 %93, label %173, label %.lr.ph211
+
+._crit_edge.thread222:                            ; preds = %_ZN5Eigen9DenseBaseINS_5BlockINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEELi1ELin1ELb0EEEE4swapIS8_EEvRKNS0_IT_EE.exit
   br i1 %93, label %173, label %.lr.ph211
 
 ._crit_edge.thread:                               ; preds = %_ZN5Eigen9DenseBaseINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEEE5blockIllEENS7_13FixedBlockXprIXsr8internal15get_fixed_valueIT_EE5valueEXsr8internal15get_fixed_valueIT0_EE5valueEE4TypeEllSA_SB_.exit
   br i1 %93, label %173, label %._crit_edge212
 
-.lr.ph211:                                        ; preds = %._crit_edge
+.lr.ph211:                                        ; preds = %._crit_edge, %._crit_edge.thread222
   %.not.i.i.i.i92 = icmp eq ptr %74, null
   %139 = icmp sgt i64 %61, 0
   br i1 %139, label %.lr.ph.i.i.i.i.i.i94.preheader.us, label %._crit_edge212
@@ -15128,7 +15131,7 @@ _ZN5Eigen7NoAliasINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterSt
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   br label %173
 
-173:                                              ; preds = %._crit_edge.thread, %._crit_edge, %_ZN5Eigen7NoAliasINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEENS_10MatrixBaseEEmIINS_7ProductIS6_S6_Li0EEEEERS6_RKNS7_IT_EE.exit
+173:                                              ; preds = %._crit_edge.thread222, %._crit_edge.thread, %._crit_edge, %_ZN5Eigen7NoAliasINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEENS_10MatrixBaseEEmIINS_7ProductIS6_S6_Li0EEEEERS6_RKNS7_IT_EE.exit
   %174 = add nsw i64 %.sroa.speculated184, %storemerge213
   %175 = icmp slt i64 %174, %.sroa.speculated189
   br i1 %175, label %_ZN5Eigen9DenseBaseINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEEE5blockIllEENS7_13FixedBlockXprIXsr8internal15get_fixed_valueIT_EE5valueEXsr8internal15get_fixed_valueIT0_EE5valueEE4TypeEllSA_SB_.exit, label %.loopexit, !llvm.loop !437

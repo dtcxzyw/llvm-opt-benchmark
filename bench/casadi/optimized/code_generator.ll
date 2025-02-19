@@ -41255,7 +41255,6 @@ _ZNKSt3mapIPKvxSt4lessIS1_ESaISt4pairIKS1_xEEE4findERS5_.exit: ; preds = %_ZNKSt
   %23 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
   %24 = load ptr, ptr %23, align 8, !tbaa !559
   %25 = icmp ult ptr %2, %24
-  %spec.select.i.i = select i1 %25, ptr %18, ptr %.19.i.i.i
   br i1 %25, label %_ZNKSt3mapIPKvxSt4lessIS1_ESaISt4pairIKS1_xEEE4findERS5_.exit.thread, label %114
 
 _ZNKSt3mapIPKvxSt4lessIS1_ESaISt4pairIKS1_xEEE4findERS5_.exit.thread: ; preds = %3, %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_xESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i, %_ZNKSt3mapIPKvxSt4lessIS1_ESaISt4pairIKS1_xEEE4findERS5_.exit
@@ -41545,7 +41544,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %_ZN
   %.sroa.02.05.i.i = phi ptr [ %117, %.lr.ph.i.i ], [ %116, %114 ]
   %117 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.02.05.i.i) #28
   %118 = add nuw nsw i64 %.06.i.i, 1
-  %.not.i.i = icmp eq ptr %117, %spec.select.i.i
+  %.not.i.i = icmp eq ptr %117, %.19.i.i.i
   br i1 %.not.i.i, label %_ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKPKvxEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit, label %.lr.ph.i.i, !llvm.loop !574
 
 _ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKPKvxEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit: ; preds = %.lr.ph.i.i, %114
@@ -42186,7 +42185,6 @@ _ZNKSt3mapIPKvxSt4lessIS1_ESaISt4pairIKS1_xEEE4findERS5_.exit: ; preds = %_ZNKSt
   %23 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
   %24 = load ptr, ptr %23, align 8, !tbaa !559
   %25 = icmp ult ptr %2, %24
-  %spec.select.i.i = select i1 %25, ptr %18, ptr %.19.i.i.i
   br i1 %25, label %_ZNKSt3mapIPKvxSt4lessIS1_ESaISt4pairIKS1_xEEE4findERS5_.exit.thread, label %114
 
 _ZNKSt3mapIPKvxSt4lessIS1_ESaISt4pairIKS1_xEEE4findERS5_.exit.thread: ; preds = %3, %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_xESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i, %_ZNKSt3mapIPKvxSt4lessIS1_ESaISt4pairIKS1_xEEE4findERS5_.exit
@@ -42476,7 +42474,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %_ZN
   %.sroa.02.05.i.i = phi ptr [ %117, %.lr.ph.i.i ], [ %116, %114 ]
   %117 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.02.05.i.i) #28
   %118 = add nuw nsw i64 %.06.i.i, 1
-  %.not.i.i = icmp eq ptr %117, %spec.select.i.i
+  %.not.i.i = icmp eq ptr %117, %.19.i.i.i
   br i1 %.not.i.i, label %_ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKPKvxEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit, label %.lr.ph.i.i, !llvm.loop !574
 
 _ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKPKvxEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit: ; preds = %.lr.ph.i.i, %114
@@ -54427,7 +54425,6 @@ define noundef i64 @_ZN6casadi13CodeGenerator12get_constantERKSt6vectorIxSaIxEEb
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !820
   %16 = icmp eq ptr %13, %15
-  %spec.select.i.i.i = select i1 %16, ptr null, ptr %13
   %17 = ptrtoint ptr %15 to i64
   %18 = ptrtoint ptr %13 to i64
   %19 = sub i64 %17, %18
@@ -54437,7 +54434,7 @@ define noundef i64 @_ZN6casadi13CodeGenerator12get_constantERKSt6vectorIxSaIxEEb
 .lr.ph.i.i.i:                                     ; preds = %3, %.lr.ph.i.i.i
   %.05.i.i.i = phi i64 [ %30, %.lr.ph.i.i.i ], [ 0, %3 ]
   %21 = phi i64 [ %29, %.lr.ph.i.i.i ], [ 0, %3 ]
-  %22 = getelementptr inbounds nuw i64, ptr %spec.select.i.i.i, i64 %.05.i.i.i
+  %22 = getelementptr inbounds nuw i64, ptr %13, i64 %.05.i.i.i
   %23 = load i64, ptr %22, align 8, !tbaa !257
   %24 = add i64 %23, 2654435769
   %25 = shl i64 %21, 6
@@ -55181,7 +55178,6 @@ define noundef i64 @_ZN6casadi13CodeGenerator4hashERKSt6vectorIxSaIxEE(ptr nound
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !820
   %5 = icmp eq ptr %2, %4
-  %spec.select.i.i = select i1 %5, ptr null, ptr %2
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %2 to i64
   %8 = sub i64 %6, %7
@@ -55191,7 +55187,7 @@ define noundef i64 @_ZN6casadi13CodeGenerator4hashERKSt6vectorIxSaIxEE(ptr nound
 .lr.ph.i.i:                                       ; preds = %1, %.lr.ph.i.i
   %.05.i.i = phi i64 [ %19, %.lr.ph.i.i ], [ 0, %1 ]
   %10 = phi i64 [ %18, %.lr.ph.i.i ], [ 0, %1 ]
-  %11 = getelementptr inbounds nuw i64, ptr %spec.select.i.i, i64 %.05.i.i
+  %11 = getelementptr inbounds nuw i64, ptr %2, i64 %.05.i.i
   %12 = load i64, ptr %11, align 8, !tbaa !257
   %13 = add i64 %12, 2654435769
   %14 = shl i64 %10, 6
@@ -55214,7 +55210,6 @@ define noundef i64 @_ZN6casadi13CodeGenerator4hashERKSt6vectorIcSaIcEE(ptr nound
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !216
   %5 = icmp eq ptr %2, %4
-  %spec.select.i.i = select i1 %5, ptr null, ptr %2
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %2 to i64
   %8 = sub i64 %6, %7
@@ -55223,7 +55218,7 @@ define noundef i64 @_ZN6casadi13CodeGenerator4hashERKSt6vectorIcSaIcEE(ptr nound
 .lr.ph.i.i:                                       ; preds = %1, %.lr.ph.i.i
   %.05.i.i = phi i64 [ %19, %.lr.ph.i.i ], [ 0, %1 ]
   %9 = phi i64 [ %18, %.lr.ph.i.i ], [ 0, %1 ]
-  %10 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 %.05.i.i
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 %.05.i.i
   %11 = load i8, ptr %10, align 1, !tbaa !12
   %12 = sext i8 %11 to i64
   %13 = shl i64 %9, 6
@@ -55809,7 +55804,6 @@ define noundef i64 @_ZN6casadi13CodeGenerator12get_constantERKSt6vectorIcSaIcEEb
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !216
   %16 = icmp eq ptr %13, %15
-  %spec.select.i.i.i = select i1 %16, ptr null, ptr %13
   %17 = ptrtoint ptr %15 to i64
   %18 = ptrtoint ptr %13 to i64
   %19 = sub i64 %17, %18
@@ -55818,7 +55812,7 @@ define noundef i64 @_ZN6casadi13CodeGenerator12get_constantERKSt6vectorIcSaIcEEb
 .lr.ph.i.i.i:                                     ; preds = %3, %.lr.ph.i.i.i
   %.05.i.i.i = phi i64 [ %30, %.lr.ph.i.i.i ], [ 0, %3 ]
   %20 = phi i64 [ %29, %.lr.ph.i.i.i ], [ 0, %3 ]
-  %21 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 %.05.i.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 %.05.i.i.i
   %22 = load i8, ptr %21, align 1, !tbaa !12
   %23 = sext i8 %22 to i64
   %24 = shl i64 %20, 6

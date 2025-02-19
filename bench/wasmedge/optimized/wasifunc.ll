@@ -4071,7 +4071,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %_ZNSt10shar
   br i1 %.not.i.i.i.i6, label %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENSA_14_Node_iteratorIS8_Lb0ELb0EEE.exit.i, label %96, !llvm.loop !36
 
 _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENSA_14_Node_iteratorIS8_Lb0ELb0EEE.exit.i: ; preds = %96
-  %98 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSA_15_Hash_node_baseEPNSA_10_Hash_nodeIS8_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %8, i64 noundef %92, ptr noundef nonnull %.0.i.i.i.i5, ptr noundef %.sroa.06.1.i.i)
+  %98 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSA_15_Hash_node_baseEPNSA_10_Hash_nodeIS8_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %8, i64 noundef %92, ptr noundef nonnull %.0.i.i.i.i5, ptr noundef nonnull %.sroa.06.1.i.i)
           to label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit unwind label %100
 
 _ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %34, %.lr.ph.i.i.i.i, %13, %18, %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENSA_14_Node_iteratorIS8_Lb0ELb0EEE.exit.i
@@ -6833,7 +6833,7 @@ _ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8e
   br i1 %.not.i.i.i.i13, label %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENSA_14_Node_iteratorIS8_Lb0ELb0EEE.exit.i, label %74, !llvm.loop !36
 
 _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENSA_14_Node_iteratorIS8_Lb0ELb0EEE.exit.i: ; preds = %74
-  %76 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSA_15_Hash_node_baseEPNSA_10_Hash_nodeIS8_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %10, i64 noundef %.pre-phi74, ptr noundef nonnull %.0.i.i.i.i, ptr noundef %.sroa.06.1.i.i8)
+  %76 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSA_15_Hash_node_baseEPNSA_10_Hash_nodeIS8_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %10, i64 noundef %.pre-phi74, ptr noundef nonnull %.0.i.i.i.i, ptr noundef nonnull %.sroa.06.1.i.i8)
           to label %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE5eraseENSt8__detail14_Node_iteratorISC_Lb0ELb0EEE.exit unwind label %202
 
 _ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE5eraseENSt8__detail14_Node_iteratorISC_Lb0ELb0EEE.exit: ; preds = %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENSA_14_Node_iteratorIS8_Lb0ELb0EEE.exit.i
@@ -20064,7 +20064,9 @@ define linkonce_odr noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear
 
 21:                                               ; preds = %16
   store i64 %19, ptr %1, align 8
-  %22 = udiv i64 %20, %.zext
+  %.lhs.trunc = trunc nsw i64 %20 to i32
+  %22 = udiv i32 %.lhs.trunc, %14
+  %.zext29 = zext nneg i32 %22 to i64
   br label %.loopexit
 
 23:                                               ; preds = %3
@@ -20103,7 +20105,7 @@ define linkonce_odr noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %39, %21
-  %.0 = phi i64 [ %22, %21 ], [ %43, %39 ], [ %35, %27 ]
+  %.0 = phi i64 [ %.zext29, %21 ], [ %43, %39 ], [ %35, %27 ]
   %44 = load i32, ptr %2, align 4
   %45 = trunc i64 %.0 to i32
   %46 = add i32 %44, %45
@@ -20448,7 +20450,9 @@ define linkonce_odr noundef i32 @_ZNSt24uniform_int_distributionIjEclISt26linear
 
 21:                                               ; preds = %16
   store i64 %19, ptr %1, align 8
-  %22 = udiv i64 %20, %.zext
+  %.lhs.trunc = trunc nsw i64 %20 to i32
+  %22 = udiv i32 %.lhs.trunc, %14
+  %.zext29 = zext nneg i32 %22 to i64
   br label %.loopexit
 
 23:                                               ; preds = %3
@@ -20487,7 +20491,7 @@ define linkonce_odr noundef i32 @_ZNSt24uniform_int_distributionIjEclISt26linear
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %39, %21
-  %.0 = phi i64 [ %22, %21 ], [ %43, %39 ], [ %35, %27 ]
+  %.0 = phi i64 [ %.zext29, %21 ], [ %43, %39 ], [ %35, %27 ]
   %44 = load i32, ptr %2, align 4
   %45 = trunc i64 %.0 to i32
   %46 = add i32 %44, %45

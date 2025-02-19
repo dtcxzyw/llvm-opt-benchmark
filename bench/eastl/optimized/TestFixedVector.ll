@@ -5698,12 +5698,10 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5eastl24uninitialized_fill_n_ptrIimEEvPT_T0_RKS1_.exit.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !12
 
 _ZN5eastl24uninitialized_fill_n_ptrIimEEvPT_T0_RKS1_.exit.i.i: ; preds = %for.body.i.i.i.i.i.i
-  %cond.i13.i.i = tail call noundef i64 @llvm.umax.i64(i64 %n, i64 1)
   %add.ptr.i.i = getelementptr inbounds i32, ptr null, i64 %n
   store ptr null, ptr %this, align 8
   store ptr %add.ptr.i.i, ptr %mpEnd, align 8
-  %add.ptr24.i.i = getelementptr inbounds i32, ptr null, i64 %cond.i13.i.i
-  store ptr %add.ptr24.i.i, ptr %mCapacityAllocator.i, align 8
+  store ptr %add.ptr.i.i, ptr %mCapacityAllocator.i, align 8
   br label %invoke.cont
 
 if.else.i.i:                                      ; preds = %entry
@@ -6553,12 +6551,10 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %_Z
   br i1 %cmp.not.i13.i.i, label %_ZN5eastl31uninitialized_value_construct_nIP7Align64mEET_S3_T0_.exit.i.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZN5eastl31uninitialized_value_construct_nIP7Align64mEET_S3_T0_.exit.i.i: ; preds = %for.body.i.i.i
-  %cond.i12.i.i = tail call noundef i64 @llvm.umax.i64(i64 %n, i64 1)
   %add.ptr.i.i = getelementptr inbounds %struct.Align64, ptr null, i64 %n
   store ptr null, ptr %this, align 64
   store ptr %add.ptr.i.i, ptr %mpEnd, align 8
-  %add.ptr25.i.i = getelementptr inbounds %struct.Align64, ptr null, i64 %cond.i12.i.i
-  store ptr %add.ptr25.i.i, ptr %mCapacityAllocator.i, align 16
+  store ptr %add.ptr.i.i, ptr %mCapacityAllocator.i, align 16
   br label %invoke.cont
 
 if.else.i:                                        ; preds = %entry
@@ -6599,12 +6595,10 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5eastl24uninitialized_fill_n_ptrI7Align64mEEvPT_T0_RKS2_.exit.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !14
 
 _ZN5eastl24uninitialized_fill_n_ptrI7Align64mEEvPT_T0_RKS2_.exit.i.i: ; preds = %for.body.i.i.i.i.i.i
-  %cond.i13.i.i = tail call noundef i64 @llvm.umax.i64(i64 %n, i64 1)
   %add.ptr.i.i = getelementptr inbounds %struct.Align64, ptr null, i64 %n
   store ptr null, ptr %this, align 64
   store ptr %add.ptr.i.i, ptr %mpEnd, align 8
-  %add.ptr24.i.i = getelementptr inbounds %struct.Align64, ptr null, i64 %cond.i13.i.i
-  store ptr %add.ptr24.i.i, ptr %mCapacityAllocator.i, align 16
+  store ptr %add.ptr.i.i, ptr %mCapacityAllocator.i, align 16
   br label %invoke.cont
 
 for.body.preheader.i.i.i.i17.i.i:                 ; preds = %entry

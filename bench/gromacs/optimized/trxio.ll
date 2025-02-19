@@ -1035,11 +1035,6 @@ define noundef i32 @_Z22write_trxframe_indexedP11t_trxstatusPK10t_trxframeiPKiP1
     i32 7, label %135
     i32 6, label %.thread149
     i32 4, label %145
-    i32 11, label %157
-    i32 13, label %157
-    i32 14, label %157
-    i32 15, label %157
-    i32 12, label %190
   ]
 
 135:                                              ; preds = %.loopexit
@@ -1075,8 +1070,7 @@ define noundef i32 @_Z22write_trxframe_indexedP11t_trxstatusPK10t_trxframeiPKiP1
   tail call void @_Z19gmx_trr_write_frameP8t_fileiolffPA3_KfiS3_S3_S3_(ptr noundef %147, i64 noundef %150, float noundef %152, float noundef %155, ptr noundef nonnull %156, i32 noundef %2, ptr noundef %.0124, ptr noundef %.0119, ptr noundef %.0)
   br label %.thread141
 
-157:                                              ; preds = %49, %49, %49, %49, %.loopexit, %.loopexit, %.loopexit, %.loopexit
-  %.093134 = phi i32 [ %38, %49 ], [ %38, %49 ], [ %38, %49 ], [ %38, %49 ], [ %.093130, %.loopexit ], [ %.093130, %.loopexit ], [ %.093130, %.loopexit ], [ %.093130, %.loopexit ]
+157:                                              ; preds = %49, %49, %49, %49
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %159 = load i8, ptr %158, align 4
   %160 = trunc i8 %159 to i1
@@ -1084,7 +1078,7 @@ define noundef i32 @_Z22write_trxframe_indexedP11t_trxstatusPK10t_trxframeiPKiP1
 
 161:                                              ; preds = %157
   call void @_ZNSt10filesystem7__cxx114pathC2IA122_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 1 dereferenceable(122) @.str.2, i8 noundef zeroext 2)
-  %162 = invoke noundef ptr @_Z7ftp2exti(i32 noundef %.093134)
+  %162 = invoke noundef ptr @_Z7ftp2exti(i32 noundef %38)
           to label %163 unwind label %165
 
 163:                                              ; preds = %161
@@ -1105,7 +1099,7 @@ define noundef i32 @_Z22write_trxframe_indexedP11t_trxstatusPK10t_trxframeiPKiP1
   %169 = load float, ptr %168, align 4
   %170 = fpext float %169 to double
   %171 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.15, double noundef %170) #21
-  %172 = icmp eq i32 %.093134, 11
+  %172 = icmp eq i32 %38, 11
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %174 = load ptr, ptr %173, align 8
   %175 = tail call noundef ptr @_Z13gmx_fio_getfpP8t_fileio(ptr noundef %174)
@@ -1132,7 +1126,7 @@ define noundef i32 @_Z22write_trxframe_indexedP11t_trxstatusPK10t_trxframeiPKiP1
   call void @_Z21write_hconf_indexed_pP8_IO_FILEPKcPK7t_atomsiPKiPA3_KfSA_SA_(ptr noundef %175, ptr noundef nonnull %6, ptr noundef %177, i32 noundef %2, ptr noundef %3, ptr noundef %179, ptr noundef %188, ptr noundef nonnull %189)
   br label %.thread135
 
-190:                                              ; preds = %49, %.loopexit
+190:                                              ; preds = %49
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %192 = load float, ptr %191, align 4
   %193 = fpext float %192 to double

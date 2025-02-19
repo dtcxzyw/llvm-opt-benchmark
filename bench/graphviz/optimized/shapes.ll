@@ -3998,7 +3998,6 @@ gv_calloc.exit542:                                ; preds = %.thread.i541, %376
   store double %475, ptr %171, align 8, !tbaa !4
   %476 = fdiv double %474, %472
   %477 = fdiv double %475, %473
-  %umax649 = call i64 @llvm.umax.i64(i64 %.1490, i64 1)
   br label %478
 
 478:                                              ; preds = %.loopexit563, %478
@@ -4012,7 +4011,7 @@ gv_calloc.exit542:                                ; preds = %.thread.i541, %376
   store double %480, ptr %479, align 8, !tbaa !4
   store double %481, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !4
   %482 = add nuw i64 %.0474586, 1
-  %exitcond650.not = icmp eq i64 %482, %umax649
+  %exitcond650.not = icmp eq i64 %482, %.1490
   br i1 %exitcond650.not, label %483, label %478, !llvm.loop !92
 
 483:                                              ; preds = %478
@@ -4025,12 +4024,11 @@ gv_calloc.exit542:                                ; preds = %.thread.i541, %376
   %.sroa.8.0.copyload = load double, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !4
   %rhsv.cast.i = bitcast double %.sroa.053.0.copyload to i64
   %rhsv.cast.i545 = bitcast double %.sroa.8.0.copyload to i64
-  %umax651 = call i64 @llvm.umax.i64(i64 %.1490, i64 2)
   br label %485
 
 485:                                              ; preds = %489, %.lr.ph
   %.0472587 = phi i64 [ 1, %.lr.ph ], [ %490, %489 ]
-  %486 = sub i64 %umax649, %.0472587
+  %486 = sub i64 %.1490, %.0472587
   %487 = urem i64 %486, %.1490
   %488 = getelementptr inbounds nuw %struct.pointf_s, ptr %383, i64 %487
   %.sroa.026.0.copyload = load double, ptr %488, align 8, !tbaa !4
@@ -4044,7 +4042,7 @@ gv_calloc.exit542:                                ; preds = %.thread.i541, %376
   %lhsv.cast.i544 = bitcast double %.sroa.19.0.copyload to i64
   %.not.i546 = icmp ne i64 %lhsv.cast.i544, %rhsv.cast.i545
   %490 = add nuw i64 %.0472587, 1
-  %exitcond652.not = icmp eq i64 %490, %umax651
+  %exitcond652.not = icmp eq i64 %490, %.1490
   %or.cond682 = select i1 %.not.i546, i1 true, i1 %exitcond652.not
   br i1 %or.cond682, label %.lr.ph624, label %485, !llvm.loop !93
 
@@ -4171,7 +4169,7 @@ gv_calloc.exit542:                                ; preds = %.thread.i541, %376
 
 540:                                              ; preds = %._crit_edge612, %530
   %541 = add nuw i64 %.1618, 1
-  %exitcond654.not = icmp eq i64 %541, %umax649
+  %exitcond654.not = icmp eq i64 %541, %.1490
   br i1 %exitcond654.not, label %.lr.ph629, label %501, !llvm.loop !96
 
 542:                                              ; preds = %.lr.ph629, %542
@@ -4202,7 +4200,7 @@ gv_calloc.exit542:                                ; preds = %.thread.i541, %376
   %558 = fmul double %557, 2.000000e+00
   %559 = call double @llvm.maxnum.f64(double %558, double %.sroa.9.3628)
   %560 = add nuw i64 %.2626, 1
-  %exitcond655.not = icmp eq i64 %560, %umax649
+  %exitcond655.not = icmp eq i64 %560, %.1490
   br i1 %exitcond655.not, label %..loopexit_crit_edge, label %542, !llvm.loop !97
 
 ..loopexit_crit_edge:                             ; preds = %542

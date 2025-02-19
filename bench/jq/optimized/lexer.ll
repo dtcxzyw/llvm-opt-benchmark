@@ -2883,53 +2883,61 @@ define dso_local nonnull ptr @jq_yy_scan_bytes(ptr noundef readonly captures(non
   store i8 %10, ptr %11, align 1, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !70
 
-._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %12 = sext i32 %1 to i64
+._crit_edge.thread:                               ; preds = %.lr.ph
+  %12 = zext nneg i32 %1 to i64
   %13 = getelementptr i8, ptr %6, i64 %12
   %14 = getelementptr i8, ptr %13, i64 1
   store i8 0, ptr %14, align 1, !tbaa !37
   store i8 0, ptr %13, align 1, !tbaa !37
-  %15 = icmp ugt i32 %1, -3
-  br i1 %15, label %19, label %16
+  br label %19
 
-16:                                               ; preds = %._crit_edge
-  %17 = tail call ptr @jv_mem_alloc(i64 noundef 64) #17
-  %.not27.i = icmp eq ptr %17, null
-  br i1 %.not27.i, label %18, label %20
+._crit_edge:                                      ; preds = %.preheader
+  %15 = sext i32 %1 to i64
+  %16 = getelementptr i8, ptr %6, i64 %15
+  %17 = getelementptr i8, ptr %16, i64 1
+  store i8 0, ptr %17, align 1, !tbaa !37
+  store i8 0, ptr %16, align 1, !tbaa !37
+  %18 = icmp ugt i32 %1, -3
+  br i1 %18, label %22, label %19
 
-18:                                               ; preds = %16
+19:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  %20 = tail call ptr @jv_mem_alloc(i64 noundef 64) #17
+  %.not27.i = icmp eq ptr %20, null
+  br i1 %.not27.i, label %21, label %23
+
+21:                                               ; preds = %19
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.4) #18
   unreachable
 
-19:                                               ; preds = %._crit_edge
+22:                                               ; preds = %._crit_edge
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.6) #18
   unreachable
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store i32 %1, ptr %21, align 8, !tbaa !27
-  %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr %6, ptr %22, align 8, !tbaa !29
-  %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr %6, ptr %23, align 8, !tbaa !33
-  %24 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  store i32 0, ptr %24, align 8, !tbaa !30
-  store ptr null, ptr %17, align 8, !tbaa !36
-  %25 = getelementptr inbounds nuw i8, ptr %17, i64 28
-  store i32 %1, ptr %25, align 4, !tbaa !31
-  %26 = getelementptr inbounds nuw i8, ptr %17, i64 36
-  store i32 0, ptr %26, align 4, !tbaa !58
-  %27 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  store i32 1, ptr %27, align 8, !tbaa !66
-  %28 = getelementptr inbounds nuw i8, ptr %17, i64 52
-  store i32 0, ptr %28, align 4, !tbaa !55
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 56
-  store i32 0, ptr %29, align 8, !tbaa !51
-  tail call void @jq_yy_switch_to_buffer(ptr noundef nonnull %17, ptr noundef %2)
-  store i32 1, ptr %24, align 8, !tbaa !30
-  ret ptr %17
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  store i32 %1, ptr %24, align 8, !tbaa !27
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store ptr %6, ptr %25, align 8, !tbaa !29
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  store ptr %6, ptr %26, align 8, !tbaa !33
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  store i32 0, ptr %27, align 8, !tbaa !30
+  store ptr null, ptr %20, align 8, !tbaa !36
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 28
+  store i32 %1, ptr %28, align 4, !tbaa !31
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 36
+  store i32 0, ptr %29, align 4, !tbaa !58
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  store i32 1, ptr %30, align 8, !tbaa !66
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 52
+  store i32 0, ptr %31, align 4, !tbaa !55
+  %32 = getelementptr inbounds nuw i8, ptr %20, i64 56
+  store i32 0, ptr %32, align 8, !tbaa !51
+  tail call void @jq_yy_switch_to_buffer(ptr noundef nonnull %20, ptr noundef %2)
+  store i32 1, ptr %27, align 8, !tbaa !30
+  ret ptr %20
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

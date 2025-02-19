@@ -9653,12 +9653,12 @@ define internal noalias noundef ptr @os_execve(ptr readnone captures(none) %0, p
 50:                                               ; preds = %47
   %51 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !97
   call void @PyErr_SetString(ptr noundef %51, ptr noundef nonnull @.str.301) #20
-  br label %.thread4.i
+  br label %79
 
 52:                                               ; preds = %47
   %53 = call fastcc ptr @parse_envlist(ptr noundef %21, ptr noundef %6)
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %.thread4.i, label %55
+  br i1 %54, label %79, label %55
 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 72
@@ -9691,11 +9691,7 @@ define internal noalias noundef ptr @os_execve(ptr readnone captures(none) %0, p
 73:                                               ; preds = %70, %55
   %74 = load i64, ptr %6, align 8, !tbaa !140
   %75 = icmp sgt i64 %74, 0
-  br i1 %75, label %.lr.ph.i.i, label %.thread8.i
-
-.thread8.i:                                       ; preds = %73
-  call void @PyMem_Free(ptr noundef nonnull %53) #20
-  br label %.thread4.i
+  br i1 %75, label %.lr.ph.i.i, label %free_string_array.exit.i
 
 .lr.ph.i.i:                                       ; preds = %73, %.lr.ph.i.i
   %.05.i.i = phi i64 [ %78, %.lr.ph.i.i ], [ 0, %73 ]
@@ -9704,19 +9700,19 @@ define internal noalias noundef ptr @os_execve(ptr readnone captures(none) %0, p
   call void @PyMem_Free(ptr noundef %77) #20
   %78 = add nuw nsw i64 %.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %78, %74
-  br i1 %exitcond.not.i.i, label %79, label %.lr.ph.i.i, !llvm.loop !158
+  br i1 %exitcond.not.i.i, label %free_string_array.exit.i, label %.lr.ph.i.i, !llvm.loop !158
 
-79:                                               ; preds = %.lr.ph.i.i
+free_string_array.exit.i:                         ; preds = %.lr.ph.i.i, %73
   call void @PyMem_Free(ptr noundef nonnull %53) #20
-  br label %.thread4.i
+  br label %79
 
-.thread4.i:                                       ; preds = %79, %.thread8.i, %52, %50
+79:                                               ; preds = %free_string_array.exit.i, %52, %50
   %80 = load i64, ptr %5, align 8, !tbaa !140
   %81 = icmp sgt i64 %80, 0
   br i1 %81, label %.lr.ph.i37.i, label %free_string_array.exit40.i
 
-.lr.ph.i37.i:                                     ; preds = %.thread4.i, %.lr.ph.i37.i
-  %.05.i38.i = phi i64 [ %84, %.lr.ph.i37.i ], [ 0, %.thread4.i ]
+.lr.ph.i37.i:                                     ; preds = %79, %.lr.ph.i37.i
+  %.05.i38.i = phi i64 [ %84, %.lr.ph.i37.i ], [ 0, %79 ]
   %82 = getelementptr ptr, ptr %45, i64 %.05.i38.i
   %83 = load ptr, ptr %82, align 8, !tbaa !115
   call void @PyMem_Free(ptr noundef %83) #20
@@ -9724,7 +9720,7 @@ define internal noalias noundef ptr @os_execve(ptr readnone captures(none) %0, p
   %exitcond.not.i39.i = icmp eq i64 %84, %80
   br i1 %exitcond.not.i39.i, label %free_string_array.exit40.i, label %.lr.ph.i37.i, !llvm.loop !158
 
-free_string_array.exit40.i:                       ; preds = %.lr.ph.i37.i, %.thread4.i
+free_string_array.exit40.i:                       ; preds = %.lr.ph.i37.i, %79
   call void @PyMem_Free(ptr noundef nonnull %45) #20
   br label %os_execve_impl.exit
 
@@ -24088,7 +24084,7 @@ Py_DECREF.exit85:                                 ; preds = %23, %26, %29
   br label %Py_DECREF.exit87.thread
 
 49:                                               ; preds = %._crit_edge
-  %50 = add nsw i64 %46, 63
+  %50 = add nuw nsw i64 %46, 63
   %51 = lshr i64 %50, 3
   %52 = and i64 %51, 2305843009213693944
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %47, i8 0, i64 %52, i1 false)

@@ -161137,7 +161137,7 @@ _ZN9zune_jpeg7headers13parse_huffman17hccf10c3ae1d281d6E.exit.thread439.i: ; pre
   br label %_ZN9zune_jpeg7headers13parse_huffman17hccf10c3ae1d281d6E.exit.thread457.i
 
 329:                                              ; preds = %"_ZN9zune_core10bytestream6reader20ZByteReader$LT$T$GT$10read_exact17hdd40cc8f1a123044E.exit168.i.i"
-  %330 = icmp ult i8 %284, 16
+  %330 = icmp samesign ult i8 %284, 16
   br i1 %330, label %332, label %336
 
 _ZN9zune_jpeg7headers13parse_huffman17hccf10c3ae1d281d6E.exit.thread465.i: ; preds = %"_ZN9zune_core10bytestream6reader20ZByteReader$LT$T$GT$10read_exact17hdd40cc8f1a123044E.exit168.i.i"
@@ -164263,7 +164263,6 @@ define internal fastcc void @_ZN9zune_jpeg7headers13parse_huffman17he07417407e96
   br i1 %47, label %54, label %53
 
 48:                                               ; preds = %.lr.ph, %117
-  %.sroa.728.0302 = phi i64 [ undef, %.lr.ph ], [ %.sroa.728.8.insert.insert372, %117 ]
   %.sroa.632.0301 = phi i64 [ undef, %.lr.ph ], [ %.sroa.632.8.insert.insert, %117 ]
   %49 = phi i32 [ %41, %.lr.ph ], [ %89, %117 ]
   %50 = load i64, ptr %27, align 8, !noundef !5
@@ -164296,8 +164295,6 @@ define internal fastcc void @_ZN9zune_jpeg7headers13parse_huffman17he07417407e96
   %.sroa.632.8.insert.ext = zext i8 %59 to i64
   %.sroa.632.8.insert.mask = and i64 %.sroa.632.0301, -256
   %.sroa.632.8.insert.insert = or disjoint i64 %.sroa.632.8.insert.mask, %.sroa.632.8.insert.ext
-  %.sroa.728.8.insert.mask371 = and i64 %.sroa.728.0302, -256
-  %.sroa.728.8.insert.insert372 = or disjoint i64 %.sroa.728.8.insert.mask371, %.sroa.632.8.insert.ext
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %24)
   %60 = lshr i8 %59, 4
   store i8 %60, ptr %24, align 1
@@ -164514,7 +164511,7 @@ define internal fastcc void @_ZN9zune_jpeg7headers13parse_huffman17he07417407e96
   br label %126
 
 102:                                              ; preds = %"_ZN9zune_core10bytestream6reader20ZByteReader$LT$T$GT$10read_exact17haa10be5c85b69023E.exit171"
-  %103 = icmp ult i8 %59, 16
+  %103 = icmp samesign ult i8 %59, 16
   br i1 %103, label %106, label %110
 
 104:                                              ; preds = %"_ZN9zune_core10bytestream6reader20ZByteReader$LT$T$GT$10read_exact17haa10be5c85b69023E.exit171"

@@ -11563,11 +11563,9 @@ for.body112.lr.ph:                                ; preds = %if.end108
   %arrayidx14.i462 = getelementptr inbounds nuw i8, ptr %raw_data, i64 1
   %arrayidx18.i466 = getelementptr inbounds nuw i8, ptr %raw_data, i64 2
   %cmp132 = icmp eq i8 %retval.0.i268, 8
-  %umax65 = tail call i32 @llvm.umax.i32(i32 %tga_comp.0.ph, i32 1)
   %108 = zext nneg i8 %tga_comp.0.ph.shrunk to i64
-  %umax68 = tail call i64 @llvm.umax.i64(i64 %108, i64 1)
   %wide.trip.count81 = zext nneg i32 %mul.i102106 to i64
-  %wide.trip.count66 = zext nneg i32 %umax65 to i64
+  %wide.trip.count66 = zext nneg i8 %tga_comp.0.ph.shrunk to i64
   br label %for.body112
 
 for.body112:                                      ; preds = %for.body112.lr.ph, %if.end172
@@ -11728,7 +11726,7 @@ cond.end138:                                      ; preds = %cond.false136, %_ZL
   %134 = zext nneg i32 %spec.store.select to i64
   %135 = mul nuw nsw i64 %108, %134
   %scevgep = getelementptr nuw i8, ptr %tga_palette.0, i64 %135
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %raw_data, ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i64 %umax68, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %raw_data, ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i64 %108, i1 false)
   br label %if.end172
 
 if.else153:                                       ; preds = %if.then129
@@ -11834,7 +11832,7 @@ _ZL10stbi__get8P13stbi__context.exit499:          ; preds = %if.then.i497, %if.e
 if.end172:                                        ; preds = %_ZL10stbi__get8P13stbi__context.exit499, %cond.end138, %if.else121, %land.end158
   %RLE_repeating.122 = phi i32 [ %RLE_repeating.121, %land.end158 ], [ 1, %if.else121 ], [ %RLE_repeating.121, %cond.end138 ], [ %RLE_repeating.121, %_ZL10stbi__get8P13stbi__context.exit499 ]
   %RLE_count.120 = phi i32 [ %RLE_count.119, %land.end158 ], [ %RLE_count.035, %if.else121 ], [ %RLE_count.119, %cond.end138 ], [ %RLE_count.119, %_ZL10stbi__get8P13stbi__context.exit499 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep73, ptr noundef nonnull align 4 dereferenceable(1) %raw_data, i64 %umax68, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep73, ptr noundef nonnull align 4 dereferenceable(1) %raw_data, i64 %108, i1 false)
   %dec = add nsw i32 %RLE_count.120, -1
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count81
@@ -17249,7 +17247,7 @@ if.end:                                           ; preds = %if.end.loopexit, %e
 for.body46.lr.ph:                                 ; preds = %if.end
   %idx.ext91 = sext i32 %step to i64
   %26 = zext nneg i32 %i.0 to i64
-  %wide.trip.count = zext i32 %count to i64
+  %wide.trip.count = zext nneg i32 %count to i64
   br label %for.body46
 
 for.body46:                                       ; preds = %for.body46.lr.ph, %for.body46
@@ -17431,7 +17429,7 @@ for.end:                                          ; preds = %if.end, %for.end.lo
 for.body81.preheader:                             ; preds = %for.end
   %idxprom63 = zext nneg i32 %i.0.lcssa to i64
   %25 = add nuw nsw i64 %idxprom63, 1
-  %wide.trip.count = zext i32 %w to i64
+  %wide.trip.count = zext nneg i32 %w to i64
   br label %for.body81
 
 for.body81:                                       ; preds = %for.body81.preheader, %for.body81
@@ -19085,16 +19083,16 @@ if.then180:                                       ; preds = %if.end173
   br label %return
 
 for.end185:                                       ; preds = %for.cond162, %for.cond133.preheader
-  %v_max.0.lcssa364 = phi i32 [ 1, %for.cond133.preheader ], [ %v_max.1, %for.cond162 ]
+  %v_max.0.lcssa365 = phi i32 [ 1, %for.cond133.preheader ], [ %v_max.1, %for.cond162 ]
   %h_max.0.lcssa363 = phi i32 [ 1, %for.cond133.preheader ], [ %spec.select, %for.cond162 ]
   %img_h_max = getelementptr inbounds nuw i8, ptr %z, i64 18056
   store i32 %h_max.0.lcssa363, ptr %img_h_max, align 8
   %img_v_max = getelementptr inbounds nuw i8, ptr %z, i64 18060
-  store i32 %v_max.0.lcssa364, ptr %img_v_max, align 4
+  store i32 %v_max.0.lcssa365, ptr %img_v_max, align 4
   %mul186 = shl nsw i32 %h_max.0.lcssa363, 3
   %img_mcu_w = getelementptr inbounds nuw i8, ptr %z, i64 18072
   store i32 %mul186, ptr %img_mcu_w, align 8
-  %mul187 = shl nsw i32 %v_max.0.lcssa364, 3
+  %mul187 = shl nsw i32 %v_max.0.lcssa365, 3
   %img_mcu_h = getelementptr inbounds nuw i8, ptr %z, i64 18076
   store i32 %mul187, ptr %img_mcu_h, align 4
   %84 = load i32, ptr %0, align 8
@@ -19116,7 +19114,7 @@ for.end185:                                       ; preds = %for.cond162, %for.c
 for.body201.lr.ph:                                ; preds = %for.end185
   %img_comp203 = getelementptr inbounds nuw i8, ptr %z, i64 18080
   %add208 = add nsw i32 %h_max.0.lcssa363, -1
-  %add220 = add nsw i32 %v_max.0.lcssa364, -1
+  %add220 = add nsw i32 %v_max.0.lcssa365, -1
   %progressive = getelementptr inbounds nuw i8, ptr %z, i64 18480
   br label %for.body201
 
@@ -19136,7 +19134,7 @@ for.body201:                                      ; preds = %for.body201.lr.ph, 
   %90 = load i32, ptr %v218, align 8
   %mul219 = mul i32 %90, %89
   %sub221 = add i32 %add220, %mul219
-  %div222 = udiv i32 %sub221, %v_max.0.lcssa364
+  %div222 = udiv i32 %sub221, %v_max.0.lcssa365
   %y = getelementptr inbounds nuw i8, ptr %arrayidx205, i64 32
   store i32 %div222, ptr %y, align 8
   %mul231 = mul nsw i32 %88, %div
@@ -23099,9 +23097,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #31
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #32
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #30
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

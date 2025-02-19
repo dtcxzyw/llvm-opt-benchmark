@@ -874,17 +874,17 @@ define internal noundef i32 @preload_image(ptr noundef %0, ptr noundef initializ
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %6 = load i32, ptr %5, align 4, !tbaa !73
   %.not28 = icmp eq i32 %6, 0
+  %.not = icmp eq ptr %4, null
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %.not26 = icmp eq ptr %4, null
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  br i1 %.not26, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.027.us = phi i32 [ %20, %.lr.ph.split.us ], [ 0, %.lr.ph ]
@@ -899,7 +899,7 @@ define internal noundef i32 @preload_image(ptr noundef %0, ptr noundef initializ
   %20 = add nuw i32 %.027.us, 1
   %21 = load i32, ptr %5, align 4, !tbaa !73
   %22 = icmp ult i32 %20, %21
-  br i1 %22, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !81
+  br i1 %22, label %.lr.ph.split.us, label %._crit_edge.thread, !llvm.loop !81
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -922,40 +922,38 @@ define internal noundef i32 @preload_image(ptr noundef %0, ptr noundef initializ
   %34 = load i32, ptr %5, align 4, !tbaa !73
   %35 = zext i32 %34 to i64
   %36 = icmp samesign ult i64 %indvars.iv.next, %35
-  br i1 %36, label %.lr.ph.split, label %._crit_edge.thread, !llvm.loop !81
+  br i1 %36, label %.lr.ph.split, label %._crit_edge.thread36, !llvm.loop !81
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %2
-  %.lcssa = phi i32 [ 0, %2 ], [ %21, %.lr.ph.split.us ]
-  %.not = icmp eq ptr %4, null
-  br i1 %.not, label %40, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %2
+  br i1 %.not, label %._crit_edge.thread, label %._crit_edge.thread36
 
-._crit_edge.thread:                               ; preds = %.lr.ph.split, %._crit_edge
-  %.lcssa35 = phi i32 [ %.lcssa, %._crit_edge ], [ %34, %.lr.ph.split ]
+._crit_edge.thread36:                             ; preds = %.lr.ph.split, %._crit_edge
+  %.lcssa39 = phi i32 [ 0, %._crit_edge ], [ %34, %.lr.ph.split ]
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %38 = load i32, ptr %37, align 8, !tbaa !85
   %39 = add nsw i32 %38, 1
   store i32 %39, ptr %37, align 8, !tbaa !85
-  br label %40
+  br label %._crit_edge.thread
 
-40:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.lcssa36 = phi i32 [ %.lcssa35, %._crit_edge.thread ], [ %.lcssa, %._crit_edge ]
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr @get_memory_row, ptr %41, align 8, !tbaa !63
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store i32 0, ptr %42, align 8, !tbaa !86
-  %43 = add i32 %.lcssa36, -1
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !32
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 56
-  %47 = load ptr, ptr %46, align 8, !tbaa !80
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %49 = load ptr, ptr %48, align 8, !tbaa !55
-  %50 = tail call ptr %47(ptr noundef nonnull %0, ptr noundef %49, i32 noundef %43, i32 noundef 1, i32 noundef 0) #4
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %50, ptr %51, align 8, !tbaa !62
-  %52 = load i32, ptr %42, align 8, !tbaa !86
-  %53 = add i32 %52, 1
-  store i32 %53, ptr %42, align 8, !tbaa !86
+._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %._crit_edge.thread36, %._crit_edge
+  %.lcssa35 = phi i32 [ %.lcssa39, %._crit_edge.thread36 ], [ 0, %._crit_edge ], [ %21, %.lr.ph.split.us ]
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr @get_memory_row, ptr %40, align 8, !tbaa !63
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  store i32 0, ptr %41, align 8, !tbaa !86
+  %42 = add i32 %.lcssa35, -1
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !32
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 56
+  %46 = load ptr, ptr %45, align 8, !tbaa !80
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %48 = load ptr, ptr %47, align 8, !tbaa !55
+  %49 = tail call ptr %46(ptr noundef nonnull %0, ptr noundef %48, i32 noundef %42, i32 noundef 1, i32 noundef 0) #4
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %49, ptr %50, align 8, !tbaa !62
+  %51 = load i32, ptr %41, align 8, !tbaa !86
+  %52 = add i32 %51, 1
+  store i32 %52, ptr %41, align 8, !tbaa !86
   ret i32 1
 }
 

@@ -2221,7 +2221,7 @@ hi_sdslen.exit:                                   ; preds = %.lr.ph438, %516, %5
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %535 = call i64 @redisFormatCommandArgv(ptr noundef nonnull %35, i32 noundef %.0123, ptr noundef %.0124, ptr noundef %508) #20
+  %535 = call i64 @redisFormatCommandArgv(ptr noundef nonnull %35, i32 noundef %.0123, ptr noundef nonnull %.0124, ptr noundef %508) #20
   %536 = trunc i64 %535 to i32
   store i32 %536, ptr getelementptr inbounds nuw (i8, ptr @config, i64 164), align 4, !tbaa !61
   %537 = load ptr, ptr %35, align 8, !tbaa !5
@@ -2233,7 +2233,7 @@ hi_sdslen.exit:                                   ; preds = %.lr.ph438, %516, %5
   br i1 %.not183, label %540, label %.preheader, !llvm.loop !120
 
 540:                                              ; preds = %.preheader
-  call void @hi_sdsfreesplitres(ptr noundef %.0124, i32 noundef %.0123) #20
+  call void @hi_sdsfreesplitres(ptr noundef nonnull %.0124, i32 noundef %.0123) #20
   call void @hi_sdsfree(ptr noundef %.0125.lcssa) #20
   %541 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @config, i64 288), align 8, !tbaa !107
   %.not184 = icmp eq ptr %541, null
@@ -3150,7 +3150,7 @@ test_is_selected.exit348:                         ; preds = %.thread500, %813
   br i1 %.not424, label %825, label %821
 
 821:                                              ; preds = %test_is_selected.exit348.thread, %test_is_selected.exit348
-  %822 = call i32 (ptr, ptr, ...) @redisFormatCommand(ptr noundef nonnull %35, ptr noundef nonnull @.str.127, ptr noundef nonnull %.0129, ptr noundef %554) #20
+  %822 = call i32 (ptr, ptr, ...) @redisFormatCommand(ptr noundef nonnull %35, ptr noundef nonnull @.str.127, ptr noundef nonnull %.0129, ptr noundef nonnull %554) #20
   %823 = load ptr, ptr %35, align 8, !tbaa !5
   call fastcc void @benchmark(ptr noundef nonnull @.str.128, ptr noundef %823, i32 noundef %822)
   %824 = load ptr, ptr %35, align 8, !tbaa !5
@@ -3896,7 +3896,7 @@ hi_sdslen.exit188:                                ; preds = %178, %189, %192, %1
   %232 = load i64, ptr %221, align 8, !tbaa !158
   %233 = trunc i64 %232 to i32
   %234 = icmp sgt i32 %233, 0
-  br i1 %234, label %.lr.ph195, label %.loopexit190.thread
+  br i1 %234, label %.lr.ph195, label %.loopexit190
 
 .lr.ph195:                                        ; preds = %226
   %235 = load ptr, ptr %78, align 8, !tbaa !152
@@ -3934,7 +3934,7 @@ hi_sdslen.exit188:                                ; preds = %178, %189, %192, %1
   store ptr %254, ptr %220, align 8, !tbaa !160
   %255 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %214, ptr noundef nonnull dereferenceable(1) @.str.102) #21
   %.not182196 = icmp eq ptr %255, null
-  br i1 %.not182196, label %.loopexit190.thread218, label %.lr.ph197.preheader
+  br i1 %.not182196, label %.loopexit190.thread, label %.lr.ph197.preheader
 
 .lr.ph197.preheader:                              ; preds = %252
   %.pre211 = load i64, ptr %253, align 8, !tbaa !159
@@ -3973,25 +3973,20 @@ hi_sdslen.exit188:                                ; preds = %178, %189, %192, %1
   %.not182 = icmp eq ptr %274, null
   br i1 %.not182, label %.loopexit190, label %.lr.ph197, !llvm.loop !162
 
-.loopexit190:                                     ; preds = %246, %266, %.loopexit192
+.loopexit190:                                     ; preds = %246, %266, %226, %.loopexit192
   %275 = load i32, ptr getelementptr inbounds nuw (i8, ptr @config, i64 272), align 8, !tbaa !43
   %.not183 = icmp eq i32 %275, 0
-  br i1 %.not183, label %.loopexit, label %278
+  br i1 %.not183, label %.loopexit, label %277
 
-.loopexit190.thread218:                           ; preds = %252
+.loopexit190.thread:                              ; preds = %252
   %276 = load i32, ptr getelementptr inbounds nuw (i8, ptr @config, i64 272), align 8, !tbaa !43
-  %.not183219 = icmp eq i32 %276, 0
-  br i1 %.not183219, label %.loopexit, label %.thread220
-
-.loopexit190.thread:                              ; preds = %226
-  %277 = load i32, ptr getelementptr inbounds nuw (i8, ptr @config, i64 272), align 8, !tbaa !43
-  %.not183217 = icmp eq i32 %277, 0
+  %.not183217 = icmp eq i32 %276, 0
   br i1 %.not183217, label %.loopexit, label %.thread
 
-278:                                              ; preds = %.loopexit190
-  br i1 %.not180, label %.thread220, label %.thread
+277:                                              ; preds = %.loopexit190
+  br i1 %.not180, label %.thread, label %278
 
-.thread:                                          ; preds = %.loopexit190.thread, %278
+278:                                              ; preds = %277
   %279 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %280 = load i64, ptr %279, align 8, !tbaa !163
   store i64 %280, ptr %223, align 8, !tbaa !163
@@ -4005,7 +4000,7 @@ hi_sdslen.exit188:                                ; preds = %178, %189, %192, %1
   %286 = icmp sgt i32 %285, 0
   br i1 %286, label %.lr.ph199, label %.loopexit
 
-.lr.ph199:                                        ; preds = %.thread
+.lr.ph199:                                        ; preds = %278
   %287 = load ptr, ptr %78, align 8, !tbaa !152
   %288 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %289 = load ptr, ptr %288, align 8, !tbaa !165
@@ -4018,7 +4013,7 @@ hi_sdslen.exit188:                                ; preds = %178, %189, %192, %1
   %296 = sub nsw i32 %293, %295
   %297 = sext i32 %296 to i64
   %wide.trip.count208 = and i64 %284, 2147483647
-  %invariant.gep224 = getelementptr i8, ptr %287, i64 %297
+  %invariant.gep221 = getelementptr i8, ptr %287, i64 %297
   br label %298
 
 298:                                              ; preds = %.lr.ph199, %298
@@ -4028,13 +4023,13 @@ hi_sdslen.exit188:                                ; preds = %178, %189, %192, %1
   %301 = ptrtoint ptr %300 to i64
   %302 = sub i64 %301, %292
   %303 = getelementptr inbounds nuw ptr, ptr %283, i64 %indvars.iv205
-  %gep225 = getelementptr i8, ptr %invariant.gep224, i64 %302
-  store ptr %gep225, ptr %303, align 8, !tbaa !5
+  %gep222 = getelementptr i8, ptr %invariant.gep221, i64 %302
+  store ptr %gep222, ptr %303, align 8, !tbaa !5
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %exitcond209.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count208
   br i1 %exitcond209.not, label %.loopexit, label %298, !llvm.loop !166
 
-.thread220:                                       ; preds = %.loopexit190.thread218, %278
+.thread:                                          ; preds = %.loopexit190.thread, %277
   %304 = load ptr, ptr %78, align 8, !tbaa !152
   store i64 0, ptr %223, align 8, !tbaa !163
   %305 = getelementptr inbounds nuw i8, ptr %13, i64 56
@@ -4045,7 +4040,7 @@ hi_sdslen.exit188:                                ; preds = %178, %189, %192, %1
   %.not184200 = icmp eq ptr %307, null
   br i1 %.not184200, label %.loopexit, label %.lr.ph201.preheader
 
-.lr.ph201.preheader:                              ; preds = %.thread220
+.lr.ph201.preheader:                              ; preds = %.thread
   %.pre213 = load i64, ptr %305, align 8, !tbaa !164
   %.pre214.pre = load i64, ptr %223, align 8, !tbaa !163
   br label %.lr.ph201
@@ -4082,7 +4077,7 @@ hi_sdslen.exit188:                                ; preds = %178, %189, %192, %1
   %.not184 = icmp eq ptr %326, null
   br i1 %.not184, label %.loopexit, label %.lr.ph201, !llvm.loop !167
 
-.loopexit:                                        ; preds = %298, %318, %.loopexit190.thread218, %.loopexit190.thread, %.thread, %.thread220, %.loopexit190
+.loopexit:                                        ; preds = %298, %318, %.loopexit190.thread, %278, %.thread, %.loopexit190
   %327 = icmp slt i32 %3, 0
   br i1 %327, label %334, label %328
 

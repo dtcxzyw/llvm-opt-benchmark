@@ -741,12 +741,15 @@ define dso_local noundef ptr @kwsprep(ptr noundef %0) local_unnamed_addr #0 {
   %83 = getelementptr i8, ptr %.pre199.pre, i64 %65
   %84 = getelementptr i8, ptr %83, i64 -1
   %85 = load i8, ptr %84, align 1, !tbaa !29
-  %86 = add nsw i32 %.pre198, -2
   %.not208 = icmp eq i32 %.pre198, 1
-  br i1 %.not208, label %._crit_edge179, label %.lr.ph178
+  br i1 %.not208, label %._crit_edge179, label %.lr.ph178.preheader
 
-.lr.ph178:                                        ; preds = %._crit_edge175, %91
-  %.2176 = phi i32 [ %92, %91 ], [ %86, %._crit_edge175 ]
+.lr.ph178.preheader:                              ; preds = %._crit_edge175
+  %86 = add nsw i32 %.pre198, -2
+  br label %.lr.ph178
+
+.lr.ph178:                                        ; preds = %.lr.ph178.preheader, %91
+  %.2176 = phi i32 [ %92, %91 ], [ %86, %.lr.ph178.preheader ]
   %87 = zext nneg i32 %.2176 to i64
   %88 = getelementptr inbounds nuw i8, ptr %.pre199.pre, i64 %87
   %89 = load i8, ptr %88, align 1, !tbaa !29
@@ -759,8 +762,8 @@ define dso_local noundef ptr @kwsprep(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %93, label %.lr.ph178, label %._crit_edge179, !llvm.loop !48
 
 ._crit_edge179:                                   ; preds = %91, %.lr.ph178, %._crit_edge175.thread, %._crit_edge175
-  %94 = phi i32 [ %.pre198, %._crit_edge175 ], [ %63, %._crit_edge175.thread ], [ %.pre198, %.lr.ph178 ], [ %.pre198, %91 ]
-  %.2.lcssa = phi i32 [ %86, %._crit_edge175 ], [ %64, %._crit_edge175.thread ], [ -1, %91 ], [ %.2176, %.lr.ph178 ]
+  %94 = phi i32 [ 1, %._crit_edge175 ], [ %63, %._crit_edge175.thread ], [ %.pre198, %.lr.ph178 ], [ %.pre198, %91 ]
+  %.2.lcssa = phi i32 [ -1, %._crit_edge175 ], [ %64, %._crit_edge175.thread ], [ -1, %91 ], [ %.2176, %.lr.ph178 ]
   %.neg = xor i32 %.2.lcssa, -1
   %95 = add i32 %94, %.neg
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 2424

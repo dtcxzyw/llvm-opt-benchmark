@@ -45928,26 +45928,36 @@ define hidden noundef ptr @"_ZN159_$LT$kafka_protocol..protocol..types..CompactA
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !11609
   %21 = lshr i32 %.04.i29, 7
   %22 = icmp ugt i32 %.04.i29, 16383
-  br i1 %22, label %.lr.ph.i28, label %"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit30"
+  br i1 %22, label %.lr.ph.i28, label %"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit30.thread"
 
-"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit30": ; preds = %.lr.ph.i28, %15
-  %.0.lcssa.i27 = phi i32 [ %17, %15 ], [ %21, %.lr.ph.i28 ]
-  %23 = trunc nuw nsw i32 %.0.lcssa.i27 to i8
+"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit30.thread": ; preds = %.lr.ph.i28
+  %23 = trunc nuw nsw i32 %21 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8), !noalias !11616
   store i8 %23, ptr %8, align 1, !noalias !11616
   call void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9put_slice17h9bd64ff34b6c4b6fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef 1), !noalias !11615
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8), !noalias !11616
-  %24 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha540054caa0670bbE.exit.preheader"
+
+"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit30": ; preds = %15
+  %24 = trunc nuw nsw i32 %17 to i8
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8), !noalias !11616
+  store i8 %24, ptr %8, align 1, !noalias !11616
+  call void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9put_slice17h9bd64ff34b6c4b6fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef 1), !noalias !11615
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8), !noalias !11616
   %25 = icmp eq i64 %3, 0
-  br i1 %25, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha540054caa0670bbE.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha540054caa0670bbE.exit"
+  br i1 %25, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha540054caa0670bbE.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha540054caa0670bbE.exit.preheader"
+
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha540054caa0670bbE.exit.preheader": ; preds = %"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit30.thread", %"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit30"
+  %26 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha540054caa0670bbE.exit"
 
 _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.9060417697508566391.exit: ; preds = %13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 %3, ptr %10, align 8
   store ptr %10, ptr %11, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hea7a5554d3cba60aE", ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hea7a5554d3cba60aE", ptr %27, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !11619
   store ptr @anon.1f7e51aa9a0607ba6b9e9da3a6dc7bdc.127, ptr %6, align 8, !noalias !11630
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -45962,24 +45972,24 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.9060417697508566391.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !11619
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  %27 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$3msg17h3c24caf70f1ceb63E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
+  %28 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$3msg17h3c24caf70f1ceb63E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha540054caa0670bbE.exit.thread"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha540054caa0670bbE.exit": ; preds = %"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit30", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha540054caa0670bbE.exit"
-  %.sroa.031.036 = phi ptr [ %28, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha540054caa0670bbE.exit" ], [ %2, %"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit30" ]
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.031.036, i64 4
-  %29 = call noundef align 4 dereferenceable(4) ptr @"_ZN86_$LT$kafka_protocol..messages..BrokerId$u20$as$u20$core..borrow..Borrow$LT$i32$GT$$GT$6borrow17ha145c4c9791b7218E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.sroa.031.036), !noalias !11632
-  %30 = load i32, ptr %29, align 4, !noalias !11632, !noundef !7
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha540054caa0670bbE.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha540054caa0670bbE.exit.preheader", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha540054caa0670bbE.exit"
+  %.sroa.031.036 = phi ptr [ %29, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha540054caa0670bbE.exit" ], [ %2, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha540054caa0670bbE.exit.preheader" ]
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.031.036, i64 4
+  %30 = call noundef align 4 dereferenceable(4) ptr @"_ZN86_$LT$kafka_protocol..messages..BrokerId$u20$as$u20$core..borrow..Borrow$LT$i32$GT$$GT$6borrow17ha145c4c9791b7218E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.sroa.031.036), !noalias !11632
+  %31 = load i32, ptr %30, align 4, !noalias !11632, !noundef !7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !11635
-  %31 = call i32 @llvm.bswap.i32(i32 %30)
-  store i32 %31, ptr %5, align 4, !noalias !11635
+  %32 = call i32 @llvm.bswap.i32(i32 %31)
+  store i32 %32, ptr %5, align 4, !noalias !11635
   call void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9put_slice17h9bd64ff34b6c4b6fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !11635
-  %32 = icmp eq ptr %28, %24
-  br i1 %32, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha540054caa0670bbE.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha540054caa0670bbE.exit"
+  %33 = icmp eq ptr %29, %26
+  br i1 %33, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha540054caa0670bbE.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha540054caa0670bbE.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha540054caa0670bbE.exit.thread": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha540054caa0670bbE.exit", %"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit30", %_ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.9060417697508566391.exit, %"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit"
-  %.024 = phi ptr [ %27, %_ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.9060417697508566391.exit ], [ null, %"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit" ], [ null, %"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit30" ], [ null, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha540054caa0670bbE.exit" ]
+  %.024 = phi ptr [ %28, %_ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.9060417697508566391.exit ], [ null, %"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit" ], [ null, %"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit30" ], [ null, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha540054caa0670bbE.exit" ]
   ret ptr %.024
 }
 
@@ -68322,7 +68332,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
 
 .preheader.i:                                     ; preds = %70, %86
   %.sroa.025.0144.i = phi i64 [ %82, %86 ], [ 0, %70 ]
-  %.2143.i = phi i8 [ %.3.i, %86 ], [ %.064145.i, %70 ]
+  %.2143.i = phi i8 [ %.3.i, %86 ], [ 0, %70 ]
   %82 = add nuw nsw i64 %.sroa.025.0144.i, 1
   %83 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.025.0144.i
   %84 = load i16, ptr %83, align 2, !noalias !16351, !noundef !7

@@ -2941,11 +2941,10 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN106_$LT$core..iter..adapters..chain
 
 30:                                               ; preds = %25
   store i64 %27, ptr %1, align 8, !alias.scope !831
-  %31 = and i8 %.0.i.i, 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %18, %30
-  %.0 = phi i8 [ %31, %30 ], [ 2, %18 ], [ %.0.i.i.i, %11 ]
+  %.0 = phi i8 [ %.0.i.i, %30 ], [ 2, %18 ], [ %.0.i.i.i, %11 ]
   ret i8 %.0
 }
 
@@ -3771,11 +3770,10 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN106_$LT$core..iter..adapters..chain
 
 30:                                               ; preds = %25
   store i64 %27, ptr %1, align 8, !alias.scope !1149
-  %31 = and i8 %.0.i.i, 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %18, %30
-  %.0 = phi i8 [ %31, %30 ], [ 2, %18 ], [ %.0.i.i.i, %11 ]
+  %.0 = phi i8 [ %.0.i.i, %30 ], [ 2, %18 ], [ %.0.i.i.i, %11 ]
   ret i8 %.0
 }
 
@@ -4590,11 +4588,10 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN106_$LT$core..iter..adapters..chain
 
 30:                                               ; preds = %25
   store i64 %27, ptr %1, align 8, !alias.scope !1479
-  %31 = and i8 %.0.i.i, 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %18, %30
-  %.0 = phi i8 [ %31, %30 ], [ 2, %18 ], [ %.0.i.i.i, %11 ]
+  %.0 = phi i8 [ %.0.i.i, %30 ], [ 2, %18 ], [ %.0.i.i.i, %11 ]
   ret i8 %.0
 }
 
@@ -5308,11 +5305,10 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN106_$LT$core..iter..adapters..chain
 
 30:                                               ; preds = %25
   store i64 %27, ptr %1, align 8, !alias.scope !1734
-  %31 = and i8 %.0.i.i, 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %18, %30
-  %.0 = phi i8 [ %31, %30 ], [ 2, %18 ], [ %.0.i.i.i, %11 ]
+  %.0 = phi i8 [ %.0.i.i, %30 ], [ 2, %18 ], [ %.0.i.i.i, %11 ]
   ret i8 %.0
 }
 
