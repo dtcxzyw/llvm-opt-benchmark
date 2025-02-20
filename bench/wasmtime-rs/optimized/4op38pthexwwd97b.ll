@@ -50901,7 +50901,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph13clear_results17h6b87e50708db0cbaE.
   br label %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph17inst_result_types17h8f1f6cc41a75fbf8E.exit
 
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph17inst_result_types17h8f1f6cc41a75fbf8E.exit: ; preds = %"_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i", %47
-  %.sroa.5.0 = phi i32 [ %.sroa.0.0.copyload.i.i, %"_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i" ], [ %48, %47 ]
+  %.sroa.532.0 = phi i32 [ %.sroa.0.0.copyload.i.i, %"_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i" ], [ %48, %47 ]
   %storemerge.i = phi i16 [ 1, %"_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i" ], [ 0, %47 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8), !noalias !19783
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -50910,8 +50910,8 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph17inst_result_types17h8f1f6cc41a75fb
   store i16 %storemerge.i, ptr %7, align 8, !noalias !19790
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i16 %2, ptr %.sroa.4.0..sroa_idx, align 2, !noalias !19790
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx, align 4, !noalias !19790
+  %.sroa.532.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 %.sroa.532.0, ptr %.sroa.532.0..sroa_idx, align 4, !noalias !19790
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !19790
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -50927,11 +50927,11 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph17inst_result_types17h8f1f6cc41a75fb
   br i1 %53, label %common.resume.sink.split, label %common.resume
 
 common.resume.sink.split:                         ; preds = %50, %56
-  %.sink111 = phi ptr [ %9, %56 ], [ %8, %50 ]
-  %.sink110 = phi i64 [ %57, %56 ], [ %52, %50 ]
+  %.sink110 = phi ptr [ %9, %56 ], [ %8, %50 ]
+  %.sink109 = phi i64 [ %57, %56 ], [ %52, %50 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %lpad.phi, %56 ], [ %51, %50 ]
-  %54 = load ptr, ptr %.sink111, align 8, !nonnull !4, !noundef !4
-  %55 = shl nuw i64 %.sink110, 1
+  %54 = load ptr, ptr %.sink110, align 8, !nonnull !4, !noundef !4
+  %55 = shl nuw i64 %.sink109, 1
   call void @__rust_dealloc(ptr noundef nonnull %54, i64 noundef %55, i64 noundef 2) #38, !noalias !4
   br label %common.resume
 
@@ -50982,7 +50982,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 75:                                               ; preds = %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h22f2b8ce9ca27d1eE.exit", %59
   %.sroa.033.0 = phi ptr [ %.sink5.i, %59 ], [ %78, %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h22f2b8ce9ca27d1eE.exit" ]
   %.sroa.735.0 = phi i64 [ 0, %59 ], [ %79, %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h22f2b8ce9ca27d1eE.exit" ]
-  %.sroa.0.0 = phi ptr [ %3, %59 ], [ %.sroa.0.1104, %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h22f2b8ce9ca27d1eE.exit" ]
+  %.sroa.0.0 = phi ptr [ %3, %59 ], [ %.sroa.0.1103, %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h22f2b8ce9ca27d1eE.exit" ]
   %76 = icmp eq ptr %.sroa.033.0, %66
   br i1 %76, label %.thread, label %77
 
@@ -51036,7 +51036,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br i1 %.not, label %"_ZN128_$LT$cranelift_codegen..ir..dfg..ValueDataPacked$u20$as$u20$core..convert..From$LT$cranelift_codegen..ir..dfg..ValueData$GT$$GT$4from17he9f26a0a242f9a2fE.exit.i", label %112
 
 "_ZN128_$LT$cranelift_codegen..ir..dfg..ValueDataPacked$u20$as$u20$core..convert..From$LT$cranelift_codegen..ir..dfg..ValueData$GT$$GT$4from17he9f26a0a242f9a2fE.exit.i": ; preds = %89, %91
-  %.sroa.0.1105 = phi ptr [ %92, %91 ], [ %.sroa.0.0, %89 ]
+  %.sroa.0.1104 = phi ptr [ %92, %91 ], [ %.sroa.0.0, %89 ]
   %96 = zext i16 %80 to i64
   %97 = shl nuw i64 %96, 48
   %98 = zext i16 %.sroa.57.0 to i64
@@ -51093,7 +51093,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10make_value17hec580ac576533f2cE.exi
   br label %.noexc
 
 .noexc:                                           ; preds = %117, %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10make_value17hec580ac576533f2cE.exit
-  %.sroa.0.1104 = phi ptr [ %92, %117 ], [ %.sroa.0.1105, %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10make_value17hec580ac576533f2cE.exit ]
+  %.sroa.0.1103 = phi ptr [ %92, %117 ], [ %.sroa.0.1104, %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10make_value17hec580ac576533f2cE.exit ]
   %.0 = phi i32 [ %95, %117 ], [ %107, %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10make_value17hec580ac576533f2cE.exit ]
   %126 = load i64, ptr %11, align 8, !alias.scope !19848, !noundef !4
   %.not.i = icmp ugt i64 %126, %10
@@ -51439,7 +51439,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph13clear_results17h6b87e50708db0cbaE.
   br label %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph17inst_result_types17h8f1f6cc41a75fbf8E.exit
 
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph17inst_result_types17h8f1f6cc41a75fbf8E.exit: ; preds = %"_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i", %47
-  %.sroa.5.0 = phi i32 [ %.sroa.0.0.copyload.i.i, %"_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i" ], [ %48, %47 ]
+  %.sroa.532.0 = phi i32 [ %.sroa.0.0.copyload.i.i, %"_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i" ], [ %48, %47 ]
   %storemerge.i = phi i16 [ 1, %"_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i" ], [ 0, %47 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8), !noalias !19958
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -51448,8 +51448,8 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph17inst_result_types17h8f1f6cc41a75fb
   store i16 %storemerge.i, ptr %7, align 8, !noalias !19965
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i16 %2, ptr %.sroa.4.0..sroa_idx, align 2, !noalias !19965
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx, align 4, !noalias !19965
+  %.sroa.532.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 %.sroa.532.0, ptr %.sroa.532.0..sroa_idx, align 4, !noalias !19965
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !19965
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -51465,11 +51465,11 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph17inst_result_types17h8f1f6cc41a75fb
   br i1 %53, label %common.resume.sink.split, label %common.resume
 
 common.resume.sink.split:                         ; preds = %50, %56
-  %.sink111 = phi ptr [ %9, %56 ], [ %8, %50 ]
-  %.sink110 = phi i64 [ %57, %56 ], [ %52, %50 ]
+  %.sink110 = phi ptr [ %9, %56 ], [ %8, %50 ]
+  %.sink109 = phi i64 [ %57, %56 ], [ %52, %50 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %lpad.phi, %56 ], [ %51, %50 ]
-  %54 = load ptr, ptr %.sink111, align 8, !nonnull !4, !noundef !4
-  %55 = shl nuw i64 %.sink110, 1
+  %54 = load ptr, ptr %.sink110, align 8, !nonnull !4, !noundef !4
+  %55 = shl nuw i64 %.sink109, 1
   call void @__rust_dealloc(ptr noundef nonnull %54, i64 noundef %55, i64 noundef 2) #38, !noalias !4
   br label %common.resume
 
@@ -51520,7 +51520,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 75:                                               ; preds = %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h22f2b8ce9ca27d1eE.exit", %59
   %.sroa.033.0 = phi ptr [ %.sink5.i, %59 ], [ %78, %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h22f2b8ce9ca27d1eE.exit" ]
   %.sroa.735.0 = phi i64 [ 0, %59 ], [ %79, %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h22f2b8ce9ca27d1eE.exit" ]
-  %.sroa.0.0 = phi ptr [ %3, %59 ], [ %.sroa.0.1104, %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h22f2b8ce9ca27d1eE.exit" ]
+  %.sroa.0.0 = phi ptr [ %3, %59 ], [ %.sroa.0.1103, %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h22f2b8ce9ca27d1eE.exit" ]
   %76 = icmp eq ptr %.sroa.033.0, %66
   br i1 %76, label %.thread, label %77
 
@@ -51624,7 +51624,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10make_value17hec580ac576533f2cE.exi
   br label %.noexc
 
 .noexc:                                           ; preds = %112, %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10make_value17hec580ac576533f2cE.exit
-  %.sroa.0.1104 = phi ptr [ %119, %112 ], [ %.sroa.0.0, %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10make_value17hec580ac576533f2cE.exit ]
+  %.sroa.0.1103 = phi ptr [ %119, %112 ], [ %.sroa.0.0, %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10make_value17hec580ac576533f2cE.exit ]
   %.0 = phi i32 [ %.val.i.i, %112 ], [ %102, %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10make_value17hec580ac576533f2cE.exit ]
   %122 = load i64, ptr %11, align 8, !alias.scope !20018, !noundef !4
   %.not.i = icmp ugt i64 %122, %10

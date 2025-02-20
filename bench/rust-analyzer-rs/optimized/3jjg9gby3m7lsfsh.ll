@@ -136982,7 +136982,6 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h97270fd488e2b628E.exit.i.i: 
   call void @llvm.experimental.noalias.scope.decl(metadata !32572)
   %104 = load ptr, ptr %32, align 8, !alias.scope !32575, !noalias !32576, !noundef !7
   %105 = icmp eq ptr %104, null
-  %.0.i6.i.i = select i1 %105, ptr null, ptr %32
   br i1 %105, label %.loopexit.i.i, label %106
 
 106:                                              ; preds = %103
@@ -137001,7 +137000,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h97270fd488e2b628E.exit.i.i: 
 
 112:                                              ; preds = %109
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  store ptr %113, ptr %.0.i6.i.i, align 8, !alias.scope !32589, !noalias !32592
+  store ptr %113, ptr %32, align 8, !alias.scope !32589, !noalias !32592
   %114 = load ptr, ptr %110, align 8, !alias.scope !32596, !noalias !32601, !nonnull !7, !noundef !7
   %.not.i.i.i.i.i.i = icmp eq ptr %114, %108
   br i1 %.not.i.i.i.i.i.i, label %.cont.i.i, label %109

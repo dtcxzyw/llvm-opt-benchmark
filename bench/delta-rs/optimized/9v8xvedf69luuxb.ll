@@ -77199,12 +77199,12 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h9329ef8b0fca07a7E.exit.threa
   br i1 %63, label %"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$GT$$GT$17h26ec160e6ec3c05aE.exit.i.i.i.i.i.i", label %64
 
 64:                                               ; preds = %61
-  store i64 -9223372036854775808, ptr %.0.i.i.i.i, align 8, !alias.scope !13220, !noalias !13227
+  store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !13220, !noalias !13227
   %.not.i.i.i.i.i.i.i = icmp eq i64 %62, -9223372036854775808
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h3550b669f66dba18E.exit.thread20.i.i.i.i.i.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hfa0d0a5632d36a54E.exit.thread43.i.i.i"
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h3550b669f66dba18E.exit.thread20.i.i.i.i.i.i: ; preds = %64
-  store i64 -9223372036854775807, ptr %.0.i.i.i.i, align 8, !alias.scope !13231, !noalias !13232
+  store i64 -9223372036854775807, ptr %0, align 8, !alias.scope !13231, !noalias !13232
   br label %"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$GT$$GT$17h26ec160e6ec3c05aE.exit.i.i.i.i.i.i"
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hfa0d0a5632d36a54E.exit.thread43.i.i.i": ; preds = %64
@@ -77379,12 +77379,12 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h3550b669f66dba18E.exit.threa
 
 .body15:                                          ; preds = %111, %112
   %eh.lpad-body16 = phi { ptr, i32 } [ %113, %112 ], [ %89, %111 ]
-  store i64 %.sroa.0.05.i.i.i.i.i.i.i, ptr %.0.i.i.i.i, align 8, !alias.scope !13284, !noalias !13265
+  store i64 %.sroa.0.05.i.i.i.i.i.i.i, ptr %0, align 8, !alias.scope !13284, !noalias !13265
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.513.0..sroa_idx.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i.i.i.i.i.i, i64 16, i1 false), !noalias !13265
   br label %.body
 
 "_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$core..result..IntoIter$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$GT$$GT$$GT$17h95c24b154f5c5419E.exit.i.i.i.i.i.i": ; preds = %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..actions..Add$GT$$GT$17h5367d0c05017b12bE.exit", %"_ZN95_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h69430b5c28c63270E.exit.i.i.i.i.i.i"
-  store i64 %.sroa.0.05.i.i.i.i.i.i.i, ptr %.0.i.i.i.i, align 8, !alias.scope !13284, !noalias !13265
+  store i64 %.sroa.0.05.i.i.i.i.i.i.i, ptr %0, align 8, !alias.scope !13284, !noalias !13265
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.513.0..sroa_idx.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i.i.i.i.i.i, i64 16, i1 false), !noalias !13265
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5.i.i.i.i.i.i)
   br label %61

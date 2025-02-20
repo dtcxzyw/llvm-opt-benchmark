@@ -5782,13 +5782,13 @@ common.resume:                                    ; preds = %.body107, %74, %82,
 
 .body107:                                         ; preds = %131, %137
   %eh.lpad-body108 = phi { ptr, i32 } [ %138, %137 ], [ %132, %131 ]
-  store ptr %.fca.0.extract18, ptr %., align 8
+  store ptr %.fca.0.extract18, ptr %3, align 8
   %139 = getelementptr inbounds nuw i8, ptr %., i64 8
   store i64 %.fca.1.extract20, ptr %139, align 8
   br label %common.resume
 
 .thread172:                                       ; preds = %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$mini_lsm..mem_table..ouroboros_impl_mem_table_iterator..MemTableIterator$GT$$GT$17he157fbb54683747aE.llvm.1597650999041595525.exit.i106"
-  store ptr %.fca.0.extract18, ptr %., align 8
+  store ptr %.fca.0.extract18, ptr %3, align 8
   store i64 %.fca.1.extract20, ptr %136, align 8
   br label %"_ZN4core3ptr197drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$mini_lsm..iterators..merge_iterator..HeapWrapper$LT$mini_lsm..mem_table..ouroboros_impl_mem_table_iterator..MemTableIterator$GT$$GT$$GT$17hecce0df2b025891dE.exit120"
 
@@ -5838,7 +5838,7 @@ default.unreachable10.i:                          ; preds = %.noexc114
   %157 = load i64, ptr %142, align 8, !alias.scope !1121, !noalias !1118, !noundef !21
   store ptr %156, ptr %141, align 8, !alias.scope !1118, !noalias !1121
   store i64 %157, ptr %143, align 8, !alias.scope !1118, !noalias !1121
-  store ptr %154, ptr %., align 8, !alias.scope !1121, !noalias !1118
+  store ptr %154, ptr %3, align 8, !alias.scope !1121, !noalias !1118
   store i64 %155, ptr %142, align 8, !alias.scope !1121, !noalias !1118
   %.not.i.i119 = icmp eq i64 %.sroa.6.1, 0
   br i1 %.not.i.i119, label %"_ZN4core3ptr197drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$mini_lsm..iterators..merge_iterator..HeapWrapper$LT$mini_lsm..mem_table..ouroboros_impl_mem_table_iterator..MemTableIterator$GT$$GT$$GT$17hecce0df2b025891dE.exit120", label %158
@@ -6207,13 +6207,13 @@ common.resume:                                    ; preds = %.body112, %.body, %
 
 .body112:                                         ; preds = %102, %108
   %eh.lpad-body113 = phi { ptr, i32 } [ %109, %108 ], [ %103, %102 ]
-  store ptr %.fca.0.extract18, ptr %., align 8
+  store ptr %.fca.0.extract18, ptr %5, align 8
   %110 = getelementptr inbounds nuw i8, ptr %., i64 8
   store i64 %.fca.1.extract20, ptr %110, align 8
   br label %common.resume
 
 .thread190:                                       ; preds = %"_ZN4core3ptr101drop_in_place$LT$alloc..boxed..Box$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$GT$$GT$17hca87e035a40eee85E.llvm.1597650999041595525.exit.i111"
-  store ptr %.fca.0.extract18, ptr %., align 8
+  store ptr %.fca.0.extract18, ptr %5, align 8
   store i64 %.fca.1.extract20, ptr %107, align 8
   br label %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$4next17h8dcb07b0e0f7269fE.exit103.thread"
 
@@ -6273,7 +6273,7 @@ default.unreachable10.i:                          ; preds = %"_ZN112_$LT$mini_ls
   %131 = load i64, ptr %113, align 8, !alias.scope !1222, !noalias !1219, !noundef !21
   store ptr %130, ptr %112, align 8, !alias.scope !1219, !noalias !1222
   store i64 %131, ptr %114, align 8, !alias.scope !1219, !noalias !1222
-  store ptr %128, ptr %., align 8, !alias.scope !1222, !noalias !1219
+  store ptr %128, ptr %5, align 8, !alias.scope !1222, !noalias !1219
   store i64 %129, ptr %113, align 8, !alias.scope !1222, !noalias !1219
   %.not.i.i126 = icmp eq i64 %.sroa.6.1, 0
   br i1 %.not.i.i126, label %"_ZN112_$LT$mini_lsm..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$4next17h8dcb07b0e0f7269fE.exit103.thread", label %132
@@ -6501,13 +6501,13 @@ define hidden noundef ptr @"_ZN116_$LT$mini_lsm..iterators..merge_iterator..Merg
 70:                                               ; preds = %69
   %71 = landingpad { ptr, i32 }
           cleanup
-  store ptr %.fca.0.extract18, ptr %., align 8
+  store ptr %.fca.0.extract18, ptr %5, align 8
   %72 = getelementptr inbounds nuw i8, ptr %., i64 8
   store i64 %.fca.1.extract20, ptr %72, align 8
   br label %.thread131
 
 .thread139:                                       ; preds = %69
-  store ptr %.fca.0.extract18, ptr %., align 8
+  store ptr %.fca.0.extract18, ptr %5, align 8
   %73 = getelementptr inbounds nuw i8, ptr %., i64 8
   store i64 %.fca.1.extract20, ptr %73, align 8
   br label %"_ZN4core3ptr167drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$mini_lsm..iterators..merge_iterator..HeapWrapper$LT$mini_lsm..table..iterator..SsTableIterator$GT$$GT$$GT$17hc5dec79a494cc3afE.exit99"
@@ -6558,7 +6558,7 @@ default.unreachable10.i:                          ; preds = %.noexc93
   %91 = load i64, ptr %76, align 8, !alias.scope !1296, !noalias !1293, !noundef !21
   store ptr %90, ptr %75, align 8, !alias.scope !1293, !noalias !1296
   store i64 %91, ptr %77, align 8, !alias.scope !1293, !noalias !1296
-  store ptr %88, ptr %., align 8, !alias.scope !1296, !noalias !1293
+  store ptr %88, ptr %5, align 8, !alias.scope !1296, !noalias !1293
   store i64 %89, ptr %76, align 8, !alias.scope !1296, !noalias !1293
   %.not.i.i98 = icmp eq i64 %.sroa.6.1, 0
   br i1 %.not.i.i98, label %"_ZN4core3ptr167drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$mini_lsm..iterators..merge_iterator..HeapWrapper$LT$mini_lsm..table..iterator..SsTableIterator$GT$$GT$$GT$17hc5dec79a494cc3afE.exit99", label %92

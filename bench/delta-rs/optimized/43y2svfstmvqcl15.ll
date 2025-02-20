@@ -2964,8 +2964,8 @@ define internal void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 256
   call fastcc void @_ZN4core4iter8adapters7flatten17and_then_or_clear17hbcd9fda14f32f123E(ptr noalias noundef align 8 captures(none) dereferenceable(96) %4, ptr noalias noundef align 8 dereferenceable(104) %5), !noalias !358
   %6 = load ptr, ptr %4, align 8, !noalias !360, !noundef !5
-  %.not26.i = icmp eq ptr %6, null
-  br i1 %.not26.i, label %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$$GT$17hc91ae50715d730a7E.exit.lr.ph.i", label %._crit_edge.i
+  %.not23.i = icmp eq ptr %6, null
+  br i1 %.not23.i, label %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$$GT$17hc91ae50715d730a7E.exit.lr.ph.i", label %._crit_edge.i
 
 "_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$$GT$17hc91ae50715d730a7E.exit.lr.ph.i": ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3008,7 +3008,7 @@ thread-pre-split.i.i.i:                           ; preds = %15
   br i1 %.not.i.i.i.i.i, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h614136aade4c0f95E.exit.thread21.i.i.i.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hf18efbee2acbac8eE.exit.thread8.i"
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h614136aade4c0f95E.exit.thread21.i.i.i.i: ; preds = %17
-  store i64 0, ptr %.0.i.i, align 8, !alias.scope !390, !noalias !380
+  store i64 0, ptr %1, align 8, !alias.scope !390, !noalias !380
   br label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$deltalake_core..kernel..snapshot..log_data..FileStatsAccessor$GT$$GT$17h25c0ff3e35f8c71eE.exit.i.i.i.i"
 
 "_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$deltalake_core..kernel..snapshot..log_data..FileStatsAccessor$GT$$GT$17h25c0ff3e35f8c71eE.exit.i.i.i.i": ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h614136aade4c0f95E.exit.thread21.i.i.i.i, %15
@@ -3105,13 +3105,13 @@ common.resume.i:                                  ; preds = %52, %43
 43:                                               ; preds = %.noexc.i.i.i.i, %42
   %44 = landingpad { ptr, i32 }
           cleanup
-  store i64 1, ptr %.0.i.i, align 8, !alias.scope !451, !noalias !436
+  store i64 1, ptr %1, align 8, !alias.scope !451, !noalias !436
   store ptr %25, ptr %7, align 8, !alias.scope !451, !noalias !436
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.5.0..sroa_idx14.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.5.sroa.5.i.i.i.i, i64 96, i1 false), !noalias !436
   br label %common.resume.i
 
 "_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$core..result..IntoIter$LT$deltalake_core..kernel..snapshot..log_data..FileStatsAccessor$GT$$GT$$GT$17h5cdc1d6a3e7dd4f1E.exit.i.i.i.i": ; preds = %.noexc.i.i.i.i, %39, %36, %33
-  store i64 1, ptr %.0.i.i, align 8, !alias.scope !451, !noalias !436
+  store i64 1, ptr %1, align 8, !alias.scope !451, !noalias !436
   store ptr %25, ptr %7, align 8, !alias.scope !451, !noalias !436
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.5.0..sroa_idx14.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.5.sroa.5.i.i.i.i, i64 96, i1 false), !noalias !436
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %.sroa.5.sroa.5.i.i.i.i)

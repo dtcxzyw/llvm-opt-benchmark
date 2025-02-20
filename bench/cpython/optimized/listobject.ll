@@ -6402,7 +6402,7 @@ sortslice_memcpy.exit.i:                          ; preds = %97, %.critedge.i
   %102 = getelementptr i8, ptr %.sroa.7.0.copyload, i64 8
   %103 = load ptr, ptr %.sroa.7.0.copyload, align 8, !tbaa !112
   %104 = getelementptr i8, ptr %spec.select, i64 8
-  store ptr %103, ptr %spec.select, align 8, !tbaa !112
+  store ptr %103, ptr %57, align 8, !tbaa !112
   br label %sortslice_copy_incr.exit.i
 
 sortslice_copy_incr.exit.i:                       ; preds = %101, %sortslice_memcpy.exit.i
@@ -6975,7 +6975,7 @@ sortslice_memcpy.exit.i59:                        ; preds = %295, %.critedge.i56
   %308 = getelementptr i8, ptr %spec.select276.i, i64 -8
   %309 = load ptr, ptr %spec.select276.i, align 8, !tbaa !112
   %310 = getelementptr i8, ptr %spec.select.i58, i64 -8
-  store ptr %309, ptr %spec.select.i58, align 8, !tbaa !112
+  store ptr %309, ptr %291, align 8, !tbaa !112
   br label %sortslice_copy_decr.exit.i
 
 sortslice_copy_decr.exit.i:                       ; preds = %307, %sortslice_memcpy.exit.i59

@@ -45,23 +45,23 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN102_$LT$core.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.promoted.i.i = load ptr, ptr %3, align 8, !alias.scope !10
-  %.promoted19.i.i = load ptr, ptr %2, align 8, !alias.scope !10
+  %.promoted17.i.i = load ptr, ptr %2, align 8, !alias.scope !10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !alias.scope !10, !nonnull !11
-  %.promoted20.i.i = load ptr, ptr %4, align 8, !alias.scope !10
+  %.promoted18.i.i = load ptr, ptr %4, align 8, !alias.scope !10
   br label %7
 
 7:                                                ; preds = %23, %1
-  %8 = phi ptr [ %27, %23 ], [ %.promoted20.i.i, %1 ]
-  %9 = phi ptr [ %24, %23 ], [ %.promoted19.i.i, %1 ]
-  %.sink.i18.i.i = phi ptr [ %.val.i.i, %23 ], [ %.promoted.i.i, %1 ]
-  %10 = icmp eq ptr %.sink.i18.i.i, null
+  %8 = phi ptr [ %27, %23 ], [ %.promoted18.i.i, %1 ]
+  %9 = phi ptr [ %24, %23 ], [ %.promoted17.i.i, %1 ]
+  %.sink.i16.i.i = phi ptr [ %.val.i.i, %23 ], [ %.promoted.i.i, %1 ]
+  %10 = icmp eq ptr %.sink.i16.i.i, null
   br i1 %10, label %select.unfold.i.i, label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %7
-  %11 = icmp eq ptr %.sink.i18.i.i, %8
-  %12 = getelementptr inbounds nuw i8, ptr %.sink.i18.i.i, i64 32
+  %11 = icmp eq ptr %.sink.i16.i.i, %8
+  %12 = getelementptr inbounds nuw i8, ptr %.sink.i16.i.i, i64 32
   %.sink.i.i.i = select i1 %11, ptr null, ptr %12
   store ptr %.sink.i.i.i, ptr %3, align 8, !alias.scope !12
   br i1 %11, label %select.unfold.i.i, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbed473b7021e5a93E.llvm.17982877770584496632.exit"
@@ -69,8 +69,8 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN102_$LT$core.
 select.unfold.i.i:                                ; preds = %.sink.split.i.i.i, %7
   %13 = icmp eq ptr %9, null
   %14 = icmp eq ptr %9, %6
-  %or.cond.i.i = select i1 %13, i1 true, i1 %14
-  br i1 %or.cond.i.i, label %15, label %23
+  %or.cond.i.i.i = select i1 %13, i1 true, i1 %14
+  br i1 %or.cond.i.i.i, label %15, label %23
 
 15:                                               ; preds = %select.unfold.i.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -100,7 +100,7 @@ select.unfold.i.i:                                ; preds = %.sink.split.i.i.i, 
   br label %7
 
 "_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbed473b7021e5a93E.llvm.17982877770584496632.exit": ; preds = %.sink.split.i.i.i, %.sink.split.i7.i.i
-  %.0.i.i = phi ptr [ %17, %.sink.split.i7.i.i ], [ %.sink.i18.i.i, %.sink.split.i.i.i ]
+  %.0.i.i = phi ptr [ %17, %.sink.split.i7.i.i ], [ %.sink.i16.i.i, %.sink.split.i.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %28 = load ptr, ptr %0, align 8, !alias.scope !34, !noalias !35, !nonnull !11, !noundef !11
@@ -117,23 +117,23 @@ define hidden noundef align 16 dereferenceable_or_null(32) ptr @"_ZN106_$LT$core
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.promoted.i = load ptr, ptr %2, align 8, !alias.scope !38
-  %.promoted19.i = load ptr, ptr %0, align 8, !alias.scope !38
+  %.promoted17.i = load ptr, ptr %0, align 8, !alias.scope !38
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !38, !nonnull !11
-  %.promoted20.i = load ptr, ptr %3, align 8, !alias.scope !38
+  %.promoted18.i = load ptr, ptr %3, align 8, !alias.scope !38
   br label %6
 
 6:                                                ; preds = %22, %1
-  %7 = phi ptr [ %26, %22 ], [ %.promoted20.i, %1 ]
-  %8 = phi ptr [ %23, %22 ], [ %.promoted19.i, %1 ]
-  %.sink.i18.i = phi ptr [ %.val.i, %22 ], [ %.promoted.i, %1 ]
-  %9 = icmp eq ptr %.sink.i18.i, null
+  %7 = phi ptr [ %26, %22 ], [ %.promoted18.i, %1 ]
+  %8 = phi ptr [ %23, %22 ], [ %.promoted17.i, %1 ]
+  %.sink.i16.i = phi ptr [ %.val.i, %22 ], [ %.promoted.i, %1 ]
+  %9 = icmp eq ptr %.sink.i16.i, null
   br i1 %9, label %select.unfold.i, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %6
-  %10 = icmp eq ptr %.sink.i18.i, %7
-  %11 = getelementptr inbounds nuw i8, ptr %.sink.i18.i, i64 32
+  %10 = icmp eq ptr %.sink.i16.i, %7
+  %11 = getelementptr inbounds nuw i8, ptr %.sink.i16.i, i64 32
   %.sink.i.i = select i1 %10, ptr null, ptr %11
   store ptr %.sink.i.i, ptr %2, align 8, !alias.scope !41
   br i1 %10, label %select.unfold.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbe315ab391062d0dE.llvm.17982877770584496632.exit"
@@ -141,8 +141,8 @@ define hidden noundef align 16 dereferenceable_or_null(32) ptr @"_ZN106_$LT$core
 select.unfold.i:                                  ; preds = %.sink.split.i.i, %6
   %12 = icmp eq ptr %8, null
   %13 = icmp eq ptr %8, %5
-  %or.cond.i = select i1 %12, i1 true, i1 %13
-  br i1 %or.cond.i, label %14, label %22
+  %or.cond.i.i = select i1 %12, i1 true, i1 %13
+  br i1 %or.cond.i.i, label %14, label %22
 
 14:                                               ; preds = %select.unfold.i
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -173,7 +173,7 @@ select.unfold.i:                                  ; preds = %.sink.split.i.i, %6
   br label %6
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbe315ab391062d0dE.llvm.17982877770584496632.exit": ; preds = %.sink.split.i.i, %14, %.sink.split.i7.i
-  %.0.i = phi ptr [ null, %14 ], [ %.0.ph.i9.i, %.sink.split.i7.i ], [ %.sink.i18.i, %.sink.split.i.i ]
+  %.0.i = phi ptr [ null, %14 ], [ %.0.ph.i9.i, %.sink.split.i7.i ], [ %.sink.i16.i, %.sink.split.i.i ]
   ret ptr %.0.i
 }
 
@@ -181,23 +181,23 @@ select.unfold.i:                                  ; preds = %.sink.split.i.i, %6
 define hidden noundef align 16 dereferenceable_or_null(32) ptr @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbe315ab391062d0dE.llvm.17982877770584496632"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.promoted = load ptr, ptr %2, align 8
-  %.promoted19 = load ptr, ptr %0, align 8
+  %.promoted17 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !11
-  %.promoted20 = load ptr, ptr %3, align 8
+  %.promoted18 = load ptr, ptr %3, align 8
   br label %6
 
 6:                                                ; preds = %22, %1
-  %7 = phi ptr [ %26, %22 ], [ %.promoted20, %1 ]
-  %8 = phi ptr [ %23, %22 ], [ %.promoted19, %1 ]
-  %.sink.i18 = phi ptr [ %.val, %22 ], [ %.promoted, %1 ]
-  %9 = icmp eq ptr %.sink.i18, null
+  %7 = phi ptr [ %26, %22 ], [ %.promoted18, %1 ]
+  %8 = phi ptr [ %23, %22 ], [ %.promoted17, %1 ]
+  %.sink.i16 = phi ptr [ %.val, %22 ], [ %.promoted, %1 ]
+  %9 = icmp eq ptr %.sink.i16, null
   br i1 %9, label %select.unfold, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %6
-  %10 = icmp eq ptr %.sink.i18, %7
-  %11 = getelementptr inbounds nuw i8, ptr %.sink.i18, i64 32
+  %10 = icmp eq ptr %.sink.i16, %7
+  %11 = getelementptr inbounds nuw i8, ptr %.sink.i16, i64 32
   %.sink.i = select i1 %10, ptr null, ptr %11
   store ptr %.sink.i, ptr %2, align 8, !alias.scope !57
   br i1 %10, label %select.unfold, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h8acc63121a3e26d4E.exit
@@ -205,11 +205,11 @@ define hidden noundef align 16 dereferenceable_or_null(32) ptr @"_ZN116_$LT$core
 select.unfold:                                    ; preds = %.sink.split.i, %6
   %12 = icmp eq ptr %8, null
   %13 = icmp eq ptr %8, %5
-  %or.cond = select i1 %12, i1 true, i1 %13
-  br i1 %or.cond, label %14, label %22
+  %or.cond.i = select i1 %12, i1 true, i1 %13
+  br i1 %or.cond.i, label %14, label %22
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h8acc63121a3e26d4E.exit: ; preds = %.sink.split.i, %.sink.split.i7, %14
-  %.0 = phi ptr [ null, %14 ], [ %.0.ph.i9, %.sink.split.i7 ], [ %.sink.i18, %.sink.split.i ]
+  %.0 = phi ptr [ null, %14 ], [ %.0.ph.i9, %.sink.split.i7 ], [ %.sink.i16, %.sink.split.i ]
   ret ptr %.0
 
 14:                                               ; preds = %select.unfold
@@ -249,23 +249,23 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN121_$LT$clap_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.promoted.i.i.i = load ptr, ptr %3, align 8, !alias.scope !82
-  %.promoted19.i.i.i = load ptr, ptr %2, align 8, !alias.scope !82
+  %.promoted17.i.i.i = load ptr, ptr %2, align 8, !alias.scope !82
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !alias.scope !82, !nonnull !11
-  %.promoted20.i.i.i = load ptr, ptr %4, align 8, !alias.scope !82
+  %.promoted18.i.i.i = load ptr, ptr %4, align 8, !alias.scope !82
   br label %7
 
 7:                                                ; preds = %23, %1
-  %8 = phi ptr [ %27, %23 ], [ %.promoted20.i.i.i, %1 ]
-  %9 = phi ptr [ %24, %23 ], [ %.promoted19.i.i.i, %1 ]
-  %.sink.i18.i.i.i = phi ptr [ %.val.i.i.i, %23 ], [ %.promoted.i.i.i, %1 ]
-  %10 = icmp eq ptr %.sink.i18.i.i.i, null
+  %8 = phi ptr [ %27, %23 ], [ %.promoted18.i.i.i, %1 ]
+  %9 = phi ptr [ %24, %23 ], [ %.promoted17.i.i.i, %1 ]
+  %.sink.i16.i.i.i = phi ptr [ %.val.i.i.i, %23 ], [ %.promoted.i.i.i, %1 ]
+  %10 = icmp eq ptr %.sink.i16.i.i.i, null
   br i1 %10, label %select.unfold.i.i.i, label %.sink.split.i.i.i.i
 
 .sink.split.i.i.i.i:                              ; preds = %7
-  %11 = icmp eq ptr %.sink.i18.i.i.i, %8
-  %12 = getelementptr inbounds nuw i8, ptr %.sink.i18.i.i.i, i64 32
+  %11 = icmp eq ptr %.sink.i16.i.i.i, %8
+  %12 = getelementptr inbounds nuw i8, ptr %.sink.i16.i.i.i, i64 32
   %.sink.i.i.i.i = select i1 %11, ptr null, ptr %12
   store ptr %.sink.i.i.i.i, ptr %3, align 8, !alias.scope !83
   br i1 %11, label %select.unfold.i.i.i, label %.loopexit
@@ -273,8 +273,8 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN121_$LT$clap_
 select.unfold.i.i.i:                              ; preds = %.sink.split.i.i.i.i, %7
   %13 = icmp eq ptr %9, null
   %14 = icmp eq ptr %9, %6
-  %or.cond.i.i.i = select i1 %13, i1 true, i1 %14
-  br i1 %or.cond.i.i.i, label %15, label %23
+  %or.cond.i.i.i.i = select i1 %13, i1 true, i1 %14
+  br i1 %or.cond.i.i.i.i, label %15, label %23
 
 15:                                               ; preds = %select.unfold.i.i.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -304,7 +304,7 @@ select.unfold.i.i.i:                              ; preds = %.sink.split.i.i.i.i
   br label %7
 
 .loopexit:                                        ; preds = %.sink.split.i.i.i.i, %.sink.split.i7.i.i.i
-  %.0.i.i.i = phi ptr [ %17, %.sink.split.i7.i.i.i ], [ %.sink.i18.i.i.i, %.sink.split.i.i.i.i ]
+  %.0.i.i.i = phi ptr [ %17, %.sink.split.i7.i.i.i ], [ %.sink.i16.i.i.i, %.sink.split.i.i.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !99)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
   %28 = load ptr, ptr %0, align 8, !alias.scope !105, !noalias !106, !nonnull !11, !noundef !11

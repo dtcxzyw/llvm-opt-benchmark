@@ -2413,8 +2413,8 @@ define internal fastcc { i1, i8 } @"_ZN114_$LT$core..iter..adapters..flatten..Fl
 select.unfold.i.i.i.us.i:                         ; preds = %.sink.split.i.i.i.i.us.i, %29
   %33 = icmp eq ptr %11, null
   %34 = icmp eq ptr %11, %10
-  %or.cond.i.i.i.i.us.i = select i1 %33, i1 true, i1 %34
-  br i1 %or.cond.i.i.i.i.us.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h43a7a9e441818a92E.exit.thread.i", label %35
+  %or.cond.i.i.i.i.i.us.i = select i1 %33, i1 true, i1 %34
+  br i1 %or.cond.i.i.i.i.i.us.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h43a7a9e441818a92E.exit.thread.i", label %35
 
 35:                                               ; preds = %select.unfold.i.i.i.us.i
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 16

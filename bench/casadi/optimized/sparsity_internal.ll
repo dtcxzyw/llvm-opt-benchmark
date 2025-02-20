@@ -6095,7 +6095,7 @@ select.unfold:                                    ; preds = %524
   br i1 %620, label %621, label %_ZN6casadi16SparsityInternal13postorder_dfsExxPxPKxS1_S1_.exit
 
 621:                                              ; preds = %617
-  store i64 %.01647, ptr %spec.select.i17191721, align 8, !tbaa !3
+  store i64 %.01647, ptr %.sroa.0765.0127817011847, align 8, !tbaa !3
   br label %622
 
 622:                                              ; preds = %637, %621

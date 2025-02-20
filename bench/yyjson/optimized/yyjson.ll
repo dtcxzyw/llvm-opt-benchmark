@@ -8793,7 +8793,7 @@ read_inf_or_nan.exit845.thread:                   ; preds = %265, %290, %291, %2
   store i64 %526, ptr %.7605.i, align 8, !tbaa !73
   %527 = getelementptr inbounds nuw i8, ptr %.7605.i, i64 8
   store ptr %225, ptr %527, align 8, !tbaa !75
-  store ptr %508, ptr %119, align 8, !tbaa !86
+  store ptr %508, ptr %23, align 8, !tbaa !86
   br label %read_number.exit433
 
 528:                                              ; preds = %516
@@ -9522,7 +9522,7 @@ read_inf_or_nan.exit845.thread:                   ; preds = %265, %290, %291, %2
   store i64 %931, ptr %.7605.i, align 8, !tbaa !73
   %932 = getelementptr inbounds nuw i8, ptr %.7605.i, i64 8
   store ptr %225, ptr %932, align 8, !tbaa !75
-  store ptr %906, ptr %119, align 8, !tbaa !86
+  store ptr %906, ptr %23, align 8, !tbaa !86
   br label %read_number.exit433
 
 933:                                              ; preds = %921
@@ -9614,7 +9614,7 @@ read_inf_or_nan.exit845.thread:                   ; preds = %265, %290, %291, %2
   store i64 %977, ptr %.7605.i, align 8, !tbaa !73
   %978 = getelementptr inbounds nuw i8, ptr %.7605.i, i64 8
   store ptr %225, ptr %978, align 8, !tbaa !75
-  store ptr %956, ptr %119, align 8, !tbaa !86
+  store ptr %956, ptr %23, align 8, !tbaa !86
   br label %read_number.exit433
 
 979:                                              ; preds = %964
@@ -9821,7 +9821,7 @@ read_inf_or_nan.exit845.thread:                   ; preds = %265, %290, %291, %2
   store i64 %1075, ptr %.7605.i, align 8, !tbaa !73
   %1076 = getelementptr inbounds nuw i8, ptr %.7605.i, i64 8
   store ptr %225, ptr %1076, align 8, !tbaa !75
-  store ptr %.103356.lcssa, ptr %119, align 8, !tbaa !86
+  store ptr %.103356.lcssa, ptr %23, align 8, !tbaa !86
   store ptr %.103356.lcssa, ptr %21, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #31
   br label %.preheader4312
@@ -9894,7 +9894,7 @@ read_inf_or_nan.exit845.thread:                   ; preds = %265, %290, %291, %2
   store i64 %1103, ptr %.7605.i, align 8, !tbaa !73
   %1104 = getelementptr inbounds nuw i8, ptr %.7605.i, i64 8
   store ptr %225, ptr %1104, align 8, !tbaa !75
-  store ptr %.113357, ptr %119, align 8, !tbaa !86
+  store ptr %.113357, ptr %23, align 8, !tbaa !86
   store ptr %.113357, ptr %21, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #31
   br label %.preheader4312
@@ -10178,7 +10178,7 @@ diy_fp_to_ieee_raw.exit1165:                      ; preds = %1241
   store i64 %1272, ptr %.7605.i, align 8, !tbaa !73
   %1273 = getelementptr inbounds nuw i8, ptr %.7605.i, i64 8
   store ptr %225, ptr %1273, align 8, !tbaa !75
-  store ptr %.73353, ptr %119, align 8, !tbaa !86
+  store ptr %.73353, ptr %23, align 8, !tbaa !86
   br label %1543
 
 1274:                                             ; preds = %diy_fp_to_ieee_raw.exit1165
@@ -10792,7 +10792,7 @@ bigint_cmp.exit1272.thread:                       ; preds = %1520, %1514, %bigin
   store i64 %1533, ptr %.7605.i, align 8, !tbaa !73
   %1534 = getelementptr inbounds nuw i8, ptr %.7605.i, i64 8
   store ptr %225, ptr %1534, align 8, !tbaa !75
-  store ptr %.73353, ptr %119, align 8, !tbaa !86
+  store ptr %.73353, ptr %23, align 8, !tbaa !86
   br label %1543
 
 1535:                                             ; preds = %1523
@@ -12119,7 +12119,7 @@ read_null.exit824:                                ; preds = %2176
   br label %2194
 
 2194:                                             ; preds = %2193, %2191
-  store ptr %2190, ptr %119, align 8, !tbaa !86
+  store ptr %2190, ptr %23, align 8, !tbaa !86
   store i64 769, ptr %.16614.i, align 8, !tbaa !73
   %2195 = getelementptr inbounds nuw i8, ptr %.16614.i, i64 8
   store ptr %225, ptr %2195, align 8, !tbaa !75
@@ -12299,7 +12299,7 @@ read_null.exit824:                                ; preds = %2176
   br label %2265
 
 2265:                                             ; preds = %2264, %2262
-  store ptr %.037.i1111, ptr %119, align 8, !tbaa !86
+  store ptr %.037.i1111, ptr %23, align 8, !tbaa !86
   %2266 = ptrtoint ptr %.037.i1111 to i64
   %2267 = ptrtoint ptr %225 to i64
   %2268 = sub i64 %2266, %2267
@@ -12353,7 +12353,7 @@ read_null.exit824:                                ; preds = %2176
   br label %2286
 
 2286:                                             ; preds = %2285, %2283
-  store ptr %2282, ptr %119, align 8, !tbaa !86
+  store ptr %2282, ptr %23, align 8, !tbaa !86
   store i64 769, ptr %.19617.i, align 8, !tbaa !73
   %2287 = getelementptr inbounds nuw i8, ptr %.19617.i, i64 8
   store ptr %225, ptr %2287, align 8, !tbaa !75
@@ -15522,7 +15522,7 @@ read_inf_or_nan.exit.thread:                      ; preds = %3635, %3660, %3661,
   store i64 %3896, ptr %3620, align 8, !tbaa !73
   %3897 = getelementptr inbounds nuw i8, ptr %.25623.i, i64 24
   store ptr %3614, ptr %3897, align 8, !tbaa !75
-  store ptr %3878, ptr %119, align 8, !tbaa !86
+  store ptr %3878, ptr %23, align 8, !tbaa !86
   br label %read_number.exit539
 
 3898:                                             ; preds = %3886
@@ -16251,7 +16251,7 @@ read_inf_or_nan.exit.thread:                      ; preds = %3635, %3660, %3661,
   store i64 %4301, ptr %3620, align 8, !tbaa !73
   %4302 = getelementptr inbounds nuw i8, ptr %.25623.i, i64 24
   store ptr %3614, ptr %4302, align 8, !tbaa !75
-  store ptr %4276, ptr %119, align 8, !tbaa !86
+  store ptr %4276, ptr %23, align 8, !tbaa !86
   br label %read_number.exit539
 
 4303:                                             ; preds = %4291
@@ -16343,7 +16343,7 @@ read_inf_or_nan.exit.thread:                      ; preds = %3635, %3660, %3661,
   store i64 %4347, ptr %3620, align 8, !tbaa !73
   %4348 = getelementptr inbounds nuw i8, ptr %.25623.i, i64 24
   store ptr %3614, ptr %4348, align 8, !tbaa !75
-  store ptr %4326, ptr %119, align 8, !tbaa !86
+  store ptr %4326, ptr %23, align 8, !tbaa !86
   br label %read_number.exit539
 
 4349:                                             ; preds = %4334
@@ -16550,7 +16550,7 @@ read_inf_or_nan.exit.thread:                      ; preds = %3635, %3660, %3661,
   store i64 %4445, ptr %3620, align 8, !tbaa !73
   %4446 = getelementptr inbounds nuw i8, ptr %.25623.i, i64 24
   store ptr %3614, ptr %4446, align 8, !tbaa !75
-  store ptr %.103280.lcssa, ptr %119, align 8, !tbaa !86
+  store ptr %.103280.lcssa, ptr %23, align 8, !tbaa !86
   store ptr %.103280.lcssa, ptr %21, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #31
   br label %.preheader4317
@@ -16623,7 +16623,7 @@ read_inf_or_nan.exit.thread:                      ; preds = %3635, %3660, %3661,
   store i64 %4473, ptr %3620, align 8, !tbaa !73
   %4474 = getelementptr inbounds nuw i8, ptr %.25623.i, i64 24
   store ptr %3614, ptr %4474, align 8, !tbaa !75
-  store ptr %.113281, ptr %119, align 8, !tbaa !86
+  store ptr %.113281, ptr %23, align 8, !tbaa !86
   store ptr %.113281, ptr %21, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #31
   br label %.preheader4317
@@ -16907,7 +16907,7 @@ diy_fp_to_ieee_raw.exit:                          ; preds = %4611
   store i64 %4642, ptr %3620, align 8, !tbaa !73
   %4643 = getelementptr inbounds nuw i8, ptr %.25623.i, i64 24
   store ptr %3614, ptr %4643, align 8, !tbaa !75
-  store ptr %.73277, ptr %119, align 8, !tbaa !86
+  store ptr %.73277, ptr %23, align 8, !tbaa !86
   br label %4913
 
 4644:                                             ; preds = %diy_fp_to_ieee_raw.exit
@@ -17521,7 +17521,7 @@ bigint_cmp.exit.thread:                           ; preds = %4890, %4884, %bigin
   store i64 %4903, ptr %3620, align 8, !tbaa !73
   %4904 = getelementptr inbounds nuw i8, ptr %.25623.i, i64 24
   store ptr %3614, ptr %4904, align 8, !tbaa !75
-  store ptr %.73277, ptr %119, align 8, !tbaa !86
+  store ptr %.73277, ptr %23, align 8, !tbaa !86
   br label %4913
 
 4905:                                             ; preds = %4893
@@ -17674,7 +17674,7 @@ read_null.exit825:                                ; preds = %4929
   br label %4948
 
 4948:                                             ; preds = %4947, %4945
-  store ptr %4944, ptr %119, align 8, !tbaa !86
+  store ptr %4944, ptr %23, align 8, !tbaa !86
   store i64 769, ptr %4930, align 8, !tbaa !73
   %4949 = getelementptr inbounds nuw i8, ptr %.25623.i, i64 24
   store ptr %3614, ptr %4949, align 8, !tbaa !75
@@ -17797,7 +17797,7 @@ read_null.exit825:                                ; preds = %4929
   br label %4993
 
 4993:                                             ; preds = %4992, %4990
-  store ptr %.037.i, ptr %119, align 8, !tbaa !86
+  store ptr %.037.i, ptr %23, align 8, !tbaa !86
   %4994 = ptrtoint ptr %.037.i to i64
   %4995 = ptrtoint ptr %3614 to i64
   %4996 = sub i64 %4994, %4995
@@ -17849,7 +17849,7 @@ read_null.exit825:                                ; preds = %4929
   br label %5014
 
 5014:                                             ; preds = %5013, %5011
-  store ptr %5010, ptr %119, align 8, !tbaa !86
+  store ptr %5010, ptr %23, align 8, !tbaa !86
   store i64 769, ptr %4964, align 8, !tbaa !73
   %5015 = getelementptr inbounds nuw i8, ptr %.25623.i, i64 24
   store ptr %3614, ptr %5015, align 8, !tbaa !75
@@ -19085,7 +19085,7 @@ read_inf_or_nan.exit859.thread:                   ; preds = %5303, %5328, %5329,
   store i64 %5564, ptr %.7604.i, align 8, !tbaa !73
   %5565 = getelementptr inbounds nuw i8, ptr %.7604.i, i64 8
   store ptr %5263, ptr %5565, align 8, !tbaa !75
-  store ptr %5546, ptr %5228, align 8, !tbaa !86
+  store ptr %5546, ptr %20, align 8, !tbaa !86
   br label %read_number.exit
 
 5566:                                             ; preds = %5554
@@ -19814,7 +19814,7 @@ read_inf_or_nan.exit859.thread:                   ; preds = %5303, %5328, %5329,
   store i64 %5969, ptr %.7604.i, align 8, !tbaa !73
   %5970 = getelementptr inbounds nuw i8, ptr %.7604.i, i64 8
   store ptr %5263, ptr %5970, align 8, !tbaa !75
-  store ptr %5944, ptr %5228, align 8, !tbaa !86
+  store ptr %5944, ptr %20, align 8, !tbaa !86
   br label %read_number.exit
 
 5971:                                             ; preds = %5959
@@ -19906,7 +19906,7 @@ read_inf_or_nan.exit859.thread:                   ; preds = %5303, %5328, %5329,
   store i64 %6015, ptr %.7604.i, align 8, !tbaa !73
   %6016 = getelementptr inbounds nuw i8, ptr %.7604.i, i64 8
   store ptr %5263, ptr %6016, align 8, !tbaa !75
-  store ptr %5994, ptr %5228, align 8, !tbaa !86
+  store ptr %5994, ptr %20, align 8, !tbaa !86
   br label %read_number.exit
 
 6017:                                             ; preds = %6002
@@ -20113,7 +20113,7 @@ read_inf_or_nan.exit859.thread:                   ; preds = %5303, %5328, %5329,
   store i64 %6113, ptr %.7604.i, align 8, !tbaa !73
   %6114 = getelementptr inbounds nuw i8, ptr %.7604.i, i64 8
   store ptr %5263, ptr %6114, align 8, !tbaa !75
-  store ptr %.10.lcssa, ptr %5228, align 8, !tbaa !86
+  store ptr %.10.lcssa, ptr %20, align 8, !tbaa !86
   store ptr %.10.lcssa, ptr %18, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #31
   br label %.preheader4217
@@ -20186,7 +20186,7 @@ read_inf_or_nan.exit859.thread:                   ; preds = %5303, %5328, %5329,
   store i64 %6141, ptr %.7604.i, align 8, !tbaa !73
   %6142 = getelementptr inbounds nuw i8, ptr %.7604.i, i64 8
   store ptr %5263, ptr %6142, align 8, !tbaa !75
-  store ptr %.11, ptr %5228, align 8, !tbaa !86
+  store ptr %.11, ptr %20, align 8, !tbaa !86
   store ptr %.11, ptr %18, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #31
   br label %.preheader4217
@@ -20470,7 +20470,7 @@ diy_fp_to_ieee_raw.exit1169:                      ; preds = %6279
   store i64 %6310, ptr %.7604.i, align 8, !tbaa !73
   %6311 = getelementptr inbounds nuw i8, ptr %.7604.i, i64 8
   store ptr %5263, ptr %6311, align 8, !tbaa !75
-  store ptr %.7, ptr %5228, align 8, !tbaa !86
+  store ptr %.7, ptr %20, align 8, !tbaa !86
   br label %6581
 
 6312:                                             ; preds = %diy_fp_to_ieee_raw.exit1169
@@ -21084,7 +21084,7 @@ bigint_cmp.exit1290.thread:                       ; preds = %6558, %6552, %bigin
   store i64 %6571, ptr %.7604.i, align 8, !tbaa !73
   %6572 = getelementptr inbounds nuw i8, ptr %.7604.i, i64 8
   store ptr %5263, ptr %6572, align 8, !tbaa !75
-  store ptr %.7, ptr %5228, align 8, !tbaa !86
+  store ptr %.7, ptr %20, align 8, !tbaa !86
   br label %6581
 
 6573:                                             ; preds = %6561
@@ -22405,7 +22405,7 @@ read_null.exit:                                   ; preds = %7212
   br label %7230
 
 7230:                                             ; preds = %7229, %7227
-  store ptr %7226, ptr %5228, align 8, !tbaa !86
+  store ptr %7226, ptr %20, align 8, !tbaa !86
   store i64 769, ptr %.16613.i, align 8, !tbaa !73
   %7231 = getelementptr inbounds nuw i8, ptr %.16613.i, i64 8
   store ptr %5263, ptr %7231, align 8, !tbaa !75
@@ -22585,7 +22585,7 @@ read_null.exit:                                   ; preds = %7212
   br label %7301
 
 7301:                                             ; preds = %7300, %7298
-  store ptr %.037.i1119, ptr %5228, align 8, !tbaa !86
+  store ptr %.037.i1119, ptr %20, align 8, !tbaa !86
   %7302 = ptrtoint ptr %.037.i1119 to i64
   %7303 = ptrtoint ptr %5263 to i64
   %7304 = sub i64 %7302, %7303
@@ -22639,7 +22639,7 @@ read_null.exit:                                   ; preds = %7212
   br label %7322
 
 7322:                                             ; preds = %7321, %7319
-  store ptr %7318, ptr %5228, align 8, !tbaa !86
+  store ptr %7318, ptr %20, align 8, !tbaa !86
   store i64 769, ptr %.19616.i, align 8, !tbaa !73
   %7323 = getelementptr inbounds nuw i8, ptr %.19616.i, i64 8
   store ptr %5263, ptr %7323, align 8, !tbaa !75
@@ -25584,7 +25584,7 @@ read_inf_or_nan.exit852.thread:                   ; preds = %8595, %8620, %8621,
   store i64 %8856, ptr %8580, align 8, !tbaa !73
   %8857 = getelementptr inbounds nuw i8, ptr %.25622.i, i64 24
   store ptr %8574, ptr %8857, align 8, !tbaa !75
-  store ptr %8838, ptr %5228, align 8, !tbaa !86
+  store ptr %8838, ptr %20, align 8, !tbaa !86
   br label %read_number.exit327
 
 8858:                                             ; preds = %8846
@@ -26313,7 +26313,7 @@ read_inf_or_nan.exit852.thread:                   ; preds = %8595, %8620, %8621,
   store i64 %9261, ptr %8580, align 8, !tbaa !73
   %9262 = getelementptr inbounds nuw i8, ptr %.25622.i, i64 24
   store ptr %8574, ptr %9262, align 8, !tbaa !75
-  store ptr %9236, ptr %5228, align 8, !tbaa !86
+  store ptr %9236, ptr %20, align 8, !tbaa !86
   br label %read_number.exit327
 
 9263:                                             ; preds = %9251
@@ -26405,7 +26405,7 @@ read_inf_or_nan.exit852.thread:                   ; preds = %8595, %8620, %8621,
   store i64 %9307, ptr %8580, align 8, !tbaa !73
   %9308 = getelementptr inbounds nuw i8, ptr %.25622.i, i64 24
   store ptr %8574, ptr %9308, align 8, !tbaa !75
-  store ptr %9286, ptr %5228, align 8, !tbaa !86
+  store ptr %9286, ptr %20, align 8, !tbaa !86
   br label %read_number.exit327
 
 9309:                                             ; preds = %9294
@@ -26612,7 +26612,7 @@ read_inf_or_nan.exit852.thread:                   ; preds = %8595, %8620, %8621,
   store i64 %9405, ptr %8580, align 8, !tbaa !73
   %9406 = getelementptr inbounds nuw i8, ptr %.25622.i, i64 24
   store ptr %8574, ptr %9406, align 8, !tbaa !75
-  store ptr %.103318.lcssa, ptr %5228, align 8, !tbaa !86
+  store ptr %.103318.lcssa, ptr %20, align 8, !tbaa !86
   store ptr %.103318.lcssa, ptr %18, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #31
   br label %.preheader4222
@@ -26685,7 +26685,7 @@ read_inf_or_nan.exit852.thread:                   ; preds = %8595, %8620, %8621,
   store i64 %9433, ptr %8580, align 8, !tbaa !73
   %9434 = getelementptr inbounds nuw i8, ptr %.25622.i, i64 24
   store ptr %8574, ptr %9434, align 8, !tbaa !75
-  store ptr %.113319, ptr %5228, align 8, !tbaa !86
+  store ptr %.113319, ptr %20, align 8, !tbaa !86
   store ptr %.113319, ptr %18, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #31
   br label %.preheader4222
@@ -26969,7 +26969,7 @@ diy_fp_to_ieee_raw.exit1167:                      ; preds = %9571
   store i64 %9602, ptr %8580, align 8, !tbaa !73
   %9603 = getelementptr inbounds nuw i8, ptr %.25622.i, i64 24
   store ptr %8574, ptr %9603, align 8, !tbaa !75
-  store ptr %.73315, ptr %5228, align 8, !tbaa !86
+  store ptr %.73315, ptr %20, align 8, !tbaa !86
   br label %9873
 
 9604:                                             ; preds = %diy_fp_to_ieee_raw.exit1167
@@ -27583,7 +27583,7 @@ bigint_cmp.exit1281.thread:                       ; preds = %9850, %9844, %bigin
   store i64 %9863, ptr %8580, align 8, !tbaa !73
   %9864 = getelementptr inbounds nuw i8, ptr %.25622.i, i64 24
   store ptr %8574, ptr %9864, align 8, !tbaa !75
-  store ptr %.73315, ptr %5228, align 8, !tbaa !86
+  store ptr %.73315, ptr %20, align 8, !tbaa !86
   br label %9873
 
 9865:                                             ; preds = %9853
@@ -27730,7 +27730,7 @@ read_null.exit823:                                ; preds = %9887
   br label %9906
 
 9906:                                             ; preds = %9905, %9903
-  store ptr %9902, ptr %5228, align 8, !tbaa !86
+  store ptr %9902, ptr %20, align 8, !tbaa !86
   store i64 769, ptr %9888, align 8, !tbaa !73
   %9907 = getelementptr inbounds nuw i8, ptr %.25622.i, i64 24
   store ptr %8574, ptr %9907, align 8, !tbaa !75
@@ -27853,7 +27853,7 @@ read_null.exit823:                                ; preds = %9887
   br label %9951
 
 9951:                                             ; preds = %9950, %9948
-  store ptr %.037.i1115, ptr %5228, align 8, !tbaa !86
+  store ptr %.037.i1115, ptr %20, align 8, !tbaa !86
   %9952 = ptrtoint ptr %.037.i1115 to i64
   %9953 = ptrtoint ptr %8574 to i64
   %9954 = sub i64 %9952, %9953
@@ -27905,7 +27905,7 @@ read_null.exit823:                                ; preds = %9887
   br label %9972
 
 9972:                                             ; preds = %9971, %9969
-  store ptr %9968, ptr %5228, align 8, !tbaa !86
+  store ptr %9968, ptr %20, align 8, !tbaa !86
   store i64 769, ptr %9922, align 8, !tbaa !73
   %9973 = getelementptr inbounds nuw i8, ptr %.25622.i, i64 24
   store ptr %8574, ptr %9973, align 8, !tbaa !75
@@ -33624,7 +33624,6 @@ read_inf_or_nan.exit.thread:                      ; preds = %34, %59, %60, %63, 
   store i64 %294, ptr %1, align 8, !tbaa !73
   %295 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %295, align 8, !tbaa !75
-  store ptr %277, ptr %., align 8, !tbaa !86
   br label %read_number.exit.thread
 
 296:                                              ; preds = %285
@@ -34352,7 +34351,6 @@ read_inf_or_nan.exit.thread:                      ; preds = %34, %59, %60, %63, 
   store i64 %698, ptr %1, align 8, !tbaa !73
   %699 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %699, align 8, !tbaa !75
-  store ptr %674, ptr %., align 8, !tbaa !86
   br label %read_number.exit.thread
 
 700:                                              ; preds = %689
@@ -34442,7 +34440,6 @@ read_inf_or_nan.exit.thread:                      ; preds = %34, %59, %60, %63, 
   store i64 %743, ptr %1, align 8, !tbaa !73
   %744 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %744, align 8, !tbaa !75
-  store ptr %723, ptr %., align 8, !tbaa !86
   br label %read_number.exit.thread
 
 745:                                              ; preds = %731
@@ -34643,7 +34640,6 @@ read_inf_or_nan.exit.thread:                      ; preds = %34, %59, %60, %63, 
   store i64 %840, ptr %1, align 8, !tbaa !73
   %841 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %841, align 8, !tbaa !75
-  store ptr %.10.lcssa, ptr %., align 8, !tbaa !86
   br label %read_number.exit.thread
 
 842:                                              ; preds = %832
@@ -34711,7 +34707,6 @@ read_inf_or_nan.exit.thread:                      ; preds = %34, %59, %60, %63, 
   store i64 %868, ptr %1, align 8, !tbaa !73
   %869 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %869, align 8, !tbaa !75
-  store ptr %.11, ptr %., align 8, !tbaa !86
   br label %read_number.exit.thread
 
 870:                                              ; preds = %859
@@ -34992,7 +34987,6 @@ diy_fp_to_ieee_raw.exit:                          ; preds = %1007
   store i64 %1037, ptr %1, align 8, !tbaa !73
   %1038 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %1038, align 8, !tbaa !75
-  store ptr %.7, ptr %., align 8, !tbaa !86
   br label %read_number.exit.thread303
 
 1039:                                             ; preds = %diy_fp_to_ieee_raw.exit
@@ -35606,7 +35600,6 @@ bigint_cmp.exit.thread:                           ; preds = %1286, %1280, %bigin
   store i64 %1298, ptr %1, align 8, !tbaa !73
   %1299 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %1299, align 8, !tbaa !75
-  store ptr %.7, ptr %., align 8, !tbaa !86
   br label %read_number.exit.thread303
 
 1300:                                             ; preds = %1289

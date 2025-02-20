@@ -6959,7 +6959,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit: ; preds =
   store ptr %49, ptr %52, align 8, !tbaa !196
   %.0.copyload.i.i.i.i9.i.i.i.i.i.i = load i64, ptr %.0.i.i, align 8
   %53 = and i64 %.0.copyload.i.i.i.i9.i.i.i.i.i.i, 7
-  store i64 %53, ptr %.0.i.i, align 8
+  store i64 %53, ptr %44, align 8
   store ptr null, ptr %46, align 8, !tbaa !196
   %.0.copyload.i.i.i.i.i.i.i.i.i19 = load i64, ptr %12, align 8
   %54 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i19, -8
@@ -6978,7 +6978,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit: ; preds =
   %.0.copyload.i.i.i.i9.i.i.i.i6.i.i = load i64, ptr %.0.i.i, align 8
   %62 = and i64 %.0.copyload.i.i.i.i9.i.i.i.i6.i.i, 7
   %63 = or disjoint i64 %62, %60
-  store i64 %63, ptr %.0.i.i, align 8
+  store i64 %63, ptr %44, align 8
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr %.0.i.i, ptr %64, align 8, !tbaa !196
   %.0.copyload.i.i.i.i10.i.i.i.i7.i.i = load i64, ptr %.sink17.i.i, align 8

@@ -3216,7 +3216,7 @@ _ZN8sum_tree3sum17h3ce2db0f69ba058eE.exit:        ; preds = %.lr.ph.i, %48
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %85, ptr nonnull readonly align 1 %.pre.i, i64 %.sroa.01.11132.i, i1 false), !alias.scope !904, !noalias !892
   %86 = trunc i64 %.sroa.01.11132.i to i32
   %87 = add i32 %58, %86
-  store i32 %87, ptr %..i, align 4, !alias.scope !906, !noalias !907
+  store i32 %87, ptr %24, align 4, !alias.scope !906, !noalias !907
   store ptr %82, ptr %2, align 8, !alias.scope !892, !noalias !895
   store i64 %83, ptr %60, align 8, !alias.scope !892, !noalias !895
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)

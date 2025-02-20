@@ -20262,7 +20262,7 @@ define dso_local void @_ZN5clang12FunctionDecl29setTemplateSpecializationKindENS
   %29 = and i64 %.0.copyload.i.i.i.i28, -7
   %30 = shl nuw nsw i64 %28, 1
   %31 = or i64 %29, %30
-  store i64 %31, ptr %.0.i.i27, align 8
+  store i64 %31, ptr %8, align 8
   %.not21 = icmp ne i32 %1, 2
   %32 = icmp ne i32 %2, 0
   %or.cond35 = select i1 %.not21, i1 %32, i1 false

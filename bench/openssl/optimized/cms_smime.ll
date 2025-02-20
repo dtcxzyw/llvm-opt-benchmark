@@ -594,7 +594,7 @@ check_content.exit.thread:                        ; preds = %16, %19
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 84, ptr noundef nonnull @__func__.check_content) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 127, ptr noundef null) #4
-  br label %208
+  br label %207
 
 check_content.exit:                               ; preds = %6
   %22 = and i32 %5, 128
@@ -614,9 +614,9 @@ check_content.exit.thread198:                     ; preds = %19, %23, %check_con
   %28 = tail call ptr @CMS_get0_SignerInfos(ptr noundef %0) #4
   %29 = tail call i32 @OPENSSL_sk_num(ptr noundef %28) #4
   %30 = icmp slt i32 %29, 1
-  br i1 %30, label %33, label %.preheader217
+  br i1 %30, label %33, label %.preheader218
 
-.preheader217:                                    ; preds = %check_content.exit.thread198
+.preheader218:                                    ; preds = %check_content.exit.thread198
   %31 = tail call i32 @OPENSSL_sk_num(ptr noundef %28) #4
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph, label %._crit_edge
@@ -627,22 +627,22 @@ check_content.exit.thread198:                     ; preds = %19, %23, %check_con
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 135, ptr noundef null) #4
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader217, %.lr.ph
-  %.0136221 = phi i32 [ %37, %.lr.ph ], [ 0, %.preheader217 ]
-  %.1149220 = phi i32 [ %spec.select185, %.lr.ph ], [ 0, %.preheader217 ]
-  %34 = call ptr @OPENSSL_sk_value(ptr noundef %28, i32 noundef %.0136221) #4
+.lr.ph:                                           ; preds = %.preheader218, %.lr.ph
+  %.0136222 = phi i32 [ %37, %.lr.ph ], [ 0, %.preheader218 ]
+  %.1149221 = phi i32 [ %spec.select185, %.lr.ph ], [ 0, %.preheader218 ]
+  %34 = call ptr @OPENSSL_sk_value(ptr noundef %28, i32 noundef %.0136222) #4
   call void @CMS_SignerInfo_get0_algs(ptr noundef %34, ptr noundef null, ptr noundef nonnull %10, ptr noundef null, ptr noundef null) #4
   %35 = load ptr, ptr %10, align 8, !tbaa !14
   %.not180 = icmp ne ptr %35, null
   %36 = zext i1 %.not180 to i32
-  %spec.select185 = add nuw nsw i32 %.1149220, %36
-  %37 = add nuw nsw i32 %.0136221, 1
+  %spec.select185 = add nuw nsw i32 %.1149221, %36
+  %37 = add nuw nsw i32 %.0136222, 1
   %38 = call i32 @OPENSSL_sk_num(ptr noundef %28) #4
   %39 = icmp slt i32 %37, %38
   br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %.lr.ph, %.preheader217
-  %.1149.lcssa = phi i32 [ 0, %.preheader217 ], [ %spec.select185, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %.preheader218
+  %.1149.lcssa = phi i32 [ 0, %.preheader218 ], [ %spec.select185, %.lr.ph ]
   %40 = call i32 @OPENSSL_sk_num(ptr noundef %28) #4
   %.not167 = icmp eq i32 %.1149.lcssa, %40
   br i1 %.not167, label %44, label %41
@@ -668,7 +668,7 @@ check_content.exit.thread198:                     ; preds = %19, %23, %check_con
   %48 = and i32 %.0131, 32
   %49 = icmp eq i32 %48, 0
   %or.cond = or i1 %13, %49
-  br i1 %or.cond, label %50, label %.loopexit216
+  br i1 %or.cond, label %50, label %.loopexit217
 
 50:                                               ; preds = %47
   br i1 %13, label %51, label %56
@@ -708,399 +708,397 @@ check_content.exit.thread198:                     ; preds = %19, %23, %check_con
 
 68:                                               ; preds = %66, %63
   %69 = icmp sgt i32 %.3151, 0
-  br i1 %69, label %.lr.ph224, label %.loopexit214
+  br i1 %69, label %.lr.ph225, label %.loopexit215
 
-.lr.ph224:                                        ; preds = %68
-  %.not178 = icmp eq ptr %.2, null
+.lr.ph225:                                        ; preds = %68
+  %.not23.i212 = icmp eq ptr %.2, null
   %wide.trip.count = zext nneg i32 %.3151 to i64
   br label %70
 
-70:                                               ; preds = %.lr.ph224, %99
-  %indvars.iv = phi i64 [ 0, %.lr.ph224 ], [ %indvars.iv.next, %99 ]
+70:                                               ; preds = %.lr.ph225, %98
+  %indvars.iv = phi i64 [ 0, %.lr.ph225 ], [ %indvars.iv.next, %98 ]
   %71 = trunc nuw nsw i64 %indvars.iv to i32
   %72 = call ptr @OPENSSL_sk_value(ptr noundef %28, i32 noundef %71) #4
   %73 = load ptr, ptr %8, align 8, !tbaa !10
   %74 = load ptr, ptr %9, align 8, !tbaa !12
   %75 = getelementptr inbounds nuw ptr, ptr %.2, i64 %indvars.iv
-  %76 = select i1 %.not178, ptr null, ptr %75
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
-  %77 = call ptr @ossl_cms_ctx_get0_libctx(ptr noundef %14) #4
-  %78 = call ptr @ossl_cms_ctx_get0_propq(ptr noundef %14) #4
-  %79 = call ptr @X509_STORE_CTX_new_ex(ptr noundef %77, ptr noundef %78) #4
-  %80 = icmp eq ptr %79, null
-  br i1 %80, label %81, label %82
+  %76 = call ptr @ossl_cms_ctx_get0_libctx(ptr noundef %14) #4
+  %77 = call ptr @ossl_cms_ctx_get0_propq(ptr noundef %14) #4
+  %78 = call ptr @X509_STORE_CTX_new_ex(ptr noundef %76, ptr noundef %77) #4
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %80, label %81
 
-81:                                               ; preds = %70
+80:                                               ; preds = %70
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 276, ptr noundef nonnull @__func__.cms_signerinfo_verify_cert) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 524299, ptr noundef null) #4
   br label %cms_signerinfo_verify_cert.exit.thread
 
-82:                                               ; preds = %70
+81:                                               ; preds = %70
   call void @CMS_SignerInfo_get0_algs(ptr noundef %72, ptr noundef null, ptr noundef nonnull %7, ptr noundef null, ptr noundef null) #4
-  %83 = load ptr, ptr %7, align 8, !tbaa !14
-  %84 = call i32 @X509_STORE_CTX_init(ptr noundef nonnull %79, ptr noundef %2, ptr noundef %83, ptr noundef %73) #4
-  %.not.i = icmp eq i32 %84, 0
-  br i1 %.not.i, label %85, label %86
+  %82 = load ptr, ptr %7, align 8, !tbaa !14
+  %83 = call i32 @X509_STORE_CTX_init(ptr noundef nonnull %78, ptr noundef %2, ptr noundef %82, ptr noundef %73) #4
+  %.not.i = icmp eq i32 %83, 0
+  br i1 %.not.i, label %84, label %85
 
-85:                                               ; preds = %82
+84:                                               ; preds = %81
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 281, ptr noundef nonnull @__func__.cms_signerinfo_verify_cert) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 141, ptr noundef null) #4
   br label %cms_signerinfo_verify_cert.exit.thread
 
-86:                                               ; preds = %82
-  %87 = call i32 @X509_STORE_CTX_set_default(ptr noundef nonnull %79, ptr noundef nonnull @.str.1) #4
+85:                                               ; preds = %81
+  %86 = call i32 @X509_STORE_CTX_set_default(ptr noundef nonnull %78, ptr noundef nonnull @.str.1) #4
   %.not22.i = icmp eq ptr %74, null
-  br i1 %.not22.i, label %89, label %88
+  br i1 %.not22.i, label %88, label %87
 
-88:                                               ; preds = %86
-  call void @X509_STORE_CTX_set0_crls(ptr noundef nonnull %79, ptr noundef nonnull %74) #4
-  br label %89
+87:                                               ; preds = %85
+  call void @X509_STORE_CTX_set0_crls(ptr noundef nonnull %78, ptr noundef nonnull %74) #4
+  br label %88
 
-89:                                               ; preds = %88, %86
-  %90 = call i32 @X509_verify_cert(ptr noundef nonnull %79) #4
-  %91 = icmp slt i32 %90, 1
-  br i1 %91, label %92, label %96
+88:                                               ; preds = %87, %85
+  %89 = call i32 @X509_verify_cert(ptr noundef nonnull %78) #4
+  %90 = icmp slt i32 %89, 1
+  br i1 %90, label %91, label %95
 
-92:                                               ; preds = %89
-  %93 = call i32 @X509_STORE_CTX_get_error(ptr noundef nonnull %79) #4
+91:                                               ; preds = %88
+  %92 = call i32 @X509_STORE_CTX_get_error(ptr noundef nonnull %78) #4
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 291, ptr noundef nonnull @__func__.cms_signerinfo_verify_cert) #4
-  %94 = sext i32 %93 to i64
-  %95 = call ptr @X509_verify_cert_error_string(i64 noundef %94) #4
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 100, ptr noundef nonnull @.str.2, ptr noundef %95) #4
+  %93 = sext i32 %92 to i64
+  %94 = call ptr @X509_verify_cert_error_string(i64 noundef %93) #4
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 100, ptr noundef nonnull @.str.2, ptr noundef %94) #4
   br label %cms_signerinfo_verify_cert.exit.thread
 
-96:                                               ; preds = %89
-  %.not23.i = icmp eq ptr %76, null
-  br i1 %.not23.i, label %99, label %97
+95:                                               ; preds = %88
+  br i1 %.not23.i212, label %98, label %96
 
-97:                                               ; preds = %96
-  %98 = call ptr @X509_STORE_CTX_get1_chain(ptr noundef nonnull %79) #4
-  store ptr %98, ptr %76, align 8, !tbaa !10
-  br label %99
+96:                                               ; preds = %95
+  %97 = call ptr @X509_STORE_CTX_get1_chain(ptr noundef nonnull %78) #4
+  store ptr %97, ptr %75, align 8, !tbaa !10
+  br label %98
 
-cms_signerinfo_verify_cert.exit.thread:           ; preds = %81, %92, %85
-  call void @X509_STORE_CTX_free(ptr noundef %79) #4
+cms_signerinfo_verify_cert.exit.thread:           ; preds = %80, %91, %84
+  call void @X509_STORE_CTX_free(ptr noundef %78) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
   br label %.loopexit
 
-99:                                               ; preds = %97, %96
-  call void @X509_STORE_CTX_free(ptr noundef nonnull %79) #4
+98:                                               ; preds = %96, %95
+  call void @X509_STORE_CTX_free(ptr noundef nonnull %78) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit216, label %70, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit217, label %70, !llvm.loop !17
 
-.loopexit216:                                     ; preds = %99, %47
-  %.1135 = phi ptr [ null, %47 ], [ %.2, %99 ]
-  %100 = and i32 %.0131, 8
-  %101 = icmp eq i32 %100, 0
-  %or.cond3 = or i1 %13, %101
-  %102 = icmp sgt i32 %.3151, 0
-  %or.cond233 = select i1 %or.cond3, i1 %102, i1 false
-  br i1 %or.cond233, label %.lr.ph227, label %.loopexit214
+.loopexit217:                                     ; preds = %98, %47
+  %.1135 = phi ptr [ null, %47 ], [ %.2, %98 ]
+  %99 = and i32 %.0131, 8
+  %100 = icmp eq i32 %99, 0
+  %or.cond3 = or i1 %13, %100
+  %101 = icmp sgt i32 %.3151, 0
+  %or.cond234 = select i1 %or.cond3, i1 %101, i1 false
+  br i1 %or.cond234, label %.lr.ph228, label %.loopexit215
 
-.lr.ph227:                                        ; preds = %.loopexit216
+.lr.ph228:                                        ; preds = %.loopexit217
   %.not177 = icmp eq ptr %.1135, null
-  br i1 %13, label %.lr.ph227.split.us.preheader, label %.lr.ph227.split
+  br i1 %13, label %.lr.ph228.split.us.preheader, label %.lr.ph228.split
 
-.lr.ph227.split.us.preheader:                     ; preds = %.lr.ph227
-  %wide.trip.count245 = zext nneg i32 %.3151 to i64
-  br label %.lr.ph227.split.us
+.lr.ph228.split.us.preheader:                     ; preds = %.lr.ph228
+  %wide.trip.count246 = zext nneg i32 %.3151 to i64
+  br label %.lr.ph228.split.us
 
-.lr.ph227.split.us:                               ; preds = %.lr.ph227.split.us.preheader, %118
-  %indvars.iv242 = phi i64 [ 0, %.lr.ph227.split.us.preheader ], [ %indvars.iv.next243, %118 ]
-  %103 = trunc nuw nsw i64 %indvars.iv242 to i32
-  %104 = call ptr @OPENSSL_sk_value(ptr noundef %28, i32 noundef %103) #4
-  %105 = call i32 @CMS_signed_get_attr_count(ptr noundef %104) #4
-  %106 = icmp slt i32 %105, 0
-  br i1 %106, label %118, label %107
+.lr.ph228.split.us:                               ; preds = %.lr.ph228.split.us.preheader, %117
+  %indvars.iv243 = phi i64 [ 0, %.lr.ph228.split.us.preheader ], [ %indvars.iv.next244, %117 ]
+  %102 = trunc nuw nsw i64 %indvars.iv243 to i32
+  %103 = call ptr @OPENSSL_sk_value(ptr noundef %28, i32 noundef %102) #4
+  %104 = call i32 @CMS_signed_get_attr_count(ptr noundef %103) #4
+  %105 = icmp slt i32 %104, 0
+  br i1 %105, label %117, label %106
 
-107:                                              ; preds = %.lr.ph227.split.us
-  %108 = call i32 @CMS_SignerInfo_verify(ptr noundef %104) #4
-  %109 = icmp slt i32 %108, 1
-  br i1 %109, label %.loopexit, label %110
+106:                                              ; preds = %.lr.ph228.split.us
+  %107 = call i32 @CMS_SignerInfo_verify(ptr noundef %103) #4
+  %108 = icmp slt i32 %107, 1
+  br i1 %108, label %.loopexit, label %109
 
-110:                                              ; preds = %107
-  br i1 %.not177, label %114, label %111
+109:                                              ; preds = %106
+  br i1 %.not177, label %113, label %110
 
-111:                                              ; preds = %110
-  %112 = getelementptr inbounds nuw ptr, ptr %.1135, i64 %indvars.iv242
-  %113 = load ptr, ptr %112, align 8, !tbaa !10
-  br label %114
+110:                                              ; preds = %109
+  %111 = getelementptr inbounds nuw ptr, ptr %.1135, i64 %indvars.iv243
+  %112 = load ptr, ptr %111, align 8, !tbaa !10
+  br label %113
 
-114:                                              ; preds = %111, %110
-  %115 = phi ptr [ %113, %111 ], [ null, %110 ]
-  %116 = call i32 @ossl_cms_check_signing_certs(ptr noundef %104, ptr noundef %115) #4
-  %117 = icmp slt i32 %116, 1
-  br i1 %117, label %.loopexit, label %118
+113:                                              ; preds = %110, %109
+  %114 = phi ptr [ %112, %110 ], [ null, %109 ]
+  %115 = call i32 @ossl_cms_check_signing_certs(ptr noundef %103, ptr noundef %114) #4
+  %116 = icmp slt i32 %115, 1
+  br i1 %116, label %.loopexit, label %117
 
-118:                                              ; preds = %114, %.lr.ph227.split.us
-  %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
-  %exitcond246.not = icmp eq i64 %indvars.iv.next243, %wide.trip.count245
-  br i1 %exitcond246.not, label %.loopexit214, label %.lr.ph227.split.us, !llvm.loop !18
+117:                                              ; preds = %113, %.lr.ph228.split.us
+  %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
+  %exitcond247.not = icmp eq i64 %indvars.iv.next244, %wide.trip.count246
+  br i1 %exitcond247.not, label %.loopexit215, label %.lr.ph228.split.us, !llvm.loop !18
 
-.lr.ph227.split:                                  ; preds = %.lr.ph227, %125
-  %.2138225 = phi i32 [ %126, %125 ], [ 0, %.lr.ph227 ]
-  %119 = call ptr @OPENSSL_sk_value(ptr noundef %28, i32 noundef %.2138225) #4
-  %120 = call i32 @CMS_signed_get_attr_count(ptr noundef %119) #4
-  %121 = icmp slt i32 %120, 0
-  br i1 %121, label %125, label %122
+.lr.ph228.split:                                  ; preds = %.lr.ph228, %124
+  %.2138226 = phi i32 [ %125, %124 ], [ 0, %.lr.ph228 ]
+  %118 = call ptr @OPENSSL_sk_value(ptr noundef %28, i32 noundef %.2138226) #4
+  %119 = call i32 @CMS_signed_get_attr_count(ptr noundef %118) #4
+  %120 = icmp slt i32 %119, 0
+  br i1 %120, label %124, label %121
 
-122:                                              ; preds = %.lr.ph227.split
-  %123 = call i32 @CMS_SignerInfo_verify(ptr noundef %119) #4
-  %124 = icmp slt i32 %123, 1
-  br i1 %124, label %.loopexit, label %125
+121:                                              ; preds = %.lr.ph228.split
+  %122 = call i32 @CMS_SignerInfo_verify(ptr noundef %118) #4
+  %123 = icmp slt i32 %122, 1
+  br i1 %123, label %.loopexit, label %124
 
-125:                                              ; preds = %122, %.lr.ph227.split
-  %126 = add nuw nsw i32 %.2138225, 1
-  %exitcond241.not = icmp eq i32 %126, %.3151
-  br i1 %exitcond241.not, label %.loopexit214, label %.lr.ph227.split, !llvm.loop !18
+124:                                              ; preds = %121, %.lr.ph228.split
+  %125 = add nuw nsw i32 %.2138226, 1
+  %exitcond242.not = icmp eq i32 %125, %.3151
+  br i1 %exitcond242.not, label %.loopexit215, label %.lr.ph228.split, !llvm.loop !18
 
-.loopexit214:                                     ; preds = %125, %118, %68, %.loopexit216
-  %.1135255 = phi ptr [ %.1135, %.loopexit216 ], [ %.2, %68 ], [ %.1135, %118 ], [ %.1135, %125 ]
-  br i1 %15, label %127, label %.thread205
+.loopexit215:                                     ; preds = %124, %117, %68, %.loopexit217
+  %.1135256 = phi ptr [ %.1135, %.loopexit217 ], [ %.2, %68 ], [ %.1135, %117 ], [ %.1135, %124 ]
+  br i1 %15, label %126, label %.thread205
 
-127:                                              ; preds = %.loopexit214
-  %128 = call i32 @BIO_method_type(ptr noundef nonnull %3) #4
-  %129 = icmp eq i32 %128, 1025
-  br i1 %129, label %130, label %139
+126:                                              ; preds = %.loopexit215
+  %127 = call i32 @BIO_method_type(ptr noundef nonnull %3) #4
+  %128 = icmp eq i32 %127, 1025
+  br i1 %128, label %129, label %138
 
-130:                                              ; preds = %127
+129:                                              ; preds = %126
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
-  %131 = call i64 @BIO_ctrl(ptr noundef nonnull %3, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %11) #4
-  %132 = icmp eq i64 %131, 0
-  br i1 %132, label %.thread203, label %133
+  %130 = call i64 @BIO_ctrl(ptr noundef nonnull %3, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %11) #4
+  %131 = icmp eq i64 %130, 0
+  br i1 %131, label %.thread203, label %132
 
-133:                                              ; preds = %130
-  %134 = load ptr, ptr %11, align 8, !tbaa !19
-  %135 = trunc i64 %131 to i32
-  %136 = call ptr @BIO_new_mem_buf(ptr noundef %134, i32 noundef %135) #4
-  %137 = icmp eq ptr %136, null
-  br i1 %137, label %138, label %.thread203
+132:                                              ; preds = %129
+  %133 = load ptr, ptr %11, align 8, !tbaa !19
+  %134 = trunc i64 %130 to i32
+  %135 = call ptr @BIO_new_mem_buf(ptr noundef %133, i32 noundef %134) #4
+  %136 = icmp eq ptr %135, null
+  br i1 %136, label %137, label %.thread203
 
-.thread203:                                       ; preds = %133, %130
-  %.ph = phi ptr [ %136, %133 ], [ %3, %130 ]
+.thread203:                                       ; preds = %132, %129
+  %.ph = phi ptr [ %135, %132 ], [ %3, %129 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #4
-  br label %139
+  br label %138
 
-138:                                              ; preds = %133
+137:                                              ; preds = %132
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 417, ptr noundef nonnull @__func__.CMS_verify) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 524320, ptr noundef null) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #4
-  br label %201
+  br label %200
 
-139:                                              ; preds = %.thread203, %127
-  %.1143 = phi ptr [ %3, %127 ], [ %.ph, %.thread203 ]
-  %140 = and i32 %.0131, 128
-  %141 = icmp eq i32 %140, 0
-  br i1 %141, label %142, label %.thread205
+138:                                              ; preds = %.thread203, %126
+  %.1143 = phi ptr [ %3, %126 ], [ %.ph, %.thread203 ]
+  %139 = and i32 %.0131, 128
+  %140 = icmp eq i32 %139, 0
+  br i1 %140, label %141, label %.thread205
 
-142:                                              ; preds = %139
-  %143 = icmp eq ptr %4, null
-  br i1 %143, label %144, label %147
+141:                                              ; preds = %138
+  %142 = icmp eq ptr %4, null
+  br i1 %142, label %143, label %146
 
-144:                                              ; preds = %142
-  %145 = call ptr @BIO_s_null() #4
-  %146 = call ptr @BIO_new(ptr noundef %145) #4
+143:                                              ; preds = %141
+  %144 = call ptr @BIO_s_null() #4
+  %145 = call ptr @BIO_new(ptr noundef %144) #4
   br label %cms_get_text_bio.exit
 
-147:                                              ; preds = %142
-  %148 = and i32 %.0131, 1
-  %.not.i188 = icmp eq i32 %148, 0
-  br i1 %.not.i188, label %cms_get_text_bio.exit.thread, label %149
+146:                                              ; preds = %141
+  %147 = and i32 %.0131, 1
+  %.not.i188 = icmp eq i32 %147, 0
+  br i1 %.not.i188, label %cms_get_text_bio.exit.thread, label %148
 
-149:                                              ; preds = %147
-  %150 = call ptr @BIO_s_mem() #4
-  %151 = call ptr @BIO_new(ptr noundef %150) #4
-  %152 = call i64 @BIO_ctrl(ptr noundef %151, i32 noundef 130, i64 noundef 0, ptr noundef null) #4
+148:                                              ; preds = %146
+  %149 = call ptr @BIO_s_mem() #4
+  %150 = call ptr @BIO_new(ptr noundef %149) #4
+  %151 = call i64 @BIO_ctrl(ptr noundef %150, i32 noundef 130, i64 noundef 0, ptr noundef null) #4
   br label %cms_get_text_bio.exit
 
-cms_get_text_bio.exit:                            ; preds = %144, %149
-  %.0.i189 = phi ptr [ %146, %144 ], [ %151, %149 ]
-  %153 = icmp eq ptr %.0.i189, null
-  br i1 %153, label %154, label %cms_get_text_bio.exit.thread
+cms_get_text_bio.exit:                            ; preds = %143, %148
+  %.0.i189 = phi ptr [ %145, %143 ], [ %150, %148 ]
+  %152 = icmp eq ptr %.0.i189, null
+  br i1 %152, label %153, label %cms_get_text_bio.exit.thread
 
-154:                                              ; preds = %cms_get_text_bio.exit
+153:                                              ; preds = %cms_get_text_bio.exit
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 434, ptr noundef nonnull @__func__.CMS_verify) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 524334, ptr noundef null) #4
   br label %.loopexit
 
-cms_get_text_bio.exit.thread:                     ; preds = %147, %cms_get_text_bio.exit
-  %.0.i189211 = phi ptr [ %.0.i189, %cms_get_text_bio.exit ], [ %4, %147 ]
-  %155 = call ptr @CMS_dataInit(ptr noundef %0, ptr noundef nonnull %.0.i189211) #4
-  %156 = icmp eq ptr %155, null
-  br i1 %156, label %.loopexit, label %157
+cms_get_text_bio.exit.thread:                     ; preds = %146, %cms_get_text_bio.exit
+  %.0.i189211 = phi ptr [ %.0.i189, %cms_get_text_bio.exit ], [ %4, %146 ]
+  %154 = call ptr @CMS_dataInit(ptr noundef %0, ptr noundef nonnull %.0.i189211) #4
+  %155 = icmp eq ptr %154, null
+  br i1 %155, label %.loopexit, label %156
 
-157:                                              ; preds = %cms_get_text_bio.exit.thread
-  %158 = and i32 %.0131, -130
-  %159 = call i32 @SMIME_crlf_copy(ptr noundef nonnull %3, ptr noundef nonnull %155, i32 noundef %158) #4
-  %.not173 = icmp eq i32 %159, 0
-  br i1 %.not173, label %.loopexit, label %160
+156:                                              ; preds = %cms_get_text_bio.exit.thread
+  %157 = and i32 %.0131, -130
+  %158 = call i32 @SMIME_crlf_copy(ptr noundef nonnull %3, ptr noundef nonnull %154, i32 noundef %157) #4
+  %.not173 = icmp eq i32 %158, 0
+  br i1 %.not173, label %.loopexit, label %159
 
-160:                                              ; preds = %157
-  %161 = and i32 %.0131, 1
-  %.not174 = icmp eq i32 %161, 0
-  br i1 %.not174, label %169, label %162
+159:                                              ; preds = %156
+  %160 = and i32 %.0131, 1
+  %.not174 = icmp eq i32 %160, 0
+  br i1 %.not174, label %168, label %161
 
-162:                                              ; preds = %160
-  %163 = call i32 @SMIME_text(ptr noundef nonnull %.0.i189211, ptr noundef %4) #4
-  %.not175 = icmp eq i32 %163, 0
-  br i1 %.not175, label %164, label %169
+161:                                              ; preds = %159
+  %162 = call i32 @SMIME_text(ptr noundef nonnull %.0.i189211, ptr noundef %4) #4
+  %.not175 = icmp eq i32 %162, 0
+  br i1 %.not175, label %163, label %168
 
-164:                                              ; preds = %162
+163:                                              ; preds = %161
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 449, ptr noundef nonnull @__func__.CMS_verify) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 140, ptr noundef null) #4
   br label %.loopexit
 
-.thread205:                                       ; preds = %.loopexit214, %139
-  %.1143208 = phi ptr [ %.1143, %139 ], [ null, %.loopexit214 ]
-  %165 = call ptr @CMS_dataInit(ptr noundef %0, ptr noundef %.1143208) #4
-  %166 = icmp eq ptr %165, null
-  br i1 %166, label %.loopexit, label %167
+.thread205:                                       ; preds = %.loopexit215, %138
+  %.1143208 = phi ptr [ %.1143, %138 ], [ null, %.loopexit215 ]
+  %164 = call ptr @CMS_dataInit(ptr noundef %0, ptr noundef %.1143208) #4
+  %165 = icmp eq ptr %164, null
+  br i1 %165, label %.loopexit, label %166
 
-167:                                              ; preds = %.thread205
-  %168 = call fastcc i32 @cms_copy_content(ptr noundef %4, ptr noundef %165, i32 noundef %.0131)
-  %.not172 = icmp eq i32 %168, 0
-  br i1 %.not172, label %.loopexit, label %169
+166:                                              ; preds = %.thread205
+  %167 = call fastcc i32 @cms_copy_content(ptr noundef %4, ptr noundef %164, i32 noundef %.0131)
+  %.not172 = icmp eq i32 %167, 0
+  br i1 %.not172, label %.loopexit, label %168
 
-169:                                              ; preds = %167, %160, %162
-  %.1143209 = phi ptr [ %.1143, %162 ], [ %.1143, %160 ], [ %.1143208, %167 ]
-  %.1145 = phi ptr [ %155, %162 ], [ %155, %160 ], [ %165, %167 ]
-  %.1141 = phi ptr [ %.0.i189211, %162 ], [ %.0.i189211, %160 ], [ null, %167 ]
-  %170 = and i32 %.0131, 4
-  %.not176 = icmp eq i32 %170, 0
-  br i1 %.not176, label %.preheader212, label %.loopexit
+168:                                              ; preds = %166, %159, %161
+  %.1143209 = phi ptr [ %.1143, %161 ], [ %.1143, %159 ], [ %.1143208, %166 ]
+  %.1145 = phi ptr [ %154, %161 ], [ %154, %159 ], [ %164, %166 ]
+  %.1141 = phi ptr [ %.0.i189211, %161 ], [ %.0.i189211, %159 ], [ null, %166 ]
+  %169 = and i32 %.0131, 4
+  %.not176 = icmp eq i32 %169, 0
+  br i1 %.not176, label %.preheader213, label %.loopexit
 
-.preheader212:                                    ; preds = %169
-  %171 = call i32 @OPENSSL_sk_num(ptr noundef %28) #4
-  %172 = icmp sgt i32 %171, 0
-  br i1 %172, label %.lr.ph229, label %.loopexit
+.preheader213:                                    ; preds = %168
+  %170 = call i32 @OPENSSL_sk_num(ptr noundef %28) #4
+  %171 = icmp sgt i32 %170, 0
+  br i1 %171, label %.lr.ph230, label %.loopexit
 
-173:                                              ; preds = %.lr.ph229
-  %174 = add nuw nsw i32 %.3139228, 1
-  %175 = call i32 @OPENSSL_sk_num(ptr noundef %28) #4
-  %176 = icmp slt i32 %174, %175
-  br i1 %176, label %.lr.ph229, label %.loopexit, !llvm.loop !21
+172:                                              ; preds = %.lr.ph230
+  %173 = add nuw nsw i32 %.3139229, 1
+  %174 = call i32 @OPENSSL_sk_num(ptr noundef %28) #4
+  %175 = icmp slt i32 %173, %174
+  br i1 %175, label %.lr.ph230, label %.loopexit, !llvm.loop !21
 
-.lr.ph229:                                        ; preds = %.preheader212, %173
-  %.3139228 = phi i32 [ %174, %173 ], [ 0, %.preheader212 ]
-  %177 = call ptr @OPENSSL_sk_value(ptr noundef %28, i32 noundef %.3139228) #4
-  %178 = call i32 @CMS_SignerInfo_verify_content(ptr noundef %177, ptr noundef nonnull %.1145) #4
-  %179 = icmp slt i32 %178, 1
-  br i1 %179, label %180, label %173
+.lr.ph230:                                        ; preds = %.preheader213, %172
+  %.3139229 = phi i32 [ %173, %172 ], [ 0, %.preheader213 ]
+  %176 = call ptr @OPENSSL_sk_value(ptr noundef %28, i32 noundef %.3139229) #4
+  %177 = call i32 @CMS_SignerInfo_verify_content(ptr noundef %176, ptr noundef nonnull %.1145) #4
+  %178 = icmp slt i32 %177, 1
+  br i1 %178, label %179, label %172
 
-180:                                              ; preds = %.lr.ph229
+179:                                              ; preds = %.lr.ph230
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 466, ptr noundef nonnull @__func__.CMS_verify) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 109, ptr noundef null) #4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %122, %114, %107, %173, %.preheader212, %cms_signerinfo_verify_cert.exit.thread, %169, %167, %.thread205, %157, %cms_get_text_bio.exit.thread, %66, %61, %56, %51, %180, %164, %154, %46, %33
-  %.0148 = phi i32 [ 0, %33 ], [ %.3151, %46 ], [ %.3151, %51 ], [ %.3151, %154 ], [ %.3151, %cms_get_text_bio.exit.thread ], [ %.3151, %180 ], [ %.3151, %164 ], [ %.3151, %157 ], [ %.3151, %.thread205 ], [ %.3151, %167 ], [ %.3151, %66 ], [ %.3151, %61 ], [ %.3151, %56 ], [ %.3151, %169 ], [ %.3151, %cms_signerinfo_verify_cert.exit.thread ], [ %.3151, %.preheader212 ], [ %.3151, %173 ], [ %.3151, %107 ], [ %.3151, %114 ], [ %.3151, %122 ]
-  %.0146 = phi i32 [ 0, %33 ], [ 0, %46 ], [ 0, %51 ], [ 0, %154 ], [ 0, %cms_get_text_bio.exit.thread ], [ 0, %180 ], [ 0, %164 ], [ 0, %157 ], [ 0, %.thread205 ], [ 0, %167 ], [ 0, %66 ], [ 0, %61 ], [ 0, %56 ], [ 1, %169 ], [ 0, %cms_signerinfo_verify_cert.exit.thread ], [ 1, %.preheader212 ], [ 1, %173 ], [ 0, %107 ], [ 0, %114 ], [ 0, %122 ]
-  %.0144 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ null, %154 ], [ null, %cms_get_text_bio.exit.thread ], [ %.1145, %180 ], [ %155, %164 ], [ %155, %157 ], [ null, %.thread205 ], [ %165, %167 ], [ null, %66 ], [ null, %61 ], [ null, %56 ], [ %.1145, %169 ], [ null, %cms_signerinfo_verify_cert.exit.thread ], [ %.1145, %.preheader212 ], [ %.1145, %173 ], [ null, %107 ], [ null, %114 ], [ null, %122 ]
-  %.0142 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ %.1143, %154 ], [ %.1143, %cms_get_text_bio.exit.thread ], [ %.1143209, %180 ], [ %.1143, %164 ], [ %.1143, %157 ], [ %.1143208, %.thread205 ], [ %.1143208, %167 ], [ null, %66 ], [ null, %61 ], [ null, %56 ], [ %.1143209, %169 ], [ null, %cms_signerinfo_verify_cert.exit.thread ], [ %.1143209, %.preheader212 ], [ %.1143209, %173 ], [ null, %107 ], [ null, %114 ], [ null, %122 ]
-  %.0140 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ null, %154 ], [ %.0.i189211, %cms_get_text_bio.exit.thread ], [ %.1141, %180 ], [ %.0.i189211, %164 ], [ %.0.i189211, %157 ], [ null, %.thread205 ], [ null, %167 ], [ null, %66 ], [ null, %61 ], [ null, %56 ], [ %.1141, %169 ], [ null, %cms_signerinfo_verify_cert.exit.thread ], [ %.1141, %.preheader212 ], [ %.1141, %173 ], [ null, %107 ], [ null, %114 ], [ null, %122 ]
-  %.0134 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ %.1135255, %154 ], [ %.1135255, %cms_get_text_bio.exit.thread ], [ %.1135255, %180 ], [ %.1135255, %164 ], [ %.1135255, %157 ], [ %.1135255, %.thread205 ], [ %.1135255, %167 ], [ %.2, %66 ], [ %.2, %61 ], [ %.2, %56 ], [ %.1135255, %169 ], [ %.2, %cms_signerinfo_verify_cert.exit.thread ], [ %.1135255, %.preheader212 ], [ %.1135255, %173 ], [ %.1135, %107 ], [ %.1135, %114 ], [ %.1135, %122 ]
-  %181 = and i32 %.0131, 128
-  %182 = icmp eq i32 %181, 0
-  %or.cond7 = and i1 %15, %182
-  br i1 %or.cond7, label %183, label %192
+.loopexit:                                        ; preds = %121, %113, %106, %172, %.preheader213, %cms_signerinfo_verify_cert.exit.thread, %168, %166, %.thread205, %156, %cms_get_text_bio.exit.thread, %66, %61, %56, %51, %179, %163, %153, %46, %33
+  %.0148 = phi i32 [ 0, %33 ], [ %.3151, %46 ], [ %.3151, %51 ], [ %.3151, %153 ], [ %.3151, %cms_get_text_bio.exit.thread ], [ %.3151, %179 ], [ %.3151, %163 ], [ %.3151, %156 ], [ %.3151, %.thread205 ], [ %.3151, %166 ], [ %.3151, %66 ], [ %.3151, %61 ], [ %.3151, %56 ], [ %.3151, %168 ], [ %.3151, %cms_signerinfo_verify_cert.exit.thread ], [ %.3151, %.preheader213 ], [ %.3151, %172 ], [ %.3151, %106 ], [ %.3151, %113 ], [ %.3151, %121 ]
+  %.0146 = phi i32 [ 0, %33 ], [ 0, %46 ], [ 0, %51 ], [ 0, %153 ], [ 0, %cms_get_text_bio.exit.thread ], [ 0, %179 ], [ 0, %163 ], [ 0, %156 ], [ 0, %.thread205 ], [ 0, %166 ], [ 0, %66 ], [ 0, %61 ], [ 0, %56 ], [ 1, %168 ], [ 0, %cms_signerinfo_verify_cert.exit.thread ], [ 1, %.preheader213 ], [ 1, %172 ], [ 0, %106 ], [ 0, %113 ], [ 0, %121 ]
+  %.0144 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ null, %153 ], [ null, %cms_get_text_bio.exit.thread ], [ %.1145, %179 ], [ %154, %163 ], [ %154, %156 ], [ null, %.thread205 ], [ %164, %166 ], [ null, %66 ], [ null, %61 ], [ null, %56 ], [ %.1145, %168 ], [ null, %cms_signerinfo_verify_cert.exit.thread ], [ %.1145, %.preheader213 ], [ %.1145, %172 ], [ null, %106 ], [ null, %113 ], [ null, %121 ]
+  %.0142 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ %.1143, %153 ], [ %.1143, %cms_get_text_bio.exit.thread ], [ %.1143209, %179 ], [ %.1143, %163 ], [ %.1143, %156 ], [ %.1143208, %.thread205 ], [ %.1143208, %166 ], [ null, %66 ], [ null, %61 ], [ null, %56 ], [ %.1143209, %168 ], [ null, %cms_signerinfo_verify_cert.exit.thread ], [ %.1143209, %.preheader213 ], [ %.1143209, %172 ], [ null, %106 ], [ null, %113 ], [ null, %121 ]
+  %.0140 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ null, %153 ], [ %.0.i189211, %cms_get_text_bio.exit.thread ], [ %.1141, %179 ], [ %.0.i189211, %163 ], [ %.0.i189211, %156 ], [ null, %.thread205 ], [ null, %166 ], [ null, %66 ], [ null, %61 ], [ null, %56 ], [ %.1141, %168 ], [ null, %cms_signerinfo_verify_cert.exit.thread ], [ %.1141, %.preheader213 ], [ %.1141, %172 ], [ null, %106 ], [ null, %113 ], [ null, %121 ]
+  %.0134 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ %.1135256, %153 ], [ %.1135256, %cms_get_text_bio.exit.thread ], [ %.1135256, %179 ], [ %.1135256, %163 ], [ %.1135256, %156 ], [ %.1135256, %.thread205 ], [ %.1135256, %166 ], [ %.2, %66 ], [ %.2, %61 ], [ %.2, %56 ], [ %.1135256, %168 ], [ %.2, %cms_signerinfo_verify_cert.exit.thread ], [ %.1135256, %.preheader213 ], [ %.1135256, %172 ], [ %.1135, %106 ], [ %.1135, %113 ], [ %.1135, %121 ]
+  %180 = and i32 %.0131, 128
+  %181 = icmp eq i32 %180, 0
+  %or.cond7 = and i1 %15, %181
+  br i1 %or.cond7, label %182, label %191
 
-183:                                              ; preds = %.loopexit
+182:                                              ; preds = %.loopexit
   %.not.i190 = icmp eq ptr %.0140, null
-  br i1 %.not.i190, label %189, label %.preheader.i
+  br i1 %.not.i190, label %188, label %.preheader.i
 
-.preheader.i:                                     ; preds = %183, %.preheader.i
-  %.0.i191 = phi ptr [ %184, %.preheader.i ], [ %.0144, %183 ]
-  %184 = call ptr @BIO_pop(ptr noundef %.0.i191) #4
-  %185 = call i32 @BIO_free(ptr noundef %.0.i191) #4
-  %186 = icmp ne ptr %184, null
-  %187 = icmp ne ptr %184, %.0140
-  %188 = and i1 %186, %187
-  br i1 %188, label %.preheader.i, label %do_free_upto.exit, !llvm.loop !3
+.preheader.i:                                     ; preds = %182, %.preheader.i
+  %.0.i191 = phi ptr [ %183, %.preheader.i ], [ %.0144, %182 ]
+  %183 = call ptr @BIO_pop(ptr noundef %.0.i191) #4
+  %184 = call i32 @BIO_free(ptr noundef %.0.i191) #4
+  %185 = icmp ne ptr %183, null
+  %186 = icmp ne ptr %183, %.0140
+  %187 = and i1 %185, %186
+  br i1 %187, label %.preheader.i, label %do_free_upto.exit, !llvm.loop !3
 
-189:                                              ; preds = %183
+188:                                              ; preds = %182
   call void @BIO_free_all(ptr noundef %.0144) #4
   br label %do_free_upto.exit
 
-do_free_upto.exit:                                ; preds = %.preheader.i, %189
+do_free_upto.exit:                                ; preds = %.preheader.i, %188
   %.not181 = icmp eq ptr %.0142, %3
-  br i1 %.not181, label %do_free_upto.exit195, label %190
+  br i1 %.not181, label %do_free_upto.exit195, label %189
 
-190:                                              ; preds = %do_free_upto.exit
-  %191 = call i32 @BIO_free(ptr noundef %.0142) #4
+189:                                              ; preds = %do_free_upto.exit
+  %190 = call i32 @BIO_free(ptr noundef %.0142) #4
   br label %do_free_upto.exit195
 
-192:                                              ; preds = %.loopexit
-  %193 = icmp eq ptr %.0142, %3
-  %or.cond186 = and i1 %15, %193
-  br i1 %or.cond186, label %.preheader.i193, label %199
+191:                                              ; preds = %.loopexit
+  %192 = icmp eq ptr %.0142, %3
+  %or.cond186 = and i1 %15, %192
+  br i1 %or.cond186, label %.preheader.i193, label %198
 
-.preheader.i193:                                  ; preds = %192, %.preheader.i193
-  %.0.i194 = phi ptr [ %194, %.preheader.i193 ], [ %.0144, %192 ]
-  %194 = call ptr @BIO_pop(ptr noundef %.0.i194) #4
-  %195 = call i32 @BIO_free(ptr noundef %.0.i194) #4
-  %196 = icmp ne ptr %194, null
-  %197 = icmp ne ptr %194, %3
-  %198 = and i1 %196, %197
-  br i1 %198, label %.preheader.i193, label %do_free_upto.exit195, !llvm.loop !3
+.preheader.i193:                                  ; preds = %191, %.preheader.i193
+  %.0.i194 = phi ptr [ %193, %.preheader.i193 ], [ %.0144, %191 ]
+  %193 = call ptr @BIO_pop(ptr noundef %.0.i194) #4
+  %194 = call i32 @BIO_free(ptr noundef %.0.i194) #4
+  %195 = icmp ne ptr %193, null
+  %196 = icmp ne ptr %193, %3
+  %197 = and i1 %195, %196
+  br i1 %197, label %.preheader.i193, label %do_free_upto.exit195, !llvm.loop !3
 
-199:                                              ; preds = %192
+198:                                              ; preds = %191
   call void @BIO_free_all(ptr noundef %.0144) #4
   br label %do_free_upto.exit195
 
-do_free_upto.exit195:                             ; preds = %.preheader.i193, %199, %do_free_upto.exit, %190
+do_free_upto.exit195:                             ; preds = %.preheader.i193, %198, %do_free_upto.exit, %189
   %.not182 = icmp eq ptr %4, %.0140
-  br i1 %.not182, label %201, label %200
+  br i1 %.not182, label %200, label %199
 
-200:                                              ; preds = %do_free_upto.exit195
+199:                                              ; preds = %do_free_upto.exit195
   call void @BIO_free_all(ptr noundef %.0140) #4
-  br label %201
+  br label %200
 
-201:                                              ; preds = %138, %do_free_upto.exit195, %200
-  %.4152 = phi i32 [ %.0148, %200 ], [ %.0148, %do_free_upto.exit195 ], [ %.3151, %138 ]
-  %.1147 = phi i32 [ %.0146, %200 ], [ %.0146, %do_free_upto.exit195 ], [ 0, %138 ]
-  %.3 = phi ptr [ %.0134, %200 ], [ %.0134, %do_free_upto.exit195 ], [ %.1135255, %138 ]
+200:                                              ; preds = %137, %do_free_upto.exit195, %199
+  %.4152 = phi i32 [ %.0148, %199 ], [ %.0148, %do_free_upto.exit195 ], [ %.3151, %137 ]
+  %.1147 = phi i32 [ %.0146, %199 ], [ %.0146, %do_free_upto.exit195 ], [ 0, %137 ]
+  %.3 = phi ptr [ %.0134, %199 ], [ %.0134, %do_free_upto.exit195 ], [ %.1135256, %137 ]
   %.not183 = icmp eq ptr %.3, null
-  br i1 %.not183, label %205, label %.preheader
+  br i1 %.not183, label %204, label %.preheader
 
-.preheader:                                       ; preds = %201
-  %202 = icmp sgt i32 %.4152, 0
-  br i1 %202, label %.lr.ph231.preheader, label %._crit_edge232
+.preheader:                                       ; preds = %200
+  %201 = icmp sgt i32 %.4152, 0
+  br i1 %201, label %.lr.ph232.preheader, label %._crit_edge233
 
-.lr.ph231.preheader:                              ; preds = %.preheader
-  %wide.trip.count250 = zext nneg i32 %.4152 to i64
-  br label %.lr.ph231
+.lr.ph232.preheader:                              ; preds = %.preheader
+  %wide.trip.count251 = zext nneg i32 %.4152 to i64
+  br label %.lr.ph232
 
-.lr.ph231:                                        ; preds = %.lr.ph231.preheader, %.lr.ph231
-  %indvars.iv247 = phi i64 [ 0, %.lr.ph231.preheader ], [ %indvars.iv.next248, %.lr.ph231 ]
-  %203 = getelementptr inbounds nuw ptr, ptr %.3, i64 %indvars.iv247
-  %204 = load ptr, ptr %203, align 8, !tbaa !10
-  call void @OSSL_STACK_OF_X509_free(ptr noundef %204) #4
-  %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
-  %exitcond251.not = icmp eq i64 %indvars.iv.next248, %wide.trip.count250
-  br i1 %exitcond251.not, label %._crit_edge232, label %.lr.ph231, !llvm.loop !22
+.lr.ph232:                                        ; preds = %.lr.ph232.preheader, %.lr.ph232
+  %indvars.iv248 = phi i64 [ 0, %.lr.ph232.preheader ], [ %indvars.iv.next249, %.lr.ph232 ]
+  %202 = getelementptr inbounds nuw ptr, ptr %.3, i64 %indvars.iv248
+  %203 = load ptr, ptr %202, align 8, !tbaa !10
+  call void @OSSL_STACK_OF_X509_free(ptr noundef %203) #4
+  %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
+  %exitcond252.not = icmp eq i64 %indvars.iv.next249, %wide.trip.count251
+  br i1 %exitcond252.not, label %._crit_edge233, label %.lr.ph232, !llvm.loop !22
 
-._crit_edge232:                                   ; preds = %.lr.ph231, %.preheader
+._crit_edge233:                                   ; preds = %.lr.ph232, %.preheader
   call void @CRYPTO_free(ptr noundef nonnull %.3, ptr noundef nonnull @.str, i32 noundef 492) #4
-  br label %205
+  br label %204
 
-205:                                              ; preds = %._crit_edge232, %201
-  %206 = load ptr, ptr %8, align 8, !tbaa !10
-  call void @OPENSSL_sk_pop_free(ptr noundef %206, ptr noundef nonnull @X509_free) #4
-  %207 = load ptr, ptr %9, align 8, !tbaa !12
-  call void @OPENSSL_sk_pop_free(ptr noundef %207, ptr noundef nonnull @X509_CRL_free) #4
-  br label %208
+204:                                              ; preds = %._crit_edge233, %200
+  %205 = load ptr, ptr %8, align 8, !tbaa !10
+  call void @OPENSSL_sk_pop_free(ptr noundef %205, ptr noundef nonnull @X509_free) #4
+  %206 = load ptr, ptr %9, align 8, !tbaa !12
+  call void @OPENSSL_sk_pop_free(ptr noundef %206, ptr noundef nonnull @X509_CRL_free) #4
+  br label %207
 
-208:                                              ; preds = %check_content.exit.thread, %205
-  %.0 = phi i32 [ %.1147, %205 ], [ 0, %check_content.exit.thread ]
+207:                                              ; preds = %check_content.exit.thread, %204
+  %.0 = phi i32 [ %.1147, %204 ], [ 0, %check_content.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4

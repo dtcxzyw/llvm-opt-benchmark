@@ -13166,7 +13166,7 @@ if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIN3ue28
   br label %_ZNSt6vectorIN3ue28raw_puffESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIN3ue28raw_puffESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIN3ue28raw_puffESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i
-  store ptr %call5.i.i.i.i.i, ptr %spec.select.i.i.i.i.i, align 8
+  store ptr %call5.i.i.i.i.i, ptr %storage_.i.i.i.i.i.i, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
   %add.ptr19.i.i = getelementptr inbounds nuw %"struct.ue2::raw_puff", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8

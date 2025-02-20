@@ -1620,7 +1620,7 @@ _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceK
   br i1 %281, label %282, label %283
 
 282:                                              ; preds = %280
-  store i8 1, ptr %.0.i.i, align 8
+  store i8 1, ptr %276, align 8
   br label %283
 
 283:                                              ; preds = %282, %280
@@ -8880,7 +8880,7 @@ _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceK
   br i1 %49, label %50, label %51
 
 50:                                               ; preds = %48
-  store i8 1, ptr %.0.i.i, align 8
+  store i8 1, ptr %44, align 8
   br label %51
 
 51:                                               ; preds = %50, %48
@@ -8974,7 +8974,7 @@ _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceK
   br i1 %100, label %101, label %102
 
 101:                                              ; preds = %99
-  store i8 1, ptr %.0.i.i21, align 8
+  store i8 1, ptr %95, align 8
   br label %102
 
 102:                                              ; preds = %101, %99
@@ -9084,7 +9084,7 @@ _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceK
   br i1 %163, label %164, label %165
 
 164:                                              ; preds = %162
-  store i8 1, ptr %.0.i.i31, align 8
+  store i8 1, ptr %158, align 8
   br label %165
 
 165:                                              ; preds = %164, %162

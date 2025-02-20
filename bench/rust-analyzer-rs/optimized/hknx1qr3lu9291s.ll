@@ -6926,11 +6926,11 @@ _ZN4core3ops8function6FnOnce9call_once17hd55023510ac8a217E.exit.thread.i.i.i.i.i
 "_ZN4core3ptr575drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..filter_map..FilterMap$LT$rowan..cursor..PreorderWithTokens$C$rowan..cursor..SyntaxNode..descendants_with_tokens..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$u20$as$u20$core..convert..From$LT$rowan..utility_types..NodeOrToken$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxToken$GT$$GT$$GT$..from$GT$$GT$$GT$17h31bf92e2e67e2260E.exit.i.i.i.i.i.i.i.i.i": ; preds = %53
   %54 = landingpad { ptr, i32 }
           cleanup
-  store i64 0, ptr %.09.i.i.i, align 8, !alias.scope !2484, !noalias !2485
+  store i64 0, ptr %8, align 8, !alias.scope !2484, !noalias !2485
   br label %common.resume.i
 
 .loopexit.loopexit.i.i.i.i.i.i.i:                 ; preds = %53, %48, %_ZN4core3ops8function6FnOnce9call_once17hd55023510ac8a217E.exit.thread.i.i.i.i.i.i.i.i.i
-  store i64 0, ptr %.09.i.i.i, align 8, !alias.scope !2484, !noalias !2485
+  store i64 0, ptr %8, align 8, !alias.scope !2484, !noalias !2485
   br label %.loopexit.i.i.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i:                          ; preds = %"_ZN4core3ptr220drop_in_place$LT$core..option..Option$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17hdb18281f28da3e9aE.exit.i.i.i.i.i.i.i", %.loopexit.loopexit.i.i.i.i.i.i.i
@@ -21227,11 +21227,11 @@ _ZN4core3ops8function6FnOnce9call_once17hc65009d09bb8fd9eE.exit.thread.i.i.i.i.i
 "_ZN4core3ptr575drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..filter_map..FilterMap$LT$rowan..cursor..PreorderWithTokens$C$rowan..cursor..SyntaxNode..descendants_with_tokens..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$u20$as$u20$core..convert..From$LT$rowan..utility_types..NodeOrToken$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxToken$GT$$GT$$GT$..from$GT$$GT$$GT$17h31bf92e2e67e2260E.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %85
   %86 = landingpad { ptr, i32 }
           cleanup
-  store i64 0, ptr %.09.i.i.i.i, align 8, !alias.scope !7348, !noalias !7353
+  store i64 0, ptr %11, align 8, !alias.scope !7348, !noalias !7353
   br label %.body
 
 .loopexit.loopexit.i.i.i.i.i.i.i.i:               ; preds = %85, %80, %_ZN4core3ops8function6FnOnce9call_once17hc65009d09bb8fd9eE.exit.thread.i.i.i.i.i.i.i.i.i.i
-  store i64 0, ptr %.09.i.i.i.i, align 8, !alias.scope !7348, !noalias !7353
+  store i64 0, ptr %11, align 8, !alias.scope !7348, !noalias !7353
   br label %.loopexit.i.i.i.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i:                        ; preds = %"_ZN4core3ptr220drop_in_place$LT$core..option..Option$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17hdb18281f28da3e9aE.exit.i.i.i.i.i.i.i.i", %.loopexit.loopexit.i.i.i.i.i.i.i.i

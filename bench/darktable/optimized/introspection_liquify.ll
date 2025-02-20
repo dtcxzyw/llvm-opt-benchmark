@@ -7736,7 +7736,7 @@ define internal fastcc void @node_delete(ptr noundef %0, ptr noundef captures(no
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %.0.i21, i64 16
   store i8 -1, ptr %14, align 4, !tbaa !147
-  store i32 1, ptr %.0.i21, align 4, !tbaa !151
+  store i32 1, ptr %10, align 4, !tbaa !151
   br label %22
 
 15:                                               ; preds = %2

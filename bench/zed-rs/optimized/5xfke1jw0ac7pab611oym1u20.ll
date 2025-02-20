@@ -1935,7 +1935,7 @@ define hidden void @"_ZN4text5patch14Patch$LT$T$GT$7compose17hcff8888b5d001183E"
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 24
   br label %.backedge
 
-37:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h9eba9ae18b8c3063E.exit.thread", %"_ZN4core6option15Option$LT$T$GT$6map_or17h1ef95e177b92fbafE.exit.thread", %.cont198.cont.cont.cont, %.cont182.cont.cont, %.cont202, %.cont258
+37:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h9eba9ae18b8c3063E.exit.thread", %"_ZN4core6option15Option$LT$T$GT$6map_or17h1ef95e177b92fbafE.exit.thread", %.cont198.cont.cont.cont, %.cont182.cont.cont, %.cont202, %.cont252
   %38 = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !602)
@@ -1953,76 +1953,76 @@ define hidden void @"_ZN4text5patch14Patch$LT$T$GT$7compose17hcff8888b5d001183E"
   br label %"_ZN4core3ptr52drop_in_place$LT$text..patch..Patch$LT$usize$GT$$GT$17h17231d236f2e089dE.exit"
 
 .backedge:                                        ; preds = %.backedge.backedge, %3
-  %.sroa.6245.0 = phi i64 [ undef, %3 ], [ %.sroa.6245.0.be, %.backedge.backedge ]
-  %.sroa.12248.0 = phi i64 [ undef, %3 ], [ %.sroa.12248.0.be, %.backedge.backedge ]
-  %.sroa.16.0 = phi i64 [ undef, %3 ], [ %.sroa.16.0.be, %.backedge.backedge ]
-  %.sroa.21253.0 = phi i64 [ undef, %3 ], [ %.sroa.21253.0.be, %.backedge.backedge ]
-  %.sroa.26.0 = phi ptr [ %.val, %3 ], [ %.sroa.26.1, %.backedge.backedge ]
+  %.sroa.6239.0 = phi i64 [ undef, %3 ], [ %.sroa.6239.0.be, %.backedge.backedge ]
+  %.sroa.14242.0 = phi i64 [ undef, %3 ], [ %.sroa.14242.0.be, %.backedge.backedge ]
+  %.sroa.18.0 = phi i64 [ undef, %3 ], [ %.sroa.18.0.be, %.backedge.backedge ]
+  %.sroa.23247.0 = phi i64 [ undef, %3 ], [ %.sroa.23247.0.be, %.backedge.backedge ]
+  %.sroa.28.0 = phi ptr [ %.val, %3 ], [ %.sroa.28.1, %.backedge.backedge ]
   %.sroa.6.0 = phi i64 [ undef, %3 ], [ %.sroa.6.0.be, %.backedge.backedge ]
-  %.sroa.12.0 = phi i64 [ undef, %3 ], [ %.sroa.12.0.be, %.backedge.backedge ]
-  %.sroa.17.0 = phi i64 [ undef, %3 ], [ %.sroa.17.0.be, %.backedge.backedge ]
-  %.sroa.21.0 = phi i64 [ undef, %3 ], [ %.sroa.21.0.be, %.backedge.backedge ]
-  %.sroa.24.0 = phi ptr [ %12, %3 ], [ %.sroa.24.1, %.backedge.backedge ]
+  %.sroa.14.0 = phi i64 [ undef, %3 ], [ %.sroa.14.0.be, %.backedge.backedge ]
+  %.sroa.19.0 = phi i64 [ undef, %3 ], [ %.sroa.19.0.be, %.backedge.backedge ]
+  %.sroa.23.0 = phi i64 [ undef, %3 ], [ %.sroa.23.0.be, %.backedge.backedge ]
+  %.sroa.26.0 = phi ptr [ %12, %3 ], [ %.sroa.26.1, %.backedge.backedge ]
   %44 = phi i64 [ 2, %3 ], [ %.be, %.backedge.backedge ]
-  %45 = phi i64 [ 2, %3 ], [ %.be324, %.backedge.backedge ]
+  %45 = phi i64 [ 2, %3 ], [ %.be317, %.backedge.backedge ]
   %.sroa.087.0 = phi i64 [ 0, %3 ], [ %.sroa.087.0.be, %.backedge.backedge ]
   %.sroa.0.0 = phi i64 [ 0, %3 ], [ %.sroa.0.0.be, %.backedge.backedge ]
   %46 = icmp eq i64 %45, 2
   br i1 %46, label %47, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8e4a6ce355fd5523E.exit"
 
 47:                                               ; preds = %.backedge
-  %48 = icmp eq ptr %.sroa.24.0, %15
+  %48 = icmp eq ptr %.sroa.26.0, %15
   br i1 %48, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8e4a6ce355fd5523E.exit", label %49
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.24.0, i64 32
-  %51 = load i64, ptr %.sroa.24.0, align 8, !alias.scope !620, !noalias !627, !noundef !4
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.24.0, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.26.0, i64 32
+  %51 = load i64, ptr %.sroa.26.0, align 8, !alias.scope !620, !noalias !627, !noundef !4
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.26.0, i64 8
   %53 = load i64, ptr %52, align 8, !alias.scope !638, !noalias !627, !noundef !4
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.24.0, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.26.0, i64 16
   %55 = load i64, ptr %54, align 8, !alias.scope !641, !noalias !627, !noundef !4
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.24.0, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.26.0, i64 24
   %57 = load i64, ptr %56, align 8, !alias.scope !646, !noalias !627, !noundef !4
   br label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8e4a6ce355fd5523E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8e4a6ce355fd5523E.exit": ; preds = %47, %49, %.backedge
   %.sroa.6.1 = phi i64 [ %.sroa.6.0, %.backedge ], [ undef, %47 ], [ %51, %49 ]
-  %.sroa.12.1 = phi i64 [ %.sroa.12.0, %.backedge ], [ undef, %47 ], [ %53, %49 ]
-  %.sroa.17.1 = phi i64 [ %.sroa.17.0, %.backedge ], [ undef, %47 ], [ %55, %49 ]
-  %.sroa.21.1 = phi i64 [ %.sroa.21.0, %.backedge ], [ undef, %47 ], [ %57, %49 ]
-  %.sroa.24.1 = phi ptr [ %.sroa.24.0, %.backedge ], [ %15, %47 ], [ %50, %49 ]
+  %.sroa.14.1 = phi i64 [ %.sroa.14.0, %.backedge ], [ undef, %47 ], [ %53, %49 ]
+  %.sroa.19.1 = phi i64 [ %.sroa.19.0, %.backedge ], [ undef, %47 ], [ %55, %49 ]
+  %.sroa.23.1 = phi i64 [ %.sroa.23.0, %.backedge ], [ undef, %47 ], [ %57, %49 ]
+  %.sroa.26.1 = phi ptr [ %.sroa.26.0, %.backedge ], [ %15, %47 ], [ %50, %49 ]
   %58 = phi i64 [ %45, %.backedge ], [ 0, %47 ], [ 1, %49 ]
   %trunc = trunc nuw i64 %58 to i1
   %59 = icmp eq i64 %44, 2
   br i1 %59, label %60, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8e4a6ce355fd5523E.exit49"
 
 60:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8e4a6ce355fd5523E.exit"
-  %61 = icmp eq ptr %.sroa.26.0, %18
+  %61 = icmp eq ptr %.sroa.28.0, %18
   br i1 %61, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8e4a6ce355fd5523E.exit49", label %62
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.26.0, i64 32
-  %64 = load i64, ptr %.sroa.26.0, align 8, !alias.scope !649, !noalias !656, !noundef !4
-  %65 = getelementptr inbounds nuw i8, ptr %.sroa.26.0, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.28.0, i64 32
+  %64 = load i64, ptr %.sroa.28.0, align 8, !alias.scope !649, !noalias !656, !noundef !4
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.28.0, i64 8
   %66 = load i64, ptr %65, align 8, !alias.scope !667, !noalias !656, !noundef !4
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.26.0, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.28.0, i64 16
   %68 = load i64, ptr %67, align 8, !alias.scope !670, !noalias !656, !noundef !4
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.26.0, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.28.0, i64 24
   %70 = load i64, ptr %69, align 8, !alias.scope !675, !noalias !656, !noundef !4
   br label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8e4a6ce355fd5523E.exit49"
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8e4a6ce355fd5523E.exit49": ; preds = %60, %62, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8e4a6ce355fd5523E.exit"
-  %.sroa.6245.1 = phi i64 [ %.sroa.6245.0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8e4a6ce355fd5523E.exit" ], [ undef, %60 ], [ %64, %62 ]
-  %.sroa.12248.1 = phi i64 [ %.sroa.12248.0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8e4a6ce355fd5523E.exit" ], [ undef, %60 ], [ %66, %62 ]
-  %.sroa.16.1 = phi i64 [ %.sroa.16.0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8e4a6ce355fd5523E.exit" ], [ undef, %60 ], [ %68, %62 ]
-  %.sroa.21253.1 = phi i64 [ %.sroa.21253.0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8e4a6ce355fd5523E.exit" ], [ undef, %60 ], [ %70, %62 ]
-  %.sroa.26.1 = phi ptr [ %.sroa.26.0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8e4a6ce355fd5523E.exit" ], [ %18, %60 ], [ %63, %62 ]
+  %.sroa.6239.1 = phi i64 [ %.sroa.6239.0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8e4a6ce355fd5523E.exit" ], [ undef, %60 ], [ %64, %62 ]
+  %.sroa.14242.1 = phi i64 [ %.sroa.14242.0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8e4a6ce355fd5523E.exit" ], [ undef, %60 ], [ %66, %62 ]
+  %.sroa.18.1 = phi i64 [ %.sroa.18.0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8e4a6ce355fd5523E.exit" ], [ undef, %60 ], [ %68, %62 ]
+  %.sroa.23247.1 = phi i64 [ %.sroa.23247.0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8e4a6ce355fd5523E.exit" ], [ undef, %60 ], [ %70, %62 ]
+  %.sroa.28.1 = phi ptr [ %.sroa.28.0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8e4a6ce355fd5523E.exit" ], [ %18, %60 ], [ %63, %62 ]
   %71 = phi i64 [ %44, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8e4a6ce355fd5523E.exit" ], [ 0, %60 ], [ 1, %62 ]
   %trunc29 = trunc nuw i64 %71 to i1
   br i1 %trunc, label %72, label %74
 
 72:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8e4a6ce355fd5523E.exit49"
-  %73 = icmp uge i64 %.sroa.21.1, %.sroa.6245.1
+  %73 = icmp uge i64 %.sroa.23.1, %.sroa.6239.1
   %or.cond.not = select i1 %trunc29, i1 %73, i1 false
   br i1 %or.cond.not, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h1ef95e177b92fbafE.exit", label %"_ZN4core6option15Option$LT$T$GT$6map_or17h9eba9ae18b8c3063E.exit.thread"
 
@@ -2030,7 +2030,7 @@ define hidden void @"_ZN4text5patch14Patch$LT$T$GT$7compose17hcff8888b5d001183E"
   br i1 %trunc29, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h1ef95e177b92fbafE.exit.thread", label %.thread
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h1ef95e177b92fbafE.exit": ; preds = %72
-  %75 = icmp ult i64 %.sroa.12248.1, %.sroa.17.1
+  %75 = icmp ult i64 %.sroa.14242.1, %.sroa.19.1
   br i1 %75, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h1ef95e177b92fbafE.exit.thread", label %.cont186.cont
 
 .thread:                                          ; preds = %74
@@ -2039,34 +2039,34 @@ define hidden void @"_ZN4text5patch14Patch$LT$T$GT$7compose17hcff8888b5d001183E"
   ret void
 
 .cont186.cont:                                    ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h1ef95e177b92fbafE.exit"
-  %76 = icmp ult i64 %.sroa.17.1, %.sroa.6245.1
-  br i1 %76, label %.cont202, label %.cont258
+  %76 = icmp ult i64 %.sroa.19.1, %.sroa.6239.1
+  br i1 %76, label %.cont202, label %.cont252
 
-.cont258:                                         ; preds = %.cont186.cont
-  %77 = sub i64 %.sroa.16.1, %.sroa.087.0
+.cont252:                                         ; preds = %.cont186.cont
+  %77 = sub i64 %.sroa.18.1, %.sroa.087.0
   %78 = add i64 %77, %.sroa.0.0
-  %79 = sub nuw i64 %.sroa.17.1, %.sroa.6245.1
+  %79 = sub nuw i64 %.sroa.19.1, %.sroa.6239.1
   %80 = add i64 %78, %79
-  %81 = add i64 %.sroa.16.1, %79
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %81, i64 %.sroa.21253.1)
+  %81 = add i64 %.sroa.18.1, %79
+  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %81, i64 %.sroa.23247.1)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store i64 %78, ptr %6, align 8
   store i64 %80, ptr %22, align 8
-  store i64 %.sroa.16.1, ptr %23, align 8
+  store i64 %.sroa.18.1, ptr %23, align 8
   store i64 %.sroa.0.0.sroa.speculated.i.i, ptr %24, align 8
   invoke void @"_ZN4text5patch14Patch$LT$T$GT$4push17hfba5af42c5cf74abE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6)
-          to label %.cont269 unwind label %37
+          to label %.cont263 unwind label %37
 
-.cont269:                                         ; preds = %.cont258
+.cont263:                                         ; preds = %.cont252
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %.cont176.cont
 
 .cont202:                                         ; preds = %.cont186.cont
-  %82 = sub nuw i64 %.sroa.6245.1, %.sroa.17.1
+  %82 = sub nuw i64 %.sroa.6239.1, %.sroa.19.1
   %83 = add i64 %.sroa.6.1, %82
   %84 = sub i64 %.sroa.6.1, %.sroa.0.0
   %85 = add i64 %84, %.sroa.087.0
-  %.sroa.0.0.sroa.speculated.i.i52 = tail call noundef i64 @llvm.umin.i64(i64 %83, i64 %.sroa.12.1)
+  %.sroa.0.0.sroa.speculated.i.i52 = tail call noundef i64 @llvm.umin.i64(i64 %83, i64 %.sroa.14.1)
   %86 = add i64 %85, %82
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   store i64 %.sroa.6.1, ptr %7, align 8
@@ -2080,20 +2080,20 @@ define hidden void @"_ZN4text5patch14Patch$LT$T$GT$7compose17hcff8888b5d001183E"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %.cont176.cont
 
-.cont176.cont:                                    ; preds = %.cont269, %.cont190.cont
-  %.sroa.6245.2 = phi i64 [ %.sroa.6245.1, %.cont190.cont ], [ %.sroa.17.1, %.cont269 ]
-  %.sroa.16.2 = phi i64 [ %.sroa.16.1, %.cont190.cont ], [ %.sroa.0.0.sroa.speculated.i.i, %.cont269 ]
-  %.sroa.6.2 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i52, %.cont190.cont ], [ %.sroa.6.1, %.cont269 ]
-  %storemerge32 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i52, %.cont190.cont ], [ %80, %.cont269 ]
-  %storemerge31 = phi i64 [ %86, %.cont190.cont ], [ %.sroa.0.0.sroa.speculated.i.i, %.cont269 ]
-  %87 = icmp ugt i64 %.sroa.21.1, %.sroa.12248.1
-  %88 = sub i64 %.sroa.12.1, %.sroa.6.2
+.cont176.cont:                                    ; preds = %.cont263, %.cont190.cont
+  %.sroa.6239.2 = phi i64 [ %.sroa.6239.1, %.cont190.cont ], [ %.sroa.19.1, %.cont263 ]
+  %.sroa.18.2 = phi i64 [ %.sroa.18.1, %.cont190.cont ], [ %.sroa.0.0.sroa.speculated.i.i, %.cont263 ]
+  %.sroa.6.2 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i52, %.cont190.cont ], [ %.sroa.6.1, %.cont263 ]
+  %storemerge32 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i52, %.cont190.cont ], [ %80, %.cont263 ]
+  %storemerge31 = phi i64 [ %86, %.cont190.cont ], [ %.sroa.0.0.sroa.speculated.i.i, %.cont263 ]
+  %87 = icmp ugt i64 %.sroa.23.1, %.sroa.14242.1
+  %88 = sub i64 %.sroa.14.1, %.sroa.6.2
   br i1 %87, label %.cont198.cont.cont.cont, label %.cont182.cont.cont
 
 .cont182.cont.cont:                               ; preds = %.cont176.cont
   %89 = add i64 %88, %storemerge32
-  %90 = sub i64 %.sroa.21.1, %.sroa.6245.2
-  %91 = sub i64 %.sroa.21253.1, %.sroa.16.2
+  %90 = sub i64 %.sroa.23.1, %.sroa.6239.2
+  %91 = sub i64 %.sroa.23247.1, %.sroa.18.2
   %.sroa.0.0.sroa.speculated.i.i53 = tail call noundef i64 @llvm.umin.i64(i64 %90, i64 %91)
   %92 = add i64 %.sroa.0.0.sroa.speculated.i.i53, %storemerge31
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
@@ -2109,10 +2109,10 @@ define hidden void @"_ZN4text5patch14Patch$LT$T$GT$7compose17hcff8888b5d001183E"
   br label %.backedge.backedge
 
 .cont198.cont.cont.cont:                          ; preds = %.cont176.cont
-  %93 = sub i64 %.sroa.12248.1, %.sroa.6245.2
+  %93 = sub i64 %.sroa.14242.1, %.sroa.6239.2
   %.sroa.0.0.sroa.speculated.i.i54 = tail call noundef i64 @llvm.umin.i64(i64 %88, i64 %93)
   %94 = add i64 %.sroa.0.0.sroa.speculated.i.i54, %storemerge32
-  %95 = sub i64 %.sroa.21253.1, %.sroa.16.2
+  %95 = sub i64 %.sroa.23247.1, %.sroa.18.2
   %96 = add i64 %95, %storemerge31
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store i64 %storemerge32, ptr %5, align 8
@@ -2127,15 +2127,15 @@ define hidden void @"_ZN4text5patch14Patch$LT$T$GT$7compose17hcff8888b5d001183E"
   br label %.backedge.backedge
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h1ef95e177b92fbafE.exit.thread": ; preds = %74, %"_ZN4core6option15Option$LT$T$GT$6map_or17h1ef95e177b92fbafE.exit"
-  %97 = sub i64 %.sroa.16.1, %.sroa.087.0
+  %97 = sub i64 %.sroa.18.1, %.sroa.087.0
   %98 = add i64 %97, %.sroa.0.0
-  %99 = sub i64 %.sroa.12248.1, %.sroa.6245.1
+  %99 = sub i64 %.sroa.14242.1, %.sroa.6239.1
   %100 = add i64 %99, %98
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   store i64 %98, ptr %8, align 8
   store i64 %100, ptr %34, align 8
-  store i64 %.sroa.16.1, ptr %35, align 8
-  store i64 %.sroa.21253.1, ptr %36, align 8
+  store i64 %.sroa.18.1, ptr %35, align 8
+  store i64 %.sroa.23247.1, ptr %36, align 8
   invoke void @"_ZN4text5patch14Patch$LT$T$GT$4push17hfba5af42c5cf74abE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %8)
           to label %101 unwind label %37
 
@@ -2144,28 +2144,28 @@ define hidden void @"_ZN4text5patch14Patch$LT$T$GT$7compose17hcff8888b5d001183E"
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %101, %106, %.cont180, %.cont.cont
-  %.sroa.6245.0.be = phi i64 [ undef, %101 ], [ undef, %.cont180 ], [ %.sroa.21.1, %.cont.cont ], [ %.sroa.6245.1, %106 ]
-  %.sroa.12248.0.be = phi i64 [ undef, %101 ], [ undef, %.cont180 ], [ %.sroa.12248.1, %.cont.cont ], [ %.sroa.12248.1, %106 ]
-  %.sroa.16.0.be = phi i64 [ undef, %101 ], [ undef, %.cont180 ], [ %92, %.cont.cont ], [ %.sroa.16.1, %106 ]
-  %.sroa.21253.0.be = phi i64 [ undef, %101 ], [ undef, %.cont180 ], [ %.sroa.21253.1, %.cont.cont ], [ %.sroa.21253.1, %106 ]
+  %.sroa.6239.0.be = phi i64 [ undef, %101 ], [ undef, %.cont180 ], [ %.sroa.23.1, %.cont.cont ], [ %.sroa.6239.1, %106 ]
+  %.sroa.14242.0.be = phi i64 [ undef, %101 ], [ undef, %.cont180 ], [ %.sroa.14242.1, %.cont.cont ], [ %.sroa.14242.1, %106 ]
+  %.sroa.18.0.be = phi i64 [ undef, %101 ], [ undef, %.cont180 ], [ %92, %.cont.cont ], [ %.sroa.18.1, %106 ]
+  %.sroa.23247.0.be = phi i64 [ undef, %101 ], [ undef, %.cont180 ], [ %.sroa.23247.1, %.cont.cont ], [ %.sroa.23247.1, %106 ]
   %.sroa.6.0.be = phi i64 [ %.sroa.6.1, %101 ], [ %94, %.cont180 ], [ undef, %.cont.cont ], [ undef, %106 ]
-  %.sroa.12.0.be = phi i64 [ %.sroa.12.1, %101 ], [ %.sroa.12.1, %.cont180 ], [ undef, %.cont.cont ], [ undef, %106 ]
-  %.sroa.17.0.be = phi i64 [ %.sroa.17.1, %101 ], [ %.sroa.12248.1, %.cont180 ], [ undef, %.cont.cont ], [ undef, %106 ]
-  %.sroa.21.0.be = phi i64 [ %.sroa.21.1, %101 ], [ %.sroa.21.1, %.cont180 ], [ undef, %.cont.cont ], [ undef, %106 ]
+  %.sroa.14.0.be = phi i64 [ %.sroa.14.1, %101 ], [ %.sroa.14.1, %.cont180 ], [ undef, %.cont.cont ], [ undef, %106 ]
+  %.sroa.19.0.be = phi i64 [ %.sroa.19.1, %101 ], [ %.sroa.14242.1, %.cont180 ], [ undef, %.cont.cont ], [ undef, %106 ]
+  %.sroa.23.0.be = phi i64 [ %.sroa.23.1, %101 ], [ %.sroa.23.1, %.cont180 ], [ undef, %.cont.cont ], [ undef, %106 ]
   %.be = phi i64 [ 2, %101 ], [ 2, %.cont180 ], [ 1, %.cont.cont ], [ %71, %106 ]
-  %.be324 = phi i64 [ %58, %101 ], [ 1, %.cont180 ], [ 2, %.cont.cont ], [ 2, %106 ]
-  %.sroa.087.0.be = phi i64 [ %.sroa.21253.1, %101 ], [ %96, %.cont180 ], [ %92, %.cont.cont ], [ %105, %106 ]
-  %.sroa.0.0.be = phi i64 [ %100, %101 ], [ %94, %.cont180 ], [ %89, %.cont.cont ], [ %.sroa.12.1, %106 ]
+  %.be317 = phi i64 [ %58, %101 ], [ 1, %.cont180 ], [ 2, %.cont.cont ], [ 2, %106 ]
+  %.sroa.087.0.be = phi i64 [ %.sroa.23247.1, %101 ], [ %96, %.cont180 ], [ %92, %.cont.cont ], [ %105, %106 ]
+  %.sroa.0.0.be = phi i64 [ %100, %101 ], [ %94, %.cont180 ], [ %89, %.cont.cont ], [ %.sroa.14.1, %106 ]
   br label %.backedge
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h9eba9ae18b8c3063E.exit.thread": ; preds = %72
   %102 = sub i64 %.sroa.6.1, %.sroa.0.0
   %103 = add i64 %102, %.sroa.087.0
-  %104 = sub i64 %.sroa.21.1, %.sroa.17.1
+  %104 = sub i64 %.sroa.23.1, %.sroa.19.1
   %105 = add i64 %104, %103
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store i64 %.sroa.6.1, ptr %9, align 8
-  store i64 %.sroa.12.1, ptr %19, align 8
+  store i64 %.sroa.14.1, ptr %19, align 8
   store i64 %103, ptr %20, align 8
   store i64 %105, ptr %21, align 8
   invoke void @"_ZN4text5patch14Patch$LT$T$GT$4push17hfba5af42c5cf74abE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %9)

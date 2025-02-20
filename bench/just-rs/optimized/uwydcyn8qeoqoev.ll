@@ -9446,7 +9446,7 @@ define hidden noundef zeroext i1 @"_ZN68_$LT$just..list..List$LT$T$C$I$GT$$u20$a
   %.sroa.8.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %.sroa.8.0..sroa_idx13, align 8
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %.sroa.528.sroa.5.0121136, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx13.sroa_idx, align 8
+  store ptr %.sroa.528.sroa.5.0117132, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx13.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   store ptr %0, ptr %3, align 8
@@ -9472,18 +9472,18 @@ define hidden noundef zeroext i1 @"_ZN68_$LT$just..list..List$LT$T$C$I$GT$$u20$a
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2bdd8d3879abf4daE.exit72.thread"
 
 58:                                               ; preds = %.lr.ph, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2bdd8d3879abf4daE.exit80"
-  %.sroa.528.sroa.5.0121136 = phi ptr [ %30, %.lr.ph ], [ %.sroa.0.0125135, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2bdd8d3879abf4daE.exit80" ]
-  %.sroa.0.0125135 = phi ptr [ %39, %.lr.ph ], [ %60, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2bdd8d3879abf4daE.exit80" ]
-  %59 = icmp eq ptr %.sroa.0.0125135, %.val68
+  %.sroa.528.sroa.5.0117132 = phi ptr [ %30, %.lr.ph ], [ %.sroa.0.0121131, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2bdd8d3879abf4daE.exit80" ]
+  %.sroa.0.0121131 = phi ptr [ %39, %.lr.ph ], [ %60, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2bdd8d3879abf4daE.exit80" ]
+  %59 = icmp eq ptr %.sroa.0.0121131, %.val68
   br i1 %59, label %49, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2bdd8d3879abf4daE.exit80"
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2bdd8d3879abf4daE.exit80": ; preds = %58
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.0125135, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.0121131, i64 24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   store ptr @anon.33818b486a90266c1f1c95bf072e35a3.285.llvm.17757648456425634998, ptr %8, align 8
   store i64 1, ptr %.sroa.8.0..sroa_idx14, align 8
-  store ptr %.sroa.528.sroa.5.0121136, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx14.sroa_idx, align 8
+  store ptr %.sroa.528.sroa.5.0117132, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx14.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %8, ptr %6, align 8
@@ -12081,7 +12081,7 @@ define internal noundef zeroext i1 @"_ZN68_$LT$just..list..List$LT$T$C$I$GT$$u20
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val55 = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
+  %.val55 = load ptr, ptr %17, align 8, !noundef !4
   %18 = icmp eq ptr %.val, %.val55
   br i1 %18, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit", label %19
 
@@ -12112,7 +12112,7 @@ define internal noundef zeroext i1 @"_ZN68_$LT$just..list..List$LT$T$C$I$GT$$u20
 27:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   %28 = icmp eq ptr %20, %.val55
-  br i1 %28, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit57.thread", label %29
+  br i1 %28, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit58.thread", label %29
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %.val, i64 2
@@ -12154,9 +12154,9 @@ define internal noundef zeroext i1 @"_ZN68_$LT$just..list..List$LT$T$C$I$GT$$u20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit57.thread"
+  br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit58.thread"
 
-48:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit61"
+48:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit64"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %.03989, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
@@ -12181,12 +12181,12 @@ define internal noundef zeroext i1 @"_ZN68_$LT$just..list..List$LT$T$C$I$GT$$u20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit57.thread"
+  br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit58.thread"
 
-57:                                               ; preds = %32, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit61"
-  %.03890 = phi ptr [ %20, %32 ], [ %.03989, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit61" ]
-  %.03989 = phi ptr [ %30, %32 ], [ %.sroa.0.088, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit61" ]
-  %.sroa.0.088 = phi ptr [ %33, %32 ], [ %spec.select, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit61" ]
+57:                                               ; preds = %32, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit64"
+  %.03890 = phi ptr [ %20, %32 ], [ %.03989, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit64" ]
+  %.03989 = phi ptr [ %30, %32 ], [ %.sroa.0.088, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit64" ]
+  %.sroa.0.088 = phi ptr [ %33, %32 ], [ %spec.select, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit64" ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr %.03890, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
@@ -12201,9 +12201,9 @@ define internal noundef zeroext i1 @"_ZN68_$LT$just..list..List$LT$T$C$I$GT$$u20
   %58 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br i1 %58, label %61, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit61"
+  br i1 %58, label %61, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit64"
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit61": ; preds = %57
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit64": ; preds = %57
   %59 = icmp ne ptr %.sroa.0.088, %.val55
   %spec.select.idx = zext i1 %59 to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %.sroa.0.088, i64 %spec.select.idx
@@ -12214,15 +12214,15 @@ define internal noundef zeroext i1 @"_ZN68_$LT$just..list..List$LT$T$C$I$GT$$u20
 
 61:                                               ; preds = %57
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit57.thread"
+  br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit58.thread"
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit57.thread": ; preds = %27, %39, %61, %48
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit58.thread": ; preds = %27, %39, %61, %48
   %.5 = phi i1 [ %47, %39 ], [ %56, %48 ], [ true, %61 ], [ false, %27 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit"
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit": ; preds = %19, %2, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit57.thread"
-  %.6 = phi i1 [ %.5, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit57.thread" ], [ false, %2 ], [ true, %19 ]
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit": ; preds = %19, %2, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit58.thread"
+  %.6 = phi i1 [ %.5, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit58.thread" ], [ false, %2 ], [ true, %19 ]
   ret i1 %.6
 }
 
@@ -12355,7 +12355,7 @@ define internal noundef zeroext i1 @"_ZN68_$LT$just..list..List$LT$T$C$I$GT$$u20
   %.sroa.8.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %.sroa.8.0..sroa_idx13, align 8
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx13.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %.sroa.528.sroa.5.0121136, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx13.sroa_idx, align 8
+  store ptr %.sroa.528.sroa.5.0117132, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx13.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   store ptr %0, ptr %3, align 8
@@ -12381,18 +12381,18 @@ define internal noundef zeroext i1 @"_ZN68_$LT$just..list..List$LT$T$C$I$GT$$u20
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h1759765448c2ad10E.exit72.thread"
 
 58:                                               ; preds = %.lr.ph, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h1759765448c2ad10E.exit80"
-  %.sroa.528.sroa.5.0121136 = phi ptr [ %30, %.lr.ph ], [ %.sroa.0.0125135, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h1759765448c2ad10E.exit80" ]
-  %.sroa.0.0125135 = phi ptr [ %39, %.lr.ph ], [ %60, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h1759765448c2ad10E.exit80" ]
-  %59 = icmp eq ptr %.sroa.0.0125135, %.val68
+  %.sroa.528.sroa.5.0117132 = phi ptr [ %30, %.lr.ph ], [ %.sroa.0.0121131, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h1759765448c2ad10E.exit80" ]
+  %.sroa.0.0121131 = phi ptr [ %39, %.lr.ph ], [ %60, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h1759765448c2ad10E.exit80" ]
+  %59 = icmp eq ptr %.sroa.0.0121131, %.val68
   br i1 %59, label %49, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h1759765448c2ad10E.exit80"
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h1759765448c2ad10E.exit80": ; preds = %58
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.0125135, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.0121131, i64 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   store ptr @anon.33818b486a90266c1f1c95bf072e35a3.285.llvm.17757648456425634998, ptr %8, align 8
   store i64 1, ptr %.sroa.8.0..sroa_idx14, align 8
-  store ptr %.sroa.528.sroa.5.0121136, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx14.sroa_idx, align 8
+  store ptr %.sroa.528.sroa.5.0117132, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx14.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %8, ptr %6, align 8

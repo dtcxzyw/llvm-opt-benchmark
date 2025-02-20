@@ -126473,7 +126473,7 @@ define dso_local void @_ZN5clang15OMPClauseReader16VisitOMPIfClauseEPNS_11OMPIfC
   %23 = getelementptr inbounds nuw i64, ptr %22, i64 %21
   %24 = load i64, ptr %23, align 8, !tbaa !704
   %25 = trunc i64 %24 to i32
-  store ptr %15, ptr %spec.select, align 8, !tbaa !5234
+  store ptr %15, ptr %4, align 8, !tbaa !5234
   %26 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   store i32 %25, ptr %26, align 8, !tbaa !5237
   %27 = add i32 %19, 2
@@ -126660,7 +126660,7 @@ define dso_local void @_ZN5clang15OMPClauseReader19VisitOMPFinalClauseEPNS_14OMP
   %23 = getelementptr inbounds nuw i64, ptr %22, i64 %21
   %24 = load i64, ptr %23, align 8, !tbaa !704
   %25 = trunc i64 %24 to i32
-  store ptr %15, ptr %spec.select, align 8, !tbaa !5234
+  store ptr %15, ptr %4, align 8, !tbaa !5234
   %26 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   store i32 %25, ptr %26, align 8, !tbaa !5237
   %27 = tail call noundef ptr @_ZN5clang9ASTReader11ReadSubExprEv(ptr noundef nonnull align 8 dereferenceable(16272) %7) #39
@@ -126746,7 +126746,7 @@ define dso_local void @_ZN5clang15OMPClauseReader24VisitOMPNumThreadsClauseEPNS_
   %23 = getelementptr inbounds nuw i64, ptr %22, i64 %21
   %24 = load i64, ptr %23, align 8, !tbaa !704
   %25 = trunc i64 %24 to i32
-  store ptr %15, ptr %spec.select, align 8, !tbaa !5234
+  store ptr %15, ptr %4, align 8, !tbaa !5234
   %26 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   store i32 %25, ptr %26, align 8, !tbaa !5237
   %27 = tail call noundef ptr @_ZN5clang9ASTReader11ReadSubExprEv(ptr noundef nonnull align 8 dereferenceable(16272) %7) #39
@@ -127516,7 +127516,7 @@ define dso_local void @_ZN5clang15OMPClauseReader22VisitOMPScheduleClauseEPNS_17
   %23 = getelementptr inbounds nuw i64, ptr %22, i64 %21
   %24 = load i64, ptr %23, align 8, !tbaa !704
   %25 = trunc i64 %24 to i32
-  store ptr %15, ptr %spec.select, align 8, !tbaa !5234
+  store ptr %15, ptr %4, align 8, !tbaa !5234
   %26 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   store i32 %25, ptr %26, align 8, !tbaa !5237
   %27 = add i32 %19, 2
@@ -129092,7 +129092,7 @@ define dso_local void @_ZN5clang15OMPClauseReader24VisitOMPNovariantsClauseEPNS_
   %23 = getelementptr inbounds nuw i64, ptr %22, i64 %21
   %24 = load i64, ptr %23, align 8, !tbaa !704
   %25 = trunc i64 %24 to i32
-  store ptr %15, ptr %spec.select, align 8, !tbaa !5234
+  store ptr %15, ptr %4, align 8, !tbaa !5234
   %26 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   store i32 %25, ptr %26, align 8, !tbaa !5237
   %27 = tail call noundef ptr @_ZN5clang9ASTReader11ReadSubExprEv(ptr noundef nonnull align 8 dereferenceable(16272) %7) #39
@@ -129178,7 +129178,7 @@ define dso_local void @_ZN5clang15OMPClauseReader23VisitOMPNocontextClauseEPNS_1
   %23 = getelementptr inbounds nuw i64, ptr %22, i64 %21
   %24 = load i64, ptr %23, align 8, !tbaa !704
   %25 = trunc i64 %24 to i32
-  store ptr %15, ptr %spec.select, align 8, !tbaa !5234
+  store ptr %15, ptr %4, align 8, !tbaa !5234
   %26 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   store i32 %25, ptr %26, align 8, !tbaa !5237
   %27 = tail call noundef ptr @_ZN5clang9ASTReader11ReadSubExprEv(ptr noundef nonnull align 8 dereferenceable(16272) %7) #39
@@ -129859,7 +129859,7 @@ define dso_local void @_ZN5clang15OMPClauseReader26VisitOMPFirstprivateClauseEPN
   %24 = getelementptr inbounds nuw i64, ptr %23, i64 %22
   %25 = load i64, ptr %24, align 8, !tbaa !704
   %26 = trunc i64 %25 to i32
-  store ptr %16, ptr %spec.select, align 8, !tbaa !5234
+  store ptr %16, ptr %5, align 8, !tbaa !5234
   %27 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   store i32 %26, ptr %27, align 8, !tbaa !5237
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -130113,7 +130113,7 @@ define dso_local void @_ZN5clang15OMPClauseReader25VisitOMPLastprivateClauseEPNS
   %24 = getelementptr inbounds nuw i64, ptr %23, i64 %22
   %25 = load i64, ptr %24, align 8, !tbaa !704
   %26 = trunc i64 %25 to i32
-  store ptr %16, ptr %spec.select, align 8, !tbaa !5234
+  store ptr %16, ptr %5, align 8, !tbaa !5234
   %27 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   store i32 %26, ptr %27, align 8, !tbaa !5237
   %28 = tail call noundef ptr @_ZN5clang9ASTReader11ReadSubExprEv(ptr noundef nonnull align 8 dereferenceable(16272) %8) #39
@@ -130708,7 +130708,7 @@ define dso_local void @_ZN5clang15OMPClauseReader23VisitOMPReductionClauseEPNS_1
   %24 = getelementptr inbounds nuw i64, ptr %23, i64 %22
   %25 = load i64, ptr %24, align 8, !tbaa !704
   %26 = trunc i64 %25 to i32
-  store ptr %16, ptr %spec.select, align 8, !tbaa !5234
+  store ptr %16, ptr %5, align 8, !tbaa !5234
   %27 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   store i32 %26, ptr %27, align 8, !tbaa !5237
   %28 = tail call noundef ptr @_ZN5clang9ASTReader11ReadSubExprEv(ptr noundef nonnull align 8 dereferenceable(16272) %8) #39
@@ -131367,7 +131367,7 @@ define dso_local void @_ZN5clang15OMPClauseReader27VisitOMPTaskReductionClauseEP
   %24 = getelementptr inbounds nuw i64, ptr %23, i64 %22
   %25 = load i64, ptr %24, align 8, !tbaa !704
   %26 = trunc i64 %25 to i32
-  store ptr %16, ptr %spec.select, align 8, !tbaa !5234
+  store ptr %16, ptr %5, align 8, !tbaa !5234
   %27 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   store i32 %26, ptr %27, align 8, !tbaa !5237
   %28 = tail call noundef ptr @_ZN5clang9ASTReader11ReadSubExprEv(ptr noundef nonnull align 8 dereferenceable(16272) %8) #39
@@ -131832,7 +131832,7 @@ define dso_local void @_ZN5clang15OMPClauseReader25VisitOMPInReductionClauseEPNS
   %24 = getelementptr inbounds nuw i64, ptr %23, i64 %22
   %25 = load i64, ptr %24, align 8, !tbaa !704
   %26 = trunc i64 %25 to i32
-  store ptr %16, ptr %spec.select, align 8, !tbaa !5234
+  store ptr %16, ptr %5, align 8, !tbaa !5234
   %27 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   store i32 %26, ptr %27, align 8, !tbaa !5237
   %28 = tail call noundef ptr @_ZN5clang9ASTReader11ReadSubExprEv(ptr noundef nonnull align 8 dereferenceable(16272) %8) #39
@@ -132341,7 +132341,7 @@ define dso_local void @_ZN5clang15OMPClauseReader20VisitOMPLinearClauseEPNS_15OM
   %24 = getelementptr inbounds nuw i64, ptr %23, i64 %22
   %25 = load i64, ptr %24, align 8, !tbaa !704
   %26 = trunc i64 %25 to i32
-  store ptr %16, ptr %spec.select, align 8, !tbaa !5234
+  store ptr %16, ptr %5, align 8, !tbaa !5234
   %27 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   store i32 %26, ptr %27, align 8, !tbaa !5237
   %28 = tail call noundef ptr @_ZN5clang9ASTReader11ReadSubExprEv(ptr noundef nonnull align 8 dereferenceable(16272) %8) #39
@@ -134134,7 +134134,7 @@ define dso_local void @_ZN5clang15OMPClauseReader20VisitOMPDeviceClauseEPNS_15OM
   %23 = getelementptr inbounds nuw i64, ptr %22, i64 %21
   %24 = load i64, ptr %23, align 8, !tbaa !704
   %25 = trunc i64 %24 to i32
-  store ptr %15, ptr %spec.select, align 8, !tbaa !5234
+  store ptr %15, ptr %4, align 8, !tbaa !5234
   %26 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   store i32 %25, ptr %26, align 8, !tbaa !5237
   %27 = add i32 %19, 2
@@ -135388,7 +135388,7 @@ define dso_local void @_ZN5clang15OMPClauseReader22VisitOMPNumTeamsClauseEPNS_17
   %24 = getelementptr inbounds nuw i64, ptr %23, i64 %22
   %25 = load i64, ptr %24, align 8, !tbaa !704
   %26 = trunc i64 %25 to i32
-  store ptr %16, ptr %spec.select, align 8, !tbaa !5234
+  store ptr %16, ptr %5, align 8, !tbaa !5234
   %27 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   store i32 %26, ptr %27, align 8, !tbaa !5237
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -135547,7 +135547,7 @@ define dso_local void @_ZN5clang15OMPClauseReader25VisitOMPThreadLimitClauseEPNS
   %24 = getelementptr inbounds nuw i64, ptr %23, i64 %22
   %25 = load i64, ptr %24, align 8, !tbaa !704
   %26 = trunc i64 %25 to i32
-  store ptr %16, ptr %spec.select, align 8, !tbaa !5234
+  store ptr %16, ptr %5, align 8, !tbaa !5234
   %27 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   store i32 %26, ptr %27, align 8, !tbaa !5237
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -135706,7 +135706,7 @@ define dso_local void @_ZN5clang15OMPClauseReader22VisitOMPPriorityClauseEPNS_17
   %23 = getelementptr inbounds nuw i64, ptr %22, i64 %21
   %24 = load i64, ptr %23, align 8, !tbaa !704
   %25 = trunc i64 %24 to i32
-  store ptr %15, ptr %spec.select, align 8, !tbaa !5234
+  store ptr %15, ptr %4, align 8, !tbaa !5234
   %26 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   store i32 %25, ptr %26, align 8, !tbaa !5237
   %27 = tail call noundef ptr @_ZN5clang9ASTReader11ReadSubExprEv(ptr noundef nonnull align 8 dereferenceable(16272) %7) #39
@@ -135791,7 +135791,7 @@ define dso_local void @_ZN5clang15OMPClauseReader23VisitOMPGrainsizeClauseEPNS_1
   %23 = getelementptr inbounds nuw i64, ptr %22, i64 %21
   %24 = load i64, ptr %23, align 8, !tbaa !704
   %25 = trunc i64 %24 to i32
-  store ptr %15, ptr %spec.select, align 8, !tbaa !5234
+  store ptr %15, ptr %4, align 8, !tbaa !5234
   %26 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   store i32 %25, ptr %26, align 8, !tbaa !5237
   %27 = add i32 %19, 2
@@ -135933,7 +135933,7 @@ define dso_local void @_ZN5clang15OMPClauseReader22VisitOMPNumTasksClauseEPNS_17
   %23 = getelementptr inbounds nuw i64, ptr %22, i64 %21
   %24 = load i64, ptr %23, align 8, !tbaa !704
   %25 = trunc i64 %24 to i32
-  store ptr %15, ptr %spec.select, align 8, !tbaa !5234
+  store ptr %15, ptr %4, align 8, !tbaa !5234
   %26 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   store i32 %25, ptr %26, align 8, !tbaa !5237
   %27 = add i32 %19, 2
@@ -136135,7 +136135,7 @@ define dso_local void @_ZN5clang15OMPClauseReader26VisitOMPDistScheduleClauseEPN
   %23 = getelementptr inbounds nuw i64, ptr %22, i64 %21
   %24 = load i64, ptr %23, align 8, !tbaa !704
   %25 = trunc i64 %24 to i32
-  store ptr %15, ptr %spec.select, align 8, !tbaa !5234
+  store ptr %15, ptr %4, align 8, !tbaa !5234
   %26 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   store i32 %25, ptr %26, align 8, !tbaa !5237
   %27 = add i32 %19, 2
@@ -141484,7 +141484,7 @@ define dso_local void @_ZN5clang15OMPClauseReader20VisitOMPFilterClauseEPNS_15OM
   %23 = getelementptr inbounds nuw i64, ptr %22, i64 %21
   %24 = load i64, ptr %23, align 8, !tbaa !704
   %25 = trunc i64 %24 to i32
-  store ptr %15, ptr %spec.select, align 8, !tbaa !5234
+  store ptr %15, ptr %4, align 8, !tbaa !5234
   %26 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   store i32 %25, ptr %26, align 8, !tbaa !5237
   %27 = tail call noundef ptr @_ZN5clang9ASTReader11ReadSubExprEv(ptr noundef nonnull align 8 dereferenceable(16272) %7) #39
@@ -141742,7 +141742,7 @@ define dso_local void @_ZN5clang15OMPClauseReader27VisitOMPXDynCGroupMemClauseEP
   %23 = getelementptr inbounds nuw i64, ptr %22, i64 %21
   %24 = load i64, ptr %23, align 8, !tbaa !704
   %25 = trunc i64 %24 to i32
-  store ptr %15, ptr %spec.select, align 8, !tbaa !5234
+  store ptr %15, ptr %4, align 8, !tbaa !5234
   %26 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   store i32 %25, ptr %26, align 8, !tbaa !5237
   %27 = tail call noundef ptr @_ZN5clang9ASTReader11ReadSubExprEv(ptr noundef nonnull align 8 dereferenceable(16272) %7) #39
@@ -196210,7 +196210,7 @@ define linkonce_odr hidden void @_ZN5clang20OMPClauseVisitorBaseINS_15OMPClauseR
   %23 = getelementptr inbounds nuw i64, ptr %22, i64 %21
   %24 = load i64, ptr %23, align 8, !tbaa !704
   %25 = trunc i64 %24 to i32
-  store ptr %15, ptr %spec.select.i, align 8, !tbaa !5234
+  store ptr %15, ptr %4, align 8, !tbaa !5234
   %26 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
   store i32 %25, ptr %26, align 8, !tbaa !5237
   %27 = tail call noundef ptr @_ZN5clang9ASTReader11ReadSubExprEv(ptr noundef nonnull align 8 dereferenceable(16272) %7) #39
@@ -196296,7 +196296,7 @@ define linkonce_odr hidden void @_ZN5clang20OMPClauseVisitorBaseINS_15OMPClauseR
   %23 = getelementptr inbounds nuw i64, ptr %22, i64 %21
   %24 = load i64, ptr %23, align 8, !tbaa !704
   %25 = trunc i64 %24 to i32
-  store ptr %15, ptr %spec.select.i, align 8, !tbaa !5234
+  store ptr %15, ptr %4, align 8, !tbaa !5234
   %26 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
   store i32 %25, ptr %26, align 8, !tbaa !5237
   %27 = tail call noundef ptr @_ZN5clang9ASTReader11ReadSubExprEv(ptr noundef nonnull align 8 dereferenceable(16272) %7) #39
@@ -196564,7 +196564,7 @@ define linkonce_odr hidden void @_ZN5clang20OMPClauseVisitorBaseINS_15OMPClauseR
   %23 = getelementptr inbounds nuw i64, ptr %22, i64 %21
   %24 = load i64, ptr %23, align 8, !tbaa !704
   %25 = trunc i64 %24 to i32
-  store ptr %15, ptr %spec.select.i, align 8, !tbaa !5234
+  store ptr %15, ptr %4, align 8, !tbaa !5234
   %26 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
   store i32 %25, ptr %26, align 8, !tbaa !5237
   %27 = tail call noundef ptr @_ZN5clang9ASTReader11ReadSubExprEv(ptr noundef nonnull align 8 dereferenceable(16272) %7) #39
@@ -196650,7 +196650,7 @@ define linkonce_odr hidden void @_ZN5clang20OMPClauseVisitorBaseINS_15OMPClauseR
   %23 = getelementptr inbounds nuw i64, ptr %22, i64 %21
   %24 = load i64, ptr %23, align 8, !tbaa !704
   %25 = trunc i64 %24 to i32
-  store ptr %15, ptr %spec.select.i, align 8, !tbaa !5234
+  store ptr %15, ptr %4, align 8, !tbaa !5234
   %26 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
   store i32 %25, ptr %26, align 8, !tbaa !5237
   %27 = tail call noundef ptr @_ZN5clang9ASTReader11ReadSubExprEv(ptr noundef nonnull align 8 dereferenceable(16272) %7) #39
@@ -196736,7 +196736,7 @@ define linkonce_odr hidden void @_ZN5clang20OMPClauseVisitorBaseINS_15OMPClauseR
   %23 = getelementptr inbounds nuw i64, ptr %22, i64 %21
   %24 = load i64, ptr %23, align 8, !tbaa !704
   %25 = trunc i64 %24 to i32
-  store ptr %15, ptr %spec.select.i, align 8, !tbaa !5234
+  store ptr %15, ptr %4, align 8, !tbaa !5234
   %26 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
   store i32 %25, ptr %26, align 8, !tbaa !5237
   %27 = tail call noundef ptr @_ZN5clang9ASTReader11ReadSubExprEv(ptr noundef nonnull align 8 dereferenceable(16272) %7) #39
@@ -196822,7 +196822,7 @@ define linkonce_odr hidden void @_ZN5clang20OMPClauseVisitorBaseINS_15OMPClauseR
   %23 = getelementptr inbounds nuw i64, ptr %22, i64 %21
   %24 = load i64, ptr %23, align 8, !tbaa !704
   %25 = trunc i64 %24 to i32
-  store ptr %15, ptr %spec.select.i, align 8, !tbaa !5234
+  store ptr %15, ptr %4, align 8, !tbaa !5234
   %26 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
   store i32 %25, ptr %26, align 8, !tbaa !5237
   %27 = tail call noundef ptr @_ZN5clang9ASTReader11ReadSubExprEv(ptr noundef nonnull align 8 dereferenceable(16272) %7) #39
@@ -197047,7 +197047,7 @@ define linkonce_odr hidden void @_ZN5clang20OMPClauseVisitorBaseINS_15OMPClauseR
   %23 = getelementptr inbounds nuw i64, ptr %22, i64 %21
   %24 = load i64, ptr %23, align 8, !tbaa !704
   %25 = trunc i64 %24 to i32
-  store ptr %15, ptr %spec.select.i, align 8, !tbaa !5234
+  store ptr %15, ptr %4, align 8, !tbaa !5234
   %26 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
   store i32 %25, ptr %26, align 8, !tbaa !5237
   %27 = tail call noundef ptr @_ZN5clang9ASTReader11ReadSubExprEv(ptr noundef nonnull align 8 dereferenceable(16272) %7) #39

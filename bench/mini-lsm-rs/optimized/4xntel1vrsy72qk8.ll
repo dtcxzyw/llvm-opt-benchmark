@@ -7036,13 +7036,13 @@ define hidden noundef ptr @"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator.
 76:                                               ; preds = %75
   %77 = landingpad { ptr, i32 }
           cleanup
-  store ptr %.fca.0.extract12, ptr %., align 8
+  store ptr %.fca.0.extract12, ptr %5, align 8
   %78 = getelementptr inbounds nuw i8, ptr %., i64 8
   store i64 %.fca.1.extract14, ptr %78, align 8
   br label %.thread123
 
 .thread132:                                       ; preds = %75
-  store ptr %.fca.0.extract12, ptr %., align 8
+  store ptr %.fca.0.extract12, ptr %5, align 8
   %79 = getelementptr inbounds nuw i8, ptr %., i64 8
   store i64 %.fca.1.extract14, ptr %79, align 8
   br label %"_ZN4core3ptr177drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$mini_lsm_mvcc..iterators..merge_iterator..HeapWrapper$LT$mini_lsm_mvcc..table..iterator..SsTableIterator$GT$$GT$$GT$17h96b4eec060e803b0E.exit87"
@@ -7105,7 +7105,7 @@ default.unreachable.i:                            ; preds = %80
   %105 = load i64, ptr %83, align 8, !alias.scope !1505, !noalias !1502, !noundef !4
   store ptr %68, ptr %82, align 8, !alias.scope !1502, !noalias !1505
   store i64 %105, ptr %103, align 8, !alias.scope !1502, !noalias !1505
-  store ptr %.val, ptr %., align 8, !alias.scope !1505, !noalias !1502
+  store ptr %.val, ptr %5, align 8, !alias.scope !1505, !noalias !1502
   store i64 %104, ptr %83, align 8, !alias.scope !1505, !noalias !1502
   %.not.i.i86 = icmp eq i64 %.sroa.6.1, 0
   br i1 %.not.i.i86, label %"_ZN4core3ptr177drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$mini_lsm_mvcc..iterators..merge_iterator..HeapWrapper$LT$mini_lsm_mvcc..table..iterator..SsTableIterator$GT$$GT$$GT$17h96b4eec060e803b0E.exit87", label %106
@@ -7397,13 +7397,13 @@ common.resume:                                    ; preds = %.body87, %.body, %6
 
 .body87:                                          ; preds = %85, %91
   %eh.lpad-body88 = phi { ptr, i32 } [ %92, %91 ], [ %86, %85 ]
-  store ptr %.fca.0.extract12, ptr %., align 8
+  store ptr %.fca.0.extract12, ptr %5, align 8
   %93 = getelementptr inbounds nuw i8, ptr %., i64 8
   store i64 %.fca.1.extract14, ptr %93, align 8
   br label %common.resume
 
 .thread148:                                       ; preds = %"_ZN4core3ptr123drop_in_place$LT$alloc..boxed..Box$LT$mini_lsm_mvcc..mem_table..ouroboros_impl_mem_table_iterator..MemTableIterator$GT$$GT$17h3497bcfe6b1ad78cE.llvm.14689451251361528239.exit.i86"
-  store ptr %.fca.0.extract12, ptr %., align 8
+  store ptr %.fca.0.extract12, ptr %5, align 8
   store i64 %.fca.1.extract14, ptr %90, align 8
   br label %"_ZN4core3ptr207drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$mini_lsm_mvcc..iterators..merge_iterator..HeapWrapper$LT$mini_lsm_mvcc..mem_table..ouroboros_impl_mem_table_iterator..MemTableIterator$GT$$GT$$GT$17hf0b056df5ace4d78E.exit98"
 
@@ -7465,7 +7465,7 @@ default.unreachable.i:                            ; preds = %94
   %119 = load i64, ptr %97, align 8, !alias.scope !1590, !noalias !1587, !noundef !4
   store ptr %76, ptr %96, align 8, !alias.scope !1587, !noalias !1590
   store i64 %119, ptr %117, align 8, !alias.scope !1587, !noalias !1590
-  store ptr %.val, ptr %., align 8, !alias.scope !1590, !noalias !1587
+  store ptr %.val, ptr %5, align 8, !alias.scope !1590, !noalias !1587
   store i64 %118, ptr %97, align 8, !alias.scope !1590, !noalias !1587
   %.not.i.i97 = icmp eq i64 %.sroa.6.1, 0
   br i1 %.not.i.i97, label %"_ZN4core3ptr207drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$mini_lsm_mvcc..iterators..merge_iterator..HeapWrapper$LT$mini_lsm_mvcc..mem_table..ouroboros_impl_mem_table_iterator..MemTableIterator$GT$$GT$$GT$17hf0b056df5ace4d78E.exit98", label %120
@@ -7840,13 +7840,13 @@ common.resume:                                    ; preds = %.body105, %.body, %
 
 .body105:                                         ; preds = %107, %113
   %eh.lpad-body106 = phi { ptr, i32 } [ %114, %113 ], [ %108, %107 ]
-  store ptr %.fca.0.extract12, ptr %., align 8
+  store ptr %.fca.0.extract12, ptr %5, align 8
   %115 = getelementptr inbounds nuw i8, ptr %., i64 8
   store i64 %.fca.1.extract14, ptr %115, align 8
   br label %common.resume
 
 .thread186:                                       ; preds = %"_ZN4core3ptr106drop_in_place$LT$alloc..boxed..Box$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$GT$$GT$17h9686dfc6b7e9c3abE.llvm.14689451251361528239.exit.i104"
-  store ptr %.fca.0.extract12, ptr %., align 8
+  store ptr %.fca.0.extract12, ptr %5, align 8
   store i64 %.fca.1.extract14, ptr %112, align 8
   br label %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$4next17h889123c13d2c8ff2E.exit96.thread"
 
@@ -7910,7 +7910,7 @@ default.unreachable.i:                            ; preds = %"_ZN122_$LT$mini_ls
   call void @llvm.experimental.noalias.scope.decl(metadata !1723)
   store ptr %95, ptr %117, align 8, !alias.scope !1720, !noalias !1723
   store i64 %..val62, ptr %119, align 8, !alias.scope !1720, !noalias !1723
-  store ptr %.val, ptr %., align 8, !alias.scope !1723, !noalias !1720
+  store ptr %.val, ptr %5, align 8, !alias.scope !1723, !noalias !1720
   store i64 %.val63, ptr %118, align 8, !alias.scope !1723, !noalias !1720
   br label %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$4next17h889123c13d2c8ff2E.exit96.thread"
 
@@ -7921,7 +7921,7 @@ default.unreachable.i:                            ; preds = %"_ZN122_$LT$mini_ls
   call void @llvm.experimental.noalias.scope.decl(metadata !1728)
   store ptr %95, ptr %117, align 8, !alias.scope !1730, !noalias !1728
   store i64 %.pre232, ptr %119, align 8, !alias.scope !1730, !noalias !1728
-  store ptr %.val, ptr %., align 8, !alias.scope !1728, !noalias !1730
+  store ptr %.val, ptr %5, align 8, !alias.scope !1728, !noalias !1730
   store i64 %.val63, ptr %118, align 8, !alias.scope !1728, !noalias !1730
   store i64 %83, ptr %8, align 8, !noalias !1732
   call void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$15sift_down_range17hb5b09e1eea91b477E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 0, i64 noundef %83), !noalias !1732

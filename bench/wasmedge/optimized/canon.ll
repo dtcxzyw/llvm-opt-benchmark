@@ -35727,7 +35727,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %58, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %53, ptr %spec.select.i.i.i, align 8
+  store ptr %53, ptr %11, align 8
   store ptr %57, ptr %30, align 8
   %59 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %53, i64 %51
   store ptr %59, ptr %31, align 8
@@ -35787,7 +35787,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i34
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i34: ; preds = %82, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i32
-  store ptr %77, ptr %spec.select.i.i.i, align 8
+  store ptr %77, ptr %11, align 8
   store ptr %81, ptr %30, align 8
   %83 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %77, i64 %75
   store ptr %83, ptr %31, align 8
@@ -35866,7 +35866,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i:
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %107, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %11, align 8
   store ptr %106, ptr %30, align 8
   %108 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %108, ptr %31, align 8

@@ -283,12 +283,12 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h47d8e1296ff1f34fE.exit.i.i: ; 
 "_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$either..Either$LT$syntax..ast..generated..nodes..Attr$C$syntax..ast..generated..tokens..Comment$GT$$GT$$GT$17h5ebb22e763672b9aE.exit.i.i.i": ; preds = %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h2c85c64c9eac156dE.llvm.18266587286026290509.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i"
   %83 = landingpad { ptr, i32 }
           cleanup
-  store i64 %66, ptr %..i.i.i.i, align 8, !alias.scope !71, !noalias !15
+  store i64 %66, ptr %57, align 8, !alias.scope !71, !noalias !15
   store ptr %68, ptr %65, align 8, !alias.scope !71, !noalias !15
   br label %common.resume.i.i
 
 "_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h1be251b9fc0a4132E.exit.i.i.i.i.i.i": ; preds = %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h2c85c64c9eac156dE.llvm.18266587286026290509.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i", %77, %71, %70, %70
-  store i64 %66, ptr %..i.i.i.i, align 8, !alias.scope !71, !noalias !15
+  store i64 %66, ptr %57, align 8, !alias.scope !71, !noalias !15
   store ptr %68, ptr %65, align 8, !alias.scope !71, !noalias !15
   %84 = call fastcc { i64, ptr } @_ZN4core4iter8adapters7flatten17and_then_or_clear17h29696ed02cb62cf7E(ptr noalias noundef nonnull align 8 dereferenceable(48) %..i.i.i.i), !noalias !15
   %85 = extractvalue { i64, ptr } %84, 0

@@ -188,7 +188,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN102_
   br i1 %.0.in.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4core4iter8adapters5chain17and_then_or_clear17he5a2a81c9b9ed373E.exit.i.i.i.i.i.i.i, label %14
 
 39:                                               ; preds = %14
-  store ptr null, ptr %.0.i.i.i.i.i, align 8, !alias.scope !31
+  store ptr null, ptr %5, align 8, !alias.scope !31
   br label %40
 
 _ZN4core4iter8adapters5chain17and_then_or_clear17he5a2a81c9b9ed373E.exit.i.i.i.i.i.i.i: ; preds = %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i"
@@ -260,7 +260,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17he5a2a81c9b9ed373E.exit.i.i.i.i
   br i1 %.0.in.i.i.i.i.i.i.i.i6.i.i.i.i.i.i.i, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa79e0a523f3ad78E.exit.thread", label %49
 
 .loopexit.i.i.i.i.i:                              ; preds = %49, %40
-  store i64 0, ptr %..i.i, align 8, !alias.scope !82
+  store i64 0, ptr %0, align 8, !alias.scope !82
   br label %74
 
 74:                                               ; preds = %.loopexit.i.i.i.i.i, %4

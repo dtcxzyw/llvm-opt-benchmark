@@ -15648,7 +15648,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -16149,7 +16149,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -16210,7 +16210,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i7
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -16423,7 +16423,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -16711,7 +16711,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -16772,7 +16772,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i7
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -16985,7 +16985,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -17273,7 +17273,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -17334,7 +17334,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i7
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -17547,7 +17547,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -17835,7 +17835,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -17896,7 +17896,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i7
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -18109,7 +18109,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -18397,7 +18397,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -18458,7 +18458,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i7
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -18673,7 +18673,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -18961,7 +18961,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -19023,7 +19023,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i8
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -19084,7 +19084,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i16
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -19301,7 +19301,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
@@ -19589,7 +19589,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -19651,7 +19651,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i9
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -19713,7 +19713,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i17
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -19774,7 +19774,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i27
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i27: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i25
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -19989,7 +19989,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -20277,7 +20277,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -20339,7 +20339,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i8
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -20400,7 +20400,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i16
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -20611,7 +20611,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -20679,7 +20679,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i: ; preds = %50, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i
-  store ptr %45, ptr %spec.select.i.i.i.i, align 8
+  store ptr %45, ptr %2, align 8
   store ptr %49, ptr %25, align 8
   %51 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %45, i64 %43
   store ptr %51, ptr %27, align 8
@@ -21102,7 +21102,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -21170,7 +21170,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i: ; preds = %50, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i
-  store ptr %45, ptr %spec.select.i.i.i.i, align 8
+  store ptr %45, ptr %2, align 8
   store ptr %49, ptr %25, align 8
   %51 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %45, i64 %43
   store ptr %51, ptr %27, align 8
@@ -21595,7 +21595,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -21883,7 +21883,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -21944,7 +21944,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i7
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -22157,7 +22157,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -22445,7 +22445,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -22506,7 +22506,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i7
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -22721,7 +22721,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -23009,7 +23009,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -23071,7 +23071,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i8
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -23132,7 +23132,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i16
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -23345,7 +23345,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -23633,7 +23633,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -23694,7 +23694,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i7
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -23907,7 +23907,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -24195,7 +24195,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -24256,7 +24256,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i7
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -24473,7 +24473,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
@@ -24761,7 +24761,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -24823,7 +24823,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i9
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -24885,7 +24885,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i17
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -24946,7 +24946,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i27
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i27: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i25
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -25165,7 +25165,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -25453,7 +25453,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -25515,7 +25515,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i10
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -25577,7 +25577,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i20
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i20: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i18
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -25639,7 +25639,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i28
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i28: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i26
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -25700,7 +25700,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i36
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i36: ; preds = %131, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i34
-  store ptr %126, ptr %spec.select.i.i.i, align 8
+  store ptr %126, ptr %2, align 8
   store ptr %130, ptr %6, align 8
   %132 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %126, i64 %124
   store ptr %132, ptr %8, align 8
@@ -25913,7 +25913,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -26201,7 +26201,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -26262,7 +26262,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i7
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -26477,7 +26477,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -26765,7 +26765,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -26827,7 +26827,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i8
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -26888,7 +26888,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i16
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -27107,7 +27107,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -27395,7 +27395,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -27457,7 +27457,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i10
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -27519,7 +27519,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i20
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i20: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i18
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -27581,7 +27581,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i28
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i28: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i26
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -27642,7 +27642,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i36
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i36: ; preds = %131, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i34
-  store ptr %126, ptr %spec.select.i.i.i, align 8
+  store ptr %126, ptr %2, align 8
   store ptr %130, ptr %6, align 8
   %132 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %126, i64 %124
   store ptr %132, ptr %8, align 8
@@ -27859,7 +27859,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
@@ -28147,7 +28147,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -28209,7 +28209,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i9
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -28271,7 +28271,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i17
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -28332,7 +28332,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i27
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i27: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i25
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -28551,7 +28551,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -28839,7 +28839,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -28901,7 +28901,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i10
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -28963,7 +28963,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i20
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i20: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i18
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -29025,7 +29025,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i28
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i28: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i26
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -29086,7 +29086,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i36
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i36: ; preds = %131, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i34
-  store ptr %126, ptr %spec.select.i.i.i, align 8
+  store ptr %126, ptr %2, align 8
   store ptr %130, ptr %6, align 8
   %132 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %126, i64 %124
   store ptr %132, ptr %8, align 8
@@ -29299,7 +29299,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -29587,7 +29587,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -29648,7 +29648,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i7
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -29865,7 +29865,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
@@ -30153,7 +30153,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -30215,7 +30215,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i9
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -30277,7 +30277,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i17
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -30338,7 +30338,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i27
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i27: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i25
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -30549,7 +30549,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -30617,7 +30617,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i: ; preds = %50, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i
-  store ptr %45, ptr %spec.select.i.i.i.i, align 8
+  store ptr %45, ptr %2, align 8
   store ptr %49, ptr %25, align 8
   %51 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %45, i64 %43
   store ptr %51, ptr %27, align 8
@@ -31042,7 +31042,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -31330,7 +31330,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -31391,7 +31391,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i7
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -31608,7 +31608,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
@@ -31896,7 +31896,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -31958,7 +31958,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i9
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -32020,7 +32020,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i17
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -32081,7 +32081,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i27
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i27: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i25
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -32296,7 +32296,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -32584,7 +32584,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -32646,7 +32646,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i8
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -32707,7 +32707,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i16
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -32926,7 +32926,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -33214,7 +33214,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -33276,7 +33276,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i10
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -33338,7 +33338,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i20
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i20: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i18
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -33400,7 +33400,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i28
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i28: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i26
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -33461,7 +33461,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i36
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i36: ; preds = %131, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i34
-  store ptr %126, ptr %spec.select.i.i.i, align 8
+  store ptr %126, ptr %2, align 8
   store ptr %130, ptr %6, align 8
   %132 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %126, i64 %124
   store ptr %132, ptr %8, align 8
@@ -33684,7 +33684,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 56
@@ -33972,7 +33972,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -34034,7 +34034,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i14
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i14: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i12
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -34096,7 +34096,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i22
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i22: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i20
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -34158,7 +34158,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i30
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i30: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i28
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -34220,7 +34220,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i38
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i38: ; preds = %131, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i36
-  store ptr %126, ptr %spec.select.i.i.i, align 8
+  store ptr %126, ptr %2, align 8
   store ptr %130, ptr %6, align 8
   %132 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %126, i64 %124
   store ptr %132, ptr %8, align 8
@@ -34282,7 +34282,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i46
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i46: ; preds = %156, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i44
-  store ptr %151, ptr %spec.select.i.i.i, align 8
+  store ptr %151, ptr %2, align 8
   store ptr %155, ptr %6, align 8
   %157 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %151, i64 %149
   store ptr %157, ptr %8, align 8
@@ -34343,7 +34343,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i54
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i54: ; preds = %181, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i52
-  store ptr %176, ptr %spec.select.i.i.i, align 8
+  store ptr %176, ptr %2, align 8
   store ptr %180, ptr %6, align 8
   %182 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %176, i64 %174
   store ptr %182, ptr %8, align 8
@@ -34566,7 +34566,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 56
@@ -34854,7 +34854,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -34916,7 +34916,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i14
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i14: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i12
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -34978,7 +34978,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i22
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i22: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i20
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -35040,7 +35040,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i30
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i30: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i28
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -35102,7 +35102,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i38
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i38: ; preds = %131, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i36
-  store ptr %126, ptr %spec.select.i.i.i, align 8
+  store ptr %126, ptr %2, align 8
   store ptr %130, ptr %6, align 8
   %132 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %126, i64 %124
   store ptr %132, ptr %8, align 8
@@ -35164,7 +35164,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i46
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i46: ; preds = %156, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i44
-  store ptr %151, ptr %spec.select.i.i.i, align 8
+  store ptr %151, ptr %2, align 8
   store ptr %155, ptr %6, align 8
   %157 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %151, i64 %149
   store ptr %157, ptr %8, align 8
@@ -35225,7 +35225,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i54
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i54: ; preds = %181, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i52
-  store ptr %176, ptr %spec.select.i.i.i, align 8
+  store ptr %176, ptr %2, align 8
   store ptr %180, ptr %6, align 8
   %182 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %176, i64 %174
   store ptr %182, ptr %8, align 8
@@ -35452,7 +35452,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 72
@@ -35740,7 +35740,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -35802,7 +35802,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i16
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i16: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i14
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -35864,7 +35864,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i24
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i24: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i22
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -35926,7 +35926,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i32
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i32: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i30
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -35988,7 +35988,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i40
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i40: ; preds = %131, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i38
-  store ptr %126, ptr %spec.select.i.i.i, align 8
+  store ptr %126, ptr %2, align 8
   store ptr %130, ptr %6, align 8
   %132 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %126, i64 %124
   store ptr %132, ptr %8, align 8
@@ -36050,7 +36050,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i48
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i48: ; preds = %156, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i46
-  store ptr %151, ptr %spec.select.i.i.i, align 8
+  store ptr %151, ptr %2, align 8
   store ptr %155, ptr %6, align 8
   %157 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %151, i64 %149
   store ptr %157, ptr %8, align 8
@@ -36112,7 +36112,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i56
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i56: ; preds = %181, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i54
-  store ptr %176, ptr %spec.select.i.i.i, align 8
+  store ptr %176, ptr %2, align 8
   store ptr %180, ptr %6, align 8
   %182 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %176, i64 %174
   store ptr %182, ptr %8, align 8
@@ -36174,7 +36174,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i64
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i64: ; preds = %206, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i62
-  store ptr %201, ptr %spec.select.i.i.i, align 8
+  store ptr %201, ptr %2, align 8
   store ptr %205, ptr %6, align 8
   %207 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %201, i64 %199
   store ptr %207, ptr %8, align 8
@@ -36235,7 +36235,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i72
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i72: ; preds = %231, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i70
-  store ptr %226, ptr %spec.select.i.i.i, align 8
+  store ptr %226, ptr %2, align 8
   store ptr %230, ptr %6, align 8
   %232 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %226, i64 %224
   store ptr %232, ptr %8, align 8
@@ -36456,7 +36456,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 48
@@ -36744,7 +36744,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -36806,7 +36806,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i13
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i13: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i11
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -36868,7 +36868,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i21
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i21: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i19
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -36930,7 +36930,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i29
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i29: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i27
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -36992,7 +36992,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i37
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i37: ; preds = %131, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i35
-  store ptr %126, ptr %spec.select.i.i.i, align 8
+  store ptr %126, ptr %2, align 8
   store ptr %130, ptr %6, align 8
   %132 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %126, i64 %124
   store ptr %132, ptr %8, align 8
@@ -37053,7 +37053,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i45
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i45: ; preds = %156, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i43
-  store ptr %151, ptr %spec.select.i.i.i, align 8
+  store ptr %151, ptr %2, align 8
   store ptr %155, ptr %6, align 8
   %157 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %151, i64 %149
   store ptr %157, ptr %8, align 8
@@ -37268,7 +37268,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -37556,7 +37556,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -37618,7 +37618,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i8
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -37679,7 +37679,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i16
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -37900,7 +37900,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 48
@@ -38188,7 +38188,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -38250,7 +38250,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i13
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i13: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i11
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -38312,7 +38312,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i21
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i21: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i19
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -38374,7 +38374,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i29
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i29: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i27
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -38436,7 +38436,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i37
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i37: ; preds = %131, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i35
-  store ptr %126, ptr %spec.select.i.i.i, align 8
+  store ptr %126, ptr %2, align 8
   store ptr %130, ptr %6, align 8
   %132 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %126, i64 %124
   store ptr %132, ptr %8, align 8
@@ -38497,7 +38497,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i45
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i45: ; preds = %156, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i43
-  store ptr %151, ptr %spec.select.i.i.i, align 8
+  store ptr %151, ptr %2, align 8
   store ptr %155, ptr %6, align 8
   %157 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %151, i64 %149
   store ptr %157, ptr %8, align 8
@@ -38716,7 +38716,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -39004,7 +39004,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -39066,7 +39066,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i10
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -39128,7 +39128,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i20
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i20: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i18
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -39190,7 +39190,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i28
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i28: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i26
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -39251,7 +39251,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i36
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i36: ; preds = %131, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i34
-  store ptr %126, ptr %spec.select.i.i.i, align 8
+  store ptr %126, ptr %2, align 8
   store ptr %130, ptr %6, align 8
   %132 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %126, i64 %124
   store ptr %132, ptr %8, align 8
@@ -39466,7 +39466,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -39754,7 +39754,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -39816,7 +39816,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i8
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -39877,7 +39877,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i16
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -40094,7 +40094,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
@@ -40382,7 +40382,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -40444,7 +40444,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i9
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -40506,7 +40506,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i17
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -40567,7 +40567,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i27
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i27: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i25
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -40784,7 +40784,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
@@ -41072,7 +41072,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -41134,7 +41134,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i9
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -41196,7 +41196,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i17
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -41257,7 +41257,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i27
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i27: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i25
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -41466,7 +41466,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -41534,7 +41534,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i: ; preds = %50, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i
-  store ptr %45, ptr %spec.select.i.i.i.i, align 8
+  store ptr %45, ptr %2, align 8
   store ptr %49, ptr %25, align 8
   %51 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %45, i64 %43
   store ptr %51, ptr %27, align 8
@@ -41850,7 +41850,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -41918,7 +41918,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i: ; preds = %50, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i
-  store ptr %45, ptr %spec.select.i.i.i.i, align 8
+  store ptr %45, ptr %2, align 8
   store ptr %49, ptr %25, align 8
   %51 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %45, i64 %43
   store ptr %51, ptr %27, align 8
@@ -42728,7 +42728,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -43016,7 +43016,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -43077,7 +43077,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i7
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -43292,7 +43292,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -43580,7 +43580,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -43642,7 +43642,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i8
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -43703,7 +43703,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i16
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -43918,7 +43918,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -44206,7 +44206,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -44268,7 +44268,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i8
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -44329,7 +44329,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i16
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -44544,7 +44544,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -44832,7 +44832,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -44894,7 +44894,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i8
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -44955,7 +44955,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i16
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -45168,7 +45168,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -45456,7 +45456,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -45517,7 +45517,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i7
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -45730,7 +45730,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -46018,7 +46018,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -46079,7 +46079,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i7
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -46300,7 +46300,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 48
@@ -46588,7 +46588,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -46650,7 +46650,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i13
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i13: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i11
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -46712,7 +46712,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i21
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i21: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i19
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -46774,7 +46774,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i29
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i29: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i27
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -46836,7 +46836,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i37
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i37: ; preds = %131, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i35
-  store ptr %126, ptr %spec.select.i.i.i, align 8
+  store ptr %126, ptr %2, align 8
   store ptr %130, ptr %6, align 8
   %132 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %126, i64 %124
   store ptr %132, ptr %8, align 8
@@ -46897,7 +46897,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i45
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i45: ; preds = %156, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i43
-  store ptr %151, ptr %spec.select.i.i.i, align 8
+  store ptr %151, ptr %2, align 8
   store ptr %155, ptr %6, align 8
   %157 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %151, i64 %149
   store ptr %157, ptr %8, align 8
@@ -47120,7 +47120,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 56
@@ -47408,7 +47408,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -47470,7 +47470,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i14
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i14: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i12
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -47532,7 +47532,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i22
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i22: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i20
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -47594,7 +47594,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i30
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i30: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i28
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -47656,7 +47656,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i38
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i38: ; preds = %131, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i36
-  store ptr %126, ptr %spec.select.i.i.i, align 8
+  store ptr %126, ptr %2, align 8
   store ptr %130, ptr %6, align 8
   %132 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %126, i64 %124
   store ptr %132, ptr %8, align 8
@@ -47718,7 +47718,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i46
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i46: ; preds = %156, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i44
-  store ptr %151, ptr %spec.select.i.i.i, align 8
+  store ptr %151, ptr %2, align 8
   store ptr %155, ptr %6, align 8
   %157 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %151, i64 %149
   store ptr %157, ptr %8, align 8
@@ -47779,7 +47779,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i54
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i54: ; preds = %181, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i52
-  store ptr %176, ptr %spec.select.i.i.i, align 8
+  store ptr %176, ptr %2, align 8
   store ptr %180, ptr %6, align 8
   %182 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %176, i64 %174
   store ptr %182, ptr %8, align 8
@@ -47998,7 +47998,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -48286,7 +48286,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -48348,7 +48348,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i10
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -48410,7 +48410,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i20
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i20: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i18
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -48472,7 +48472,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i28
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i28: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i26
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -48533,7 +48533,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i36
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i36: ; preds = %131, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i34
-  store ptr %126, ptr %spec.select.i.i.i, align 8
+  store ptr %126, ptr %2, align 8
   store ptr %130, ptr %6, align 8
   %132 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %126, i64 %124
   store ptr %132, ptr %8, align 8
@@ -48756,7 +48756,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 56
@@ -49044,7 +49044,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -49106,7 +49106,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i14
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i14: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i12
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -49168,7 +49168,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i22
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i22: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i20
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -49230,7 +49230,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i30
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i30: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i28
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -49292,7 +49292,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i38
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i38: ; preds = %131, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i36
-  store ptr %126, ptr %spec.select.i.i.i, align 8
+  store ptr %126, ptr %2, align 8
   store ptr %130, ptr %6, align 8
   %132 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %126, i64 %124
   store ptr %132, ptr %8, align 8
@@ -49354,7 +49354,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i46
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i46: ; preds = %156, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i44
-  store ptr %151, ptr %spec.select.i.i.i, align 8
+  store ptr %151, ptr %2, align 8
   store ptr %155, ptr %6, align 8
   %157 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %151, i64 %149
   store ptr %157, ptr %8, align 8
@@ -49415,7 +49415,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i54
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i54: ; preds = %181, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i52
-  store ptr %176, ptr %spec.select.i.i.i, align 8
+  store ptr %176, ptr %2, align 8
   store ptr %180, ptr %6, align 8
   %182 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %176, i64 %174
   store ptr %182, ptr %8, align 8
@@ -49630,7 +49630,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -49918,7 +49918,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -49980,7 +49980,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i8
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -50041,7 +50041,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i16
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -50256,7 +50256,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -50544,7 +50544,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -50606,7 +50606,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i8
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -50667,7 +50667,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i16
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -50882,7 +50882,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -51170,7 +51170,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -51232,7 +51232,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i8
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -51293,7 +51293,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i16
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -51508,7 +51508,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -51796,7 +51796,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -51858,7 +51858,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i8
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -51919,7 +51919,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i16
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -52132,7 +52132,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -52420,7 +52420,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -52481,7 +52481,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i7
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -52702,7 +52702,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 48
@@ -52990,7 +52990,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -53052,7 +53052,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i13
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i13: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i11
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -53114,7 +53114,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i21
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i21: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i19
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -53176,7 +53176,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i29
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i29: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i27
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -53238,7 +53238,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i37
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i37: ; preds = %131, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i35
-  store ptr %126, ptr %spec.select.i.i.i, align 8
+  store ptr %126, ptr %2, align 8
   store ptr %130, ptr %6, align 8
   %132 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %126, i64 %124
   store ptr %132, ptr %8, align 8
@@ -53299,7 +53299,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i45
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i45: ; preds = %156, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i43
-  store ptr %151, ptr %spec.select.i.i.i, align 8
+  store ptr %151, ptr %2, align 8
   store ptr %155, ptr %6, align 8
   %157 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %151, i64 %149
   store ptr %157, ptr %8, align 8
@@ -53524,7 +53524,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 64
@@ -53812,7 +53812,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -53874,7 +53874,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i15
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i15: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i13
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -53936,7 +53936,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i23
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i23: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i21
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -53998,7 +53998,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i31
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i31: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i29
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -54060,7 +54060,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i39
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i39: ; preds = %131, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i37
-  store ptr %126, ptr %spec.select.i.i.i, align 8
+  store ptr %126, ptr %2, align 8
   store ptr %130, ptr %6, align 8
   %132 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %126, i64 %124
   store ptr %132, ptr %8, align 8
@@ -54122,7 +54122,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i47
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i47: ; preds = %156, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i45
-  store ptr %151, ptr %spec.select.i.i.i, align 8
+  store ptr %151, ptr %2, align 8
   store ptr %155, ptr %6, align 8
   %157 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %151, i64 %149
   store ptr %157, ptr %8, align 8
@@ -54184,7 +54184,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i55
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i55: ; preds = %181, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i53
-  store ptr %176, ptr %spec.select.i.i.i, align 8
+  store ptr %176, ptr %2, align 8
   store ptr %180, ptr %6, align 8
   %182 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %176, i64 %174
   store ptr %182, ptr %8, align 8
@@ -54245,7 +54245,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i63
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i63: ; preds = %206, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i61
-  store ptr %201, ptr %spec.select.i.i.i, align 8
+  store ptr %201, ptr %2, align 8
   store ptr %205, ptr %6, align 8
   %207 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %201, i64 %199
   store ptr %207, ptr %8, align 8
@@ -54464,7 +54464,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -54752,7 +54752,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -54814,7 +54814,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i10
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -54876,7 +54876,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i20
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i20: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i18
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -54938,7 +54938,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i28
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i28: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i26
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -54999,7 +54999,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i36
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i36: ; preds = %131, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i34
-  store ptr %126, ptr %spec.select.i.i.i, align 8
+  store ptr %126, ptr %2, align 8
   store ptr %130, ptr %6, align 8
   %132 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %126, i64 %124
   store ptr %132, ptr %8, align 8
@@ -55222,7 +55222,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 56
@@ -55510,7 +55510,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -55572,7 +55572,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i14
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i14: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i12
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -55634,7 +55634,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i22
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i22: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i20
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -55696,7 +55696,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i30
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i30: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i28
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -55758,7 +55758,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i38
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i38: ; preds = %131, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i36
-  store ptr %126, ptr %spec.select.i.i.i, align 8
+  store ptr %126, ptr %2, align 8
   store ptr %130, ptr %6, align 8
   %132 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %126, i64 %124
   store ptr %132, ptr %8, align 8
@@ -55820,7 +55820,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i46
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i46: ; preds = %156, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i44
-  store ptr %151, ptr %spec.select.i.i.i, align 8
+  store ptr %151, ptr %2, align 8
   store ptr %155, ptr %6, align 8
   %157 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %151, i64 %149
   store ptr %157, ptr %8, align 8
@@ -55881,7 +55881,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i54
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i54: ; preds = %181, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i52
-  store ptr %176, ptr %spec.select.i.i.i, align 8
+  store ptr %176, ptr %2, align 8
   store ptr %180, ptr %6, align 8
   %182 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %176, i64 %174
   store ptr %182, ptr %8, align 8
@@ -56094,7 +56094,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -56382,7 +56382,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -56443,7 +56443,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i7
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -56662,7 +56662,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -56950,7 +56950,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -57012,7 +57012,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i10
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -57074,7 +57074,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i20
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i20: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i18
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -57136,7 +57136,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i28
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i28: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i26
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -57197,7 +57197,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i36
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i36: ; preds = %131, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i34
-  store ptr %126, ptr %spec.select.i.i.i, align 8
+  store ptr %126, ptr %2, align 8
   store ptr %130, ptr %6, align 8
   %132 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %126, i64 %124
   store ptr %132, ptr %8, align 8
@@ -57416,7 +57416,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -57704,7 +57704,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -57766,7 +57766,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i10
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -57828,7 +57828,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i20
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i20: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i18
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -57890,7 +57890,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i28
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i28: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i26
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -57951,7 +57951,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i36
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i36: ; preds = %131, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i34
-  store ptr %126, ptr %spec.select.i.i.i, align 8
+  store ptr %126, ptr %2, align 8
   store ptr %130, ptr %6, align 8
   %132 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %126, i64 %124
   store ptr %132, ptr %8, align 8
@@ -58168,7 +58168,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
@@ -58456,7 +58456,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -58518,7 +58518,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i9
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -58580,7 +58580,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i17
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -58641,7 +58641,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i27
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i27: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i25
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -58858,7 +58858,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
@@ -59146,7 +59146,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -59208,7 +59208,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i9
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -59270,7 +59270,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i17
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -59331,7 +59331,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i27
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i27: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i25
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -59546,7 +59546,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -59834,7 +59834,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -59896,7 +59896,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i8
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -59957,7 +59957,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i16
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -60172,7 +60172,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -60460,7 +60460,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -60522,7 +60522,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i8
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -60583,7 +60583,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i18: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i16
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -60808,7 +60808,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 64
@@ -61096,7 +61096,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -61158,7 +61158,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i15
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i15: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i13
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -61220,7 +61220,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i23
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i23: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i21
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -61282,7 +61282,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i31
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i31: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i29
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -61344,7 +61344,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i39
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i39: ; preds = %131, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i37
-  store ptr %126, ptr %spec.select.i.i.i, align 8
+  store ptr %126, ptr %2, align 8
   store ptr %130, ptr %6, align 8
   %132 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %126, i64 %124
   store ptr %132, ptr %8, align 8
@@ -61406,7 +61406,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i47
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i47: ; preds = %156, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i45
-  store ptr %151, ptr %spec.select.i.i.i, align 8
+  store ptr %151, ptr %2, align 8
   store ptr %155, ptr %6, align 8
   %157 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %151, i64 %149
   store ptr %157, ptr %8, align 8
@@ -61468,7 +61468,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i55
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i55: ; preds = %181, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i53
-  store ptr %176, ptr %spec.select.i.i.i, align 8
+  store ptr %176, ptr %2, align 8
   store ptr %180, ptr %6, align 8
   %182 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %176, i64 %174
   store ptr %182, ptr %8, align 8
@@ -61529,7 +61529,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i63
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i63: ; preds = %206, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i61
-  store ptr %201, ptr %spec.select.i.i.i, align 8
+  store ptr %201, ptr %2, align 8
   store ptr %205, ptr %6, align 8
   %207 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %201, i64 %199
   store ptr %207, ptr %8, align 8

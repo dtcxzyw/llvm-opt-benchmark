@@ -50,12 +50,12 @@ define internal fastcc noundef i32 @"_ZN102_$LT$core..iter..adapters..map..Map$L
   br i1 %13, label %14, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i.i
 
 14:                                               ; preds = %11
-  store ptr null, ptr %.08.i.i, align 8, !alias.scope !12
+  store ptr null, ptr %3, align 8, !alias.scope !12
   br label %16
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i.i: ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store ptr %15, ptr %.08.i.i, align 8, !alias.scope !21
+  store ptr %15, ptr %3, align 8, !alias.scope !21
   br label %_ZN4core4iter8adapters5chain17and_then_or_clear17he2baade32454bc0dE.exit.i
 
 16:                                               ; preds = %14, %8
@@ -101,7 +101,7 @@ _ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i.i: ; 
   %38 = getelementptr inbounds i8, ptr %21, i64 -8
   %39 = load i64, ptr %38, align 8, !alias.scope !51, !noundef !11
   %40 = getelementptr inbounds i32, ptr %37, i64 %39
-  store ptr %37, ptr %.08.i.i, align 8, !alias.scope !31
+  store ptr %37, ptr %3, align 8, !alias.scope !31
   store ptr %40, ptr %5, align 8, !alias.scope !31
   br label %8
 
@@ -161,12 +161,12 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17he2baade32454bc0dE.exit.i: ; pr
   br i1 %61, label %62, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i.i.i.i.i.i
 
 62:                                               ; preds = %59
-  store ptr null, ptr %.08.i.i.i.i.i.i, align 8, !alias.scope !71
+  store ptr null, ptr %47, align 8, !alias.scope !71
   br label %65
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i.i.i.i.i.i: ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  store ptr %63, ptr %.08.i.i.i.i.i.i, align 8, !alias.scope !89
+  store ptr %63, ptr %47, align 8, !alias.scope !89
   %64 = load i32, ptr %57, align 4, !range !56, !noalias !92, !noundef !11
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb415d01b6f012586E.exit"
 
@@ -217,12 +217,12 @@ _ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i.i.i.i
   %88 = getelementptr inbounds i8, ptr %70, i64 -8
   %89 = load i64, ptr %88, align 8, !alias.scope !120, !noundef !11
   %90 = getelementptr inbounds i32, ptr %87, i64 %89
-  store ptr %87, ptr %.08.i.i.i.i.i.i, align 8, !alias.scope !96
+  store ptr %87, ptr %47, align 8, !alias.scope !96
   store ptr %90, ptr %48, align 8, !alias.scope !96
   br label %56
 
 91:                                               ; preds = %84, %74
-  store i64 0, ptr %.04.i.i.i, align 8, !alias.scope !126
+  store i64 0, ptr %43, align 8, !alias.scope !126
   br label %92
 
 92:                                               ; preds = %91, %54
@@ -274,12 +274,12 @@ _ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i.i.i.i
   br i1 %115, label %116, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i7.i.i.i.i.i
 
 116:                                              ; preds = %113
-  store ptr null, ptr %.08.i4.i.i.i.i.i, align 8, !alias.scope !148
+  store ptr null, ptr %105, align 8, !alias.scope !148
   br label %119
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i7.i.i.i.i.i: ; preds = %113
   %117 = getelementptr inbounds nuw i8, ptr %111, i64 4
-  store ptr %117, ptr %.08.i4.i.i.i.i.i, align 8, !alias.scope !164
+  store ptr %117, ptr %105, align 8, !alias.scope !164
   %118 = load i32, ptr %111, align 4, !range !56, !noalias !167, !noundef !11
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb415d01b6f012586E.exit"
 
@@ -330,7 +330,7 @@ _ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i10.i.i
   %142 = getelementptr inbounds i8, ptr %124, i64 -8
   %143 = load i64, ptr %142, align 8, !alias.scope !195, !noundef !11
   %144 = getelementptr inbounds i32, ptr %141, i64 %143
-  store ptr %141, ptr %.08.i4.i.i.i.i.i, align 8, !alias.scope !171
+  store ptr %141, ptr %105, align 8, !alias.scope !171
   store ptr %144, ptr %107, align 8, !alias.scope !171
   br label %110
 
@@ -353,7 +353,7 @@ _ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i10.i.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.4.sroa.6.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4.sroa.6.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.i.i.i.i.i.i.i, i64 40, i1 false), !noalias !215
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.5.i.i.i.i.i.i.i), !noalias !200
-  store i64 1, ptr %.04.i.i.i, align 8, !alias.scope !215
+  store i64 1, ptr %43, align 8, !alias.scope !215
   store ptr null, ptr %47, align 8, !alias.scope !215
   store ptr null, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i.i.i, align 8, !alias.scope !215
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4.sroa.6.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4.sroa.6.i.i.i.i.i, i64 40, i1 false)
@@ -1197,12 +1197,12 @@ common.resume.i:                                  ; preds = %"_ZN4core3ptr61drop
 20:                                               ; preds = %19
   %21 = landingpad { ptr, i32 }
           cleanup
-  store i64 %.sroa.0.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.0..sroa.0.i.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i.i.i.i.i.i, ptr %..i.i.i, align 8, !alias.scope !555, !noalias !536
+  store i64 %.sroa.0.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.0..sroa.0.i.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i.i.i.i.i.i, ptr %1, align 8, !alias.scope !555, !noalias !536
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx8.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.i.i.i.i.i.i, i64 24, i1 false), !noalias !536
   br label %common.resume.i
 
 "_ZN4core3ptr410drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$core..option..Option$LT$either..Either$LT$syntax..ast..generated..nodes..SelfParam$C$syntax..ast..generated..nodes..Pat$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..Param$GT$$C$hir..Callable..params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hd723e4ecb94e1892E.exit.i.i.i.i.i.i": ; preds = %19, %16
-  store i64 %.sroa.0.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.0..sroa.0.i.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i.i.i.i.i.i, ptr %..i.i.i, align 8, !alias.scope !555, !noalias !536
+  store i64 %.sroa.0.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.0..sroa.0.i.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i.i.i.i.i.i, ptr %1, align 8, !alias.scope !555, !noalias !536
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx8.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.i.i.i.i.i.i, i64 24, i1 false), !noalias !536
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i.i.i.i.i.i)
   call fastcc void @_ZN4core4iter8adapters7flatten17and_then_or_clear17hc93893bc50082a79E(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(96) %..i.i.i), !noalias !536
@@ -18888,12 +18888,12 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hc4c3a9c
   br i1 %27, label %28, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i.i.i.i
 
 28:                                               ; preds = %25
-  store ptr null, ptr %.08.i.i.i.i, align 8, !alias.scope !5745
+  store ptr null, ptr %4, align 8, !alias.scope !5745
   br label %30
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i.i.i.i: ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  store ptr %29, ptr %.08.i.i.i.i, align 8, !alias.scope !5754
+  store ptr %29, ptr %4, align 8, !alias.scope !5754
   br label %104
 
 30:                                               ; preds = %28, %22
@@ -18939,7 +18939,7 @@ _ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i.i.i.i
   %52 = getelementptr inbounds i8, ptr %35, i64 -8
   %53 = load i64, ptr %52, align 8, !alias.scope !5784, !noundef !11
   %54 = getelementptr inbounds i32, ptr %51, i64 %53
-  store ptr %51, ptr %.08.i.i.i.i, align 8, !alias.scope !5764
+  store ptr %51, ptr %4, align 8, !alias.scope !5764
   store ptr %54, ptr %5, align 8, !alias.scope !5764
   br label %22
 
@@ -18981,12 +18981,12 @@ _ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i.i.i.i
   br i1 %69, label %70, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i8.i.i.i
 
 70:                                               ; preds = %67
-  store ptr null, ptr %.08.i5.i.i.i, align 8, !alias.scope !5806
+  store ptr null, ptr %10, align 8, !alias.scope !5806
   br label %72
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17hd1866934b214806eE.exit.i.i.i.i8.i.i.i: ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  store ptr %71, ptr %.08.i5.i.i.i, align 8, !alias.scope !5815
+  store ptr %71, ptr %10, align 8, !alias.scope !5815
   br label %104
 
 72:                                               ; preds = %70, %64
@@ -19032,7 +19032,7 @@ _ZN4core3ops8function6FnOnce9call_once17h70dc1a7e473706bdE.exit.i5.i.i.i.i11.i.i
   %94 = getelementptr inbounds i8, ptr %77, i64 -8
   %95 = load i64, ptr %94, align 8, !alias.scope !5845, !noundef !11
   %96 = getelementptr inbounds i32, ptr %93, i64 %95
-  store ptr %93, ptr %.08.i5.i.i.i, align 8, !alias.scope !5825
+  store ptr %93, ptr %10, align 8, !alias.scope !5825
   store ptr %96, ptr %11, align 8, !alias.scope !5825
   br label %64
 

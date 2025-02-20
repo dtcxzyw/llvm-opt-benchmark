@@ -3554,7 +3554,7 @@ _ZN4core3ops8function6FnOnce9call_once17h2545011e037c42f7E.exit.i.i.i.i.i.i: ; p
   br i1 %.not.i.i.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17h2545011e037c42f7E.exit.thread.i.i.i.i.i.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h272ec0be7002a685E.exit.i.i.i.i"
 
 _ZN4core3ops8function6FnOnce9call_once17h2545011e037c42f7E.exit.thread.i.i.i.i.i.i: ; preds = %.noexc5.i, %.noexc.i
-  store ptr null, ptr %.0.i.i, align 8, !alias.scope !769, !noalias !770
+  store ptr null, ptr %.sroa.2129.0..sroa_idx, align 8, !alias.scope !769, !noalias !770
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZN4core3ops8function6FnOnce9call_once17h2545011e037c42f7E.exit.thread.i.i.i.i.i.i, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h6fb44552e0d2f031E.exit.i.i.i.i"

@@ -28008,7 +28008,6 @@ define void @_ZN17cranelift_codegen2ir8function18FunctionParameters20reset_user_
   %16 = zext i32 %1 to i64
   %.not = icmp ugt i64 %15, %16
   %17 = getelementptr inbounds nuw { i32, i32 }, ptr %13, i64 %16
-  %.0.i = select i1 %.not, ptr %17, ptr null
   br i1 %.not, label %18, label %84
 
 18:                                               ; preds = %4
@@ -28161,7 +28160,7 @@ define void @_ZN17cranelift_codegen2ir8function18FunctionParameters20reset_user_
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17h98599ff9a0647d38E.exit"
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17h98599ff9a0647d38E.exit": ; preds = %75, %76
-  store i32 %2, ptr %.0.i, align 4
+  store i32 %2, ptr %17, align 4
   store i32 %3, ptr %29, align 4
   call fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hda0c6243e6eb7d58E"(ptr noalias noundef align 8 dereferenceable(48) %19, i32 noundef %2, i32 noundef %3, i32 noundef %1)
   br label %84

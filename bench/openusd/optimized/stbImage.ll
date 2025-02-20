@@ -9238,7 +9238,7 @@ _ZL24stbir__pack_coefficientsiP19stbir__contributorsPfiiii.exit.i.i: ; preds = %
   %1082 = load <4 x float>, ptr %1081, align 1
   %1083 = getelementptr inbounds nuw i8, ptr %1077, i64 48
   %1084 = load <4 x float>, ptr %1083, align 1
-  store <4 x float> %1078, ptr %spec.select352.i.i, align 1
+  store <4 x float> %1078, ptr %602, align 1
   %1085 = getelementptr inbounds nuw i8, ptr %spec.select352.i.i, i64 16
   store <4 x float> %1080, ptr %1085, align 1
   %1086 = getelementptr inbounds nuw i8, ptr %spec.select352.i.i, i64 32

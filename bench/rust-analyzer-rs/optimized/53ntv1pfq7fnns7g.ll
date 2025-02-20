@@ -4892,7 +4892,7 @@ thread-pre-split:                                 ; preds = %1
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr %22, ptr %.0.i8.i, align 8, !alias.scope !1908, !noalias !1911
+  store ptr %22, ptr %4, align 8, !alias.scope !1908, !noalias !1911
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2), !noalias !1921
   call void @"_ZN4span3map16SpanMap$LT$S$GT$16ranges_with_span28_$u7b$$u7b$closure$u7d$$u7d$17h7010c4304f1381d7E.llvm.9990925514126320202"(ptr noalias noundef nonnull sret({ i32, [2 x i32] }) align 4 captures(none) dereferenceable(12) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %18, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %19), !noalias !1928
   %23 = load i32, ptr %2, align 4, !range !1931, !noalias !1921, !noundef !7

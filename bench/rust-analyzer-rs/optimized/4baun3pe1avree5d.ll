@@ -151,22 +151,19 @@ define hidden void @"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as
 define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17he48f1a642d247aa8E.llvm.4213059994663518309"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !noundef !7
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4539c30a6f6057f4E.llvm.4213059994663518309.exit", label %4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !nonnull !7
+  %6 = icmp eq ptr %2, %5
+  %or.cond = select i1 %3, i1 true, i1 %6
+  br i1 %or.cond, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4539c30a6f6057f4E.llvm.4213059994663518309.exit", label %7
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !alias.scope !25, !nonnull !7, !noundef !7
-  %7 = load ptr, ptr %0, align 8, !alias.scope !25, !nonnull !7, !noundef !7
-  %8 = icmp eq ptr %7, %6
-  br i1 %8, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4539c30a6f6057f4E.llvm.4213059994663518309.exit", label %9
-
-9:                                                ; preds = %4
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr %10, ptr %0, align 8, !alias.scope !25
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store ptr %8, ptr %0, align 8, !alias.scope !25
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4539c30a6f6057f4E.llvm.4213059994663518309.exit"
 
-"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4539c30a6f6057f4E.llvm.4213059994663518309.exit": ; preds = %9, %4, %1
-  %.0 = phi ptr [ null, %1 ], [ %7, %9 ], [ null, %4 ]
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4539c30a6f6057f4E.llvm.4213059994663518309.exit": ; preds = %7, %1
+  %.0 = phi ptr [ null, %1 ], [ %2, %7 ]
   ret ptr %.0
 }
 
@@ -5651,10 +5648,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %4 = load ptr, ptr %1, align 8, !alias.scope !936, !noundef !7
   %5 = icmp eq ptr %4, null
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !alias.scope !941, !nonnull !7
+  %7 = load ptr, ptr %6, align 8, !alias.scope !936, !nonnull !7
   %8 = icmp eq ptr %4, %7
-  %or.cond.i = select i1 %5, i1 true, i1 %8
-  br i1 %or.cond.i, label %9, label %11
+  %or.cond.i.i = select i1 %5, i1 true, i1 %8
+  br i1 %or.cond.i.i, label %9, label %11
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -5664,12 +5661,12 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store ptr %12, ptr %1, align 8, !alias.scope !942
+  store ptr %12, ptr %1, align 8, !alias.scope !941
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %15 = load i64, ptr %14, align 8, !alias.scope !941, !noundef !7
+  %15 = load i64, ptr %14, align 8, !alias.scope !946, !noundef !7
   %16 = add i64 %15, 1
-  store i64 %16, ptr %14, align 8, !alias.scope !941
+  store i64 %16, ptr %14, align 8, !alias.scope !946
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %13, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -6930,10 +6927,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %4 = load ptr, ptr %1, align 8, !alias.scope !1289, !noundef !7
   %5 = icmp eq ptr %4, null
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !alias.scope !1294, !nonnull !7
+  %7 = load ptr, ptr %6, align 8, !alias.scope !1289, !nonnull !7
   %8 = icmp eq ptr %4, %7
-  %or.cond.i = select i1 %5, i1 true, i1 %8
-  br i1 %or.cond.i, label %9, label %11
+  %or.cond.i.i = select i1 %5, i1 true, i1 %8
+  br i1 %or.cond.i.i, label %9, label %11
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -6943,12 +6940,12 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store ptr %12, ptr %1, align 8, !alias.scope !1295
+  store ptr %12, ptr %1, align 8, !alias.scope !1294
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %15 = load i64, ptr %14, align 8, !alias.scope !1294, !noundef !7
+  %15 = load i64, ptr %14, align 8, !alias.scope !1299, !noundef !7
   %16 = add i64 %15, 1
-  store i64 %16, ptr %14, align 8, !alias.scope !1294
+  store i64 %16, ptr %14, align 8, !alias.scope !1299
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %13, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -7101,10 +7098,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %6 = load ptr, ptr %1, align 8, !alias.scope !1336, !noundef !7
   %7 = icmp eq ptr %6, null
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load ptr, ptr %8, align 8, !alias.scope !1341, !nonnull !7
+  %9 = load ptr, ptr %8, align 8, !alias.scope !1336, !nonnull !7
   %10 = icmp eq ptr %6, %9
-  %or.cond.i = select i1 %7, i1 true, i1 %10
-  br i1 %or.cond.i, label %11, label %12
+  %or.cond.i.i = select i1 %7, i1 true, i1 %10
+  br i1 %or.cond.i.i, label %11, label %12
 
 11:                                               ; preds = %4
   store i8 23, ptr %0, align 8
@@ -7112,12 +7109,12 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store ptr %13, ptr %1, align 8, !alias.scope !1342
+  store ptr %13, ptr %1, align 8, !alias.scope !1341
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %16 = load i64, ptr %15, align 8, !alias.scope !1341, !noundef !7
+  %16 = load i64, ptr %15, align 8, !alias.scope !1346, !noundef !7
   %17 = add i64 %16, 1
-  store i64 %17, ptr %15, align 8, !alias.scope !1341
+  store i64 %17, ptr %15, align 8, !alias.scope !1346
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %14, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
@@ -7154,10 +7151,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %4 = load ptr, ptr %1, align 8, !alias.scope !1353, !noundef !7
   %5 = icmp eq ptr %4, null
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !alias.scope !1358, !nonnull !7
+  %7 = load ptr, ptr %6, align 8, !alias.scope !1353, !nonnull !7
   %8 = icmp eq ptr %4, %7
-  %or.cond.i = select i1 %5, i1 true, i1 %8
-  br i1 %or.cond.i, label %9, label %11
+  %or.cond.i.i = select i1 %5, i1 true, i1 %8
+  br i1 %or.cond.i.i, label %9, label %11
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -7167,12 +7164,12 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store ptr %12, ptr %1, align 8, !alias.scope !1359
+  store ptr %12, ptr %1, align 8, !alias.scope !1358
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %15 = load i64, ptr %14, align 8, !alias.scope !1358, !noundef !7
+  %15 = load i64, ptr %14, align 8, !alias.scope !1363, !noundef !7
   %16 = add i64 %15, 1
-  store i64 %16, ptr %14, align 8, !alias.scope !1358
+  store i64 %16, ptr %14, align 8, !alias.scope !1363
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %13, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -7325,10 +7322,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %4 = load ptr, ptr %1, align 8, !alias.scope !1399, !noundef !7
   %5 = icmp eq ptr %4, null
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !alias.scope !1404, !nonnull !7
+  %7 = load ptr, ptr %6, align 8, !alias.scope !1399, !nonnull !7
   %8 = icmp eq ptr %4, %7
-  %or.cond.i = select i1 %5, i1 true, i1 %8
-  br i1 %or.cond.i, label %9, label %11
+  %or.cond.i.i = select i1 %5, i1 true, i1 %8
+  br i1 %or.cond.i.i, label %9, label %11
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -7338,12 +7335,12 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store ptr %12, ptr %1, align 8, !alias.scope !1405
+  store ptr %12, ptr %1, align 8, !alias.scope !1404
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %15 = load i64, ptr %14, align 8, !alias.scope !1404, !noundef !7
+  %15 = load i64, ptr %14, align 8, !alias.scope !1409, !noundef !7
   %16 = add i64 %15, 1
-  store i64 %16, ptr %14, align 8, !alias.scope !1404
+  store i64 %16, ptr %14, align 8, !alias.scope !1409
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %13, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -7384,10 +7381,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %4 = load ptr, ptr %1, align 8, !alias.scope !1415, !noundef !7
   %5 = icmp eq ptr %4, null
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !alias.scope !1420, !nonnull !7
+  %7 = load ptr, ptr %6, align 8, !alias.scope !1415, !nonnull !7
   %8 = icmp eq ptr %4, %7
-  %or.cond.i = select i1 %5, i1 true, i1 %8
-  br i1 %or.cond.i, label %9, label %11
+  %or.cond.i.i = select i1 %5, i1 true, i1 %8
+  br i1 %or.cond.i.i, label %9, label %11
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -7397,12 +7394,12 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store ptr %12, ptr %1, align 8, !alias.scope !1421
+  store ptr %12, ptr %1, align 8, !alias.scope !1420
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %15 = load i64, ptr %14, align 8, !alias.scope !1420, !noundef !7
+  %15 = load i64, ptr %14, align 8, !alias.scope !1425, !noundef !7
   %16 = add i64 %15, 1
-  store i64 %16, ptr %14, align 8, !alias.scope !1420
+  store i64 %16, ptr %14, align 8, !alias.scope !1425
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %13, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -7533,10 +7530,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %6 = load ptr, ptr %1, align 8, !alias.scope !1467, !noundef !7
   %7 = icmp eq ptr %6, null
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load ptr, ptr %8, align 8, !alias.scope !1472, !nonnull !7
+  %9 = load ptr, ptr %8, align 8, !alias.scope !1467, !nonnull !7
   %10 = icmp eq ptr %6, %9
-  %or.cond.i = select i1 %7, i1 true, i1 %10
-  br i1 %or.cond.i, label %11, label %12
+  %or.cond.i.i = select i1 %7, i1 true, i1 %10
+  br i1 %or.cond.i.i, label %11, label %12
 
 11:                                               ; preds = %2
   store i8 22, ptr %0, align 8
@@ -7544,11 +7541,11 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store ptr %13, ptr %1, align 8, !alias.scope !1473
+  store ptr %13, ptr %1, align 8, !alias.scope !1472
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %15 = load i64, ptr %14, align 8, !alias.scope !1472, !noundef !7
+  %15 = load i64, ptr %14, align 8, !alias.scope !1477, !noundef !7
   %16 = add i64 %15, 1
-  store i64 %16, ptr %14, align 8, !alias.scope !1472
+  store i64 %16, ptr %14, align 8, !alias.scope !1477
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7)
@@ -10527,10 +10524,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %3 = load ptr, ptr %1, align 8, !alias.scope !2460, !noundef !7
   %4 = icmp eq ptr %3, null
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8, !nonnull !7
+  %6 = load ptr, ptr %5, align 8, !alias.scope !2460, !nonnull !7
   %7 = icmp eq ptr %3, %6
-  %or.cond = select i1 %4, i1 true, i1 %7
-  br i1 %or.cond, label %17, label %8
+  %or.cond.i = select i1 %4, i1 true, i1 %7
+  br i1 %or.cond.i, label %17, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -10621,10 +10618,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %4 = load ptr, ptr %1, align 8, !alias.scope !2496, !noundef !7
   %5 = icmp eq ptr %4, null
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !nonnull !7
+  %7 = load ptr, ptr %6, align 8, !alias.scope !2496, !nonnull !7
   %8 = icmp eq ptr %4, %7
-  %or.cond = select i1 %5, i1 true, i1 %8
-  br i1 %or.cond, label %9, label %10
+  %or.cond.i = select i1 %5, i1 true, i1 %8
+  br i1 %or.cond.i, label %9, label %10
 
 9:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
@@ -10740,10 +10737,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %4 = load ptr, ptr %1, align 8, !alias.scope !2536, !noundef !7
   %5 = icmp eq ptr %4, null
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !nonnull !7
+  %7 = load ptr, ptr %6, align 8, !alias.scope !2536, !nonnull !7
   %8 = icmp eq ptr %4, %7
-  %or.cond = select i1 %5, i1 true, i1 %8
-  br i1 %or.cond, label %9, label %11
+  %or.cond.i = select i1 %5, i1 true, i1 %8
+  br i1 %or.cond.i, label %9, label %11
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -10796,10 +10793,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %4 = load ptr, ptr %1, align 8, !alias.scope !2549, !noundef !7
   %5 = icmp eq ptr %4, null
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !nonnull !7
+  %7 = load ptr, ptr %6, align 8, !alias.scope !2549, !nonnull !7
   %8 = icmp eq ptr %4, %7
-  %or.cond = select i1 %5, i1 true, i1 %8
-  br i1 %or.cond, label %9, label %11
+  %or.cond.i = select i1 %5, i1 true, i1 %8
+  br i1 %or.cond.i, label %9, label %11
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -11197,10 +11194,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %5 = load ptr, ptr %1, align 8, !alias.scope !2703, !noundef !7
   %6 = icmp eq ptr %5, null
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8, !nonnull !7
+  %8 = load ptr, ptr %7, align 8, !alias.scope !2703, !nonnull !7
   %9 = icmp eq ptr %5, %8
-  %or.cond = select i1 %6, i1 true, i1 %9
-  br i1 %or.cond, label %10, label %11
+  %or.cond.i = select i1 %6, i1 true, i1 %9
+  br i1 %or.cond.i, label %10, label %11
 
 10:                                               ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
@@ -11346,10 +11343,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %5 = load ptr, ptr %1, align 8, !alias.scope !2757, !noundef !7
   %6 = icmp eq ptr %5, null
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8, !nonnull !7
+  %8 = load ptr, ptr %7, align 8, !alias.scope !2757, !nonnull !7
   %9 = icmp eq ptr %5, %8
-  %or.cond = select i1 %6, i1 true, i1 %9
-  br i1 %or.cond, label %10, label %12
+  %or.cond.i = select i1 %6, i1 true, i1 %9
+  br i1 %or.cond.i, label %10, label %12
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -11576,10 +11573,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %4 = load ptr, ptr %1, align 8, !alias.scope !2873, !noundef !7
   %5 = icmp eq ptr %4, null
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !nonnull !7
+  %7 = load ptr, ptr %6, align 8, !alias.scope !2873, !nonnull !7
   %8 = icmp eq ptr %4, %7
-  %or.cond = select i1 %5, i1 true, i1 %8
-  br i1 %or.cond, label %9, label %10
+  %or.cond.i = select i1 %5, i1 true, i1 %8
+  br i1 %or.cond.i, label %9, label %10
 
 9:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
@@ -11833,10 +11830,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %4 = load ptr, ptr %1, align 8, !alias.scope !2965, !noundef !7
   %5 = icmp eq ptr %4, null
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !nonnull !7
+  %7 = load ptr, ptr %6, align 8, !alias.scope !2965, !nonnull !7
   %8 = icmp eq ptr %4, %7
-  %or.cond = select i1 %5, i1 true, i1 %8
-  br i1 %or.cond, label %18, label %9
+  %or.cond.i = select i1 %5, i1 true, i1 %8
+  br i1 %or.cond.i, label %18, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -11942,10 +11939,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %5 = load ptr, ptr %1, align 8, !alias.scope !3004, !noundef !7
   %6 = icmp eq ptr %5, null
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8, !nonnull !7
+  %8 = load ptr, ptr %7, align 8, !alias.scope !3004, !nonnull !7
   %9 = icmp eq ptr %5, %8
-  %or.cond = select i1 %6, i1 true, i1 %9
-  br i1 %or.cond, label %10, label %11
+  %or.cond.i = select i1 %6, i1 true, i1 %9
+  br i1 %or.cond.i, label %10, label %11
 
 10:                                               ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
@@ -12015,10 +12012,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %4 = load ptr, ptr %1, align 8, !alias.scope !3033, !noundef !7
   %5 = icmp eq ptr %4, null
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !nonnull !7
+  %7 = load ptr, ptr %6, align 8, !alias.scope !3033, !nonnull !7
   %8 = icmp eq ptr %4, %7
-  %or.cond = select i1 %5, i1 true, i1 %8
-  br i1 %or.cond, label %9, label %11
+  %or.cond.i = select i1 %5, i1 true, i1 %8
+  br i1 %or.cond.i, label %9, label %11
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -12146,10 +12143,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %5 = load ptr, ptr %1, align 8, !alias.scope !3089, !noundef !7
   %6 = icmp eq ptr %5, null
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8, !nonnull !7
+  %8 = load ptr, ptr %7, align 8, !alias.scope !3089, !nonnull !7
   %9 = icmp eq ptr %5, %8
-  %or.cond = select i1 %6, i1 true, i1 %9
-  br i1 %or.cond, label %10, label %11
+  %or.cond.i = select i1 %6, i1 true, i1 %9
+  br i1 %or.cond.i, label %10, label %11
 
 10:                                               ; preds = %2
   store i64 -9223372036854775807, ptr %0, align 8
@@ -12378,10 +12375,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %5 = load ptr, ptr %1, align 8, !alias.scope !3189, !noundef !7
   %6 = icmp eq ptr %5, null
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8, !nonnull !7
+  %8 = load ptr, ptr %7, align 8, !alias.scope !3189, !nonnull !7
   %9 = icmp eq ptr %5, %8
-  %or.cond = select i1 %6, i1 true, i1 %9
-  br i1 %or.cond, label %10, label %11
+  %or.cond.i = select i1 %6, i1 true, i1 %9
+  br i1 %or.cond.i, label %10, label %11
 
 10:                                               ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
@@ -12522,10 +12519,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %4 = load ptr, ptr %1, align 8, !alias.scope !3244, !noundef !7
   %5 = icmp eq ptr %4, null
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !nonnull !7
+  %7 = load ptr, ptr %6, align 8, !alias.scope !3244, !nonnull !7
   %8 = icmp eq ptr %4, %7
-  %or.cond = select i1 %5, i1 true, i1 %8
-  br i1 %or.cond, label %9, label %10
+  %or.cond.i = select i1 %5, i1 true, i1 %8
+  br i1 %or.cond.i, label %9, label %10
 
 9:                                                ; preds = %2
   store i8 22, ptr %0, align 8
@@ -12584,10 +12581,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %4 = load ptr, ptr %1, align 8, !alias.scope !3268, !noundef !7
   %5 = icmp eq ptr %4, null
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !nonnull !7
+  %7 = load ptr, ptr %6, align 8, !alias.scope !3268, !nonnull !7
   %8 = icmp eq ptr %4, %7
-  %or.cond = select i1 %5, i1 true, i1 %8
-  br i1 %or.cond, label %9, label %10
+  %or.cond.i = select i1 %5, i1 true, i1 %8
+  br i1 %or.cond.i, label %9, label %10
 
 9:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
@@ -12912,10 +12909,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %5 = load ptr, ptr %1, align 8, !alias.scope !3386, !noundef !7
   %6 = icmp eq ptr %5, null
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8, !nonnull !7
+  %8 = load ptr, ptr %7, align 8, !alias.scope !3386, !nonnull !7
   %9 = icmp eq ptr %5, %8
-  %or.cond = select i1 %6, i1 true, i1 %9
-  br i1 %or.cond, label %10, label %11
+  %or.cond.i = select i1 %6, i1 true, i1 %9
+  br i1 %or.cond.i, label %10, label %11
 
 10:                                               ; preds = %2
   store i64 -9223372036854775807, ptr %0, align 8
@@ -13020,10 +13017,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %4 = load ptr, ptr %1, align 8, !alias.scope !3442, !noundef !7
   %5 = icmp eq ptr %4, null
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !nonnull !7
+  %7 = load ptr, ptr %6, align 8, !alias.scope !3442, !nonnull !7
   %8 = icmp eq ptr %4, %7
-  %or.cond = select i1 %5, i1 true, i1 %8
-  br i1 %or.cond, label %9, label %10
+  %or.cond.i = select i1 %5, i1 true, i1 %8
+  br i1 %or.cond.i, label %9, label %10
 
 9:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
@@ -13072,10 +13069,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %5 = load ptr, ptr %1, align 8, !alias.scope !3456, !noundef !7
   %6 = icmp eq ptr %5, null
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8, !nonnull !7
+  %8 = load ptr, ptr %7, align 8, !alias.scope !3456, !nonnull !7
   %9 = icmp eq ptr %5, %8
-  %or.cond = select i1 %6, i1 true, i1 %9
-  br i1 %or.cond, label %10, label %11
+  %or.cond.i = select i1 %6, i1 true, i1 %9
+  br i1 %or.cond.i, label %10, label %11
 
 10:                                               ; preds = %2
   store i64 -9223372036854775807, ptr %0, align 8
@@ -13180,10 +13177,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %4 = load ptr, ptr %1, align 8, !alias.scope !3512, !noundef !7
   %5 = icmp eq ptr %4, null
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !nonnull !7
+  %7 = load ptr, ptr %6, align 8, !alias.scope !3512, !nonnull !7
   %8 = icmp eq ptr %4, %7
-  %or.cond = select i1 %5, i1 true, i1 %8
-  br i1 %or.cond, label %9, label %11
+  %or.cond.i = select i1 %5, i1 true, i1 %8
+  br i1 %or.cond.i, label %9, label %11
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -14916,12 +14913,12 @@ attributes #21 = { noreturn }
 !938 = distinct !{!938, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17ha62911ce197bc366E"}
 !939 = distinct !{!939, !940, !"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17h4dfd771637b8b9ceE: argument 0"}
 !940 = distinct !{!940, !"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17h4dfd771637b8b9ceE"}
-!941 = !{!939}
-!942 = !{!943, !945, !937, !939}
-!943 = distinct !{!943, !944, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE: argument 0"}
-!944 = distinct !{!944, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE"}
-!945 = distinct !{!945, !946, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0d0cf0599dc17befE: argument 0"}
-!946 = distinct !{!946, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0d0cf0599dc17befE"}
+!941 = !{!942, !944, !937, !939}
+!942 = distinct !{!942, !943, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE: argument 0"}
+!943 = distinct !{!943, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE"}
+!944 = distinct !{!944, !945, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0d0cf0599dc17befE: argument 0"}
+!945 = distinct !{!945, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0d0cf0599dc17befE"}
+!946 = !{!939}
 !947 = !{!948}
 !948 = distinct !{!948, !949, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb4bfad2aa0e6b1d5E: argument 0"}
 !949 = distinct !{!949, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb4bfad2aa0e6b1d5E"}
@@ -15269,12 +15266,12 @@ attributes #21 = { noreturn }
 !1291 = distinct !{!1291, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hbaca0f5c8e97aa2cE"}
 !1292 = distinct !{!1292, !1293, !"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17h96d722d91738b265E: argument 0"}
 !1293 = distinct !{!1293, !"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17h96d722d91738b265E"}
-!1294 = !{!1292}
-!1295 = !{!1296, !1298, !1290, !1292}
-!1296 = distinct !{!1296, !1297, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE: argument 0"}
-!1297 = distinct !{!1297, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE"}
-!1298 = distinct !{!1298, !1299, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h90cb8b9072d876f1E: argument 0"}
-!1299 = distinct !{!1299, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h90cb8b9072d876f1E"}
+!1294 = !{!1295, !1297, !1290, !1292}
+!1295 = distinct !{!1295, !1296, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE: argument 0"}
+!1296 = distinct !{!1296, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE"}
+!1297 = distinct !{!1297, !1298, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h90cb8b9072d876f1E: argument 0"}
+!1298 = distinct !{!1298, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h90cb8b9072d876f1E"}
+!1299 = !{!1292}
 !1300 = !{!1301}
 !1301 = distinct !{!1301, !1302, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h85364bbfe7408329E: argument 0"}
 !1302 = distinct !{!1302, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h85364bbfe7408329E"}
@@ -15316,12 +15313,12 @@ attributes #21 = { noreturn }
 !1338 = distinct !{!1338, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hf926425abd4980e9E"}
 !1339 = distinct !{!1339, !1340, !"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17h8bf42bfe542fdf95E: argument 0"}
 !1340 = distinct !{!1340, !"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17h8bf42bfe542fdf95E"}
-!1341 = !{!1339}
-!1342 = !{!1343, !1345, !1337, !1339}
-!1343 = distinct !{!1343, !1344, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE: argument 0"}
-!1344 = distinct !{!1344, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE"}
-!1345 = distinct !{!1345, !1346, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d610b05fd3db7f3E: argument 0"}
-!1346 = distinct !{!1346, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d610b05fd3db7f3E"}
+!1341 = !{!1342, !1344, !1337, !1339}
+!1342 = distinct !{!1342, !1343, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE: argument 0"}
+!1343 = distinct !{!1343, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE"}
+!1344 = distinct !{!1344, !1345, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d610b05fd3db7f3E: argument 0"}
+!1345 = distinct !{!1345, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8d610b05fd3db7f3E"}
+!1346 = !{!1339}
 !1347 = !{!1348}
 !1348 = distinct !{!1348, !1349, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h996f48a252b4ecb6E: argument 0"}
 !1349 = distinct !{!1349, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h996f48a252b4ecb6E"}
@@ -15333,12 +15330,12 @@ attributes #21 = { noreturn }
 !1355 = distinct !{!1355, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5468cde809b0d655E"}
 !1356 = distinct !{!1356, !1357, !"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17h3bc838ea9851993fE: argument 0"}
 !1357 = distinct !{!1357, !"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17h3bc838ea9851993fE"}
-!1358 = !{!1356}
-!1359 = !{!1360, !1362, !1354, !1356}
-!1360 = distinct !{!1360, !1361, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE: argument 0"}
-!1361 = distinct !{!1361, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE"}
-!1362 = distinct !{!1362, !1363, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd49495fc4666b4eaE: argument 0"}
-!1363 = distinct !{!1363, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd49495fc4666b4eaE"}
+!1358 = !{!1359, !1361, !1354, !1356}
+!1359 = distinct !{!1359, !1360, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE: argument 0"}
+!1360 = distinct !{!1360, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE"}
+!1361 = distinct !{!1361, !1362, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd49495fc4666b4eaE: argument 0"}
+!1362 = distinct !{!1362, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd49495fc4666b4eaE"}
+!1363 = !{!1356}
 !1364 = !{!1365}
 !1365 = distinct !{!1365, !1366, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0632aad1ccdc4669E: argument 0"}
 !1366 = distinct !{!1366, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0632aad1ccdc4669E"}
@@ -15379,12 +15376,12 @@ attributes #21 = { noreturn }
 !1401 = distinct !{!1401, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hd6ed1a2166bef89eE"}
 !1402 = distinct !{!1402, !1403, !"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17hf7b325d3a3ebd3fcE: argument 0"}
 !1403 = distinct !{!1403, !"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17hf7b325d3a3ebd3fcE"}
-!1404 = !{!1402}
-!1405 = !{!1406, !1408, !1400, !1402}
-!1406 = distinct !{!1406, !1407, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE: argument 0"}
-!1407 = distinct !{!1407, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE"}
-!1408 = distinct !{!1408, !1409, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1197de795366ea1cE: argument 0"}
-!1409 = distinct !{!1409, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1197de795366ea1cE"}
+!1404 = !{!1405, !1407, !1400, !1402}
+!1405 = distinct !{!1405, !1406, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE: argument 0"}
+!1406 = distinct !{!1406, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE"}
+!1407 = distinct !{!1407, !1408, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1197de795366ea1cE: argument 0"}
+!1408 = distinct !{!1408, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1197de795366ea1cE"}
+!1409 = !{!1402}
 !1410 = !{!1411}
 !1411 = distinct !{!1411, !1412, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h984c21fbed129400E: argument 0"}
 !1412 = distinct !{!1412, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h984c21fbed129400E"}
@@ -15395,12 +15392,12 @@ attributes #21 = { noreturn }
 !1417 = distinct !{!1417, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17he4667f2a904f69a5E"}
 !1418 = distinct !{!1418, !1419, !"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17h7db7db9a5eaefdeaE: argument 0"}
 !1419 = distinct !{!1419, !"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17h7db7db9a5eaefdeaE"}
-!1420 = !{!1418}
-!1421 = !{!1422, !1424, !1416, !1418}
-!1422 = distinct !{!1422, !1423, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE: argument 0"}
-!1423 = distinct !{!1423, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE"}
-!1424 = distinct !{!1424, !1425, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e0c6332652bc9dcE: argument 0"}
-!1425 = distinct !{!1425, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e0c6332652bc9dcE"}
+!1420 = !{!1421, !1423, !1416, !1418}
+!1421 = distinct !{!1421, !1422, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE: argument 0"}
+!1422 = distinct !{!1422, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE"}
+!1423 = distinct !{!1423, !1424, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e0c6332652bc9dcE: argument 0"}
+!1424 = distinct !{!1424, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e0c6332652bc9dcE"}
+!1425 = !{!1418}
 !1426 = !{!1427}
 !1427 = distinct !{!1427, !1428, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17he6cdf89c59dc0fb4E: argument 0"}
 !1428 = distinct !{!1428, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17he6cdf89c59dc0fb4E"}
@@ -15447,12 +15444,12 @@ attributes #21 = { noreturn }
 !1469 = distinct !{!1469, !"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h40f1309a3f9c8d7cE"}
 !1470 = distinct !{!1470, !1471, !"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17h7c17fd9d7a5f0d11E: argument 0"}
 !1471 = distinct !{!1471, !"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17h7c17fd9d7a5f0d11E"}
-!1472 = !{!1470}
-!1473 = !{!1474, !1476, !1468, !1470}
-!1474 = distinct !{!1474, !1475, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE: argument 0"}
-!1475 = distinct !{!1475, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE"}
-!1476 = distinct !{!1476, !1477, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h493aafbfa3709fd3E: argument 0"}
-!1477 = distinct !{!1477, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h493aafbfa3709fd3E"}
+!1472 = !{!1473, !1475, !1468, !1470}
+!1473 = distinct !{!1473, !1474, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE: argument 0"}
+!1474 = distinct !{!1474, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc0c63c614857eecE"}
+!1475 = distinct !{!1475, !1476, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h493aafbfa3709fd3E: argument 0"}
+!1476 = distinct !{!1476, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h493aafbfa3709fd3E"}
+!1477 = !{!1470}
 !1478 = !{!1479, !1481, !1482, !1484, !1485, !1487}
 !1479 = distinct !{!1479, !1480, !"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$21__deserialize_content17h7b5ac663ee853942E.llvm.13621867877897344372: argument 0"}
 !1480 = distinct !{!1480, !"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$21__deserialize_content17h7b5ac663ee853942E.llvm.13621867877897344372"}

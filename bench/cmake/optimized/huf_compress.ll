@@ -561,7 +561,7 @@ HUF_sort.exit:                                    ; preds = %64
   br i1 %.not89.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
 
 ._crit_edge.thread.i:                             ; preds = %72
-  store i32 -2147483648, ptr %.0.i, align 4, !tbaa !27
+  store i32 -2147483648, ptr %13, align 4, !tbaa !27
   %.pre.i29 = sext i32 %75 to i64
   %.idx50 = shl nsw i64 %.pre.i29, 3
   %.offs51 = or disjoint i64 %.idx50, 7
@@ -584,7 +584,7 @@ HUF_sort.exit:                                    ; preds = %64
   br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !35
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  store i32 -2147483648, ptr %.0.i, align 4, !tbaa !27
+  store i32 -2147483648, ptr %13, align 4, !tbaa !27
   br label %.lr.ph96.i
 
 .lr.ph96.i:                                       ; preds = %.lr.ph96.i, %._crit_edge.i

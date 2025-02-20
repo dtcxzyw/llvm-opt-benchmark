@@ -3553,7 +3553,7 @@ define internal fastcc void @_ZN5clang13ASTDeclReader20VisitTypedefNameDeclEPNS_
 67:                                               ; preds = %62
   %68 = ptrtoint ptr %64 to i64
   %69 = and i64 %68, -4
-  store i64 %69, ptr %spec.select, align 8, !noalias !1137
+  store i64 %69, ptr %5, align 8, !noalias !1137
   %70 = load ptr, ptr %64, align 8, !tbaa !909, !noalias !1137
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %72 = load ptr, ptr %71, align 8, !noalias !1137
@@ -4447,7 +4447,7 @@ define internal fastcc void @_ZN5clang13ASTDeclReader12VisitTagDeclEPNS_7TagDecl
 67:                                               ; preds = %62
   %68 = ptrtoint ptr %64 to i64
   %69 = and i64 %68, -4
-  store i64 %69, ptr %spec.select, align 8, !noalias !1175
+  store i64 %69, ptr %5, align 8, !noalias !1175
   %70 = load ptr, ptr %64, align 8, !tbaa !909, !noalias !1175
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %72 = load ptr, ptr %71, align 8, !noalias !1175
@@ -5920,7 +5920,7 @@ define dso_local void @_ZN5clang13ASTDeclReader17VisitFunctionDeclEPNS_12Functio
 82:                                               ; preds = %77
   %83 = ptrtoint ptr %79 to i64
   %84 = and i64 %83, -4
-  store i64 %84, ptr %spec.select, align 8, !noalias !1219
+  store i64 %84, ptr %20, align 8, !noalias !1219
   %85 = load ptr, ptr %79, align 8, !tbaa !909, !noalias !1219
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %87 = load ptr, ptr %86, align 8, !noalias !1219
@@ -9537,7 +9537,7 @@ define dso_local void @_ZN5clang13ASTDeclReader22VisitObjCInterfaceDeclEPNS_17Ob
 69:                                               ; preds = %64
   %70 = ptrtoint ptr %66 to i64
   %71 = and i64 %70, -4
-  store i64 %71, ptr %spec.select, align 8, !noalias !1299
+  store i64 %71, ptr %7, align 8, !noalias !1299
   %72 = load ptr, ptr %66, align 8, !tbaa !909, !noalias !1299
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %74 = load ptr, ptr %73, align 8, !noalias !1299
@@ -9639,7 +9639,7 @@ _ZN5clang13ASTDeclReader17VisitRedeclarableINS_17ObjCInterfaceDeclEEEN12_GLOBAL_
 133:                                              ; preds = %123
   %134 = ptrtoint ptr %128 to i64
   %135 = and i64 %134, -4
-  store i64 %135, ptr %spec.select, align 8
+  store i64 %135, ptr %7, align 8
   %136 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   store ptr %128, ptr %136, align 8, !tbaa !1303
   %137 = getelementptr inbounds i8, ptr %spec.select, i64 -60
@@ -9724,7 +9724,7 @@ _ZNK5clang13ASTDeclReader18FindExistingResultcvPT_INS_17ObjCInterfaceDeclEEEv.ex
 182:                                              ; preds = %172
   %183 = ptrtoint ptr %177 to i64
   %184 = and i64 %183, -4
-  store i64 %184, ptr %spec.select, align 8
+  store i64 %184, ptr %7, align 8
   %185 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   store ptr %177, ptr %185, align 8, !tbaa !1303
   %186 = getelementptr inbounds i8, ptr %spec.select, i64 -60
@@ -11261,7 +11261,7 @@ define dso_local void @_ZN5clang13ASTDeclReader21VisitObjCProtocolDeclEPNS_16Obj
 69:                                               ; preds = %64
   %70 = ptrtoint ptr %66 to i64
   %71 = and i64 %70, -4
-  store i64 %71, ptr %spec.select, align 8, !noalias !1360
+  store i64 %71, ptr %7, align 8, !noalias !1360
   %72 = load ptr, ptr %66, align 8, !tbaa !909, !noalias !1360
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %74 = load ptr, ptr %73, align 8, !noalias !1360
@@ -11346,7 +11346,7 @@ _ZN5clang13ASTDeclReader17VisitRedeclarableINS_16ObjCProtocolDeclEEEN12_GLOBAL__
 118:                                              ; preds = %108
   %119 = ptrtoint ptr %113 to i64
   %120 = and i64 %119, -4
-  store i64 %120, ptr %spec.select, align 8
+  store i64 %120, ptr %7, align 8
   %121 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   store ptr %113, ptr %121, align 8, !tbaa !1364
   %122 = getelementptr inbounds i8, ptr %spec.select, i64 -60
@@ -11431,7 +11431,7 @@ _ZNK5clang13ASTDeclReader18FindExistingResultcvPT_INS_16ObjCProtocolDeclEEEv.exi
 167:                                              ; preds = %157
   %168 = ptrtoint ptr %162 to i64
   %169 = and i64 %168, -4
-  store i64 %169, ptr %spec.select, align 8
+  store i64 %169, ptr %7, align 8
   %170 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   store ptr %162, ptr %170, align 8, !tbaa !1364
   %171 = getelementptr inbounds i8, ptr %spec.select, i64 -60
@@ -15770,7 +15770,7 @@ define dso_local void @_ZN5clang13ASTDeclReader18VisitNamespaceDeclEPNS_13Namesp
 69:                                               ; preds = %64
   %70 = ptrtoint ptr %66 to i64
   %71 = and i64 %70, -4
-  store i64 %71, ptr %spec.select, align 8, !noalias !1497
+  store i64 %71, ptr %7, align 8, !noalias !1497
   %72 = load ptr, ptr %66, align 8, !tbaa !909, !noalias !1497
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %74 = load ptr, ptr %73, align 8, !noalias !1497
@@ -16507,7 +16507,7 @@ define dso_local void @_ZN5clang13ASTDeclReader23VisitNamespaceAliasDeclEPNS_18N
 69:                                               ; preds = %64
   %70 = ptrtoint ptr %66 to i64
   %71 = and i64 %70, -4
-  store i64 %71, ptr %spec.select, align 8, !noalias !1508
+  store i64 %71, ptr %7, align 8, !noalias !1508
   %72 = load ptr, ptr %66, align 8, !tbaa !909, !noalias !1508
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %74 = load ptr, ptr %73, align 8, !noalias !1508
@@ -17556,7 +17556,7 @@ define dso_local void @_ZN5clang13ASTDeclReader20VisitUsingShadowDeclEPNS_15Usin
 69:                                               ; preds = %64
   %70 = ptrtoint ptr %66 to i64
   %71 = and i64 %70, -4
-  store i64 %71, ptr %spec.select, align 8, !noalias !1528
+  store i64 %71, ptr %7, align 8, !noalias !1528
   %72 = load ptr, ptr %66, align 8, !tbaa !909, !noalias !1528
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %74 = load ptr, ptr %73, align 8, !noalias !1528
@@ -21965,7 +21965,7 @@ define internal fastcc void @_ZN5clang13ASTDeclReader29VisitRedeclarableTemplate
 67:                                               ; preds = %62
   %68 = ptrtoint ptr %64 to i64
   %69 = and i64 %68, -4
-  store i64 %69, ptr %spec.select, align 8, !noalias !1626
+  store i64 %69, ptr %5, align 8, !noalias !1626
   %70 = load ptr, ptr %64, align 8, !tbaa !909, !noalias !1626
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %72 = load ptr, ptr %71, align 8, !noalias !1626
@@ -51188,7 +51188,7 @@ _ZN5clang4Decl21getLexicalDeclContextEv.exit:     ; preds = %110, %116
   %158 = select i1 %or.cond7.not.i.i.i, i64 %157, i64 2147483648
   %159 = and i64 %151, -70866960385
   %160 = or disjoint i64 %158, %159
-  store i64 %160, ptr %.0.i88, align 8
+  store i64 %160, ptr %149, align 8
   br label %_ZZN5clang13ASTDeclReader12findExistingEPNS_9NamedDeclEEN22UpToDateIdentifierRAIIC2EPNS_14IdentifierInfoE.exit
 
 _ZZN5clang13ASTDeclReader12findExistingEPNS_9NamedDeclEEN22UpToDateIdentifierRAIIC2EPNS_14IdentifierInfoE.exit: ; preds = %144, %150, %154
@@ -51270,7 +51270,7 @@ _ZL17getDeclForMergingPN5clang9NamedDeclEb.exit:  ; preds = %_ZNK5clang18Identif
 193:                                              ; preds = %.critedge74
   %194 = load i64, ptr %.0.i88, align 8
   %195 = or i64 %194, 70866960384
-  store i64 %195, ptr %.0.i88, align 8
+  store i64 %195, ptr %149, align 8
   br label %_ZZN5clang13ASTDeclReader12findExistingEPNS_9NamedDeclEEN22UpToDateIdentifierRAIID2Ev.exit
 
 _ZL17getDeclForMergingPN5clang9NamedDeclEb.exit.thread: ; preds = %175, %171, %181, %_ZL17getDeclForMergingPN5clang9NamedDeclEb.exit
@@ -51387,7 +51387,7 @@ _ZN5clang12DeclListNode8iteratorppEv.exit:        ; preds = %_ZL17getDeclForMerg
 237:                                              ; preds = %.critedge76
   %238 = load i64, ptr %.0.i88, align 8
   %239 = or i64 %238, 70866960384
-  store i64 %239, ptr %.0.i88, align 8
+  store i64 %239, ptr %149, align 8
   br label %_ZZN5clang13ASTDeclReader12findExistingEPNS_9NamedDeclEEN22UpToDateIdentifierRAIID2Ev.exit98
 
 _ZZN5clang13ASTDeclReader12findExistingEPNS_9NamedDeclEEN22UpToDateIdentifierRAIID2Ev.exit98: ; preds = %_ZL17getDeclForMergingPN5clang9NamedDeclEb.exit96.thread, %_ZN5clang12DeclListNode8iteratorppEv.exit, %200, %237, %.critedge76, %122, %_ZN5clang4Decl21getLexicalDeclContextEv.exit
@@ -61693,7 +61693,7 @@ define internal fastcc void @_ZN5clang13ASTDeclReader16VisitVarDeclImplEPNS_7Var
 68:                                               ; preds = %63
   %69 = ptrtoint ptr %65 to i64
   %70 = and i64 %69, -4
-  store i64 %70, ptr %spec.select, align 8, !noalias !2166
+  store i64 %70, ptr %6, align 8, !noalias !2166
   %71 = load ptr, ptr %65, align 8, !tbaa !909, !noalias !2166
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %73 = load ptr, ptr %72, align 8, !noalias !2166

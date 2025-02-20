@@ -2826,7 +2826,7 @@ define hidden void @_PyErr_SetHandledException(ptr noundef readonly captures(non
 
 11:                                               ; preds = %8
   %12 = add nuw i32 %9, 1
-  store i32 %12, ptr %7, align 8, !tbaa !20
+  store i32 %12, ptr %1, align 8, !tbaa !20
   br label %_Py_XNewRef.exit
 
 _Py_XNewRef.exit:                                 ; preds = %2, %8, %11
@@ -2872,7 +2872,7 @@ define dso_local void @PyErr_SetHandledException(ptr noundef %0) local_unnamed_a
 
 12:                                               ; preds = %9
   %13 = add nuw i32 %10, 1
-  store i32 %13, ptr %8, align 8, !tbaa !20
+  store i32 %13, ptr %0, align 8, !tbaa !20
   br label %_Py_XNewRef.exit.i
 
 _Py_XNewRef.exit.i:                               ; preds = %12, %9, %1
@@ -2926,7 +2926,7 @@ define dso_local void @PyErr_SetExcInfo(ptr noundef %0, ptr noundef %1, ptr noun
 
 14:                                               ; preds = %11
   %15 = add nuw i32 %12, 1
-  store i32 %15, ptr %10, align 8, !tbaa !20
+  store i32 %15, ptr %1, align 8, !tbaa !20
   br label %_Py_XNewRef.exit.i.i
 
 _Py_XNewRef.exit.i.i:                             ; preds = %14, %11, %3

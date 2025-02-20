@@ -39293,7 +39293,7 @@ call.i.i.i.noexc:                                 ; preds = %_ZN18dependency_man
   %bf.value.i14.i.i = and i32 %inc.i13.i.i, 1073741823
   %bf.clear3.i15.i.i = and i32 %bf.load.i12.i.i, -1073741824
   %bf.set.i16.i.i = or disjoint i32 %bf.value.i14.i.i, %bf.clear3.i15.i.i
-  store i32 %bf.set.i16.i.i, ptr %180, align 4
+  store i32 %bf.set.i16.i.i, ptr %.pre355, align 4
   store i32 0, ptr %call.i.i.i308, align 4
   %m_children.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i308, i64 8
   store ptr %181, ptr %m_children.i.i.i, align 8

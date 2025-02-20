@@ -694,7 +694,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h43bcb76236a8ae73E.exit.thread3
   call void @llvm.experimental.noalias.scope.decl(metadata !154)
   %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx2.sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %..i.i, i64 8
   %.sroa.7.sroa.6.0.copyload.i.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx2.sroa_idx.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !157, !noalias !161
-  store i32 3, ptr %..i.i, align 8, !alias.scope !164, !noalias !165
+  store i32 3, ptr %1, align 8, !alias.scope !164, !noalias !165
   %.not12.i.i.i.i.i.i.i.i.i = icmp eq i32 %30, 3
   br i1 %.not12.i.i.i.i.i.i.i.i.i, label %42, label %.lr.ph.split.us.i.i.i.i.i.i.i.i.i
 
@@ -721,7 +721,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h43bcb76236a8ae73E.exit.thread3
 
 ._crit_edge.split.us.i.i.i.i.i.i.i.i.i:           ; preds = %.noexc3.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !167
-  store i32 3, ptr %..i.i, align 8, !alias.scope !164, !noalias !173
+  store i32 3, ptr %1, align 8, !alias.scope !164, !noalias !173
   br label %42
 
 42:                                               ; preds = %._crit_edge.split.us.i.i.i.i.i.i.i.i.i, %31

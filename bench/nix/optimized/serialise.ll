@@ -16360,14 +16360,14 @@ define internal void @_ZZN3nix12sourceToSinkESt8functionIFvRNS_6SourceEEEEN12Sou
   store i32 4, ptr %45, align 16
   %46 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
   store ptr null, ptr %46, align 8
-  store ptr null, ptr %spec.select.i.i, align 64, !noalias !57
+  store ptr null, ptr %29, align 64, !noalias !57
   %47 = invoke { ptr, ptr } @jump_fcontext(ptr noundef %43, ptr noundef null)
           to label %48 unwind label %56
 
 48:                                               ; preds = %.noexc5
   %49 = extractvalue { ptr, ptr } %47, 0
   %50 = load ptr, ptr %spec.select.i.i, align 64
-  store ptr %49, ptr %spec.select.i.i, align 64
+  store ptr %49, ptr %29, align 64
   %.not.i.i.i.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i.i.i.i, label %60, label %51
 
@@ -17789,14 +17789,14 @@ define internal noundef i64 @_ZZN3nix12sinkToSourceESt8functionIFvRNS_4SinkEEES0
   store i8 0, ptr %45, align 32
   %46 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 0, i64 32, i1 false)
-  store ptr null, ptr %spec.select.i.i, align 64, !noalias !82
+  store ptr null, ptr %27, align 64, !noalias !82
   %47 = invoke { ptr, ptr } @jump_fcontext(ptr noundef %41, ptr noundef null)
           to label %48 unwind label %58
 
 48:                                               ; preds = %.noexc9
   %49 = extractvalue { ptr, ptr } %47, 0
   %50 = load ptr, ptr %spec.select.i.i, align 64
-  store ptr %49, ptr %spec.select.i.i, align 64
+  store ptr %49, ptr %27, align 64
   %.not.i.i.i.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i.i.i.i, label %_ZN5boost7context5fiberD2Ev.exit.i.i.i, label %51
 

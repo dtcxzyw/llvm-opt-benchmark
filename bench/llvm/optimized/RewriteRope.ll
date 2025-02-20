@@ -236,7 +236,7 @@ _ZN4llvm9RopePieceD2Ev.exit.i.i:                  ; preds = %25, %22, %16
   br i1 %.not.i5.i, label %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5clearEv.exit.i, label %16, !llvm.loop !37
 
 _ZN12_GLOBAL__N_118RopePieceBTreeLeaf5clearEv.exit.i: ; preds = %_ZN4llvm9RopePieceD2Ev.exit.i.i, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf21removeFromLeafInOrderEv.exit.i
-  store i32 0, ptr %spec.select.i.i, align 8, !tbaa !27
+  store i32 0, ptr %0, align 8, !tbaa !27
   br label %28
 
 28:                                               ; preds = %_ZN4llvm9RopePieceD2Ev.exit.i, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5clearEv.exit.i
@@ -494,7 +494,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit.i: ; preds = %26
   %.neg.i = add i32 %24, %.val.i
   %32 = sub i32 %.neg.i, %14
   %33 = add i32 %32, %16
-  store i32 %33, ptr %spec.select.i.i, align 8, !tbaa !27
+  store i32 %33, ptr %0, align 8, !tbaa !27
   %34 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118RopePieceBTreeLeaf6insertEjRKN4llvm9RopePieceE(ptr noundef nonnull align 8 dereferenceable(280) %spec.select.i.i, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br i1 %.not.i.i.i, label %_ZN4llvm9RopePieceD2Ev.exit.i, label %35
 

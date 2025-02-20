@@ -115235,8 +115235,8 @@ define hidden noundef range(i8 0, 5) i8 @_ZN6hir_ty7display25hir_fmt_generic_arg
   br label %29
 
 29:                                               ; preds = %"_ZN102_$LT$chalk_ir..GenericArg$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17ha923d3b06bedaec1E.exit", %.loopexit
-  %.sroa.029.0 = phi ptr [ %.sroa.8.0, %.loopexit ], [ %.sroa.029.136.ph, %"_ZN102_$LT$chalk_ir..GenericArg$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17ha923d3b06bedaec1E.exit" ]
-  %.sroa.9.0 = phi ptr [ %1, %.loopexit ], [ %.sroa.9.1.ph, %"_ZN102_$LT$chalk_ir..GenericArg$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17ha923d3b06bedaec1E.exit" ]
+  %.sroa.029.0 = phi ptr [ %.sroa.8.0, %.loopexit ], [ %.sroa.029.138.ph, %"_ZN102_$LT$chalk_ir..GenericArg$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17ha923d3b06bedaec1E.exit" ]
+  %.sroa.831.0 = phi ptr [ %1, %.loopexit ], [ %.sroa.831.1.ph, %"_ZN102_$LT$chalk_ir..GenericArg$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17ha923d3b06bedaec1E.exit" ]
   %.021 = phi i1 [ true, %.loopexit ], [ false, %"_ZN102_$LT$chalk_ir..GenericArg$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17ha923d3b06bedaec1E.exit" ]
   %30 = icmp eq ptr %.sroa.029.0, null
   %31 = icmp eq ptr %.sroa.029.0, %17
@@ -115248,17 +115248,17 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hd5f8d6985e61c77aE.exit: ; pred
   br label %36
 
 select.unfold:                                    ; preds = %29
-  %33 = icmp eq ptr %.sroa.9.0, %18
+  %33 = icmp eq ptr %.sroa.831.0, %18
   br i1 %33, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h871af37af8eebb2fE.exit", label %34
 
 34:                                               ; preds = %select.unfold
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.9.0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.831.0, i64 16
   br label %36
 
 36:                                               ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17hd5f8d6985e61c77aE.exit, %34
-  %.sroa.029.136.ph = phi ptr [ %32, %_ZN4core4iter8adapters5chain17and_then_or_clear17hd5f8d6985e61c77aE.exit ], [ null, %34 ]
-  %.sroa.9.1.ph = phi ptr [ %.sroa.9.0, %_ZN4core4iter8adapters5chain17and_then_or_clear17hd5f8d6985e61c77aE.exit ], [ %35, %34 ]
-  %.0.i24.ph = phi ptr [ %.sroa.029.0, %_ZN4core4iter8adapters5chain17and_then_or_clear17hd5f8d6985e61c77aE.exit ], [ %.sroa.9.0, %34 ]
+  %.sroa.029.138.ph = phi ptr [ %32, %_ZN4core4iter8adapters5chain17and_then_or_clear17hd5f8d6985e61c77aE.exit ], [ null, %34 ]
+  %.sroa.831.1.ph = phi ptr [ %.sroa.831.0, %_ZN4core4iter8adapters5chain17and_then_or_clear17hd5f8d6985e61c77aE.exit ], [ %35, %34 ]
+  %.0.i24.ph = phi ptr [ %.sroa.029.0, %_ZN4core4iter8adapters5chain17and_then_or_clear17hd5f8d6985e61c77aE.exit ], [ %.sroa.831.0, %34 ]
   br i1 %.021, label %49, label %37
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h871af37af8eebb2fE.exit": ; preds = %"_ZN102_$LT$chalk_ir..GenericArg$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..display..HirDisplay$GT$7hir_fmt17ha923d3b06bedaec1E.exit", %select.unfold, %_ZN6hir_ty7display12HirFormatter9write_fmt17hfb91d0f0885e32a6E.exit.thread

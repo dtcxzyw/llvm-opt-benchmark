@@ -9853,29 +9853,28 @@ define hidden noundef nonnull ptr @_ZN4core4iter6traits8iterator8Iterator8try_fo
 define hidden noundef align 8 dereferenceable_or_null(8) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h155992efc5f09b87E.llvm.6977743830891006301(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !11
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %12, label %4
+  br i1 %3, label %11, label %4
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2753)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2756)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !alias.scope !2759, !nonnull !11, !noundef !11
-  %7 = load ptr, ptr %0, align 8, !alias.scope !2759, !nonnull !11, !noundef !11
-  %8 = icmp eq ptr %7, %6
-  br i1 %8, label %11, label %_ZN4core3ops8function6FnOnce9call_once17h8565f21863af5775E.exit
+  %7 = icmp eq ptr %2, %6
+  br i1 %7, label %10, label %_ZN4core3ops8function6FnOnce9call_once17h8565f21863af5775E.exit
 
 _ZN4core3ops8function6FnOnce9call_once17h8565f21863af5775E.exit: ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %9, ptr %0, align 8, !alias.scope !2759
-  %10 = tail call noundef align 8 dereferenceable(8) ptr @"_ZN84_$LT$syntax..ast..generated..nodes..GenericParam$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h91bcb0b23340d6b7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7), !noalias !2762
-  br label %12
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr %8, ptr %0, align 8, !alias.scope !2759
+  %9 = tail call noundef align 8 dereferenceable(8) ptr @"_ZN84_$LT$syntax..ast..generated..nodes..GenericParam$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h91bcb0b23340d6b7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2), !noalias !2762
+  br label %11
 
-11:                                               ; preds = %4
+10:                                               ; preds = %4
   store ptr null, ptr %0, align 8
-  br label %12
+  br label %11
 
-12:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17h8565f21863af5775E.exit, %11, %1
-  %.0 = phi ptr [ null, %1 ], [ %10, %_ZN4core3ops8function6FnOnce9call_once17h8565f21863af5775E.exit ], [ null, %11 ]
+11:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17h8565f21863af5775E.exit, %10, %1
+  %.0 = phi ptr [ null, %1 ], [ %9, %_ZN4core3ops8function6FnOnce9call_once17h8565f21863af5775E.exit ], [ null, %10 ]
   ret ptr %.0
 }
 

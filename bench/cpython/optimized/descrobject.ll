@@ -4188,7 +4188,7 @@ define internal range(i32 -2147483648, 1) i32 @property_init(ptr noundef %0, ptr
 
 43:                                               ; preds = %40
   %44 = add nuw i32 %41, 1
-  store i32 %44, ptr %spec.store.select.i, align 8, !tbaa !16
+  store i32 %44, ptr %.039, align 8, !tbaa !16
   br label %_Py_XNewRef.exit.i
 
 _Py_XNewRef.exit.i:                               ; preds = %43, %40, %34
@@ -4224,7 +4224,7 @@ Py_XDECREF.exit.i:                                ; preds = %50, %47, %45, %_Py_
 
 56:                                               ; preds = %53
   %57 = add nuw i32 %54, 1
-  store i32 %57, ptr %spec.store.select4.i, align 8, !tbaa !16
+  store i32 %57, ptr %.037, align 8, !tbaa !16
   br label %_Py_XNewRef.exit62.i
 
 _Py_XNewRef.exit62.i:                             ; preds = %56, %53, %Py_XDECREF.exit.i
@@ -4260,7 +4260,7 @@ Py_XDECREF.exit65.i:                              ; preds = %63, %60, %58, %_Py_
 
 69:                                               ; preds = %66
   %70 = add nuw i32 %67, 1
-  store i32 %70, ptr %spec.store.select2.i, align 8, !tbaa !16
+  store i32 %70, ptr %.036, align 8, !tbaa !16
   br label %_Py_XNewRef.exit67.i
 
 _Py_XNewRef.exit67.i:                             ; preds = %69, %66, %Py_XDECREF.exit65.i

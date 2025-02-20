@@ -12659,7 +12659,7 @@ _ZN12V3ScoreboardI14MergeCandidate17MergeCandidateKeyE6removeEPS0_.exit: ; preds
   br i1 %.not34.i.i88, label %110, label %111
 
 110:                                              ; preds = %109
-  store ptr null, ptr %99, align 8
+  store ptr null, ptr %98, align 8
   store ptr %107, ptr %101, align 8
   br label %_ZN11PairingHeapI17MergeCandidateKeyE6removeEPNS1_4NodeE.exit.i.sink.split
 
@@ -12667,7 +12667,7 @@ _ZN12V3ScoreboardI14MergeCandidate17MergeCandidateKeyE6removeEPS0_.exit: ; preds
   store ptr null, ptr %103, align 8
   %112 = call noundef ptr @_ZN11PairingHeapI17MergeCandidateKeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %104)
   %113 = load ptr, ptr %99, align 8
-  store ptr null, ptr %99, align 8
+  store ptr null, ptr %98, align 8
   store ptr %113, ptr %112, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
   store ptr %112, ptr %114, align 8
@@ -12685,19 +12685,19 @@ _ZN11PairingHeapI17MergeCandidateKeyE6removeEPNS1_4NodeE.exit.i.sink.split: ; pr
 _ZN11PairingHeapI17MergeCandidateKeyE6removeEPNS1_4NodeE.exit.i: ; preds = %_ZN11PairingHeapI17MergeCandidateKeyE6removeEPNS1_4NodeE.exit.i.sink.split, %108
   store ptr null, ptr %100, align 8
   %118 = load ptr, ptr %14, align 8
-  store ptr %118, ptr %99, align 8
+  store ptr %118, ptr %98, align 8
   %.not.i5.i = icmp eq ptr %118, null
   br i1 %.not.i5.i, label %_ZN12V3ScoreboardI14MergeCandidate17MergeCandidateKeyE10addUnknownEPS0_.exit.i, label %119
 
 119:                                              ; preds = %_ZN11PairingHeapI17MergeCandidateKeyE6removeEPNS1_4NodeE.exit.i
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 16
-  store ptr %99, ptr %120, align 8
+  store ptr %98, ptr %120, align 8
   br label %_ZN12V3ScoreboardI14MergeCandidate17MergeCandidateKeyE10addUnknownEPS0_.exit.i
 
 _ZN12V3ScoreboardI14MergeCandidate17MergeCandidateKeyE10addUnknownEPS0_.exit.i: ; preds = %119, %_ZN11PairingHeapI17MergeCandidateKeyE6removeEPNS1_4NodeE.exit.i
-  store ptr %99, ptr %14, align 8
+  store ptr %98, ptr %14, align 8
   store ptr %14, ptr %100, align 8
-  store ptr %99, ptr %103, align 8
+  store ptr %98, ptr %103, align 8
   br label %_ZN12V3ScoreboardI14MergeCandidate17MergeCandidateKeyE16hintScoreChangedEPS0_.exit
 
 _ZN12V3ScoreboardI14MergeCandidate17MergeCandidateKeyE16hintScoreChangedEPS0_.exit: ; preds = %_ZN12V3ScoreboardI14MergeCandidate17MergeCandidateKeyE10addUnknownEPS0_.exit.i, %102, %_ZN12V3ScoreboardI14MergeCandidate17MergeCandidateKeyE6removeEPS0_.exit, %_ZNK10LogicMTask16hasRelativeMTaskEPS_.exit
@@ -13113,7 +13113,7 @@ _ZN12V3ScoreboardI14MergeCandidate17MergeCandidateKeyE6removeEPS0_.exit121: ; pr
   br i1 %.not34.i.i123, label %295, label %296
 
 295:                                              ; preds = %294
-  store ptr null, ptr %284, align 8
+  store ptr null, ptr %283, align 8
   store ptr %292, ptr %286, align 8
   br label %_ZN11PairingHeapI17MergeCandidateKeyE6removeEPNS1_4NodeE.exit.i124.sink.split
 
@@ -13121,7 +13121,7 @@ _ZN12V3ScoreboardI14MergeCandidate17MergeCandidateKeyE6removeEPS0_.exit121: ; pr
   store ptr null, ptr %288, align 8
   %297 = call noundef ptr @_ZN11PairingHeapI17MergeCandidateKeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %289)
   %298 = load ptr, ptr %284, align 8
-  store ptr null, ptr %284, align 8
+  store ptr null, ptr %283, align 8
   store ptr %298, ptr %297, align 8
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 16
   store ptr %297, ptr %299, align 8
@@ -13139,19 +13139,19 @@ _ZN11PairingHeapI17MergeCandidateKeyE6removeEPNS1_4NodeE.exit.i124.sink.split: ;
 _ZN11PairingHeapI17MergeCandidateKeyE6removeEPNS1_4NodeE.exit.i124: ; preds = %_ZN11PairingHeapI17MergeCandidateKeyE6removeEPNS1_4NodeE.exit.i124.sink.split, %293
   store ptr null, ptr %285, align 8
   %303 = load ptr, ptr %19, align 8
-  store ptr %303, ptr %284, align 8
+  store ptr %303, ptr %283, align 8
   %.not.i5.i125 = icmp eq ptr %303, null
   br i1 %.not.i5.i125, label %_ZN12V3ScoreboardI14MergeCandidate17MergeCandidateKeyE10addUnknownEPS0_.exit.i126, label %304
 
 304:                                              ; preds = %_ZN11PairingHeapI17MergeCandidateKeyE6removeEPNS1_4NodeE.exit.i124
   %305 = getelementptr inbounds nuw i8, ptr %303, i64 16
-  store ptr %284, ptr %305, align 8
+  store ptr %283, ptr %305, align 8
   br label %_ZN12V3ScoreboardI14MergeCandidate17MergeCandidateKeyE10addUnknownEPS0_.exit.i126
 
 _ZN12V3ScoreboardI14MergeCandidate17MergeCandidateKeyE10addUnknownEPS0_.exit.i126: ; preds = %304, %_ZN11PairingHeapI17MergeCandidateKeyE6removeEPNS1_4NodeE.exit.i124
-  store ptr %284, ptr %19, align 8
+  store ptr %283, ptr %19, align 8
   store ptr %19, ptr %285, align 8
-  store ptr %284, ptr %288, align 8
+  store ptr %283, ptr %288, align 8
   br label %_ZN12V3ScoreboardI14MergeCandidate17MergeCandidateKeyE16hintScoreChangedEPS0_.exit128
 
 _ZN12V3ScoreboardI14MergeCandidate17MergeCandidateKeyE16hintScoreChangedEPS0_.exit128: ; preds = %_ZN12V3ScoreboardI14MergeCandidate17MergeCandidateKeyE10addUnknownEPS0_.exit.i126, %287, %_ZN12V3ScoreboardI14MergeCandidate17MergeCandidateKeyE6removeEPS0_.exit121, %_ZNK10LogicMTask16hasRelativeMTaskEPS_.exit115

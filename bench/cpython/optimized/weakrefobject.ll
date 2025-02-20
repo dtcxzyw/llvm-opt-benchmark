@@ -2667,7 +2667,7 @@ get_basic_refs.exit.i:                            ; preds = %.thread.thread.i.i,
 
 61:                                               ; preds = %58
   %62 = add nuw i32 %59, 1
-  store i32 %62, ptr %spec.store.select, align 8, !tbaa !42
+  store i32 %62, ptr %2, align 8, !tbaa !42
   br label %63
 
 63:                                               ; preds = %61, %58, %54
@@ -2802,7 +2802,7 @@ insert_after.exit.i:                              ; preds = %89, %85
 
 103:                                              ; preds = %100
   %104 = add nuw i32 %101, 1
-  store i32 %104, ptr %spec.store.select, align 8, !tbaa !42
+  store i32 %104, ptr %2, align 8, !tbaa !42
   br label %105
 
 105:                                              ; preds = %103, %100, %96

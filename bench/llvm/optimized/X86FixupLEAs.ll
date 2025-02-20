@@ -1876,7 +1876,7 @@ _ZN4llvm8DebugLocD2Ev.exit77.i:                   ; preds = %700, %_ZN4llvm10MIM
 703:                                              ; preds = %_ZN4llvm8DebugLocD2Ev.exit77.i
   %704 = load i32, ptr %spec.select178.i, align 8
   %705 = and i32 %704, -67108865
-  store i32 %705, ptr %spec.select178.i, align 8
+  store i32 %705, ptr %.1157.i, align 8
   br label %706
 
 706:                                              ; preds = %703, %_ZN4llvm8DebugLocD2Ev.exit77.i

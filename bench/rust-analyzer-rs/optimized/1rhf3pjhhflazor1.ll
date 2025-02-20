@@ -399,12 +399,12 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h47d8e1296ff1f34fE.exit.i.i.i: 
 "_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$either..Either$LT$syntax..ast..generated..nodes..Attr$C$syntax..ast..generated..tokens..Comment$GT$$GT$$GT$17h5ebb22e763672b9aE.exit.i.i.i.i": ; preds = %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h2c85c64c9eac156dE.llvm.18266587286026290509.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i"
   %82 = landingpad { ptr, i32 }
           cleanup
-  store i64 %65, ptr %..i.i.i.i.i, align 8, !alias.scope !130, !noalias !74
+  store i64 %65, ptr %56, align 8, !alias.scope !130, !noalias !74
   store ptr %67, ptr %64, align 8, !alias.scope !130, !noalias !74
   br label %common.resume.i.i.i
 
 "_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h1be251b9fc0a4132E.exit.i.i.i.i.i.i.i": ; preds = %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h2c85c64c9eac156dE.llvm.18266587286026290509.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i", %76, %70, %69, %69
-  store i64 %65, ptr %..i.i.i.i.i, align 8, !alias.scope !130, !noalias !74
+  store i64 %65, ptr %56, align 8, !alias.scope !130, !noalias !74
   store ptr %67, ptr %64, align 8, !alias.scope !130, !noalias !74
   %83 = call fastcc { i64, ptr } @_ZN4core4iter8adapters7flatten17and_then_or_clear17h29696ed02cb62cf7E(ptr noalias noundef nonnull align 8 dereferenceable(48) %..i.i.i.i.i), !noalias !74
   %84 = extractvalue { i64, ptr } %83, 0
@@ -904,7 +904,6 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h00f89eb0884ed76dE.exit: ; pred
   tail call void @llvm.experimental.noalias.scope.decl(metadata !190)
   %38 = load ptr, ptr %37, align 8, !alias.scope !192, !noalias !193, !noundef !15
   %39 = icmp eq ptr %38, null
-  %.0.i.i = select i1 %39, ptr null, ptr %37
   br i1 %39, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hb31d7a0043dae72fE.exit.thread.i", label %40
 
 40:                                               ; preds = %35
@@ -921,13 +920,13 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h00f89eb0884ed76dE.exit: ; pred
 
 44:                                               ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he7f30f8468625768E.exit.i.i.i.i.i.i.i", %40
   %45 = load ptr, ptr %42, align 8, !alias.scope !211, !noalias !214, !nonnull !15, !noundef !15
-  %46 = load ptr, ptr %.0.i.i, align 8, !alias.scope !211, !noalias !214, !nonnull !15, !noundef !15
+  %46 = load ptr, ptr %37, align 8, !alias.scope !211, !noalias !214, !nonnull !15, !noundef !15
   %47 = icmp eq ptr %46, %45
   br i1 %47, label %70, label %48
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  store ptr %49, ptr %.0.i.i, align 8, !alias.scope !211, !noalias !214
+  store ptr %49, ptr %37, align 8, !alias.scope !211, !noalias !214
   call void @llvm.experimental.noalias.scope.decl(metadata !216)
   %50 = load ptr, ptr %46, align 8, !alias.scope !216, !noalias !219, !nonnull !15, !noundef !15
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8

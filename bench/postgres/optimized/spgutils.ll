@@ -2007,7 +2007,7 @@ SpGistGetInnerTypeSize.exit:                      ; preds = %6, %14, %21, %32, %
   br i1 %75, label %76, label %77
 
 76:                                               ; preds = %70
-  store i64 %2, ptr %72, align 1
+  store i64 %2, ptr %71, align 1
   br label %memcpyInnerDatum.exit
 
 77:                                               ; preds = %70

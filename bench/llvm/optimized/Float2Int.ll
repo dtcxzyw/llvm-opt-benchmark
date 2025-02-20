@@ -5679,14 +5679,14 @@ _ZN4llvm18EquivalenceClassesIPNS_11InstructionESt4lessIS2_EE6insertERKS2_.exit31
   %84 = inttoptr i64 %83 to ptr
   store ptr %84, ptr %79, align 8, !tbaa !202
   %85 = load ptr, ptr %spec.select.i33, align 8, !tbaa !201
-  store ptr %85, ptr %spec.select.i11, align 8, !tbaa !201
+  store ptr %85, ptr %41, align 8, !tbaa !201
   %86 = getelementptr inbounds nuw i8, ptr %spec.select.i33, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !202
   %88 = ptrtoint ptr %87 to i64
   %89 = and i64 %88, -2
   %90 = inttoptr i64 %89 to ptr
   store ptr %90, ptr %86, align 8, !tbaa !202
-  store ptr %spec.select.i11, ptr %spec.select.i33, align 8, !tbaa !201
+  store ptr %spec.select.i11, ptr %70, align 8, !tbaa !201
   br label %_ZN4llvm18EquivalenceClassesIPNS_11InstructionESt4lessIS2_EE9unionSetsENS5_15member_iteratorES6_.exit
 
 _ZN4llvm18EquivalenceClassesIPNS_11InstructionESt4lessIS2_EE9unionSetsENS5_15member_iteratorES6_.exit: ; preds = %_ZN4llvm18EquivalenceClassesIPNS_11InstructionESt4lessIS2_EE6insertERKS2_.exit31, %76

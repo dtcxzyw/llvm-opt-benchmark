@@ -1990,8 +1990,8 @@ define internal fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$All
   br label %70
 
 70:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit.i", %59
-  %.sroa.026.0.i = phi ptr [ %60, %59 ], [ %.sroa.026.130.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit.i" ]
-  %.sroa.8.0.i = phi ptr [ %64, %59 ], [ %.sroa.8.1.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit.i" ]
+  %.sroa.026.0.i = phi ptr [ %60, %59 ], [ %.sroa.026.129.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit.i" ]
+  %.sroa.7.0.i = phi ptr [ %64, %59 ], [ %.sroa.7.1.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit.i" ]
   %71 = icmp eq ptr %.sroa.026.0.i, null
   %72 = icmp eq ptr %.sroa.026.0.i, %67
   %or.cond.i = select i1 %71, i1 true, i1 %72
@@ -2002,31 +2002,31 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h4dade25e7b617271E.exit.i: ; pr
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h53e0d3d13d6e8fb0E.exit.i"
 
 select.unfold.i:                                  ; preds = %70
-  %74 = icmp eq ptr %.sroa.8.0.i, %68
+  %74 = icmp eq ptr %.sroa.7.0.i, %68
   br i1 %74, label %.preheader.i, label %75
 
 75:                                               ; preds = %select.unfold.i
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.8.0.i, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.7.0.i, i64 1
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h53e0d3d13d6e8fb0E.exit.i"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h53e0d3d13d6e8fb0E.exit.i": ; preds = %75, %_ZN4core4iter8adapters5chain17and_then_or_clear17h4dade25e7b617271E.exit.i
-  %.sroa.026.130.i = phi ptr [ null, %75 ], [ %73, %_ZN4core4iter8adapters5chain17and_then_or_clear17h4dade25e7b617271E.exit.i ]
-  %.sroa.8.1.i = phi ptr [ %76, %75 ], [ %.sroa.8.0.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17h4dade25e7b617271E.exit.i ]
-  %.0.i25.i = phi ptr [ %.sroa.8.0.i, %75 ], [ %.sroa.026.0.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17h4dade25e7b617271E.exit.i ]
+  %.sroa.026.129.i = phi ptr [ null, %75 ], [ %73, %_ZN4core4iter8adapters5chain17and_then_or_clear17h4dade25e7b617271E.exit.i ]
+  %.sroa.7.1.i = phi ptr [ %76, %75 ], [ %.sroa.7.0.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17h4dade25e7b617271E.exit.i ]
+  %.0.i25.i = phi ptr [ %.sroa.7.0.i, %75 ], [ %.sroa.026.0.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17h4dade25e7b617271E.exit.i ]
   br label %83
 
 .preheader.i:                                     ; preds = %select.unfold.i, %.preheader.i
-  %.sroa.08.042.i = phi i64 [ %77, %.preheader.i ], [ 0, %select.unfold.i ]
-  %77 = add nuw nsw i64 %.sroa.08.042.i, 1
-  %78 = getelementptr inbounds nuw [8 x { { { { { { ptr, i64 } }, {} }, {} } }, double }], ptr %2, i64 0, i64 %.sroa.08.042.i
+  %.sroa.08.041.i = phi i64 [ %77, %.preheader.i ], [ 0, %select.unfold.i ]
+  %77 = add nuw nsw i64 %.sroa.08.041.i, 1
+  %78 = getelementptr inbounds nuw [8 x { { { { { { ptr, i64 } }, {} }, {} } }, double }], ptr %2, i64 0, i64 %.sroa.08.041.i
   %.val.i = load ptr, ptr %78, align 8, !alias.scope !205, !noalias !213, !nonnull !13, !align !16, !noundef !13
   %79 = getelementptr i8, ptr %78, i64 8
   %.val24.i = load i64, ptr %79, align 8, !alias.scope !205, !noalias !213, !noundef !13
   %80 = tail call noundef double @_ZN6brotli3enc11find_stride11HuffmanCost17hc6669c9715c4ca6eE(ptr noalias noundef nonnull readonly align 4 %.val.i, i64 noundef %.val24.i), !noalias !205
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 16
   store double %80, ptr %81, align 8, !alias.scope !205, !noalias !213
-  %exitcond46.not.i = icmp eq i64 %77, 8
-  br i1 %exitcond46.not.i, label %"_ZN6brotli3enc11find_stride28EntropyTally$LT$AllocU32$GT$20observe_input_stream17h580734410e801029E.exit", label %.preheader.i
+  %exitcond45.not.i = icmp eq i64 %77, 8
+  br i1 %exitcond45.not.i, label %"_ZN6brotli3enc11find_stride28EntropyTally$LT$AllocU32$GT$20observe_input_stream17h580734410e801029E.exit", label %.preheader.i
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit.i": ; preds = %95
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %69, ptr noundef nonnull align 8 dereferenceable(7) %7, i64 7, i1 false), !noalias !212
@@ -2035,11 +2035,11 @@ select.unfold.i:                                  ; preds = %70
   br label %70
 
 83:                                               ; preds = %95, %"_ZN4core6option15Option$LT$T$GT$7or_else17h53e0d3d13d6e8fb0E.exit.i"
-  %.sroa.04.041.i = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h53e0d3d13d6e8fb0E.exit.i" ], [ %97, %95 ]
-  %84 = getelementptr inbounds nuw [8 x { { { { { { ptr, i64 } }, {} }, {} } }, double }], ptr %2, i64 0, i64 %.sroa.04.041.i
+  %.sroa.04.040.i = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h53e0d3d13d6e8fb0E.exit.i" ], [ %97, %95 ]
+  %84 = getelementptr inbounds nuw [8 x { { { { { { ptr, i64 } }, {} }, {} } }, double }], ptr %2, i64 0, i64 %.sroa.04.040.i
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load i64, ptr %85, align 8, !alias.scope !214, !noalias !213, !noundef !13
-  %87 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 0, i64 %.sroa.04.041.i
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 0, i64 %.sroa.04.040.i
   %88 = load i8, ptr %87, align 1, !noalias !212, !noundef !13
   %89 = zext i8 %88 to i64
   %90 = shl nuw nsw i64 %89, 8
@@ -2051,7 +2051,7 @@ select.unfold.i:                                  ; preds = %70
 
 95:                                               ; preds = %83
   %96 = load ptr, ptr %84, align 8, !alias.scope !214, !noalias !213, !nonnull !13, !align !16, !noundef !13
-  %97 = add nuw nsw i64 %.sroa.04.041.i, 1
+  %97 = add nuw nsw i64 %.sroa.04.040.i, 1
   %98 = getelementptr inbounds nuw [0 x i32], ptr %96, i64 0, i64 %93
   %99 = load i32, ptr %98, align 4, !noalias !205, !noundef !13
   %100 = add i32 %99, 1

@@ -35795,12 +35795,11 @@ if.end9:                                          ; preds = %land.lhs.true, %_ZN
   %or = or disjoint i32 %flags, 1048576
   %8 = and i1 %tobool5.not, %tobool10.not
   %flags.addr.0 = select i1 %8, i32 %or, i32 %flags
-  %p_open.addr.0 = select i1 %tobool10.not, ptr %p_open, ptr null
   %cmp.not.i = icmp ne i32 %retval.0.i, 0
   %.pr.pre = load i32, ptr %tab_bar, align 8
   %cmp110.i = icmp sgt i32 %.pr.pre, 0
-  %or.cond239 = select i1 %cmp.not.i, i1 %cmp110.i, i1 false
-  br i1 %or.cond239, label %for.body.lr.ph.i, label %if.then17
+  %or.cond240 = select i1 %cmp.not.i, i1 %cmp110.i, i1 false
+  br i1 %or.cond240, label %for.body.lr.ph.i, label %if.then17
 
 for.body.lr.ph.i:                                 ; preds = %if.end9
   %Data.i.i = getelementptr inbounds nuw i8, ptr %tab_bar, i64 8
@@ -35910,7 +35909,8 @@ if.end21:                                         ; preds = %for.body.i, %_ZN8Im
   %conv = trunc i64 %sub.ptr.div.i to i16
   %LastTabItemIdx = getelementptr inbounds nuw i8, ptr %tab_bar, i64 120
   store i16 %conv, ptr %LastTabItemIdx, align 8
-  %cmp24 = icmp ne ptr %p_open.addr.0, null
+  %cmp24226 = icmp ne ptr %p_open, null
+  %cmp24 = and i1 %cmp24226, %tobool10.not
   %and25 = and i32 %flags.addr.0, 1
   %tobool26 = icmp ne i32 %and25, 0
   %22 = select i1 %cmp24, i1 true, i1 %tobool26
@@ -36179,10 +36179,10 @@ land.rhs163:                                      ; preds = %if.end157
   %58 = load float, ptr %ScrollingRectMinX, align 4
   %cmp166 = fcmp olt float %add.i187.sink, %58
   %ScrollingRectMaxX183.phi.trans.insert = getelementptr inbounds nuw i8, ptr %tab_bar, i64 96
-  %.pre228 = load float, ptr %ScrollingRectMaxX183.phi.trans.insert, align 8
-  %cmp169 = fcmp ogt float %add.i191, %.pre228
-  %or.cond240 = select i1 %cmp166, i1 true, i1 %cmp169
-  br i1 %or.cond240, label %if.then174, label %if.end186
+  %.pre229 = load float, ptr %ScrollingRectMaxX183.phi.trans.insert, align 8
+  %cmp169 = fcmp ogt float %add.i191, %.pre229
+  %or.cond241 = select i1 %cmp166, i1 true, i1 %cmp169
+  br i1 %or.cond241, label %if.then174, label %if.end186
 
 if.then174:                                       ; preds = %land.rhs163
   %cmp.i195 = fcmp oge float %add.i187.sink, %58
@@ -36193,21 +36193,21 @@ if.then174:                                       ; preds = %land.rhs163
   %y.i197 = getelementptr inbounds nuw i8, ptr %ref.tmp175, i64 4
   store float %sub181, ptr %y.i197, align 4
   %y185 = getelementptr inbounds nuw i8, ptr %bb, i64 12
-  store float %.pre228, ptr %ref.tmp182, align 4
+  store float %.pre229, ptr %ref.tmp182, align 4
   %y.i198 = getelementptr inbounds nuw i8, ptr %ref.tmp182, i64 4
   store float %add3.i192, ptr %y.i198, align 4
   call void @_ZN5ImGui12PushClipRectERK6ImVec2S2_b(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp175, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp182, i1 noundef zeroext true)
-  %.pre229 = load float, ptr %Max.i, align 8
-  %.pre230 = load float, ptr %bb, align 8
-  %.pre231 = load float, ptr %y185, align 4
-  %.pre232 = load float, ptr %y, align 4
+  %.pre230 = load float, ptr %Max.i, align 8
+  %.pre231 = load float, ptr %bb, align 8
+  %.pre232 = load float, ptr %y185, align 4
+  %.pre233 = load float, ptr %y, align 4
   br label %if.end186
 
 if.end186:                                        ; preds = %land.rhs163, %if.end157, %if.then174
-  %59 = phi float [ %.pre232, %if.then174 ], [ %add3.i188, %if.end157 ], [ %add3.i188, %land.rhs163 ]
-  %60 = phi float [ %.pre231, %if.then174 ], [ %add3.i192, %if.end157 ], [ %add3.i192, %land.rhs163 ]
-  %61 = phi float [ %.pre230, %if.then174 ], [ %add.i187.sink, %if.end157 ], [ %add.i187.sink, %land.rhs163 ]
-  %62 = phi float [ %.pre229, %if.then174 ], [ %add.i191, %if.end157 ], [ %add.i191, %land.rhs163 ]
+  %59 = phi float [ %.pre233, %if.then174 ], [ %add3.i188, %if.end157 ], [ %add3.i188, %land.rhs163 ]
+  %60 = phi float [ %.pre232, %if.then174 ], [ %add3.i192, %if.end157 ], [ %add3.i192, %land.rhs163 ]
+  %61 = phi float [ %.pre231, %if.then174 ], [ %add.i187.sink, %if.end157 ], [ %add.i187.sink, %land.rhs163 ]
+  %62 = phi float [ %.pre230, %if.then174 ], [ %add.i191, %if.end157 ], [ %add.i191, %land.rhs163 ]
   %63 = phi i1 [ true, %if.then174 ], [ false, %if.end157 ], [ false, %land.rhs163 ]
   %CursorMaxPos = getelementptr inbounds nuw i8, ptr %2, i64 296
   %64 = load i64, ptr %CursorMaxPos, align 8
@@ -36371,7 +36371,7 @@ cond.end294:                                      ; preds = %if.end283, %cond.tr
   br i1 %or.cond, label %if.then308, label %if.end309
 
 if.then308:                                       ; preds = %cond.end294
-  store i8 0, ptr %p_open.addr.0, align 1
+  store i8 0, ptr %p_open, align 1
   %85 = load i32, ptr %Flags62, align 4
   %and.i205 = and i32 %85, 2097152
   %tobool.not.i206 = icmp eq i32 %and.i205, 0

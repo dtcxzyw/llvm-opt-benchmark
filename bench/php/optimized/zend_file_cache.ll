@@ -3752,7 +3752,7 @@ define internal void @zend_file_cache_serialize_class(ptr noundef captures(none)
 
 .sink.split1347:                                  ; preds = %668, %691
   %.sink1348 = phi ptr [ %695, %691 ], [ %669, %668 ]
-  store ptr %.sink1348, ptr %spec.select1252, align 8, !tbaa !189
+  store ptr %.sink1348, ptr %658, align 8, !tbaa !189
   br label %696
 
 696:                                              ; preds = %.sink.split1347, %652
@@ -4069,7 +4069,7 @@ define internal void @zend_file_cache_serialize_class(ptr noundef captures(none)
 
 .sink.split1353:                                  ; preds = %840, %863
   %.sink1354 = phi ptr [ %867, %863 ], [ %841, %840 ]
-  store ptr %.sink1354, ptr %spec.select1254, align 8, !tbaa !197
+  store ptr %.sink1354, ptr %830, align 8, !tbaa !197
   br label %868
 
 868:                                              ; preds = %.sink.split1353, %824

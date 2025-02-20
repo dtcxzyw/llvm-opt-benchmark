@@ -6264,7 +6264,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_switch_stmt(ptr noundef 
   %69 = load ptr, ptr @type_typeid, align 8
   tail call void @expr_rewrite_to_builtin_access(ptr noundef nonnull %33, ptr noundef nonnull %.0, i32 noundef 2, ptr noundef %69) #9
   %70 = load ptr, ptr @type_typeid, align 8
-  store ptr %70, ptr %17, align 8
+  store ptr %70, ptr %16, align 8
   br label %73
 
 71:                                               ; preds = %2

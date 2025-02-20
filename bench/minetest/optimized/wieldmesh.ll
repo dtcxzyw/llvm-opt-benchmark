@@ -7550,7 +7550,7 @@ _ZNSt6vectorIN3irr4core8vector3dIfEESaIS3_EE6resizeEm.exit: ; preds = %_ZSt27__u
   %13 = fmul nsz <2 x float> %12, splat (float 5.000000e-01)
   %14 = fsub nsz <2 x float> %13, %11
   %15 = fadd nsz <2 x float> %13, %14
-  store <2 x float> %15, ptr %spec.select.i, align 4, !tbaa !17
+  store <2 x float> %15, ptr %6, align 4, !tbaa !17
   %Z.i129.i = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
   store float %add8.i, ptr %Z.i129.i, align 4, !tbaa !19
   %arrayidx10.i = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 12

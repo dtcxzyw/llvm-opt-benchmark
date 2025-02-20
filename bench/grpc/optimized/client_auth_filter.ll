@@ -3642,7 +3642,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %sw.bb.i.i.i.i.i
   %destroy.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %destroy.i.i.i.i.i.i.i.i, align 8, !noalias !74
   invoke void %12(ptr noundef nonnull %arg.i.i.i.i.i.i.i)
-          to label %_ZN9grpc_core8DestructINS_14promise_detail11PromiseLikeINS_12ArenaPromiseIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEEvEEEEvPT_.exit.cont.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i, !noalias !74
+          to label %_ZN9grpc_core8DestructINS_14promise_detail11PromiseLikeINS_12ArenaPromiseIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEEvEEEEvPT_.exit.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i, !noalias !74
 
 terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i.i.i
   %13 = landingpad { ptr, i32 }
@@ -3651,11 +3651,11 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i
   call void @__clang_call_terminate(ptr %14) #26, !noalias !74
   unreachable
 
-_ZN9grpc_core8DestructINS_14promise_detail11PromiseLikeINS_12ArenaPromiseIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEEvEEEEvPT_.exit.cont.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i
+_ZN9grpc_core8DestructINS_14promise_detail11PromiseLikeINS_12ArenaPromiseIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEEvEEEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %7, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.bb13.i.thread.i.i.i.i, label %cleanup.thread.i.i.i.i.i
 
-sw.bb13.i.thread.i.i.i.i:                         ; preds = %_ZN9grpc_core8DestructINS_14promise_detail11PromiseLikeINS_12ArenaPromiseIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEEvEEEEvPT_.exit.cont.i.i.i.i.i
+sw.bb13.i.thread.i.i.i.i:                         ; preds = %_ZN9grpc_core8DestructINS_14promise_detail11PromiseLikeINS_12ArenaPromiseIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEEvEEEEvPT_.exit.i.i.i.i.i
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %9, ptr %15, align 1, !noalias !74
   store i64 %10, ptr %arg.i.i.i.i.i.i.i, align 8, !noalias !74
@@ -3665,7 +3665,7 @@ sw.bb13.i.thread.i.i.i.i:                         ; preds = %_ZN9grpc_core8Destr
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !92
   br label %"_ZN9grpc_core14promise_detail7CurriedIZNS_16ClientAuthFilter20GetCallCredsMetadataENS_8CallArgsEE3$_0N4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEclEv.exit.thread.i.i.i.i.i.i"
 
-cleanup.thread.i.i.i.i.i:                         ; preds = %_ZN9grpc_core8DestructINS_14promise_detail11PromiseLikeINS_12ArenaPromiseIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEEvEEEEvPT_.exit.cont.i.i.i.i.i
+cleanup.thread.i.i.i.i.i:                         ; preds = %_ZN9grpc_core8DestructINS_14promise_detail11PromiseLikeINS_12ArenaPromiseIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEEvEEEEvPT_.exit.i.i.i.i.i
   store i64 %7, ptr %0, align 8, !noalias !74
   store i8 1, ptr %state.i.i.i.i.i, align 16, !noalias !74
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i23.i.i.i.i.i), !noalias !74

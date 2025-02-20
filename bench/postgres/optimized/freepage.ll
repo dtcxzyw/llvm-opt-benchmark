@@ -1793,7 +1793,7 @@ FreePageBtreeGetRecycled.exit.i:                  ; preds = %.split.i.i, %FreePa
   %497 = add i32 %496, -1
   store i32 %497, ptr %434, align 4
   %498 = load i32, ptr %.0234, align 8
-  store i32 %498, ptr %484, align 8
+  store i32 %498, ptr %483, align 8
   %499 = getelementptr inbounds nuw i8, ptr %.0234, i64 8
   %500 = load i64, ptr %499, align 8
   %501 = lshr i64 %500, 1
@@ -2121,7 +2121,7 @@ FreePageBtreeGetRecycled.exit360:                 ; preds = %644, %.split.i357
   %665 = load i32, ptr %434, align 4
   %666 = add i32 %665, -1
   store i32 %666, ptr %434, align 4
-  store i32 430584521, ptr %653, align 8
+  store i32 430584521, ptr %652, align 8
   %667 = getelementptr inbounds nuw i8, ptr %653, i64 8
   store i64 2, ptr %667, align 8
   %668 = getelementptr inbounds nuw i8, ptr %653, i64 16

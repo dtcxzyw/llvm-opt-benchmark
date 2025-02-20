@@ -25758,7 +25758,7 @@ _ZSt4nextIN5clang11DeclContext22specific_decl_iteratorINS0_9FieldDeclEEEET_S5_NS
 180:                                              ; preds = %_ZSt4nextIN5clang11DeclContext22specific_decl_iteratorINS0_9FieldDeclEEEET_S5_NSt15iterator_traitsIS5_E15difference_typeE.exit90
   %181 = load i32, ptr %.0.i.i, align 4, !tbaa !784
   %182 = add i32 %181, 1
-  store i32 %182, ptr %.0.i.i, align 4, !tbaa !784
+  store i32 %182, ptr %50, align 4, !tbaa !784
   br label %190
 
 183:                                              ; preds = %_ZSt4nextIN5clang11DeclContext22specific_decl_iteratorINS0_9FieldDeclEEEET_S5_NSt15iterator_traitsIS5_E15difference_typeE.exit90

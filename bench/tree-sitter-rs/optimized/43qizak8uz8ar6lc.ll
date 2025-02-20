@@ -959,7 +959,7 @@ define hidden { i64, i8 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i.i.i, label %21
 
 .loopexit.i.i.i.i.i.i.i:                          ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h537ca8e46cd9e58cE.exit.i.i.i.i.i.i.i.i.i.i.i.i", %14
-  store ptr null, ptr %.0.i.i.i.i, align 8, !alias.scope !205, !noalias !206
+  store ptr null, ptr %10, align 8, !alias.scope !205, !noalias !206
   br label %47
 
 _ZN4core4iter8adapters5chain17and_then_or_clear17h5a977efe23e4feffE.exit.i.i.i.i.i.i: ; preds = %43
@@ -1050,7 +1050,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h5a977efe23e4feffE.exit.i.i.i.i
   br label %_ZN4core4iter8adapters5chain17and_then_or_clear17h6557e462dc518432E.exit.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h13e794610c187e5aE.exit.i.i.i.i.i.i.i.i.i.i.i.i", %51, %47
-  store i64 0, ptr %..i, align 8, !alias.scope !283, !noalias !284
+  store i64 0, ptr %0, align 8, !alias.scope !283, !noalias !284
   br label %84
 
 _ZN4core4iter8adapters5chain17and_then_or_clear17h6557e462dc518432E.exit.i.i.i: ; preds = %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h13133c61911464d2E.exit.i.i.i.i.i.i.i.i.i", %_ZN4core4iter8adapters5chain17and_then_or_clear17h5a977efe23e4feffE.exit.i.i.i.i.i.i
@@ -1235,7 +1235,7 @@ define hidden { i64, i8 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i.i.i, label %21
 
 .loopexit.i.i.i.i.i.i.i:                          ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hac048431fc5990bdE.exit.i.i.i.i.i.i.i.i.i.i.i.i", %14
-  store ptr null, ptr %.0.i.i.i.i, align 8, !alias.scope !357, !noalias !358
+  store ptr null, ptr %10, align 8, !alias.scope !357, !noalias !358
   br label %47
 
 _ZN4core4iter8adapters5chain17and_then_or_clear17hc2c85acfe796593cE.exit.i.i.i.i.i.i: ; preds = %43
@@ -1326,7 +1326,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hc2c85acfe796593cE.exit.i.i.i.i
   br label %_ZN4core4iter8adapters5chain17and_then_or_clear17h58fe394ae23fe23fE.exit.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h78dfc0f5a685a6ceE.exit.i.i.i.i.i.i.i.i.i.i.i.i", %51, %47
-  store i64 0, ptr %..i, align 8, !alias.scope !435, !noalias !436
+  store i64 0, ptr %0, align 8, !alias.scope !435, !noalias !436
   br label %84
 
 _ZN4core4iter8adapters5chain17and_then_or_clear17h58fe394ae23fe23fE.exit.i.i.i: ; preds = %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h4de8df5aa97560c6E.exit.i.i.i.i.i.i.i.i.i", %_ZN4core4iter8adapters5chain17and_then_or_clear17hc2c85acfe796593cE.exit.i.i.i.i.i.i

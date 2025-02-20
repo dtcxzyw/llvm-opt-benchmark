@@ -705,7 +705,7 @@ if.then167:                                       ; preds = %if.end155, %if.end1
 
 if.then169:                                       ; preds = %if.then167
   %incdec.ptr170 = getelementptr inbounds nuw i8, ptr %dest.addr.5, i64 2
-  store i16 %uc.1194, ptr %dest.addr.5, align 2
+  store i16 %uc.1194, ptr %add.ptr142, align 2
   br label %if.end171
 
 if.end171:                                        ; preds = %if.then169, %if.then167
@@ -802,7 +802,7 @@ if.then237:                                       ; preds = %if.end225, %if.end2
 
 if.then239:                                       ; preds = %if.then237
   %incdec.ptr240 = getelementptr inbounds nuw i8, ptr %dest.addr.9, i64 2
-  store i16 %uc.3200, ptr %dest.addr.9, align 2
+  store i16 %uc.3200, ptr %add.ptr210, align 2
   br label %if.end241
 
 if.end241:                                        ; preds = %if.then239, %if.then237
@@ -932,7 +932,7 @@ if.then320:                                       ; preds = %if.end305
 
 if.then322:                                       ; preds = %if.then320
   %incdec.ptr323 = getelementptr inbounds nuw i8, ptr %dest.addr.17, i64 2
-  store i16 8206, ptr %dest.addr.17, align 2
+  store i16 8206, ptr %add.ptr313, align 2
   br label %if.end324
 
 if.end324:                                        ; preds = %if.then322, %if.then320
@@ -991,7 +991,7 @@ if.then358:                                       ; preds = %if.end341
 
 if.then360:                                       ; preds = %if.then358
   %incdec.ptr361 = getelementptr inbounds nuw i8, ptr %dest.addr.22, i64 2
-  store i16 8207, ptr %dest.addr.22, align 2
+  store i16 8207, ptr %add.ptr346, align 2
   br label %if.end362
 
 if.end362:                                        ; preds = %if.then360, %if.then358

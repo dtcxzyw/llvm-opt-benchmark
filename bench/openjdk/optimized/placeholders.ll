@@ -802,7 +802,7 @@ _ZN16PlaceholderTable9get_entryEP6SymbolP15ClassLoaderData.exit: ; preds = %37, 
 
 54:                                               ; preds = %_ZN16PlaceholderTable9get_entryEP6SymbolP15ClassLoaderData.exit
   %55 = load ptr, ptr %.0.i.i, align 8
-  store ptr null, ptr %.0.i.i, align 8
+  store ptr null, ptr %49, align 8
   %.not.i.i2.i = icmp eq ptr %55, null
   br i1 %.not.i.i2.i, label %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit.thread16, label %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit
 
@@ -813,19 +813,19 @@ _ZN16PlaceholderEntry13set_supernameEP6Symbol.exit: ; preds = %54
   br i1 %56, label %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit.thread16, label %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit.thread
 
 _ZN16PlaceholderEntry13set_supernameEP6Symbol.exit.thread16: ; preds = %54, %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit
-  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %48, i64 56
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit.thread
 
 60:                                               ; preds = %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit.thread16
-  %61 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %48, i64 64
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
   br i1 %63, label %64, label %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit.thread
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, null
   br i1 %67, label %68, label %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit.thread

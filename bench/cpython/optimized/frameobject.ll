@@ -4606,7 +4606,7 @@ define internal i32 @frame_settrace(ptr noundef %0, ptr noundef %1, ptr readnone
 
 11:                                               ; preds = %8
   %12 = add nuw i32 %9, 1
-  store i32 %12, ptr %spec.store.select, align 8, !tbaa !9
+  store i32 %12, ptr %1, align 8, !tbaa !9
   br label %_Py_XNewRef.exit
 
 _Py_XNewRef.exit:                                 ; preds = %7, %8, %11

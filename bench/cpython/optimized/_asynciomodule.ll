@@ -2103,7 +2103,7 @@ define internal noundef nonnull ptr @_asyncio__set_running_loop(ptr readnone cap
 
 10:                                               ; preds = %7
   %11 = add nuw i32 %8, 1
-  store i32 %11, ptr %spec.store.select, align 8, !tbaa !36
+  store i32 %11, ptr %1, align 8, !tbaa !36
   br label %_Py_XNewRef.exit
 
 _Py_XNewRef.exit:                                 ; preds = %2, %7, %10

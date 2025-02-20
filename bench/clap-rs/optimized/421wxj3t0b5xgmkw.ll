@@ -2717,23 +2717,23 @@ define { ptr, i64 } @"_ZN112_$LT$clap_builder..parser..matches..arg_matches..Raw
   tail call void @llvm.experimental.noalias.scope.decl(metadata !744)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.promoted.i.i.i = load ptr, ptr %3, align 8, !alias.scope !747
-  %.promoted19.i.i.i = load ptr, ptr %2, align 8, !alias.scope !747
+  %.promoted17.i.i.i = load ptr, ptr %2, align 8, !alias.scope !747
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !alias.scope !747, !nonnull !18
-  %.promoted20.i.i.i = load ptr, ptr %4, align 8, !alias.scope !747
+  %.promoted18.i.i.i = load ptr, ptr %4, align 8, !alias.scope !747
   br label %7
 
 7:                                                ; preds = %23, %1
-  %8 = phi ptr [ %27, %23 ], [ %.promoted20.i.i.i, %1 ]
-  %9 = phi ptr [ %24, %23 ], [ %.promoted19.i.i.i, %1 ]
-  %.sink.i18.i.i.i = phi ptr [ %.val.i.i.i, %23 ], [ %.promoted.i.i.i, %1 ]
-  %10 = icmp eq ptr %.sink.i18.i.i.i, null
+  %8 = phi ptr [ %27, %23 ], [ %.promoted18.i.i.i, %1 ]
+  %9 = phi ptr [ %24, %23 ], [ %.promoted17.i.i.i, %1 ]
+  %.sink.i16.i.i.i = phi ptr [ %.val.i.i.i, %23 ], [ %.promoted.i.i.i, %1 ]
+  %10 = icmp eq ptr %.sink.i16.i.i.i, null
   br i1 %10, label %select.unfold.i.i.i, label %.sink.split.i.i.i.i
 
 .sink.split.i.i.i.i:                              ; preds = %7
-  %11 = icmp eq ptr %.sink.i18.i.i.i, %8
-  %12 = getelementptr inbounds nuw i8, ptr %.sink.i18.i.i.i, i64 24
+  %11 = icmp eq ptr %.sink.i16.i.i.i, %8
+  %12 = getelementptr inbounds nuw i8, ptr %.sink.i16.i.i.i, i64 24
   %.sink.i.i.i.i = select i1 %11, ptr null, ptr %12
   store ptr %.sink.i.i.i.i, ptr %3, align 8, !alias.scope !748
   br i1 %11, label %select.unfold.i.i.i, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca3b6de98342724dE.exit"
@@ -2741,8 +2741,8 @@ define { ptr, i64 } @"_ZN112_$LT$clap_builder..parser..matches..arg_matches..Raw
 select.unfold.i.i.i:                              ; preds = %.sink.split.i.i.i.i, %7
   %13 = icmp eq ptr %9, null
   %14 = icmp eq ptr %9, %6
-  %or.cond.i.i.i = select i1 %13, i1 true, i1 %14
-  br i1 %or.cond.i.i.i, label %15, label %23
+  %or.cond.i.i.i.i = select i1 %13, i1 true, i1 %14
+  br i1 %or.cond.i.i.i.i, label %15, label %23
 
 15:                                               ; preds = %select.unfold.i.i.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2772,7 +2772,7 @@ select.unfold.i.i.i:                              ; preds = %.sink.split.i.i.i.i
   br label %7
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca3b6de98342724dE.exit": ; preds = %.sink.split.i.i.i.i, %.sink.split.i7.i.i.i
-  %.0.i.i.i = phi ptr [ %17, %.sink.split.i7.i.i.i ], [ %.sink.i18.i.i.i, %.sink.split.i.i.i.i ]
+  %.0.i.i.i = phi ptr [ %17, %.sink.split.i7.i.i.i ], [ %.sink.i16.i.i.i, %.sink.split.i.i.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !764)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !767)
   %28 = load ptr, ptr %0, align 8, !alias.scope !770, !noalias !771, !nonnull !18, !noundef !18

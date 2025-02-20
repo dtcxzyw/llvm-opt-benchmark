@@ -2443,7 +2443,7 @@ _ZL14isAnyArm64COFFRN4llvm6object12SymbolicFileE.exit.i: ; preds = %_ZN4llvm8Exp
 
 .loopexit177.sink.split.i:                        ; preds = %329, %250
   %.sink.i = phi i8 [ %.sroa.073.0.extract.trunc.i, %250 ], [ 1, %329 ]
-  store i8 %.sink.i, ptr %., align 8, !tbaa !154, !noalias !170
+  store i8 %.sink.i, ptr %78, align 8, !tbaa !154, !noalias !170
   br label %.loopexit177.i
 
 .loopexit177.i:                                   ; preds = %331, %.loopexit177.sink.split.i, %.preheader.i, %.critedge.i

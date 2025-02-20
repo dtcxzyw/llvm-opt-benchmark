@@ -430,7 +430,7 @@ common.resume:                                    ; preds = %74, %43, %22, %84
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  store ptr %36, ptr %.0.i, align 8, !alias.scope !147, !noalias !150
+  store ptr %36, ptr %1, align 8, !alias.scope !147, !noalias !150
   call void @llvm.experimental.noalias.scope.decl(metadata !154)
   %37 = load ptr, ptr %33, align 8, !alias.scope !154, !noalias !157, !nonnull !23, !noundef !23
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8

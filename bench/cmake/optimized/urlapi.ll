@@ -3226,7 +3226,7 @@ define internal fastcc i32 @concat_url(ptr noundef %0, ptr noundef nonnull %1, p
   br i1 %.not94, label %.loopexit, label %.lr.ph111, !llvm.loop !43
 
 41:                                               ; preds = %.lr.ph111
-  store i8 0, ptr %.165, align 1, !tbaa !4
+  store i8 0, ptr %19, align 1, !tbaa !4
   br label %.loopexit
 
 42:                                               ; preds = %3
