@@ -402,7 +402,7 @@ Abc_Clock.exit115:                                ; preds = %170, %173
 
 184:                                              ; preds = %Abc_Clock.exit115, %Ivy_FastMapDelay.exit
   %.not92 = icmp eq i32 %2, 0
-  br i1 %.not92, label %487, label %185
+  br i1 %.not92, label %485, label %185
 
 185:                                              ; preds = %184
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #20
@@ -533,7 +533,7 @@ Abc_Clock.exit140:                                ; preds = %231, %234
 
 .lr.ph226:                                        ; preds = %Abc_Clock.exit140, %Ivy_FastMapNodeArea.exit
   %indvars.iv231 = phi i64 [ %indvars.iv.next232, %Ivy_FastMapNodeArea.exit ], [ 0, %Abc_Clock.exit140 ]
-  %241 = phi ptr [ %398, %Ivy_FastMapNodeArea.exit ], [ %238, %Abc_Clock.exit140 ]
+  %241 = phi ptr [ %396, %Ivy_FastMapNodeArea.exit ], [ %238, %Abc_Clock.exit140 ]
   %242 = getelementptr i8, ptr %241, i64 8
   %.val107 = load ptr, ptr %242, align 8, !tbaa !43
   %243 = getelementptr inbounds nuw ptr, ptr %.val107, i64 %indvars.iv231
@@ -856,245 +856,243 @@ Ivy_FastMapNodeAreaDerefed.exit127.i:             ; preds = %381, %Ivy_FastMapNo
   %387 = getelementptr inbounds nuw i8, ptr %269, i64 10
   %388 = load i16, ptr %387, align 2, !tbaa !55
   %389 = icmp sgt i16 %386, %388
-  br i1 %389, label %390, label %395
+  br i1 %389, label %390, label %393
 
 390:                                              ; preds = %385, %Ivy_FastMapNodeAreaDerefed.exit127.i
-  %391 = load i32, ptr @Ivy_FastMapNodeArea.StoreSize, align 4, !tbaa !41
-  %392 = trunc nsw i32 %391 to i8
-  store i8 %392, ptr %269, align 4, !tbaa !40
-  %393 = sext i8 %392 to i64
-  %394 = shl nsw i64 %393, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %301, ptr nonnull align 16 @Ivy_FastMapNodeArea.Store, i64 %394, i1 false)
+  store i8 %302, ptr %269, align 4, !tbaa !40
+  %391 = sext i8 %302 to i64
+  %392 = shl nsw i64 %391, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %301, ptr nonnull align 16 @Ivy_FastMapNodeArea.Store, i64 %392, i1 false)
   store i16 %.0.lcssa.i.i, ptr %378, align 4, !tbaa !39
-  br label %395
+  br label %393
 
-395:                                              ; preds = %390, %385
+393:                                              ; preds = %390, %385
   %.not73.i = icmp eq i32 %379, 0
-  br i1 %.not73.i, label %Ivy_FastMapNodeArea.exit, label %396
+  br i1 %.not73.i, label %Ivy_FastMapNodeArea.exit, label %394
 
-396:                                              ; preds = %395
+394:                                              ; preds = %393
   %.val91.i = load i32, ptr %244, align 8, !tbaa !35
-  %397 = call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef nonnull readonly %0, i32 %.val91.i)
+  %395 = call fastcc i32 @Ivy_FastMapNodeRef(ptr noundef nonnull readonly %0, i32 %.val91.i)
   br label %Ivy_FastMapNodeArea.exit
 
-Ivy_FastMapNodeArea.exit:                         ; preds = %396, %395, %.lr.ph226, %246
+Ivy_FastMapNodeArea.exit:                         ; preds = %394, %393, %.lr.ph226, %246
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
-  %398 = load ptr, ptr %21, align 8, !tbaa !15
-  %399 = getelementptr i8, ptr %398, i64 4
-  %.val96 = load i32, ptr %399, align 4, !tbaa !23
-  %400 = sext i32 %.val96 to i64
-  %401 = icmp slt i64 %indvars.iv.next232, %400
-  br i1 %401, label %.lr.ph226, label %.critedge4, !llvm.loop !56
+  %396 = load ptr, ptr %21, align 8, !tbaa !15
+  %397 = getelementptr i8, ptr %396, i64 4
+  %.val96 = load i32, ptr %397, align 4, !tbaa !23
+  %398 = sext i32 %.val96 to i64
+  %399 = icmp slt i64 %indvars.iv.next232, %398
+  br i1 %399, label %.lr.ph226, label %.critedge4, !llvm.loop !56
 
 .critedge4:                                       ; preds = %Ivy_FastMapNodeArea.exit, %Abc_Clock.exit140
-  %402 = load ptr, ptr %144, align 8, !tbaa !50
-  %403 = getelementptr i8, ptr %402, i64 4
-  %.val.i148 = load i32, ptr %403, align 4, !tbaa !23
-  %404 = icmp sgt i32 %.val.i148, 0
-  br i1 %404, label %.lr.ph.i150, label %Ivy_FastMapDelay.exit166
+  %400 = load ptr, ptr %144, align 8, !tbaa !50
+  %401 = getelementptr i8, ptr %400, i64 4
+  %.val.i148 = load i32, ptr %401, align 4, !tbaa !23
+  %402 = icmp sgt i32 %.val.i148, 0
+  br i1 %402, label %.lr.ph.i150, label %Ivy_FastMapDelay.exit166
 
 .lr.ph.i150:                                      ; preds = %.critedge4
-  %405 = getelementptr i8, ptr %402, i64 8
-  %.val17.i151 = load ptr, ptr %405, align 8, !tbaa !43
+  %403 = getelementptr i8, ptr %400, i64 8
+  %.val17.i151 = load ptr, ptr %403, align 8, !tbaa !43
   %wide.trip.count.i152 = zext nneg i32 %.val.i148 to i64
-  br label %406
+  br label %404
 
-406:                                              ; preds = %425, %.lr.ph.i150
-  %indvars.iv.i153 = phi i64 [ 0, %.lr.ph.i150 ], [ %indvars.iv.next.i164, %425 ]
-  %.021.i154 = phi i32 [ 0, %.lr.ph.i150 ], [ %.1.i163, %425 ]
-  %407 = getelementptr inbounds nuw ptr, ptr %.val17.i151, i64 %indvars.iv.i153
-  %408 = load ptr, ptr %407, align 8, !tbaa !44
-  %409 = getelementptr i8, ptr %408, i64 16
-  %.val19.i155 = load ptr, ptr %409, align 8, !tbaa !47
-  %410 = ptrtoint ptr %.val19.i155 to i64
-  %411 = and i64 %410, -2
-  %412 = inttoptr i64 %411 to ptr
-  %413 = getelementptr i8, ptr %412, i64 8
-  %.val18.i156 = load i32, ptr %413, align 8
-  %414 = and i32 %.val18.i156, 15
-  %415 = add nsw i32 %414, -7
-  %narrow.i.i157 = icmp ult i32 %415, -2
-  br i1 %narrow.i.i157, label %425, label %416
+404:                                              ; preds = %423, %.lr.ph.i150
+  %indvars.iv.i153 = phi i64 [ 0, %.lr.ph.i150 ], [ %indvars.iv.next.i164, %423 ]
+  %.021.i154 = phi i32 [ 0, %.lr.ph.i150 ], [ %.1.i163, %423 ]
+  %405 = getelementptr inbounds nuw ptr, ptr %.val17.i151, i64 %indvars.iv.i153
+  %406 = load ptr, ptr %405, align 8, !tbaa !44
+  %407 = getelementptr i8, ptr %406, i64 16
+  %.val19.i155 = load ptr, ptr %407, align 8, !tbaa !47
+  %408 = ptrtoint ptr %.val19.i155 to i64
+  %409 = and i64 %408, -2
+  %410 = inttoptr i64 %409 to ptr
+  %411 = getelementptr i8, ptr %410, i64 8
+  %.val18.i156 = load i32, ptr %411, align 8
+  %412 = and i32 %.val18.i156, 15
+  %413 = add nsw i32 %412, -7
+  %narrow.i.i157 = icmp ult i32 %413, -2
+  br i1 %narrow.i.i157, label %423, label %414
 
-416:                                              ; preds = %406
+414:                                              ; preds = %404
   %.val14.i158 = load ptr, ptr %35, align 8, !tbaa !33
-  %.val15.i159 = load i32, ptr %412, align 8, !tbaa !35
-  %417 = getelementptr i8, ptr %.val14.i158, i64 8
-  %.val14.val.i160 = load i32, ptr %417, align 8, !tbaa !26
-  %418 = getelementptr i8, ptr %.val14.i158, i64 16
-  %.val14.val16.i161 = load ptr, ptr %418, align 8, !tbaa !27
-  %419 = mul nsw i32 %.val14.val.i160, %.val15.i159
-  %420 = sext i32 %419 to i64
-  %421 = getelementptr inbounds i8, ptr %.val14.val16.i161, i64 %420
-  %422 = getelementptr inbounds nuw i8, ptr %421, i64 8
-  %423 = load i16, ptr %422, align 4, !tbaa !39
-  %424 = sext i16 %423 to i32
-  %spec.select.i162 = call i32 @llvm.smax.i32(i32 %.021.i154, i32 %424)
-  br label %425
+  %.val15.i159 = load i32, ptr %410, align 8, !tbaa !35
+  %415 = getelementptr i8, ptr %.val14.i158, i64 8
+  %.val14.val.i160 = load i32, ptr %415, align 8, !tbaa !26
+  %416 = getelementptr i8, ptr %.val14.i158, i64 16
+  %.val14.val16.i161 = load ptr, ptr %416, align 8, !tbaa !27
+  %417 = mul nsw i32 %.val14.val.i160, %.val15.i159
+  %418 = sext i32 %417 to i64
+  %419 = getelementptr inbounds i8, ptr %.val14.val16.i161, i64 %418
+  %420 = getelementptr inbounds nuw i8, ptr %419, i64 8
+  %421 = load i16, ptr %420, align 4, !tbaa !39
+  %422 = sext i16 %421 to i32
+  %spec.select.i162 = call i32 @llvm.smax.i32(i32 %.021.i154, i32 %422)
+  br label %423
 
-425:                                              ; preds = %416, %406
-  %.1.i163 = phi i32 [ %.021.i154, %406 ], [ %spec.select.i162, %416 ]
+423:                                              ; preds = %414, %404
+  %.1.i163 = phi i32 [ %.021.i154, %404 ], [ %spec.select.i162, %414 ]
   %indvars.iv.next.i164 = add nuw nsw i64 %indvars.iv.i153, 1
   %exitcond.not.i165 = icmp eq i64 %indvars.iv.next.i164, %wide.trip.count.i152
-  br i1 %exitcond.not.i165, label %Ivy_FastMapDelay.exit166, label %406, !llvm.loop !51
+  br i1 %exitcond.not.i165, label %Ivy_FastMapDelay.exit166, label %404, !llvm.loop !51
 
-Ivy_FastMapDelay.exit166:                         ; preds = %425, %.critedge4
-  %.0.lcssa.i149 = phi i32 [ 0, %.critedge4 ], [ %.1.i163, %425 ]
-  %426 = call fastcc i32 @Ivy_FastMapArea(ptr noundef nonnull %0)
-  br i1 %.not, label %441, label %427
+Ivy_FastMapDelay.exit166:                         ; preds = %423, %.critedge4
+  %.0.lcssa.i149 = phi i32 [ 0, %.critedge4 ], [ %.1.i163, %423 ]
+  %424 = call fastcc i32 @Ivy_FastMapArea(ptr noundef nonnull %0)
+  br i1 %.not, label %439, label %425
 
-427:                                              ; preds = %Ivy_FastMapDelay.exit166
+425:                                              ; preds = %Ivy_FastMapDelay.exit166
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #20
-  %428 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #20
-  %429 = icmp slt i32 %428, 0
-  br i1 %429, label %Abc_Clock.exit168, label %430
+  %426 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #20
+  %427 = icmp slt i32 %426, 0
+  br i1 %427, label %Abc_Clock.exit168, label %428
 
-430:                                              ; preds = %427
-  %431 = load i64, ptr %8, align 8, !tbaa !3
-  %432 = mul nsw i64 %431, 1000000
-  %433 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %434 = load i64, ptr %433, align 8, !tbaa !8
-  %435 = sdiv i64 %434, 1000
-  %436 = add nsw i64 %435, %432
+428:                                              ; preds = %425
+  %429 = load i64, ptr %8, align 8, !tbaa !3
+  %430 = mul nsw i64 %429, 1000000
+  %431 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %432 = load i64, ptr %431, align 8, !tbaa !8
+  %433 = sdiv i64 %432, 1000
+  %434 = add nsw i64 %433, %430
   br label %Abc_Clock.exit168
 
-Abc_Clock.exit168:                                ; preds = %427, %430
-  %.0.i167 = phi i64 [ %436, %430 ], [ -1, %427 ]
+Abc_Clock.exit168:                                ; preds = %425, %428
+  %.0.i167 = phi i64 [ %434, %428 ], [ -1, %425 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #20
-  %437 = add i64 %.0.i167, %.0.i139.neg
-  %438 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.2, i32 noundef range(i32 0, 32768) %.0.lcssa.i149, i32 noundef %426)
+  %435 = add i64 %.0.i167, %.0.i139.neg
+  %436 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.2, i32 noundef range(i32 0, 32768) %.0.lcssa.i149, i32 noundef %424)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5)
-  %439 = sitofp i64 %437 to double
-  %440 = fdiv double %439, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, double noundef %440)
-  br label %441
+  %437 = sitofp i64 %435 to double
+  %438 = fdiv double %437, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, double noundef %438)
+  br label %439
 
-441:                                              ; preds = %Abc_Clock.exit168, %Ivy_FastMapDelay.exit166
+439:                                              ; preds = %Abc_Clock.exit168, %Ivy_FastMapDelay.exit166
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #20
-  %442 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #20
-  %443 = icmp slt i32 %442, 0
-  br i1 %443, label %Abc_Clock.exit170, label %444
+  %440 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #20
+  %441 = icmp slt i32 %440, 0
+  br i1 %441, label %Abc_Clock.exit170, label %442
 
-444:                                              ; preds = %441
-  %445 = load i64, ptr %7, align 8, !tbaa !3
-  %.neg214 = mul i64 %445, -1000000
-  %446 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %447 = load i64, ptr %446, align 8, !tbaa !8
-  %.neg213 = sdiv i64 %447, -1000
+442:                                              ; preds = %439
+  %443 = load i64, ptr %7, align 8, !tbaa !3
+  %.neg214 = mul i64 %443, -1000000
+  %444 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %445 = load i64, ptr %444, align 8, !tbaa !8
+  %.neg213 = sdiv i64 %445, -1000
   %.neg215 = add i64 %.neg213, %.neg214
   br label %Abc_Clock.exit170
 
-Abc_Clock.exit170:                                ; preds = %441, %444
-  %.0.i169.neg = phi i64 [ %.neg215, %444 ], [ 1, %441 ]
+Abc_Clock.exit170:                                ; preds = %439, %442
+  %.0.i169.neg = phi i64 [ %.neg215, %442 ], [ 1, %439 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #20
   call fastcc void @Ivy_FastMapRequired(ptr noundef nonnull %0, i32 noundef %.0.lcssa.i149)
   call fastcc void @Ivy_FastMapRecover(ptr noundef nonnull %0, i32 noundef %1)
-  %448 = load ptr, ptr %144, align 8, !tbaa !50
-  %449 = getelementptr i8, ptr %448, i64 4
-  %.val.i171 = load i32, ptr %449, align 4, !tbaa !23
-  %450 = icmp sgt i32 %.val.i171, 0
-  br i1 %450, label %.lr.ph.i173, label %Ivy_FastMapDelay.exit189
+  %446 = load ptr, ptr %144, align 8, !tbaa !50
+  %447 = getelementptr i8, ptr %446, i64 4
+  %.val.i171 = load i32, ptr %447, align 4, !tbaa !23
+  %448 = icmp sgt i32 %.val.i171, 0
+  br i1 %448, label %.lr.ph.i173, label %Ivy_FastMapDelay.exit189
 
 .lr.ph.i173:                                      ; preds = %Abc_Clock.exit170
-  %451 = getelementptr i8, ptr %448, i64 8
-  %.val17.i174 = load ptr, ptr %451, align 8, !tbaa !43
+  %449 = getelementptr i8, ptr %446, i64 8
+  %.val17.i174 = load ptr, ptr %449, align 8, !tbaa !43
   %wide.trip.count.i175 = zext nneg i32 %.val.i171 to i64
-  br label %452
+  br label %450
 
-452:                                              ; preds = %471, %.lr.ph.i173
-  %indvars.iv.i176 = phi i64 [ 0, %.lr.ph.i173 ], [ %indvars.iv.next.i187, %471 ]
-  %.021.i177 = phi i32 [ 0, %.lr.ph.i173 ], [ %.1.i186, %471 ]
-  %453 = getelementptr inbounds nuw ptr, ptr %.val17.i174, i64 %indvars.iv.i176
-  %454 = load ptr, ptr %453, align 8, !tbaa !44
-  %455 = getelementptr i8, ptr %454, i64 16
-  %.val19.i178 = load ptr, ptr %455, align 8, !tbaa !47
-  %456 = ptrtoint ptr %.val19.i178 to i64
-  %457 = and i64 %456, -2
-  %458 = inttoptr i64 %457 to ptr
-  %459 = getelementptr i8, ptr %458, i64 8
-  %.val18.i179 = load i32, ptr %459, align 8
-  %460 = and i32 %.val18.i179, 15
-  %461 = add nsw i32 %460, -7
-  %narrow.i.i180 = icmp ult i32 %461, -2
-  br i1 %narrow.i.i180, label %471, label %462
+450:                                              ; preds = %469, %.lr.ph.i173
+  %indvars.iv.i176 = phi i64 [ 0, %.lr.ph.i173 ], [ %indvars.iv.next.i187, %469 ]
+  %.021.i177 = phi i32 [ 0, %.lr.ph.i173 ], [ %.1.i186, %469 ]
+  %451 = getelementptr inbounds nuw ptr, ptr %.val17.i174, i64 %indvars.iv.i176
+  %452 = load ptr, ptr %451, align 8, !tbaa !44
+  %453 = getelementptr i8, ptr %452, i64 16
+  %.val19.i178 = load ptr, ptr %453, align 8, !tbaa !47
+  %454 = ptrtoint ptr %.val19.i178 to i64
+  %455 = and i64 %454, -2
+  %456 = inttoptr i64 %455 to ptr
+  %457 = getelementptr i8, ptr %456, i64 8
+  %.val18.i179 = load i32, ptr %457, align 8
+  %458 = and i32 %.val18.i179, 15
+  %459 = add nsw i32 %458, -7
+  %narrow.i.i180 = icmp ult i32 %459, -2
+  br i1 %narrow.i.i180, label %469, label %460
 
-462:                                              ; preds = %452
+460:                                              ; preds = %450
   %.val14.i181 = load ptr, ptr %35, align 8, !tbaa !33
-  %.val15.i182 = load i32, ptr %458, align 8, !tbaa !35
-  %463 = getelementptr i8, ptr %.val14.i181, i64 8
-  %.val14.val.i183 = load i32, ptr %463, align 8, !tbaa !26
-  %464 = getelementptr i8, ptr %.val14.i181, i64 16
-  %.val14.val16.i184 = load ptr, ptr %464, align 8, !tbaa !27
-  %465 = mul nsw i32 %.val14.val.i183, %.val15.i182
-  %466 = sext i32 %465 to i64
-  %467 = getelementptr inbounds i8, ptr %.val14.val16.i184, i64 %466
-  %468 = getelementptr inbounds nuw i8, ptr %467, i64 8
-  %469 = load i16, ptr %468, align 4, !tbaa !39
-  %470 = sext i16 %469 to i32
-  %spec.select.i185 = call i32 @llvm.smax.i32(i32 %.021.i177, i32 %470)
-  br label %471
+  %.val15.i182 = load i32, ptr %456, align 8, !tbaa !35
+  %461 = getelementptr i8, ptr %.val14.i181, i64 8
+  %.val14.val.i183 = load i32, ptr %461, align 8, !tbaa !26
+  %462 = getelementptr i8, ptr %.val14.i181, i64 16
+  %.val14.val16.i184 = load ptr, ptr %462, align 8, !tbaa !27
+  %463 = mul nsw i32 %.val14.val.i183, %.val15.i182
+  %464 = sext i32 %463 to i64
+  %465 = getelementptr inbounds i8, ptr %.val14.val16.i184, i64 %464
+  %466 = getelementptr inbounds nuw i8, ptr %465, i64 8
+  %467 = load i16, ptr %466, align 4, !tbaa !39
+  %468 = sext i16 %467 to i32
+  %spec.select.i185 = call i32 @llvm.smax.i32(i32 %.021.i177, i32 %468)
+  br label %469
 
-471:                                              ; preds = %462, %452
-  %.1.i186 = phi i32 [ %.021.i177, %452 ], [ %spec.select.i185, %462 ]
+469:                                              ; preds = %460, %450
+  %.1.i186 = phi i32 [ %.021.i177, %450 ], [ %spec.select.i185, %460 ]
   %indvars.iv.next.i187 = add nuw nsw i64 %indvars.iv.i176, 1
   %exitcond.not.i188 = icmp eq i64 %indvars.iv.next.i187, %wide.trip.count.i175
-  br i1 %exitcond.not.i188, label %Ivy_FastMapDelay.exit189, label %452, !llvm.loop !51
+  br i1 %exitcond.not.i188, label %Ivy_FastMapDelay.exit189, label %450, !llvm.loop !51
 
-Ivy_FastMapDelay.exit189:                         ; preds = %471, %Abc_Clock.exit170
-  %.0.lcssa.i172 = phi i32 [ 0, %Abc_Clock.exit170 ], [ %.1.i186, %471 ]
-  %472 = call fastcc i32 @Ivy_FastMapArea(ptr noundef nonnull %0)
-  br i1 %.not, label %487, label %473
+Ivy_FastMapDelay.exit189:                         ; preds = %469, %Abc_Clock.exit170
+  %.0.lcssa.i172 = phi i32 [ 0, %Abc_Clock.exit170 ], [ %.1.i186, %469 ]
+  %470 = call fastcc i32 @Ivy_FastMapArea(ptr noundef nonnull %0)
+  br i1 %.not, label %485, label %471
 
-473:                                              ; preds = %Ivy_FastMapDelay.exit189
+471:                                              ; preds = %Ivy_FastMapDelay.exit189
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #20
-  %474 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #20
-  %475 = icmp slt i32 %474, 0
-  br i1 %475, label %Abc_Clock.exit191, label %476
+  %472 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #20
+  %473 = icmp slt i32 %472, 0
+  br i1 %473, label %Abc_Clock.exit191, label %474
 
-476:                                              ; preds = %473
-  %477 = load i64, ptr %6, align 8, !tbaa !3
-  %478 = mul nsw i64 %477, 1000000
-  %479 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %480 = load i64, ptr %479, align 8, !tbaa !8
-  %481 = sdiv i64 %480, 1000
-  %482 = add nsw i64 %481, %478
+474:                                              ; preds = %471
+  %475 = load i64, ptr %6, align 8, !tbaa !3
+  %476 = mul nsw i64 %475, 1000000
+  %477 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %478 = load i64, ptr %477, align 8, !tbaa !8
+  %479 = sdiv i64 %478, 1000
+  %480 = add nsw i64 %479, %476
   br label %Abc_Clock.exit191
 
-Abc_Clock.exit191:                                ; preds = %473, %476
-  %.0.i190 = phi i64 [ %482, %476 ], [ -1, %473 ]
+Abc_Clock.exit191:                                ; preds = %471, %474
+  %.0.i190 = phi i64 [ %480, %474 ], [ -1, %471 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #20
-  %483 = add i64 %.0.i190, %.0.i169.neg
-  %484 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1, i32 noundef range(i32 0, 32768) %.0.lcssa.i172, i32 noundef %472)
+  %481 = add i64 %.0.i190, %.0.i169.neg
+  %482 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1, i32 noundef range(i32 0, 32768) %.0.lcssa.i172, i32 noundef %470)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5)
-  %485 = sitofp i64 %483 to double
-  %486 = fdiv double %485, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, double noundef %486)
-  br label %487
+  %483 = sitofp i64 %481 to double
+  %484 = fdiv double %483, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, double noundef %484)
+  br label %485
 
-487:                                              ; preds = %Ivy_FastMapDelay.exit189, %Abc_Clock.exit191, %184
+485:                                              ; preds = %Ivy_FastMapDelay.exit189, %Abc_Clock.exit191, %184
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #20
-  %488 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #20
-  %489 = icmp slt i32 %488, 0
-  br i1 %489, label %Abc_Clock.exit193, label %490
+  %486 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #20
+  %487 = icmp slt i32 %486, 0
+  br i1 %487, label %Abc_Clock.exit193, label %488
 
-490:                                              ; preds = %487
-  %491 = load i64, ptr %5, align 8, !tbaa !3
-  %492 = mul nsw i64 %491, 1000000
-  %493 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %494 = load i64, ptr %493, align 8, !tbaa !8
-  %495 = sdiv i64 %494, 1000
-  %496 = add nsw i64 %495, %492
+488:                                              ; preds = %485
+  %489 = load i64, ptr %5, align 8, !tbaa !3
+  %490 = mul nsw i64 %489, 1000000
+  %491 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %492 = load i64, ptr %491, align 8, !tbaa !8
+  %493 = sdiv i64 %492, 1000
+  %494 = add nsw i64 %493, %490
   br label %Abc_Clock.exit193
 
-Abc_Clock.exit193:                                ; preds = %487, %490
-  %.0.i192 = phi i64 [ %496, %490 ], [ -1, %487 ]
+Abc_Clock.exit193:                                ; preds = %485, %488
+  %.0.i192 = phi i64 [ %494, %488 ], [ -1, %485 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #20
-  %497 = add i64 %.0.i192, %.0.i.neg
-  store i64 %497, ptr @s_MappingTime, align 8, !tbaa !57
-  %498 = load i32, ptr %23, align 4, !tbaa !25
-  %499 = load i32, ptr %26, align 8, !tbaa !26
-  %500 = mul nsw i32 %499, %498
-  store i32 %500, ptr @s_MappingMem, align 4, !tbaa !41
+  %495 = add i64 %.0.i192, %.0.i.neg
+  store i64 %495, ptr @s_MappingTime, align 8, !tbaa !57
+  %496 = load i32, ptr %23, align 4, !tbaa !25
+  %497 = load i32, ptr %26, align 8, !tbaa !26
+  %498 = mul nsw i32 %497, %496
+  store i32 %498, ptr @s_MappingMem, align 4, !tbaa !41
   ret void
 }
 

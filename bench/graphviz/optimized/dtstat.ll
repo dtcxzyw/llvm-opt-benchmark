@@ -30,7 +30,7 @@ define range(i32 -1, 1) i32 @dtstat(ptr noundef %0, ptr noundef initializes((0, 
   %16 = and i32 %15, 255
   store i32 %16, ptr %1, align 8, !tbaa !17
   %.not50 = icmp eq i32 %2, 0
-  br i1 %.not50, label %108, label %17
+  br i1 %.not50, label %107, label %17
 
 17:                                               ; preds = %9
   %18 = and i32 %15, 1
@@ -112,7 +112,7 @@ dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
   %47 = tail call noalias ptr @malloc(i64 noundef %46) #8
   store ptr %47, ptr @dtstat.Count, align 8, !tbaa !26
   %.not59 = icmp eq ptr %47, null
-  br i1 %.not59, label %108, label %48
+  br i1 %.not59, label %107, label %48
 
 48:                                               ; preds = %43
   %49 = add i64 %44, 1
@@ -205,7 +205,7 @@ dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
   %84 = tail call noalias ptr @malloc(i64 noundef %83) #8
   store ptr %84, ptr @dtstat.Count, align 8, !tbaa !26
   %.not55 = icmp eq ptr %84, null
-  br i1 %.not55, label %108, label %85
+  br i1 %.not55, label %107, label %85
 
 85:                                               ; preds = %80
   %86 = add i64 %81, 1
@@ -214,51 +214,50 @@ dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
 
 87:                                               ; preds = %._crit_edge, %85
   %88 = phi ptr [ %.pre84, %._crit_edge ], [ %84, %85 ]
-  br label %94
+  br label %93
 
-89:                                               ; preds = %94
+89:                                               ; preds = %93
   %90 = load ptr, ptr %70, align 8, !tbaa !28
   tail call fastcc void @dttstat(ptr noundef nonnull %1, ptr noundef %90, i64 noundef 0, ptr noundef nonnull %88)
   %91 = load i64, ptr %11, align 8, !tbaa !22
-  %92 = load ptr, ptr @dtstat.Count, align 8, !tbaa !26
   %.promoted = load i64, ptr %10, align 8, !tbaa !23
-  %93 = add i64 %91, 1
-  %umax = tail call i64 @llvm.umax.i64(i64 %93, i64 1)
-  br label %98
+  %92 = add i64 %91, 1
+  %umax = tail call i64 @llvm.umax.i64(i64 %92, i64 1)
+  br label %97
 
-94:                                               ; preds = %87, %94
-  %.04378 = phi i64 [ 0, %87 ], [ %96, %94 ]
-  %95 = getelementptr inbounds nuw i64, ptr %88, i64 %.04378
-  store i64 0, ptr %95, align 8, !tbaa !25
-  %96 = add i64 %.04378, 1
-  %97 = load i64, ptr %11, align 8, !tbaa !22
-  %.not56 = icmp ugt i64 %96, %97
-  br i1 %.not56, label %89, label %94, !llvm.loop !29
+93:                                               ; preds = %87, %93
+  %.04378 = phi i64 [ 0, %87 ], [ %95, %93 ]
+  %94 = getelementptr inbounds nuw i64, ptr %88, i64 %.04378
+  store i64 0, ptr %94, align 8, !tbaa !25
+  %95 = add i64 %.04378, 1
+  %96 = load i64, ptr %11, align 8, !tbaa !22
+  %.not56 = icmp ugt i64 %95, %96
+  br i1 %.not56, label %89, label %93, !llvm.loop !29
 
-98:                                               ; preds = %89, %104
-  %.079 = phi i64 [ 0, %89 ], [ %106, %104 ]
-  %99 = phi i64 [ %.promoted, %89 ], [ %105, %104 ]
-  %100 = getelementptr inbounds nuw i64, ptr %92, i64 %.079
-  %101 = load i64, ptr %100, align 8, !tbaa !25
-  %102 = icmp ugt i64 %101, %99
-  br i1 %102, label %103, label %104
+97:                                               ; preds = %89, %103
+  %.079 = phi i64 [ 0, %89 ], [ %105, %103 ]
+  %98 = phi i64 [ %.promoted, %89 ], [ %104, %103 ]
+  %99 = getelementptr inbounds nuw i64, ptr %88, i64 %.079
+  %100 = load i64, ptr %99, align 8, !tbaa !25
+  %101 = icmp ugt i64 %100, %98
+  br i1 %101, label %102, label %103
 
-103:                                              ; preds = %98
-  store i64 %101, ptr %10, align 8, !tbaa !23
-  br label %104
+102:                                              ; preds = %97
+  store i64 %100, ptr %10, align 8, !tbaa !23
+  br label %103
 
-104:                                              ; preds = %98, %103
-  %105 = phi i64 [ %99, %98 ], [ %101, %103 ]
-  %106 = add nuw i64 %.079, 1
-  %exitcond = icmp eq i64 %106, %umax
-  br i1 %exitcond, label %dthstat.exit74, label %98, !llvm.loop !30
+103:                                              ; preds = %97, %102
+  %104 = phi i64 [ %98, %97 ], [ %100, %102 ]
+  %105 = add nuw i64 %.079, 1
+  %exitcond = icmp eq i64 %105, %umax
+  br i1 %exitcond, label %dthstat.exit74, label %97, !llvm.loop !30
 
-dthstat.exit74:                                   ; preds = %58, %104, %52, %67, %69
-  %107 = load ptr, ptr @dtstat.Count, align 8, !tbaa !26
-  store ptr %107, ptr %12, align 8, !tbaa !31
-  br label %108
+dthstat.exit74:                                   ; preds = %58, %103, %52, %67, %69
+  %106 = load ptr, ptr @dtstat.Count, align 8, !tbaa !26
+  store ptr %106, ptr %12, align 8, !tbaa !31
+  br label %107
 
-108:                                              ; preds = %80, %43, %9, %dthstat.exit74
+107:                                              ; preds = %80, %43, %9, %dthstat.exit74
   %.045 = phi i32 [ 0, %dthstat.exit74 ], [ 0, %9 ], [ -1, %43 ], [ -1, %80 ]
   ret i32 %.045
 }

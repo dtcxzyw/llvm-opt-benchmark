@@ -1549,6 +1549,7 @@ define hidden noundef i32 @_ZN4cvc58internal4prop16MinisatSatSolver9addClauseERS
 
 .lr.ph.i:                                         ; preds = %3
   %.pre7.i = load i64, ptr @_ZN4cvc58internal4propL15undefSatLiteralE, align 8, !tbaa !46
+  %.pre.i = load i64, ptr @_ZN4cvc58internal4propL15undefSatLiteralE, align 8
   br label %8
 
 8:                                                ; preds = %_ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit.i, %.lr.ph.i
@@ -1584,7 +1585,6 @@ define hidden noundef i32 @_ZN4cvc58internal4prop16MinisatSatSolver9addClauseERS
   br i1 %27, label %28, label %._ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit_crit_edge.i
 
 ._ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit_crit_edge.i: ; preds = %22
-  %.pre.i = load i64, ptr @_ZN4cvc58internal4propL15undefSatLiteralE, align 8, !tbaa !46
   %.pre9.i = load ptr, ptr %5, align 8, !tbaa !48
   %.pre10.i = load ptr, ptr %1, align 8, !tbaa !51
   br label %_ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit.i

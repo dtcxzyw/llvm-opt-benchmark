@@ -796,7 +796,7 @@ define i32 @Extra_TruthCanonP(i32 noundef %0, i32 noundef %1) local_unnamed_addr
   %4 = alloca [50 x i8], align 16
   %5 = load ptr, ptr @Extra_TruthCanonP.pPerms, align 8, !tbaa !31
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %29
+  br i1 %6, label %7, label %30
 
 7:                                                ; preds = %2
   %.not7.i = icmp slt i32 %1, 1
@@ -829,37 +829,38 @@ Extra_Factorial.exit:                             ; preds = %.lr.ph.i
   br i1 %exitcond.not.i.i, label %Extra_Factorial.exit.i, label %.lr.ph.i.i, !llvm.loop !14
 
 Extra_Factorial.exit.i:                           ; preds = %.lr.ph.i.i, %Extra_Factorial.exit.thread
+  %12 = phi i32 [ 1, %Extra_Factorial.exit.thread ], [ %8, %.lr.ph.i.i ]
   %.0.lcssa.i.i = phi i32 [ 1, %Extra_Factorial.exit.thread ], [ %10, %.lr.ph.i.i ]
-  %12 = sext i32 %.0.lcssa.i.i to i64
-  %13 = sext i32 %1 to i64
-  %14 = add nsw i64 %13, 8
-  %15 = mul nsw i64 %14, %12
-  %16 = tail call noalias ptr @malloc(i64 noundef %15) #34
-  %17 = shl nsw i64 %12, 3
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
-  store ptr %18, ptr %16, align 8, !tbaa !15
-  %19 = icmp sgt i32 %.0.lcssa.i.i, 1
-  br i1 %19, label %.lr.ph.i12.i, label %Extra_ArrayAlloc.exit.i
+  %13 = sext i32 %.0.lcssa.i.i to i64
+  %14 = sext i32 %1 to i64
+  %15 = add nsw i64 %14, 8
+  %16 = mul nsw i64 %15, %13
+  %17 = tail call noalias ptr @malloc(i64 noundef %16) #34
+  %18 = shl nsw i64 %13, 3
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
+  store ptr %19, ptr %17, align 8, !tbaa !15
+  %20 = icmp sgt i32 %.0.lcssa.i.i, 1
+  br i1 %20, label %.lr.ph.i12.i, label %Extra_ArrayAlloc.exit.i
 
 .lr.ph.i12.i:                                     ; preds = %Extra_Factorial.exit.i
   %wide.trip.count.i.i = zext nneg i32 %.0.lcssa.i.i to i64
-  br label %20
+  br label %21
 
-20:                                               ; preds = %20, %.lr.ph.i12.i
-  %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.i12.i ], [ %indvars.iv.next.i.i, %20 ]
-  %21 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %22 = mul i32 %1, %21
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %18, i64 %23
-  %25 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.i.i
-  store ptr %24, ptr %25, align 8, !tbaa !15
+21:                                               ; preds = %21, %.lr.ph.i12.i
+  %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.i12.i ], [ %indvars.iv.next.i.i, %21 ]
+  %22 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %23 = mul i32 %1, %22
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds i8, ptr %19, i64 %24
+  %26 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.i.i
+  store ptr %25, ptr %26, align 8, !tbaa !15
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i13.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i13.i, label %Extra_ArrayAlloc.exit.i, label %20, !llvm.loop !17
+  br i1 %exitcond.not.i13.i, label %Extra_ArrayAlloc.exit.i, label %21, !llvm.loop !17
 
-Extra_ArrayAlloc.exit.i:                          ; preds = %20, %Extra_Factorial.exit.i
-  %26 = icmp sgt i32 %1, 0
-  br i1 %26, label %.lr.ph.preheader.i, label %Extra_Permutations.exit
+Extra_ArrayAlloc.exit.i:                          ; preds = %21, %Extra_Factorial.exit.i
+  %27 = icmp sgt i32 %1, 0
+  br i1 %27, label %.lr.ph.preheader.i, label %Extra_Permutations.exit
 
 .lr.ph.preheader.i:                               ; preds = %Extra_ArrayAlloc.exit.i
   %wide.trip.count.i = zext nneg i32 %1 to i64
@@ -867,86 +868,93 @@ Extra_ArrayAlloc.exit.i:                          ; preds = %20, %Extra_Factoria
 
 .lr.ph.i20:                                       ; preds = %.lr.ph.i20, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i20 ]
-  %27 = trunc i64 %indvars.iv.i to i8
-  %28 = getelementptr inbounds nuw [50 x i8], ptr %4, i64 0, i64 %indvars.iv.i
-  store i8 %27, ptr %28, align 1, !tbaa !12
+  %28 = trunc i64 %indvars.iv.i to i8
+  %29 = getelementptr inbounds nuw [50 x i8], ptr %4, i64 0, i64 %indvars.iv.i
+  store i8 %28, ptr %29, align 1, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i21, label %Extra_Permutations.exit, label %.lr.ph.i20, !llvm.loop !18
 
 Extra_Permutations.exit:                          ; preds = %.lr.ph.i20, %Extra_ArrayAlloc.exit.i
-  call fastcc void @Extra_Permutations_rec(ptr noundef nonnull %16, i32 noundef %.0.lcssa.i.i, i32 noundef %1, ptr noundef %4)
+  call fastcc void @Extra_Permutations_rec(ptr noundef nonnull %17, i32 noundef %.0.lcssa.i.i, i32 noundef %1, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %4) #33
-  br label %.sink.split
+  store ptr %17, ptr @Extra_TruthCanonP.pPerms, align 8, !tbaa !31
+  store i32 %1, ptr @Extra_TruthCanonP.nVarsOld, align 4, !tbaa !3
+  br label %55
 
-29:                                               ; preds = %2
-  %30 = load i32, ptr @Extra_TruthCanonP.nVarsOld, align 4, !tbaa !3
-  %.not = icmp eq i32 %30, %1
-  br i1 %.not, label %53, label %31
+30:                                               ; preds = %2
+  %31 = load i32, ptr @Extra_TruthCanonP.nVarsOld, align 4, !tbaa !3
+  %.not = icmp eq i32 %31, %1
+  br i1 %.not, label %._crit_edge60, label %32
 
-31:                                               ; preds = %29
+._crit_edge60:                                    ; preds = %30
+  %.pre = load i32, ptr @Extra_TruthCanonP.nPerms, align 4, !tbaa !3
+  br label %55
+
+32:                                               ; preds = %30
   tail call void @free(ptr noundef nonnull %5) #33
   %.not7.i22 = icmp slt i32 %1, 1
   br i1 %.not7.i22, label %Extra_Factorial.exit28.thread, label %.lr.ph.i23
 
-Extra_Factorial.exit28.thread:                    ; preds = %31
+Extra_Factorial.exit28.thread:                    ; preds = %32
   store i32 1, ptr @Extra_TruthCanonP.nPerms, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %3) #33
   br label %Extra_Factorial.exit.i34
 
-.lr.ph.i23:                                       ; preds = %31, %.lr.ph.i23
-  %.09.i24 = phi i32 [ %32, %.lr.ph.i23 ], [ 1, %31 ]
-  %.068.i25 = phi i32 [ %33, %.lr.ph.i23 ], [ 1, %31 ]
-  %32 = mul nuw nsw i32 %.068.i25, %.09.i24
-  %33 = add nuw i32 %.068.i25, 1
+.lr.ph.i23:                                       ; preds = %32, %.lr.ph.i23
+  %.09.i24 = phi i32 [ %33, %.lr.ph.i23 ], [ 1, %32 ]
+  %.068.i25 = phi i32 [ %34, %.lr.ph.i23 ], [ 1, %32 ]
+  %33 = mul nuw nsw i32 %.068.i25, %.09.i24
+  %34 = add nuw i32 %.068.i25, 1
   %exitcond.not.i26 = icmp eq i32 %.068.i25, %1
   br i1 %exitcond.not.i26, label %Extra_Factorial.exit28, label %.lr.ph.i23, !llvm.loop !14
 
 Extra_Factorial.exit28:                           ; preds = %.lr.ph.i23
-  store i32 %32, ptr @Extra_TruthCanonP.nPerms, align 4, !tbaa !3
+  store i32 %33, ptr @Extra_TruthCanonP.nPerms, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %3) #33
   br label %.lr.ph.i.i30
 
 .lr.ph.i.i30:                                     ; preds = %Extra_Factorial.exit28, %.lr.ph.i.i30
-  %.09.i.i31 = phi i32 [ %34, %.lr.ph.i.i30 ], [ 1, %Extra_Factorial.exit28 ]
-  %.068.i.i32 = phi i32 [ %35, %.lr.ph.i.i30 ], [ 1, %Extra_Factorial.exit28 ]
-  %34 = mul nuw nsw i32 %.068.i.i32, %.09.i.i31
-  %35 = add nuw i32 %.068.i.i32, 1
+  %.09.i.i31 = phi i32 [ %35, %.lr.ph.i.i30 ], [ 1, %Extra_Factorial.exit28 ]
+  %.068.i.i32 = phi i32 [ %36, %.lr.ph.i.i30 ], [ 1, %Extra_Factorial.exit28 ]
+  %35 = mul nuw nsw i32 %.068.i.i32, %.09.i.i31
+  %36 = add nuw i32 %.068.i.i32, 1
   %exitcond.not.i.i33 = icmp eq i32 %.068.i.i32, %1
   br i1 %exitcond.not.i.i33, label %Extra_Factorial.exit.i34, label %.lr.ph.i.i30, !llvm.loop !14
 
 Extra_Factorial.exit.i34:                         ; preds = %.lr.ph.i.i30, %Extra_Factorial.exit28.thread
-  %.0.lcssa.i.i35 = phi i32 [ 1, %Extra_Factorial.exit28.thread ], [ %34, %.lr.ph.i.i30 ]
-  %36 = sext i32 %.0.lcssa.i.i35 to i64
-  %37 = sext i32 %1 to i64
-  %38 = add nsw i64 %37, 8
-  %39 = mul nsw i64 %38, %36
-  %40 = tail call noalias ptr @malloc(i64 noundef %39) #34
-  %41 = shl nsw i64 %36, 3
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 %41
-  store ptr %42, ptr %40, align 8, !tbaa !15
-  %43 = icmp sgt i32 %.0.lcssa.i.i35, 1
-  br i1 %43, label %.lr.ph.i12.i43, label %Extra_ArrayAlloc.exit.i36
+  %37 = phi i32 [ 1, %Extra_Factorial.exit28.thread ], [ %33, %.lr.ph.i.i30 ]
+  %.0.lcssa.i.i35 = phi i32 [ 1, %Extra_Factorial.exit28.thread ], [ %35, %.lr.ph.i.i30 ]
+  %38 = sext i32 %.0.lcssa.i.i35 to i64
+  %39 = sext i32 %1 to i64
+  %40 = add nsw i64 %39, 8
+  %41 = mul nsw i64 %40, %38
+  %42 = tail call noalias ptr @malloc(i64 noundef %41) #34
+  %43 = shl nsw i64 %38, 3
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 %43
+  store ptr %44, ptr %42, align 8, !tbaa !15
+  %45 = icmp sgt i32 %.0.lcssa.i.i35, 1
+  br i1 %45, label %.lr.ph.i12.i43, label %Extra_ArrayAlloc.exit.i36
 
 .lr.ph.i12.i43:                                   ; preds = %Extra_Factorial.exit.i34
   %wide.trip.count.i.i44 = zext nneg i32 %.0.lcssa.i.i35 to i64
-  br label %44
+  br label %46
 
-44:                                               ; preds = %44, %.lr.ph.i12.i43
-  %indvars.iv.i.i45 = phi i64 [ 1, %.lr.ph.i12.i43 ], [ %indvars.iv.next.i.i46, %44 ]
-  %45 = trunc nuw nsw i64 %indvars.iv.i.i45 to i32
-  %46 = mul i32 %1, %45
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i8, ptr %42, i64 %47
-  %49 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i.i45
-  store ptr %48, ptr %49, align 8, !tbaa !15
+46:                                               ; preds = %46, %.lr.ph.i12.i43
+  %indvars.iv.i.i45 = phi i64 [ 1, %.lr.ph.i12.i43 ], [ %indvars.iv.next.i.i46, %46 ]
+  %47 = trunc nuw nsw i64 %indvars.iv.i.i45 to i32
+  %48 = mul i32 %1, %47
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds i8, ptr %44, i64 %49
+  %51 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv.i.i45
+  store ptr %50, ptr %51, align 8, !tbaa !15
   %indvars.iv.next.i.i46 = add nuw nsw i64 %indvars.iv.i.i45, 1
   %exitcond.not.i13.i47 = icmp eq i64 %indvars.iv.next.i.i46, %wide.trip.count.i.i44
-  br i1 %exitcond.not.i13.i47, label %Extra_ArrayAlloc.exit.i36, label %44, !llvm.loop !17
+  br i1 %exitcond.not.i13.i47, label %Extra_ArrayAlloc.exit.i36, label %46, !llvm.loop !17
 
-Extra_ArrayAlloc.exit.i36:                        ; preds = %44, %Extra_Factorial.exit.i34
-  %50 = icmp sgt i32 %1, 0
-  br i1 %50, label %.lr.ph.preheader.i37, label %Extra_Permutations.exit48
+Extra_ArrayAlloc.exit.i36:                        ; preds = %46, %Extra_Factorial.exit.i34
+  %52 = icmp sgt i32 %1, 0
+  br i1 %52, label %.lr.ph.preheader.i37, label %Extra_Permutations.exit48
 
 .lr.ph.preheader.i37:                             ; preds = %Extra_ArrayAlloc.exit.i36
   %wide.trip.count.i38 = zext nneg i32 %1 to i64
@@ -954,45 +962,41 @@ Extra_ArrayAlloc.exit.i36:                        ; preds = %44, %Extra_Factoria
 
 .lr.ph.i39:                                       ; preds = %.lr.ph.i39, %.lr.ph.preheader.i37
   %indvars.iv.i40 = phi i64 [ 0, %.lr.ph.preheader.i37 ], [ %indvars.iv.next.i41, %.lr.ph.i39 ]
-  %51 = trunc i64 %indvars.iv.i40 to i8
-  %52 = getelementptr inbounds nuw [50 x i8], ptr %3, i64 0, i64 %indvars.iv.i40
-  store i8 %51, ptr %52, align 1, !tbaa !12
+  %53 = trunc i64 %indvars.iv.i40 to i8
+  %54 = getelementptr inbounds nuw [50 x i8], ptr %3, i64 0, i64 %indvars.iv.i40
+  store i8 %53, ptr %54, align 1, !tbaa !12
   %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond.not.i42 = icmp eq i64 %indvars.iv.next.i41, %wide.trip.count.i38
   br i1 %exitcond.not.i42, label %Extra_Permutations.exit48, label %.lr.ph.i39, !llvm.loop !18
 
 Extra_Permutations.exit48:                        ; preds = %.lr.ph.i39, %Extra_ArrayAlloc.exit.i36
-  call fastcc void @Extra_Permutations_rec(ptr noundef nonnull %40, i32 noundef %.0.lcssa.i.i35, i32 noundef %1, ptr noundef %3)
+  call fastcc void @Extra_Permutations_rec(ptr noundef nonnull %42, i32 noundef %.0.lcssa.i.i35, i32 noundef %1, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %3) #33
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %Extra_Permutations.exit, %Extra_Permutations.exit48
-  %.sink = phi ptr [ %40, %Extra_Permutations.exit48 ], [ %16, %Extra_Permutations.exit ]
-  store ptr %.sink, ptr @Extra_TruthCanonP.pPerms, align 8, !tbaa !31
+  store ptr %42, ptr @Extra_TruthCanonP.pPerms, align 8, !tbaa !31
   store i32 %1, ptr @Extra_TruthCanonP.nVarsOld, align 4, !tbaa !3
-  br label %53
+  br label %55
 
-53:                                               ; preds = %.sink.split, %29
-  %54 = load i32, ptr @Extra_TruthCanonP.nPerms, align 4, !tbaa !3
-  %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %.lr.ph, label %._crit_edge
+55:                                               ; preds = %._crit_edge60, %Extra_Permutations.exit48, %Extra_Permutations.exit
+  %56 = phi i32 [ %.pre, %._crit_edge60 ], [ %37, %Extra_Permutations.exit48 ], [ %12, %Extra_Permutations.exit ]
+  %57 = icmp sgt i32 %56, 0
+  br i1 %57, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %53, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %53 ]
-  %.01654 = phi i32 [ %spec.select, %.lr.ph ], [ -1, %53 ]
-  %56 = load ptr, ptr @Extra_TruthCanonP.pPerms, align 8, !tbaa !31
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
-  %58 = load ptr, ptr %57, align 8, !tbaa !19
-  %59 = tail call i32 @Extra_TruthPermute(i32 noundef %0, ptr noundef %58, i32 noundef %1, i32 noundef 0)
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %.01654, i32 %59)
+.lr.ph:                                           ; preds = %55, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %55 ]
+  %.01654 = phi i32 [ %spec.select, %.lr.ph ], [ -1, %55 ]
+  %58 = load ptr, ptr @Extra_TruthCanonP.pPerms, align 8, !tbaa !31
+  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv
+  %60 = load ptr, ptr %59, align 8, !tbaa !19
+  %61 = tail call i32 @Extra_TruthPermute(i32 noundef %0, ptr noundef %60, i32 noundef %1, i32 noundef 0)
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %.01654, i32 %61)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %60 = load i32, ptr @Extra_TruthCanonP.nPerms, align 4, !tbaa !3
-  %61 = sext i32 %60 to i64
-  %62 = icmp slt i64 %indvars.iv.next, %61
-  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !33
+  %62 = load i32, ptr @Extra_TruthCanonP.nPerms, align 4, !tbaa !3
+  %63 = sext i32 %62 to i64
+  %64 = icmp slt i64 %indvars.iv.next, %63
+  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
-._crit_edge:                                      ; preds = %.lr.ph, %53
-  %.016.lcssa = phi i32 [ -1, %53 ], [ %spec.select, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %55
+  %.016.lcssa = phi i32 [ -1, %55 ], [ %spec.select, %.lr.ph ]
   ret i32 %.016.lcssa
 }
 
