@@ -171,13 +171,13 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN107_$LT$core.
   %or.cond = select i1 %3, i1 true, i1 %6
   br i1 %or.cond, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a8000f31716a581E.llvm.6199602460040706727.exit", label %7
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %8, ptr %0, align 8, !alias.scope !8
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a8000f31716a581E.llvm.6199602460040706727.exit"
 
-"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a8000f31716a581E.llvm.6199602460040706727.exit": ; preds = %7, %1
-  %.0 = phi ptr [ null, %1 ], [ %2, %7 ]
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a8000f31716a581E.llvm.6199602460040706727.exit": ; preds = %4, %1
+  %.0 = phi ptr [ null, %1 ], [ %2, %4 ]
   ret ptr %.0
 }
 
@@ -3682,8 +3682,8 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !377, !nonnull !7
   %8 = icmp eq ptr %4, %7
-  %or.cond.i = select i1 %5, i1 true, i1 %8
-  br i1 %or.cond.i, label %9, label %10
+  %or.cond = select i1 %5, i1 true, i1 %8
+  br i1 %or.cond, label %9, label %10
 
 9:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8

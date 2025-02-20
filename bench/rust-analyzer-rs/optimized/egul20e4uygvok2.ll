@@ -2217,21 +2217,21 @@ _ZN4core3ops8function6FnOnce9call_once17ha1c76c35a2b24656E.exit.i: ; preds = %64
   %.not.i = icmp eq ptr %65, null
   br i1 %.not.i, label %_ZN4core3ops8function6FnOnce9call_once17ha1c76c35a2b24656E.exit.thread.i, label %_ZN4core4iter8adapters5chain17and_then_or_clear17h3dad1b0e85f15500E.exit
 
-_ZN4core3ops8function6FnOnce9call_once17ha1c76c35a2b24656E.exit.thread.thread.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZN4core4iter6traits8iterator8Iterator10advance_by17he1e1f8eada76e0e0E.exit.thread.i.i.i.i.i.i
+_ZN4core3ops8function6FnOnce9call_once17ha1c76c35a2b24656E.exit.i._ZN4core3ops8function6FnOnce9call_once17ha1c76c35a2b24656E.exit.thread.i_crit_edge: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZN4core4iter6traits8iterator8Iterator10advance_by17he1e1f8eada76e0e0E.exit.thread.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.5.i)
   br label %"_ZN4core3ptr517drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..skip..Skip$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxNode..parent$GT$$C$$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$u20$as$u20$core..convert..From$LT$rowan..cursor..SyntaxNode$GT$$GT$..from$GT$$GT$$C$$LT$syntax..ast..generated..nodes..Use$u20$as$u20$syntax..ast..AstNode$GT$..cast$GT$$GT$$GT$17h2051a5c16c987282E.exit.i"
 
 _ZN4core3ops8function6FnOnce9call_once17ha1c76c35a2b24656E.exit.thread.i: ; preds = %_ZN4core3ops8function6FnOnce9call_once17ha1c76c35a2b24656E.exit.i
-  %.val11.pre.i = load ptr, ptr %4, align 8, !alias.scope !931
+  %.val.i = load ptr, ptr %4, align 8, !alias.scope !931
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.5.i)
   %.val.i = load i64, ptr %0, align 8, !range !18, !alias.scope !931, !noundef !4
   %66 = icmp eq i64 %.val.i, 0
-  %67 = icmp eq ptr %.val11.pre.i, null
+  %67 = icmp eq ptr %.val.i, null
   %or.cond.i.i = select i1 %66, i1 true, i1 %67
   br i1 %or.cond.i.i, label %"_ZN4core3ptr517drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..skip..Skip$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxNode..parent$GT$$C$$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$u20$as$u20$core..convert..From$LT$rowan..cursor..SyntaxNode$GT$$GT$..from$GT$$GT$$C$$LT$syntax..ast..generated..nodes..Use$u20$as$u20$syntax..ast..AstNode$GT$..cast$GT$$GT$$GT$17h2051a5c16c987282E.exit.i", label %68
 
 68:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17ha1c76c35a2b24656E.exit.thread.i
-  %69 = getelementptr inbounds nuw i8, ptr %.val11.pre.i, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %.val.i, i64 48
   %70 = load i32, ptr %69, align 4, !noalias !987, !noundef !4
   %71 = add i32 %70, -1
   store i32 %71, ptr %69, align 4, !noalias !987
@@ -2239,7 +2239,7 @@ _ZN4core3ops8function6FnOnce9call_once17ha1c76c35a2b24656E.exit.thread.i: ; pred
   br i1 %72, label %73, label %"_ZN4core3ptr517drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..skip..Skip$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxNode..parent$GT$$C$$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$u20$as$u20$core..convert..From$LT$rowan..cursor..SyntaxNode$GT$$GT$..from$GT$$GT$$C$$LT$syntax..ast..generated..nodes..Use$u20$as$u20$syntax..ast..AstNode$GT$..cast$GT$$GT$$GT$17h2051a5c16c987282E.exit.i"
 
 73:                                               ; preds = %68
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.val11.pre.i)
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.val.i)
           to label %"_ZN4core3ptr517drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..skip..Skip$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxNode..parent$GT$$C$$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$u20$as$u20$core..convert..From$LT$rowan..cursor..SyntaxNode$GT$$GT$..from$GT$$GT$$C$$LT$syntax..ast..generated..nodes..Use$u20$as$u20$syntax..ast..AstNode$GT$..cast$GT$$GT$$GT$17h2051a5c16c987282E.exit.i" unwind label %74
 
 "_ZN4core3ptr517drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..skip..Skip$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxNode..parent$GT$$C$$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$u20$as$u20$core..convert..From$LT$rowan..cursor..SyntaxNode$GT$$GT$..from$GT$$GT$$C$$LT$syntax..ast..generated..nodes..Use$u20$as$u20$syntax..ast..AstNode$GT$..cast$GT$$GT$$GT$17h2051a5c16c987282E.exit.i": ; preds = %73, %68, %_ZN4core3ops8function6FnOnce9call_once17ha1c76c35a2b24656E.exit.thread.i, %_ZN4core3ops8function6FnOnce9call_once17ha1c76c35a2b24656E.exit.thread.thread.i

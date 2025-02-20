@@ -5032,7 +5032,7 @@ define internal fastcc range(i32 -98, 1) i32 @_sp_invmod(ptr noundef %0, ptr nou
   %42 = load i64, ptr %41, align 8, !tbaa !8
   %43 = and i64 %42, 1
   %44 = icmp eq i64 %43, 0
-  br i1 %44, label %45, label %.thread279
+  br i1 %44, label %45, label %.thread278
 
 45:                                               ; preds = %40
   %46 = load i16, ptr %0, align 8, !tbaa !12
@@ -5064,18 +5064,18 @@ sp_mod.exit:                                      ; preds = %48, %49
 58:                                               ; preds = %55
   %.pre243 = load i16, ptr %0, align 8, !tbaa !12
   %.not25.i = icmp eq i16 %.pre243, 0
-  br i1 %.not25.i, label %sp_count_bits.exit.thread.thread, label %.thread279
+  br i1 %.not25.i, label %sp_count_bits.exit.thread.thread, label %.thread278
 
-.thread279:                                       ; preds = %40, %58
-  %.080.ph287 = phi ptr [ %.pre, %58 ], [ %0, %40 ]
-  %.081.ph286 = phi ptr [ %0, %58 ], [ %1, %40 ]
-  %.pre.i.i285 = phi i16 [ %.pre243, %58 ], [ %5, %40 ]
-  %59 = getelementptr inbounds nuw i8, ptr %.081.ph286, i64 8
-  %60 = zext i16 %.pre.i.i285 to i64
+.thread278:                                       ; preds = %40, %58
+  %.080.ph286 = phi ptr [ %.pre, %58 ], [ %0, %40 ]
+  %.081.ph285 = phi ptr [ %0, %58 ], [ %1, %40 ]
+  %.pre.i.i284 = phi i16 [ %.pre243, %58 ], [ %5, %40 ]
+  %59 = getelementptr inbounds nuw i8, ptr %.081.ph285, i64 8
+  %60 = zext i16 %.pre.i.i284 to i64
   br label %61
 
-61:                                               ; preds = %63, %.thread279
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %63 ], [ %60, %.thread279 ]
+61:                                               ; preds = %63, %.thread278
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %63 ], [ %60, %.thread278 ]
   %62 = icmp sgt i64 %indvars.iv.i, 0
   br i1 %62, label %63, label %sp_count_bits.exit.thread
 
@@ -5125,12 +5125,12 @@ sp_count_bits.exit:                               ; preds = %.lr.ph36.i, %.prehe
   br i1 %82, label %83, label %sp_count_bits.exit.thread
 
 83:                                               ; preds = %sp_count_bits.exit
-  %84 = call fastcc i32 @_sp_invmod_div(ptr noundef %.080.ph287, ptr noundef nonnull %.081.ph286, ptr noundef nonnull %10, ptr noundef nonnull %.pre, ptr noundef nonnull %.pre242, ptr noundef %13, ptr noundef %13)
+  %84 = call fastcc i32 @_sp_invmod_div(ptr noundef %.080.ph286, ptr noundef nonnull %.081.ph285, ptr noundef nonnull %10, ptr noundef nonnull %.pre, ptr noundef nonnull %.pre242, ptr noundef %13, ptr noundef %13)
   br label %_sp_invmod_bin.exit
 
 sp_count_bits.exit.thread.thread:                 ; preds = %33, %58
-  %.080.ph275 = phi ptr [ %.pre, %58 ], [ %0, %33 ]
-  %.081.ph273 = phi ptr [ %0, %58 ], [ %1, %33 ]
+  %.080.ph274 = phi ptr [ %.pre, %58 ], [ %0, %33 ]
+  %.081.ph272 = phi ptr [ %0, %58 ], [ %1, %33 ]
   %85 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %85, align 8, !tbaa !8
   br label %_sp_copy.exit.i
@@ -5142,16 +5142,16 @@ sp_count_bits.exit.thread:                        ; preds = %61, %sp_count_bits.
   br label %_sp_copy.exit.i
 
 _sp_copy.exit.i:                                  ; preds = %sp_count_bits.exit.thread, %sp_count_bits.exit.thread.thread
-  %.ph277 = phi i1 [ %44, %sp_count_bits.exit.thread ], [ %6, %sp_count_bits.exit.thread.thread ]
-  %.080.ph274 = phi ptr [ %.080.ph287, %sp_count_bits.exit.thread ], [ %.080.ph275, %sp_count_bits.exit.thread.thread ]
-  %.081.ph272 = phi ptr [ %.081.ph286, %sp_count_bits.exit.thread ], [ %.081.ph273, %sp_count_bits.exit.thread.thread ]
-  %88 = phi i16 [ %.pre.i.i285, %sp_count_bits.exit.thread ], [ 0, %sp_count_bits.exit.thread.thread ]
+  %.ph276 = phi i1 [ %44, %sp_count_bits.exit.thread ], [ %6, %sp_count_bits.exit.thread.thread ]
+  %.080.ph273 = phi ptr [ %.080.ph286, %sp_count_bits.exit.thread ], [ %.080.ph274, %sp_count_bits.exit.thread.thread ]
+  %.081.ph271 = phi ptr [ %.081.ph285, %sp_count_bits.exit.thread ], [ %.081.ph272, %sp_count_bits.exit.thread.thread ]
+  %88 = phi i16 [ %.pre.i.i284, %sp_count_bits.exit.thread ], [ 0, %sp_count_bits.exit.thread.thread ]
   store i16 %88, ptr %10, align 16, !tbaa !12
-  %.not.i100 = icmp eq ptr %.080.ph274, %.pre
+  %.not.i100 = icmp eq ptr %.080.ph273, %.pre
   br i1 %.not.i100, label %100, label %89
 
 89:                                               ; preds = %_sp_copy.exit.i
-  %90 = load i16, ptr %.080.ph274, align 8, !tbaa !12
+  %90 = load i16, ptr %.080.ph273, align 8, !tbaa !12
   %91 = icmp eq i16 %90, 0
   br i1 %91, label %92, label %94
 
@@ -5163,10 +5163,10 @@ _sp_copy.exit.i:                                  ; preds = %sp_count_bits.exit.
 94:                                               ; preds = %89
   %95 = zext i16 %90 to i64
   %96 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %97 = getelementptr inbounds nuw i8, ptr %.080.ph274, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %.080.ph273, i64 8
   %98 = shl nuw nsw i64 %95, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %96, ptr nonnull readonly align 8 %97, i64 %98, i1 false)
-  %.pre.i64.i = load i16, ptr %.080.ph274, align 8, !tbaa !12
+  %.pre.i64.i = load i16, ptr %.080.ph273, align 8, !tbaa !12
   br label %_sp_copy.exit65.i
 
 _sp_copy.exit65.i:                                ; preds = %94, %92
@@ -5182,7 +5182,7 @@ _sp_copy.exit65.i:                                ; preds = %94, %92
   store i16 1, ptr %13, align 16, !tbaa !3
   %102 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %103 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %104 = getelementptr inbounds nuw i8, ptr %.081.ph272, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %.081.ph271, i64 8
   br label %_sp_div_2.exit89.i
 
 _sp_div_2.exit89.i:                               ; preds = %_sp_div_2.exit89.i.backedge, %100
@@ -5292,7 +5292,7 @@ _sp_div_2.exit.i:                                 ; preds = %.critedge.i.i, %._c
   br i1 %.not63.i, label %_sp_add_off.exit.i, label %.lr.ph.i66.i
 
 .lr.ph.i66.i:                                     ; preds = %144
-  %146 = load i16, ptr %.081.ph272, align 8, !tbaa !12
+  %146 = load i16, ptr %.081.ph271, align 8, !tbaa !12
   %147 = add i16 %143, -1
   %umin.i.i = call i16 @llvm.umin.i16(i16 %146, i16 %147)
   %148 = add nuw i16 %umin.i.i, 1
@@ -5558,7 +5558,7 @@ _sp_div_2.exit103.i:                              ; preds = %.critedge.i92.i, %.
   br i1 %.not61.i, label %_sp_add_off.exit144.i, label %.lr.ph.i105.i
 
 .lr.ph.i105.i:                                    ; preds = %249
-  %251 = load i16, ptr %.081.ph272, align 8, !tbaa !12
+  %251 = load i16, ptr %.081.ph271, align 8, !tbaa !12
   %252 = add i16 %248, -1
   %umin.i106.i = call i16 @llvm.umin.i16(i16 %251, i16 %252)
   %253 = add nuw i16 %umin.i106.i, 1
@@ -5891,7 +5891,7 @@ _sp_cmp_abs.exit176.i:                            ; preds = %379, %368
   br i1 %.not76.i177.i, label %.critedge.i187.i, label %.lr.ph.i178.i
 
 .lr.ph.i178.i:                                    ; preds = %_sp_cmp_abs.exit176.i
-  %381 = load i16, ptr %.081.ph272, align 8, !tbaa !12
+  %381 = load i16, ptr %.081.ph271, align 8, !tbaa !12
   %382 = add i16 %365, -1
   %umin.i179.i = call i16 @llvm.umin.i16(i16 %381, i16 %382)
   %383 = add nuw i16 %umin.i179.i, 1
@@ -5936,7 +5936,7 @@ _sp_cmp_abs.exit176.i:                            ; preds = %379, %368
   %.pre-phi254 = phi i64 [ %397, %.critedge.i187.i ], [ %wide.trip.count86.i212.i, %400 ]
   %.154.lcssa.i191.i = phi i16 [ %.053.lcssa.i188.i, %.critedge.i187.i ], [ %365, %400 ]
   %.1.lcssa.i192.i = phi i128 [ %.052.lcssa.i189.i, %.critedge.i187.i ], [ %406, %400 ]
-  %398 = load i16, ptr %.081.ph272, align 8, !tbaa !12
+  %398 = load i16, ptr %.081.ph271, align 8, !tbaa !12
   %399 = icmp ult i16 %.154.lcssa.i191.i, %398
   br i1 %399, label %.lr.ph73.i205.i, label %._crit_edge.i195.i
 
@@ -6219,7 +6219,7 @@ _sp_cmp_abs.exit294.i:                            ; preds = %497, %486
   br i1 %.not76.i295.i, label %.critedge.i305.i, label %.lr.ph.i296.i
 
 .lr.ph.i296.i:                                    ; preds = %_sp_cmp_abs.exit294.i
-  %499 = load i16, ptr %.081.ph272, align 8, !tbaa !12
+  %499 = load i16, ptr %.081.ph271, align 8, !tbaa !12
   %500 = add i16 %483, -1
   %umin.i297.i = call i16 @llvm.umin.i16(i16 %499, i16 %500)
   %501 = add nuw i16 %umin.i297.i, 1
@@ -6264,7 +6264,7 @@ _sp_cmp_abs.exit294.i:                            ; preds = %497, %486
   %.pre-phi256 = phi i64 [ %515, %.critedge.i305.i ], [ %wide.trip.count86.i330.i, %518 ]
   %.154.lcssa.i309.i = phi i16 [ %.053.lcssa.i306.i, %.critedge.i305.i ], [ %483, %518 ]
   %.1.lcssa.i310.i = phi i128 [ %.052.lcssa.i307.i, %.critedge.i305.i ], [ %524, %518 ]
-  %516 = load i16, ptr %.081.ph272, align 8, !tbaa !12
+  %516 = load i16, ptr %.081.ph271, align 8, !tbaa !12
   %517 = icmp ult i16 %.154.lcssa.i309.i, %516
   br i1 %517, label %.lr.ph73.i323.i, label %._crit_edge.i313.i
 
@@ -6437,10 +6437,10 @@ _sp_div_2.exit89.i.backedge:                      ; preds = %._crit_edge.i342.i.
   br label %_sp_div_2.exit89.i.backedge
 
 _sp_invmod_bin.exit:                              ; preds = %..critedge_crit_edge.i, %83
-  %.ph276 = phi i1 [ %44, %83 ], [ %.ph277, %..critedge_crit_edge.i ]
+  %.ph275 = phi i1 [ %44, %83 ], [ %.ph276, %..critedge_crit_edge.i ]
   %.8 = phi i32 [ %84, %83 ], [ %111, %..critedge_crit_edge.i ]
   %574 = icmp eq i32 %.8, 0
-  %or.cond = and i1 %.ph276, %574
+  %or.cond = and i1 %.ph275, %574
   br i1 %or.cond, label %575, label %642
 
 575:                                              ; preds = %_sp_invmod_bin.exit

@@ -2964,8 +2964,8 @@ define internal void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 256
   call fastcc void @_ZN4core4iter8adapters7flatten17and_then_or_clear17hbcd9fda14f32f123E(ptr noalias noundef align 8 captures(none) dereferenceable(96) %4, ptr noalias noundef align 8 dereferenceable(104) %5), !noalias !358
   %6 = load ptr, ptr %4, align 8, !noalias !360, !noundef !5
-  %.not23.i = icmp eq ptr %6, null
-  br i1 %.not23.i, label %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$$GT$17hc91ae50715d730a7E.exit.lr.ph.i", label %._crit_edge.i
+  %.not26.i = icmp eq ptr %6, null
+  br i1 %.not26.i, label %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$$GT$17hc91ae50715d730a7E.exit.lr.ph.i", label %._crit_edge.i
 
 "_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$$GT$17hc91ae50715d730a7E.exit.lr.ph.i": ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8

@@ -1639,7 +1639,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h6ff91cb0bcdc98d0E.exit.i: ; 
   call void @llvm.experimental.noalias.scope.decl(metadata !532)
   %30 = load i64, ptr %0, align 8, !range !535, !alias.scope !536, !noalias !537, !noundef !13
   %31 = icmp eq i64 %30, -9223372036854775806
-  %.0.i.i = select i1 %31, ptr null, ptr %0
+  %..i.i = select i1 %31, ptr null, ptr %0
   br i1 %31, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17ha5ecae11838e4e2eE.exit.thread.i", label %32
 
 32:                                               ; preds = %29
@@ -1712,7 +1712,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h389d20f184440310E.exit.threa
   br i1 %42, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hd7e80c8c249527a1E.exit.thread.i.i.i.i", label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$core..result..IntoIter$LT$alloc..vec..Vec$LT$la_arena..Idx$LT$base_db..input..CrateData$GT$$GT$$GT$$GT$$GT$17hb98247cac7d4f3f9E.exit.i.i.i.i"
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hd7e80c8c249527a1E.exit.thread.i.i.i.i": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hd7e80c8c249527a1E.exit.i.i.i.i", %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$la_arena..Idx$LT$base_db..input..CrateData$GT$$GT$$GT$$GT$17he10e65e67bf0732bE.exit.i.i.i.i", %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$la_arena..Idx$LT$base_db..input..CrateData$GT$$GT$$GT$$GT$17he10e65e67bf0732bE.exit.us.i.i.i.i"
-  %43 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %..i.i, i64 24
   %44 = load i64, ptr %43, align 8, !range !582, !alias.scope !583, !noalias !586, !noundef !13
   %45 = icmp eq i64 %44, -9223372036854775807
   br i1 %45, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17ha5ecae11838e4e2eE.exit.thread.i", label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17ha5ecae11838e4e2eE.exit.i"
@@ -1727,9 +1727,9 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h389d20f184440310E.exit.threa
   br label %.split.i.i.i.i
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17ha5ecae11838e4e2eE.exit.i": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hd7e80c8c249527a1E.exit.thread.i.i.i.i"
-  %.sroa.7.0..08.sroa_idx.i4.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
+  %.sroa.7.0..08.sroa_idx.i4.i.i.i.i = getelementptr inbounds nuw i8, ptr %..i.i, i64 32
   %.sroa.7.0.copyload13.i5.i.i.i.i = load ptr, ptr %.sroa.7.0..08.sroa_idx.i4.i.i.i.i, align 8, !alias.scope !588, !noalias !586
-  %.sroa.8.0..08.sroa_idx.i6.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
+  %.sroa.8.0..08.sroa_idx.i6.i.i.i.i = getelementptr inbounds nuw i8, ptr %..i.i, i64 40
   %.sroa.8.0.copyload14.i7.i.i.i.i = load i64, ptr %.sroa.8.0..08.sroa_idx.i6.i.i.i.i, align 8, !alias.scope !588, !noalias !586
   %.not.i8.i.i.i.i = icmp eq i64 %44, -9223372036854775808
   %spec.select.i.i.i.i = select i1 %.not.i8.i.i.i.i, i64 -9223372036854775807, i64 -9223372036854775808

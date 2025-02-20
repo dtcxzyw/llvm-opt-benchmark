@@ -460,8 +460,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %8 = load ptr, ptr %7, align 8, !alias.scope !99, !noalias !106, !nonnull !9, !noundef !9
   %9 = icmp eq ptr %4, %8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %storemerge.i = select i1 %9, ptr null, ptr %10
-  store ptr %storemerge.i, ptr %3, align 8, !alias.scope !94, !noalias !97
+  %.sink.i = select i1 %9, ptr null, ptr %10
+  store ptr %.sink.i, ptr %3, align 8, !alias.scope !94, !noalias !97
   br i1 %9, label %select.unfold, label %14
 
 select.unfold:                                    ; preds = %6, %2
@@ -484,8 +484,8 @@ select.unfold:                                    ; preds = %6, %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !124)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !127)
   store i32 0, ptr %0, align 8, !alias.scope !128, !noalias !127
-  %.sroa.51.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %4, ptr %.sroa.51.0..sroa_idx, align 8, !alias.scope !128, !noalias !127
+  %.sroa.61.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %4, ptr %.sroa.61.0..sroa_idx, align 8, !alias.scope !128, !noalias !127
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hb7795752d209cfc8E.llvm.7841824541249400019.exit"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17hb7795752d209cfc8E.llvm.7841824541249400019.exit": ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h4f586685a8995bdeE.llvm.7841824541249400019.exit.i", %14
@@ -3925,14 +3925,14 @@ define hidden void @_ZN4core4iter8adapters5chain17and_then_or_clear17h2c221b4582
   %7 = load ptr, ptr %6, align 8, !alias.scope !766, !noalias !773, !nonnull !9, !noundef !9
   %8 = icmp eq ptr %3, %7
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %storemerge = select i1 %8, ptr null, ptr %9
-  %.sink.i.i11 = select i1 %8, i32 3, i32 0
-  store ptr %storemerge, ptr %1, align 8
+  %10 = select i1 %8, ptr null, ptr %9
+  %.sink = select i1 %8, i32 3, i32 0
+  store ptr %10, ptr %1, align 8
   %.sroa.68.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %.sroa.68.0..sroa_idx, align 8
-  br label %10
+  br label %12
 
-10:                                               ; preds = %2, %5
+12:                                               ; preds = %2, %5
   %.sink.i.i11.sink = phi i32 [ %.sink.i.i11, %5 ], [ 3, %2 ]
   store i32 %.sink.i.i11.sink, ptr %0, align 8
   ret void
@@ -17952,8 +17952,8 @@ define hidden void @"_ZN116_$LT$rustfmt_nightly..lists..ListItems$LT$I$C$F1$C$F2
   %14 = load ptr, ptr %13, align 8, !alias.scope !3201, !noalias !3208, !nonnull !9, !noundef !9
   %15 = icmp eq ptr %10, %14
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %storemerge.i.i = select i1 %15, ptr null, ptr %16
-  store ptr %storemerge.i.i, ptr %9, align 8, !alias.scope !3195, !noalias !3199
+  %.sink.i.i = select i1 %15, ptr null, ptr %16
+  store ptr %.sink.i.i, ptr %9, align 8, !alias.scope !3195, !noalias !3199
   br i1 %15, label %select.unfold.i, label %20
 
 select.unfold.i:                                  ; preds = %12, %8
@@ -20494,8 +20494,8 @@ define hidden void @"_ZN116_$LT$rustfmt_nightly..lists..ListItems$LT$I$C$F1$C$F2
   %40 = load ptr, ptr %39, align 8, !alias.scope !3465, !noalias !3472, !nonnull !9, !noundef !9
   %41 = icmp eq ptr %36, %40
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 48
-  %storemerge.i.i.i.i = select i1 %41, ptr null, ptr %42
-  store ptr %storemerge.i.i.i.i, ptr %35, align 8, !alias.scope !3458, !noalias !3463
+  %.sink.i.i.i.i = select i1 %41, ptr null, ptr %42
+  store ptr %.sink.i.i.i.i, ptr %35, align 8, !alias.scope !3458, !noalias !3463
   br i1 %41, label %select.unfold.i.i.i, label %46
 
 select.unfold.i.i.i:                              ; preds = %38, %34
@@ -20605,8 +20605,8 @@ _ZN15rustfmt_nightly5utils5mk_sp17h98cfa70ea005048dE.exit: ; preds = %63
   %76 = load ptr, ptr %75, align 8, !alias.scope !3513, !noalias !3520, !nonnull !9, !noundef !9
   %77 = icmp eq ptr %72, %76
   %78 = getelementptr inbounds nuw i8, ptr %72, i64 48
-  %storemerge.i.i.i.i45 = select i1 %77, ptr null, ptr %78
-  store ptr %storemerge.i.i.i.i45, ptr %71, align 8, !alias.scope !3506, !noalias !3511
+  %.sink.i.i.i.i45 = select i1 %77, ptr null, ptr %78
+  store ptr %.sink.i.i.i.i45, ptr %71, align 8, !alias.scope !3506, !noalias !3511
   br i1 %77, label %select.unfold.i.i.i52, label %82
 
 select.unfold.i.i.i52:                            ; preds = %74, %70
@@ -20715,8 +20715,8 @@ select.unfold.i.i.i52:                            ; preds = %74, %70
   %115 = load ptr, ptr %114, align 8, !alias.scope !3561, !noalias !3568, !nonnull !9, !noundef !9
   %116 = icmp eq ptr %111, %115
   %117 = getelementptr inbounds nuw i8, ptr %111, i64 48
-  %storemerge.i.i.i.i64 = select i1 %116, ptr null, ptr %117
-  store ptr %storemerge.i.i.i.i64, ptr %110, align 8, !alias.scope !3554, !noalias !3559
+  %.sink.i.i.i.i64 = select i1 %116, ptr null, ptr %117
+  store ptr %.sink.i.i.i.i64, ptr %110, align 8, !alias.scope !3554, !noalias !3559
   br i1 %116, label %select.unfold.i.i.i71, label %121
 
 select.unfold.i.i.i71:                            ; preds = %113, %109

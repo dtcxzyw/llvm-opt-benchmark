@@ -9507,19 +9507,19 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h68c1becebd8ca9f5E.exit.i.i.i
 define hidden noundef align 4 dereferenceable_or_null(4) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hd89d40490a636d3dE.llvm.10043242345734795027(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0) unnamed_addr #11 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %8, label %.sink.split
+  br i1 %3, label %9, label %.sink.split
 
 .sink.split:                                      ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !2312, !nonnull !4, !noundef !4
   %6 = icmp eq ptr %2, %5
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.sink = select i1 %6, ptr null, ptr %7
-  %.0.ph = select i1 %6, ptr null, ptr %2
+  %8 = select i1 %6, ptr null, ptr %7
+  %.sink = select i1 %6, ptr null, ptr %2
   store ptr %.sink, ptr %0, align 8
-  br label %8
+  br label %9
 
-8:                                                ; preds = %.sink.split, %1
+9:                                                ; preds = %.sink.split, %1
   %.0 = phi ptr [ null, %1 ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }

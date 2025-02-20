@@ -53,8 +53,8 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   unreachable
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.thread.loopexit": ; preds = %102
-  %.sroa.0.0.ph184234.le = ptrtoint ptr %.sroa.0.0.ph184 to i64
-  %25 = sub i64 %18, %.sroa.0.0.ph184234.le
+  %.sroa.0.0.ph184235.le = ptrtoint ptr %.sroa.0.0.ph184 to i64
+  %25 = sub i64 %18, %.sroa.0.0.ph184235.le
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.thread"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.thread": ; preds = %.outer, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.thread.loopexit", %14
@@ -196,8 +196,8 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   %81 = add nuw nsw i64 %.sroa.024.0192, 1
   store i8 %80, ptr %77, align 1
   %82 = add nuw i64 %.0194, 1
-  %exitcond235.not = icmp eq i64 %81, %umax
-  br i1 %exitcond235.not, label %.split81, label %.lr.ph
+  %exitcond236.not = icmp eq i64 %81, %umax
+  br i1 %exitcond236.not, label %.split81, label %.lr.ph
 
 83:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit"
   %.not = icmp eq i64 %.075174, 0
