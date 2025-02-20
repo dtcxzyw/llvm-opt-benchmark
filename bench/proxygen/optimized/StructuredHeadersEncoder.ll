@@ -1275,7 +1275,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
   unreachable
 
 common.resume:                                    ; preds = %lpad.i, %lpad.i.i.i39, %lpad.i.i.i28, %lpad.i.i.i18, %lpad.i.i.i11, %lpad.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i.i.i ], [ %4, %lpad.i.i.i11 ], [ %7, %lpad.i.i.i18 ], [ %10, %lpad.i.i.i28 ], [ %13, %lpad.i.i.i39 ], [ %16, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i.i.i ], [ %4, %lpad.i.i.i11 ], [ %7, %lpad.i.i.i18 ], [ %11, %lpad.i.i.i28 ], [ %14, %lpad.i.i.i39 ], [ %17, %lpad.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
@@ -1347,19 +1347,19 @@ _ZN5boost3getIbbJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_13a
   %storage_.i.i.i.i.i.i20 = getelementptr inbounds nuw i8, ptr %input, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i14)
   %8 = load i8, ptr %storage_.i.i.i.i.i.i20, align 8
-  %tobool = trunc i8 %8 to i1
   %outputStream_.i21 = getelementptr inbounds nuw i8, ptr %this, i64 160
   %call.i22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %outputStream_.i21, i8 noundef signext 63)
-  %cond.i = select i1 %tobool, i8 49, i8 48
+  %9 = and i8 %8, 1
+  %cond.i = or disjoint i8 %9, 48
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call.i22, i8 noundef signext %cond.i)
   br label %return
 
 sw.bb13:                                          ; preds = %if.end
   %value14 = getelementptr inbounds nuw i8, ptr %input, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i23)
-  %9 = load i32, ptr %value14, align 8
-  %.lobit.i.i.i.i.i.i24 = ashr i32 %9, 31
-  %retval.0.i.i.i.i.i.i25 = xor i32 %.lobit.i.i.i.i.i.i24, %9
+  %10 = load i32, ptr %value14, align 8
+  %.lobit.i.i.i.i.i.i24 = ashr i32 %10, 31
+  %retval.0.i.i.i.i.i.i25 = xor i32 %.lobit.i.i.i.i.i.i24, %10
   %switch.i.i.not.i.i.i26 = icmp eq i32 %retval.0.i.i.i.i.i.i25, 2
   br i1 %switch.i.i.not.i.i.i26, label %_ZN5boost3getIdbJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_13add_referenceIKT_E4typeERKNS_7variantIT0_JDpT1_EEE.exit, label %if.then.i.i.i27
 
@@ -1372,7 +1372,7 @@ invoke.cont.i.i.i29:                              ; preds = %if.then.i.i.i27
   unreachable
 
 lpad.i.i.i28:                                     ; preds = %if.then.i.i.i27
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i23) #22
   br label %common.resume
@@ -1380,17 +1380,17 @@ lpad.i.i.i28:                                     ; preds = %if.then.i.i.i27
 _ZN5boost3getIdbJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_13add_referenceIKT_E4typeERKNS_7variantIT0_JDpT1_EEE.exit: ; preds = %sw.bb13
   %storage_.i.i.i.i.i.i30 = getelementptr inbounds nuw i8, ptr %input, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i23)
-  %11 = load double, ptr %storage_.i.i.i.i.i.i30, align 8
+  %12 = load double, ptr %storage_.i.i.i.i.i.i30, align 8
   %outputStream_.i31 = getelementptr inbounds nuw i8, ptr %this, i64 160
-  %call.i32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %outputStream_.i31, double noundef %11)
+  %call.i32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %outputStream_.i31, double noundef %12)
   br label %return
 
 sw.bb17:                                          ; preds = %if.end
   %value18 = getelementptr inbounds nuw i8, ptr %input, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i33)
-  %12 = load i32, ptr %value18, align 8
-  %.lobit.i.i.i.i.i.i34 = ashr i32 %12, 31
-  %retval.0.i.i.i.i.i.i35 = xor i32 %.lobit.i.i.i.i.i.i34, %12
+  %13 = load i32, ptr %value18, align 8
+  %.lobit.i.i.i.i.i.i34 = ashr i32 %13, 31
+  %retval.0.i.i.i.i.i.i35 = xor i32 %.lobit.i.i.i.i.i.i34, %13
   %switch.i.i.i.i.i36 = icmp ult i32 %retval.0.i.i.i.i.i.i35, 3
   br i1 %switch.i.i.i.i.i36, label %if.then.i.i.i38, label %_ZN5boost3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbJldS6_EEENS_13add_referenceIKT_E4typeERKNS_7variantIT0_JDpT1_EEE.exit41
 
@@ -1403,7 +1403,7 @@ invoke.cont.i.i.i40:                              ; preds = %if.then.i.i.i38
   unreachable
 
 lpad.i.i.i39:                                     ; preds = %if.then.i.i.i38
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i33) #22
   br label %common.resume
@@ -1415,14 +1415,14 @@ _ZN5boost3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbJldS6_EEENS_1
   %outputStream_.i42 = getelementptr inbounds nuw i8, ptr %this, i64 160
   %call.i43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %outputStream_.i42, ptr noundef nonnull @.str.16)
   %call3.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %storage_.i.i.i.i.i.i37) #22
-  %14 = extractvalue { i64, ptr } %call3.i, 0
-  %15 = extractvalue { i64, ptr } %call3.i, 1
-  call void @_ZN5folly12base64EncodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, i64 %14, ptr %15)
+  %15 = extractvalue { i64, ptr } %call3.i, 0
+  %16 = extractvalue { i64, ptr } %call3.i, 1
+  call void @_ZN5folly12base64EncodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, i64 %15, ptr %16)
   %call4.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %outputStream_.i42, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
           to label %_ZN8proxygen24StructuredHeadersEncoder19encodeBinaryContentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %_ZN5boost3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbJldS6_EEENS_13add_referenceIKT_E4typeERKNS_7variantIT0_JDpT1_EEE.exit41
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #22
   br label %common.resume

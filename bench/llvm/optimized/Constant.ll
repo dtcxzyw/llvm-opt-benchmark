@@ -3736,19 +3736,18 @@ define linkonce_odr hidden void @_ZN4llvm9sandboxir13GenericSetterIXadL_ZNKS0_14
   %4 = load ptr, ptr %3, align 8, !tbaa !206
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i8, ptr %5, align 8, !tbaa !208, !range !135, !noundef !136
-  %7 = trunc nuw i8 %6 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !26
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = tail call noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17emplaceIfTrackingINS0_13GenericSetterIXadL_ZNKS0_14GlobalVariable23isExternallyInitializedEvEEXadL_ZNS4_24setExternallyInitializedEbEEEEJPS4_EEEbDpT0_(ptr noundef nonnull align 8 dereferenceable(80) %10, ptr noundef nonnull align 8 dereferenceable(32) %4)
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !12
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  %15 = load i8, ptr %14, align 8
-  %16 = select i1 %7, i8 2, i8 0
-  %17 = and i8 %15, -3
-  %18 = or disjoint i8 %17, %16
-  store i8 %18, ptr %14, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %8 = load ptr, ptr %7, align 8, !tbaa !26
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = tail call noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17emplaceIfTrackingINS0_13GenericSetterIXadL_ZNKS0_14GlobalVariable23isExternallyInitializedEvEEXadL_ZNS4_24setExternallyInitializedEbEEEEJPS4_EEEbDpT0_(ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %12 = load ptr, ptr %11, align 8, !tbaa !12
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 80
+  %14 = load i8, ptr %13, align 8
+  %15 = shl nuw nsw i8 %6, 1
+  %16 = and i8 %14, -3
+  %17 = or disjoint i8 %16, %15
+  store i8 %17, ptr %13, align 8
   ret void
 }
 

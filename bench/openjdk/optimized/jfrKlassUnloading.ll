@@ -221,11 +221,13 @@ _ZL25add_to_unloaded_klass_setm.exit:             ; preds = %16, %24
   store i64 %33, ptr %38, align 8
   %39 = load i64, ptr %10, align 8
   %40 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %41 = trunc i8 %40 to i1
-  %42 = select i1 %41, i64 2050, i64 2049
-  %43 = and i64 %42, %39
-  %44 = icmp ne i64 %43, 0
-  ret i1 %44
+  %41 = and i8 %40, 1
+  %42 = add nuw nsw i8 %41, 1
+  %43 = zext nneg i8 %42 to i64
+  %44 = or disjoint i64 %43, 2048
+  %45 = and i64 %44, %39
+  %46 = icmp ne i64 %45, 0
+  ret i1 %46
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

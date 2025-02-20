@@ -1160,9 +1160,9 @@ define range(i32 -1, 1) i32 @H5Pget_link_creation_order(i64 noundef %0, ptr noun
   %60 = or i32 %59, %58
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %62 = load i8, ptr %61, align 1, !tbaa !28, !range !7, !noundef !8
-  %63 = trunc nuw i8 %62 to i1
-  %64 = select i1 %63, i32 2, i32 0
-  %65 = or i32 %64, %60
+  %63 = shl nuw nsw i8 %62, 1
+  %64 = zext nneg i8 %63 to i32
+  %65 = or i32 %60, %64
   store i32 %65, ptr %1, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #7
   %66 = call i32 @H5CX_pop(i1 noundef zeroext true) #7
@@ -1408,49 +1408,48 @@ define internal noundef i32 @H5P__gcrt_link_info_enc(ptr noundef readonly captur
   %7 = trunc nuw i8 %6 to i1
   %8 = xor i1 %7, true
   %9 = select i1 %5, i1 true, i1 %8
-  br i1 %9, label %10, label %32, !prof !9
+  br i1 %9, label %10, label %31, !prof !9
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %1, align 8, !tbaa !29
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %29, label %12
+  br i1 %.not, label %28, label %12
 
 12:                                               ; preds = %10
   %13 = load i8, ptr %0, align 8, !tbaa !26, !range !7, !noundef !8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !28, !range !7, !noundef !8
-  %16 = trunc nuw i8 %15 to i1
-  %17 = select i1 %16, i8 2, i8 0
-  %18 = or disjoint i8 %17, %13
-  %19 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  store ptr %19, ptr %1, align 8, !tbaa !29
+  %16 = shl nuw nsw i8 %15, 1
+  %17 = or disjoint i8 %16, %13
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  store ptr %18, ptr %1, align 8, !tbaa !29
   store i8 4, ptr %11, align 1, !tbaa !32
+  %19 = load ptr, ptr %1, align 8, !tbaa !29
+  store i8 %17, ptr %19, align 1, !tbaa !32
   %20 = load ptr, ptr %1, align 8, !tbaa !29
-  store i8 %18, ptr %20, align 1, !tbaa !32
-  %21 = load ptr, ptr %1, align 8, !tbaa !29
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
-  store ptr %22, ptr %1, align 8, !tbaa !29
-  store i8 0, ptr %22, align 1, !tbaa !32
-  %23 = load ptr, ptr %1, align 8, !tbaa !29
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
-  store ptr %24, ptr %1, align 8, !tbaa !29
-  store i8 0, ptr %24, align 1, !tbaa !32
-  %25 = load ptr, ptr %1, align 8, !tbaa !29
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1
-  store ptr %26, ptr %1, align 8, !tbaa !29
-  store i8 0, ptr %26, align 1, !tbaa !32
-  %27 = load ptr, ptr %1, align 8, !tbaa !29
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
-  store ptr %28, ptr %1, align 8, !tbaa !29
-  br label %29
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
+  store ptr %21, ptr %1, align 8, !tbaa !29
+  store i8 0, ptr %21, align 1, !tbaa !32
+  %22 = load ptr, ptr %1, align 8, !tbaa !29
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
+  store ptr %23, ptr %1, align 8, !tbaa !29
+  store i8 0, ptr %23, align 1, !tbaa !32
+  %24 = load ptr, ptr %1, align 8, !tbaa !29
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
+  store ptr %25, ptr %1, align 8, !tbaa !29
+  store i8 0, ptr %25, align 1, !tbaa !32
+  %26 = load ptr, ptr %1, align 8, !tbaa !29
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
+  store ptr %27, ptr %1, align 8, !tbaa !29
+  br label %28
 
-29:                                               ; preds = %12, %10
-  %30 = load i64, ptr %2, align 8, !tbaa !10
-  %31 = add i64 %30, 5
-  store i64 %31, ptr %2, align 8, !tbaa !10
-  br label %32
+28:                                               ; preds = %12, %10
+  %29 = load i64, ptr %2, align 8, !tbaa !10
+  %30 = add i64 %29, 5
+  store i64 %30, ptr %2, align 8, !tbaa !10
+  br label %31
 
-32:                                               ; preds = %29, %3
+31:                                               ; preds = %28, %3
   ret i32 0
 }
 

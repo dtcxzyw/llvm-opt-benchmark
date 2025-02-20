@@ -1555,8 +1555,8 @@ define void @_ZN5uu_dd5Input8new_file17h59fd1ff108074052E(ptr noalias noundef wr
   store i8 1, ptr %.sroa.511.0..sroa_idx, align 4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 65
   %10 = load i8, ptr %9, align 1, !range !215, !alias.scope !222, !noundef !5
-  %11 = trunc nuw i8 %10 to i1
-  %spec.store.select.i = select i1 %11, i32 16384, i32 0
+  %11 = zext nneg i8 %10 to i32
+  %spec.store.select.i = shl nuw nsw i32 %11, 14
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 66
   %13 = load i8, ptr %12, align 2, !range !215, !alias.scope !222, !noundef !5
   %14 = zext nneg i8 %13 to i32
@@ -1586,7 +1586,7 @@ define void @_ZN5uu_dd5Input8new_file17h59fd1ff108074052E(ptr noalias noundef wr
   %33 = load i8, ptr %32, align 2, !range !215, !alias.scope !222, !noundef !5
   %34 = zext nneg i8 %33 to i32
   %35 = shl nuw nsw i32 %34, 11
-  %.5.i = or disjoint i32 %.4.i, %35
+  %.5.i = or i32 %.4.i, %35
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %37 = load i8, ptr %36, align 4, !range !215, !alias.scope !222, !noundef !5
   %38 = trunc nuw i8 %37 to i1
@@ -1716,8 +1716,8 @@ define void @_ZN5uu_dd5Input8new_fifo17h63fd09da80b2f076E(ptr noalias noundef wr
   store i8 1, ptr %.sroa.59.0..sroa_idx, align 4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 65
   %10 = load i8, ptr %9, align 1, !range !215, !alias.scope !233, !noundef !5
-  %11 = trunc nuw i8 %10 to i1
-  %spec.store.select.i = select i1 %11, i32 16384, i32 0
+  %11 = zext nneg i8 %10 to i32
+  %spec.store.select.i = shl nuw nsw i32 %11, 14
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 66
   %13 = load i8, ptr %12, align 2, !range !215, !alias.scope !233, !noundef !5
   %14 = zext nneg i8 %13 to i32
@@ -1747,7 +1747,7 @@ define void @_ZN5uu_dd5Input8new_fifo17h63fd09da80b2f076E(ptr noalias noundef wr
   %33 = load i8, ptr %32, align 2, !range !215, !alias.scope !233, !noundef !5
   %34 = zext nneg i8 %33 to i32
   %35 = shl nuw nsw i32 %34, 11
-  %.5.i = or disjoint i32 %.4.i, %35
+  %.5.i = or i32 %.4.i, %35
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %37 = load i8, ptr %36, align 4, !range !215, !alias.scope !233, !noundef !5
   %38 = trunc nuw i8 %37 to i1
@@ -2688,8 +2688,8 @@ define void @_ZN5uu_dd6Output8new_file17h0d6a277893faa49fE(ptr noalias noundef w
   store i8 %.val, ptr %.sroa.10.0..sroa_idx.i, align 1, !noalias !308
   %13 = load i8, ptr %9, align 2, !range !215, !alias.scope !305, !noalias !311, !noundef !5
   store i8 %13, ptr %.sroa.7.0..sroa_idx.i, align 2, !noalias !308
-  %14 = trunc nuw i8 %13 to i1
-  %spec.store.select.i.i = select i1 %14, i32 1024, i32 0
+  %14 = zext nneg i8 %13 to i32
+  %spec.store.select.i.i = shl nuw nsw i32 %14, 10
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %16 = load i8, ptr %15, align 8, !range !215, !alias.scope !312, !noalias !311, !noundef !5
   %17 = zext nneg i8 %16 to i32
@@ -2709,7 +2709,7 @@ define void @_ZN5uu_dd6Output8new_file17h0d6a277893faa49fE(ptr noalias noundef w
   %28 = load i8, ptr %27, align 2, !range !215, !alias.scope !312, !noalias !311, !noundef !5
   %29 = zext nneg i8 %28 to i32
   %30 = shl nuw nsw i32 %29, 18
-  %.3.i.i = or disjoint i32 %.2.i.i, %30
+  %.3.i.i = or i32 %.2.i.i, %30
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 159
   %32 = load i8, ptr %31, align 1, !range !215, !alias.scope !312, !noalias !311, !noundef !5
   %33 = zext nneg i8 %32 to i32
@@ -2941,8 +2941,8 @@ define void @_ZN5uu_dd6Output20new_file_from_stdout17h9b8fdad67a7c0913E(ptr noal
   store i32 %12, ptr %6, align 4
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 150
   %21 = load i8, ptr %20, align 2, !range !215, !alias.scope !353, !noundef !5
-  %22 = trunc nuw i8 %21 to i1
-  %spec.store.select.i = select i1 %22, i32 1024, i32 0
+  %22 = zext nneg i8 %21 to i32
+  %spec.store.select.i = shl nuw nsw i32 %22, 10
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %24 = load i8, ptr %23, align 8, !range !215, !alias.scope !353, !noundef !5
   %25 = zext nneg i8 %24 to i32
@@ -2962,7 +2962,7 @@ define void @_ZN5uu_dd6Output20new_file_from_stdout17h9b8fdad67a7c0913E(ptr noal
   %36 = load i8, ptr %35, align 2, !range !215, !alias.scope !353, !noundef !5
   %37 = zext nneg i8 %36 to i32
   %38 = shl nuw nsw i32 %37, 18
-  %.3.i = or disjoint i32 %.2.i, %38
+  %.3.i = or i32 %.2.i, %38
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 159
   %40 = load i8, ptr %39, align 1, !range !215, !alias.scope !353, !noundef !5
   %41 = zext nneg i8 %40 to i32
@@ -3182,8 +3182,8 @@ default.unreachable:                              ; preds = %13
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 150
   %47 = load i8, ptr %46, align 2, !range !215, !noundef !5
   store i8 %47, ptr %.sroa.725.0..sroa_idx, align 2
-  %48 = trunc nuw i8 %47 to i1
-  %spec.store.select.i = select i1 %48, i32 1024, i32 0
+  %48 = zext nneg i8 %47 to i32
+  %spec.store.select.i = shl nuw nsw i32 %48, 10
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %50 = load i8, ptr %49, align 8, !range !215, !alias.scope !377, !noundef !5
   %51 = zext nneg i8 %50 to i32
@@ -3203,7 +3203,7 @@ default.unreachable:                              ; preds = %13
   %62 = load i8, ptr %61, align 2, !range !215, !alias.scope !377, !noundef !5
   %63 = zext nneg i8 %62 to i32
   %64 = shl nuw nsw i32 %63, 18
-  %.3.i = or disjoint i32 %.2.i, %64
+  %.3.i = or i32 %.2.i, %64
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 159
   %66 = load i8, ptr %65, align 1, !range !215, !alias.scope !377, !noundef !5
   %67 = zext nneg i8 %66 to i32

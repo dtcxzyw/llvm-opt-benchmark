@@ -1207,14 +1207,14 @@ define dso_local ptr @do_item_alloc(ptr noundef readonly captures(none) %0, i64 
   %65 = getelementptr inbounds nuw i8, ptr %.063, i64 40
   store i8 %64, ptr %65, align 8, !tbaa !30
   %66 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 104), align 8, !tbaa !62, !range !24, !noundef !25
-  %67 = trunc nuw i8 %66 to i1
-  %68 = select i1 %67, i16 2, i16 0
-  %69 = getelementptr inbounds nuw i8, ptr %.063, i64 38
-  %70 = load i16, ptr %69, align 2, !tbaa !31
-  %71 = or i16 %68, %70
+  %67 = shl nuw nsw i8 %66, 1
+  %68 = getelementptr inbounds nuw i8, ptr %.063, i64 38
+  %69 = load i16, ptr %68, align 2, !tbaa !31
+  %70 = zext nneg i8 %67 to i16
+  %71 = or i16 %69, %70
   %72 = select i1 %9, i16 0, i16 256
   %73 = or i16 %71, %72
-  store i16 %73, ptr %69, align 2, !tbaa !31
+  store i16 %73, ptr %68, align 2, !tbaa !31
   %74 = trunc i64 %1 to i8
   %75 = getelementptr inbounds nuw i8, ptr %.063, i64 41
   store i8 %74, ptr %75, align 1, !tbaa !30

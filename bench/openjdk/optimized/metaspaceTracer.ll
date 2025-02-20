@@ -1768,26 +1768,26 @@ define linkonce_odr hidden void @_ZN31EventMetaspaceAllocationFailure9writeDataI
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.i.i = icmp eq ptr %13, null
-  %.pre9.i.i.i.i = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
+  %.pre8.i.i.i.i = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   br i1 %.not.i.i.i.i, label %_ZN21JfrTraceIdLoadBarrier4loadEPK5Klass.exit.i.i.i.i, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 168
   %16 = load i64, ptr %15, align 8
-  %17 = trunc i8 %.pre9.i.i.i.i to i1
-  %18 = select i1 %17, i64 2, i64 1
-  %.mask.i.i.i.i.i.i.i = and i8 %.pre9.i.i.i.i, 1
-  %19 = zext nneg i8 %.mask.i.i.i.i.i.i.i to i64
-  %20 = shl nuw nsw i64 257, %19
+  %17 = and i8 %.pre8.i.i.i.i, 1
+  %18 = add nuw nsw i8 %17, 1
+  %19 = zext nneg i8 %18 to i64
+  %20 = mul nuw nsw i64 %19, 257
   %21 = and i64 %16, %20
-  %.not.i.i.i.i.i = icmp eq i64 %21, %18
+  %.not.i.i.i.i.i = icmp eq i64 %21, %19
   br i1 %.not.i.i.i.i.i, label %_ZN21JfrTraceIdLoadBarrier4loadEPK5Klass.exit.i.i.i.i, label %22
 
 22:                                               ; preds = %14
   %23 = trunc i64 %16 to i8
-  %24 = select i1 %17, i8 10, i8 5
-  %25 = or i8 %24, %23
-  store i8 %25, ptr %15, align 1
+  %24 = trunc i8 %.pre8.i.i.i.i to i1
+  %25 = select i1 %24, i8 10, i8 5
+  %26 = or i8 %25, %23
+  store i8 %26, ptr %15, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !7
   tail call void @_ZN21JfrTraceIdLoadBarrier7enqueueEPK5Klass(ptr noundef nonnull %13) #7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !7
@@ -1796,31 +1796,29 @@ define linkonce_odr hidden void @_ZN31EventMetaspaceAllocationFailure9writeDataI
   br label %_ZN21JfrTraceIdLoadBarrier4loadEPK5Klass.exit.i.i.i.i
 
 _ZN21JfrTraceIdLoadBarrier4loadEPK5Klass.exit.i.i.i.i: ; preds = %22, %14, %11
-  %26 = phi i8 [ %.pre.i.i.i.i, %22 ], [ %.pre9.i.i.i.i, %14 ], [ %.pre9.i.i.i.i, %11 ]
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 152
-  %28 = load i64, ptr %27, align 8
-  %29 = trunc i8 %26 to i1
-  %30 = select i1 %29, i64 2, i64 1
-  %.mask.i.i.i6.i.i.i.i = and i8 %26, 1
-  %31 = zext nneg i8 %.mask.i.i.i6.i.i.i.i to i64
-  %32 = shl nuw nsw i64 257, %31
-  %33 = and i64 %32, %28
-  %.not.i7.i.i.i.i = icmp eq i64 %33, %30
-  br i1 %.not.i7.i.i.i.i, label %_Z16set_used_and_getI15ClassLoaderDataEmPKT_.exit.i.i.i.i, label %34
+  %27 = phi i8 [ %.pre.i.i.i.i, %22 ], [ %.pre8.i.i.i.i, %14 ], [ %.pre8.i.i.i.i, %11 ]
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 152
+  %29 = load i64, ptr %28, align 8
+  %30 = and i8 %27, 1
+  %31 = add nuw nsw i8 %30, 1
+  %32 = zext nneg i8 %31 to i64
+  %33 = mul nuw nsw i64 %32, 257
+  %34 = and i64 %33, %29
+  %.not.i6.i.i.i.i = icmp eq i64 %34, %32
+  br i1 %.not.i6.i.i.i.i, label %_Z16set_used_and_getI15ClassLoaderDataEmPKT_.exit.i.i.i.i, label %35
 
-34:                                               ; preds = %_ZN21JfrTraceIdLoadBarrier4loadEPK5Klass.exit.i.i.i.i
-  %35 = trunc i64 %28 to i8
-  %36 = select i1 %29, i8 2, i8 1
-  %37 = or i8 %36, %35
-  store i8 %37, ptr %27, align 1
+35:                                               ; preds = %_ZN21JfrTraceIdLoadBarrier4loadEPK5Klass.exit.i.i.i.i
+  %36 = trunc i64 %29 to i8
+  %37 = or i8 %31, %36
+  store i8 %37, ptr %28, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !7
   store volatile i8 1, ptr @_ZN15JfrTraceIdEpoch10_tag_stateE, align 1
-  %.pre.i8.i.i.i.i = load i64, ptr %27, align 8
+  %.pre.i7.i.i.i.i = load i64, ptr %28, align 8
   br label %_Z16set_used_and_getI15ClassLoaderDataEmPKT_.exit.i.i.i.i
 
-_Z16set_used_and_getI15ClassLoaderDataEmPKT_.exit.i.i.i.i: ; preds = %34, %_ZN21JfrTraceIdLoadBarrier4loadEPK5Klass.exit.i.i.i.i
-  %38 = phi i64 [ %.pre.i8.i.i.i.i, %34 ], [ %28, %_ZN21JfrTraceIdLoadBarrier4loadEPK5Klass.exit.i.i.i.i ]
+_Z16set_used_and_getI15ClassLoaderDataEmPKT_.exit.i.i.i.i: ; preds = %35, %_ZN21JfrTraceIdLoadBarrier4loadEPK5Klass.exit.i.i.i.i
+  %38 = phi i64 [ %.pre.i7.i.i.i.i, %35 ], [ %29, %_ZN21JfrTraceIdLoadBarrier4loadEPK5Klass.exit.i.i.i.i ]
   %39 = lshr i64 %38, 16
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEPK15ClassLoaderData.exit
 
@@ -2120,26 +2118,26 @@ define linkonce_odr hidden void @_ZN17EventMetaspaceOOM9writeDataI15EventWriterH
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.i.i = icmp eq ptr %13, null
-  %.pre9.i.i.i.i = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
+  %.pre8.i.i.i.i = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   br i1 %.not.i.i.i.i, label %_ZN21JfrTraceIdLoadBarrier4loadEPK5Klass.exit.i.i.i.i, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 168
   %16 = load i64, ptr %15, align 8
-  %17 = trunc i8 %.pre9.i.i.i.i to i1
-  %18 = select i1 %17, i64 2, i64 1
-  %.mask.i.i.i.i.i.i.i = and i8 %.pre9.i.i.i.i, 1
-  %19 = zext nneg i8 %.mask.i.i.i.i.i.i.i to i64
-  %20 = shl nuw nsw i64 257, %19
+  %17 = and i8 %.pre8.i.i.i.i, 1
+  %18 = add nuw nsw i8 %17, 1
+  %19 = zext nneg i8 %18 to i64
+  %20 = mul nuw nsw i64 %19, 257
   %21 = and i64 %16, %20
-  %.not.i.i.i.i.i = icmp eq i64 %21, %18
+  %.not.i.i.i.i.i = icmp eq i64 %21, %19
   br i1 %.not.i.i.i.i.i, label %_ZN21JfrTraceIdLoadBarrier4loadEPK5Klass.exit.i.i.i.i, label %22
 
 22:                                               ; preds = %14
   %23 = trunc i64 %16 to i8
-  %24 = select i1 %17, i8 10, i8 5
-  %25 = or i8 %24, %23
-  store i8 %25, ptr %15, align 1
+  %24 = trunc i8 %.pre8.i.i.i.i to i1
+  %25 = select i1 %24, i8 10, i8 5
+  %26 = or i8 %25, %23
+  store i8 %26, ptr %15, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !7
   tail call void @_ZN21JfrTraceIdLoadBarrier7enqueueEPK5Klass(ptr noundef nonnull %13) #7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !7
@@ -2148,31 +2146,29 @@ define linkonce_odr hidden void @_ZN17EventMetaspaceOOM9writeDataI15EventWriterH
   br label %_ZN21JfrTraceIdLoadBarrier4loadEPK5Klass.exit.i.i.i.i
 
 _ZN21JfrTraceIdLoadBarrier4loadEPK5Klass.exit.i.i.i.i: ; preds = %22, %14, %11
-  %26 = phi i8 [ %.pre.i.i.i.i, %22 ], [ %.pre9.i.i.i.i, %14 ], [ %.pre9.i.i.i.i, %11 ]
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 152
-  %28 = load i64, ptr %27, align 8
-  %29 = trunc i8 %26 to i1
-  %30 = select i1 %29, i64 2, i64 1
-  %.mask.i.i.i6.i.i.i.i = and i8 %26, 1
-  %31 = zext nneg i8 %.mask.i.i.i6.i.i.i.i to i64
-  %32 = shl nuw nsw i64 257, %31
-  %33 = and i64 %32, %28
-  %.not.i7.i.i.i.i = icmp eq i64 %33, %30
-  br i1 %.not.i7.i.i.i.i, label %_Z16set_used_and_getI15ClassLoaderDataEmPKT_.exit.i.i.i.i, label %34
+  %27 = phi i8 [ %.pre.i.i.i.i, %22 ], [ %.pre8.i.i.i.i, %14 ], [ %.pre8.i.i.i.i, %11 ]
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 152
+  %29 = load i64, ptr %28, align 8
+  %30 = and i8 %27, 1
+  %31 = add nuw nsw i8 %30, 1
+  %32 = zext nneg i8 %31 to i64
+  %33 = mul nuw nsw i64 %32, 257
+  %34 = and i64 %33, %29
+  %.not.i6.i.i.i.i = icmp eq i64 %34, %32
+  br i1 %.not.i6.i.i.i.i, label %_Z16set_used_and_getI15ClassLoaderDataEmPKT_.exit.i.i.i.i, label %35
 
-34:                                               ; preds = %_ZN21JfrTraceIdLoadBarrier4loadEPK5Klass.exit.i.i.i.i
-  %35 = trunc i64 %28 to i8
-  %36 = select i1 %29, i8 2, i8 1
-  %37 = or i8 %36, %35
-  store i8 %37, ptr %27, align 1
+35:                                               ; preds = %_ZN21JfrTraceIdLoadBarrier4loadEPK5Klass.exit.i.i.i.i
+  %36 = trunc i64 %29 to i8
+  %37 = or i8 %31, %36
+  store i8 %37, ptr %28, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !7
   store volatile i8 1, ptr @_ZN15JfrTraceIdEpoch10_tag_stateE, align 1
-  %.pre.i8.i.i.i.i = load i64, ptr %27, align 8
+  %.pre.i7.i.i.i.i = load i64, ptr %28, align 8
   br label %_Z16set_used_and_getI15ClassLoaderDataEmPKT_.exit.i.i.i.i
 
-_Z16set_used_and_getI15ClassLoaderDataEmPKT_.exit.i.i.i.i: ; preds = %34, %_ZN21JfrTraceIdLoadBarrier4loadEPK5Klass.exit.i.i.i.i
-  %38 = phi i64 [ %.pre.i8.i.i.i.i, %34 ], [ %28, %_ZN21JfrTraceIdLoadBarrier4loadEPK5Klass.exit.i.i.i.i ]
+_Z16set_used_and_getI15ClassLoaderDataEmPKT_.exit.i.i.i.i: ; preds = %35, %_ZN21JfrTraceIdLoadBarrier4loadEPK5Klass.exit.i.i.i.i
+  %38 = phi i64 [ %.pre.i7.i.i.i.i, %35 ], [ %29, %_ZN21JfrTraceIdLoadBarrier4loadEPK5Klass.exit.i.i.i.i ]
   %39 = lshr i64 %38, 16
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEPK15ClassLoaderData.exit
 

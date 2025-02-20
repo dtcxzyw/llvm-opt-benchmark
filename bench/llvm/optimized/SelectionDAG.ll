@@ -73763,18 +73763,19 @@ _ZNK4llvm3EVT12getStoreSizeEv.exit:               ; preds = %17, %21
   %.fca.1.extract.i = extractvalue { i64, i8 } %.pn.i.i, 1
   %23 = add i64 %.fca.0.extract.i, 7
   %24 = lshr i64 %23, 3
-  %25 = trunc i8 %.fca.1.extract.i to i1
-  %26 = select i1 %25, i64 4611686018427387904, i64 0
-  %27 = or disjoint i64 %26, %24
+  %25 = and i8 %.fca.1.extract.i, 1
+  %26 = zext nneg i8 %25 to i64
+  %27 = shl nuw nsw i64 %26, 62
+  %28 = or disjoint i64 %27, %24
   br label %.critedge
 
 .critedge:                                        ; preds = %12, %12, %_ZNK4llvm3EVT12getStoreSizeEv.exit, %13
-  %.sroa.028.0 = phi i64 [ %10, %13 ], [ %27, %_ZNK4llvm3EVT12getStoreSizeEv.exit ], [ %10, %12 ], [ %10, %12 ]
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %29 = load ptr, ptr %28, align 8, !tbaa !426
-  %30 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065) %29, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %7, i16 noundef zeroext %9, i64 %.sroa.028.0, i8 %8, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef null, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #34
-  %31 = call { ptr, i32 } @_ZN4llvm12SelectionDAG19getMemIntrinsicNodeEjRKNS_5SDLocENS_8SDVTListENS_8ArrayRefINS_7SDValueEEENS_3EVTEPNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr %3, i32 %4, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %5, ptr noundef nonnull byval(%"struct.llvm::EVT") align 8 %6, ptr noundef %30)
-  ret { ptr, i32 } %31
+  %.sroa.028.0 = phi i64 [ %10, %13 ], [ %28, %_ZNK4llvm3EVT12getStoreSizeEv.exit ], [ %10, %12 ], [ %10, %12 ]
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %30 = load ptr, ptr %29, align 8, !tbaa !426
+  %31 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065) %30, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %7, i16 noundef zeroext %9, i64 %.sroa.028.0, i8 %8, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef null, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #34
+  %32 = call { ptr, i32 } @_ZN4llvm12SelectionDAG19getMemIntrinsicNodeEjRKNS_5SDLocENS_8SDVTListENS_8ArrayRefINS_7SDValueEEENS_3EVTEPNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr %3, i32 %4, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %5, ptr noundef nonnull byval(%"struct.llvm::EVT") align 8 %6, ptr noundef %31)
+  ret { ptr, i32 } %32
 }
 
 declare noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065), ptr noundef byval(%"struct.llvm::MachinePointerInfo") align 8, i16 noundef zeroext, i64, i8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i8 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #6
@@ -74871,14 +74872,15 @@ _ZNK4llvm3EVT12getStoreSizeEv.exit:               ; preds = %20, %24
   %.fca.1.extract.i = extractvalue { i64, i8 } %.pn.i.i, 1
   %27 = add i64 %.fca.0.extract.i, 7
   %28 = lshr i64 %27, 3
-  %29 = trunc i8 %.fca.1.extract.i to i1
-  %30 = select i1 %29, i64 4611686018427387904, i64 0
-  %31 = or disjoint i64 %30, %28
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %33 = load ptr, ptr %32, align 8, !tbaa !426
-  %34 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065) %33, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %9, i16 noundef zeroext %26, i64 %31, i8 %11, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef %14, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #34
-  %35 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getLoadENS_3ISD14MemIndexedModeENS1_11LoadExtTypeENS_3EVTERKNS_5SDLocENS_7SDValueES8_S8_S4_PNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %1, i32 noundef %2, i16 %3, ptr %4, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %6, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %7, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %8, ptr noundef nonnull byval(%"struct.llvm::EVT") align 8 %10, ptr noundef %34)
-  ret { ptr, i32 } %35
+  %29 = and i8 %.fca.1.extract.i, 1
+  %30 = zext nneg i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, 62
+  %32 = or disjoint i64 %31, %28
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = load ptr, ptr %33, align 8, !tbaa !426
+  %35 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065) %34, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %9, i16 noundef zeroext %26, i64 %32, i8 %11, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef %14, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #34
+  %36 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getLoadENS_3ISD14MemIndexedModeENS1_11LoadExtTypeENS_3EVTERKNS_5SDLocENS_7SDValueES8_S8_S4_PNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %1, i32 noundef %2, i16 %3, ptr %4, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %6, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %7, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %8, ptr noundef nonnull byval(%"struct.llvm::EVT") align 8 %10, ptr noundef %35)
+  ret { ptr, i32 } %36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -75615,15 +75617,16 @@ _ZN4llvm12SelectionDAG7getLoadENS_3ISD14MemIndexedModeENS1_11LoadExtTypeENS_3EVT
   %.fca.1.extract.i.i = extractvalue { i64, i8 } %.pn.i.i.i, 1
   %42 = add i64 %.fca.0.extract.i.i, 7
   %43 = lshr i64 %42, 3
-  %44 = trunc i8 %.fca.1.extract.i.i to i1
-  %45 = select i1 %44, i64 4611686018427387904, i64 0
-  %46 = or disjoint i64 %45, %43
-  %47 = load ptr, ptr %27, align 8, !tbaa !426
-  %48 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065) %47, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %18, i16 noundef zeroext %41, i64 %46, i8 %.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef %14, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #34
-  %49 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getLoadENS_3ISD14MemIndexedModeENS1_11LoadExtTypeENS_3EVTERKNS_5SDLocENS_7SDValueES8_S8_S4_PNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %1, i32 noundef %2, i16 %3, ptr %4, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %6, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %7, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %8, ptr noundef nonnull byval(%"struct.llvm::EVT") align 8 %17, ptr noundef %48)
+  %44 = and i8 %.fca.1.extract.i.i, 1
+  %45 = zext nneg i8 %44 to i64
+  %46 = shl nuw nsw i64 %45, 62
+  %47 = or disjoint i64 %46, %43
+  %48 = load ptr, ptr %27, align 8, !tbaa !426
+  %49 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065) %48, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %18, i16 noundef zeroext %41, i64 %47, i8 %.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef %14, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #34
+  %50 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getLoadENS_3ISD14MemIndexedModeENS1_11LoadExtTypeENS_3EVTERKNS_5SDLocENS_7SDValueES8_S8_S4_PNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %1, i32 noundef %2, i16 %3, ptr %4, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %6, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %7, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %8, ptr noundef nonnull byval(%"struct.llvm::EVT") align 8 %17, ptr noundef %49)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
-  ret { ptr, i32 } %49
+  ret { ptr, i32 } %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -75828,19 +75831,20 @@ _ZN4llvm12SelectionDAG7getLoadENS_3ISD14MemIndexedModeENS1_11LoadExtTypeENS_3EVT
   %.fca.1.extract.i.i = extractvalue { i64, i8 } %.pn.i.i.i, 1
   %44 = add i64 %.fca.0.extract.i.i, 7
   %45 = lshr i64 %44, 3
-  %46 = trunc i8 %.fca.1.extract.i.i to i1
-  %47 = select i1 %46, i64 4611686018427387904, i64 0
-  %48 = or disjoint i64 %47, %45
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %50 = load ptr, ptr %49, align 8, !tbaa !426
-  %51 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065) %50, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %11, i16 noundef zeroext %43, i64 %48, i8 %28, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef null, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #34
-  %52 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getLoadENS_3ISD14MemIndexedModeENS1_11LoadExtTypeENS_3EVTERKNS_5SDLocENS_7SDValueES8_S8_S4_PNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %7, i32 noundef %41, i16 %.sroa.0.0.copyload.i.i, ptr %.sroa.21.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %13, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %12, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %6, ptr noundef nonnull byval(%"struct.llvm::EVT") align 8 %10, ptr noundef %51)
+  %46 = and i8 %.fca.1.extract.i.i, 1
+  %47 = zext nneg i8 %46 to i64
+  %48 = shl nuw nsw i64 %47, 62
+  %49 = or disjoint i64 %48, %45
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %51 = load ptr, ptr %50, align 8, !tbaa !426
+  %52 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065) %51, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %11, i16 noundef zeroext %43, i64 %49, i8 %28, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef null, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #34
+  %53 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getLoadENS_3ISD14MemIndexedModeENS1_11LoadExtTypeENS_3EVTERKNS_5SDLocENS_7SDValueES8_S8_S4_PNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %7, i32 noundef %41, i16 %.sroa.0.0.copyload.i.i, ptr %.sroa.21.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %13, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %12, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %6, ptr noundef nonnull byval(%"struct.llvm::EVT") align 8 %10, ptr noundef %52)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #34
-  ret { ptr, i32 } %52
+  ret { ptr, i32 } %53
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -75972,13 +75976,14 @@ _ZNK4llvm3EVT12getStoreSizeEv.exit:               ; preds = %62, %66
   %.fca.1.extract.i = extractvalue { i64, i8 } %.pn.i.i, 1
   %69 = add i64 %.fca.0.extract.i, 7
   %70 = lshr i64 %69, 3
-  %71 = trunc i8 %.fca.1.extract.i to i1
-  %72 = select i1 %71, i64 4611686018427387904, i64 0
-  %73 = or disjoint i64 %72, %70
+  %71 = and i8 %.fca.1.extract.i, 1
+  %72 = zext nneg i8 %71 to i64
+  %73 = shl nuw nsw i64 %72, 62
+  %74 = or disjoint i64 %73, %70
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #34
-  %74 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065) %56, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %7, i16 noundef zeroext %68, i64 %73, i8 %8, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef null, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #34
-  %75 = call { ptr, i32 } @_ZN4llvm12SelectionDAG8getStoreENS_7SDValueERKNS_5SDLocES1_S1_PNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr nonnull %4, i32 %5, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %6, ptr noundef %74)
-  ret { ptr, i32 } %75
+  %75 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065) %56, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %7, i16 noundef zeroext %68, i64 %74, i8 %8, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef null, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #34
+  %76 = call { ptr, i32 } @_ZN4llvm12SelectionDAG8getStoreENS_7SDValueERKNS_5SDLocES1_S1_PNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr nonnull %4, i32 %5, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %6, ptr noundef %75)
+  ret { ptr, i32 } %76
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -76411,12 +76416,13 @@ _ZNK4llvm3EVT12getStoreSizeEv.exit:               ; preds = %58, %62
   %.fca.1.extract.i = extractvalue { i64, i8 } %.pn.i.i, 1
   %65 = add i64 %.fca.0.extract.i, 7
   %66 = lshr i64 %65, 3
-  %67 = trunc i8 %.fca.1.extract.i to i1
-  %68 = select i1 %67, i64 4611686018427387904, i64 0
-  %69 = or disjoint i64 %68, %66
-  %70 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065) %56, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %7, i16 noundef zeroext %64, i64 %69, i8 %9, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef null, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #34
-  %71 = call { ptr, i32 } @_ZN4llvm12SelectionDAG13getTruncStoreENS_7SDValueERKNS_5SDLocES1_S1_NS_3EVTEPNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr %4, i32 %5, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %6, ptr noundef nonnull byval(%"struct.llvm::EVT") align 8 %8, ptr noundef %70)
-  ret { ptr, i32 } %71
+  %67 = and i8 %.fca.1.extract.i, 1
+  %68 = zext nneg i8 %67 to i64
+  %69 = shl nuw nsw i64 %68, 62
+  %70 = or disjoint i64 %69, %66
+  %71 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065) %56, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %7, i16 noundef zeroext %64, i64 %70, i8 %9, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef null, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #34
+  %72 = call { ptr, i32 } @_ZN4llvm12SelectionDAG13getTruncStoreENS_7SDValueERKNS_5SDLocES1_S1_NS_3EVTEPNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr %4, i32 %5, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %6, ptr noundef nonnull byval(%"struct.llvm::EVT") align 8 %8, ptr noundef %71)
+  ret { ptr, i32 } %72
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -77070,14 +77076,15 @@ _ZNK4llvm3EVT12getStoreSizeEv.exit:               ; preds = %23, %27
   %.fca.1.extract.i = extractvalue { i64, i8 } %.pn.i.i, 1
   %30 = add i64 %.fca.0.extract.i, 7
   %31 = lshr i64 %30, 3
-  %32 = trunc i8 %.fca.1.extract.i to i1
-  %33 = select i1 %32, i64 4611686018427387904, i64 0
-  %34 = or disjoint i64 %33, %31
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load ptr, ptr %35, align 8, !tbaa !426
-  %37 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065) %36, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %11, i16 noundef zeroext %29, i64 %34, i8 %13, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %16, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #34
-  %38 = call { ptr, i32 } @_ZN4llvm12SelectionDAG9getLoadVPENS_3ISD14MemIndexedModeENS1_11LoadExtTypeENS_3EVTERKNS_5SDLocENS_7SDValueES8_S8_S8_S8_S4_PNS_17MachineMemOperandEb(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %1, i32 noundef %2, i16 %3, ptr %4, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %6, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %7, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %8, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %9, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %10, ptr noundef nonnull byval(%"struct.llvm::EVT") align 8 %12, ptr noundef %37, i1 noundef zeroext %17)
-  ret { ptr, i32 } %38
+  %32 = and i8 %.fca.1.extract.i, 1
+  %33 = zext nneg i8 %32 to i64
+  %34 = shl nuw nsw i64 %33, 62
+  %35 = or disjoint i64 %34, %31
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %37 = load ptr, ptr %36, align 8, !tbaa !426
+  %38 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065) %37, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %11, i16 noundef zeroext %29, i64 %35, i8 %13, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %16, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #34
+  %39 = call { ptr, i32 } @_ZN4llvm12SelectionDAG9getLoadVPENS_3ISD14MemIndexedModeENS1_11LoadExtTypeENS_3EVTERKNS_5SDLocENS_7SDValueES8_S8_S8_S8_S4_PNS_17MachineMemOperandEb(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %1, i32 noundef %2, i16 %3, ptr %4, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %6, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %7, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %8, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %9, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %10, ptr noundef nonnull byval(%"struct.llvm::EVT") align 8 %12, ptr noundef %38, i1 noundef zeroext %17)
+  ret { ptr, i32 } %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -77497,15 +77504,16 @@ _ZN4llvm12SelectionDAG9getLoadVPENS_3ISD14MemIndexedModeENS1_11LoadExtTypeENS_3E
   %.fca.1.extract.i.i = extractvalue { i64, i8 } %.pn.i.i.i, 1
   %45 = add i64 %.fca.0.extract.i.i, 7
   %46 = lshr i64 %45, 3
-  %47 = trunc i8 %.fca.1.extract.i.i to i1
-  %48 = select i1 %47, i64 4611686018427387904, i64 0
-  %49 = or disjoint i64 %48, %46
-  %50 = load ptr, ptr %30, align 8, !tbaa !426
-  %51 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065) %50, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %21, i16 noundef zeroext %44, i64 %49, i8 %.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %16, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #34
-  %52 = call { ptr, i32 } @_ZN4llvm12SelectionDAG9getLoadVPENS_3ISD14MemIndexedModeENS1_11LoadExtTypeENS_3EVTERKNS_5SDLocENS_7SDValueES8_S8_S8_S8_S4_PNS_17MachineMemOperandEb(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %1, i32 noundef %2, i16 %3, ptr %4, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %6, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %7, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %8, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %9, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %10, ptr noundef nonnull byval(%"struct.llvm::EVT") align 8 %20, ptr noundef %51, i1 noundef zeroext %17)
+  %47 = and i8 %.fca.1.extract.i.i, 1
+  %48 = zext nneg i8 %47 to i64
+  %49 = shl nuw nsw i64 %48, 62
+  %50 = or disjoint i64 %49, %46
+  %51 = load ptr, ptr %30, align 8, !tbaa !426
+  %52 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065) %51, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %21, i16 noundef zeroext %44, i64 %50, i8 %.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %16, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #34
+  %53 = call { ptr, i32 } @_ZN4llvm12SelectionDAG9getLoadVPENS_3ISD14MemIndexedModeENS1_11LoadExtTypeENS_3EVTERKNS_5SDLocENS_7SDValueES8_S8_S8_S8_S4_PNS_17MachineMemOperandEb(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %1, i32 noundef %2, i16 %3, ptr %4, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %6, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %7, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %8, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %9, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %10, ptr noundef nonnull byval(%"struct.llvm::EVT") align 8 %20, ptr noundef %52, i1 noundef zeroext %17)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
-  ret { ptr, i32 } %52
+  ret { ptr, i32 } %53
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -77721,13 +77729,14 @@ _ZN4llvm12SelectionDAG9getLoadVPENS_3ISD14MemIndexedModeENS1_11LoadExtTypeENS_3E
   %.fca.1.extract.i.i = extractvalue { i64, i8 } %.pn.i.i.i, 1
   %51 = add i64 %.fca.0.extract.i.i, 7
   %52 = lshr i64 %51, 3
-  %53 = trunc i8 %.fca.1.extract.i.i to i1
-  %54 = select i1 %53, i64 4611686018427387904, i64 0
-  %55 = or disjoint i64 %54, %52
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %57 = load ptr, ptr %56, align 8, !tbaa !426
-  %58 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065) %57, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %11, i16 noundef zeroext %50, i64 %55, i8 %32, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef null, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #34
-  %59 = call { ptr, i32 } @_ZN4llvm12SelectionDAG9getLoadVPENS_3ISD14MemIndexedModeENS1_11LoadExtTypeENS_3EVTERKNS_5SDLocENS_7SDValueES8_S8_S8_S8_S4_PNS_17MachineMemOperandEb(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %7, i32 noundef %48, i16 %.sroa.0.0.copyload.i.i, ptr %.sroa.21.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %15, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %14, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %6, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %13, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %12, ptr noundef nonnull byval(%"struct.llvm::EVT") align 8 %10, ptr noundef %58, i1 noundef zeroext %45)
+  %53 = and i8 %.fca.1.extract.i.i, 1
+  %54 = zext nneg i8 %53 to i64
+  %55 = shl nuw nsw i64 %54, 62
+  %56 = or disjoint i64 %55, %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %58 = load ptr, ptr %57, align 8, !tbaa !426
+  %59 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065) %58, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %11, i16 noundef zeroext %50, i64 %56, i8 %32, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef null, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #34
+  %60 = call { ptr, i32 } @_ZN4llvm12SelectionDAG9getLoadVPENS_3ISD14MemIndexedModeENS1_11LoadExtTypeENS_3EVTERKNS_5SDLocENS_7SDValueES8_S8_S8_S8_S4_PNS_17MachineMemOperandEb(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %7, i32 noundef %48, i16 %.sroa.0.0.copyload.i.i, ptr %.sroa.21.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %15, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %14, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %6, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %13, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %12, ptr noundef nonnull byval(%"struct.llvm::EVT") align 8 %10, ptr noundef %59, i1 noundef zeroext %45)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
@@ -77735,7 +77744,7 @@ _ZN4llvm12SelectionDAG9getLoadVPENS_3ISD14MemIndexedModeENS1_11LoadExtTypeENS_3E
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #34
-  ret { ptr, i32 } %59
+  ret { ptr, i32 } %60
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -78166,12 +78175,13 @@ _ZNK4llvm3EVT12getStoreSizeEv.exit:               ; preds = %61, %65
   %.fca.1.extract.i = extractvalue { i64, i8 } %.pn.i.i, 1
   %68 = add i64 %.fca.0.extract.i, 7
   %69 = lshr i64 %68, 3
-  %70 = trunc i8 %.fca.1.extract.i to i1
-  %71 = select i1 %70, i64 4611686018427387904, i64 0
-  %72 = or disjoint i64 %71, %69
-  %73 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065) %59, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %9, i16 noundef zeroext %67, i64 %72, i8 %11, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef null, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #34
-  %74 = call { ptr, i32 } @_ZN4llvm12SelectionDAG15getTruncStoreVPENS_7SDValueERKNS_5SDLocES1_S1_S1_S1_NS_3EVTEPNS_17MachineMemOperandEb(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr %4, i32 %5, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %6, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %7, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %8, ptr noundef nonnull byval(%"struct.llvm::EVT") align 8 %10, ptr noundef %73, i1 noundef zeroext %14)
-  ret { ptr, i32 } %74
+  %70 = and i8 %.fca.1.extract.i, 1
+  %71 = zext nneg i8 %70 to i64
+  %72 = shl nuw nsw i64 %71, 62
+  %73 = or disjoint i64 %72, %69
+  %74 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065) %59, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %9, i16 noundef zeroext %67, i64 %73, i8 %11, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef null, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #34
+  %75 = call { ptr, i32 } @_ZN4llvm12SelectionDAG15getTruncStoreVPENS_7SDValueERKNS_5SDLocES1_S1_S1_S1_NS_3EVTEPNS_17MachineMemOperandEb(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr %4, i32 %5, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %6, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %7, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %8, ptr noundef nonnull byval(%"struct.llvm::EVT") align 8 %10, ptr noundef %74, i1 noundef zeroext %14)
+  ret { ptr, i32 } %75
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -97422,7 +97432,7 @@ _ZNK4llvm3EVT21getVectorElementCountEv.exit:      ; preds = %11, %20
   %23 = phi i16 [ %13, %11 ], [ %9, %20 ]
   %.sroa.0.0.in.i = phi i64 [ %.sroa.0.0.insert.insert.i.i.i, %11 ], [ %21, %20 ]
   %24 = lshr i64 %.sroa.0.0.in.i, 1
-  %25 = and i64 %.sroa.0.0.in.i, 4294967296
+  %25 = and i64 %.sroa.0.0.in.i, 1095216660480
   %.sroa.0.0.insert.ext.i.i = and i64 %24, 2147483647
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.0.0.insert.ext.i.i, %25
   %.sroa.0.0.extract.trunc.i.i = trunc nuw nsw i64 %.sroa.0.0.insert.ext.i.i to i32

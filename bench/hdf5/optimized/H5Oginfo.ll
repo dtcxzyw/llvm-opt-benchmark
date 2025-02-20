@@ -231,7 +231,7 @@ define internal noundef i32 @H5O__ginfo_encode(ptr readnone captures(none) %0, i
   %9 = trunc nuw i8 %8 to i1
   %10 = xor i1 %9, true
   %11 = select i1 %7, i1 true, i1 %10
-  br i1 %11, label %12, label %60, !prof !9
+  br i1 %11, label %12, label %59, !prof !9
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -240,67 +240,66 @@ define internal noundef i32 @H5O__ginfo_encode(ptr readnone captures(none) %0, i
   %15 = load i8, ptr %14, align 4, !tbaa !13, !range !7, !noundef !8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 10
   %17 = load i8, ptr %16, align 2, !tbaa !17, !range !7, !noundef !8
-  %18 = trunc nuw i8 %17 to i1
-  %19 = select i1 %18, i8 2, i8 0
-  %20 = or disjoint i8 %19, %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 %20, ptr %13, align 1, !tbaa !12
-  %22 = load i8, ptr %14, align 4, !tbaa !13, !range !7, !noundef !8
-  %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %24, label %41
+  %18 = shl nuw nsw i8 %17, 1
+  %19 = or disjoint i8 %18, %15
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i8 %19, ptr %13, align 1, !tbaa !12
+  %21 = load i8, ptr %14, align 4, !tbaa !13, !range !7, !noundef !8
+  %22 = trunc nuw i8 %21 to i1
+  br i1 %22, label %23, label %40
 
-24:                                               ; preds = %12
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  %26 = load i16, ptr %25, align 2, !tbaa !18
-  %27 = trunc i16 %26 to i8
-  store i8 %27, ptr %21, align 1, !tbaa !12
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  %29 = load i16, ptr %25, align 2, !tbaa !18
-  %30 = lshr i16 %29, 8
-  %31 = trunc nuw i16 %30 to i8
-  store i8 %31, ptr %28, align 1, !tbaa !12
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %34 = load i16, ptr %33, align 4, !tbaa !19
-  %35 = trunc i16 %34 to i8
-  store i8 %35, ptr %32, align 1, !tbaa !12
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  %37 = load i16, ptr %33, align 4, !tbaa !19
-  %38 = lshr i16 %37, 8
-  %39 = trunc nuw i16 %38 to i8
-  store i8 %39, ptr %36, align 1, !tbaa !12
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  br label %41
+23:                                               ; preds = %12
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  %25 = load i16, ptr %24, align 2, !tbaa !18
+  %26 = trunc i16 %25 to i8
+  store i8 %26, ptr %20, align 1, !tbaa !12
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  %28 = load i16, ptr %24, align 2, !tbaa !18
+  %29 = lshr i16 %28, 8
+  %30 = trunc nuw i16 %29 to i8
+  store i8 %30, ptr %27, align 1, !tbaa !12
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %33 = load i16, ptr %32, align 4, !tbaa !19
+  %34 = trunc i16 %33 to i8
+  store i8 %34, ptr %31, align 1, !tbaa !12
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 5
+  %36 = load i16, ptr %32, align 4, !tbaa !19
+  %37 = lshr i16 %36, 8
+  %38 = trunc nuw i16 %37 to i8
+  store i8 %38, ptr %35, align 1, !tbaa !12
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  br label %40
 
-41:                                               ; preds = %24, %12
-  %.0 = phi ptr [ %40, %24 ], [ %21, %12 ]
-  %42 = load i8, ptr %16, align 2, !tbaa !17, !range !7, !noundef !8
-  %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %44, label %60
+40:                                               ; preds = %23, %12
+  %.0 = phi ptr [ %39, %23 ], [ %20, %12 ]
+  %41 = load i8, ptr %16, align 2, !tbaa !17, !range !7, !noundef !8
+  %42 = trunc nuw i8 %41 to i1
+  br i1 %42, label %43, label %59
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %46 = load i16, ptr %45, align 4, !tbaa !20
-  %47 = trunc i16 %46 to i8
-  store i8 %47, ptr %.0, align 1, !tbaa !12
-  %48 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  %49 = load i16, ptr %45, align 4, !tbaa !20
-  %50 = lshr i16 %49, 8
-  %51 = trunc nuw i16 %50 to i8
-  store i8 %51, ptr %48, align 1, !tbaa !12
-  %52 = getelementptr inbounds nuw i8, ptr %.0, i64 2
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 14
-  %54 = load i16, ptr %53, align 2, !tbaa !21
-  %55 = trunc i16 %54 to i8
-  store i8 %55, ptr %52, align 1, !tbaa !12
-  %56 = getelementptr inbounds nuw i8, ptr %.0, i64 3
-  %57 = load i16, ptr %53, align 2, !tbaa !21
-  %58 = lshr i16 %57, 8
-  %59 = trunc nuw i16 %58 to i8
-  store i8 %59, ptr %56, align 1, !tbaa !12
-  br label %60
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %45 = load i16, ptr %44, align 4, !tbaa !20
+  %46 = trunc i16 %45 to i8
+  store i8 %46, ptr %.0, align 1, !tbaa !12
+  %47 = getelementptr inbounds nuw i8, ptr %.0, i64 1
+  %48 = load i16, ptr %44, align 4, !tbaa !20
+  %49 = lshr i16 %48, 8
+  %50 = trunc nuw i16 %49 to i8
+  store i8 %50, ptr %47, align 1, !tbaa !12
+  %51 = getelementptr inbounds nuw i8, ptr %.0, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 14
+  %53 = load i16, ptr %52, align 2, !tbaa !21
+  %54 = trunc i16 %53 to i8
+  store i8 %54, ptr %51, align 1, !tbaa !12
+  %55 = getelementptr inbounds nuw i8, ptr %.0, i64 3
+  %56 = load i16, ptr %52, align 2, !tbaa !21
+  %57 = lshr i16 %56, 8
+  %58 = trunc nuw i16 %57 to i8
+  store i8 %58, ptr %55, align 1, !tbaa !12
+  br label %59
 
-60:                                               ; preds = %41, %44, %5
+59:                                               ; preds = %40, %43, %5
   ret i32 0
 }
 
@@ -347,22 +346,22 @@ define internal range(i64 0, 11) i64 @H5O__ginfo_size(ptr readnone captures(none
   %7 = trunc nuw i8 %6 to i1
   %8 = xor i1 %7, true
   %9 = select i1 %5, i1 true, i1 %8
-  br i1 %9, label %10, label %20, !prof !9
+  br i1 %9, label %10, label %19, !prof !9
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %12 = load i8, ptr %11, align 4, !tbaa !13, !range !7, !noundef !8
-  %13 = trunc nuw i8 %12 to i1
-  %14 = select i1 %13, i64 6, i64 2
+  %13 = shl nuw nsw i8 %12, 2
+  %14 = or disjoint i8 %13, 2
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %16 = load i8, ptr %15, align 2, !tbaa !17, !range !7, !noundef !8
-  %17 = trunc nuw i8 %16 to i1
-  %18 = select i1 %17, i64 4, i64 0
-  %19 = add nuw nsw i64 %18, %14
-  br label %20
+  %17 = shl nuw nsw i8 %16, 2
+  %narrow = add nuw nsw i8 %14, %17
+  %18 = zext nneg i8 %narrow to i64
+  br label %19
 
-20:                                               ; preds = %10, %3
-  %.0 = phi i64 [ %19, %10 ], [ 0, %3 ]
+19:                                               ; preds = %10, %3
+  %.0 = phi i64 [ %18, %10 ], [ 0, %3 ]
   ret i64 %.0
 }
 

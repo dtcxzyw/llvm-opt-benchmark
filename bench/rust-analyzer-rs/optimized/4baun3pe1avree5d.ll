@@ -1801,11 +1801,10 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h068130c44d59f5dc
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h08e6e9b0fa23b801E.llvm.4213059994663518309"(ptr noalias noundef writeonly sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8, !range !294, !noundef !7
-  %trunc = trunc nuw i64 %3 to i1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %.sink1 = ptrtoint ptr %5 to i64
-  %.sink = select i1 %trunc, i64 2, i64 1
+  %.sink = add nuw nsw i64 %3, 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink1, ptr %6, align 8
   store i64 %.sink, ptr %0, align 8
@@ -10600,11 +10599,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2491)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2494)
   %20 = load i64, ptr %4, align 8, !range !294, !alias.scope !2494, !noalias !2491, !noundef !7
-  %trunc.i = trunc nuw i64 %20 to i1
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8, !alias.scope !2494, !noalias !2491
   %.sink1.i = ptrtoint ptr %22 to i64
-  %.sink.i = select i1 %trunc.i, i64 2, i64 1
+  %.sink.i = add nuw nsw i64 %20, 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink1.i, ptr %23, align 8, !alias.scope !2491, !noalias !2494
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !2491, !noalias !2494
@@ -11850,11 +11848,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2973)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2976)
   %14 = load i64, ptr %3, align 8, !range !294, !alias.scope !2976, !noalias !2973, !noundef !7
-  %trunc.i = trunc nuw i64 %14 to i1
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load ptr, ptr %15, align 8, !alias.scope !2976, !noalias !2973
   %.sink1.i = ptrtoint ptr %16 to i64
-  %.sink.i = select i1 %trunc.i, i64 2, i64 1
+  %.sink.i = add nuw nsw i64 %14, 1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink1.i, ptr %17, align 8, !alias.scope !2973, !noalias !2976
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)

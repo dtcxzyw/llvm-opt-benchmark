@@ -551,28 +551,28 @@ ehooks_alloc.exit.i.i:                            ; preds = %91, %tsd_fetch_impl
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 62232
   %98 = atomicrmw add ptr %97, i64 1 monotonic, align 8
   %99 = load i8, ptr %9, align 1, !tbaa !4, !range !38, !noundef !39
-  %100 = trunc nuw i8 %99 to i1
-  %101 = load i8, ptr %10, align 1, !tbaa !4, !range !38, !noundef !39
-  %102 = trunc nuw i8 %101 to i1
-  %103 = load i64, ptr %55, align 8, !tbaa !43
-  %104 = and i64 %103, -17592454479872
-  %105 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store ptr %.0.i.i.i, ptr %105, align 8, !tbaa !40
-  %106 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %107 = load i64, ptr %106, align 8, !tbaa !36
-  %108 = and i64 %107, 4095
-  %109 = or i64 %108, %storemerge.i.i.i
-  store i64 %109, ptr %106, align 8, !tbaa !36
-  %110 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  store i64 %98, ptr %110, align 8, !tbaa !57
-  %111 = and i32 %.val79.i.i, -268431361
-  %.masked.masked.i.i.i = zext i32 %111 to i64
-  %112 = select i1 %100, i64 32768, i64 0
-  %113 = select i1 %102, i64 8192, i64 0
-  %114 = or disjoint i64 %112, %.masked.masked.i.i.i
+  %100 = load i8, ptr %10, align 1, !tbaa !4, !range !38, !noundef !39
+  %101 = load i64, ptr %55, align 8, !tbaa !43
+  %102 = and i64 %101, -17592454479872
+  %103 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  store ptr %.0.i.i.i, ptr %103, align 8, !tbaa !40
+  %104 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %105 = load i64, ptr %104, align 8, !tbaa !36
+  %106 = and i64 %105, 4095
+  %107 = or i64 %106, %storemerge.i.i.i
+  store i64 %107, ptr %104, align 8, !tbaa !36
+  %108 = getelementptr inbounds nuw i8, ptr %55, i64 32
+  store i64 %98, ptr %108, align 8, !tbaa !57
+  %109 = and i32 %.val79.i.i, -268431361
+  %.masked.masked.i.i.i = zext i32 %109 to i64
+  %110 = zext nneg i8 %99 to i64
+  %111 = shl nuw nsw i64 %110, 15
+  %112 = zext nneg i8 %100 to i64
+  %113 = shl nuw nsw i64 %112, 13
+  %114 = or disjoint i64 %111, %.masked.masked.i.i.i
   %115 = or disjoint i64 %114, %113
-  %116 = or i64 %115, %104
-  %117 = or disjoint i64 %116, 17592432459776
+  %116 = or i64 %102, %115
+  %117 = or i64 %116, 17592432459776
   store i64 %117, ptr %55, align 8, !tbaa !43
   %118 = getelementptr i8, ptr %1, i64 58384
   %.val80.i.i = load ptr, ptr %118, align 8, !tbaa !18
@@ -595,7 +595,7 @@ ehooks_alloc.exit.i.i:                            ; preds = %91, %tsd_fetch_impl
   br label %125
 
 125:                                              ; preds = %124, %122
-  %.val49.i.i.i = load ptr, ptr %105, align 8, !tbaa !40
+  %.val49.i.i.i = load ptr, ptr %103, align 8, !tbaa !40
   %126 = ptrtoint ptr %.val49.i.i.i to i64
   %127 = and i64 %126, -4096
   %128 = add i64 %38, -1
@@ -603,7 +603,7 @@ ehooks_alloc.exit.i.i:                            ; preds = %91, %tsd_fetch_impl
   %130 = sub i64 0, %38
   %131 = and i64 %129, %130
   %132 = sub i64 %131, %127
-  %.val47.i.i.i = load i64, ptr %106, align 8, !tbaa !36
+  %.val47.i.i.i = load i64, ptr %104, align 8, !tbaa !36
   %133 = and i64 %.val47.i.i.i, -4096
   %134 = add i64 %132, %5
   %135 = icmp ult i64 %133, %134
@@ -875,32 +875,32 @@ ehooks_alloc.exit:                                ; preds = %22, %tsd_fetch_impl
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 62232
   %57 = atomicrmw add ptr %56, i64 1 monotonic, align 8
   %58 = load i8, ptr %9, align 1, !tbaa !4, !range !38, !noundef !39
-  %59 = trunc nuw i8 %58 to i1
-  %60 = load i8, ptr %7, align 1, !tbaa !4, !range !38, !noundef !39
-  %61 = trunc nuw i8 %60 to i1
-  %62 = load i8, ptr @je_opt_retain, align 1, !tbaa !4, !range !38, !noundef !39
-  %63 = load i64, ptr %14, align 8, !tbaa !43
-  %64 = and i64 %63, -17592454479872
-  %65 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %.0.i, ptr %65, align 8, !tbaa !40
-  %66 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %67 = load i64, ptr %66, align 8, !tbaa !36
-  %68 = and i64 %67, 4095
-  %69 = or i64 %68, %4
-  store i64 %69, ptr %66, align 8, !tbaa !36
-  %70 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i64 %57, ptr %70, align 8, !tbaa !57
-  %71 = and i32 %.val33, -268431361
-  %72 = select i1 %59, i64 32768, i64 0
-  %73 = select i1 %61, i64 8192, i64 0
-  %.not.i = icmp eq i8 %62, 0
+  %59 = load i8, ptr %7, align 1, !tbaa !4, !range !38, !noundef !39
+  %60 = load i8, ptr @je_opt_retain, align 1, !tbaa !4, !range !38, !noundef !39
+  %61 = load i64, ptr %14, align 8, !tbaa !43
+  %62 = and i64 %61, -17592454479872
+  %63 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store ptr %.0.i, ptr %63, align 8, !tbaa !40
+  %64 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %65 = load i64, ptr %64, align 8, !tbaa !36
+  %66 = and i64 %65, 4095
+  %67 = or i64 %66, %4
+  store i64 %67, ptr %64, align 8, !tbaa !36
+  %68 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  store i64 %57, ptr %68, align 8, !tbaa !57
+  %69 = and i32 %.val33, -268431361
+  %70 = zext nneg i8 %58 to i64
+  %71 = shl nuw nsw i64 %70, 15
+  %72 = zext nneg i8 %59 to i64
+  %73 = shl nuw nsw i64 %72, 13
+  %.not.i = icmp eq i8 %60, 0
   %74 = select i1 %.not.i, i64 0, i64 17592186044416
-  %75 = or disjoint i32 %71, 246415360
+  %75 = or disjoint i32 %69, 246415360
   %76 = zext i32 %75 to i64
-  %77 = or disjoint i64 %72, %76
-  %78 = or disjoint i64 %77, %73
-  %79 = or disjoint i64 %78, %74
-  %80 = or i64 %79, %64
+  %77 = or disjoint i64 %71, %76
+  %78 = or disjoint i64 %74, %73
+  %79 = or disjoint i64 %78, %62
+  %80 = or i64 %79, %77
   store i64 %80, ptr %14, align 8, !tbaa !43
   %81 = getelementptr i8, ptr %1, i64 58384
   %.val = load ptr, ptr %81, align 8, !tbaa !18

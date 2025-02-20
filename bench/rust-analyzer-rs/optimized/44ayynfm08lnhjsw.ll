@@ -6111,7 +6111,8 @@ define hidden { i64, ptr } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
   br label %"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17h6535d11d2b32da8aE.llvm.6977743830891006301.exit"
 
 _ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i.i: ; preds = %15
-  br i1 %14, label %24, label %22
+  %switch.not.i.i = icmp eq i8 %13, 0
+  br i1 %switch.not.i.i, label %22, label %24
 
 22:                                               ; preds = %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i.i
   %23 = tail call { i64, ptr } @_ZN6syntax3ast4make8expr_ref17h5efd536a6e9bceccE(i64 noundef %7, ptr noundef %8, i1 noundef zeroext false), !noalias !1255
@@ -40087,7 +40088,8 @@ define hidden { i64, ptr } @"_ZN11ide_assists8handlers16extract_function9make_ca
   br label %_ZN11ide_assists8handlers16extract_function5Param6to_arg17h4bd6d3442770a134E.exit
 
 _ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i: ; preds = %15
-  br i1 %14, label %24, label %22
+  %switch.not.i = icmp eq i8 %13, 0
+  br i1 %switch.not.i, label %22, label %24
 
 22:                                               ; preds = %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i
   %23 = tail call { i64, ptr } @_ZN6syntax3ast4make8expr_ref17h5efd536a6e9bceccE(i64 noundef %7, ptr noundef %8, i1 noundef zeroext false), !noalias !9884

@@ -841,53 +841,53 @@ cleanup.done:                                     ; preds = %if.then8
 if.then28:                                        ; preds = %cleanup.done
   %lazy_.i.i = getelementptr inbounds nuw i8, ptr %21, i64 129
   %23 = load i8, ptr %lazy_.i.i, align 1
-  %tobool.i.i = trunc i8 %23 to i1
-  %cond = select i1 %tobool.i.i, i8 1, i8 2
+  %24 = and i8 %23, 1
+  %cond = sub nuw nsw i8 2, %24
   %is_lazy = getelementptr inbounds nuw i8, ptr %output, i64 15
   store i8 %cond, ptr %is_lazy, align 1
   br label %return
 
 if.else31:                                        ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
-  %24 = load ptr, ptr %type_once_.i, align 8
-  %tobool.not.i.i26 = icmp eq ptr %24, null
+  %25 = load ptr, ptr %type_once_.i, align 8
+  %tobool.not.i.i26 = icmp eq ptr %25, null
   br i1 %tobool.not.i.i26, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit39, label %if.then.i.i27
 
 if.then.i.i27:                                    ; preds = %if.else31
-  %25 = load atomic i32, ptr %24 acquire, align 4
-  %cmp.not.i.i.i28 = icmp eq i32 %25, 221
+  %26 = load atomic i32, ptr %25 acquire, align 4
+  %cmp.not.i.i.i28 = icmp eq i32 %26, 221
   br i1 %cmp.not.i.i.i28, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit39, label %if.then.i.i.i29
 
 if.then.i.i.i29:                                  ; preds = %if.then.i.i27
-  %26 = cmpxchg ptr %24, i32 0, i32 1707250555 monotonic monotonic, align 4
-  %27 = extractvalue { i32, i1 } %26, 1
-  br i1 %27, label %if.then.i.i.i.i36, label %lor.lhs.false.i.i.i.i30
+  %27 = cmpxchg ptr %25, i32 0, i32 1707250555 monotonic monotonic, align 4
+  %28 = extractvalue { i32, i1 } %27, 1
+  br i1 %28, label %if.then.i.i.i.i36, label %lor.lhs.false.i.i.i.i30
 
 lor.lhs.false.i.i.i.i30:                          ; preds = %if.then.i.i.i29
-  %call1.i.i.i.i31 = tail call noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %24, i32 noundef 3, ptr noundef nonnull @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
+  %call1.i.i.i.i31 = tail call noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %25, i32 noundef 3, ptr noundef nonnull @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
   %cmp.i.i.i.i32 = icmp eq i32 %call1.i.i.i.i31, 0
   br i1 %cmp.i.i.i.i32, label %if.then.i.i.i.i36, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit39
 
 if.then.i.i.i.i36:                                ; preds = %lor.lhs.false.i.i.i.i30, %if.then.i.i.i29
   tail call void @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_(ptr noundef nonnull align 8 dereferenceable(88) %call)
-  %28 = atomicrmw xchg ptr %24, i32 221 release, align 4
-  %cmp4.i.i.i.i37 = icmp eq i32 %28, 94570706
+  %29 = atomicrmw xchg ptr %25, i32 221 release, align 4
+  %cmp4.i.i.i.i37 = icmp eq i32 %29, 94570706
   br i1 %cmp4.i.i.i.i37, label %if.then5.i.i.i.i38, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit39
 
 if.then5.i.i.i.i38:                               ; preds = %if.then.i.i.i.i36
-  tail call void @AbslInternalSpinLockWake_lts_20230802(ptr noundef nonnull align 4 dereferenceable(4) %24, i1 noundef zeroext true)
+  tail call void @AbslInternalSpinLockWake_lts_20230802(ptr noundef nonnull align 4 dereferenceable(4) %25, i1 noundef zeroext true)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit39
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit39: ; preds = %if.else31, %if.then.i.i27, %lor.lhs.false.i.i.i.i30, %if.then.i.i.i.i36, %if.then5.i.i.i.i38
-  %29 = load i8, ptr %type_.i, align 2
-  %idxprom.i34 = zext i8 %29 to i64
+  %30 = load i8, ptr %type_.i, align 2
+  %idxprom.i34 = zext i8 %30 to i64
   %arrayidx.i35 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i34
-  %30 = load i32, ptr %arrayidx.i35, align 4
-  %cmp33 = icmp eq i32 %30, 8
+  %31 = load i32, ptr %arrayidx.i35, align 4
+  %cmp33 = icmp eq i32 %31, 8
   br i1 %cmp33, label %if.then34, label %return
 
 if.then34:                                        ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit39
-  %31 = getelementptr inbounds nuw i8, ptr %output, i64 16
-  store ptr @_ZN6google8protobuf8internalL27ValidateEnumUsingDescriptorEPKvi, ptr %31, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %output, i64 16
+  store ptr @_ZN6google8protobuf8internalL27ValidateEnumUsingDescriptorEPKvi, ptr %32, align 8
   %call35 = tail call noundef ptr @_ZNK6google8protobuf15FieldDescriptor9enum_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %call)
   %arg = getelementptr inbounds nuw i8, ptr %output, i64 24
   store ptr %call35, ptr %arg, align 8

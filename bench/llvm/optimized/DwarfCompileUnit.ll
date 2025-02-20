@@ -12829,28 +12829,29 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm16DwarfCompileUnit13getHeaderSi
   %3 = load ptr, ptr %2, align 8, !tbaa !151
   %4 = tail call noundef zeroext i16 @_ZNK4llvm10DwarfDebug15getDwarfVersionEv(ptr noundef nonnull align 8 dereferenceable(5876) %3) #26
   %5 = icmp ugt i16 %4, 4
-  br i1 %5, label %6, label %12
+  br i1 %5, label %6, label %13
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %2, align 8, !tbaa !151
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 3521
   %9 = load i8, ptr %8, align 1, !tbaa !152, !range !48, !noundef !49
-  %10 = trunc nuw i8 %9 to i1
-  %11 = select i1 %10, i32 11, i32 3
-  br label %12
+  %10 = shl nuw nsw i8 %9, 3
+  %11 = or disjoint i8 %10, 3
+  %12 = zext nneg i8 %11 to i32
+  br label %13
 
-12:                                               ; preds = %6, %1
-  %13 = phi i32 [ 3, %1 ], [ %11, %6 ]
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %15 = load ptr, ptr %14, align 8, !tbaa !144
-  %16 = tail call noundef i32 @_ZNK4llvm10AsmPrinter22getDwarfOffsetByteSizeEv(ptr noundef nonnull align 8 dereferenceable(777) %15) #26
-  %17 = load ptr, ptr %2, align 8, !tbaa !151
-  %18 = tail call noundef zeroext i16 @_ZNK4llvm10DwarfDebug15getDwarfVersionEv(ptr noundef nonnull align 8 dereferenceable(5876) %17) #26
-  %19 = icmp ugt i16 %18, 4
-  %20 = zext i1 %19 to i32
-  %21 = add i32 %13, %16
-  %22 = add i32 %21, %20
-  ret i32 %22
+13:                                               ; preds = %6, %1
+  %14 = phi i32 [ 3, %1 ], [ %12, %6 ]
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %16 = load ptr, ptr %15, align 8, !tbaa !144
+  %17 = tail call noundef i32 @_ZNK4llvm10AsmPrinter22getDwarfOffsetByteSizeEv(ptr noundef nonnull align 8 dereferenceable(777) %16) #26
+  %18 = load ptr, ptr %2, align 8, !tbaa !151
+  %19 = tail call noundef zeroext i16 @_ZNK4llvm10DwarfDebug15getDwarfVersionEv(ptr noundef nonnull align 8 dereferenceable(5876) %18) #26
+  %20 = icmp ugt i16 %19, 4
+  %21 = zext i1 %20 to i32
+  %22 = add i32 %14, %17
+  %23 = add i32 %22, %21
+  ret i32 %23
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

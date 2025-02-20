@@ -9975,9 +9975,9 @@ _ZN4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapIn
   %brmerge = select i1 %2410, i1 true, i1 %.0.lcssa
   %brmerge314 = select i1 %brmerge, i1 true, i1 %.0222.lcssa
   %2411 = load i8, ptr %61, align 1, !range !48
-  %2412 = trunc nuw i8 %2411 to i1
-  %2413 = select i1 %brmerge314, i1 true, i1 %2412
-  %cond.fr = select i1 %2413, i16 64, i16 0
+  %2412 = shl nuw nsw i8 %2411, 6
+  %2413 = zext nneg i8 %2412 to i16
+  %cond.fr = select i1 %brmerge314, i16 64, i16 %2413
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %84) #23
   %2414 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue27canBeOmittedFromSymbolTableEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #23
   %2415 = trunc nuw nsw i32 %2408 to i16
@@ -22863,40 +22863,41 @@ _ZNSt10unique_ptrIN4llvm15FunctionSummaryESt14default_deleteIS1_EED2Ev.exit.i: ;
 _ZN4llvm11SmallVectorINS_9ValueInfoELj0EED2Ev.exit22.i: ; preds = %_ZNK4llvm11GlobalValue7getGUIDEv.exit.i
   %96 = getelementptr inbounds nuw i8, ptr %31, i64 80
   %97 = load i8, ptr %96, align 8
-  %98 = trunc i8 %97 to i1
-  %99 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25, !noalias !953
+  %98 = shl i8 %97, 2
+  %99 = and i8 %98, 4
+  %100 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25, !noalias !953
   %.sroa.01.0.copyload.i.i = load i32, ptr %8, align 4, !noalias !953
-  %.sroa.0.0.insert.ext.i = select i1 %98, i32 4, i32 0
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  store i32 2, ptr %100, align 8, !tbaa !286, !noalias !953
-  %101 = getelementptr inbounds nuw i8, ptr %99, i64 12
-  store i32 %.sroa.01.0.copyload.i.i, ptr %101, align 4, !noalias !953
-  %102 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  %103 = getelementptr inbounds nuw i8, ptr %99, i64 40
-  %104 = getelementptr inbounds nuw i8, ptr %99, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, i8 0, i64 24, i1 false), !noalias !953
-  store ptr %104, ptr %103, align 8, !tbaa !25, !noalias !953
-  %105 = getelementptr inbounds nuw i8, ptr %99, i64 48
-  store i32 0, ptr %105, align 8, !tbaa !26, !noalias !953
-  %106 = getelementptr inbounds nuw i8, ptr %99, i64 52
-  store i32 0, ptr %106, align 4, !tbaa !27, !noalias !953
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm16GlobalVarSummaryE, i64 16), ptr %99, align 8, !tbaa !3, !noalias !953
-  store ptr null, ptr %104, align 8, !tbaa !294, !noalias !953
-  %107 = getelementptr inbounds nuw i8, ptr %99, i64 64
-  store i32 %.sroa.0.0.insert.ext.i, ptr %107, align 8, !noalias !953
-  %108 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %109 = load ptr, ptr %108, align 8, !tbaa !952
-  store ptr %99, ptr %24, align 8, !tbaa !313
-  call void @_ZN4llvm18ModuleSummaryIndex21addGlobalValueSummaryERKNS_11GlobalValueESt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(592) %109, ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull %24)
-  %110 = load ptr, ptr %24, align 8, !tbaa !316
-  %.not.i23.i = icmp eq ptr %110, null
+  %.sroa.0.0.insert.ext.i = zext nneg i8 %99 to i32
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  store i32 2, ptr %101, align 8, !tbaa !286, !noalias !953
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 12
+  store i32 %.sroa.01.0.copyload.i.i, ptr %102, align 4, !noalias !953
+  %103 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %100, i64 40
+  %105 = getelementptr inbounds nuw i8, ptr %100, i64 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %103, i8 0, i64 24, i1 false), !noalias !953
+  store ptr %105, ptr %104, align 8, !tbaa !25, !noalias !953
+  %106 = getelementptr inbounds nuw i8, ptr %100, i64 48
+  store i32 0, ptr %106, align 8, !tbaa !26, !noalias !953
+  %107 = getelementptr inbounds nuw i8, ptr %100, i64 52
+  store i32 0, ptr %107, align 4, !tbaa !27, !noalias !953
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm16GlobalVarSummaryE, i64 16), ptr %100, align 8, !tbaa !3, !noalias !953
+  store ptr null, ptr %105, align 8, !tbaa !294, !noalias !953
+  %108 = getelementptr inbounds nuw i8, ptr %100, i64 64
+  store i32 %.sroa.0.0.insert.ext.i, ptr %108, align 8, !noalias !953
+  %109 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %110 = load ptr, ptr %109, align 8, !tbaa !952
+  store ptr %100, ptr %24, align 8, !tbaa !313
+  call void @_ZN4llvm18ModuleSummaryIndex21addGlobalValueSummaryERKNS_11GlobalValueESt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(592) %110, ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull %24)
+  %111 = load ptr, ptr %24, align 8, !tbaa !316
+  %.not.i23.i = icmp eq ptr %111, null
   br i1 %.not.i23.i, label %_ZNSt10unique_ptrIN4llvm16GlobalVarSummaryESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN4llvm18GlobalValueSummaryEEclEPS1_.exit.i24.i
 
 _ZNKSt14default_deleteIN4llvm18GlobalValueSummaryEEclEPS1_.exit.i24.i: ; preds = %_ZN4llvm11SmallVectorINS_9ValueInfoELj0EED2Ev.exit22.i
-  %111 = load ptr, ptr %110, align 8, !tbaa !3
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %113 = load ptr, ptr %112, align 8
-  call void %113(ptr noundef nonnull align 8 dereferenceable(56) %110) #23
+  %112 = load ptr, ptr %111, align 8, !tbaa !3
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %114 = load ptr, ptr %113, align 8
+  call void %114(ptr noundef nonnull align 8 dereferenceable(56) %111) #23
   br label %_ZNSt10unique_ptrIN4llvm16GlobalVarSummaryESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN4llvm16GlobalVarSummaryESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN4llvm18GlobalValueSummaryEEclEPS1_.exit.i24.i, %_ZN4llvm11SmallVectorINS_9ValueInfoELj0EED2Ev.exit22.i, %_ZNSt10unique_ptrIN4llvm15FunctionSummaryESt14default_deleteIS1_EED2Ev.exit.i

@@ -1602,8 +1602,8 @@ define internal fastcc ptr @qemu_io_alloc(ptr noundef %0, i64 noundef range(i64 
 
 12:                                               ; preds = %10, %4
   %13 = load i8, ptr @qemuio_misalign, align 1, !range !11, !noundef !12
-  %14 = trunc nuw i8 %13 to i1
-  %spec.select12.idx = select i1 %14, i64 16, i64 0
+  %14 = shl nuw nsw i8 %13, 4
+  %spec.select12.idx = zext nneg i8 %14 to i64
   %spec.select12 = getelementptr inbounds nuw i8, ptr %8, i64 %spec.select12.idx
   ret ptr %spec.select12
 }
@@ -2244,8 +2244,8 @@ define internal fastcc ptr @create_iovec(ptr noundef %0, ptr noundef %1, ptr nou
 
 qemu_io_alloc.exit:                               ; preds = %._crit_edge, %38
   %40 = load i8, ptr @qemuio_misalign, align 1, !range !11, !noundef !12
-  %41 = trunc nuw i8 %40 to i1
-  %spec.select12.idx.i = select i1 %41, i64 16, i64 0
+  %41 = shl nuw nsw i8 %40, 4
+  %spec.select12.idx.i = zext nneg i8 %41 to i64
   %spec.select12.i = getelementptr inbounds nuw i8, ptr %36, i64 %spec.select12.idx.i
   br i1 %10, label %.lr.ph73.preheader, label %.thread
 
@@ -2704,9 +2704,9 @@ define internal void @write_help() #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @qemu_io_alloc_from_file(ptr noundef %0, i64 noundef range(i64 0, -9223372036854775808) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = load i8, ptr @qemuio_misalign, align 1, !range !11, !noundef !12
-  %6 = trunc nuw i8 %5 to i1
-  %7 = select i1 %6, i64 16, i64 0
-  %8 = add nuw i64 %7, %1
+  %6 = shl nuw nsw i8 %5, 4
+  %7 = zext nneg i8 %6 to i64
+  %8 = add nuw i64 %1, %7
   %9 = tail call noalias ptr @fopen64(ptr noundef %2, ptr noundef nonnull @.str.19)
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %fread.inline.exit
@@ -2718,8 +2718,8 @@ define internal fastcc ptr @qemu_io_alloc_from_file(ptr noundef %0, i64 noundef 
 fread.inline.exit:                                ; preds = %4
   %11 = tail call ptr @blk_blockalign(ptr noundef %0, i64 noundef %8) #26
   %12 = load i8, ptr @qemuio_misalign, align 1, !range !11, !noundef !12
-  %13 = trunc nuw i8 %12 to i1
-  %spec.select.idx = select i1 %13, i64 16, i64 0
+  %13 = shl nuw nsw i8 %12, 4
+  %spec.select.idx = zext nneg i8 %13 to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %11, i64 %spec.select.idx
   %14 = tail call i64 @fread(ptr noundef %spec.select, i64 noundef 1, i64 noundef range(i64 0, -9223372036854775808) %1, ptr noundef nonnull %9)
   %15 = tail call i32 @ferror(ptr noundef nonnull %9) #26

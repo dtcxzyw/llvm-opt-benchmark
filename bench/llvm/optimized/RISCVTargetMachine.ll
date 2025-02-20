@@ -8099,7 +8099,7 @@ _ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE29preferToKeepConstantsAttachedER
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK4llvm19TargetTransformInfo5ModelINS_12RISCVTTIImplEE20getNumberOfRegistersEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #1 comdat align 2 {
-  switch i32 %1, label %16 [
+  switch i32 %1, label %15 [
     i32 0, label %_ZNK4llvm12RISCVTTIImpl20getNumberOfRegistersEj.exit
     i32 1, label %3
     i32 2, label %9
@@ -8110,8 +8110,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm19TargetTransformInfo5ModelINS_
   %5 = load ptr, ptr %4, align 8, !tbaa !455
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 336
   %7 = load i8, ptr %6, align 8, !tbaa !704, !range !50, !noundef !51
-  %8 = trunc nuw i8 %7 to i1
-  %..i = select i1 %8, i32 32, i32 0
+  %8 = shl nuw nsw i8 %7, 5
   br label %_ZNK4llvm12RISCVTTIImpl20getNumberOfRegistersEj.exit
 
 9:                                                ; preds = %2
@@ -8119,15 +8118,15 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm19TargetTransformInfo5ModelINS_
   %11 = load ptr, ptr %10, align 8, !tbaa !455
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 452
   %13 = load i8, ptr %12, align 4, !tbaa !539, !range !50, !noundef !51
-  %14 = trunc nuw i8 %13 to i1
-  %15 = select i1 %14, i32 32, i32 0
+  %14 = shl nuw nsw i8 %13, 5
   br label %_ZNK4llvm12RISCVTTIImpl20getNumberOfRegistersEj.exit
 
-16:                                               ; preds = %2
+15:                                               ; preds = %2
   unreachable
 
 _ZNK4llvm12RISCVTTIImpl20getNumberOfRegistersEj.exit: ; preds = %2, %3, %9
-  %.0.i = phi i32 [ %15, %9 ], [ 31, %2 ], [ %..i, %3 ]
+  %.0.shrunk.i = phi i8 [ %14, %9 ], [ 31, %2 ], [ %8, %3 ]
+  %.0.i = zext nneg i8 %.0.shrunk.i to i32
   ret i32 %.0.i
 }
 

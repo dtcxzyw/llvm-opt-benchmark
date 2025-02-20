@@ -1119,33 +1119,31 @@ define hidden void @_ZN22ObjectSampleCheckpoint16add_to_leakp_setEPK13InstanceKl
   %54 = load i16, ptr %53, align 2
   %55 = zext i16 %54 to i64
   %56 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %57 = trunc i8 %56 to i1
-  %58 = select i1 %57, i64 2, i64 1
-  %.mask.i.i.i.i = and i8 %56, 1
-  %59 = zext nneg i8 %.mask.i.i.i.i to i64
-  %60 = shl nuw nsw i64 257, %59
+  %57 = and i8 %56, 1
+  %58 = add nuw nsw i8 %57, 1
+  %59 = zext nneg i8 %58 to i64
+  %60 = mul nuw nsw i64 %59, 257
   %61 = and i64 %60, %55
-  %.not.i.i = icmp eq i64 %61, %58
+  %.not.i.i = icmp eq i64 %61, %59
   br i1 %.not.i.i, label %_ZN10JfrTraceId10load_leakpEPK5KlassPK6Method.exit, label %62
 
 62:                                               ; preds = %51
   %63 = trunc i16 %54 to i8
-  %64 = select i1 %57, i8 2, i8 1
-  %65 = or i8 %64, %63
-  store i8 %65, ptr %53, align 1
+  %64 = or i8 %58, %63
+  store i8 %64, ptr %53, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   br label %_ZN10JfrTraceId10load_leakpEPK5KlassPK6Method.exit
 
 _ZN10JfrTraceId10load_leakpEPK5KlassPK6Method.exit: ; preds = %51, %62
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 169
-  %67 = load i8, ptr %66, align 1
-  %68 = or i8 %67, 4
-  store i8 %68, ptr %66, align 1
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 169
+  %66 = load i8, ptr %65, align 1
+  %67 = or i8 %66, 4
+  store i8 %67, ptr %65, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
-  %69 = getelementptr inbounds nuw i8, ptr %52, i64 55
-  %70 = load i8, ptr %69, align 1
-  %71 = or i8 %70, 4
-  store i8 %71, ptr %69, align 1
+  %68 = getelementptr inbounds nuw i8, ptr %52, i64 55
+  %69 = load i8, ptr %68, align 1
+  %70 = or i8 %69, 4
+  store i8 %70, ptr %68, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   br label %_ZL12is_processedm.exit.thread
 
@@ -2043,22 +2041,22 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %23, %13
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 168
   %26 = load i64, ptr %25, align 8
   %27 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %28 = trunc i8 %27 to i1
-  %29 = select i1 %28, i64 2, i64 1
-  %.mask.i.i.i.i.i.i = and i8 %27, 1
-  %30 = zext nneg i8 %.mask.i.i.i.i.i.i to i64
-  %31 = shl nuw nsw i64 257, %30
+  %28 = and i8 %27, 1
+  %29 = add nuw nsw i8 %28, 1
+  %30 = zext nneg i8 %29 to i64
+  %31 = mul nuw nsw i64 %30, 257
   %32 = and i64 %31, %26
-  %.not.i.i.i.i = icmp eq i64 %32, %29
+  %.not.i.i.i.i = icmp eq i64 %32, %30
   %33 = lshr i64 %26, 8
   %34 = trunc i64 %33 to i8
   br i1 %.not.i.i.i.i, label %_ZN10JfrTraceId10load_leakpEPK5Klass.exit.i, label %35
 
 35:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
   %36 = trunc i64 %26 to i8
-  %37 = select i1 %28, i8 10, i8 5
-  %38 = or i8 %37, %36
-  store i8 %38, ptr %25, align 1
+  %37 = trunc i8 %27 to i1
+  %38 = select i1 %37, i8 10, i8 5
+  %39 = or i8 %38, %36
+  store i8 %39, ptr %25, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   tail call void @_ZN21JfrTraceIdLoadBarrier7enqueueEPK5Klass(ptr noundef nonnull %.0.i.i) #11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
@@ -2068,10 +2066,10 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %23, %13
   br label %_ZN10JfrTraceId10load_leakpEPK5Klass.exit.i
 
 _ZN10JfrTraceId10load_leakpEPK5Klass.exit.i:      ; preds = %35, %_ZNK7oopDesc5klassEv.exit.i
-  %39 = phi i8 [ %34, %_ZNK7oopDesc5klassEv.exit.i ], [ %.pre.i.i.i, %35 ]
-  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 169
-  %41 = or i8 %39, 4
-  store i8 %41, ptr %40, align 1
+  %40 = phi i8 [ %34, %_ZNK7oopDesc5klassEv.exit.i ], [ %.pre.i.i.i, %35 ]
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 169
+  %42 = or i8 %40, 4
+  store i8 %42, ptr %41, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   br label %_ZL16add_to_leakp_setPK12ObjectSample.exit
 

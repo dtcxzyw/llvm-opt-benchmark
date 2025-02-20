@@ -50,22 +50,22 @@ define noundef i32 @_ZN7xgboost6detail16ToCharsFloatImplEfPc(float noundef %0, p
   br i1 %or.cond, label %13, label %25
 
 13:                                               ; preds = %2
-  %14 = trunc nuw i32 %.lobit.i to i1
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %16, label %15
+  br i1 %.not.i, label %15, label %14
 
-15:                                               ; preds = %13
+14:                                               ; preds = %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1, ptr noundef nonnull align 1 dereferenceable(3) @.str, i64 3, i1 false)
   br label %_ZN7xgboost6detail10RyuPrinter17PrintSpecialFloatEbNS0_18UnsignedFloatBase2EPc.exit
 
-16:                                               ; preds = %13
-  br i1 %14, label %17, label %18
+15:                                               ; preds = %13
+  %16 = trunc nuw i32 %.lobit.i to i1
+  br i1 %16, label %17, label %18
 
-17:                                               ; preds = %16
+17:                                               ; preds = %15
   store i8 45, ptr %1, align 1
   br label %18
 
-18:                                               ; preds = %17, %16
+18:                                               ; preds = %17, %15
   %.not9.i = icmp eq i32 %9, 0
   %19 = zext nneg i32 %.lobit.i to i64
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 %19
@@ -73,12 +73,12 @@ define noundef i32 @_ZN7xgboost6detail16ToCharsFloatImplEfPc(float noundef %0, p
 
 21:                                               ; preds = %18
   store i64 8751735898823355977, ptr %20, align 1
-  %22 = select i1 %14, i32 9, i32 8
+  %22 = or disjoint i32 %.lobit.i, 8
   br label %_ZN7xgboost6detail10RyuPrinter17PrintSpecialFloatEbNS0_18UnsignedFloatBase2EPc.exit
 
 23:                                               ; preds = %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %20, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
-  %24 = select i1 %14, i32 4, i32 3
+  %24 = add nuw nsw i32 %.lobit.i, 3
   br label %_ZN7xgboost6detail10RyuPrinter17PrintSpecialFloatEbNS0_18UnsignedFloatBase2EPc.exit
 
 25:                                               ; preds = %2
@@ -126,8 +126,8 @@ define noundef i32 @_ZN7xgboost6detail16ToCharsFloatImplEfPc(float noundef %0, p
   %46 = call noundef i32 @_ZN7xgboost6detail10RyuPrinter16PrintBase10FloatENS0_19UnsignedFloatBase10EbPc(i64 %44, i1 noundef zeroext %45, ptr noundef %1) #11
   br label %_ZN7xgboost6detail10RyuPrinter17PrintSpecialFloatEbNS0_18UnsignedFloatBase2EPc.exit
 
-_ZN7xgboost6detail10RyuPrinter17PrintSpecialFloatEbNS0_18UnsignedFloatBase2EPc.exit: ; preds = %23, %21, %15, %25
-  %.0 = phi i32 [ %46, %25 ], [ 3, %15 ], [ %22, %21 ], [ %24, %23 ]
+_ZN7xgboost6detail10RyuPrinter17PrintSpecialFloatEbNS0_18UnsignedFloatBase2EPc.exit: ; preds = %23, %21, %14, %25
+  %.0 = phi i32 [ %46, %25 ], [ 3, %14 ], [ %22, %21 ], [ %24, %23 ]
   ret i32 %.0
 }
 
