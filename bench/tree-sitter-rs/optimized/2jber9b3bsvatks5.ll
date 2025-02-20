@@ -28908,7 +28908,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.llvm.47982
   store i16 %375, ptr %339, align 8, !alias.scope !7261
   %376 = load ptr, ptr %..i.i.i.i.i, align 8, !alias.scope !7267, !nonnull !17, !noundef !17
   %377 = getelementptr inbounds i8, ptr %376, i64 -512
-  store ptr %377, ptr %..i.i.i.i.i, align 8, !alias.scope !7261
+  store ptr %377, ptr %.sroa.2768.0..sroa_idx, align 8, !alias.scope !7261
   %378 = getelementptr inbounds nuw i8, ptr %371, i64 16
   store ptr %378, ptr %.sroa.3769.0..sroa_idx, align 8, !alias.scope !7261
   %379 = invoke { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h806c2d75f94c2f57E.llvm.4513845701186752324"(ptr noalias noundef nonnull align 2 dereferenceable(2) %339)
@@ -28952,7 +28952,7 @@ _ZN4core3ops8function6FnOnce9call_once17h794ec078714b23cdE.exit.i.i.i.i.i: ; pre
   br i1 %.not.i.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17h794ec078714b23cdE.exit.thread.i.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17ha03fb720138f00b8E.exit.thread.i
 
 _ZN4core3ops8function6FnOnce9call_once17h794ec078714b23cdE.exit.thread.i.i.i.i.i: ; preds = %.noexc304, %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha474b0f8c5d22444E.exit.i.i.i.i.i.i.i", %365
-  store ptr null, ptr %.010.i, align 8, !alias.scope !7245
+  store ptr null, ptr %.sroa.2768.0..sroa_idx, align 8, !alias.scope !7245
   br label %395
 
 395:                                              ; preds = %_ZN4core3ops8function6FnOnce9call_once17h794ec078714b23cdE.exit.thread.i.i.i.i.i, %363
@@ -28996,7 +28996,7 @@ _ZN4core3ops8function6FnOnce9call_once17h794ec078714b23cdE.exit.thread.i.i.i.i.i
   store i16 %414, ptr %.sroa.gep794, align 8, !alias.scope !7319
   %415 = load ptr, ptr %..i5.i.i.i.i, align 8, !alias.scope !7325, !nonnull !17, !noundef !17
   %416 = getelementptr inbounds i8, ptr %415, i64 -512
-  store ptr %416, ptr %..i5.i.i.i.i, align 8, !alias.scope !7319
+  store ptr %416, ptr %.sroa.4770.0..sroa_idx, align 8, !alias.scope !7319
   %417 = getelementptr inbounds nuw i8, ptr %410, i64 16
   store ptr %417, ptr %.sroa.5771.0..sroa_idx, align 8, !alias.scope !7319
   %418 = invoke { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h806c2d75f94c2f57E.llvm.4513845701186752324"(ptr noalias noundef nonnull align 2 dereferenceable(2) %.sroa.gep794)
@@ -29156,7 +29156,7 @@ _ZN4core3ops8function6FnOnce9call_once17h794ec078714b23cdE.exit.thread.i17.i.i.i
   %483 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i.i.i.i, i64 24
   %484 = load i64, ptr %483, align 8, !alias.scope !7403, !noalias !7406, !noundef !17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %60), !noalias !7358
-  store ptr %473, ptr %.010.i, align 8, !alias.scope !7413
+  store ptr %473, ptr %.sroa.2768.0..sroa_idx, align 8, !alias.scope !7413
   store ptr %482, ptr %.sroa.3769.0..sroa_idx, align 8, !alias.scope !7413
   store ptr %477, ptr %.sroa.533.0..sroa_idx.i.i.i.i, align 8, !alias.scope !7413
   store i16 %481, ptr %339, align 8, !alias.scope !7413
@@ -29216,7 +29216,7 @@ _ZN4core3ops8function6FnOnce9call_once17ha03fb720138f00b8E.exit.thread.i: ; pred
   store i16 %502, ptr %345, align 8, !alias.scope !7443
   %503 = load ptr, ptr %..i.i.i.i.i313, align 8, !alias.scope !7449, !nonnull !17, !noundef !17
   %504 = getelementptr inbounds i8, ptr %503, i64 -512
-  store ptr %504, ptr %..i.i.i.i.i313, align 8, !alias.scope !7443
+  store ptr %504, ptr %.sroa.12778.0..sroa_idx, align 8, !alias.scope !7443
   %505 = getelementptr inbounds nuw i8, ptr %498, i64 16
   store ptr %505, ptr %.sroa.13.0..sroa_idx, align 8, !alias.scope !7443
   %506 = invoke { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h806c2d75f94c2f57E.llvm.4513845701186752324"(ptr noalias noundef nonnull align 2 dereferenceable(2) %345)
@@ -29260,7 +29260,7 @@ _ZN4core3ops8function6FnOnce9call_once17hfe796e2a0210dc7fE.exit.i.i.i.i.i: ; pre
   br i1 %.not.i.i.i.i.i321, label %_ZN4core3ops8function6FnOnce9call_once17hfe796e2a0210dc7fE.exit.thread.i.i.i.i.i, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb875cad4f935dc94E.exit.loopexit.i.i"
 
 _ZN4core3ops8function6FnOnce9call_once17hfe796e2a0210dc7fE.exit.thread.i.i.i.i.i: ; preds = %.noexc335, %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha474b0f8c5d22444E.exit.i.i.i.i.i.i.i317", %492
-  store ptr null, ptr %.05.i.i, align 8, !alias.scope !7427
+  store ptr null, ptr %.sroa.12778.0..sroa_idx, align 8, !alias.scope !7427
   br label %522
 
 522:                                              ; preds = %_ZN4core3ops8function6FnOnce9call_once17hfe796e2a0210dc7fE.exit.thread.i.i.i.i.i, %490
@@ -29302,7 +29302,7 @@ _ZN4core3ops8function6FnOnce9call_once17hfe796e2a0210dc7fE.exit.thread.i.i.i.i.i
   store i16 %540, ptr %.sroa.gep787, align 8, !alias.scope !7488
   %541 = load ptr, ptr %..i5.i.i.i.i323, align 8, !alias.scope !7506, !nonnull !17, !noundef !17
   %542 = getelementptr inbounds i8, ptr %541, i64 -512
-  store ptr %542, ptr %..i5.i.i.i.i323, align 8, !alias.scope !7488
+  store ptr %542, ptr %.sroa.14779.0..sroa_idx, align 8, !alias.scope !7488
   %543 = getelementptr inbounds nuw i8, ptr %536, i64 16
   store ptr %543, ptr %.sroa.15780.0..sroa_idx, align 8, !alias.scope !7488
   %544 = invoke { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h806c2d75f94c2f57E.llvm.4513845701186752324"(ptr noalias noundef nonnull align 2 dereferenceable(2) %.sroa.gep787)
@@ -29458,7 +29458,7 @@ _ZN4core3ops8function6FnOnce9call_once17hfe796e2a0210dc7fE.exit.i12.i.i.i.i: ; p
   %609 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i.i.i.i322, i64 24
   %610 = load i64, ptr %609, align 8, !alias.scope !7585, !noalias !7588, !noundef !17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %59), !noalias !7540
-  store ptr %599, ptr %.05.i.i, align 8, !alias.scope !7595
+  store ptr %599, ptr %.sroa.12778.0..sroa_idx, align 8, !alias.scope !7595
   store ptr %608, ptr %.sroa.13.0..sroa_idx, align 8, !alias.scope !7595
   store ptr %603, ptr %.sroa.533.0..sroa_idx.i.i.i.i310, align 8, !alias.scope !7595
   store i16 %607, ptr %345, align 8, !alias.scope !7595

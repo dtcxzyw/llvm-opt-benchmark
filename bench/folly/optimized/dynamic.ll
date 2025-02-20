@@ -12842,10 +12842,12 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly7dynamic7reserveEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %0, align 8, !tbaa !7
-  %.not.i.not = icmp eq i32 %3, 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %spec.select.i = select i1 %.not.i.not, ptr %4, ptr null
-  br i1 %.not.i.not, label %5, label %33
+  switch i32 %3, label %35 [
+    i32 1, label %5
+    i32 5, label %33
+    i32 6, label %34
+  ]
 
 5:                                                ; preds = %2
   %6 = icmp ugt i64 %1, 230584300921369395
@@ -12887,7 +12889,7 @@ _ZNSt12_Vector_baseIN5folly7dynamicESaIS1_EE11_M_allocateEm.exit.i: ; preds = %8
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN5folly7dynamicESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !380
 
 _ZNSt6vectorIN5folly7dynamicESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i
-  %.pre.i = load ptr, ptr %spec.select.i, align 8, !tbaa !213
+  %.pre.i = load ptr, ptr %4, align 8, !tbaa !213
   br label %_ZNSt6vectorIN5folly7dynamicESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
 
 _ZNSt6vectorIN5folly7dynamicESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %_ZNSt6vectorIN5folly7dynamicESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.loopexit.i, %_ZNSt12_Vector_baseIN5folly7dynamicESaIS1_EE11_M_allocateEm.exit.i
@@ -12904,7 +12906,7 @@ _ZNSt6vectorIN5folly7dynamicESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; pred
   br label %_ZNSt12_Vector_baseIN5folly7dynamicESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN5folly7dynamicESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %26, %_ZNSt6vectorIN5folly7dynamicESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %22, ptr %spec.select.i, align 8, !tbaa !213
+  store ptr %22, ptr %4, align 8, !tbaa !213
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   store ptr %31, ptr %17, align 8, !tbaa !211
   %32 = getelementptr inbounds nuw %"struct.folly::dynamic", ptr %22, i64 %1
@@ -12912,24 +12914,18 @@ _ZNSt12_Vector_baseIN5folly7dynamicESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; pred
   br label %_ZNSt6vectorIN5folly7dynamicESaIS1_EE7reserveEm.exit
 
 33:                                               ; preds = %2
-  switch i32 %3, label %36 [
-    i32 5, label %34
-    i32 6, label %35
-  ]
-
-34:                                               ; preds = %33
   tail call void @_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %1)
   br label %_ZNSt6vectorIN5folly7dynamicESaIS1_EE7reserveEm.exit
 
-35:                                               ; preds = %33
+34:                                               ; preds = %2
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %1)
   br label %_ZNSt6vectorIN5folly7dynamicESaIS1_EE7reserveEm.exit
 
-36:                                               ; preds = %33
+35:                                               ; preds = %2
   tail call void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef nonnull @.str.58, i32 noundef %3) #13
   unreachable
 
-_ZNSt6vectorIN5folly7dynamicESaIS1_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_baseIN5folly7dynamicESaIS1_EE13_M_deallocateEPS1_m.exit.i, %8, %34, %35
+_ZNSt6vectorIN5folly7dynamicESaIS1_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_baseIN5folly7dynamicESaIS1_EE13_M_deallocateEPS1_m.exit.i, %8, %33, %34
   ret void
 }
 

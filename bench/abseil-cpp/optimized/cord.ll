@@ -1686,7 +1686,7 @@ _ZN4absl13cord_internal16CordzUpdateScopeC2EPNS0_9CordzInfoENS0_18CordzUpdateTra
 .critedge32:                                      ; preds = %94
   %98 = getelementptr inbounds nuw i8, ptr %.0.i, i64 13
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %98, ptr align 1 %2, i64 %1, i1 false)
-  store i64 %1, ptr %.0.i, align 8, !tbaa !22
+  store i64 %1, ptr %8, align 8, !tbaa !22
   %99 = load ptr, ptr %4, align 8, !tbaa !35
   %.not.i43 = icmp eq ptr %99, null
   br i1 %.not.i43, label %_ZN4absl13cord_internal16CordzUpdateScopeD2Ev.exit, label %100, !prof !27

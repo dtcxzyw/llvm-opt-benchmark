@@ -135,23 +135,23 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbec1372a411ac497E.llvm.13624566248375190677"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.promoted = load ptr, ptr %2, align 8
-  %.promoted19 = load ptr, ptr %0, align 8
+  %.promoted17 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !4
-  %.promoted20 = load ptr, ptr %3, align 8
+  %.promoted18 = load ptr, ptr %3, align 8
   br label %6
 
 6:                                                ; preds = %22, %1
-  %7 = phi ptr [ %26, %22 ], [ %.promoted20, %1 ]
-  %8 = phi ptr [ %23, %22 ], [ %.promoted19, %1 ]
-  %.sink.i18 = phi ptr [ %.val, %22 ], [ %.promoted, %1 ]
-  %9 = icmp eq ptr %.sink.i18, null
+  %7 = phi ptr [ %26, %22 ], [ %.promoted18, %1 ]
+  %8 = phi ptr [ %23, %22 ], [ %.promoted17, %1 ]
+  %.sink.i16 = phi ptr [ %.val, %22 ], [ %.promoted, %1 ]
+  %9 = icmp eq ptr %.sink.i16, null
   br i1 %9, label %select.unfold, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %6
-  %10 = icmp eq ptr %.sink.i18, %7
-  %11 = getelementptr inbounds nuw i8, ptr %.sink.i18, i64 32
+  %10 = icmp eq ptr %.sink.i16, %7
+  %11 = getelementptr inbounds nuw i8, ptr %.sink.i16, i64 32
   %.sink.i = select i1 %10, ptr null, ptr %11
   store ptr %.sink.i, ptr %2, align 8, !alias.scope !5
   br i1 %10, label %select.unfold, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hce8039341f06fa84E.exit
@@ -159,11 +159,11 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN116_$LT$core.
 select.unfold:                                    ; preds = %.sink.split.i, %6
   %12 = icmp eq ptr %8, null
   %13 = icmp eq ptr %8, %5
-  %or.cond = select i1 %12, i1 true, i1 %13
-  br i1 %or.cond, label %14, label %22
+  %or.cond.i = select i1 %12, i1 true, i1 %13
+  br i1 %or.cond.i, label %14, label %22
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17hce8039341f06fa84E.exit: ; preds = %.sink.split.i, %.sink.split.i7, %14
-  %.0 = phi ptr [ null, %14 ], [ %.0.ph.i9, %.sink.split.i7 ], [ %.sink.i18, %.sink.split.i ]
+  %.0 = phi ptr [ null, %14 ], [ %.0.ph.i9, %.sink.split.i7 ], [ %.sink.i16, %.sink.split.i ]
   ret ptr %.0
 
 14:                                               ; preds = %select.unfold

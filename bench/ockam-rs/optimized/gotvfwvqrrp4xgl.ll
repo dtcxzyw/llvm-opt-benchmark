@@ -35697,7 +35697,6 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17ha4df8dcba58fc4aaE.exit.thread.
   call void @llvm.experimental.noalias.scope.decl(metadata !5844)
   %231 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !5847, !noalias !5848, !noundef !4
   %232 = icmp eq ptr %231, null
-  %.05.i.i.i.i.i = select i1 %232, ptr null, ptr %.sroa.4.0..sroa_idx.i
   br i1 %232, label %.sink.split.i.i, label %233
 
 233:                                              ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17ha4df8dcba58fc4aaE.exit.thread.i.i.i.i
@@ -35715,7 +35714,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17ha4df8dcba58fc4aaE.exit.thread.
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %233, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$tracing_subscriber..filter..directive..StaticDirective$GT$$GT$17hbd0692cac1cfe1c2E.exit.i.i.i.i.i.i.i"
   %236 = phi ptr [ %237, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$tracing_subscriber..filter..directive..StaticDirective$GT$$GT$17hbd0692cac1cfe1c2E.exit.i.i.i.i.i.i.i" ], [ %231, %233 ]
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 80
-  store ptr %237, ptr %.05.i.i.i.i.i, align 8, !alias.scope !5858, !noalias !5861
+  store ptr %237, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !5858, !noalias !5861
   invoke void @_ZN18tracing_subscriber6filter3env9directive9Directive9to_static17ha361845611ae9626E(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %236)
           to label %.noexc1.i.i.i unwind label %.loopexit.i.i.i, !noalias !5797
 

@@ -2223,7 +2223,7 @@ select.unfold.i:                                  ; preds = %.sink.split.i.i, %1
   %25 = icmp eq ptr %23, %22
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.sink.i.i.i.i.i.i = select i1 %25, ptr null, ptr %26
-  store ptr %.sink.i.i.i.i.i.i, ptr %.05.i.i.i, align 8, !alias.scope !450, !noalias !442
+  store ptr %.sink.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !450, !noalias !442
   br i1 %25, label %select.unfold.i.i.i.i.i, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b9d20dace36ba5eE.llvm.10043242345734795027.exit"
 
 select.unfold.i.i.i.i.i:                          ; preds = %.sink.split.i.i.i.i.i.i, %20
@@ -2293,7 +2293,7 @@ select.unfold.i.i.i.i.i:                          ; preds = %.sink.split.i.i.i.i
   %54 = getelementptr inbounds nuw i32, ptr %37, i64 %33
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = getelementptr i32, ptr %54, i64 %40
-  store ptr %55, ptr %.05.i.i.i, align 8, !alias.scope !453, !noalias !442
+  store ptr %55, ptr %10, align 8, !alias.scope !453, !noalias !442
   store ptr %56, ptr %12, align 8, !alias.scope !453, !noalias !442
   br label %20
 
@@ -2734,7 +2734,7 @@ select.unfold:                                    ; preds = %.sink.split.i, %1
   %25 = icmp eq ptr %23, %22
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.sink.i.i.i.i.i = select i1 %25, ptr null, ptr %26
-  store ptr %.sink.i.i.i.i.i, ptr %.05.i.i, align 8, !alias.scope !603, !noalias !595
+  store ptr %.sink.i.i.i.i.i, ptr %10, align 8, !alias.scope !603, !noalias !595
   br i1 %25, label %select.unfold.i.i.i.i, label %"_ZN4core6option15Option$LT$T$GT$7or_else17hdaf8ea9fea6e7deeE.llvm.10043242345734795027.exit"
 
 select.unfold.i.i.i.i:                            ; preds = %.sink.split.i.i.i.i.i, %20
@@ -2805,7 +2805,7 @@ select.unfold.i.i.i.i:                            ; preds = %.sink.split.i.i.i.i
   %54 = getelementptr inbounds nuw i32, ptr %37, i64 %33
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = getelementptr i32, ptr %54, i64 %40
-  store ptr %55, ptr %.05.i.i, align 8, !alias.scope !606, !noalias !595
+  store ptr %55, ptr %10, align 8, !alias.scope !606, !noalias !595
   store ptr %56, ptr %12, align 8, !alias.scope !606, !noalias !595
   br label %20
 
@@ -3232,7 +3232,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h68c1becebd8ca9f5E.exit.i.i.i
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hc1ac70b1b6222cceE.llvm.10043242345734795027.exit"
 
 51:                                               ; preds = %46
-  store ptr null, ptr %.09.i, align 8, !alias.scope !766
+  store ptr null, ptr %3, align 8, !alias.scope !766
   br label %56
 
 52:                                               ; preds = %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h8c86ae8c7a4d5312E.exit.i.i.i.i.i.i.i.i.i"
@@ -9483,7 +9483,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h68c1becebd8ca9f5E.exit.i.i.i
   br label %"_ZN121_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back28_$u7b$$u7b$closure$u7d$$u7d$17h0e25a585be8bc749E.exit"
 
 51:                                               ; preds = %46
-  store ptr null, ptr %.09, align 8, !alias.scope !2301
+  store ptr null, ptr %3, align 8, !alias.scope !2301
   br label %56
 
 52:                                               ; preds = %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h8c86ae8c7a4d5312E.exit.i.i.i.i.i.i.i.i"
@@ -9507,20 +9507,19 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h68c1becebd8ca9f5E.exit.i.i.i
 define hidden noundef align 4 dereferenceable_or_null(4) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hd89d40490a636d3dE.llvm.10043242345734795027(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0) unnamed_addr #11 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %9, label %.sink.split
+  br i1 %3, label %8, label %.sink.split
 
 .sink.split:                                      ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !2312, !nonnull !4, !noundef !4
-  %6 = load ptr, ptr %0, align 8, !alias.scope !2312, !nonnull !4, !noundef !4
-  %7 = icmp eq ptr %6, %5
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %.sink = select i1 %7, ptr null, ptr %8
-  %.0.ph = select i1 %7, ptr null, ptr %6
+  %6 = icmp eq ptr %2, %5
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %.sink = select i1 %6, ptr null, ptr %7
+  %.0.ph = select i1 %6, ptr null, ptr %2
   store ptr %.sink, ptr %0, align 8
-  br label %9
+  br label %8
 
-9:                                                ; preds = %.sink.split, %1
+8:                                                ; preds = %.sink.split, %1
   %.0 = phi ptr [ null, %1 ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }
@@ -9734,7 +9733,7 @@ define hidden noundef align 4 dereferenceable_or_null(4) ptr @"_ZN4core6option15
   %21 = icmp eq ptr %19, %18
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %.sink.i.i.i.i = select i1 %21, ptr null, ptr %22
-  store ptr %.sink.i.i.i.i, ptr %.05.i, align 8, !alias.scope !2373
+  store ptr %.sink.i.i.i.i, ptr %6, align 8, !alias.scope !2373
   br i1 %21, label %select.unfold.i.i.i, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hc7b2591d8de8bb56E.exit"
 
 select.unfold.i.i.i:                              ; preds = %.sink.split.i.i.i.i, %16
@@ -9805,7 +9804,7 @@ select.unfold.i.i.i:                              ; preds = %.sink.split.i.i.i.i
   %50 = getelementptr inbounds nuw i32, ptr %33, i64 %29
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %52 = getelementptr i32, ptr %50, i64 %36
-  store ptr %51, ptr %.05.i, align 8, !alias.scope !2376
+  store ptr %51, ptr %6, align 8, !alias.scope !2376
   store ptr %52, ptr %8, align 8, !alias.scope !2376
   br label %16
 

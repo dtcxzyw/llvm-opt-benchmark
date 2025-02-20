@@ -7264,7 +7264,6 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hd8149087fb1927f1E.exit.threa
   call void @llvm.experimental.noalias.scope.decl(metadata !1261)
   %59 = load i32, ptr %.sroa.0.sroa.5.sroa.7.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx, align 4, !range !1242, !alias.scope !1264, !noalias !1265, !noundef !11
   %60 = icmp eq i32 %59, 1114113
-  %.0.i.i.i.i.i.i = select i1 %60, ptr null, ptr %.sroa.0.sroa.5.0..sroa_idx
   br i1 %60, label %.loopexit.i.i.i.i.i, label %61
 
 61:                                               ; preds = %58
@@ -7287,9 +7286,8 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hd8149087fb1927f1E.exit.threa
 
 67:                                               ; preds = %66, %61
   call void @llvm.experimental.noalias.scope.decl(metadata !1281)
-  %68 = load ptr, ptr %.0.i.i.i.i.i.i, align 8, !alias.scope !1284, !noalias !1285, !noundef !11
+  %68 = load ptr, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8, !alias.scope !1284, !noalias !1285, !noundef !11
   %69 = icmp eq ptr %68, null
-  %.0.i.i.i.i.i.i.i.i.i.i = select i1 %69, ptr null, ptr %.0.i.i.i.i.i.i
   br i1 %69, label %.loopexit.i.i.i.i.i.i.i.i.i, label %70
 
 70:                                               ; preds = %67
@@ -7306,7 +7304,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hd8149087fb1927f1E.exit.threa
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 40
-  store ptr %76, ptr %.0.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1296, !noalias !1299
+  store ptr %76, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8, !alias.scope !1296, !noalias !1299
   %77 = call { ptr, i64 } @_ZN4http6header5value11HeaderValue6to_str17h5eb48323f4d80c17E(ptr noundef nonnull align 8 %73), !noalias !1301
   %78 = extractvalue { ptr, i64 } %77, 0
   %.not7.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %78, null

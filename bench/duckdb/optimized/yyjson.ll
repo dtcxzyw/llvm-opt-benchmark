@@ -8301,7 +8301,7 @@ define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_optsEPcmjPKNS_10yyjson_alcEP
   br label %285
 
 285:                                              ; preds = %284, %282
-  store ptr %.037.i1184, ptr %109, align 8, !tbaa !86
+  store ptr %.037.i1184, ptr %23, align 8, !tbaa !86
   %286 = ptrtoint ptr %.037.i1184 to i64
   %287 = ptrtoint ptr %257 to i64
   %288 = sub i64 %286, %287
@@ -8355,7 +8355,7 @@ define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_optsEPcmjPKNS_10yyjson_alcEP
   br label %307
 
 307:                                              ; preds = %306, %304
-  store ptr %303, ptr %109, align 8, !tbaa !86
+  store ptr %303, ptr %23, align 8, !tbaa !86
   %308 = select i1 %246, i64 1025, i64 769
   store i64 %308, ptr %.7499.i, align 8, !tbaa !73
   %309 = getelementptr inbounds nuw i8, ptr %.7499.i, i64 8
@@ -8715,7 +8715,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit884: ; preds =
   store i64 %538, ptr %.7499.i, align 8, !tbaa !73
   %539 = getelementptr inbounds nuw i8, ptr %.7499.i, i64 8
   store ptr %240, ptr %539, align 8, !tbaa !75
-  store ptr %521, ptr %109, align 8, !tbaa !86
+  store ptr %521, ptr %23, align 8, !tbaa !86
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit466
 
 540:                                              ; preds = %529
@@ -9442,7 +9442,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit884: ; preds =
   store i64 %942, ptr %.7499.i, align 8, !tbaa !73
   %943 = getelementptr inbounds nuw i8, ptr %.7499.i, i64 8
   store ptr %240, ptr %943, align 8, !tbaa !75
-  store ptr %918, ptr %109, align 8, !tbaa !86
+  store ptr %918, ptr %23, align 8, !tbaa !86
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit466
 
 944:                                              ; preds = %933
@@ -9533,7 +9533,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit884: ; preds =
   store i64 %987, ptr %.7499.i, align 8, !tbaa !73
   %988 = getelementptr inbounds nuw i8, ptr %.7499.i, i64 8
   store ptr %240, ptr %988, align 8, !tbaa !75
-  store ptr %967, ptr %109, align 8, !tbaa !86
+  store ptr %967, ptr %23, align 8, !tbaa !86
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit466
 
 989:                                              ; preds = %975
@@ -9738,7 +9738,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit884: ; preds =
   store i64 %1084, ptr %.7499.i, align 8, !tbaa !73
   %1085 = getelementptr inbounds nuw i8, ptr %.7499.i, i64 8
   store ptr %240, ptr %1085, align 8, !tbaa !75
-  store ptr %.103156.lcssa, ptr %109, align 8, !tbaa !86
+  store ptr %.103156.lcssa, ptr %23, align 8, !tbaa !86
   store ptr %.103156.lcssa, ptr %21, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #31
   br label %.preheader4200
@@ -9809,7 +9809,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit884: ; preds =
   store i64 %1111, ptr %.7499.i, align 8, !tbaa !73
   %1112 = getelementptr inbounds nuw i8, ptr %.7499.i, i64 8
   store ptr %240, ptr %1112, align 8, !tbaa !75
-  store ptr %.113157, ptr %109, align 8, !tbaa !86
+  store ptr %.113157, ptr %23, align 8, !tbaa !86
   store ptr %.113157, ptr %21, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #31
   br label %.preheader4200
@@ -10091,7 +10091,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit1217: ; preds = %1249
   store i64 %1279, ptr %.7499.i, align 8, !tbaa !73
   %1280 = getelementptr inbounds nuw i8, ptr %.7499.i, i64 8
   store ptr %240, ptr %1280, align 8, !tbaa !75
-  store ptr %.73153, ptr %109, align 8, !tbaa !86
+  store ptr %.73153, ptr %23, align 8, !tbaa !86
   br label %1549
 
 1281:                                             ; preds = %_ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit1217
@@ -10703,7 +10703,7 @@ _ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit1324.thread: ; preds = %1527
   store i64 %1539, ptr %.7499.i, align 8, !tbaa !73
   %1540 = getelementptr inbounds nuw i8, ptr %.7499.i, i64 8
   store ptr %240, ptr %1540, align 8, !tbaa !75
-  store ptr %.73153, ptr %109, align 8, !tbaa !86
+  store ptr %.73153, ptr %23, align 8, !tbaa !86
   br label %1549
 
 1541:                                             ; preds = %1530
@@ -12038,7 +12038,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit859: ; preds = %2185
   br label %2204
 
 2204:                                             ; preds = %2203, %2201
-  store ptr %2200, ptr %109, align 8, !tbaa !86
+  store ptr %2200, ptr %23, align 8, !tbaa !86
   store i64 769, ptr %.16508.i, align 8, !tbaa !73
   %2205 = getelementptr inbounds nuw i8, ptr %.16508.i, i64 8
   store ptr %2186, ptr %2205, align 8, !tbaa !75
@@ -12220,7 +12220,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit859: ; preds = %2185
   br label %2276
 
 2276:                                             ; preds = %2275, %2273
-  store ptr %.037.i1156, ptr %109, align 8, !tbaa !86
+  store ptr %.037.i1156, ptr %23, align 8, !tbaa !86
   %2277 = ptrtoint ptr %.037.i1156 to i64
   %2278 = ptrtoint ptr %2247 to i64
   %2279 = sub i64 %2277, %2278
@@ -12274,7 +12274,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit859: ; preds = %2185
   br label %2297
 
 2297:                                             ; preds = %2296, %2294
-  store ptr %2293, ptr %109, align 8, !tbaa !86
+  store ptr %2293, ptr %23, align 8, !tbaa !86
   store i64 769, ptr %.19511.i, align 8, !tbaa !73
   %2298 = getelementptr inbounds nuw i8, ptr %.19511.i, i64 8
   store ptr %2247, ptr %2298, align 8, !tbaa !75
@@ -15081,7 +15081,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit809: ; preds =
   br label %3677
 
 3677:                                             ; preds = %3676, %3674
-  store ptr %.037.i1190, ptr %109, align 8, !tbaa !86
+  store ptr %.037.i1190, ptr %23, align 8, !tbaa !86
   %3678 = ptrtoint ptr %.037.i1190 to i64
   %3679 = ptrtoint ptr %3649 to i64
   %3680 = sub i64 %3678, %3679
@@ -15135,7 +15135,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit809: ; preds =
   br label %3699
 
 3699:                                             ; preds = %3698, %3696
-  store ptr %3695, ptr %109, align 8, !tbaa !86
+  store ptr %3695, ptr %23, align 8, !tbaa !86
   %3700 = select i1 %3638, i64 1025, i64 769
   store i64 %3700, ptr %3633, align 8, !tbaa !73
   %3701 = getelementptr inbounds nuw i8, ptr %.25517.i, i64 24
@@ -15495,7 +15495,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   store i64 %3930, ptr %3633, align 8, !tbaa !73
   %3931 = getelementptr inbounds nuw i8, ptr %.25517.i, i64 24
   store ptr %3627, ptr %3931, align 8, !tbaa !75
-  store ptr %3913, ptr %109, align 8, !tbaa !86
+  store ptr %3913, ptr %23, align 8, !tbaa !86
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit574
 
 3932:                                             ; preds = %3921
@@ -16222,7 +16222,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   store i64 %4334, ptr %3633, align 8, !tbaa !73
   %4335 = getelementptr inbounds nuw i8, ptr %.25517.i, i64 24
   store ptr %3627, ptr %4335, align 8, !tbaa !75
-  store ptr %4310, ptr %109, align 8, !tbaa !86
+  store ptr %4310, ptr %23, align 8, !tbaa !86
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit574
 
 4336:                                             ; preds = %4325
@@ -16313,7 +16313,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   store i64 %4379, ptr %3633, align 8, !tbaa !73
   %4380 = getelementptr inbounds nuw i8, ptr %.25517.i, i64 24
   store ptr %3627, ptr %4380, align 8, !tbaa !75
-  store ptr %4359, ptr %109, align 8, !tbaa !86
+  store ptr %4359, ptr %23, align 8, !tbaa !86
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit574
 
 4381:                                             ; preds = %4367
@@ -16518,7 +16518,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   store i64 %4476, ptr %3633, align 8, !tbaa !73
   %4477 = getelementptr inbounds nuw i8, ptr %.25517.i, i64 24
   store ptr %3627, ptr %4477, align 8, !tbaa !75
-  store ptr %.10.lcssa, ptr %109, align 8, !tbaa !86
+  store ptr %.10.lcssa, ptr %23, align 8, !tbaa !86
   store ptr %.10.lcssa, ptr %21, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #31
   br label %.preheader4205
@@ -16589,7 +16589,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   store i64 %4503, ptr %3633, align 8, !tbaa !73
   %4504 = getelementptr inbounds nuw i8, ptr %.25517.i, i64 24
   store ptr %3627, ptr %4504, align 8, !tbaa !75
-  store ptr %.11, ptr %109, align 8, !tbaa !86
+  store ptr %.11, ptr %23, align 8, !tbaa !86
   store ptr %.11, ptr %21, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #31
   br label %.preheader4205
@@ -16871,7 +16871,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit: ; preds = %4641
   store i64 %4671, ptr %3633, align 8, !tbaa !73
   %4672 = getelementptr inbounds nuw i8, ptr %.25517.i, i64 24
   store ptr %3627, ptr %4672, align 8, !tbaa !75
-  store ptr %.7, ptr %109, align 8, !tbaa !86
+  store ptr %.7, ptr %23, align 8, !tbaa !86
   br label %4941
 
 4673:                                             ; preds = %_ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit
@@ -17483,7 +17483,7 @@ _ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit.thread: ; preds = %4919, %4
   store i64 %4931, ptr %3633, align 8, !tbaa !73
   %4932 = getelementptr inbounds nuw i8, ptr %.25517.i, i64 24
   store ptr %3627, ptr %4932, align 8, !tbaa !75
-  store ptr %.7, ptr %109, align 8, !tbaa !86
+  store ptr %.7, ptr %23, align 8, !tbaa !86
   br label %4941
 
 4933:                                             ; preds = %4922
@@ -17636,7 +17636,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit860: ; preds = %4957
   br label %4976
 
 4976:                                             ; preds = %4975, %4973
-  store ptr %4972, ptr %109, align 8, !tbaa !86
+  store ptr %4972, ptr %23, align 8, !tbaa !86
   store i64 769, ptr %4958, align 8, !tbaa !73
   %4977 = getelementptr inbounds nuw i8, ptr %.25517.i, i64 24
   store ptr %3627, ptr %4977, align 8, !tbaa !75
@@ -17759,7 +17759,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit860: ; preds = %4957
   br label %5021
 
 5021:                                             ; preds = %5020, %5018
-  store ptr %.037.i, ptr %109, align 8, !tbaa !86
+  store ptr %.037.i, ptr %23, align 8, !tbaa !86
   %5022 = ptrtoint ptr %.037.i to i64
   %5023 = ptrtoint ptr %3627 to i64
   %5024 = sub i64 %5022, %5023
@@ -17811,7 +17811,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit860: ; preds = %4957
   br label %5042
 
 5042:                                             ; preds = %5041, %5039
-  store ptr %5038, ptr %109, align 8, !tbaa !86
+  store ptr %5038, ptr %23, align 8, !tbaa !86
   store i64 769, ptr %4992, align 8, !tbaa !73
   %5043 = getelementptr inbounds nuw i8, ptr %.25517.i, i64 24
   store ptr %3627, ptr %5043, align 8, !tbaa !75
@@ -18535,7 +18535,7 @@ _ZN13duckdb_yyjsonL16read_root_prettyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read
   br label %5322
 
 5322:                                             ; preds = %5321, %5319
-  store ptr %.037.i1172, ptr %5218, align 8, !tbaa !86
+  store ptr %.037.i1172, ptr %20, align 8, !tbaa !86
   %5323 = ptrtoint ptr %.037.i1172 to i64
   %5324 = ptrtoint ptr %5294 to i64
   %5325 = sub i64 %5323, %5324
@@ -18589,7 +18589,7 @@ _ZN13duckdb_yyjsonL16read_root_prettyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read
   br label %5344
 
 5344:                                             ; preds = %5343, %5341
-  store ptr %5340, ptr %5218, align 8, !tbaa !86
+  store ptr %5340, ptr %20, align 8, !tbaa !86
   %5345 = select i1 %5283, i64 1025, i64 769
   store i64 %5345, ptr %.7498.i, align 8, !tbaa !73
   %5346 = getelementptr inbounds nuw i8, ptr %.7498.i, i64 8
@@ -18949,7 +18949,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit900: ; preds =
   store i64 %5575, ptr %.7498.i, align 8, !tbaa !73
   %5576 = getelementptr inbounds nuw i8, ptr %.7498.i, i64 8
   store ptr %5277, ptr %5576, align 8, !tbaa !75
-  store ptr %5558, ptr %5218, align 8, !tbaa !86
+  store ptr %5558, ptr %20, align 8, !tbaa !86
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit
 
 5577:                                             ; preds = %5566
@@ -19676,7 +19676,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit900: ; preds =
   store i64 %5979, ptr %.7498.i, align 8, !tbaa !73
   %5980 = getelementptr inbounds nuw i8, ptr %.7498.i, i64 8
   store ptr %5277, ptr %5980, align 8, !tbaa !75
-  store ptr %5955, ptr %5218, align 8, !tbaa !86
+  store ptr %5955, ptr %20, align 8, !tbaa !86
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit
 
 5981:                                             ; preds = %5970
@@ -19767,7 +19767,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit900: ; preds =
   store i64 %6024, ptr %.7498.i, align 8, !tbaa !73
   %6025 = getelementptr inbounds nuw i8, ptr %.7498.i, i64 8
   store ptr %5277, ptr %6025, align 8, !tbaa !75
-  store ptr %6004, ptr %5218, align 8, !tbaa !86
+  store ptr %6004, ptr %20, align 8, !tbaa !86
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit
 
 6026:                                             ; preds = %6012
@@ -19972,7 +19972,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit900: ; preds =
   store i64 %6121, ptr %.7498.i, align 8, !tbaa !73
   %6122 = getelementptr inbounds nuw i8, ptr %.7498.i, i64 8
   store ptr %5277, ptr %6122, align 8, !tbaa !75
-  store ptr %.103194.lcssa, ptr %5218, align 8, !tbaa !86
+  store ptr %.103194.lcssa, ptr %20, align 8, !tbaa !86
   store ptr %.103194.lcssa, ptr %18, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #31
   br label %.preheader4105
@@ -20043,7 +20043,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit900: ; preds =
   store i64 %6148, ptr %.7498.i, align 8, !tbaa !73
   %6149 = getelementptr inbounds nuw i8, ptr %.7498.i, i64 8
   store ptr %5277, ptr %6149, align 8, !tbaa !75
-  store ptr %.113195, ptr %5218, align 8, !tbaa !86
+  store ptr %.113195, ptr %20, align 8, !tbaa !86
   store ptr %.113195, ptr %18, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #31
   br label %.preheader4105
@@ -20325,7 +20325,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit1221: ; preds = %6286
   store i64 %6316, ptr %.7498.i, align 8, !tbaa !73
   %6317 = getelementptr inbounds nuw i8, ptr %.7498.i, i64 8
   store ptr %5277, ptr %6317, align 8, !tbaa !75
-  store ptr %.73191, ptr %5218, align 8, !tbaa !86
+  store ptr %.73191, ptr %20, align 8, !tbaa !86
   br label %6586
 
 6318:                                             ; preds = %_ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit1221
@@ -20937,7 +20937,7 @@ _ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit1342.thread: ; preds = %6564
   store i64 %6576, ptr %.7498.i, align 8, !tbaa !73
   %6577 = getelementptr inbounds nuw i8, ptr %.7498.i, i64 8
   store ptr %5277, ptr %6577, align 8, !tbaa !75
-  store ptr %.73191, ptr %5218, align 8, !tbaa !86
+  store ptr %.73191, ptr %20, align 8, !tbaa !86
   br label %6586
 
 6578:                                             ; preds = %6567
@@ -22266,7 +22266,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %7220
   br label %7239
 
 7239:                                             ; preds = %7238, %7236
-  store ptr %7235, ptr %5218, align 8, !tbaa !86
+  store ptr %7235, ptr %20, align 8, !tbaa !86
   store i64 769, ptr %.16507.i, align 8, !tbaa !73
   %7240 = getelementptr inbounds nuw i8, ptr %.16507.i, i64 8
   store ptr %7221, ptr %7240, align 8, !tbaa !75
@@ -22448,7 +22448,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %7220
   br label %7311
 
 7311:                                             ; preds = %7310, %7308
-  store ptr %.037.i1166, ptr %5218, align 8, !tbaa !86
+  store ptr %.037.i1166, ptr %20, align 8, !tbaa !86
   %7312 = ptrtoint ptr %.037.i1166 to i64
   %7313 = ptrtoint ptr %7282 to i64
   %7314 = sub i64 %7312, %7313
@@ -22502,7 +22502,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %7220
   br label %7332
 
 7332:                                             ; preds = %7331, %7329
-  store ptr %7328, ptr %5218, align 8, !tbaa !86
+  store ptr %7328, ptr %20, align 8, !tbaa !86
   store i64 769, ptr %.19510.i, align 8, !tbaa !73
   %7333 = getelementptr inbounds nuw i8, ptr %.19510.i, i64 8
   store ptr %7282, ptr %7333, align 8, !tbaa !75
@@ -25077,7 +25077,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit683: ; preds =
   br label %8637
 
 8637:                                             ; preds = %8636, %8634
-  store ptr %.037.i1178, ptr %5218, align 8, !tbaa !86
+  store ptr %.037.i1178, ptr %20, align 8, !tbaa !86
   %8638 = ptrtoint ptr %.037.i1178 to i64
   %8639 = ptrtoint ptr %8609 to i64
   %8640 = sub i64 %8638, %8639
@@ -25131,7 +25131,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit683: ; preds =
   br label %8659
 
 8659:                                             ; preds = %8658, %8656
-  store ptr %8655, ptr %5218, align 8, !tbaa !86
+  store ptr %8655, ptr %20, align 8, !tbaa !86
   %8660 = select i1 %8598, i64 1025, i64 769
   store i64 %8660, ptr %8593, align 8, !tbaa !73
   %8661 = getelementptr inbounds nuw i8, ptr %.25516.i, i64 24
@@ -25491,7 +25491,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit892: ; preds =
   store i64 %8890, ptr %8593, align 8, !tbaa !73
   %8891 = getelementptr inbounds nuw i8, ptr %.25516.i, i64 24
   store ptr %8587, ptr %8891, align 8, !tbaa !75
-  store ptr %8873, ptr %5218, align 8, !tbaa !86
+  store ptr %8873, ptr %20, align 8, !tbaa !86
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit358
 
 8892:                                             ; preds = %8881
@@ -26218,7 +26218,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit892: ; preds =
   store i64 %9294, ptr %8593, align 8, !tbaa !73
   %9295 = getelementptr inbounds nuw i8, ptr %.25516.i, i64 24
   store ptr %8587, ptr %9295, align 8, !tbaa !75
-  store ptr %9270, ptr %5218, align 8, !tbaa !86
+  store ptr %9270, ptr %20, align 8, !tbaa !86
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit358
 
 9296:                                             ; preds = %9285
@@ -26309,7 +26309,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit892: ; preds =
   store i64 %9339, ptr %8593, align 8, !tbaa !73
   %9340 = getelementptr inbounds nuw i8, ptr %.25516.i, i64 24
   store ptr %8587, ptr %9340, align 8, !tbaa !75
-  store ptr %9319, ptr %5218, align 8, !tbaa !86
+  store ptr %9319, ptr %20, align 8, !tbaa !86
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit358
 
 9341:                                             ; preds = %9327
@@ -26514,7 +26514,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit892: ; preds =
   store i64 %9436, ptr %8593, align 8, !tbaa !73
   %9437 = getelementptr inbounds nuw i8, ptr %.25516.i, i64 24
   store ptr %8587, ptr %9437, align 8, !tbaa !75
-  store ptr %.103232.lcssa, ptr %5218, align 8, !tbaa !86
+  store ptr %.103232.lcssa, ptr %20, align 8, !tbaa !86
   store ptr %.103232.lcssa, ptr %18, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #31
   br label %.preheader4110
@@ -26585,7 +26585,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit892: ; preds =
   store i64 %9463, ptr %8593, align 8, !tbaa !73
   %9464 = getelementptr inbounds nuw i8, ptr %.25516.i, i64 24
   store ptr %8587, ptr %9464, align 8, !tbaa !75
-  store ptr %.113233, ptr %5218, align 8, !tbaa !86
+  store ptr %.113233, ptr %20, align 8, !tbaa !86
   store ptr %.113233, ptr %18, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #31
   br label %.preheader4110
@@ -26867,7 +26867,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit1219: ; preds = %9601
   store i64 %9631, ptr %8593, align 8, !tbaa !73
   %9632 = getelementptr inbounds nuw i8, ptr %.25516.i, i64 24
   store ptr %8587, ptr %9632, align 8, !tbaa !75
-  store ptr %.73229, ptr %5218, align 8, !tbaa !86
+  store ptr %.73229, ptr %20, align 8, !tbaa !86
   br label %9901
 
 9633:                                             ; preds = %_ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit1219
@@ -27479,7 +27479,7 @@ _ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit1333.thread: ; preds = %9879
   store i64 %9891, ptr %8593, align 8, !tbaa !73
   %9892 = getelementptr inbounds nuw i8, ptr %.25516.i, i64 24
   store ptr %8587, ptr %9892, align 8, !tbaa !75
-  store ptr %.73229, ptr %5218, align 8, !tbaa !86
+  store ptr %.73229, ptr %20, align 8, !tbaa !86
   br label %9901
 
 9893:                                             ; preds = %9882
@@ -27626,7 +27626,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit858: ; preds = %9915
   br label %9934
 
 9934:                                             ; preds = %9933, %9931
-  store ptr %9930, ptr %5218, align 8, !tbaa !86
+  store ptr %9930, ptr %20, align 8, !tbaa !86
   store i64 769, ptr %9916, align 8, !tbaa !73
   %9935 = getelementptr inbounds nuw i8, ptr %.25516.i, i64 24
   store ptr %8587, ptr %9935, align 8, !tbaa !75
@@ -27749,7 +27749,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit858: ; preds = %9915
   br label %9979
 
 9979:                                             ; preds = %9978, %9976
-  store ptr %.037.i1161, ptr %5218, align 8, !tbaa !86
+  store ptr %.037.i1161, ptr %20, align 8, !tbaa !86
   %9980 = ptrtoint ptr %.037.i1161 to i64
   %9981 = ptrtoint ptr %8587 to i64
   %9982 = sub i64 %9980, %9981
@@ -27801,7 +27801,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit858: ; preds = %9915
   br label %10000
 
 10000:                                            ; preds = %9999, %9997
-  store ptr %9996, ptr %5218, align 8, !tbaa !86
+  store ptr %9996, ptr %20, align 8, !tbaa !86
   store i64 769, ptr %9950, align 8, !tbaa !73
   %10001 = getelementptr inbounds nuw i8, ptr %.25516.i, i64 24
   store ptr %8587, ptr %10001, align 8, !tbaa !75
@@ -28616,7 +28616,7 @@ define internal fastcc noundef ptr @_ZN13duckdb_yyjsonL16read_root_singleEPhS0_S
   br label %71
 
 71:                                               ; preds = %70, %68
-  store ptr %.037.i213, ptr %21, align 8, !tbaa !86
+  store ptr %.037.i213, ptr %12, align 8, !tbaa !86
   %72 = ptrtoint ptr %.037.i213 to i64
   %73 = ptrtoint ptr %43 to i64
   %74 = sub i64 %72, %73
@@ -28670,7 +28670,7 @@ define internal fastcc noundef ptr @_ZN13duckdb_yyjsonL16read_root_singleEPhS0_S
   br label %93
 
 93:                                               ; preds = %92, %90
-  store ptr %89, ptr %21, align 8, !tbaa !86
+  store ptr %89, ptr %12, align 8, !tbaa !86
   %94 = select i1 %31, i64 1025, i64 769
   store i64 %94, ptr %17, align 8, !tbaa !73
   %95 = getelementptr inbounds nuw i8, ptr %16, i64 72
@@ -29022,7 +29022,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %4
   store i64 %323, ptr %17, align 8, !tbaa !73
   %324 = getelementptr inbounds nuw i8, ptr %16, i64 72
   store ptr %1, ptr %324, align 8, !tbaa !75
-  store ptr %306, ptr %21, align 8, !tbaa !86
+  store ptr %306, ptr %12, align 8, !tbaa !86
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread
 
 325:                                              ; preds = %314
@@ -29749,7 +29749,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %4
   store i64 %727, ptr %17, align 8, !tbaa !73
   %728 = getelementptr inbounds nuw i8, ptr %16, i64 72
   store ptr %1, ptr %728, align 8, !tbaa !75
-  store ptr %703, ptr %21, align 8, !tbaa !86
+  store ptr %703, ptr %12, align 8, !tbaa !86
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread
 
 729:                                              ; preds = %718
@@ -29840,7 +29840,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %4
   store i64 %772, ptr %17, align 8, !tbaa !73
   %773 = getelementptr inbounds nuw i8, ptr %16, i64 72
   store ptr %1, ptr %773, align 8, !tbaa !75
-  store ptr %752, ptr %21, align 8, !tbaa !86
+  store ptr %752, ptr %12, align 8, !tbaa !86
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread
 
 774:                                              ; preds = %760
@@ -30043,7 +30043,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %4
   store i64 %869, ptr %17, align 8, !tbaa !73
   %870 = getelementptr inbounds nuw i8, ptr %16, i64 72
   store ptr %1, ptr %870, align 8, !tbaa !75
-  store ptr %.10.lcssa, ptr %21, align 8, !tbaa !86
+  store ptr %.10.lcssa, ptr %12, align 8, !tbaa !86
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread
 
 871:                                              ; preds = %861
@@ -30110,7 +30110,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %4
   store i64 %897, ptr %17, align 8, !tbaa !73
   %898 = getelementptr inbounds nuw i8, ptr %16, i64 72
   store ptr %1, ptr %898, align 8, !tbaa !75
-  store ptr %.11, ptr %21, align 8, !tbaa !86
+  store ptr %.11, ptr %12, align 8, !tbaa !86
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread
 
 899:                                              ; preds = %888
@@ -30390,7 +30390,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit: ; preds = %1036
   store i64 %1066, ptr %17, align 8, !tbaa !73
   %1067 = getelementptr inbounds nuw i8, ptr %16, i64 72
   store ptr %1, ptr %1067, align 8, !tbaa !75
-  store ptr %.7, ptr %21, align 8, !tbaa !86
+  store ptr %.7, ptr %12, align 8, !tbaa !86
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread584
 
 1068:                                             ; preds = %_ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit
@@ -31004,7 +31004,7 @@ _ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit.thread: ; preds = %1315, %1
   store i64 %1327, ptr %17, align 8, !tbaa !73
   %1328 = getelementptr inbounds nuw i8, ptr %16, i64 72
   store ptr %1, ptr %1328, align 8, !tbaa !75
-  store ptr %.7, ptr %21, align 8, !tbaa !86
+  store ptr %.7, ptr %12, align 8, !tbaa !86
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread584
 
 1329:                                             ; preds = %1318
@@ -32195,7 +32195,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %1906
   br label %1923
 
 1923:                                             ; preds = %1922, %1920
-  store ptr %1919, ptr %21, align 8, !tbaa !86
+  store ptr %1919, ptr %12, align 8, !tbaa !86
   store i64 769, ptr %17, align 8, !tbaa !73
   %1924 = getelementptr inbounds nuw i8, ptr %16, i64 72
   store ptr %1, ptr %1924, align 8, !tbaa !75
@@ -32294,7 +32294,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %1906
   br label %1957
 
 1957:                                             ; preds = %1956, %1954
-  store ptr %.037.i, ptr %21, align 8, !tbaa !86
+  store ptr %.037.i, ptr %12, align 8, !tbaa !86
   %1958 = ptrtoint ptr %.037.i to i64
   %1959 = ptrtoint ptr %1 to i64
   %1960 = sub i64 %1958, %1959
@@ -32346,7 +32346,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %1906
   br label %1978
 
 1978:                                             ; preds = %1977, %1975
-  store ptr %1974, ptr %21, align 8, !tbaa !86
+  store ptr %1974, ptr %12, align 8, !tbaa !86
   store i64 769, ptr %17, align 8, !tbaa !73
   %1979 = getelementptr inbounds nuw i8, ptr %16, i64 72
   store ptr %1, ptr %1979, align 8, !tbaa !75
@@ -33390,7 +33390,6 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   store i64 %306, ptr %1, align 8, !tbaa !73
   %307 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %307, align 8, !tbaa !75
-  store ptr %290, ptr %., align 8, !tbaa !86
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread
 
 308:                                              ; preds = %298
@@ -34116,7 +34115,6 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   store i64 %709, ptr %1, align 8, !tbaa !73
   %710 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %710, align 8, !tbaa !75
-  store ptr %686, ptr %., align 8, !tbaa !86
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread
 
 711:                                              ; preds = %701
@@ -34205,7 +34203,6 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   store i64 %753, ptr %1, align 8, !tbaa !73
   %754 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %754, align 8, !tbaa !75
-  store ptr %734, ptr %., align 8, !tbaa !86
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread
 
 755:                                              ; preds = %742
@@ -34404,7 +34401,6 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   store i64 %849, ptr %1, align 8, !tbaa !73
   %850 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %850, align 8, !tbaa !75
-  store ptr %.10.lcssa, ptr %., align 8, !tbaa !86
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread
 
 851:                                              ; preds = %842
@@ -34470,7 +34466,6 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   store i64 %876, ptr %1, align 8, !tbaa !73
   %877 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %877, align 8, !tbaa !75
-  store ptr %.11, ptr %., align 8, !tbaa !86
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread
 
 878:                                              ; preds = %868
@@ -34749,7 +34744,6 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit: ; preds = %1015
   store i64 %1044, ptr %1, align 8, !tbaa !73
   %1045 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %1045, align 8, !tbaa !75
-  store ptr %.7, ptr %., align 8, !tbaa !86
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread302
 
 1046:                                             ; preds = %_ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit
@@ -35361,7 +35355,6 @@ _ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit.thread: ; preds = %1293, %1
   store i64 %1304, ptr %1, align 8, !tbaa !73
   %1305 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %1305, align 8, !tbaa !75
-  store ptr %.7, ptr %., align 8, !tbaa !86
   br label %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread302
 
 1306:                                             ; preds = %1296

@@ -6847,7 +6847,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hfc181d4e8b453e44E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !1373
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i.i)
   %27 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %.05.i.i.i, align 8, !alias.scope !1370, !noalias !1373
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %12, align 8, !alias.scope !1370, !noalias !1373
   store ptr %27, ptr %18, align 8, !alias.scope !1370, !noalias !1373
   %28 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %28, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i.i
@@ -7037,7 +7037,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h45dc084c0ee9a427E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !1493
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i.i)
   %26 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %.05.i.i.i, align 8, !alias.scope !1490, !noalias !1493
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %11, align 8, !alias.scope !1490, !noalias !1493
   store ptr %26, ptr %17, align 8, !alias.scope !1490, !noalias !1493
   %27 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %27, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i.i
@@ -7236,7 +7236,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hfd80382aac6a9697E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !1612
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i.i)
   %26 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %.05.i.i.i, align 8, !alias.scope !1609, !noalias !1612
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %11, align 8, !alias.scope !1609, !noalias !1612
   store ptr %26, ptr %17, align 8, !alias.scope !1609, !noalias !1612
   %27 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %27, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i.i
@@ -7410,7 +7410,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h22c28e24ebfd7ab3E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !1720
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i.i)
   %27 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %.05.i.i.i, align 8, !alias.scope !1717, !noalias !1720
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %12, align 8, !alias.scope !1717, !noalias !1720
   store ptr %27, ptr %18, align 8, !alias.scope !1717, !noalias !1720
   %28 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %28, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i.i
@@ -7583,7 +7583,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h1a53794a1ebaccf2E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !1827
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i.i)
   %28 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %.05.i.i.i, align 8, !alias.scope !1824, !noalias !1827
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %13, align 8, !alias.scope !1824, !noalias !1827
   store ptr %28, ptr %19, align 8, !alias.scope !1824, !noalias !1827
   %29 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %29, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i.i
@@ -7760,7 +7760,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h63f67a752e4b87cfE.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !1940
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i.i)
   %26 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %.05.i.i.i, align 8, !alias.scope !1937, !noalias !1940
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %11, align 8, !alias.scope !1937, !noalias !1940
   store ptr %26, ptr %17, align 8, !alias.scope !1937, !noalias !1940
   %27 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %27, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i.i
@@ -7945,7 +7945,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h30bd52d039705247E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !2060
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i.i)
   %27 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %.05.i.i.i, align 8, !alias.scope !2057, !noalias !2060
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %12, align 8, !alias.scope !2057, !noalias !2060
   store ptr %27, ptr %18, align 8, !alias.scope !2057, !noalias !2060
   %28 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %28, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i.i
@@ -8187,7 +8187,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h1090486670dd3f3aE.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !2195
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i.i)
   %26 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %.05.i.i.i, align 8, !alias.scope !2192, !noalias !2195
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %11, align 8, !alias.scope !2192, !noalias !2195
   store ptr %26, ptr %17, align 8, !alias.scope !2192, !noalias !2195
   %27 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %27, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i.i
@@ -8347,7 +8347,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hf443c199ab7ebd37E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !2295
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %.05.i.i.i, align 8, !alias.scope !2292, !noalias !2295
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !2292, !noalias !2295
   store ptr %25, ptr %16, align 8, !alias.scope !2292, !noalias !2295
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i.i
@@ -8511,7 +8511,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8f41ba5152275269E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !2400
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i.i)
   %26 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %.05.i.i.i, align 8, !alias.scope !2397, !noalias !2400
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %11, align 8, !alias.scope !2397, !noalias !2400
   store ptr %26, ptr %17, align 8, !alias.scope !2397, !noalias !2400
   %27 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %27, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i.i
@@ -8820,7 +8820,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h6c9e10c78bb7d476E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !2579
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %.05.i.i.i, align 8, !alias.scope !2576, !noalias !2579
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !2576, !noalias !2579
   store ptr %25, ptr %16, align 8, !alias.scope !2576, !noalias !2579
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i.i
@@ -8988,7 +8988,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hd848526899c8d8bdE.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !2684
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i.i)
   %27 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %.05.i.i.i, align 8, !alias.scope !2681, !noalias !2684
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %12, align 8, !alias.scope !2681, !noalias !2684
   store ptr %27, ptr %18, align 8, !alias.scope !2681, !noalias !2684
   %28 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %28, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i.i
@@ -9188,7 +9188,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hf783189717577c20E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !2798
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i.i)
   %27 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %.05.i.i.i, align 8, !alias.scope !2795, !noalias !2798
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %12, align 8, !alias.scope !2795, !noalias !2798
   store ptr %27, ptr %18, align 8, !alias.scope !2795, !noalias !2798
   %28 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %28, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i.i
@@ -9378,7 +9378,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hc68cb66aa5bbf40cE.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !2911
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i.i)
   %27 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %.05.i.i.i, align 8, !alias.scope !2908, !noalias !2911
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %12, align 8, !alias.scope !2908, !noalias !2911
   store ptr %27, ptr %18, align 8, !alias.scope !2908, !noalias !2911
   %28 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %28, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i.i
@@ -9557,7 +9557,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hb009ea6e6dffa932E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !3024
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i.i)
   %28 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %.05.i.i.i, align 8, !alias.scope !3021, !noalias !3024
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %13, align 8, !alias.scope !3021, !noalias !3024
   store ptr %28, ptr %19, align 8, !alias.scope !3021, !noalias !3024
   %29 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %29, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i.i
@@ -9736,7 +9736,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hebe191c4a1304e05E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !3137
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i.i)
   %27 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %.05.i.i.i, align 8, !alias.scope !3134, !noalias !3137
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %12, align 8, !alias.scope !3134, !noalias !3137
   store ptr %27, ptr %18, align 8, !alias.scope !3134, !noalias !3137
   %28 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %28, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i.i
@@ -9925,7 +9925,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hb5e09e936522e438E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !3251
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i.i)
   %26 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %.05.i.i.i, align 8, !alias.scope !3248, !noalias !3251
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %11, align 8, !alias.scope !3248, !noalias !3251
   store ptr %26, ptr %17, align 8, !alias.scope !3248, !noalias !3251
   %27 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %27, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i.i
@@ -10199,7 +10199,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h982b431b6e8f9eaeE.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !3411
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %.05.i.i.i, align 8, !alias.scope !3408, !noalias !3411
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !3408, !noalias !3411
   store ptr %25, ptr %16, align 8, !alias.scope !3408, !noalias !3411
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i.i
@@ -10402,7 +10402,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h2d8ef7c1633bd69dE.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !3529
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i.i)
   %28 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %.05.i.i.i, align 8, !alias.scope !3526, !noalias !3529
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %13, align 8, !alias.scope !3526, !noalias !3529
   store ptr %28, ptr %19, align 8, !alias.scope !3526, !noalias !3529
   %29 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %29, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i.i
@@ -10644,7 +10644,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h0bce41d35a9f651aE.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !3667
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i.i)
   %27 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %.05.i.i.i, align 8, !alias.scope !3664, !noalias !3667
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %12, align 8, !alias.scope !3664, !noalias !3667
   store ptr %27, ptr %18, align 8, !alias.scope !3664, !noalias !3667
   %28 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %28, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i.i
@@ -10815,7 +10815,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h962ff1f076622999E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !3773
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %.05.i.i.i, align 8, !alias.scope !3770, !noalias !3773
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !3770, !noalias !3773
   store ptr %25, ptr %16, align 8, !alias.scope !3770, !noalias !3773
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i.i
@@ -10980,7 +10980,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h84340ee79187ac70E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !3878
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i.i)
   %26 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %.05.i.i.i, align 8, !alias.scope !3875, !noalias !3878
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %11, align 8, !alias.scope !3875, !noalias !3878
   store ptr %26, ptr %17, align 8, !alias.scope !3875, !noalias !3878
   %27 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %27, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i.i
@@ -11179,7 +11179,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h1adc6e9b617edba8E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !4002
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i.i)
   %26 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %.05.i.i.i, align 8, !alias.scope !3999, !noalias !4002
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %11, align 8, !alias.scope !3999, !noalias !4002
   store ptr %26, ptr %17, align 8, !alias.scope !3999, !noalias !4002
   %27 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %27, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i.i
@@ -11605,7 +11605,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h9f53ed31aef8ade6E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !4254
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %.05.i.i.i, align 8, !alias.scope !4251, !noalias !4254
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !4251, !noalias !4254
   store ptr %25, ptr %16, align 8, !alias.scope !4251, !noalias !4254
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i.i
@@ -12293,7 +12293,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h2d8ef7c1633bd69dE.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !4598
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %.05.i.i, align 8, !alias.scope !4595, !noalias !4598
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !4595, !noalias !4598
   store ptr %25, ptr %16, align 8, !alias.scope !4595, !noalias !4598
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i
@@ -12451,7 +12451,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8f41ba5152275269E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !4695
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %.05.i.i, align 8, !alias.scope !4692, !noalias !4695
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !4692, !noalias !4695
   store ptr %25, ptr %16, align 8, !alias.scope !4692, !noalias !4695
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i
@@ -12609,7 +12609,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h6c9e10c78bb7d476E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !4792
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %.05.i.i, align 8, !alias.scope !4789, !noalias !4792
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !4789, !noalias !4792
   store ptr %25, ptr %16, align 8, !alias.scope !4789, !noalias !4792
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i
@@ -12767,7 +12767,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hfd80382aac6a9697E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !4889
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %.05.i.i, align 8, !alias.scope !4886, !noalias !4889
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !4886, !noalias !4889
   store ptr %25, ptr %16, align 8, !alias.scope !4886, !noalias !4889
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i
@@ -12925,7 +12925,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hfc181d4e8b453e44E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !4986
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %.05.i.i, align 8, !alias.scope !4983, !noalias !4986
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !4983, !noalias !4986
   store ptr %25, ptr %16, align 8, !alias.scope !4983, !noalias !4986
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i
@@ -13083,7 +13083,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h84340ee79187ac70E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !5083
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %.05.i.i, align 8, !alias.scope !5080, !noalias !5083
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !5080, !noalias !5083
   store ptr %25, ptr %16, align 8, !alias.scope !5080, !noalias !5083
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i
@@ -13241,7 +13241,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h1a53794a1ebaccf2E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !5180
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %.05.i.i, align 8, !alias.scope !5177, !noalias !5180
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !5177, !noalias !5180
   store ptr %25, ptr %16, align 8, !alias.scope !5177, !noalias !5180
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i
@@ -13399,7 +13399,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h45dc084c0ee9a427E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !5277
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %.05.i.i, align 8, !alias.scope !5274, !noalias !5277
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !5274, !noalias !5277
   store ptr %25, ptr %16, align 8, !alias.scope !5274, !noalias !5277
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i
@@ -13557,7 +13557,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h1090486670dd3f3aE.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !5374
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %.05.i.i, align 8, !alias.scope !5371, !noalias !5374
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !5371, !noalias !5374
   store ptr %25, ptr %16, align 8, !alias.scope !5371, !noalias !5374
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i
@@ -13715,7 +13715,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hb5e09e936522e438E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !5471
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %.05.i.i, align 8, !alias.scope !5468, !noalias !5471
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !5468, !noalias !5471
   store ptr %25, ptr %16, align 8, !alias.scope !5468, !noalias !5471
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i
@@ -13873,7 +13873,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hebe191c4a1304e05E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !5568
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %.05.i.i, align 8, !alias.scope !5565, !noalias !5568
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !5565, !noalias !5568
   store ptr %25, ptr %16, align 8, !alias.scope !5565, !noalias !5568
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i
@@ -14031,7 +14031,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hb009ea6e6dffa932E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !5665
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %.05.i.i, align 8, !alias.scope !5662, !noalias !5665
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !5662, !noalias !5665
   store ptr %25, ptr %16, align 8, !alias.scope !5662, !noalias !5665
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i
@@ -14189,7 +14189,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hf783189717577c20E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !5762
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %.05.i.i, align 8, !alias.scope !5759, !noalias !5762
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !5759, !noalias !5762
   store ptr %25, ptr %16, align 8, !alias.scope !5759, !noalias !5762
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i
@@ -14347,7 +14347,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h962ff1f076622999E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !5859
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %.05.i.i, align 8, !alias.scope !5856, !noalias !5859
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !5856, !noalias !5859
   store ptr %25, ptr %16, align 8, !alias.scope !5856, !noalias !5859
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i
@@ -14505,7 +14505,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hc68cb66aa5bbf40cE.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !5956
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %.05.i.i, align 8, !alias.scope !5953, !noalias !5956
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !5953, !noalias !5956
   store ptr %25, ptr %16, align 8, !alias.scope !5953, !noalias !5956
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i
@@ -14663,7 +14663,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h30bd52d039705247E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !6053
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %.05.i.i, align 8, !alias.scope !6050, !noalias !6053
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !6050, !noalias !6053
   store ptr %25, ptr %16, align 8, !alias.scope !6050, !noalias !6053
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i
@@ -14821,7 +14821,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h9f53ed31aef8ade6E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !6150
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %.05.i.i, align 8, !alias.scope !6147, !noalias !6150
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !6147, !noalias !6150
   store ptr %25, ptr %16, align 8, !alias.scope !6147, !noalias !6150
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i
@@ -14979,7 +14979,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hd848526899c8d8bdE.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !6247
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %.05.i.i, align 8, !alias.scope !6244, !noalias !6247
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !6244, !noalias !6247
   store ptr %25, ptr %16, align 8, !alias.scope !6244, !noalias !6247
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i
@@ -15137,7 +15137,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h0bce41d35a9f651aE.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !6344
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %.05.i.i, align 8, !alias.scope !6341, !noalias !6344
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !6341, !noalias !6344
   store ptr %25, ptr %16, align 8, !alias.scope !6341, !noalias !6344
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i
@@ -15295,7 +15295,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h63f67a752e4b87cfE.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !6441
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %.05.i.i, align 8, !alias.scope !6438, !noalias !6441
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !6438, !noalias !6441
   store ptr %25, ptr %16, align 8, !alias.scope !6438, !noalias !6441
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i
@@ -15453,7 +15453,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h982b431b6e8f9eaeE.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !6538
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %.05.i.i, align 8, !alias.scope !6535, !noalias !6538
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !6535, !noalias !6538
   store ptr %25, ptr %16, align 8, !alias.scope !6535, !noalias !6538
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i
@@ -15611,7 +15611,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hf443c199ab7ebd37E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !6635
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %.05.i.i, align 8, !alias.scope !6632, !noalias !6635
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !6632, !noalias !6635
   store ptr %25, ptr %16, align 8, !alias.scope !6632, !noalias !6635
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i
@@ -15769,7 +15769,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h1adc6e9b617edba8E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !6732
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %.05.i.i, align 8, !alias.scope !6729, !noalias !6732
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !6729, !noalias !6732
   store ptr %25, ptr %16, align 8, !alias.scope !6729, !noalias !6732
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i
@@ -15927,7 +15927,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h22c28e24ebfd7ab3E.llvm.4930786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !6829
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i.i)
   %25 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %.05.i.i, align 8, !alias.scope !6826, !noalias !6829
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i.i, ptr %10, align 8, !alias.scope !6826, !noalias !6829
   store ptr %25, ptr %16, align 8, !alias.scope !6826, !noalias !6829
   %26 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i.i
@@ -31822,7 +31822,7 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @"_ZN4core6option1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !10569
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i)
   %21 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %.05.i, align 8, !alias.scope !10566, !noalias !10569
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %1, align 8, !alias.scope !10566, !noalias !10569
   store ptr %21, ptr %12, align 8, !alias.scope !10566, !noalias !10569
   %22 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i
@@ -31963,7 +31963,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN4core6option15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !10652
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i)
   %21 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %.05.i, align 8, !alias.scope !10649, !noalias !10652
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %1, align 8, !alias.scope !10649, !noalias !10652
   store ptr %21, ptr %12, align 8, !alias.scope !10649, !noalias !10652
   %22 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i
@@ -32104,7 +32104,7 @@ define hidden noundef align 8 dereferenceable_or_null(160) ptr @"_ZN4core6option
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !10735
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i)
   %21 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %.05.i, align 8, !alias.scope !10732, !noalias !10735
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %1, align 8, !alias.scope !10732, !noalias !10735
   store ptr %21, ptr %12, align 8, !alias.scope !10732, !noalias !10735
   %22 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i
@@ -32245,7 +32245,7 @@ define hidden noundef align 8 dereferenceable_or_null(472) ptr @"_ZN4core6option
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !10818
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i)
   %21 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %.05.i, align 8, !alias.scope !10815, !noalias !10818
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %1, align 8, !alias.scope !10815, !noalias !10818
   store ptr %21, ptr %12, align 8, !alias.scope !10815, !noalias !10818
   %22 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i
@@ -32386,7 +32386,7 @@ define hidden noundef align 8 dereferenceable_or_null(448) ptr @"_ZN4core6option
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !10901
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i)
   %21 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %.05.i, align 8, !alias.scope !10898, !noalias !10901
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %1, align 8, !alias.scope !10898, !noalias !10901
   store ptr %21, ptr %12, align 8, !alias.scope !10898, !noalias !10901
   %22 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i
@@ -32527,7 +32527,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN4core6option15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !10984
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i)
   %21 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %.05.i, align 8, !alias.scope !10981, !noalias !10984
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %1, align 8, !alias.scope !10981, !noalias !10984
   store ptr %21, ptr %12, align 8, !alias.scope !10981, !noalias !10984
   %22 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i
@@ -32668,7 +32668,7 @@ define hidden noundef align 8 dereferenceable_or_null(112) ptr @"_ZN4core6option
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !11067
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i)
   %21 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %.05.i, align 8, !alias.scope !11064, !noalias !11067
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %1, align 8, !alias.scope !11064, !noalias !11067
   store ptr %21, ptr %12, align 8, !alias.scope !11064, !noalias !11067
   %22 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i
@@ -32809,7 +32809,7 @@ define hidden noundef align 8 dereferenceable_or_null(448) ptr @"_ZN4core6option
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !11150
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i)
   %21 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %.05.i, align 8, !alias.scope !11147, !noalias !11150
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %1, align 8, !alias.scope !11147, !noalias !11150
   store ptr %21, ptr %12, align 8, !alias.scope !11147, !noalias !11150
   %22 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i
@@ -32950,7 +32950,7 @@ define hidden noundef align 8 dereferenceable_or_null(112) ptr @"_ZN4core6option
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !11233
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i)
   %21 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %.05.i, align 8, !alias.scope !11230, !noalias !11233
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %1, align 8, !alias.scope !11230, !noalias !11233
   store ptr %21, ptr %12, align 8, !alias.scope !11230, !noalias !11233
   %22 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i
@@ -33091,7 +33091,7 @@ define hidden noundef align 8 dereferenceable_or_null(128) ptr @"_ZN4core6option
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !11316
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i)
   %21 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %.05.i, align 8, !alias.scope !11313, !noalias !11316
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %1, align 8, !alias.scope !11313, !noalias !11316
   store ptr %21, ptr %12, align 8, !alias.scope !11313, !noalias !11316
   %22 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i
@@ -33232,7 +33232,7 @@ define hidden noundef align 8 dereferenceable_or_null(40) ptr @"_ZN4core6option1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !11399
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i)
   %21 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %.05.i, align 8, !alias.scope !11396, !noalias !11399
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %1, align 8, !alias.scope !11396, !noalias !11399
   store ptr %21, ptr %12, align 8, !alias.scope !11396, !noalias !11399
   %22 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i
@@ -33373,7 +33373,7 @@ define hidden noundef align 1 dereferenceable_or_null(2) ptr @"_ZN4core6option15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !11482
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i)
   %21 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %.05.i, align 8, !alias.scope !11479, !noalias !11482
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %1, align 8, !alias.scope !11479, !noalias !11482
   store ptr %21, ptr %12, align 8, !alias.scope !11479, !noalias !11482
   %22 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i
@@ -33514,7 +33514,7 @@ define hidden noundef align 8 dereferenceable_or_null(128) ptr @"_ZN4core6option
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !11565
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i)
   %21 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %.05.i, align 8, !alias.scope !11562, !noalias !11565
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %1, align 8, !alias.scope !11562, !noalias !11565
   store ptr %21, ptr %12, align 8, !alias.scope !11562, !noalias !11565
   %22 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i
@@ -33655,7 +33655,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !11648
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i)
   %21 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %.05.i, align 8, !alias.scope !11645, !noalias !11648
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %1, align 8, !alias.scope !11645, !noalias !11648
   store ptr %21, ptr %12, align 8, !alias.scope !11645, !noalias !11648
   %22 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i
@@ -33796,7 +33796,7 @@ define hidden noundef align 8 dereferenceable_or_null(128) ptr @"_ZN4core6option
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !11731
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i)
   %21 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %.05.i, align 8, !alias.scope !11728, !noalias !11731
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %1, align 8, !alias.scope !11728, !noalias !11731
   store ptr %21, ptr %12, align 8, !alias.scope !11728, !noalias !11731
   %22 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i
@@ -33937,7 +33937,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !11814
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i)
   %21 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %.05.i, align 8, !alias.scope !11811, !noalias !11814
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %1, align 8, !alias.scope !11811, !noalias !11814
   store ptr %21, ptr %12, align 8, !alias.scope !11811, !noalias !11814
   %22 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i
@@ -34078,7 +34078,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !11897
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i)
   %21 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %.05.i, align 8, !alias.scope !11894, !noalias !11897
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %1, align 8, !alias.scope !11894, !noalias !11897
   store ptr %21, ptr %12, align 8, !alias.scope !11894, !noalias !11897
   %22 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i
@@ -34219,7 +34219,7 @@ define hidden noundef align 16 dereferenceable_or_null(64) ptr @"_ZN4core6option
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !11980
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i)
   %21 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %.05.i, align 8, !alias.scope !11977, !noalias !11980
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %1, align 8, !alias.scope !11977, !noalias !11980
   store ptr %21, ptr %12, align 8, !alias.scope !11977, !noalias !11980
   %22 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i
@@ -34360,7 +34360,7 @@ define hidden noundef align 8 dereferenceable_or_null(136) ptr @"_ZN4core6option
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !12063
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i)
   %21 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %.05.i, align 8, !alias.scope !12060, !noalias !12063
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %1, align 8, !alias.scope !12060, !noalias !12063
   store ptr %21, ptr %12, align 8, !alias.scope !12060, !noalias !12063
   %22 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i
@@ -34501,7 +34501,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN4core6option1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !12146
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i)
   %21 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %.05.i, align 8, !alias.scope !12143, !noalias !12146
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %1, align 8, !alias.scope !12143, !noalias !12146
   store ptr %21, ptr %12, align 8, !alias.scope !12143, !noalias !12146
   %22 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i
@@ -34642,7 +34642,7 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @"_ZN4core6option1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !12229
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i)
   %21 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %.05.i, align 8, !alias.scope !12226, !noalias !12229
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %1, align 8, !alias.scope !12226, !noalias !12229
   store ptr %21, ptr %12, align 8, !alias.scope !12226, !noalias !12229
   %22 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i
@@ -34783,7 +34783,7 @@ define hidden noundef align 8 dereferenceable_or_null(112) ptr @"_ZN4core6option
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !12312
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i)
   %21 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %.05.i, align 8, !alias.scope !12309, !noalias !12312
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %1, align 8, !alias.scope !12309, !noalias !12312
   store ptr %21, ptr %12, align 8, !alias.scope !12309, !noalias !12312
   %22 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i
@@ -34924,7 +34924,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN4core6option15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !12395
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i)
   %21 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %.05.i, align 8, !alias.scope !12392, !noalias !12395
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %1, align 8, !alias.scope !12392, !noalias !12395
   store ptr %21, ptr %12, align 8, !alias.scope !12392, !noalias !12395
   %22 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i
@@ -35065,7 +35065,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !12478
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.58.i.i.i.i.i.i.i.i.i)
   %21 = getelementptr inbounds { { { i128 } }, { i64, [13 x i64] } }, ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i
-  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %.05.i, align 8, !alias.scope !12475, !noalias !12478
+  store ptr %.sroa.06.0.i15.i.i.i.i.i.i.i.i, ptr %1, align 8, !alias.scope !12475, !noalias !12478
   store ptr %21, ptr %12, align 8, !alias.scope !12475, !noalias !12478
   %22 = icmp eq i64 %.sroa.5.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 0
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %.loopexit11.i.i.i.i.i.i.i

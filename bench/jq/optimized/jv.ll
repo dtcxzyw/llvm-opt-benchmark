@@ -5321,7 +5321,7 @@ jvp_object_free.exit:                             ; preds = %2, %._crit_edge.i39
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @jvp_object_add_slot(i64 %0, ptr %1, i64 %2, ptr %3, ptr noundef captures(none) %4) unnamed_addr #21 {
+define internal fastcc noundef ptr @jvp_object_add_slot(i64 %0, ptr %1, i64 %2, ptr %3, ptr noundef captures(none) %4) unnamed_addr #21 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !4
   %.sroa.1.0.extract.shift.i = lshr i64 %0, 32
@@ -5338,7 +5338,7 @@ define internal fastcc ptr @jvp_object_add_slot(i64 %0, ptr %1, i64 %2, ptr %3, 
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr %6, align 4, !tbaa !4
   %15 = load i32, ptr %4, align 4, !tbaa !4
-  store i32 %15, ptr %.0.i, align 8, !tbaa !58
+  store i32 %15, ptr %13, align 8, !tbaa !58
   store i32 %7, ptr %4, align 4, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i32, ptr %16, align 4, !tbaa !4

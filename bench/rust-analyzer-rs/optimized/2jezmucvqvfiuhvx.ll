@@ -11802,7 +11802,6 @@ common.resume.i:                                  ; preds = %97, %87, %60, %43, 
   call void @llvm.experimental.noalias.scope.decl(metadata !3498)
   %28 = load ptr, ptr %1, align 8, !alias.scope !3501, !noalias !3502, !noundef !20
   %29 = icmp eq ptr %28, null
-  %.0.i.i = select i1 %29, ptr null, ptr %1
   br i1 %29, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h680b7f3ab1733b3aE.exit.thread.i", label %30
 
 30:                                               ; preds = %"_ZN4core3ptr66drop_in_place$LT$core..option..Option$LT$smol_str..SmolStr$GT$$GT$17h19d91736eca1cac2E.exit.i"
@@ -11818,13 +11817,13 @@ common.resume.i:                                  ; preds = %97, %87, %60, %43, 
 
 31:                                               ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3cc9ed0fadb551b7E.exit.i.i.i.i.i.i.i.i", %30
   %32 = load ptr, ptr %13, align 8, !alias.scope !3522, !noalias !3525, !nonnull !20, !noundef !20
-  %33 = load ptr, ptr %.0.i.i, align 8, !alias.scope !3522, !noalias !3525, !nonnull !20, !noundef !20
+  %33 = load ptr, ptr %1, align 8, !alias.scope !3522, !noalias !3525, !nonnull !20, !noundef !20
   %34 = icmp eq ptr %33, %32
   br i1 %34, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h680b7f3ab1733b3aE.exit.thread26.i", label %35
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  store ptr %36, ptr %.0.i.i, align 8, !alias.scope !3522, !noalias !3525
+  store ptr %36, ptr %1, align 8, !alias.scope !3522, !noalias !3525
   call void @llvm.experimental.noalias.scope.decl(metadata !3529)
   %37 = load ptr, ptr %33, align 8, !alias.scope !3529, !noalias !3532, !nonnull !20, !noundef !20
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8

@@ -1241,12 +1241,13 @@ _ZN6casadi11cache_checkIdEEiPKT_PS1_PixxxPS4_.exit.thread: ; preds = %36, %3, %.
   br label %91
 
 _ZN6casadi11cache_checkIdEEiPKT_PS1_PixxxPS4_.exit.thread180: ; preds = %.critedge.preheader.i, %.critedge.preheader62.i
-  store i32 %23, ptr %spec.select.i33, align 4, !tbaa !88
+  store i32 %23, ptr %10, align 4, !tbaa !88
   br label %46
 
 _ZN6casadi11cache_checkIdEEiPKT_PS1_PixxxPS4_.exit: ; preds = %.lr.ph56.split.i
   %44 = zext nneg i32 %37 to i64
   %45 = mul nsw i64 %15, %44
+  store i32 %37, ptr %10, align 4, !tbaa !88
   %.not30 = icmp eq ptr %spec.select.i, null
   br i1 %.not30, label %91, label %46
 

@@ -2871,7 +2871,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br i1 %55, label %57, label %56
 
 56:                                               ; preds = %54
-  store i32 %4, ptr %.sroa.0.0.i, align 4
+  store i32 %4, ptr %48, align 4
   br label %57
 
 57:                                               ; preds = %56, %54
@@ -3234,7 +3234,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br i1 %55, label %57, label %56
 
 56:                                               ; preds = %54
-  store i32 %4, ptr %.sroa.0.0.i, align 4
+  store i32 %4, ptr %48, align 4
   br label %57
 
 57:                                               ; preds = %56, %54
@@ -17568,7 +17568,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
 60:                                               ; preds = %53
   %61 = load i8, ptr %7, align 1
   %62 = zext i8 %61 to i16
-  store i16 %62, ptr %.sroa.0.0.i, align 2
+  store i16 %62, ptr %47, align 2
   %63 = load i16, ptr %8, align 2
   %64 = zext i16 %63 to i32
   store i32 %64, ptr %51, align 4
@@ -17689,7 +17689,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
 60:                                               ; preds = %53
   %61 = load i8, ptr %7, align 1
   %62 = zext i8 %61 to i16
-  store i16 %62, ptr %.sroa.0.0.i, align 2
+  store i16 %62, ptr %47, align 2
   %63 = load i16, ptr %8, align 2
   %64 = zext i16 %63 to i32
   store i32 %64, ptr %51, align 4
@@ -20743,7 +20743,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
@@ -21181,7 +21181,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -21243,7 +21243,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i9
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -21305,7 +21305,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i17
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -21366,7 +21366,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i27
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i27: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i25
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
@@ -21414,7 +21414,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; p
   br label %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %20, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %17, ptr %spec.select.i.i.i, align 8
+  store ptr %17, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 %16
   store ptr %21, ptr %13, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
@@ -21702,7 +21702,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %26, ptr %spec.select.i.i.i, align 8
+  store ptr %26, ptr %2, align 8
   store ptr %30, ptr %6, align 8
   %32 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
@@ -21764,7 +21764,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i9
-  store ptr %51, ptr %spec.select.i.i.i, align 8
+  store ptr %51, ptr %2, align 8
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %51, i64 %49
   store ptr %57, ptr %8, align 8
@@ -21826,7 +21826,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19: ; preds = %81, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i17
-  store ptr %76, ptr %spec.select.i.i.i, align 8
+  store ptr %76, ptr %2, align 8
   store ptr %80, ptr %6, align 8
   %82 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %76, i64 %74
   store ptr %82, ptr %8, align 8
@@ -21887,7 +21887,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i27
 
 _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i27: ; preds = %106, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i25
-  store ptr %101, ptr %spec.select.i.i.i, align 8
+  store ptr %101, ptr %2, align 8
   store ptr %105, ptr %6, align 8
   %107 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %101, i64 %99
   store ptr %107, ptr %8, align 8
