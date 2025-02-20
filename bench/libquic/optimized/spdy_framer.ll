@@ -11658,8 +11658,8 @@ _ZN3net16SpdyFrameBuilder11WriteUInt32Ej.exit:    ; preds = %129
   %166 = load i32, ptr %165, align 8, !tbaa !309
   %167 = and i32 %166, 2147483647
   %168 = zext nneg i8 %164 to i32
-  %169 = shl nuw i32 %168, 31
-  %170 = or disjoint i32 %167, %169
+  %169 = shl nuw i32 %168, 32
+  %170 = or disjoint i32 %168, %169
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %171 = call noundef i32 @llvm.bswap.i32(i32 %170)
   store i32 %171, ptr %5, align 4, !tbaa !118
@@ -12409,182 +12409,182 @@ _ZN7logging11CheckEQImplIN3net16SpdyMajorVersionES2_EEPNSt7__cxx1112basic_string
 13:                                               ; preds = %_ZN7logging11CheckEQImplIN3net16SpdyMajorVersionES2_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, %_ZN7logging11CheckEQImplIN3net16SpdyMajorVersionES2_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, %12
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %15 = load i8, ptr %14, align 8, !tbaa !318, !range !85, !noundef !86
-  %spec.select = shl nuw nsw i8 %15, 2
-  %16 = load i32, ptr %8, align 8, !tbaa !82
-  %17 = call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %16)
+  %16 = shl nuw nsw i8 %15, 2
+  %spec.select = load i32, ptr %8, align 8, !tbaa !82
+  %17 = call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %spec.select)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #25
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %18, ptr %6, align 8, !tbaa !78
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 0, ptr %19, align 8, !tbaa !79
-  store i8 0, ptr %18, align 8, !tbaa !80
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 253
-  %21 = load i8, ptr %20, align 1, !tbaa !83, !range !85, !noundef !86
-  %22 = trunc nuw i8 %21 to i1
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %24 = load ptr, ptr %23, align 8, !tbaa !104
-  %25 = icmp eq ptr %24, null
-  br i1 %22, label %26, label %40
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %19, ptr %6, align 8, !tbaa !78
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 0, ptr %20, align 8, !tbaa !79
+  store i8 0, ptr %19, align 8, !tbaa !80
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 253
+  %22 = load i8, ptr %21, align 1, !tbaa !83, !range !85, !noundef !86
+  %23 = trunc nuw i8 %22 to i1
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %25 = load ptr, ptr %24, align 8, !tbaa !104
+  %26 = icmp eq ptr %25, null
+  br i1 %23, label %27, label %41
 
-26:                                               ; preds = %13
-  br i1 %25, label %27, label %_ZN3net10SpdyFramer15GetHpackEncoderEv.exit
+27:                                               ; preds = %13
+  br i1 %26, label %28, label %_ZN3net10SpdyFramer15GetHpackEncoderEv.exit
 
-27:                                               ; preds = %26
-  %28 = invoke noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #29
-          to label %.noexc unwind label %38
+28:                                               ; preds = %27
+  %29 = invoke noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #29
+          to label %.noexc unwind label %39
 
-.noexc:                                           ; preds = %27
-  %29 = invoke noundef nonnull align 8 dereferenceable(100) ptr @_ZN3net23ObtainHpackHuffmanTableEv()
-          to label %30 unwind label %33
+.noexc:                                           ; preds = %28
+  %30 = invoke noundef nonnull align 8 dereferenceable(100) ptr @_ZN3net23ObtainHpackHuffmanTableEv()
+          to label %31 unwind label %34
 
-30:                                               ; preds = %.noexc
-  invoke void @_ZN3net12HpackEncoderC1ERKNS_17HpackHuffmanTableE(ptr noundef nonnull align 8 dereferenceable(346) %28, ptr noundef nonnull align 8 dereferenceable(100) %29)
-          to label %31 unwind label %33
+31:                                               ; preds = %.noexc
+  invoke void @_ZN3net12HpackEncoderC1ERKNS_17HpackHuffmanTableE(ptr noundef nonnull align 8 dereferenceable(346) %29, ptr noundef nonnull align 8 dereferenceable(100) %30)
+          to label %32 unwind label %34
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr %23, align 8, !tbaa !104
-  store ptr %28, ptr %23, align 8, !tbaa !104
-  %.not.i.i.i = icmp eq ptr %32, null
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %24, align 8, !tbaa !104
+  store ptr %29, ptr %24, align 8, !tbaa !104
+  %.not.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i.i, label %_ZN3net10SpdyFramer15GetHpackEncoderEv.exit, label %_ZNKSt14default_deleteIN3net12HpackEncoderEEclEPS1_.exit.i.i.i
 
-_ZNKSt14default_deleteIN3net12HpackEncoderEEclEPS1_.exit.i.i.i: ; preds = %31
-  call void @_ZN3net12HpackEncoderD1Ev(ptr noundef nonnull align 8 dereferenceable(346) %32) #25
-  call void @_ZdlPv(ptr noundef nonnull %32) #26
-  %.pre.i = load ptr, ptr %23, align 8, !tbaa !104
+_ZNKSt14default_deleteIN3net12HpackEncoderEEclEPS1_.exit.i.i.i: ; preds = %32
+  call void @_ZN3net12HpackEncoderD1Ev(ptr noundef nonnull align 8 dereferenceable(346) %33) #25
+  call void @_ZdlPv(ptr noundef nonnull %33) #26
+  %.pre.i = load ptr, ptr %24, align 8, !tbaa !104
   br label %_ZN3net10SpdyFramer15GetHpackEncoderEv.exit
 
-33:                                               ; preds = %30, %.noexc
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %31, %.noexc
+  %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %28) #26
+  call void @_ZdlPv(ptr noundef nonnull %29) #26
   br label %.body
 
-_ZN3net10SpdyFramer15GetHpackEncoderEv.exit:      ; preds = %_ZNKSt14default_deleteIN3net12HpackEncoderEEclEPS1_.exit.i.i.i, %31, %26
-  %35 = phi ptr [ %.pre.i, %_ZNKSt14default_deleteIN3net12HpackEncoderEEclEPS1_.exit.i.i.i ], [ %28, %31 ], [ %24, %26 ]
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %37 = invoke noundef zeroext i1 @_ZN3net12HpackEncoder15EncodeHeaderSetERKNS_15SpdyHeaderBlockEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(346) %35, ptr noundef nonnull align 8 dereferenceable(88) %36, ptr noundef nonnull %6)
-          to label %52 unwind label %38
+_ZN3net10SpdyFramer15GetHpackEncoderEv.exit:      ; preds = %_ZNKSt14default_deleteIN3net12HpackEncoderEEclEPS1_.exit.i.i.i, %32, %27
+  %36 = phi ptr [ %.pre.i, %_ZNKSt14default_deleteIN3net12HpackEncoderEEclEPS1_.exit.i.i.i ], [ %29, %32 ], [ %25, %27 ]
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %38 = invoke noundef zeroext i1 @_ZN3net12HpackEncoder15EncodeHeaderSetERKNS_15SpdyHeaderBlockEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(346) %36, ptr noundef nonnull align 8 dereferenceable(88) %37, ptr noundef nonnull %6)
+          to label %53 unwind label %39
 
-38:                                               ; preds = %41, %27, %_ZN3net10SpdyFramer15GetHpackEncoderEv.exit23, %_ZN3net10SpdyFramer15GetHpackEncoderEv.exit
-  %39 = landingpad { ptr, i32 }
+39:                                               ; preds = %42, %28, %_ZN3net10SpdyFramer15GetHpackEncoderEv.exit23, %_ZN3net10SpdyFramer15GetHpackEncoderEv.exit
+  %40 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-40:                                               ; preds = %13
-  br i1 %25, label %41, label %_ZN3net10SpdyFramer15GetHpackEncoderEv.exit23
+41:                                               ; preds = %13
+  br i1 %26, label %42, label %_ZN3net10SpdyFramer15GetHpackEncoderEv.exit23
 
-41:                                               ; preds = %40
-  %42 = invoke noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #29
-          to label %.noexc20 unwind label %38
+42:                                               ; preds = %41
+  %43 = invoke noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #29
+          to label %.noexc20 unwind label %39
 
-.noexc20:                                         ; preds = %41
-  %43 = invoke noundef nonnull align 8 dereferenceable(100) ptr @_ZN3net23ObtainHpackHuffmanTableEv()
-          to label %44 unwind label %47
+.noexc20:                                         ; preds = %42
+  %44 = invoke noundef nonnull align 8 dereferenceable(100) ptr @_ZN3net23ObtainHpackHuffmanTableEv()
+          to label %45 unwind label %48
 
-44:                                               ; preds = %.noexc20
-  invoke void @_ZN3net12HpackEncoderC1ERKNS_17HpackHuffmanTableE(ptr noundef nonnull align 8 dereferenceable(346) %42, ptr noundef nonnull align 8 dereferenceable(100) %43)
-          to label %45 unwind label %47
+45:                                               ; preds = %.noexc20
+  invoke void @_ZN3net12HpackEncoderC1ERKNS_17HpackHuffmanTableE(ptr noundef nonnull align 8 dereferenceable(346) %43, ptr noundef nonnull align 8 dereferenceable(100) %44)
+          to label %46 unwind label %48
 
-45:                                               ; preds = %44
-  %46 = load ptr, ptr %23, align 8, !tbaa !104
-  store ptr %42, ptr %23, align 8, !tbaa !104
-  %.not.i.i.i17 = icmp eq ptr %46, null
+46:                                               ; preds = %45
+  %47 = load ptr, ptr %24, align 8, !tbaa !104
+  store ptr %43, ptr %24, align 8, !tbaa !104
+  %.not.i.i.i17 = icmp eq ptr %47, null
   br i1 %.not.i.i.i17, label %_ZN3net10SpdyFramer15GetHpackEncoderEv.exit23, label %_ZNKSt14default_deleteIN3net12HpackEncoderEEclEPS1_.exit.i.i.i18
 
-_ZNKSt14default_deleteIN3net12HpackEncoderEEclEPS1_.exit.i.i.i18: ; preds = %45
-  call void @_ZN3net12HpackEncoderD1Ev(ptr noundef nonnull align 8 dereferenceable(346) %46) #25
-  call void @_ZdlPv(ptr noundef nonnull %46) #26
-  %.pre.i19 = load ptr, ptr %23, align 8, !tbaa !104
+_ZNKSt14default_deleteIN3net12HpackEncoderEEclEPS1_.exit.i.i.i18: ; preds = %46
+  call void @_ZN3net12HpackEncoderD1Ev(ptr noundef nonnull align 8 dereferenceable(346) %47) #25
+  call void @_ZdlPv(ptr noundef nonnull %47) #26
+  %.pre.i19 = load ptr, ptr %24, align 8, !tbaa !104
   br label %_ZN3net10SpdyFramer15GetHpackEncoderEv.exit23
 
-47:                                               ; preds = %44, %.noexc20
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %45, %.noexc20
+  %49 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %42) #26
+  call void @_ZdlPv(ptr noundef nonnull %43) #26
   br label %.body
 
-_ZN3net10SpdyFramer15GetHpackEncoderEv.exit23:    ; preds = %_ZNKSt14default_deleteIN3net12HpackEncoderEEclEPS1_.exit.i.i.i18, %45, %40
-  %49 = phi ptr [ %.pre.i19, %_ZNKSt14default_deleteIN3net12HpackEncoderEEclEPS1_.exit.i.i.i18 ], [ %42, %45 ], [ %24, %40 ]
-  %50 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %51 = invoke noundef zeroext i1 @_ZN3net12HpackEncoder33EncodeHeaderSetWithoutCompressionERKNS_15SpdyHeaderBlockEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(346) %49, ptr noundef nonnull align 8 dereferenceable(88) %50, ptr noundef nonnull %6)
-          to label %52 unwind label %38
+_ZN3net10SpdyFramer15GetHpackEncoderEv.exit23:    ; preds = %_ZNKSt14default_deleteIN3net12HpackEncoderEEclEPS1_.exit.i.i.i18, %46, %41
+  %50 = phi ptr [ %.pre.i19, %_ZNKSt14default_deleteIN3net12HpackEncoderEEclEPS1_.exit.i.i.i18 ], [ %43, %46 ], [ %25, %41 ]
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %52 = invoke noundef zeroext i1 @_ZN3net12HpackEncoder33EncodeHeaderSetWithoutCompressionERKNS_15SpdyHeaderBlockEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(346) %50, ptr noundef nonnull align 8 dereferenceable(88) %51, ptr noundef nonnull %6)
+          to label %53 unwind label %39
 
-52:                                               ; preds = %_ZN3net10SpdyFramer15GetHpackEncoderEv.exit23, %_ZN3net10SpdyFramer15GetHpackEncoderEv.exit
-  %53 = load i64, ptr %19, align 8, !tbaa !79
-  %54 = add i64 %53, %17
+53:                                               ; preds = %_ZN3net10SpdyFramer15GetHpackEncoderEv.exit23, %_ZN3net10SpdyFramer15GetHpackEncoderEv.exit
+  %54 = load i64, ptr %20, align 8, !tbaa !79
+  %55 = add i64 %54, %17
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #25
-  %55 = load i32, ptr %8, align 8, !tbaa !82
-  invoke void @_ZN3net16SpdyFrameBuilderC1EmNS_16SpdyMajorVersionE(ptr noundef nonnull align 8 dereferenceable(36) %7, i64 noundef %54, i32 noundef %55)
-          to label %56 unwind label %60
+  %56 = load i32, ptr %8, align 8, !tbaa !82
+  invoke void @_ZN3net16SpdyFrameBuilderC1EmNS_16SpdyMajorVersionE(ptr noundef nonnull align 8 dereferenceable(36) %7, i64 noundef %55, i32 noundef %56)
+          to label %57 unwind label %61
 
-56:                                               ; preds = %52
-  %57 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %58 = load i32, ptr %57, align 8, !tbaa !245
-  %59 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder13BeginNewFrameERKNS_10SpdyFramerENS_13SpdyFrameTypeEhj(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 8 dereferenceable(259) %1, i32 noundef 10, i8 noundef zeroext %spec.select, i32 noundef %58)
-          to label %62 unwind label %73
+57:                                               ; preds = %53
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %59 = load i32, ptr %58, align 8, !tbaa !245
+  %60 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder13BeginNewFrameERKNS_10SpdyFramerENS_13SpdyFrameTypeEhj(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 8 dereferenceable(259) %1, i32 noundef 10, i8 noundef zeroext %spec.select, i32 noundef %59)
+          to label %63 unwind label %74
 
-60:                                               ; preds = %52
-  %61 = landingpad { ptr, i32 }
+61:                                               ; preds = %53
+  %62 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %76
 
-62:                                               ; preds = %56
-  %63 = load ptr, ptr %6, align 8, !tbaa !100
-  %64 = load i64, ptr %19, align 8, !tbaa !79
-  %65 = trunc i64 %64 to i32
-  %66 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull %63, i32 noundef %65)
-          to label %67 unwind label %73
+63:                                               ; preds = %57
+  %64 = load ptr, ptr %6, align 8, !tbaa !100
+  %65 = load i64, ptr %20, align 8, !tbaa !79
+  %66 = trunc i64 %65 to i32
+  %67 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull %64, i32 noundef %66)
+          to label %68 unwind label %74
 
-67:                                               ; preds = %62
+68:                                               ; preds = %63
   invoke void @_ZN3net16SpdyFrameBuilder4takeEv(ptr dead_on_unwind writable sret(%"class.net::SpdySerializedFrame") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %7)
-          to label %68 unwind label %73
+          to label %69 unwind label %74
 
-68:                                               ; preds = %67
+69:                                               ; preds = %68
   call void @_ZN3net16SpdyFrameBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #25
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #25
-  %69 = load ptr, ptr %6, align 8, !tbaa !100
-  %70 = icmp eq ptr %69, %18
-  br i1 %70, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %70 = load ptr, ptr %6, align 8, !tbaa !100
+  %71 = icmp eq ptr %70, %19
+  br i1 %71, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %68
-  %71 = load i64, ptr %19, align 8, !tbaa !79
-  %72 = icmp ult i64 %71, 16
-  call void @llvm.assume(i1 %72)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %69
+  %72 = load i64, ptr %20, align 8, !tbaa !79
+  %73 = icmp ult i64 %72, 16
+  call void @llvm.assume(i1 %73)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %68
-  call void @_ZdlPv(ptr noundef %69) #26
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %69
+  call void @_ZdlPv(ptr noundef %70) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
   ret void
 
-73:                                               ; preds = %56, %62, %67
-  %74 = landingpad { ptr, i32 }
+74:                                               ; preds = %57, %63, %68
+  %75 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3net16SpdyFrameBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #25
-  br label %75
+  br label %76
 
-75:                                               ; preds = %73, %60
-  %.pn.pn = phi { ptr, i32 } [ %74, %73 ], [ %61, %60 ]
+76:                                               ; preds = %74, %61
+  %.pn.pn = phi { ptr, i32 } [ %75, %74 ], [ %62, %61 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #25
   br label %.body
 
-.body:                                            ; preds = %33, %47, %38, %75
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %75 ], [ %34, %33 ], [ %39, %38 ], [ %48, %47 ]
-  %76 = load ptr, ptr %6, align 8, !tbaa !100
-  %77 = icmp eq ptr %76, %18
-  br i1 %77, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
+.body:                                            ; preds = %34, %48, %39, %76
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %76 ], [ %35, %34 ], [ %40, %39 ], [ %49, %48 ]
+  %77 = load ptr, ptr %6, align 8, !tbaa !100
+  %78 = icmp eq ptr %77, %19
+  br i1 %78, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26: ; preds = %.body
-  %78 = load i64, ptr %19, align 8, !tbaa !79
-  %79 = icmp ult i64 %78, 16
-  call void @llvm.assume(i1 %79)
+  %79 = load i64, ptr %20, align 8, !tbaa !79
+  %80 = icmp ult i64 %79, 16
+  call void @llvm.assume(i1 %80)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25: ; preds = %.body
-  call void @_ZdlPv(ptr noundef %76) #26
+  call void @_ZdlPv(ptr noundef %77) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
@@ -13062,8 +13062,8 @@ define void @_ZNK3net10SpdyFramer17SerializePriorityERKNS_14SpdyPriorityIRE(ptr 
   %19 = load i32, ptr %18, align 4, !tbaa !334
   %20 = and i32 %19, 2147483647
   %21 = zext nneg i8 %17 to i32
-  %22 = shl nuw i32 %21, 31
-  %23 = or disjoint i32 %20, %22
+  %22 = shl nuw i32 %21, 32
+  %23 = or disjoint i32 %21, %22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %24 = call noundef i32 @llvm.bswap.i32(i32 %23)
   store i32 %24, ptr %5, align 4, !tbaa !118

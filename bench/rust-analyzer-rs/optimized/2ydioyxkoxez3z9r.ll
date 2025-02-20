@@ -2798,8 +2798,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
 
 .lr.ph.i:                                         ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.7.8..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sroa.8.8..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sroa.6.8..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sroa.7.8..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -2853,9 +2853,9 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %9, i64 72, i1 false), !noalias !673
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !677
   invoke void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$serde_json..value..Value$GT$15deserialize_u6417h8538937cec7ec9c5E"(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %7)
-          to label %"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17hf6a2afd4ed15ef38E.exit.i.i.i.i.i" unwind label %65, !noalias !681
+          to label %.noexc3.i.i.i.i.i unwind label %65, !noalias !681
 
-56:                                               ; preds = %52
+.noexc.i.i.i.i.i:                                 ; preds = %52
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17ha0ac8ddd059f5d14E.llvm.15439407322995335751"(ptr noalias noundef nonnull align 8 dereferenceable(72) %9)
           to label %"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17hf6a2afd4ed15ef38E.exit.thread.i.i.i.i.i" unwind label %65, !noalias !681
 
@@ -2865,9 +2865,9 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !noalias !682
   br label %.noexc3.i.i.i.i.i
 
-"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17hf6a2afd4ed15ef38E.exit.i.i.i.i.i": ; preds = %55
-  %57 = load i64, ptr %6, align 8, !range !9, !alias.scope !683, !noalias !686, !noundef !4
-  %58 = load ptr, ptr %38, align 8, !alias.scope !683, !noalias !686
+.noexc3.i.i.i.i.i:                                ; preds = %55
+  %.sroa.5.0.ph.i.i.i.i.i = load i64, ptr %6, align 8, !range !9, !alias.scope !683, !noalias !686, !noundef !4
+  %.sroa.0.0.ph.i.i.i.i.i = load ptr, ptr %38, align 8, !alias.scope !683, !noalias !686
   %.sink1.i.i.i.i.i.i.i.i.i = ptrtoint ptr %58 to i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !677
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !676
@@ -2958,7 +2958,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #45, !noalias !645
   unreachable
 
-"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$17h2be529c84cb65dafE.exit.i.i": ; preds = %"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17hf6a2afd4ed15ef38E.exit.i.i.i.i.i"
+"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d$$u7d$17h2be529c84cb65dafE.exit.i.i": ; preds = %.noexc3.i.i.i.i.i
   %.sroa.4.8.copyload.i.i.i.i = load i64, ptr %10, align 8, !alias.scope !718, !noalias !719
   %.sroa.7.8.copyload.i.i.i.i = load i64, ptr %.sroa.7.8..sroa_idx.i.i.i.i, align 8, !alias.scope !718, !noalias !719
   %.sroa.8.8.copyload.i.i.i.i = load i64, ptr %.sroa.8.8..sroa_idx.i.i.i.i, align 8, !alias.scope !718, !noalias !719

@@ -78983,9 +78983,9 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5.0..sroa_idx5.i.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5.0..sroa_idx.i.i, i64 64, i1 false), !noalias !17456
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !17466
   invoke void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$serde_json..value..Value$GT$15deserialize_u6417h8538937cec7ec9c5E"(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %8)
-          to label %"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17hf6a2afd4ed15ef38E.exit.i.i" unwind label %37, !noalias !17457
+          to label %.noexc.i.i unwind label %37, !noalias !17457
 
-"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17hf6a2afd4ed15ef38E.exit.i.i": ; preds = %25
+.noexc.i.i:                                       ; preds = %25
   %26 = load i64, ptr %7, align 8, !range !3915, !alias.scope !17470, !noalias !17473, !noundef !9
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %28 = load ptr, ptr %27, align 8, !alias.scope !17470, !noalias !17473
@@ -78997,17 +78997,17 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   %.not.i.not.i.i = icmp eq i64 %26, 0
   br i1 %.not.i.not.i.i, label %.noexc2.i.i, label %.thread.i.i.i
 
-.thread.i.i.i:                                    ; preds = %"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17hf6a2afd4ed15ef38E.exit.i.i"
-  %.sroa.4.8.copyload.i = load i64, ptr %10, align 8, !alias.scope !17476, !noalias !17477
+.thread.i.i.i:; preds = %.noexc.i.i
+  %.sroa.6.8.copyload.i = load i64, ptr %10, align 8, !alias.scope !17476, !noalias !17477
   %.sroa.7.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.7.8.copyload.i = load i64, ptr %.sroa.7.8..sroa_idx.i, align 8, !alias.scope !17476, !noalias !17477
   %.sroa.8.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sroa.8.8.copyload.i = load i64, ptr %.sroa.8.8..sroa_idx.i, align 8, !alias.scope !17476, !noalias !17477
   br label %41
 
-.noexc2.i.i:                                      ; preds = %"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17hf6a2afd4ed15ef38E.exit.i.i", %"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17hf6a2afd4ed15ef38E.exit.thread.i.i"
-  %.sink.i.i.i.sink.i12.i.i = phi i64 [ 0, %"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17hf6a2afd4ed15ef38E.exit.thread.i.i" ], [ 1, %"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17hf6a2afd4ed15ef38E.exit.i.i" ]
-  %.sroa.4.011.i.i = phi i64 [ undef, %"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17hf6a2afd4ed15ef38E.exit.thread.i.i" ], [ %.sink1.i.i.i.i.i.i, %"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17hf6a2afd4ed15ef38E.exit.i.i" ]
+.noexc2.i.i:                                      ; preds = %.noexc.i.i, %"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17hf6a2afd4ed15ef38E.exit.thread.i.i"
+  %.sroa.4.0.ph.i.i = phi i64 [ 0, %"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17hf6a2afd4ed15ef38E.exit.thread.i.i" ], [ 1, %.noexc.i.i ]
+  %.sink.i.i.i.sink.i.ph.i.i = phi i64 [ undef, %"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17hf6a2afd4ed15ef38E.exit.thread.i.i" ], [ %.sink1.i.i.i.i.i.i, %.noexc.i.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !17478
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7ab6145b2068713cE.llvm.10409712727403535664"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -79052,7 +79052,7 @@ define hidden void @"_ZN13rust_analyzer6config9get_field28_$u7b$$u7b$closure$u7d
   store ptr %.sroa.0.0.i, ptr %0, align 8, !alias.scope !17441, !noalias !17495
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !17441, !noalias !17495
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !17441, !noalias !17495
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.8.0.i, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !17441, !noalias !17495

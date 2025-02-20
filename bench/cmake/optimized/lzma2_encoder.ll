@@ -208,20 +208,20 @@ define internal i32 @lzma2_encode(ptr noundef %0, ptr noalias noundef %1, ptr no
   %.pre = load i32, ptr %0, align 8, !tbaa !23
   br label %24
 
-24:                                               ; preds = %.lr.ph, %141
-  %25 = phi i32 [ %.pre, %.lr.ph ], [ %142, %141 ]
-  %26 = phi i64 [ %6, %.lr.ph ], [ %143, %141 ]
-  switch i32 %25, label %141 [
+24:                                               ; preds = %.lr.ph, %142
+  %25 = phi i32 [ %.pre, %.lr.ph ], [ %143, %142 ]
+  %26 = phi i64 [ %6, %.lr.ph ], [ %144, %142 ]
+  switch i32 %25, label %142 [
     i32 0, label %29
     i32 1, label %._crit_edge
     i32 2, label %._crit_edge111
-    i32 3, label %126
-    i32 4, label %130
+    i32 3, label %127
+    i32 4, label %131
   ]
 
 ._crit_edge111:                                   ; preds = %24
   %.pre112 = load i64, ptr %17, align 8, !tbaa !35
-  br label %121
+  br label %122
 
 ._crit_edge:                                      ; preds = %24
   %.pre108 = load i64, ptr %10, align 8, !tbaa !36
@@ -377,7 +377,7 @@ define internal i32 @lzma2_encode(ptr noundef %0, ptr noalias noundef %1, ptr no
   %111 = add i64 %110, 6
   store i64 %111, ptr %17, align 8, !tbaa !35
   store i32 2, ptr %0, align 8, !tbaa !23
-  br label %121
+  br label %122
 
 112:                                              ; preds = %70
   %113 = zext i32 %63 to i64
@@ -385,72 +385,72 @@ define internal i32 @lzma2_encode(ptr noundef %0, ptr noalias noundef %1, ptr no
   store i64 %114, ptr %10, align 8, !tbaa !36
   store i32 0, ptr %13, align 4, !tbaa !41
   %115 = load i8, ptr %20, align 2, !tbaa !28, !range !43, !noundef !44
-  %spec.select.i = sub nuw nsw i8 2, %115
+  %116 = sub nuw nsw i8 2, %115
   store i8 %spec.select.i, ptr %8, align 8, !tbaa !33
   store i8 0, ptr %20, align 2, !tbaa !28
-  %116 = add i64 %114, 65535
-  %117 = lshr i64 %116, 8
-  %118 = trunc i64 %117 to i8
-  store i8 %118, ptr %21, align 1, !tbaa !33
-  %119 = trunc i64 %114 to i8
-  %120 = add i8 %119, -1
-  store i8 %120, ptr %22, align 2, !tbaa !33
+  %117 = add i64 %114, 65535
+  %118 = lshr i64 %117, 8
+  %119 = trunc i64 %118 to i8
+  store i8 %119, ptr %21, align 1, !tbaa !33
+  %120 = trunc i64 %114 to i8
+  %121 = add i8 %120, -1
+  store i8 %121, ptr %22, align 2, !tbaa !33
   store i64 0, ptr %9, align 8, !tbaa !46
   store i8 1, ptr %14, align 1, !tbaa !25
   br label %.sink.split
 
-121:                                              ; preds = %._crit_edge111, %.thread87
-  %122 = phi i64 [ %.pre112, %._crit_edge111 ], [ %111, %.thread87 ]
-  %123 = tail call i64 @lzma_bufcpy(ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef %122, ptr noundef %2, ptr noundef nonnull %3, i64 noundef %4) #8
-  %124 = load i64, ptr %9, align 8, !tbaa !46
-  %125 = load i64, ptr %17, align 8, !tbaa !35
-  %.not83 = icmp eq i64 %124, %125
+122:                                              ; preds = %._crit_edge111, %.thread87
+  %123 = phi i64 [ %.pre112, %._crit_edge111 ], [ %111, %.thread87 ]
+  %124 = tail call i64 @lzma_bufcpy(ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef %123, ptr noundef %2, ptr noundef nonnull %3, i64 noundef %4) #8
+  %125 = load i64, ptr %9, align 8, !tbaa !46
+  %126 = load i64, ptr %17, align 8, !tbaa !35
+  %.not83 = icmp eq i64 %125, %126
   br i1 %.not83, label %.sink.split, label %.thread
 
-126:                                              ; preds = %24
-  %127 = tail call i64 @lzma_bufcpy(ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef 3, ptr noundef %2, ptr noundef nonnull %3, i64 noundef %4) #8
-  %128 = load i64, ptr %9, align 8, !tbaa !46
-  %.not = icmp eq i64 %128, 3
-  br i1 %.not, label %129, label %.thread
+127:                                              ; preds = %24
+  %128 = tail call i64 @lzma_bufcpy(ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef 3, ptr noundef %2, ptr noundef nonnull %3, i64 noundef %4) #8
+  %129 = load i64, ptr %9, align 8, !tbaa !46
+  %.not = icmp eq i64 %129, 3
+  br i1 %.not, label %130, label %.thread
 
-129:                                              ; preds = %126
+130:                                              ; preds = %127
   store i32 4, ptr %0, align 8, !tbaa !23
   %.pre107 = load i64, ptr %3, align 8, !tbaa !34
-  br label %130
+  br label %131
 
-130:                                              ; preds = %129, %24
-  %131 = phi i64 [ %.pre107, %129 ], [ %26, %24 ]
+131:                                              ; preds = %130, %24
+  %132 = phi i64 [ %.pre107, %130 ], [ %26, %24 ]
   %.val = load ptr, ptr %1, align 8, !tbaa !47
   %.val84 = load i32, ptr %11, align 8, !tbaa !40
-  %132 = sub i64 %4, %131
-  %133 = load i64, ptr %10, align 8, !tbaa !34
-  %..i = tail call i64 @llvm.umin.i64(i64 %132, i64 %133)
-  %134 = getelementptr inbounds nuw i8, ptr %2, i64 %131
-  %135 = zext i32 %.val84 to i64
-  %136 = getelementptr inbounds nuw i8, ptr %.val, i64 %135
-  %137 = sub i64 0, %133
-  %138 = getelementptr inbounds i8, ptr %136, i64 %137
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %134, ptr readonly align 1 %138, i64 %..i, i1 false)
-  %139 = add i64 %..i, %131
-  store i64 %139, ptr %3, align 8, !tbaa !34
-  %140 = sub i64 %133, %..i
-  store i64 %140, ptr %10, align 8, !tbaa !34
-  %.not79.not = icmp ugt i64 %133, %132
+  %133 = sub i64 %4, %132
+  %134 = load i64, ptr %10, align 8, !tbaa !34
+  %..i = tail call i64 @llvm.umin.i64(i64 %133, i64 %134)
+  %135 = getelementptr inbounds nuw i8, ptr %2, i64 %132
+  %136 = zext i32 %.val84 to i64
+  %137 = getelementptr inbounds nuw i8, ptr %.val, i64 %136
+  %138 = sub i64 0, %134
+  %139 = getelementptr inbounds i8, ptr %137, i64 %138
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %135, ptr readonly align 1 %139, i64 %..i, i1 false)
+  %140 = add i64 %..i, %132
+  store i64 %140, ptr %3, align 8, !tbaa !34
+  %141 = sub i64 %134, %..i
+  store i64 %141, ptr %10, align 8, !tbaa !34
+  %.not79.not = icmp ugt i64 %134, %133
   br i1 %.not79.not, label %.thread, label %.sink.split
 
-.sink.split:                                      ; preds = %130, %121, %112
-  %.sink = phi i32 [ 3, %112 ], [ 0, %121 ], [ 0, %130 ]
+.sink.split:                                      ; preds = %131, %122, %112
+  %.sink = phi i32 [ 3, %112 ], [ 0, %122 ], [ 0, %131 ]
   store i32 %.sink, ptr %0, align 8, !tbaa !23
-  br label %141
+  br label %142
 
-141:                                              ; preds = %.sink.split, %24
-  %142 = phi i32 [ %25, %24 ], [ %.sink, %.sink.split ]
-  %143 = load i64, ptr %3, align 8, !tbaa !34
-  %144 = icmp ult i64 %143, %4
-  br i1 %144, label %24, label %.thread, !llvm.loop !48
+142:                                              ; preds = %.sink.split, %24
+  %143 = phi i32 [ %25, %24 ], [ %.sink, %.sink.split ]
+  %144 = load i64, ptr %3, align 8, !tbaa !34
+  %145 = icmp ult i64 %144, %4
+  br i1 %145, label %24, label %.thread, !llvm.loop !48
 
-.thread:                                          ; preds = %49, %121, %126, %130, %141, %53, %5, %43
-  %.4 = phi i32 [ %45, %43 ], [ 0, %5 ], [ %51, %49 ], [ 0, %121 ], [ 0, %126 ], [ 0, %130 ], [ 0, %141 ], [ 0, %53 ]
+.thread:                                          ; preds = %49, %122, %127, %131, %142, %53, %5, %43
+  %.4 = phi i32 [ %45, %43 ], [ 0, %5 ], [ %51, %49 ], [ 0, %122 ], [ 0, %127 ], [ 0, %131 ], [ 0, %142 ], [ 0, %53 ]
   ret i32 %.4
 }
 

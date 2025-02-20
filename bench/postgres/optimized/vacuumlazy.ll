@@ -2655,12 +2655,12 @@ define internal i32 @heap_vac_scan_next_block(ptr readnone captures(none) %0, pt
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 300
   %12 = load i32, ptr %11, align 4
   %.not38 = icmp eq i32 %12, 0
-  br i1 %.not38, label %67, label %13
+  br i1 %.not38, label %68, label %13
 
 13:                                               ; preds = %10
   tail call void @ReleaseBuffer(i32 noundef %12) #10
   store i32 0, ptr %11, align 4
-  br label %67
+  br label %68
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 292
@@ -2764,23 +2764,23 @@ find_next_unskippable_block.exit:                 ; preds = %44, %47, %37, %39
   store i32 %.033, ptr %5, align 8
   store i8 2, ptr %2, align 1
   %60 = load i32, ptr %5, align 8
-  br label %67
+  br label %68
 
 61:                                               ; preds = %.thread, %56
   %.03342 = phi i32 [ %.028.i, %.thread ], [ %.033, %56 ]
   store i32 %.03342, ptr %5, align 8
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %63 = load i8, ptr %62, align 8, !range !4, !noundef !5
-  %spec.select = shl nuw nsw i8 %63, 1
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 297
+  %64 = shl nuw nsw i8 %63, 1
+  %spec.select = getelementptr inbounds nuw i8, ptr %1, i64 297
   %65 = load i8, ptr %64, align 1, !range !4, !noundef !5
-  %.1 = or disjoint i8 %spec.select, %65
+  %66 = or disjoint i8 %spec.select, %65
   store i8 %.1, ptr %2, align 1
-  %66 = load i32, ptr %5, align 8
-  br label %67
+  %67 = load i32, ptr %5, align 8
+  br label %68
 
-67:                                               ; preds = %10, %13, %61, %59
-  %.032 = phi i32 [ %60, %59 ], [ %66, %61 ], [ -1, %13 ], [ -1, %10 ]
+68:                                               ; preds = %10, %13, %61, %59
+  %.032 = phi i32 [ %60, %59 ], [ %67, %61 ], [ -1, %13 ], [ -1, %10 ]
   ret i32 %.032
 }
 

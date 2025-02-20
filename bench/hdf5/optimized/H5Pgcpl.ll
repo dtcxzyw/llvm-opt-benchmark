@@ -1443,13 +1443,13 @@ define internal noundef i32 @H5P__gcrt_link_info_enc(ptr noundef readonly captur
   store ptr %27, ptr %1, align 8, !tbaa !29
   br label %28
 
-28:                                               ; preds = %12, %10
+28:; preds = %12, %10
   %29 = load i64, ptr %2, align 8, !tbaa !10
   %30 = add i64 %29, 5
   store i64 %30, ptr %2, align 8, !tbaa !10
   br label %31
 
-31:                                               ; preds = %28, %3
+31:; preds = %28, %3
   ret i32 0
 }
 

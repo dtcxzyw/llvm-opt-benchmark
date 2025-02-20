@@ -84705,7 +84705,7 @@ _ZNSt6vectorIlSaIlEE6resizeEmRKl.exit:            ; preds = %17, %19, %21, %23
   %.not97102 = icmp eq ptr %28, %26
   br i1 %.not97102, label %.preheader, label %.lr.ph
 
-.preheader.loopexit:                              ; preds = %70
+.preheader.loopexit:                              ; preds = %71
   %.pre126 = load ptr, ptr %25, align 8
   %.pre127 = load ptr, ptr %27, align 8
   br label %.preheader
@@ -84788,40 +84788,40 @@ _ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEES7_EbT_S8_T0_.ex
   br i1 %.not99.us, label %.critedge4.loopexit.us, label %.lr.ph143
 
 .critedge4.loopexit.us:                           ; preds = %56, %.lr.ph143, %.preheader123
-  %.173.ph.us = phi i32 [ 2, %.preheader123 ], [ 2, %56 ], [ 0, %.lr.ph143 ]
-  %61 = select i1 %.not98.us.lcssa, i32 1, i32 %.173.ph.us
+  %61 = phi i32 [ 2, %.preheader123 ], [ 2, %56 ], [ 0, %.lr.ph143 ]
+  %62 = select i1 %.not98.us.lcssa, i32 1, i32 %61
   br label %.loopexit, !llvm.loop !2359
 
-.lr.ph:                                           ; preds = %_ZNSt6vectorIlSaIlEE6resizeEmRKl.exit, %70
-  %.sroa.095.0104 = phi ptr [ %63, %70 ], [ %24, %_ZNSt6vectorIlSaIlEE6resizeEmRKl.exit ]
-  %.sroa.093.0103 = phi ptr [ %62, %70 ], [ %28, %_ZNSt6vectorIlSaIlEE6resizeEmRKl.exit ]
-  %62 = getelementptr inbounds i8, ptr %.sroa.093.0103, i64 -8
-  %63 = getelementptr inbounds i8, ptr %.sroa.095.0104, i64 -8
-  %64 = load i64, ptr %63, align 8
-  %65 = icmp eq i64 %64, 1
-  %66 = load i64, ptr %62, align 8
-  br i1 %65, label %67, label %68
+.lr.ph:                                           ; preds = %_ZNSt6vectorIlSaIlEE6resizeEmRKl.exit, %71
+  %.sroa.095.0104 = phi ptr [ %64, %71 ], [ %24, %_ZNSt6vectorIlSaIlEE6resizeEmRKl.exit ]
+  %.sroa.093.0103 = phi ptr [ %63, %71 ], [ %28, %_ZNSt6vectorIlSaIlEE6resizeEmRKl.exit ]
+  %63 = getelementptr inbounds i8, ptr %.sroa.093.0103, i64 -8
+  %64 = getelementptr inbounds i8, ptr %.sroa.095.0104, i64 -8
+  %65 = load i64, ptr %64, align 8
+  %66 = icmp eq i64 %65, 1
+  %67 = load i64, ptr %63, align 8
+  br i1 %66, label %67, label %68
 
 67:                                               ; preds = %.lr.ph
   store i64 %66, ptr %63, align 8
   br label %70
 
 68:                                               ; preds = %.lr.ph
-  %.not78 = icmp eq i64 %66, 1
+  %.not78 = icmp eq i64 %67, 1
   %.not79 = icmp eq i64 %66, %64
   %or.cond = or i1 %.not78, %.not79
-  br i1 %or.cond, label %70, label %69
+  br i1 %or.cond, label %71, label %70
 
-69:                                               ; preds = %68
+70:                                               ; preds = %68
   call void @_ZN8pybind1113pybind11_failEPKc(ptr noundef nonnull @.str.275) #31
   unreachable
 
-70:                                               ; preds = %67, %68
-  %.not97 = icmp eq ptr %62, %26
+71:                                               ; preds = %67, %68
+  %.not97 = icmp eq ptr %63, %26
   br i1 %.not97, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !2360
 
 .loopexit:                                        ; preds = %.preheader, %.critedge4.loopexit.us, %.preheader.split, %_ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEES7_EbT_S8_T0_.exit.us
-  %.067 = phi i32 [ 0, %_ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEES7_EbT_S8_T0_.exit.us ], [ 0, %.preheader.split ], [ 1, %.preheader ], [ %61, %.critedge4.loopexit.us ]
+  %.067 = phi i32 [ 0, %_ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEES7_EbT_S8_T0_.exit.us ], [ 0, %.preheader.split ], [ 1, %.preheader ], [ %62, %.critedge4.loopexit.us ]
   ret i32 %.067
 }
 

@@ -273,7 +273,7 @@ define internal noundef i32 @H5O__ginfo_encode(ptr readnone captures(none) %0, i
 
 40:                                               ; preds = %23, %12
   %.0 = phi ptr [ %39, %23 ], [ %20, %12 ]
-  %41 = load i8, ptr %16, align 2, !tbaa !17, !range !7, !noundef !8
+  %.0 = load i8, ptr %16, align 2, !tbaa !17, !range !7, !noundef !8
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %43, label %59
 
@@ -346,7 +346,7 @@ define internal range(i64 0, 11) i64 @H5O__ginfo_size(ptr readnone captures(none
   %7 = trunc nuw i8 %6 to i1
   %8 = xor i1 %7, true
   %9 = select i1 %5, i1 true, i1 %8
-  br i1 %9, label %10, label %19, !prof !9
+  br i1 %9, label %10, label %20, !prof !9
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -356,12 +356,12 @@ define internal range(i64 0, 11) i64 @H5O__ginfo_size(ptr readnone captures(none
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %16 = load i8, ptr %15, align 2, !tbaa !17, !range !7, !noundef !8
   %17 = shl nuw nsw i8 %16, 2
-  %narrow = add nuw nsw i8 %14, %17
-  %18 = zext nneg i8 %narrow to i64
-  br label %19
+  %18 = add nuw nsw i8 %14, %17
+  %19 = zext nneg i8 %18 to i64
+  br label %20
 
-19:                                               ; preds = %10, %3
-  %.0 = phi i64 [ %18, %10 ], [ 0, %3 ]
+20:                                               ; preds = %10, %3
+  %.0 = phi i64 [ %19, %10 ], [ 0, %3 ]
   ret i64 %.0
 }
 

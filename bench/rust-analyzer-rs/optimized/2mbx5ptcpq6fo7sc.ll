@@ -76070,8 +76070,8 @@ define hidden void @"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$a
 
 37:                                               ; preds = %.lr.ph, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a73b6d1d4b25204E.exit"
   %.val17 = phi i64 [ %.promoted, %.lr.ph ], [ %93, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a73b6d1d4b25204E.exit" ]
-  %.sroa.01.022 = phi i64 [ 0, %.lr.ph ], [ %38, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a73b6d1d4b25204E.exit" ]
-  %38 = add nuw nsw i64 %.sroa.01.022, 1
+  %.sroa.01.023 = phi i64 [ 0, %.lr.ph ], [ %38, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a73b6d1d4b25204E.exit" ]
+  %38 = add nuw nsw i64 %.sroa.01.023, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27500)
   %39 = load ptr, ptr %4, align 8, !alias.scope !27503, !nonnull !4, !noundef !4
   %40 = load ptr, ptr %3, align 8, !alias.scope !27503, !nonnull !4, !noundef !4
@@ -76082,7 +76082,7 @@ define hidden void @"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$a
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store ptr %43, ptr %3, align 8, !alias.scope !27503
   %44 = load i8, ptr %40, align 8, !range !3213, !alias.scope !27506, !noalias !27500, !noundef !4
-  %..i.i.i = xor i8 %44, 3
+  %trunc.i.i.i = xor i8 %44, 3
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb609f983d3b49399E.exit"
 
 ._crit_edge:                                      ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a73b6d1d4b25204E.exit", %.._crit_edge_crit_edge
@@ -76209,8 +76209,8 @@ select.unfold.i.i.i.i:                            ; preds = %73, %70
 
 85:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h99f316c6e36a9b63E.exit.i.i.i.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb609f983d3b49399E.exit"
   %86 = load i64, ptr %0, align 8, !range !7161, !alias.scope !27592, !noundef !4
-  %trunc.i.i.i = trunc nuw i64 %86 to i1
-  br i1 %trunc.i.i.i, label %87, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a73b6d1d4b25204E.exit"
+  %trunc.i.i.i20 = trunc nuw i64 %86 to i1
+  br i1 %trunc.i.i.i20, label %87, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a73b6d1d4b25204E.exit"
 
 87:                                               ; preds = %85
   %88 = load ptr, ptr %33, align 8, !alias.scope !27597, !noundef !4

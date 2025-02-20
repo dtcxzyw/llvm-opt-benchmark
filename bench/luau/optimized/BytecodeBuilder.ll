@@ -4902,8 +4902,8 @@ _ZN4Luau6detail14DenseHashTableINS_15BytecodeBuilder9StringRefESt4pairIS3_jES4_I
   %85 = trunc i8 %84 to i1
   br i1 %85, label %86, label %89
 
-86:                                               ; preds = %._crit_edge71
-  %87 = load i8, ptr @_ZN5FFlag23LuauCompileUserdataInfoE, align 8
+86:; preds = %._crit_edge71
+  %.0.i = load i8, ptr @_ZN5FFlag23LuauCompileUserdataInfoE, align 8
   %88 = trunc i8 %87 to i1
   br i1 %88, label %_ZN4Luau15BytecodeBuilder22getTypeEncodingVersionEv.exit, label %89
 
@@ -4916,133 +4916,133 @@ _ZN4Luau15BytecodeBuilder22getTypeEncodingVersionEv.exit: ; preds = %86, %89
   %.0.i = phi i8 [ %91, %89 ], [ 3, %86 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   store i8 %.0.i, ptr %7, align 1
-  %92 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull %7, i64 noundef 1)
+  %88 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull %7, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   call void @_ZNK4Luau15BytecodeBuilder16writeStringTableERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr noundef nonnull align 8 dereferenceable(32) %80)
-  %93 = load i8, ptr @_ZN5FFlag19LuauCompileTypeInfoE, align 8
-  %94 = trunc i8 %93 to i1
-  br i1 %94, label %95, label %128
+  %89 = load i8, ptr @_ZN5FFlag19LuauCompileTypeInfoE, align 8
+  %90 = trunc i8 %89 to i1
+  br i1 %90, label %91, label %124
 
-95:                                               ; preds = %_ZN4Luau15BytecodeBuilder22getTypeEncodingVersionEv.exit
-  %96 = load i8, ptr @_ZN5FFlag23LuauCompileUserdataInfoE, align 8
-  %97 = trunc i8 %96 to i1
-  br i1 %97, label %.preheader, label %128
+91:                                               ; preds = %_ZN4Luau15BytecodeBuilder22getTypeEncodingVersionEv.exit
+  %92 = load i8, ptr @_ZN5FFlag23LuauCompileUserdataInfoE, align 8
+  %93 = trunc i8 %92 to i1
+  br i1 %93, label %.preheader, label %124
 
-.preheader:                                       ; preds = %95
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %100 = load ptr, ptr %99, align 8
-  %101 = load ptr, ptr %98, align 8
-  %102 = ptrtoint ptr %100 to i64
-  %103 = ptrtoint ptr %101 to i64
-  %104 = sub i64 %102, %103
-  %105 = sdiv exact i64 %104, 40
-  %106 = and i64 %105, 4294967295
-  %.not80 = icmp eq i64 %106, 0
+.preheader:                                       ; preds = %91
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  %96 = load ptr, ptr %95, align 8
+  %97 = load ptr, ptr %94, align 8
+  %98 = ptrtoint ptr %96 to i64
+  %99 = ptrtoint ptr %97 to i64
+  %100 = sub i64 %98, %99
+  %101 = sdiv exact i64 %100, 40
+  %102 = and i64 %101, 4294967295
+  %.not80 = icmp eq i64 %102, 0
   br i1 %.not80, label %._crit_edge75, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %.preheader, %_ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit ], [ 0, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %107 = trunc i64 %indvars.iv.next to i8
+  %103 = trunc i64 %indvars.iv.next to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  store i8 %107, ptr %6, align 1
-  %108 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull %6, i64 noundef 1)
+  store i8 %103, ptr %6, align 1
+  %104 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull %6, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  %109 = load ptr, ptr %98, align 8
-  %110 = getelementptr inbounds nuw %"struct.Luau::BytecodeBuilder::UserdataType", ptr %109, i64 %indvars.iv, i32 1
-  %111 = load i32, ptr %110, align 8
-  br label %112
+  %105 = load ptr, ptr %94, align 8
+  %106 = getelementptr inbounds nuw %"struct.Luau::BytecodeBuilder::UserdataType", ptr %105, i64 %indvars.iv, i32 1
+  %107 = load i32, ptr %106, align 8
+  br label %108
 
-112:                                              ; preds = %112, %.lr.ph74
-  %.0.i30 = phi i32 [ %111, %.lr.ph74 ], [ %118, %112 ]
-  %113 = and i32 %.0.i30, 127
+108:                                              ; preds = %108, %.lr.ph74
+  %.0.i30 = phi i32 [ %107, %.lr.ph74 ], [ %114, %108 ]
+  %109 = and i32 %.0.i30, 127
   %.inv.i = icmp ult i32 %.0.i30, 128
-  %114 = select i1 %.inv.i, i32 0, i32 128
-  %115 = or disjoint i32 %114, %113
-  %116 = trunc nuw i32 %115 to i8
+  %110 = select i1 %.inv.i, i32 0, i32 128
+  %111 = or disjoint i32 %110, %109
+  %112 = trunc nuw i32 %111 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  store i8 %116, ptr %5, align 1
-  %117 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull %5, i64 noundef 1)
+  store i8 %112, ptr %5, align 1
+  %113 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull %5, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  %118 = lshr i32 %.0.i30, 7
-  br i1 %.inv.i, label %_ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit, label %112, !llvm.loop !16
+  %114 = lshr i32 %.0.i30, 7
+  br i1 %.inv.i, label %_ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit, label %108, !llvm.loop !16
 
-_ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit: ; preds = %112
-  %119 = load ptr, ptr %99, align 8
-  %120 = load ptr, ptr %98, align 8
-  %121 = ptrtoint ptr %119 to i64
-  %122 = ptrtoint ptr %120 to i64
-  %123 = sub i64 %121, %122
-  %124 = sdiv exact i64 %123, 40
-  %125 = and i64 %124, 4294967295
-  %126 = icmp samesign ult i64 %indvars.iv.next, %125
-  br i1 %126, label %.lr.ph74, label %._crit_edge75, !llvm.loop !37
+_ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit: ; preds = %108
+  %115 = load ptr, ptr %95, align 8
+  %116 = load ptr, ptr %94, align 8
+  %117 = ptrtoint ptr %115 to i64
+  %118 = ptrtoint ptr %116 to i64
+  %119 = sub i64 %117, %118
+  %120 = sdiv exact i64 %119, 40
+  %121 = and i64 %120, 4294967295
+  %122 = icmp samesign ult i64 %indvars.iv.next, %121
+  br i1 %122, label %.lr.ph74, label %._crit_edge75, !llvm.loop !37
 
 ._crit_edge75:                                    ; preds = %_ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit, %.preheader
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 0, ptr %4, align 1
-  %127 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull %4, i64 noundef 1)
+  %123 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull %4, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br label %128
+  br label %124
 
-128:                                              ; preds = %._crit_edge75, %95, %_ZN4Luau15BytecodeBuilder22getTypeEncodingVersionEv.exit
-  %129 = load ptr, ptr %75, align 8
-  %130 = load ptr, ptr %0, align 8
-  %131 = ptrtoint ptr %129 to i64
-  %132 = ptrtoint ptr %130 to i64
-  %133 = sub i64 %131, %132
-  %134 = sdiv exact i64 %133, 168
-  %135 = trunc i64 %134 to i32
-  br label %136
+124:                                              ; preds = %._crit_edge75, %91, %_ZN4Luau15BytecodeBuilder22getTypeEncodingVersionEv.exit
+  %125 = load ptr, ptr %75, align 8
+  %126 = load ptr, ptr %0, align 8
+  %127 = ptrtoint ptr %125 to i64
+  %128 = ptrtoint ptr %126 to i64
+  %129 = sub i64 %127, %128
+  %130 = sdiv exact i64 %129, 168
+  %131 = trunc i64 %130 to i32
+  br label %132
 
-136:                                              ; preds = %136, %128
-  %.0.i31 = phi i32 [ %135, %128 ], [ %142, %136 ]
-  %137 = and i32 %.0.i31, 127
+132:                                              ; preds = %132, %124
+  %.0.i31 = phi i32 [ %131, %124 ], [ %138, %132 ]
+  %133 = and i32 %.0.i31, 127
   %.inv.i32 = icmp ult i32 %.0.i31, 128
-  %138 = select i1 %.inv.i32, i32 0, i32 128
-  %139 = or disjoint i32 %138, %137
-  %140 = trunc nuw i32 %139 to i8
+  %134 = select i1 %.inv.i32, i32 0, i32 128
+  %135 = or disjoint i32 %134, %133
+  %136 = trunc nuw i32 %135 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  store i8 %140, ptr %3, align 1
-  %141 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull %3, i64 noundef 1)
+  store i8 %136, ptr %3, align 1
+  %137 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull %3, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %142 = lshr i32 %.0.i31, 7
-  br i1 %.inv.i32, label %_ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit33, label %136, !llvm.loop !16
+  %138 = lshr i32 %.0.i31, 7
+  br i1 %.inv.i32, label %_ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit33, label %132, !llvm.loop !16
 
-_ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit33: ; preds = %136
-  %143 = load ptr, ptr %0, align 8
-  %144 = load ptr, ptr %75, align 8
-  %.not5676 = icmp eq ptr %143, %144
+_ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit33: ; preds = %132
+  %139 = load ptr, ptr %0, align 8
+  %140 = load ptr, ptr %75, align 8
+  %.not5676 = icmp eq ptr %139, %140
   br i1 %.not5676, label %._crit_edge79, label %.lr.ph78
 
 .lr.ph78:                                         ; preds = %_ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit33, %.lr.ph78
-  %.sroa.037.077 = phi ptr [ %146, %.lr.ph78 ], [ %143, %_ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit33 ]
-  %145 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.077)
-  %146 = getelementptr inbounds nuw i8, ptr %.sroa.037.077, i64 168
-  %.not56 = icmp eq ptr %146, %144
+  %.sroa.037.077 = phi ptr [ %142, %.lr.ph78 ], [ %139, %_ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit33 ]
+  %141 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.077)
+  %142 = getelementptr inbounds nuw i8, ptr %.sroa.037.077, i64 168
+  %.not56 = icmp eq ptr %142, %140
   br i1 %.not56, label %._crit_edge79, label %.lr.ph78
 
 ._crit_edge79:                                    ; preds = %.lr.ph78, %_ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit33
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %148 = load i32, ptr %147, align 4
-  br label %149
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %144 = load i32, ptr %143, align 4
+  br label %145
 
-149:                                              ; preds = %149, %._crit_edge79
-  %.0.i34 = phi i32 [ %148, %._crit_edge79 ], [ %155, %149 ]
-  %150 = and i32 %.0.i34, 127
+145:                                              ; preds = %145, %._crit_edge79
+  %.0.i34 = phi i32 [ %144, %._crit_edge79 ], [ %151, %145 ]
+  %146 = and i32 %.0.i34, 127
   %.inv.i35 = icmp ult i32 %.0.i34, 128
-  %151 = select i1 %.inv.i35, i32 0, i32 128
-  %152 = or disjoint i32 %151, %150
-  %153 = trunc nuw i32 %152 to i8
+  %147 = select i1 %.inv.i35, i32 0, i32 128
+  %148 = or disjoint i32 %147, %146
+  %149 = trunc nuw i32 %148 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  store i8 %153, ptr %2, align 1
-  %154 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull %2, i64 noundef 1)
+  store i8 %149, ptr %2, align 1
+  %150 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull %2, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  %155 = lshr i32 %.0.i34, 7
-  br i1 %.inv.i35, label %_ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit36, label %149, !llvm.loop !16
+  %151 = lshr i32 %.0.i34, 7
+  br i1 %.inv.i35, label %_ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit36, label %145, !llvm.loop !16
 
-_ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit36: ; preds = %149
+_ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit36: ; preds = %145
   ret void
 }
 
@@ -5065,8 +5065,8 @@ define dso_local noundef zeroext range(i8 1, 4) i8 @_ZN4Luau15BytecodeBuilder22g
   %2 = trunc i8 %1 to i1
   br i1 %2, label %3, label %6
 
-3:                                                ; preds = %0
-  %4 = load i8, ptr @_ZN5FFlag23LuauCompileUserdataInfoE, align 8
+3:; preds = %0
+  %.0 = load i8, ptr @_ZN5FFlag23LuauCompileUserdataInfoE, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %9, label %6
 

@@ -752,7 +752,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 259
   %164 = load i8, ptr %163, align 1, !tbaa !76, !range !12, !noundef !13
   %165 = shl nuw nsw i8 %164, 2
-  %narrow = add nuw nsw i8 %165, 5
+  %166 = add nuw nsw i8 %165, 5
   %166 = zext nneg i8 %narrow to i64
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 618
   %168 = load i8, ptr %167, align 2, !tbaa !77
@@ -1114,7 +1114,7 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr noundef readon
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 259
   %138 = load i8, ptr %137, align 1, !tbaa !76, !range !12, !noundef !13
   %139 = shl nuw nsw i8 %138, 2
-  %narrow = add nuw nsw i8 %139, 5
+  %140 = add nuw nsw i8 %139, 5
   %140 = zext nneg i8 %narrow to i64
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 618
   %142 = load i8, ptr %141, align 2, !tbaa !77

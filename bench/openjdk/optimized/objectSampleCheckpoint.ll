@@ -1121,8 +1121,8 @@ define hidden void @_ZN22ObjectSampleCheckpoint16add_to_leakp_setEPK13InstanceKl
   %56 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %57 = and i8 %56, 1
   %58 = add nuw nsw i8 %57, 1
-  %59 = zext nneg i8 %58 to i64
-  %60 = mul nuw nsw i64 %59, 257
+  %.mask.i.i.i.i = zext nneg i8 %58 to i64
+  %59 = mul nuw nsw i64 %.mask.i.i.i.i, 257
   %61 = and i64 %60, %55
   %.not.i.i = icmp eq i64 %61, %59
   br i1 %.not.i.i, label %_ZN10JfrTraceId10load_leakpEPK5KlassPK6Method.exit, label %62
@@ -1135,15 +1135,15 @@ define hidden void @_ZN22ObjectSampleCheckpoint16add_to_leakp_setEPK13InstanceKl
   br label %_ZN10JfrTraceId10load_leakpEPK5KlassPK6Method.exit
 
 _ZN10JfrTraceId10load_leakpEPK5KlassPK6Method.exit: ; preds = %51, %62
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 169
-  %66 = load i8, ptr %65, align 1
-  %67 = or i8 %66, 4
-  store i8 %67, ptr %65, align 1
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 169
+  %67 = load i8, ptr %66, align 1
+  %68 = or i8 %67, 4
+  store i8 %68, ptr %66, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
-  %68 = getelementptr inbounds nuw i8, ptr %52, i64 55
-  %69 = load i8, ptr %68, align 1
-  %70 = or i8 %69, 4
-  store i8 %70, ptr %68, align 1
+  %69 = getelementptr inbounds nuw i8, ptr %52, i64 55
+  %70 = load i8, ptr %69, align 1
+  %71 = or i8 %70, 4
+  store i8 %71, ptr %69, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   br label %_ZL12is_processedm.exit.thread
 
@@ -2043,8 +2043,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %23, %13
   %27 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %28 = and i8 %27, 1
   %29 = add nuw nsw i8 %28, 1
-  %30 = zext nneg i8 %29 to i64
-  %31 = mul nuw nsw i64 %30, 257
+  %.mask.i.i.i.i.i.i = zext nneg i8 %29 to i64
+  %30 = mul nuw nsw i64 %.mask.i.i.i.i.i.i, 257
   %32 = and i64 %31, %26
   %.not.i.i.i.i = icmp eq i64 %32, %30
   %33 = lshr i64 %26, 8
@@ -2066,10 +2066,10 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %23, %13
   br label %_ZN10JfrTraceId10load_leakpEPK5Klass.exit.i
 
 _ZN10JfrTraceId10load_leakpEPK5Klass.exit.i:      ; preds = %35, %_ZNK7oopDesc5klassEv.exit.i
-  %40 = phi i8 [ %34, %_ZNK7oopDesc5klassEv.exit.i ], [ %.pre.i.i.i, %35 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 169
-  %42 = or i8 %40, 4
-  store i8 %42, ptr %41, align 1
+  %39 = phi i8 [ %34, %_ZNK7oopDesc5klassEv.exit.i ], [ %.pre.i.i.i, %35 ]
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 169
+  %41 = or i8 %39, 4
+  store i8 %41, ptr %40, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   br label %_ZL16add_to_leakp_setPK12ObjectSample.exit
 

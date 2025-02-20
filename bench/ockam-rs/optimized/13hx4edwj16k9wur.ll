@@ -22019,8 +22019,8 @@ define hidden void @"_ZN58_$LT$bool$u20$as$u20$minicbor..encode..Encode$LT$C$GT$
   store i8 %..i, ptr %5, align 1, !noalias !3846
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3848)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3851)
-  %7 = load ptr, ptr %2, align 8, !alias.scope !3854, !noalias !3855, !nonnull !11, !align !12, !noundef !11
-  call void @"_ZN76_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$minicbor..encode..write..Write$GT$9write_all17h5d106f95af0a7d71E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 1), !noalias !3859
+  %8 = load ptr, ptr %2, align 8, !alias.scope !3854, !noalias !3855, !nonnull !11, !align !12, !noundef !11
+  call void @"_ZN76_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$minicbor..encode..write..Write$GT$9write_all17h5d106f95af0a7d71E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 1), !noalias !3859
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !3846
   store ptr null, ptr %0, align 8
   ret void

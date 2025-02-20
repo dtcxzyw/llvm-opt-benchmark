@@ -15800,49 +15800,49 @@ malloc_init_narenas.exit.thread:                  ; preds = %124, %168
   %196 = load i8, ptr @malloc_slow_flags, align 1, !tbaa !11
   %197 = or i8 %195, %196
   store i8 %197, ptr @malloc_slow_flags, align 1, !tbaa !11
-  %198 = icmp ne i8 %197, 0
-  %199 = zext i1 %198 to i8
-  store i8 %199, ptr @je_malloc_slow, align 1, !tbaa !108
+  %199 = icmp ne i8 %197, 0
+  %200 = zext i1 %199 to i8
+  store i8 %200, ptr @je_malloc_slow, align 1, !tbaa !108
   %200 = load i8, ptr %93, align 1, !tbaa !11
-  %201 = add i8 %200, -1
-  store i8 %201, ptr %93, align 1, !tbaa !11
+  %202 = add i8 %200, -1
+  store i8 %202, ptr %93, align 1, !tbaa !11
   %202 = icmp eq i8 %201, 0
   br i1 %202, label %203, label %post_reentrancy.exit
 
-203:                                              ; preds = %182
+203:; preds = %182
   call void @je_tsd_slow_update(ptr noundef nonnull %48) #20
   br label %post_reentrancy.exit
 
 post_reentrancy.exit:                             ; preds = %182, %203
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @init_lock, i64 64) monotonic, align 8
-  %204 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #20
+  %208 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #20
   call void @je_malloc_tsd_boot1() #20
-  %205 = call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 888
-  %207 = load i8, ptr %206, align 8, !tbaa !11
-  %.not.i = icmp eq i8 %207, 0
-  br i1 %.not.i, label %tsd_fetch_impl.exit, label %208, !prof !10
+  %209 = call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 888
+  %211 = load i8, ptr %210, align 8, !tbaa !11
+  %.not.i = icmp eq i8 %211, 0
+  br i1 %.not.i, label %tsd_fetch_impl.exit, label %212, !prof !10
 
-208:                                              ; preds = %post_reentrancy.exit
-  %209 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %205, i1 noundef zeroext false) #20
+212:                                              ; preds = %post_reentrancy.exit
+  %213 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %209, i1 noundef zeroext false) #20
   br label %tsd_fetch_impl.exit
 
-tsd_fetch_impl.exit:                              ; preds = %post_reentrancy.exit, %208
-  %.0.i = phi ptr [ %209, %208 ], [ %205, %post_reentrancy.exit ]
-  %210 = load i8, ptr @je_opt_background_thread, align 1, !tbaa !108, !range !110, !noundef !111
-  %211 = trunc nuw i8 %210 to i1
-  br i1 %211, label %212, label %214
+tsd_fetch_impl.exit:                              ; preds = %post_reentrancy.exit, %212
+  %.0.i = phi ptr [ %213, %212 ], [ %209, %post_reentrancy.exit ]
+  %214 = load i8, ptr @je_opt_background_thread, align 1, !tbaa !108, !range !110, !noundef !111
+  %215 = trunc nuw i8 %214 to i1
+  br i1 %215, label %216, label %218
 
-212:                                              ; preds = %tsd_fetch_impl.exit
+216:                                              ; preds = %tsd_fetch_impl.exit
   call void @je_background_thread_ctl_init(ptr noundef %.0.i) #20
-  %213 = call zeroext i1 @je_background_thread_create(ptr noundef %.0.i, i32 noundef 0) #20
-  br i1 %213, label %malloc_init_hard_cleanup.exit, label %214
+  %217 = call zeroext i1 @je_background_thread_create(ptr noundef %.0.i, i32 noundef 0) #20
+  br i1 %217, label %malloc_init_hard_cleanup.exit, label %218
 
-214:                                              ; preds = %212, %tsd_fetch_impl.exit
+218:                                              ; preds = %216, %tsd_fetch_impl.exit
   br label %malloc_init_hard_cleanup.exit
 
-malloc_init_hard_cleanup.exit:                    ; preds = %75, %176, %malloc_init_narenas.exit.thread, %212, %malloc_init_hard_recursible.exit, %46, %214, %181, %44, %.loopexit
-  %.0 = phi i1 [ true, %44 ], [ true, %181 ], [ false, %214 ], [ false, %.loopexit ], [ true, %46 ], [ true, %malloc_init_hard_recursible.exit ], [ true, %212 ], [ true, %malloc_init_narenas.exit.thread ], [ true, %176 ], [ true, %75 ]
+malloc_init_hard_cleanup.exit:                    ; preds = %75, %176, %malloc_init_narenas.exit.thread, %216, %malloc_init_hard_recursible.exit, %46, %218, %181, %44, %.loopexit
+  %.0 = phi i1 [ true, %44 ], [ true, %181 ], [ false, %218 ], [ false, %.loopexit ], [ true, %46 ], [ true, %malloc_init_hard_recursible.exit ], [ true, %216 ], [ true, %malloc_init_narenas.exit.thread ], [ true, %176 ], [ true, %75 ]
   ret i1 %.0
 }
 

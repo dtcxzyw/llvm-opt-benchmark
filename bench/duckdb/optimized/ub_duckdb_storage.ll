@@ -46352,7 +46352,7 @@ define void @_ZN6duckdb22SingleFileBlockManager17CreateNewDatabaseEv(ptr noundef
   %15 = zext nneg i8 %14 to i64
   %spec.select66.i = select i1 %11, i64 385, i64 267
   %16 = or disjoint i64 %spec.select66.i, %15
-  %.sroa.10.sroa.0.0.insert.ext.i = zext nneg i8 %.sroa.10.sroa.0.0.i to i64
+  %.sroa.10.8.insert.ext.i = zext nneg i8 %.sroa.10.sroa.0.0.i to i64
   %.sroa.10.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.10.sroa.0.0.insert.ext.i, 256
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %18 = load ptr, ptr %17, align 8, !tbaa !1775
@@ -46525,7 +46525,7 @@ define void @_ZN6duckdb22SingleFileBlockManager20LoadExistingDatabaseEv(ptr noun
   %21 = zext nneg i8 %20 to i64
   %spec.select66.i = select i1 %17, i64 385, i64 259
   %22 = or disjoint i64 %spec.select66.i, %21
-  %.sroa.10.sroa.0.0.insert.ext.i = zext nneg i8 %.sroa.10.sroa.0.0.i to i64
+  %.sroa.10.8.insert.ext.i = zext nneg i8 %.sroa.10.sroa.0.0.i to i64
   %.sroa.10.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.10.sroa.0.0.insert.ext.i, 256
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %24 = load ptr, ptr %23, align 8, !tbaa !1775
@@ -70137,8 +70137,8 @@ define { i64, i64 } @_ZNK6duckdb22SingleFileBlockManager12GetFileFlagsEb(ptr nou
   %spec.select66 = select i1 %5, i64 385, i64 %10
   %11 = or disjoint i64 %spec.select66, %9
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %11, 0
-  %.sroa.10.sroa.0.0.insert.ext = zext nneg i8 %.sroa.10.sroa.0.0 to i64
-  %.sroa.10.sroa.0.0.insert.insert = or disjoint i64 %.sroa.10.sroa.0.0.insert.ext, 256
+  %.sroa.10.8.insert.ext = zext nneg i8 %.sroa.10.sroa.0.0 to i64
+  %.fca.1.insert = or disjoint i64 %.sroa.10.8.insert.ext, 256
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.10.sroa.0.0.insert.insert, 1
   ret { i64, i64 } %.fca.1.insert
 }

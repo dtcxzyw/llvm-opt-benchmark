@@ -265,8 +265,8 @@ define noundef range(i64 -127, 4294967462) i64 @_ZN3net19GetPacketHeaderSizeENS_
   %9 = zext nneg i8 %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !22
-  %.not = icmp eq ptr %11, null
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 15
+  %12 = icmp eq ptr %11, null
+  %.not = getelementptr inbounds nuw i8, ptr %1, i64 15
   %13 = load i8, ptr %12, align 1, !tbaa !23
   %14 = zext i32 %4 to i64
   %15 = shl nuw nsw i8 %6, 2
@@ -312,8 +312,8 @@ define noundef range(i64 -127, 4294967461) i64 @_ZN3net23GetStartOfEncryptedData
   %9 = zext nneg i8 %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !22
-  %.not.i = icmp eq ptr %11, null
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 15
+  %12 = icmp eq ptr %11, null
+  %.not.i = getelementptr inbounds nuw i8, ptr %1, i64 15
   %13 = load i8, ptr %12, align 1, !tbaa !23
   %14 = zext i32 %4 to i64
   %15 = shl nuw nsw i8 %6, 2

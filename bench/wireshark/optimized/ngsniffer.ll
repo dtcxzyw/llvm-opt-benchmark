@@ -2645,7 +2645,7 @@ define internal zeroext i1 @ngsniffer_dump(ptr noundef %0, ptr noundef %1, ptr n
 
 14:                                               ; preds = %5
   store i32 -24, ptr %3, align 4
-  br label %154
+  br label %155
 
 15:                                               ; preds = %5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2657,7 +2657,7 @@ define internal zeroext i1 @ngsniffer_dump(ptr noundef %0, ptr noundef %1, ptr n
 
 20:                                               ; preds = %15
   store i32 -9, ptr %3, align 4
-  br label %154
+  br label %155
 
 21:                                               ; preds = %15
   %22 = load i32, ptr %9, align 8
@@ -2666,7 +2666,7 @@ define internal zeroext i1 @ngsniffer_dump(ptr noundef %0, ptr noundef %1, ptr n
 
 24:                                               ; preds = %21
   store i32 -22, ptr %3, align 4
-  br label %154
+  br label %155
 
 25:                                               ; preds = %21
   %26 = load i8, ptr %12, align 8, !range !6, !noundef !7
@@ -2740,7 +2740,7 @@ define internal zeroext i1 @ngsniffer_dump(ptr noundef %0, ptr noundef %1, ptr n
   %73 = getelementptr inbounds nuw i8, ptr %8, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %73, i8 0, i64 6, i1 false)
   %74 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 18, ptr noundef %3)
-  br i1 %74, label %._crit_edge, label %154
+  br i1 %74, label %._crit_edge, label %155
 
 ._crit_edge:                                      ; preds = %59
   %.pre = load i32, ptr %9, align 8
@@ -2766,7 +2766,7 @@ define internal zeroext i1 @ngsniffer_dump(ptr noundef %0, ptr noundef %1, ptr n
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 5
   store i8 0, ptr %87, align 1
   %88 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 6, ptr noundef %3)
-  br i1 %88, label %89, label %154
+  br i1 %88, label %89, label %155
 
 89:                                               ; preds = %75
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2803,7 +2803,7 @@ define internal zeroext i1 @ngsniffer_dump(ptr noundef %0, ptr noundef %1, ptr n
   %116 = getelementptr inbounds nuw i8, ptr %6, i64 6
   store i16 %115, ptr %116, align 2
   %117 = load i32, ptr %16, align 8
-  switch i32 %117, label %140 [
+  switch i32 %117, label %141 [
     i32 12, label %118
     i32 27, label %118
     i32 19, label %123
@@ -2817,7 +2817,7 @@ define internal zeroext i1 @ngsniffer_dump(ptr noundef %0, ptr noundef %1, ptr n
   %121 = xor i8 %120, -128
   %122 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 %121, ptr %122, align 2
-  br label %142
+  br label %143
 
 123:                                              ; preds = %89, %89
   %124 = load i8, ptr %10, align 8, !range !6, !noundef !7
@@ -2825,7 +2825,7 @@ define internal zeroext i1 @ngsniffer_dump(ptr noundef %0, ptr noundef %1, ptr n
   %126 = shl i8 %125, 7
   %127 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 %126, ptr %127, align 2
-  br label %142
+  br label %143
 
 128:                                              ; preds = %89
   %129 = load i8, ptr %10, align 8, !range !6, !noundef !7
@@ -2840,49 +2840,49 @@ define internal zeroext i1 @ngsniffer_dump(ptr noundef %0, ptr noundef %1, ptr n
     i8 2, label %138
   ]
 
-134:                                              ; preds = %128
-  %135 = or disjoint i8 %130, 24
-  store i8 %135, ptr %131, align 2
-  br label %142
+135:                                              ; preds = %128
+  %136 = or disjoint i8 %130, 24
+  store i8 %136, ptr %131, align 2
+  br label %143
 
-136:                                              ; preds = %128
-  %137 = or disjoint i8 %130, 8
-  store i8 %137, ptr %131, align 2
-  br label %142
+137:                                              ; preds = %128
+  %138 = or disjoint i8 %130, 8
+  store i8 %138, ptr %131, align 2
+  br label %143
 
-138:                                              ; preds = %128
-  %139 = or disjoint i8 %130, 16
-  store i8 %139, ptr %131, align 2
-  br label %142
+139:                                              ; preds = %128
+  %140 = or disjoint i8 %130, 16
+  store i8 %140, ptr %131, align 2
+  br label %143
 
-140:                                              ; preds = %89
-  %141 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i8 0, ptr %141, align 2
-  br label %142
+141:                                              ; preds = %89
+  %142 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i8 0, ptr %142, align 2
+  br label %143
 
-142:                                              ; preds = %128, %134, %136, %138, %140, %123, %118
-  %143 = getelementptr inbounds nuw i8, ptr %6, i64 9
-  store i8 0, ptr %143, align 1
-  %144 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %145 = load i32, ptr %144, align 4
-  %.not70 = icmp eq i32 %145, %114
-  %146 = trunc i32 %145 to i16
-  %spec.select = select i1 %.not70, i16 0, i16 %146
-  %147 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  store i16 %spec.select, ptr %147, align 2
-  %148 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i16 0, ptr %148, align 2
-  %149 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 14, ptr noundef %3)
-  br i1 %149, label %150, label %154
+143:                                              ; preds = %128, %135, %137, %139, %141, %123, %118
+  %144 = getelementptr inbounds nuw i8, ptr %6, i64 9
+  store i8 0, ptr %144, align 1
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %146 = load i32, ptr %145, align 4
+  %.not70 = icmp eq i32 %146, %114
+  %147 = trunc i32 %146 to i16
+  %spec.select = select i1 %.not70, i16 0, i16 %147
+  %148 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  store i16 %spec.select, ptr %148, align 2
+  %149 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  store i16 0, ptr %149, align 2
+  %150 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 14, ptr noundef %3)
+  br i1 %150, label %151, label %155
 
-150:                                              ; preds = %142
-  %151 = load i32, ptr %9, align 8
-  %152 = zext i32 %151 to i64
-  %153 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef %2, i64 noundef %152, ptr noundef %3)
-  br label %154
+151:                                              ; preds = %143
+  %152 = load i32, ptr %9, align 8
+  %153 = zext i32 %152 to i64
+  %154 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef %2, i64 noundef %153, ptr noundef %3)
+  br label %155
 
-154:                                              ; preds = %150, %142, %75, %59, %24, %20, %14
-  %.0 = phi i1 [ false, %14 ], [ false, %20 ], [ false, %24 ], [ false, %59 ], [ false, %75 ], [ false, %142 ], [ %153, %150 ]
+155:                                              ; preds = %151, %143, %75, %59, %24, %20, %14
+  %.0 = phi i1 [ false, %14 ], [ false, %20 ], [ false, %24 ], [ false, %59 ], [ false, %75 ], [ false, %143 ], [ %154, %151 ]
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %6) #12

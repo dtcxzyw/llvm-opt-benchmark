@@ -4058,15 +4058,15 @@ if.end:                                           ; preds = %sw.epilog
 if.then40:                                        ; preds = %if.end
   %greedy = getelementptr inbounds nuw i8, ptr %insn, i64 13
   %37 = load i8, ptr %greedy, align 1
-  %38 = and i8 %37, 1
-  %cond42 = xor i8 %38, 5
+  %tobool41 = and i8 %37, 1
+  %cond42 = xor i8 %tobool41, 5
   %notTakenTarget = getelementptr inbounds nuw i8, ptr %insn, i64 14
-  %39 = load i32, ptr %notTakenTarget, align 1
+  %38 = load i32, ptr %notTakenTarget, align 1
   %Size.i.i.i = getelementptr inbounds nuw i8, ptr %bts, i64 8
-  %40 = load i32, ptr %Size.i.i.i, align 8
+  %39 = load i32, ptr %Size.i.i.i, align 8
   %Capacity.i.i.i = getelementptr inbounds nuw i8, ptr %bts, i64 12
-  %41 = load i32, ptr %Capacity.i.i.i, align 4
-  %cmp.not.i.i = icmp ult i32 %40, %41
+  %40 = load i32, ptr %Capacity.i.i.i, align 4
+  %cmp.not.i.i = icmp ult i32 %39, %40
   br i1 %cmp.not.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then40
@@ -4076,44 +4076,44 @@ if.then.i.i:                                      ; preds = %if.then40
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i
 
 _ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i: ; preds = %if.then.i.i, %if.then40
-  %42 = phi i32 [ %.pre.i.i148, %if.then.i.i ], [ %40, %if.then40 ]
-  %43 = load ptr, ptr %bts, align 8
-  %conv.i3.i.i = zext i32 %42 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"union.hermes::regex::Context<hermes::regex::UTF16RegexTraits>::BacktrackInsn", ptr %43, i64 %conv.i3.i.i
+  %41 = phi i32 [ %.pre.i.i148, %if.then.i.i ], [ %39, %if.then40 ]
+  %42 = load ptr, ptr %bts, align 8
+  %conv.i3.i.i = zext i32 %41 to i64
+  %add.ptr.i.i.i = getelementptr inbounds nuw %"union.hermes::regex::Context<hermes::regex::UTF16RegexTraits>::BacktrackInsn", ptr %42, i64 %conv.i3.i.i
   store i8 %cond42, ptr %add.ptr.i.i.i, align 1
   %agg.tmp45147.sroa.5.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 4
-  store i32 %39, ptr %agg.tmp45147.sroa.5.0.add.ptr.i.i.i.sroa_idx, align 1
+  store i32 %38, ptr %agg.tmp45147.sroa.5.0.add.ptr.i.i.i.sroa_idx, align 1
   %agg.tmp45147.sroa.6.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   store ptr %cond, ptr %agg.tmp45147.sroa.6.0.add.ptr.i.i.i.sroa_idx, align 1
   %agg.tmp45147.sroa.7.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 16
   store ptr %cond38, ptr %agg.tmp45147.sroa.7.0.add.ptr.i.i.i.sroa_idx, align 1
-  %44 = load i32, ptr %Size.i.i.i, align 8
-  %add.i.i = add i32 %44, 1
+  %43 = load i32, ptr %Size.i.i.i, align 8
+  %add.i.i = add i32 %43, 1
   store i32 %add.i.i, ptr %Size.i.i.i, align 8
   %cmp.i149 = icmp ugt i32 %add.i.i, 16777216
   br i1 %cmp.i149, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i
   %backtracksRemaining_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
-  %45 = load i32, ptr %backtracksRemaining_.i, align 8
-  %cmp2.i = icmp eq i32 %45, 0
+  %44 = load i32, ptr %backtracksRemaining_.i, align 8
+  %cmp2.i = icmp eq i32 %44, 0
   br i1 %cmp2.i, label %return, label %_ZN6hermes5regex7ContextINS0_16UTF16RegexTraitsEE13pushBacktrackERN4llvh11SmallVectorINS3_13BacktrackInsnELj64EEES6_.exit
 
 _ZN6hermes5regex7ContextINS0_16UTF16RegexTraitsEE13pushBacktrackERN4llvh11SmallVectorINS3_13BacktrackInsnELj64EEES6_.exit: ; preds = %lor.lhs.false.i
-  %dec.i = add i32 %45, -1
+  %dec.i = add i32 %44, -1
   store i32 %dec.i, ptr %backtracksRemaining_.i, align 8
   br label %if.end50
 
 if.end50:                                         ; preds = %_ZN6hermes5regex7ContextINS0_16UTF16RegexTraitsEE13pushBacktrackERN4llvh11SmallVectorINS3_13BacktrackInsnELj64EEES6_.exit, %if.end
   %greedy52 = getelementptr inbounds nuw i8, ptr %insn, i64 13
-  %46 = load i8, ptr %greedy52, align 1
-  %tobool53 = trunc i8 %46 to i1
+  %45 = load i8, ptr %greedy52, align 1
+  %tobool53 = trunc i8 %45 to i1
   %cond57 = select i1 %tobool53, ptr %cond38, ptr %cond
   store ptr %cond57, ptr %c.sroa.10.0.s.sroa_idx, align 8
   %notTakenTarget58 = getelementptr inbounds nuw i8, ptr %insn, i64 14
-  %47 = load i32, ptr %notTakenTarget58, align 1
+  %46 = load i32, ptr %notTakenTarget58, align 1
   %ip_ = getelementptr inbounds nuw i8, ptr %s, i64 40
-  store i32 %47, ptr %ip_, align 8
+  store i32 %46, ptr %ip_, align 8
   br label %return
 
 return:                                           ; preds = %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i, %lor.lhs.false.i, %sw.epilog, %if.end50
@@ -6954,15 +6954,15 @@ if.end:                                           ; preds = %sw.epilog
 if.then40:                                        ; preds = %if.end
   %greedy = getelementptr inbounds nuw i8, ptr %insn, i64 13
   %34 = load i8, ptr %greedy, align 1
-  %35 = and i8 %34, 1
-  %cond42 = xor i8 %35, 5
+  %tobool41 = and i8 %34, 1
+  %cond42 = xor i8 %tobool41, 5
   %notTakenTarget = getelementptr inbounds nuw i8, ptr %insn, i64 14
-  %36 = load i32, ptr %notTakenTarget, align 1
+  %35 = load i32, ptr %notTakenTarget, align 1
   %Size.i.i.i = getelementptr inbounds nuw i8, ptr %bts, i64 8
-  %37 = load i32, ptr %Size.i.i.i, align 8
+  %36 = load i32, ptr %Size.i.i.i, align 8
   %Capacity.i.i.i = getelementptr inbounds nuw i8, ptr %bts, i64 12
-  %38 = load i32, ptr %Capacity.i.i.i, align 4
-  %cmp.not.i.i = icmp ult i32 %37, %38
+  %37 = load i32, ptr %Capacity.i.i.i, align 4
+  %cmp.not.i.i = icmp ult i32 %36, %37
   br i1 %cmp.not.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then40
@@ -6972,44 +6972,44 @@ if.then.i.i:                                      ; preds = %if.then40
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i
 
 _ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i: ; preds = %if.then.i.i, %if.then40
-  %39 = phi i32 [ %.pre.i.i, %if.then.i.i ], [ %37, %if.then40 ]
-  %40 = load ptr, ptr %bts, align 8
-  %conv.i3.i.i = zext i32 %39 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"union.hermes::regex::Context<hermes::regex::ASCIIRegexTraits>::BacktrackInsn", ptr %40, i64 %conv.i3.i.i
+  %38 = phi i32 [ %.pre.i.i, %if.then.i.i ], [ %36, %if.then40 ]
+  %39 = load ptr, ptr %bts, align 8
+  %conv.i3.i.i = zext i32 %38 to i64
+  %add.ptr.i.i.i = getelementptr inbounds nuw %"union.hermes::regex::Context<hermes::regex::ASCIIRegexTraits>::BacktrackInsn", ptr %39, i64 %conv.i3.i.i
   store i8 %cond42, ptr %add.ptr.i.i.i, align 1
   %agg.tmp45135.sroa.5.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 4
-  store i32 %36, ptr %agg.tmp45135.sroa.5.0.add.ptr.i.i.i.sroa_idx, align 1
+  store i32 %35, ptr %agg.tmp45135.sroa.5.0.add.ptr.i.i.i.sroa_idx, align 1
   %agg.tmp45135.sroa.6.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   store ptr %cond, ptr %agg.tmp45135.sroa.6.0.add.ptr.i.i.i.sroa_idx, align 1
   %agg.tmp45135.sroa.7.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 16
   store ptr %cond38, ptr %agg.tmp45135.sroa.7.0.add.ptr.i.i.i.sroa_idx, align 1
-  %41 = load i32, ptr %Size.i.i.i, align 8
-  %add.i.i = add i32 %41, 1
+  %40 = load i32, ptr %Size.i.i.i, align 8
+  %add.i.i = add i32 %40, 1
   store i32 %add.i.i, ptr %Size.i.i.i, align 8
   %cmp.i136 = icmp ugt i32 %add.i.i, 16777216
   br i1 %cmp.i136, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i
   %backtracksRemaining_.i = getelementptr inbounds nuw i8, ptr %this, i64 52
-  %42 = load i32, ptr %backtracksRemaining_.i, align 4
-  %cmp2.i = icmp eq i32 %42, 0
+  %41 = load i32, ptr %backtracksRemaining_.i, align 4
+  %cmp2.i = icmp eq i32 %41, 0
   br i1 %cmp2.i, label %return, label %_ZN6hermes5regex7ContextINS0_16ASCIIRegexTraitsEE13pushBacktrackERN4llvh11SmallVectorINS3_13BacktrackInsnELj64EEES6_.exit
 
 _ZN6hermes5regex7ContextINS0_16ASCIIRegexTraitsEE13pushBacktrackERN4llvh11SmallVectorINS3_13BacktrackInsnELj64EEES6_.exit: ; preds = %lor.lhs.false.i
-  %dec.i = add i32 %42, -1
+  %dec.i = add i32 %41, -1
   store i32 %dec.i, ptr %backtracksRemaining_.i, align 4
   br label %if.end50
 
 if.end50:                                         ; preds = %_ZN6hermes5regex7ContextINS0_16ASCIIRegexTraitsEE13pushBacktrackERN4llvh11SmallVectorINS3_13BacktrackInsnELj64EEES6_.exit, %if.end
   %greedy52 = getelementptr inbounds nuw i8, ptr %insn, i64 13
-  %43 = load i8, ptr %greedy52, align 1
-  %tobool53 = trunc i8 %43 to i1
+  %42 = load i8, ptr %greedy52, align 1
+  %tobool53 = trunc i8 %42 to i1
   %cond57 = select i1 %tobool53, ptr %cond38, ptr %cond
   store ptr %cond57, ptr %c.sroa.10.0.s.sroa_idx, align 8
   %notTakenTarget58 = getelementptr inbounds nuw i8, ptr %insn, i64 14
-  %44 = load i32, ptr %notTakenTarget58, align 1
+  %43 = load i32, ptr %notTakenTarget58, align 1
   %ip_ = getelementptr inbounds nuw i8, ptr %s, i64 40
-  store i32 %44, ptr %ip_, align 8
+  store i32 %43, ptr %ip_, align 8
   br label %return
 
 return:                                           ; preds = %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16ASCIIRegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i, %lor.lhs.false.i, %sw.epilog, %if.end50

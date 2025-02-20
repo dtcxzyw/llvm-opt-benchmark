@@ -4651,7 +4651,7 @@ define void @_ZN6LibRaw20sinar_4shot_load_rawEv(ptr noundef nonnull align 8 dere
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef %25, i32 noundef 0)
   tail call void @_ZN6LibRaw17unpacked_load_rawEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  br label %121
+  br label %120
 
 30:                                               ; preds = %1
   %31 = load ptr, ptr %2, align 8, !tbaa !196
@@ -4720,8 +4720,8 @@ define void @_ZN6LibRaw20sinar_4shot_load_rawEv(ptr noundef nonnull align 8 dere
   br label %69
 
 69:                                               ; preds = %.lr.ph45, %.loopexit
-  %70 = phi i16 [ %.pre, %.lr.ph45 ], [ %111, %.loopexit ]
-  %.02443 = phi i32 [ 0, %.lr.ph45 ], [ %112, %.loopexit ]
+  %70 = phi i16 [ %.pre, %.lr.ph45 ], [ %110, %.loopexit ]
+  %.02443 = phi i32 [ 0, %.lr.ph45 ], [ %111, %.loopexit ]
   %71 = zext i16 %70 to i32
   invoke void @_ZN6LibRaw11read_shortsEPtj(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %39, i32 noundef %71)
           to label %72 unwind label %.loopexit41
@@ -4760,15 +4760,15 @@ define void @_ZN6LibRaw20sinar_4shot_load_rawEv(ptr noundef nonnull align 8 dere
   %85 = extractvalue { ptr, i32 } %lpad.phi, 0
   %86 = tail call ptr @__cxa_begin_catch(ptr %85) #19
   invoke void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %39)
-          to label %87 unwind label %116
+          to label %87 unwind label %115
 
 87:                                               ; preds = %84
   invoke void @__cxa_rethrow() #20
-          to label %125 unwind label %116
+          to label %124 unwind label %115
 
-88:                                               ; preds = %.lr.ph, %107
-  %89 = phi i16 [ %79, %.lr.ph ], [ %108, %107 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %107 ]
+88:                                               ; preds = %.lr.ph, %106
+  %89 = phi i16 [ %79, %.lr.ph ], [ %107, %106 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %106 ]
   %90 = load i16, ptr %44, align 2, !tbaa !89
   %91 = zext i16 %90 to i32
   %92 = add nuw nsw i32 %68, %91
@@ -4777,7 +4777,7 @@ define void @_ZN6LibRaw20sinar_4shot_load_rawEv(ptr noundef nonnull align 8 dere
   %95 = load i16, ptr %45, align 2, !tbaa !192
   %96 = zext i16 %95 to i32
   %.not33 = icmp ult i32 %94, %96
-  br i1 %.not33, label %97, label %107
+  br i1 %.not33, label %97, label %106
 
 97:                                               ; preds = %88
   %98 = getelementptr inbounds nuw i16, ptr %39, i64 %indvars.iv
@@ -4791,54 +4791,54 @@ define void @_ZN6LibRaw20sinar_4shot_load_rawEv(ptr noundef nonnull align 8 dere
   %106 = getelementptr inbounds nuw [4 x i16], ptr %81, i64 %102, i64 %105
   store i16 %99, ptr %106, align 2, !tbaa !74
   %.pre54 = load i16, ptr %36, align 2, !tbaa !72
-  br label %107
+  br label %106
 
-107:                                              ; preds = %88, %97
-  %108 = phi i16 [ %89, %88 ], [ %.pre54, %97 ]
+106:                                              ; preds = %88, %97
+  %107 = phi i16 [ %89, %88 ], [ %.pre54, %97 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %109 = zext i16 %108 to i64
-  %110 = icmp samesign ult i64 %indvars.iv.next, %109
-  br i1 %110, label %88, label %.loopexit, !llvm.loop !206
+  %108 = zext i16 %107 to i64
+  %109 = icmp samesign ult i64 %indvars.iv.next, %108
+  br i1 %109, label %88, label %.loopexit, !llvm.loop !206
 
-.loopexit:                                        ; preds = %107, %72
-  %111 = phi i16 [ %79, %72 ], [ %108, %107 ]
-  %112 = add nuw nsw i32 %.02443, 1
-  %113 = load i16, ptr %35, align 8, !tbaa !10
-  %114 = zext i16 %113 to i32
-  %115 = icmp samesign ult i32 %112, %114
-  br i1 %115, label %69, label %._crit_edge, !llvm.loop !207
+.loopexit:                                        ; preds = %106, %72
+  %110 = phi i16 [ %79, %72 ], [ %107, %106 ]
+  %111 = add nuw nsw i32 %.02443, 1
+  %112 = load i16, ptr %35, align 8, !tbaa !10
+  %113 = zext i16 %112 to i32
+  %114 = icmp samesign ult i32 %111, %113
+  br i1 %114, label %69, label %._crit_edge, !llvm.loop !207
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader40
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next52, 4
-  br i1 %exitcond.not, label %119, label %46, !llvm.loop !208
+  br i1 %exitcond.not, label %118, label %46, !llvm.loop !208
 
-116:                                              ; preds = %87, %84
-  %117 = landingpad { ptr, i32 }
+115:                                              ; preds = %87, %84
+  %116 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %118 unwind label %122
+          to label %117 unwind label %121
 
-118:                                              ; preds = %116
-  resume { ptr, i32 } %117
+117:                                              ; preds = %115
+  resume { ptr, i32 } %116
 
-119:                                              ; preds = %._crit_edge
+118:                                              ; preds = %._crit_edge
   tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %39)
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 381480
-  store i32 1, ptr %120, align 8, !tbaa !197
-  br label %121
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 381480
+  store i32 1, ptr %119, align 8, !tbaa !197
+  br label %120
 
-121:                                              ; preds = %119, %5
+120:                                              ; preds = %118, %5
   ret void
 
-122:                                              ; preds = %116
-  %123 = landingpad { ptr, i32 }
+121:                                              ; preds = %115
+  %122 = landingpad { ptr, i32 }
           catch ptr null
-  %124 = extractvalue { ptr, i32 } %123, 0
-  tail call void @__clang_call_terminate(ptr %124) #23
+  %123 = extractvalue { ptr, i32 } %122, 0
+  tail call void @__clang_call_terminate(ptr %123) #23
   unreachable
 
-125:                                              ; preds = %87
+124:                                              ; preds = %87
   unreachable
 }
 

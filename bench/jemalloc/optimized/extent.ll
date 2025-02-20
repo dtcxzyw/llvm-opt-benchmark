@@ -574,17 +574,17 @@ ehooks_alloc.exit.i.i:                            ; preds = %91, %tsd_fetch_impl
   %102 = and i64 %101, -17592454479872
   %103 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %.0.i.i.i, ptr %103, align 8, !tbaa !40
-  %104 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %105 = load i64, ptr %104, align 8, !tbaa !36
+  %105 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %105 = load i64, ptr %105, align 8, !tbaa !36
   %106 = and i64 %105, 4095
   %107 = or i64 %106, %storemerge.i.i.i
-  store i64 %107, ptr %104, align 8, !tbaa !36
+  store i64 %107, ptr %105, align 8, !tbaa !36
   %108 = getelementptr inbounds nuw i8, ptr %55, i64 32
   store i64 %98, ptr %108, align 8, !tbaa !57
-  %109 = and i32 %.val79.i.i, -268431361
-  %.masked.masked.i.i.i = zext i32 %109 to i64
-  %110 = zext nneg i8 %99 to i64
-  %111 = shl nuw nsw i64 %110, 15
+  %110 = and i32 %.val79.i.i, -268431361
+  %.masked.masked.i.i.i = zext i32 %110 to i64
+  %111 = zext nneg i8 %99 to i64
+  %.masked.masked.i.i.i = shl nuw nsw i64 %111, 15
   %112 = zext nneg i8 %100 to i64
   %113 = shl nuw nsw i64 %112, 13
   %114 = or disjoint i64 %111, %.masked.masked.i.i.i
@@ -904,21 +904,21 @@ ehooks_alloc.exit:                                ; preds = %22, %tsd_fetch_impl
   %62 = and i64 %61, -17592454479872
   %63 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %.0.i, ptr %63, align 8, !tbaa !40
-  %64 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %65 = load i64, ptr %64, align 8, !tbaa !36
+  %65 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %65 = load i64, ptr %65, align 8, !tbaa !36
   %66 = and i64 %65, 4095
   %67 = or i64 %66, %4
   store i64 %67, ptr %64, align 8, !tbaa !36
-  %68 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i64 %57, ptr %68, align 8, !tbaa !57
-  %69 = and i32 %.val33, -268431361
+  %70 = and i32 %.val33, -268431361
   %70 = zext nneg i8 %58 to i64
   %71 = shl nuw nsw i64 %70, 15
   %72 = zext nneg i8 %59 to i64
   %73 = shl nuw nsw i64 %72, 13
   %.not.i = icmp eq i8 %60, 0
   %74 = select i1 %.not.i, i64 0, i64 17592186044416
-  %75 = or disjoint i32 %69, 243269632
+  %75 = or disjoint i32 %70, 243269632
   %76 = zext i32 %75 to i64
   %77 = or disjoint i64 %71, %76
   %78 = or disjoint i64 %74, %73

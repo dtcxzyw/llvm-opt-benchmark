@@ -8099,7 +8099,7 @@ _ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE29preferToKeepConstantsAttachedER
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK4llvm19TargetTransformInfo5ModelINS_12RISCVTTIImplEE20getNumberOfRegistersEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #1 comdat align 2 {
-  switch i32 %1, label %15 [
+  switch i32 %1, label %16 [
     i32 0, label %_ZNK4llvm12RISCVTTIImpl20getNumberOfRegistersEj.exit
     i32 1, label %3
     i32 2, label %9
@@ -8121,11 +8121,11 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm19TargetTransformInfo5ModelINS_
   %14 = shl nuw nsw i8 %13, 5
   br label %_ZNK4llvm12RISCVTTIImpl20getNumberOfRegistersEj.exit
 
-15:                                               ; preds = %2
+16:                                               ; preds = %2
   unreachable
 
 _ZNK4llvm12RISCVTTIImpl20getNumberOfRegistersEj.exit: ; preds = %2, %3, %9
-  %.0.shrunk.i = phi i8 [ %14, %9 ], [ 31, %2 ], [ %8, %3 ]
+  %.0.i = phi i8 [ %14, %9 ], [ 31, %2 ], [ %8, %3 ]
   %.0.i = zext nneg i8 %.0.shrunk.i to i32
   ret i32 %.0.i
 }

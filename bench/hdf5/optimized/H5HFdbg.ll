@@ -828,7 +828,7 @@ define range(i32 -1, 1) i32 @H5HF_dblock_debug(ptr noundef %0, i64 noundef %1, p
   %35 = getelementptr inbounds nuw i8, ptr %18, i64 259
   %36 = load i8, ptr %35, align 1, !tbaa !104, !range !7, !noundef !8
   %37 = shl nuw nsw i8 %36, 2
-  %narrow = add nuw nsw i8 %37, 5
+  %38 = add nuw nsw i8 %37, 5
   %38 = zext nneg i8 %narrow to i64
   %39 = getelementptr inbounds nuw i8, ptr %18, i64 618
   %40 = load i8, ptr %39, align 2, !tbaa !105

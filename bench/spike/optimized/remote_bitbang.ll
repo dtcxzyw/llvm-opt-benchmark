@@ -286,7 +286,7 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
   br label %11
 
 11:                                               ; preds = %.thread62, %1
-  %12 = phi i64 [ %.pre, %1 ], [ %81, %.thread62 ]
+  %12 = phi i64 [ %.pre, %1 ], [ %82, %.thread62 ]
   %.032 = phi i1 [ %5, %1 ], [ %.133496167, %.thread62 ]
   %.0 = phi i32 [ 0, %1 ], [ %.1525870, %.thread62 ]
   %13 = load i64, ptr %6, align 8, !tbaa !28
@@ -382,64 +382,64 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
   %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.7, i32 noundef %46) #14
   br label %49
 
-49:                                               ; preds = %45, %44, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %.lr.ph, %.lr.ph
+49:; preds = %45, %44, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %.lr.ph, %.lr.ph
   %.226 = phi i32 [ %.02475, %45 ], [ %.02475, %44 ], [ %41, %36 ], [ %.02475, %34 ], [ %.02475, %32 ], [ %.02475, %30 ], [ %.02475, %28 ], [ %.02475, %26 ], [ %.02475, %24 ], [ %.02475, %22 ], [ %.02475, %20 ], [ %.02475, %18 ], [ %.02475, %.lr.ph ], [ %.02475, %.lr.ph ]
   %.4 = phi i1 [ %.22276, %45 ], [ true, %44 ], [ %.22276, %36 ], [ %.22276, %34 ], [ %.22276, %32 ], [ %.22276, %30 ], [ %.22276, %28 ], [ %.22276, %26 ], [ %.22276, %24 ], [ %.22276, %22 ], [ %.22276, %20 ], [ %.22276, %18 ], [ %.22276, %.lr.ph ], [ %.22276, %.lr.ph ]
   %50 = load i64, ptr %6, align 8, !tbaa !28
-  %51 = add nsw i64 %50, 1
+  %.226 = add nsw i64 %50, 1
   store i64 %51, ptr %6, align 8, !tbaa !28
-  %52 = add i32 %.277, 1
+  %51 = add i32 %.277, 1
   br i1 %.23474, label %58, label %53
 
-53:                                               ; preds = %49
+53:; preds = %49
   %54 = load ptr, ptr %0, align 8, !tbaa !3
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 68
   %56 = load i32, ptr %55, align 4, !tbaa !22
-  %57 = icmp eq i32 %56, 1
-  br i1 %57, label %.thread, label %58
+  %55 = icmp eq i32 %56, 1
+  br i1 %55, label %.thread, label %58
 
-58:                                               ; preds = %49, %53
+58:; preds = %49, %53
   %59 = load i64, ptr %7, align 8, !tbaa !27
   %60 = icmp slt i64 %51, %59
   br i1 %60, label %.lr.ph, label %.thread
 
-.thread:                                          ; preds = %58, %53
+.thread:; preds = %58, %53
   %.lcssa.ph = phi i1 [ false, %58 ], [ true, %53 ]
   %.not = icmp eq i32 %.226, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph89
 
 .lr.ph89:                                         ; preds = %.thread
-  %61 = zext i32 %.226 to i64
-  br label %66
+  %62 = zext i32 %.226 to i64
+  br label %67
 
-62:                                               ; preds = %66
-  %63 = trunc i64 %70 to i32
-  %64 = add i32 %.01888, %63
-  %65 = icmp ult i32 %64, %.226
-  br i1 %65, label %66, label %._crit_edge, !llvm.loop !33
+63:                                               ; preds = %67
+  %64 = trunc i64 %71 to i32
+  %65 = add i32 %.01888, %64
+  %66 = icmp ult i32 %65, %.226
+  br i1 %66, label %67, label %._crit_edge, !llvm.loop !33
 
-66:                                               ; preds = %.lr.ph89, %62
-  %.01888 = phi i32 [ 0, %.lr.ph89 ], [ %64, %62 ]
-  %67 = load i32, ptr %10, align 4, !tbaa !12
-  %68 = zext i32 %.01888 to i64
-  %69 = getelementptr inbounds nuw i8, ptr %9, i64 %68
-  %70 = tail call i64 @write(i32 noundef %67, ptr noundef nonnull %69, i64 noundef %61)
-  %71 = icmp eq i64 %70, -1
-  br i1 %71, label %72, label %62
+67:                                               ; preds = %.lr.ph89, %63
+  %.01888 = phi i32 [ 0, %.lr.ph89 ], [ %65, %63 ]
+  %68 = load i32, ptr %10, align 4, !tbaa !12
+  %69 = zext i32 %.01888 to i64
+  %70 = getelementptr inbounds nuw i8, ptr %9, i64 %69
+  %71 = tail call i64 @write(i32 noundef %68, ptr noundef nonnull %70, i64 noundef %62)
+  %72 = icmp eq i64 %71, -1
+  br i1 %72, label %73, label %63
 
-72:                                               ; preds = %66
-  %73 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %74 = tail call ptr @__errno_location() #13
-  %75 = load i32, ptr %74, align 4, !tbaa !15
-  %76 = tail call ptr @strerror(i32 noundef %75) #12
-  %77 = load i32, ptr %74, align 4, !tbaa !15
-  %78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.8, ptr noundef %76, i32 noundef %77) #14
+73:                                               ; preds = %67
+  %74 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %75 = tail call ptr @__errno_location() #13
+  %76 = load i32, ptr %75, align 4, !tbaa !15
+  %77 = tail call ptr @strerror(i32 noundef %76) #12
+  %78 = load i32, ptr %75, align 4, !tbaa !15
+  %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef nonnull @.str.8, ptr noundef %77, i32 noundef %78) #14
   tail call void @abort() #15
   unreachable
 
-._crit_edge:                                      ; preds = %62, %.thread
-  %79 = icmp ugt i32 %52, 65536
-  %brmerge = select i1 %79, i1 true, i1 %.4
+._crit_edge:                                      ; preds = %63, %.thread
+  %80 = icmp ugt i32 %52, 65536
+  %brmerge = select i1 %80, i1 true, i1 %.4
   %brmerge71 = or i1 %.lcssa.ph, %brmerge
   br i1 %brmerge71, label %.loopexit, label %.thread62
 
@@ -447,37 +447,37 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
   %.1525870 = phi i32 [ %.0, %11 ], [ %52, %._crit_edge ]
   %.133496167 = phi i1 [ %.032, %11 ], [ false, %._crit_edge ]
   store i64 0, ptr %6, align 8, !tbaa !28
-  %80 = load i32, ptr %10, align 4, !tbaa !12
-  %81 = tail call i64 @read(i32 noundef %80, ptr noundef nonnull %8, i64 noundef 65536)
-  store i64 %81, ptr %7, align 8, !tbaa !27
-  switch i64 %81, label %11 [
-    i64 -1, label %82
-    i64 0, label %91
+  %81 = load i32, ptr %10, align 4, !tbaa !12
+  %82 = tail call i64 @read(i32 noundef %81, ptr noundef nonnull %8, i64 noundef 65536)
+  store i64 %82, ptr %7, align 8, !tbaa !27
+  switch i64 %82, label %11 [
+    i64 -1, label %83
+    i64 0, label %92
   ]
 
-82:                                               ; preds = %.thread62
-  %83 = tail call ptr @__errno_location() #13
-  %84 = load i32, ptr %83, align 4, !tbaa !15
-  %85 = icmp eq i32 %84, 11
-  br i1 %85, label %.loopexit, label %86
+83:                                               ; preds = %.thread62
+  %84 = tail call ptr @__errno_location() #13
+  %85 = load i32, ptr %84, align 4, !tbaa !15
+  %86 = icmp eq i32 %85, 11
+  br i1 %86, label %.loopexit, label %87
 
-86:                                               ; preds = %82
-  %87 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %88 = tail call ptr @strerror(i32 noundef %84) #12
-  %89 = load i32, ptr %83, align 4, !tbaa !15
-  %90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.9, ptr noundef %88, i32 noundef %89) #14
+87:                                               ; preds = %83
+  %88 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %89 = tail call ptr @strerror(i32 noundef %85) #12
+  %90 = load i32, ptr %84, align 4, !tbaa !15
+  %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.9, ptr noundef %89, i32 noundef %90) #14
   tail call void @abort() #15
   unreachable
 
-91:                                               ; preds = %.thread62
-  %92 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %93 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 28, i64 1, ptr %92) #16
-  %94 = load i32, ptr %10, align 4, !tbaa !12
-  %95 = tail call i32 @close(i32 noundef %94)
+92:                                               ; preds = %.thread62
+  %93 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %94 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 28, i64 1, ptr %93) #16
+  %95 = load i32, ptr %10, align 4, !tbaa !12
+  %96 = tail call i32 @close(i32 noundef %95)
   store i32 0, ptr %10, align 4, !tbaa !12
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge, %82, %91
+.loopexit:                                        ; preds = %._crit_edge, %83, %92
   ret void
 }
 
