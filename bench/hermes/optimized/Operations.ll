@@ -7337,19 +7337,21 @@ while.body.lr.ph.i:                               ; preds = %while.cond.preheade
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %callable.addr.043.i = phi ptr [ %0, %while.body.lr.ph.i ], [ %4, %while.body.i ]
+  %callable.addr.043.i = phi ptr [ %0, %while.body.lr.ph.i ], [ %cond.i.i.i.i.i.i, %while.body.i ]
   %target_.i.i = getelementptr inbounds nuw i8, ptr %callable.addr.043.i, i64 24
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i32, ptr %target_.i.i, align 4
+  %cmp.i.not.i.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i, 0
   %conv.i.i.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i to i64
   %add.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i, %3
   %4 = inttoptr i64 %add.i.i.i.i.i.i.i to ptr
+  %cond.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i, ptr null, ptr %4
   %bf.load.i.i.i.i.i.i.i.i.i.i.i1 = load i32, ptr %4, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i.i.i1, -16777216
   %cmp.i.i.i.i.i.i.i.i.not.i = icmp eq i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i, 1140850688
   br i1 %cmp.i.i.i.i.i.i.i.i.not.i, label %while.body.i, label %while.end.i, !llvm.loop !58
 
 while.end.i:                                      ; preds = %while.body.i, %while.cond.preheader.i
-  %callable.addr.0.lcssa.i = phi ptr [ %0, %while.cond.preheader.i ], [ %4, %while.body.i ]
+  %callable.addr.0.lcssa.i = phi ptr [ %0, %while.cond.preheader.i ], [ %cond.i.i.i.i.i.i, %while.body.i ]
   %bf.load.i.i.i.i.i.i.i.i.i.i.lcssa.i = phi i32 [ %bf.load.i.i.i.i.i.i.i.i.i.i.i, %while.cond.preheader.i ], [ %bf.load.i.i.i.i.i.i.i.i.i.i.i1, %while.body.i ]
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.lcssa.i = phi i32 [ %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i41.i, %while.cond.preheader.i ], [ %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i, %while.body.i ]
   %5 = add i32 %bf.load.i.i.i.i.i.i.i.i.i.i.lcssa.i, -1291845632
@@ -7417,19 +7419,21 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %callable.addr.043 = phi ptr [ %callable, %while.body.lr.ph ], [ %1, %while.body ]
+  %callable.addr.043 = phi ptr [ %callable, %while.body.lr.ph ], [ %cond.i.i.i.i.i, %while.body ]
   %target_.i = getelementptr inbounds nuw i8, ptr %callable.addr.043, i64 24
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %target_.i, align 4
+  %cmp.i.not.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i, 0
   %conv.i.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i to i64
   %add.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i, %0
   %1 = inttoptr i64 %add.i.i.i.i.i.i to ptr
+  %cond.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i, ptr null, ptr %1
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i32, ptr %1, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i.i, -16777216
   %cmp.i.i.i.i.i.i.i.i.not = icmp eq i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i, 1140850688
   br i1 %cmp.i.i.i.i.i.i.i.i.not, label %while.body, label %while.end, !llvm.loop !58
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
-  %callable.addr.0.lcssa = phi ptr [ %callable, %while.cond.preheader ], [ %1, %while.body ]
+  %callable.addr.0.lcssa = phi ptr [ %callable, %while.cond.preheader ], [ %cond.i.i.i.i.i, %while.body ]
   %bf.load.i.i.i.i.i.i.i.i.i.i.lcssa = phi i32 [ %bf.load.i.i.i.i.i.i.i.i.i.i40, %while.cond.preheader ], [ %bf.load.i.i.i.i.i.i.i.i.i.i, %while.body ]
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.lcssa = phi i32 [ %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i41, %while.cond.preheader ], [ %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i, %while.body ]
   %2 = add i32 %bf.load.i.i.i.i.i.i.i.i.i.i.lcssa, -1291845632
@@ -7509,7 +7513,7 @@ while.body.lr.ph:                                 ; preds = %if.end
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %ctor.092 = phi ptr [ %0, %while.body.lr.ph ], [ %4, %while.body ]
+  %ctor.092 = phi ptr [ %0, %while.body.lr.ph ], [ %cond.i.i.i.i.i, %while.body ]
   %target_.i = getelementptr inbounds nuw i8, ptr %ctor.092, i64 24
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %target_.i, align 4
   %cmp.i.not.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i, 0
@@ -7517,7 +7521,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %add.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i, %3
   %4 = inttoptr i64 %add.i.i.i.i.i.i to ptr
   %cond.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i, ptr null, ptr %4
-  %bf.load.i.i.i.i.i.i.i.i.i.i = load i32, ptr %cond.i.i.i.i.i, align 4
+  %bf.load.i.i.i.i.i.i.i.i.i.i = load i32, ptr %4, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i.i, -16777216
   %cmp.i.i.i.i.i.i.i.i.not = icmp eq i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i, 1140850688
   br i1 %cmp.i.i.i.i.i.i.i.i.not, label %while.body, label %while.end.loopexit, !llvm.loop !59
@@ -8234,7 +8238,7 @@ if.end2.lr.ph:                                    ; preds = %while.body.preheade
   br label %if.end2
 
 if.end2:                                          ; preds = %if.end2.lr.ph, %if.end9
-  %obj.addr.020 = phi ptr [ %obj, %if.end2.lr.ph ], [ %3, %if.end9 ]
+  %obj.addr.020 = phi ptr [ %obj, %if.end2.lr.ph ], [ %cond.i.i.i.i.i, %if.end9 ]
   %flags_.i = getelementptr inbounds nuw i8, ptr %obj.addr.020, i64 4
   %bf.load.i10 = load i32, ptr %flags_.i, align 4
   %1 = and i32 %bf.load.i10, 128
@@ -8268,9 +8272,11 @@ if.then7:                                         ; preds = %if.end5
 if.end9:                                          ; preds = %if.end5
   %call.i = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZN6hermes2vm6detail5slotsEPNS0_8JSObjectE(ptr noundef nonnull %obj.addr.020) #17
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %call.i, align 4
+  %cmp.i.not.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i, 0
   %conv.i.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i to i64
   %add.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i, %0
   %3 = inttoptr i64 %add.i.i.i.i.i.i to ptr
+  %cond.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i, ptr null, ptr %3
   %bf.load.i.i.i.i.i.i.i.i.i = load i32, ptr %3, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i, -16777216
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i, 536870912
@@ -8388,7 +8394,7 @@ if.end2.lr.ph.i:                                  ; preds = %while.body.preheade
   br label %if.end2.i
 
 if.end2.i:                                        ; preds = %if.end9.i, %if.end2.lr.ph.i
-  %obj.addr.020.i = phi ptr [ %12, %if.end2.lr.ph.i ], [ %17, %if.end9.i ]
+  %obj.addr.020.i = phi ptr [ %12, %if.end2.lr.ph.i ], [ %cond.i.i.i.i.i.i, %if.end9.i ]
   %flags_.i.i = getelementptr inbounds nuw i8, ptr %obj.addr.020.i, i64 4
   %bf.load.i10.i = load i32, ptr %flags_.i.i, align 4
   %14 = and i32 %bf.load.i10.i, 128
@@ -8422,9 +8428,11 @@ if.then7.i:                                       ; preds = %if.end5.i
 if.end9.i:                                        ; preds = %if.end5.i
   %call.i.i = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZN6hermes2vm6detail5slotsEPNS0_8JSObjectE(ptr noundef nonnull %obj.addr.020.i) #17
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i32, ptr %call.i.i, align 4
+  %cmp.i.not.i.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i, 0
   %conv.i.i.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i to i64
   %add.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i, %13
   %17 = inttoptr i64 %add.i.i.i.i.i.i.i to ptr
+  %cond.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i, ptr null, ptr %17
   %bf.load.i.i.i.i.i.i.i.i.i.i12 = load i32, ptr %17, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i.i12, -16777216
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i, 536870912

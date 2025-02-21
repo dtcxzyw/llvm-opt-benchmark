@@ -4367,7 +4367,7 @@ define dso_local noundef nonnull align 8 dereferenceable(49) ptr @_ZNK5vcpkg10Vc
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 224
   %21 = load i8, ptr %20, align 8
   %22 = trunc i8 %21 to i1
-  br i1 %22, label %.thread, label %23
+  br i1 %22, label %160, label %23
 
 23:                                               ; preds = %1
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 288
@@ -4395,9 +4395,9 @@ _ZNK5vcpkg10VcpkgPaths9installedEv.exit:          ; preds = %23
           to label %_ZNK5vcpkg14InstalledPaths13lockfile_pathEv.exit unwind label %32
 
 common.resume:                                    ; preds = %.body, %32
-  %.sink7 = phi ptr [ %17, %.body ], [ %13, %32 ]
+  %.sink3 = phi ptr [ %17, %.body ], [ %13, %32 ]
   %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %.body ], [ %33, %32 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink7) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink3) #24
   resume { ptr, i32 } %common.resume.op
 
 32:                                               ; preds = %_ZNK5vcpkg10VcpkgPaths9installedEv.exit
@@ -4778,7 +4778,7 @@ _ZN5vcpkg8OptionalINS_8LockFileEEC2IS1_TnNSt9enable_ifIXaantsr3stdE9is_same_vINS
 _ZN5vcpkg8OptionalINS_8LockFileEED2Ev.exit:       ; preds = %_ZN5vcpkg8OptionalINS_8LockFileEEC2IS1_TnNSt9enable_ifIXaantsr3stdE9is_same_vINSt5decayIT_E4typeES2_Esr3stdE18is_constructible_vINS_7details15OptionalStorageIS1_Lb1EEES6_EEiE4typeELi0EEEOS6_.exit, %149
   %156 = load ptr, ptr %35, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5vcpkg8LockFile9EntryDataEESt10_Select1stISB_ESt4lessIvESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(49) %16, ptr noundef %156)
-          to label %160 unwind label %157
+          to label %_ZN5vcpkg8LockFileD2Ev.exit unwind label %157
 
 157:                                              ; preds = %_ZN5vcpkg8OptionalINS_8LockFileEED2Ev.exit
   %158 = landingpad { ptr, i32 }
@@ -4787,20 +4787,15 @@ _ZN5vcpkg8OptionalINS_8LockFileEED2Ev.exit:       ; preds = %_ZN5vcpkg8OptionalI
   call void @__clang_call_terminate(ptr %159) #26
   unreachable
 
-160:                                              ; preds = %_ZN5vcpkg8OptionalINS_8LockFileEED2Ev.exit
+_ZN5vcpkg8LockFileD2Ev.exit:                      ; preds = %_ZN5vcpkg8OptionalINS_8LockFileEED2Ev.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #24
   %.pre = load ptr, ptr %18, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 224
-  %.pre3 = load i8, ptr %.phi.trans.insert, align 8
-  %.pre3.fr = freeze i8 %.pre3
-  %.pre4 = trunc i8 %.pre3.fr to i1
-  call void @llvm.assume(i1 %.pre4)
-  br label %.thread
+  br label %160
 
-.thread:                                          ; preds = %1, %160
-  %.pn = phi ptr [ %.pre, %160 ], [ %19, %1 ]
-  %161 = getelementptr inbounds nuw i8, ptr %.pn, i64 232
-  ret ptr %161
+160:                                              ; preds = %_ZN5vcpkg8LockFileD2Ev.exit, %1
+  %161 = phi ptr [ %.pre, %_ZN5vcpkg8LockFileD2Ev.exit ], [ %19, %1 ]
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 232
+  ret ptr %162
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

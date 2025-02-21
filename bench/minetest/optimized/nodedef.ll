@@ -23106,26 +23106,24 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %if.e
   br label %_ZN11StreamProxylsEPFRSoS0_E.exit
 
 _ZN11StreamProxylsEPFRSoS0_E.exit:                ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %_ZN9LogStreamlsIRA72_KcEER11StreamProxyOT_.exit, %_ZTW10infostream.exit
-  %9 = icmp eq ptr %gamedef, null
   %sub.ptr = getelementptr inbounds i8, ptr %gamedef, i64 -16
-  %10 = select i1 %9, ptr null, ptr %sub.ptr
-  %call.i21 = tail call noundef ptr @_ZN6Client16getTextureSourceEv(ptr noundef nonnull align 8 dereferenceable(1746) %10)
-  %vtable = load ptr, ptr %10, align 8, !tbaa !37
+  %call.i21 = tail call noundef ptr @_ZN6Client16getTextureSourceEv(ptr noundef nonnull align 8 dereferenceable(1746) %sub.ptr)
+  %vtable = load ptr, ptr %sub.ptr, align 8, !tbaa !37
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 88
-  %11 = load ptr, ptr %vfn, align 8
-  %call4 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(1746) %10)
-  %call5 = tail call noundef ptr @_ZN6Client15getSceneManagerEv(ptr noundef nonnull align 8 dereferenceable(1746) %10)
+  %9 = load ptr, ptr %vfn, align 8
+  %call4 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(1746) %sub.ptr)
+  %call5 = tail call noundef ptr @_ZN6Client15getSceneManagerEv(ptr noundef nonnull align 8 dereferenceable(1746) %sub.ptr)
   %vtable6 = load ptr, ptr %call5, align 8, !tbaa !37
   %vfn7 = getelementptr inbounds nuw i8, ptr %vtable6, i64 184
-  %12 = load ptr, ptr %vfn7, align 8
-  %call8 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %call5)
+  %10 = load ptr, ptr %vfn7, align 8
+  %call8 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %call5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tsettings) #36
   call void @_ZN15TextureSettings12readSettingsEv(ptr noundef nonnull align 4 dereferenceable(16) %tsettings)
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %13 = load ptr, ptr %_M_finish.i, align 8, !tbaa !369
-  %14 = load ptr, ptr %this, align 8, !tbaa !367
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %14 to i64
+  %11 = load ptr, ptr %_M_finish.i, align 8, !tbaa !369
+  %12 = load ptr, ptr %this, align 8, !tbaa !367
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 3712
   %conv = trunc i64 %sub.ptr.div.i to i32
@@ -23142,11 +23140,11 @@ for.cond.cleanup:                                 ; preds = %for.body, %_ZN11Str
 
 for.body:                                         ; preds = %for.body, %for.body.preheader
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %15 = load ptr, ptr %this, align 8, !tbaa !367
-  %add.ptr.i = getelementptr inbounds nuw %struct.ContentFeatures, ptr %15, i64 %indvars.iv
-  call void @_ZN15ContentFeatures14updateTexturesEP14ITextureSourceP13IShaderSourcePN3irr5scene16IMeshManipulatorEP6ClientRK15TextureSettings(ptr noundef nonnull align 8 dereferenceable(3706) %add.ptr.i, ptr noundef %call.i21, ptr noundef %call4, ptr noundef %call8, ptr noundef nonnull %10, ptr noundef nonnull align 4 dereferenceable(16) %tsettings)
-  %16 = trunc i64 %indvars.iv to i32
-  tail call void @_ZN6Client25showUpdateProgressTextureEPvjj(ptr noundef nonnull align 8 dereferenceable(1746) %10, ptr noundef %progress_callback_args, i32 noundef %16, i32 noundef %conv)
+  %13 = load ptr, ptr %this, align 8, !tbaa !367
+  %add.ptr.i = getelementptr inbounds nuw %struct.ContentFeatures, ptr %13, i64 %indvars.iv
+  call void @_ZN15ContentFeatures14updateTexturesEP14ITextureSourceP13IShaderSourcePN3irr5scene16IMeshManipulatorEP6ClientRK15TextureSettings(ptr noundef nonnull align 8 dereferenceable(3706) %add.ptr.i, ptr noundef %call.i21, ptr noundef %call4, ptr noundef %call8, ptr noundef nonnull %sub.ptr, ptr noundef nonnull align 4 dereferenceable(16) %tsettings)
+  %14 = trunc i64 %indvars.iv to i32
+  tail call void @_ZN6Client25showUpdateProgressTextureEPvjj(ptr noundef nonnull align 8 dereferenceable(1746) %sub.ptr, ptr noundef %progress_callback_args, i32 noundef %14, i32 noundef %conv)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !455

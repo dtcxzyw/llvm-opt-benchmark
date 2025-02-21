@@ -3230,7 +3230,7 @@ define internal fastcc noundef ptr @getRedisConfig(ptr noundef %0, i32 noundef %
   %4 = alloca ptr, align 8
   %5 = tail call noalias dereferenceable_or_null(16) ptr @zcalloc(i64 noundef 16) #26
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %59, label %6
+  br i1 %.not, label %58, label %6
 
 6:                                                ; preds = %3
   %7 = tail call fastcc ptr @getRedisContext(ptr noundef %0, i32 noundef %1, ptr noundef %2)
@@ -3251,18 +3251,19 @@ define internal fastcc noundef ptr @getRedisConfig(ptr noundef %0, i32 noundef %
   br label %14
 
 14:                                               ; preds = %35, %10
-  %.04477 = phi i1 [ false, %10 ], [ true, %35 ]
-  %.04676 = phi ptr [ null, %10 ], [ %19, %35 ]
+  %.04472 = phi i1 [ false, %10 ], [ true, %35 ]
+  %.04671 = phi ptr [ null, %10 ], [ %19, %35 ]
   %15 = call i32 @redisGetReply(ptr noundef nonnull %7, ptr noundef nonnull %4) #20
-  %.not53 = icmp eq ptr %.04676, null
+  %.not53 = icmp eq ptr %.04671, null
   br i1 %.not53, label %17, label %16
 
 16:                                               ; preds = %14
-  call void @freeReplyObject(ptr noundef nonnull %.04676) #20
+  call void @freeReplyObject(ptr noundef nonnull %.04671) #20
   br label %17
 
 17:                                               ; preds = %16, %14
-  %18 = icmp eq i32 %15, 0
+  %.fr = freeze i32 %15
+  %18 = icmp eq i32 %.fr, 0
   %19 = load ptr, ptr %4, align 8
   %20 = icmp ne ptr %19, null
   %or.cond = select i1 %18, i1 %20, i1 false
@@ -3271,7 +3272,7 @@ define internal fastcc noundef ptr @getRedisConfig(ptr noundef %0, i32 noundef %
 21:                                               ; preds = %17
   %22 = load i32, ptr %19, align 8, !tbaa !82
   %cond = icmp eq i32 %22, 2
-  br i1 %cond, label %23, label %.thread61
+  br i1 %cond, label %23, label %.thread60
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 48
@@ -3289,7 +3290,7 @@ define internal fastcc noundef ptr @getRedisConfig(ptr noundef %0, i32 noundef %
   %.not55 = icmp eq ptr %33, null
   %spec.store.select = select i1 %.not55, ptr @.str.36, ptr %33
   %34 = call ptr @hi_sdsnew(ptr noundef nonnull %spec.store.select) #20
-  br i1 %.04477, label %36, label %35
+  br i1 %.04472, label %36, label %35
 
 35:                                               ; preds = %27
   store ptr %34, ptr %5, align 8, !tbaa !102
@@ -3299,81 +3300,81 @@ define internal fastcc noundef ptr @getRedisConfig(ptr noundef %0, i32 noundef %
   store ptr %34, ptr %13, align 8, !tbaa !104
   call void @freeReplyObject(ptr noundef nonnull %19) #20
   call void @redisFree(ptr noundef nonnull %7) #20
-  br label %58
+  br label %57
 
 37:                                               ; preds = %17
-  %.not5699 = icmp ne ptr %19, null
-  %.not56.not = select i1 %18, i1 %.not5699, i1 false
-  br i1 %.not56.not, label %..thread61thread-pre-split_crit_edge, label %.critedge
+  %.not56 = icmp ne ptr %19, null
+  %or.cond95.not = select i1 %18, i1 %.not56, i1 false
+  br i1 %or.cond95.not, label %.thread60thread-pre-split, label %.critedge
 
-..thread61thread-pre-split_crit_edge:             ; preds = %37
-  %.pr.pre = load i32, ptr %19, align 8, !tbaa !82
-  br label %.thread61
+.thread60thread-pre-split:                        ; preds = %37
+  %.pre.pr = load i32, ptr %19, align 8, !tbaa !82
+  br label %.thread60
 
-.thread61:                                        ; preds = %21, %..thread61thread-pre-split_crit_edge
-  %38 = phi i32 [ %.pr.pre, %..thread61thread-pre-split_crit_edge ], [ %22, %21 ]
-  %39 = icmp eq i32 %38, 6
-  br i1 %39, label %40, label %.critedge
+.thread60:                                        ; preds = %21, %.thread60thread-pre-split
+  %.pre = phi i32 [ %.pre.pr, %.thread60thread-pre-split ], [ %22, %21 ]
+  %38 = icmp eq i32 %.pre, 6
+  br i1 %38, label %39, label %.critedge
 
-40:                                               ; preds = %.thread61
-  %41 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %42 = load ptr, ptr %41, align 8, !tbaa !86
-  %43 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(7) @.str.152, i64 noundef 6) #21
-  %.not57 = icmp eq i32 %43, 0
-  br i1 %.not57, label %44, label %.critedge
+39:                                               ; preds = %.thread60
+  %40 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %41 = load ptr, ptr %40, align 8, !tbaa !86
+  %42 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(7) @.str.152, i64 noundef 6) #21
+  %.not57 = icmp eq i32 %42, 0
+  br i1 %.not57, label %43, label %.critedge
 
-44:                                               ; preds = %40
-  %45 = icmp eq ptr %2, null
-  %46 = load ptr, ptr @stderr, align 8, !tbaa !26
-  br i1 %45, label %47, label %49
+43:                                               ; preds = %39
+  %44 = icmp eq ptr %2, null
+  %45 = load ptr, ptr @stderr, align 8, !tbaa !26
+  br i1 %44, label %46, label %48
 
-47:                                               ; preds = %44
-  %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.145, ptr noundef %0, i32 noundef %1, ptr noundef nonnull %42) #25
-  br label %51
+46:                                               ; preds = %43
+  %47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.145, ptr noundef %0, i32 noundef %1, ptr noundef nonnull %41) #25
+  br label %50
 
-49:                                               ; preds = %44
-  %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.146, ptr noundef nonnull %2, ptr noundef nonnull %42) #25
-  br label %51
+48:                                               ; preds = %43
+  %49 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.146, ptr noundef nonnull %2, ptr noundef nonnull %41) #25
+  br label %50
 
-51:                                               ; preds = %47, %49
+50:                                               ; preds = %46, %48
   call void @freeReplyObject(ptr noundef nonnull %19) #20
   call void @redisFree(ptr noundef nonnull %7) #20
   call fastcc void @freeRedisConfig(ptr noundef %5)
   call void @exit(i32 noundef 1) #24
   unreachable
 
-.critedge:                                        ; preds = %23, %37, %.thread61, %40
-  %52 = phi ptr [ null, %37 ], [ %19, %.thread61 ], [ %19, %40 ], [ %19, %23 ]
-  call void @freeReplyObject(ptr noundef %52) #20
+.critedge:                                        ; preds = %23, %37, %.thread60, %39
+  %51 = phi ptr [ %19, %.thread60 ], [ %19, %39 ], [ null, %37 ], [ %19, %23 ]
+  call void @freeReplyObject(ptr noundef %51) #20
   call void @redisFree(ptr noundef nonnull %7) #20
-  %53 = load ptr, ptr %5, align 8, !tbaa !102
-  %.not.i = icmp eq ptr %53, null
-  br i1 %.not.i, label %55, label %54
+  %52 = load ptr, ptr %5, align 8, !tbaa !102
+  %.not.i = icmp eq ptr %52, null
+  br i1 %.not.i, label %54, label %53
 
-54:                                               ; preds = %.critedge
-  call void @hi_sdsfree(ptr noundef nonnull %53) #20
-  br label %55
+53:                                               ; preds = %.critedge
+  call void @hi_sdsfree(ptr noundef nonnull %52) #20
+  br label %54
 
-55:                                               ; preds = %54, %.critedge
-  %56 = load ptr, ptr %13, align 8, !tbaa !104
-  %.not6.i = icmp eq ptr %56, null
-  br i1 %.not6.i, label %freeRedisConfig.exit, label %57
+54:                                               ; preds = %53, %.critedge
+  %55 = load ptr, ptr %13, align 8, !tbaa !104
+  %.not6.i = icmp eq ptr %55, null
+  br i1 %.not6.i, label %freeRedisConfig.exit, label %56
 
-57:                                               ; preds = %55
-  call void @hi_sdsfree(ptr noundef nonnull %56) #20
+56:                                               ; preds = %54
+  call void @hi_sdsfree(ptr noundef nonnull %55) #20
   br label %freeRedisConfig.exit
 
-freeRedisConfig.exit:                             ; preds = %55, %57
+freeRedisConfig.exit:                             ; preds = %54, %56
   call void @zfree(ptr noundef nonnull %5) #20
-  br label %58
+  br label %57
 
-58:                                               ; preds = %freeRedisConfig.exit, %36
+57:                                               ; preds = %freeRedisConfig.exit, %36
   %.1 = phi ptr [ null, %freeRedisConfig.exit ], [ %5, %36 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
-  br label %59
+  br label %58
 
-59:                                               ; preds = %3, %58
-  %.0 = phi ptr [ %.1, %58 ], [ null, %3 ]
+58:                                               ; preds = %3, %57
+  %.0 = phi ptr [ %.1, %57 ], [ null, %3 ]
   ret ptr %.0
 }
 

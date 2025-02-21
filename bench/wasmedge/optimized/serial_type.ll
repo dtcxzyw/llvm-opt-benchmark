@@ -1910,7 +1910,7 @@ _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit: ; preds = %22
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %34 = load i32, ptr %10, align 4
   store i32 %34, ptr %33, align 4
-  br label %198
+  br label %195
 
 35:                                               ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit
   %36 = load i8, ptr %2, align 8
@@ -1951,7 +1951,7 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %46
 
 56:                                               ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i.i
   %57 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %55) #20
-          to label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i unwind label %199
+          to label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i unwind label %196
 
 _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i: ; preds = %56, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i.i
   %58 = phi ptr [ null, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i.i ], [ %57, %56 ]
@@ -2009,7 +2009,7 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i.i24: ; preds = %69
 
 79:                                               ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i.i24
   %80 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %78) #20
-          to label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i27 unwind label %199
+          to label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i27 unwind label %196
 
 _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i27: ; preds = %79, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i.i24
   %81 = phi ptr [ null, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i.i24 ], [ %80, %79 ]
@@ -2162,7 +2162,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEE.exit45: ; pre
 
 .invoke:                                          ; preds = %143, %69, %46
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.176) #18
-          to label %.cont unwind label %199
+          to label %.cont unwind label %196
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -2178,7 +2178,7 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i.i47: ; preds = %143
 
 153:                                              ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i.i47
   %154 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %152) #20
-          to label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i50 unwind label %199
+          to label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i50 unwind label %196
 
 _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i50: ; preds = %153, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i.i47
   %155 = phi ptr [ null, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i.i47 ], [ %154, %153 ]
@@ -2208,125 +2208,121 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS
   br label %_ZNSt6vectorIhSaIhEE9push_backEOh.exit56
 
 _ZNSt6vectorIhSaIhEE9push_backEOh.exit56:         ; preds = %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i53, %140
-  switch i8 %135, label %188 [
+  switch i8 %135, label %185 [
     i8 96, label %162
-    i8 94, label %173
-    i8 95, label %173
+    i8 94, label %170
+    i8 95, label %170
   ]
 
 162:                                              ; preds = %_ZNSt6vectorIhSaIhEE9push_backEOh.exit56
   %163 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %164 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %165 = load i8, ptr %164, align 8
-  %166 = icmp eq i8 %165, 1
-  %spec.select.i.i.i = select i1 %166, ptr %163, ptr null
-  call void @_ZNK8WasmEdge6Loader10Serializer13serializeTypeERKNS_3AST12FunctionTypeERSt6vectorIhSaIhEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %12, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  %167 = load i8, ptr %12, align 4
-  %168 = trunc i8 %167 to i1
-  br i1 %168, label %197, label %169
+  call void @_ZNK8WasmEdge6Loader10Serializer13serializeTypeERKNS_3AST12FunctionTypeERSt6vectorIhSaIhEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %12, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(72) %163, ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+  %164 = load i8, ptr %12, align 4
+  %165 = trunc i8 %164 to i1
+  br i1 %165, label %194, label %166
 
-169:                                              ; preds = %162
-  %170 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %171 = load i32, ptr %170, align 4, !noalias !40
+166:                                              ; preds = %162
+  %167 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %168 = load i32, ptr %167, align 4, !noalias !40
   store i8 0, ptr %0, align 4
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %171, ptr %172, align 4
-  br label %198
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %168, ptr %169, align 4
+  br label %195
 
-173:                                              ; preds = %_ZNSt6vectorIhSaIhEE9push_backEOh.exit56, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit56
-  %174 = load ptr, ptr %1, align 8
-  br label %175
+170:                                              ; preds = %_ZNSt6vectorIhSaIhEE9push_backEOh.exit56, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit56
+  %171 = load ptr, ptr %1, align 8
+  br label %172
 
-175:                                              ; preds = %175, %173
-  %176 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(160) %174) #17
-  switch i32 %176, label %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit58 [
-    i32 11, label %175
-    i32 35, label %177
+172:                                              ; preds = %172, %170
+  %173 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(160) %171) #17
+  switch i32 %173, label %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit58 [
+    i32 11, label %172
+    i32 35, label %174
   ]
 
-177:                                              ; preds = %175
+174:                                              ; preds = %172
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #18
-          to label %.noexc.i57 unwind label %178
+          to label %.noexc.i57 unwind label %175
 
-.noexc.i57:                                       ; preds = %177
+.noexc.i57:                                       ; preds = %174
   unreachable
 
-178:                                              ; preds = %177
-  %179 = landingpad { ptr, i32 }
+175:                                              ; preds = %174
+  %176 = landingpad { ptr, i32 }
           catch ptr null
-  %180 = extractvalue { ptr, i32 } %179, 0
-  call void @__clang_call_terminate(ptr %180) #19
+  %177 = extractvalue { ptr, i32 } %176, 0
+  call void @__clang_call_terminate(ptr %177) #19
   unreachable
 
-_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit58: ; preds = %175
-  %181 = getelementptr inbounds nuw i8, ptr %174, i64 56
-  %182 = load i64, ptr %181, align 8
-  %183 = and i64 %182, 1024
-  %.not72 = icmp eq i64 %183, 0
-  %184 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(160) %174) #17
-  br i1 %.not72, label %185, label %188
+_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit58: ; preds = %172
+  %178 = getelementptr inbounds nuw i8, ptr %171, i64 56
+  %179 = load i64, ptr %178, align 8
+  %180 = and i64 %179, 1024
+  %.not72 = icmp eq i64 %180, 0
+  %181 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(160) %171) #17
+  br i1 %.not72, label %182, label %185
 
-185:                                              ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit58
+182:                                              ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit58
   store i32 273, ptr %14, align 4
   call void @_ZNK8WasmEdge6Loader10Serializer15logNeedProposalENS_7ErrCodeENS_8ProposalENS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %13, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %14, i8 noundef zeroext 10, i8 noundef zeroext 47) #17
   store i8 0, ptr %0, align 4
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %187 = load i32, ptr %13, align 4
-  store i32 %187, ptr %186, align 4
-  br label %198
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %184 = load i32, ptr %13, align 4
+  store i32 %184, ptr %183, align 4
+  br label %195
 
-188:                                              ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit58, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit56
+185:                                              ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit58, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit56
   store i32 273, ptr %15, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  %189 = invoke noundef ptr @_ZN6spdlog18default_logger_rawEv()
-          to label %.noexc.i59 unwind label %192, !noalias !43
+  %186 = invoke noundef ptr @_ZN6spdlog18default_logger_rawEv()
+          to label %.noexc.i59 unwind label %189, !noalias !43
 
-.noexc.i59:                                       ; preds = %188
+.noexc.i59:                                       ; preds = %185
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !noalias !43
-  invoke void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrCodeEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %189, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %6, i32 noundef 4, ptr nonnull @.str.2, i64 2, ptr noundef nonnull align 4 dereferenceable(4) %15)
-          to label %190 unwind label %192, !noalias !43
+  invoke void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrCodeEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %186, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %6, i32 noundef 4, ptr nonnull @.str.2, i64 2, ptr noundef nonnull align 4 dereferenceable(4) %15)
+          to label %187 unwind label %189, !noalias !43
 
-190:                                              ; preds = %.noexc.i59
+187:                                              ; preds = %.noexc.i59
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !43
   store i8 47, ptr %7, align 1, !noalias !43
-  %191 = invoke noundef ptr @_ZN6spdlog18default_logger_rawEv()
-          to label %.noexc2.i unwind label %192, !noalias !43
+  %188 = invoke noundef ptr @_ZN6spdlog18default_logger_rawEv()
+          to label %.noexc2.i unwind label %189, !noalias !43
 
-.noexc2.i:                                        ; preds = %190
+.noexc2.i:                                        ; preds = %187
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !noalias !43
-  invoke void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %191, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %5, i32 noundef 4, ptr nonnull @.str.2, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %_ZNK8WasmEdge6Loader10Serializer17logSerializeErrorENS_7ErrCodeENS_11ASTNodeAttrE.exit unwind label %192, !noalias !43
+  invoke void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %188, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %5, i32 noundef 4, ptr nonnull @.str.2, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %_ZNK8WasmEdge6Loader10Serializer17logSerializeErrorENS_7ErrCodeENS_11ASTNodeAttrE.exit unwind label %189, !noalias !43
 
-192:                                              ; preds = %.noexc2.i, %190, %.noexc.i59, %188
-  %193 = landingpad { ptr, i32 }
+189:                                              ; preds = %.noexc2.i, %187, %.noexc.i59, %185
+  %190 = landingpad { ptr, i32 }
           catch ptr null
-  %194 = extractvalue { ptr, i32 } %193, 0
-  call void @__clang_call_terminate(ptr %194) #19, !noalias !43
+  %191 = extractvalue { ptr, i32 } %190, 0
+  call void @__clang_call_terminate(ptr %191) #19, !noalias !43
   unreachable
 
 _ZNK8WasmEdge6Loader10Serializer17logSerializeErrorENS_7ErrCodeENS_11ASTNodeAttrE.exit: ; preds = %.noexc2.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !43
-  %195 = load i32, ptr %15, align 4, !noalias !46
+  %192 = load i32, ptr %15, align 4, !noalias !46
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   store i8 0, ptr %0, align 4
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %195, ptr %196, align 4
-  br label %198
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %192, ptr %193, align 4
+  br label %195
 
-197:                                              ; preds = %162
+194:                                              ; preds = %162
   store i64 1, ptr %0, align 4
-  br label %198
+  br label %195
 
-198:                                              ; preds = %197, %_ZNK8WasmEdge6Loader10Serializer17logSerializeErrorENS_7ErrCodeENS_11ASTNodeAttrE.exit, %185, %169, %32
+195:                                              ; preds = %194, %_ZNK8WasmEdge6Loader10Serializer17logSerializeErrorENS_7ErrCodeENS_11ASTNodeAttrE.exit, %182, %166, %32
   ret void
 
-199:                                              ; preds = %.invoke, %153, %79, %56
-  %200 = landingpad { ptr, i32 }
+196:                                              ; preds = %.invoke, %153, %79, %56
+  %197 = landingpad { ptr, i32 }
           catch ptr null
-  %201 = extractvalue { ptr, i32 } %200, 0
-  call void @__clang_call_terminate(ptr %201) #19
+  %198 = extractvalue { ptr, i32 } %197, 0
+  call void @__clang_call_terminate(ptr %198) #19
   unreachable
 }
 

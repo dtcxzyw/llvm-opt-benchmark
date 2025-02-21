@@ -611,9 +611,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit36:         ; preds = %_ZN9VectorSet8test_
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 232
   %211 = load ptr, ptr %210, align 8
   %212 = tail call noundef zeroext i8 %211(ptr noundef nonnull align 8 dereferenceable(92) %193) #11
-  %.not.i.i.i37 = icmp eq i8 %208, %212
-  %..i.i.i = select i1 %.not.i.i.i37, ptr %200, ptr null
-  %213 = tail call noundef ptr @_ZNK9MultiNode8proj_outEj(ptr noundef nonnull align 8 dereferenceable(52) %..i.i.i, i32 noundef 0) #11
+  %213 = tail call noundef ptr @_ZNK9MultiNode8proj_outEj(ptr noundef nonnull align 8 dereferenceable(52) %200, i32 noundef 0) #11
   %214 = load ptr, ptr %56, align 8
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 56
   %216 = load ptr, ptr %215, align 8
@@ -21947,9 +21945,7 @@ _ZNK15CountedLoopNode8loopexitEv.exit:            ; preds = %127
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 232
   %146 = load ptr, ptr %145, align 8
   %147 = tail call noundef zeroext i8 %146(ptr noundef nonnull align 8 dereferenceable(92) %120) #11
-  %.not.i.i.i = icmp eq i8 %143, %147
-  %..i.i.i = select i1 %.not.i.i.i, ptr %135, ptr null
-  %148 = tail call noundef ptr @_ZNK9MultiNode16proj_out_or_nullEj(ptr noundef nonnull align 8 dereferenceable(52) %..i.i.i, i32 noundef 0) #11
+  %148 = tail call noundef ptr @_ZNK9MultiNode16proj_out_or_nullEj(ptr noundef nonnull align 8 dereferenceable(52) %135, i32 noundef 0) #11
   %149 = icmp eq ptr %148, null
   br i1 %149, label %_ZN13IdealLoopTree10is_countedEv.exit.thread, label %150
 

@@ -217,15 +217,12 @@ _ZN4node9inspector8protocol15DictionaryValue4castEPNS1_5ValueE.exit: ; preds = %
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_title.i) #11
   %m_url.i = getelementptr inbounds nuw i8, ptr %call1, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_url.i) #11
-  %1 = load i32, ptr %m_type.i, align 8
-  %cmp.not.i = icmp eq i32 %1, 6
-  %spec.select.i = select i1 %cmp.not.i, ptr %value, ptr null
   tail call void @_ZN4node9inspector8protocol12ErrorSupport4pushEv(ptr noundef nonnull align 8 dereferenceable(48) %errors) #11
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #11
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 8))
-  %call4 = call noundef ptr @_ZNK4node9inspector8protocol15DictionaryValue3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %spec.select.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
+  %call4 = call noundef ptr @_ZNK4node9inspector8protocol15DictionaryValue3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %value, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #11
   call void @_ZN4node9inspector8protocol12ErrorSupport7setNameEPKc(ptr noundef nonnull align 8 dereferenceable(48) %errors, ptr noundef nonnull @.str.1) #11
@@ -236,8 +233,8 @@ _ZN4node9inspector8protocol15DictionaryValue4castEPNS1_5ValueE.exit: ; preds = %
 cond.true.i:                                      ; preds = %_ZN4node9inspector8protocol15DictionaryValue4castEPNS1_5ValueE.exit
   %vtable.i = load ptr, ptr %call4, align 8, !noalias !5
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 56
-  %2 = load ptr, ptr %vfn.i, align 8
-  %call.i19 = call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(12) %call4, ptr noundef nonnull align 8 %ref.tmp5) #11
+  %1 = load ptr, ptr %vfn.i, align 8
+  %call.i19 = call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(12) %call4, ptr noundef nonnull align 8 %ref.tmp5) #11
   br i1 %call.i19, label %_ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cond.true.i, %_ZN4node9inspector8protocol15DictionaryValue4castEPNS1_5ValueE.exit
@@ -251,7 +248,7 @@ _ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11cha
   %call.i20 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef %call.i20, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 4))
-  %call10 = call noundef ptr @_ZNK4node9inspector8protocol15DictionaryValue3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %spec.select.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #11
+  %call10 = call noundef ptr @_ZNK4node9inspector8protocol15DictionaryValue3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %value, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #11
   call void @_ZN4node9inspector8protocol12ErrorSupport7setNameEPKc(ptr noundef nonnull align 8 dereferenceable(48) %errors, ptr noundef nonnull @.str.2) #11
@@ -262,8 +259,8 @@ _ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11cha
 cond.true.i24:                                    ; preds = %_ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit
   %vtable.i25 = load ptr, ptr %call10, align 8, !noalias !8
   %vfn.i26 = getelementptr inbounds nuw i8, ptr %vtable.i25, i64 56
-  %3 = load ptr, ptr %vfn.i26, align 8
-  %call.i27 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(12) %call10, ptr noundef nonnull align 8 %ref.tmp11) #11
+  %2 = load ptr, ptr %vfn.i26, align 8
+  %call.i27 = call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(12) %call10, ptr noundef nonnull align 8 %ref.tmp11) #11
   br i1 %call.i27, label %_ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit29, label %if.then.i28
 
 if.then.i28:                                      ; preds = %cond.true.i24, %_ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit
@@ -277,7 +274,7 @@ _ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11cha
   %call.i30 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef %call.i30, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 5))
-  %call16 = call noundef ptr @_ZNK4node9inspector8protocol15DictionaryValue3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %spec.select.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #11
+  %call16 = call noundef ptr @_ZNK4node9inspector8protocol15DictionaryValue3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %value, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #11
   call void @_ZN4node9inspector8protocol12ErrorSupport7setNameEPKc(ptr noundef nonnull align 8 dereferenceable(48) %errors, ptr noundef nonnull @.str.3) #11
@@ -288,8 +285,8 @@ _ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11cha
 cond.true.i34:                                    ; preds = %_ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit29
   %vtable.i35 = load ptr, ptr %call16, align 8, !noalias !11
   %vfn.i36 = getelementptr inbounds nuw i8, ptr %vtable.i35, i64 56
-  %4 = load ptr, ptr %vfn.i36, align 8
-  %call.i37 = call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(12) %call16, ptr noundef nonnull align 8 %ref.tmp17) #11
+  %3 = load ptr, ptr %vfn.i36, align 8
+  %call.i37 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(12) %call16, ptr noundef nonnull align 8 %ref.tmp17) #11
   br i1 %call.i37, label %_ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit39, label %if.then.i38
 
 if.then.i38:                                      ; preds = %cond.true.i34, %_ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit29
@@ -303,7 +300,7 @@ _ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11cha
   %call.i40 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20, ptr noundef %call.i40, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp21) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.4, i64 3))
-  %call22 = call noundef ptr @_ZNK4node9inspector8protocol15DictionaryValue3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %spec.select.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #11
+  %call22 = call noundef ptr @_ZNK4node9inspector8protocol15DictionaryValue3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %value, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp21) #11
   call void @_ZN4node9inspector8protocol12ErrorSupport7setNameEPKc(ptr noundef nonnull align 8 dereferenceable(48) %errors, ptr noundef nonnull @.str.4) #11
@@ -314,8 +311,8 @@ _ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11cha
 cond.true.i44:                                    ; preds = %_ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit39
   %vtable.i45 = load ptr, ptr %call22, align 8, !noalias !14
   %vfn.i46 = getelementptr inbounds nuw i8, ptr %vtable.i45, i64 56
-  %5 = load ptr, ptr %vfn.i46, align 8
-  %call.i47 = call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(12) %call22, ptr noundef nonnull align 8 %ref.tmp23) #11
+  %4 = load ptr, ptr %vfn.i46, align 8
+  %call.i47 = call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(12) %call22, ptr noundef nonnull align 8 %ref.tmp23) #11
   br i1 %call.i47, label %_ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit49, label %if.then.i48
 
 if.then.i48:                                      ; preds = %cond.true.i44, %_ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit39
@@ -330,16 +327,16 @@ _ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11cha
   br i1 %call26, label %_ZNKSt14default_deleteIN4node9inspector8protocol10NodeWorker10WorkerInfoEEclEPS4_.exit.i, label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %_ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit49
-  %6 = ptrtoint ptr %call1 to i64
-  store i64 %6, ptr %agg.result, align 8
+  %5 = ptrtoint ptr %call1 to i64
+  store i64 %5, ptr %agg.result, align 8
   br label %return
 
 _ZNKSt14default_deleteIN4node9inspector8protocol10NodeWorker10WorkerInfoEEclEPS4_.exit.i: ; preds = %_ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit49
   store ptr null, ptr %agg.result, align 8
   %vtable.i.i = load ptr, ptr %call1, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 24
-  %7 = load ptr, ptr %vfn.i.i, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(136) %call1) #11
+  %6 = load ptr, ptr %vfn.i.i, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(136) %call1) #11
   br label %return
 
 return:                                           ; preds = %_ZNKSt14default_deleteIN4node9inspector8protocol10NodeWorker10WorkerInfoEEclEPS4_.exit.i, %cleanup.thread, %if.then
@@ -577,15 +574,12 @@ _ZN4node9inspector8protocol15DictionaryValue4castEPNS1_5ValueE.exit: ; preds = %
   store ptr null, ptr %m_workerInfo.i, align 8
   %m_waitingForDebugger.i = getelementptr inbounds nuw i8, ptr %call1, i64 48
   store i8 0, ptr %m_waitingForDebugger.i, align 8
-  %1 = load i32, ptr %m_type.i, align 8
-  %cmp.not.i = icmp eq i32 %1, 6
-  %spec.select.i = select i1 %cmp.not.i, ptr %value, ptr null
   tail call void @_ZN4node9inspector8protocol12ErrorSupport4pushEv(ptr noundef nonnull align 8 dereferenceable(48) %errors) #11
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #11
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.5, i64 9))
-  %call4 = call noundef ptr @_ZNK4node9inspector8protocol15DictionaryValue3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %spec.select.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
+  %call4 = call noundef ptr @_ZNK4node9inspector8protocol15DictionaryValue3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %value, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #11
   call void @_ZN4node9inspector8protocol12ErrorSupport7setNameEPKc(ptr noundef nonnull align 8 dereferenceable(48) %errors, ptr noundef nonnull @.str.5) #11
@@ -596,8 +590,8 @@ _ZN4node9inspector8protocol15DictionaryValue4castEPNS1_5ValueE.exit: ; preds = %
 cond.true.i:                                      ; preds = %_ZN4node9inspector8protocol15DictionaryValue4castEPNS1_5ValueE.exit
   %vtable.i = load ptr, ptr %call4, align 8, !noalias !44
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 56
-  %2 = load ptr, ptr %vfn.i, align 8
-  %call.i15 = call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(12) %call4, ptr noundef nonnull align 8 %ref.tmp5) #11
+  %1 = load ptr, ptr %vfn.i, align 8
+  %call.i15 = call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(12) %call4, ptr noundef nonnull align 8 %ref.tmp5) #11
   br i1 %call.i15, label %_ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cond.true.i, %_ZN4node9inspector8protocol15DictionaryValue4castEPNS1_5ValueE.exit
@@ -611,22 +605,22 @@ _ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11cha
   %call.i16 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef %call.i16, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.6, i64 10))
-  %call10 = call noundef ptr @_ZNK4node9inspector8protocol15DictionaryValue3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %spec.select.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #11
+  %call10 = call noundef ptr @_ZNK4node9inspector8protocol15DictionaryValue3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %value, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #11
   call void @_ZN4node9inspector8protocol12ErrorSupport7setNameEPKc(ptr noundef nonnull align 8 dereferenceable(48) %errors, ptr noundef nonnull @.str.6) #11
   call void @_ZN4node9inspector8protocol10NodeWorker10WorkerInfo9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp11, ptr noundef %call10, ptr noundef nonnull %errors)
-  %3 = load ptr, ptr %ref.tmp11, align 8
-  %4 = load ptr, ptr %m_workerInfo.i, align 8
-  store ptr %3, ptr %m_workerInfo.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %4, null
+  %2 = load ptr, ptr %ref.tmp11, align 8
+  %3 = load ptr, ptr %m_workerInfo.i, align 8
+  store ptr %2, ptr %m_workerInfo.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10unique_ptrIN4node9inspector8protocol10NodeWorker10WorkerInfoESt14default_deleteIS4_EED2Ev.exit, label %_ZNKSt14default_deleteIN4node9inspector8protocol10NodeWorker10WorkerInfoEEclEPS4_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN4node9inspector8protocol10NodeWorker10WorkerInfoEEclEPS4_.exit.i.i.i.i: ; preds = %_ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit
-  %vtable.i.i.i.i.i = load ptr, ptr %4, align 8
+  %vtable.i.i.i.i.i = load ptr, ptr %3, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 24
-  %5 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(136) %4) #11
+  %4 = load ptr, ptr %vfn.i.i.i.i.i, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(136) %3) #11
   br label %_ZNSt10unique_ptrIN4node9inspector8protocol10NodeWorker10WorkerInfoESt14default_deleteIS4_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node9inspector8protocol10NodeWorker10WorkerInfoESt14default_deleteIS4_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4node9inspector8protocol10NodeWorker10WorkerInfoEEclEPS4_.exit.i.i.i.i, %_ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit
@@ -634,7 +628,7 @@ _ZNSt10unique_ptrIN4node9inspector8protocol10NodeWorker10WorkerInfoESt14default_
   %call.i20 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef %call.i20, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.7, i64 18))
-  %call16 = call noundef ptr @_ZNK4node9inspector8protocol15DictionaryValue3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %spec.select.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #11
+  %call16 = call noundef ptr @_ZNK4node9inspector8protocol15DictionaryValue3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %value, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #11
   call void @_ZN4node9inspector8protocol12ErrorSupport7setNameEPKc(ptr noundef nonnull align 8 dereferenceable(48) %errors, ptr noundef nonnull @.str.7) #11
@@ -646,8 +640,8 @@ _ZNSt10unique_ptrIN4node9inspector8protocol10NodeWorker10WorkerInfoESt14default_
 cond.true.i24:                                    ; preds = %_ZNSt10unique_ptrIN4node9inspector8protocol10NodeWorker10WorkerInfoESt14default_deleteIS4_EED2Ev.exit
   %vtable.i25 = load ptr, ptr %call16, align 8
   %vfn.i26 = getelementptr inbounds nuw i8, ptr %vtable.i25, i64 32
-  %6 = load ptr, ptr %vfn.i26, align 8
-  %call.i27 = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(12) %call16, ptr noundef nonnull %result.i) #11
+  %5 = load ptr, ptr %vfn.i26, align 8
+  %call.i27 = call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(12) %call16, ptr noundef nonnull %result.i) #11
   br i1 %call.i27, label %_ZN4node9inspector8protocol16ValueConversionsIbE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit, label %if.then.i28
 
 if.then.i28:                                      ; preds = %cond.true.i24, %_ZNSt10unique_ptrIN4node9inspector8protocol10NodeWorker10WorkerInfoESt14default_deleteIS4_EED2Ev.exit
@@ -655,25 +649,25 @@ if.then.i28:                                      ; preds = %cond.true.i24, %_ZN
   br label %_ZN4node9inspector8protocol16ValueConversionsIbE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit
 
 _ZN4node9inspector8protocol16ValueConversionsIbE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit: ; preds = %cond.true.i24, %if.then.i28
-  %7 = load i8, ptr %result.i, align 1
+  %6 = load i8, ptr %result.i, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %result.i)
-  %frombool = and i8 %7, 1
+  %frombool = and i8 %6, 1
   store i8 %frombool, ptr %m_waitingForDebugger.i, align 8
   call void @_ZN4node9inspector8protocol12ErrorSupport3popEv(ptr noundef nonnull align 8 dereferenceable(48) %errors) #11
   %call19 = call noundef zeroext i1 @_ZN4node9inspector8protocol12ErrorSupport9hasErrorsEv(ptr noundef nonnull align 8 dereferenceable(48) %errors) #11
   br i1 %call19, label %_ZNKSt14default_deleteIN4node9inspector8protocol10NodeWorker28AttachedToWorkerNotificationEEclEPS4_.exit.i, label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %_ZN4node9inspector8protocol16ValueConversionsIbE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit
-  %8 = ptrtoint ptr %call1 to i64
-  store i64 %8, ptr %agg.result, align 8
+  %7 = ptrtoint ptr %call1 to i64
+  store i64 %7, ptr %agg.result, align 8
   br label %return
 
 _ZNKSt14default_deleteIN4node9inspector8protocol10NodeWorker28AttachedToWorkerNotificationEEclEPS4_.exit.i: ; preds = %_ZN4node9inspector8protocol16ValueConversionsIbE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit
   store ptr null, ptr %agg.result, align 8
   %vtable.i.i30 = load ptr, ptr %call1, align 8
   %vfn.i.i31 = getelementptr inbounds nuw i8, ptr %vtable.i.i30, i64 24
-  %9 = load ptr, ptr %vfn.i.i31, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(49) %call1) #11
+  %8 = load ptr, ptr %vfn.i.i31, align 8
+  call void %8(ptr noundef nonnull align 8 dereferenceable(49) %call1) #11
   br label %return
 
 return:                                           ; preds = %_ZNKSt14default_deleteIN4node9inspector8protocol10NodeWorker28AttachedToWorkerNotificationEEclEPS4_.exit.i, %cleanup.thread, %if.then
@@ -831,15 +825,12 @@ _ZN4node9inspector8protocol15DictionaryValue4castEPNS1_5ValueE.exit: ; preds = %
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9inspector8protocol10NodeWorker30DetachedFromWorkerNotificationE, i64 16), ptr %call1, align 8
   %m_sessionId.i = getelementptr inbounds nuw i8, ptr %call1, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_sessionId.i) #11
-  %1 = load i32, ptr %m_type.i, align 8
-  %cmp.not.i = icmp eq i32 %1, 6
-  %spec.select.i = select i1 %cmp.not.i, ptr %value, ptr null
   tail call void @_ZN4node9inspector8protocol12ErrorSupport4pushEv(ptr noundef nonnull align 8 dereferenceable(48) %errors) #11
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #11
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.5, i64 9))
-  %call4 = call noundef ptr @_ZNK4node9inspector8protocol15DictionaryValue3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %spec.select.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
+  %call4 = call noundef ptr @_ZNK4node9inspector8protocol15DictionaryValue3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %value, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #11
   call void @_ZN4node9inspector8protocol12ErrorSupport7setNameEPKc(ptr noundef nonnull align 8 dereferenceable(48) %errors, ptr noundef nonnull @.str.5) #11
@@ -850,8 +841,8 @@ _ZN4node9inspector8protocol15DictionaryValue4castEPNS1_5ValueE.exit: ; preds = %
 cond.true.i:                                      ; preds = %_ZN4node9inspector8protocol15DictionaryValue4castEPNS1_5ValueE.exit
   %vtable.i = load ptr, ptr %call4, align 8, !noalias !62
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 56
-  %2 = load ptr, ptr %vfn.i, align 8
-  %call.i9 = call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(12) %call4, ptr noundef nonnull align 8 %ref.tmp5) #11
+  %1 = load ptr, ptr %vfn.i, align 8
+  %call.i9 = call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(12) %call4, ptr noundef nonnull align 8 %ref.tmp5) #11
   br i1 %call.i9, label %_ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cond.true.i, %_ZN4node9inspector8protocol15DictionaryValue4castEPNS1_5ValueE.exit
@@ -866,16 +857,16 @@ _ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11cha
   br i1 %call8, label %_ZNKSt14default_deleteIN4node9inspector8protocol10NodeWorker30DetachedFromWorkerNotificationEEclEPS4_.exit.i, label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %_ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit
-  %3 = ptrtoint ptr %call1 to i64
-  store i64 %3, ptr %agg.result, align 8
+  %2 = ptrtoint ptr %call1 to i64
+  store i64 %2, ptr %agg.result, align 8
   br label %return
 
 _ZNKSt14default_deleteIN4node9inspector8protocol10NodeWorker30DetachedFromWorkerNotificationEEclEPS4_.exit.i: ; preds = %_ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit
   store ptr null, ptr %agg.result, align 8
   %vtable.i.i = load ptr, ptr %call1, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 24
-  %4 = load ptr, ptr %vfn.i.i, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(40) %call1) #11
+  %3 = load ptr, ptr %vfn.i.i, align 8
+  call void %3(ptr noundef nonnull align 8 dereferenceable(40) %call1) #11
   br label %return
 
 return:                                           ; preds = %_ZNKSt14default_deleteIN4node9inspector8protocol10NodeWorker30DetachedFromWorkerNotificationEEclEPS4_.exit.i, %cleanup.thread, %if.then
@@ -978,15 +969,12 @@ _ZN4node9inspector8protocol15DictionaryValue4castEPNS1_5ValueE.exit: ; preds = %
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_sessionId.i) #11
   %m_message.i = getelementptr inbounds nuw i8, ptr %call1, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_message.i) #11
-  %1 = load i32, ptr %m_type.i, align 8
-  %cmp.not.i = icmp eq i32 %1, 6
-  %spec.select.i = select i1 %cmp.not.i, ptr %value, ptr null
   tail call void @_ZN4node9inspector8protocol12ErrorSupport4pushEv(ptr noundef nonnull align 8 dereferenceable(48) %errors) #11
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #11
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.5, i64 9))
-  %call4 = call noundef ptr @_ZNK4node9inspector8protocol15DictionaryValue3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %spec.select.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
+  %call4 = call noundef ptr @_ZNK4node9inspector8protocol15DictionaryValue3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %value, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #11
   call void @_ZN4node9inspector8protocol12ErrorSupport7setNameEPKc(ptr noundef nonnull align 8 dereferenceable(48) %errors, ptr noundef nonnull @.str.5) #11
@@ -997,8 +985,8 @@ _ZN4node9inspector8protocol15DictionaryValue4castEPNS1_5ValueE.exit: ; preds = %
 cond.true.i:                                      ; preds = %_ZN4node9inspector8protocol15DictionaryValue4castEPNS1_5ValueE.exit
   %vtable.i = load ptr, ptr %call4, align 8, !noalias !74
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 56
-  %2 = load ptr, ptr %vfn.i, align 8
-  %call.i12 = call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(12) %call4, ptr noundef nonnull align 8 %ref.tmp5) #11
+  %1 = load ptr, ptr %vfn.i, align 8
+  %call.i12 = call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(12) %call4, ptr noundef nonnull align 8 %ref.tmp5) #11
   br i1 %call.i12, label %_ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cond.true.i, %_ZN4node9inspector8protocol15DictionaryValue4castEPNS1_5ValueE.exit
@@ -1012,7 +1000,7 @@ _ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11cha
   %call.i13 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef %call.i13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.8, i64 7))
-  %call10 = call noundef ptr @_ZNK4node9inspector8protocol15DictionaryValue3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %spec.select.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #11
+  %call10 = call noundef ptr @_ZNK4node9inspector8protocol15DictionaryValue3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %value, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #11
   call void @_ZN4node9inspector8protocol12ErrorSupport7setNameEPKc(ptr noundef nonnull align 8 dereferenceable(48) %errors, ptr noundef nonnull @.str.8) #11
@@ -1023,8 +1011,8 @@ _ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11cha
 cond.true.i17:                                    ; preds = %_ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit
   %vtable.i18 = load ptr, ptr %call10, align 8, !noalias !77
   %vfn.i19 = getelementptr inbounds nuw i8, ptr %vtable.i18, i64 56
-  %3 = load ptr, ptr %vfn.i19, align 8
-  %call.i20 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(12) %call10, ptr noundef nonnull align 8 %ref.tmp11) #11
+  %2 = load ptr, ptr %vfn.i19, align 8
+  %call.i20 = call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(12) %call10, ptr noundef nonnull align 8 %ref.tmp11) #11
   br i1 %call.i20, label %_ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit22, label %if.then.i21
 
 if.then.i21:                                      ; preds = %cond.true.i17, %_ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit
@@ -1039,16 +1027,16 @@ _ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11cha
   br i1 %call14, label %_ZNKSt14default_deleteIN4node9inspector8protocol10NodeWorker37ReceivedMessageFromWorkerNotificationEEclEPS4_.exit.i, label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %_ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit22
-  %4 = ptrtoint ptr %call1 to i64
-  store i64 %4, ptr %agg.result, align 8
+  %3 = ptrtoint ptr %call1 to i64
+  store i64 %3, ptr %agg.result, align 8
   br label %return
 
 _ZNKSt14default_deleteIN4node9inspector8protocol10NodeWorker37ReceivedMessageFromWorkerNotificationEEclEPS4_.exit.i: ; preds = %_ZN4node9inspector8protocol16ValueConversionsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit22
   store ptr null, ptr %agg.result, align 8
   %vtable.i.i = load ptr, ptr %call1, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 24
-  %5 = load ptr, ptr %vfn.i.i, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(72) %call1) #11
+  %4 = load ptr, ptr %vfn.i.i, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(72) %call1) #11
   br label %return
 
 return:                                           ; preds = %_ZNKSt14default_deleteIN4node9inspector8protocol10NodeWorker37ReceivedMessageFromWorkerNotificationEEclEPS4_.exit.i, %cleanup.thread, %if.then

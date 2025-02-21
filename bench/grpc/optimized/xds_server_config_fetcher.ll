@@ -3892,7 +3892,6 @@ for.body24.i:                                     ; preds = %for.body16.i, %invo
   %_M_index.i.i.i.i = getelementptr inbounds nuw i8, ptr %79, i64 192
   %80 = load i8, ptr %_M_index.i.i.i.i, align 8
   %cmp.i.i.not.i = icmp eq i8 %80, 0
-  %spec.select.i.i.i = select i1 %cmp.i.i.not.i, ptr %http_connection_manager.i, ptr null
   br i1 %cmp.i.i.not.i, label %if.then.i87, label %if.end.i
 
 if.then.i87:                                      ; preds = %for.body24.i
@@ -3903,7 +3902,7 @@ if.then.i87:                                      ; preds = %for.body24.i
 while.body.i.i198.i:                              ; preds = %if.then.i87, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
   %__x.025.i.i.i = phi ptr [ %__x.0.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %__x.023.i.i.i, %if.then.i87 ]
   %_M_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.025.i.i.i, i64 32
-  %call.i.i.i.i199.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i)
+  %call.i.i.i.i199.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %http_connection_manager.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %while.body.i.i198.i
@@ -3938,7 +3937,7 @@ if.end12.i.i.i:                                   ; preds = %if.else.i.i210.i, %
   %__y.0.lcssa31.i.i.i = phi ptr [ %__y.0.lcssa30.i.i.i, %if.else.i.i210.i ], [ %__x.025.i.i.i, %while.end.i.i.i ]
   %__j.sroa.0.0.i.i.i = phi ptr [ %call.i.i.i211.i, %if.else.i.i210.i ], [ %__x.025.i.i.i, %while.end.i.i.i ]
   %_M_storage.i.i.i.i.i202.i = getelementptr inbounds nuw i8, ptr %__j.sroa.0.0.i.i.i, i64 32
-  %call.i.i4.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i202.i, ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i.i)
+  %call.i.i4.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i202.i, ptr noundef nonnull align 8 dereferenceable(32) %http_connection_manager.i)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i.i.i unwind label %terminate.lpad.i.i5.i.i.i
 
 terminate.lpad.i.i5.i.i.i:                        ; preds = %if.end12.i.i.i
@@ -3959,7 +3958,7 @@ if.then.i207.i:                                   ; preds = %_ZNKSt4lessINSt7__c
 
 lor.rhs.i223.i:                                   ; preds = %if.then.i207.i
   %_M_storage.i.i.i.i224.i = getelementptr inbounds nuw i8, ptr %retval.sroa.4.0.i.ph.i.i, i64 32
-  %call.i.i.i225.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i224.i)
+  %call.i.i.i225.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %http_connection_manager.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i224.i)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i227.i unwind label %terminate.lpad.i.i.i226.i
 
 terminate.lpad.i.i.i226.i:                        ; preds = %lor.rhs.i223.i
@@ -3980,7 +3979,7 @@ lor.end.i.i:                                      ; preds = %_ZNKSt4lessINSt7__c
 
 call5.i.i.i.i.i.i.noexc231.i:                     ; preds = %lor.end.i.i
   %_M_storage.i.i.i.i.i229.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i232.i, i64 32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i229.i, ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i229.i, ptr noundef nonnull align 8 dereferenceable(32) %http_connection_manager.i)
           to label %call5.i.noexc.i unwind label %lpad.i.i.i.i.i
 
 lpad.i.i.i.i.i:                                   ; preds = %call5.i.i.i.i.i.i.noexc231.i

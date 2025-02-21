@@ -2856,7 +2856,7 @@ entry:
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond, %entry
-  %self.0 = phi ptr [ %0, %entry ], [ %2, %while.cond ]
+  %self.0 = phi ptr [ %0, %entry ], [ %cond.i.i.i.i.i, %while.cond ]
   %target_.i = getelementptr inbounds nuw i8, ptr %self.0, i64 24
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %target_.i, align 4
   %cmp.i.not.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i, 0
@@ -2864,10 +2864,11 @@ while.cond:                                       ; preds = %while.cond, %entry
   %add.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i, %1
   %2 = inttoptr i64 %add.i.i.i.i.i.i to ptr
   %cond.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i, ptr null, ptr %2
-  %bf.load.i.i.i.i.i.i.i.i.i.i = load i32, ptr %cond.i.i.i.i.i, align 4
+  %bf.load.i.i.i.i.i.i.i.i.i.i = load i32, ptr %2, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i.i, -16777216
-  %cmp.i.i.i.i.i.i.i.i.not = icmp eq i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i, 1140850688
-  br i1 %cmp.i.i.i.i.i.i.i.i.not, label %while.cond, label %while.end, !llvm.loop !17
+  %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i, 1140850688
+  %tobool.not = or i1 %cmp.i.not.i.i.i.i.i, %cmp.i.i.i.i.i.i.i.i
+  br i1 %tobool.not, label %while.end, label %while.cond, !llvm.loop !17
 
 while.end:                                        ; preds = %while.cond
   %3 = ptrtoint ptr %cond.i.i.i.i.i to i64
@@ -3272,7 +3273,7 @@ if.end:                                           ; preds = %entry
 
 for.cond:                                         ; preds = %_ZSt20uninitialized_copy_nIPN6hermes2vm17GCHermesValueBaseINS1_11HermesValueEEEjSt16reverse_iteratorIPNS1_17PinnedHermesValueEEET1_T_T0_SA_.exit, %if.end
   %totalArgCount.0 = phi i32 [ %conv.i.i, %if.end ], [ %add, %_ZSt20uninitialized_copy_nIPN6hermes2vm17GCHermesValueBaseINS1_11HermesValueEEEjSt16reverse_iteratorIPNS1_17PinnedHermesValueEEET1_T_T0_SA_.exit ]
-  %self.addr.0 = phi ptr [ %self, %if.end ], [ %10, %_ZSt20uninitialized_copy_nIPN6hermes2vm17GCHermesValueBaseINS1_11HermesValueEEEjSt16reverse_iteratorIPNS1_17PinnedHermesValueEEET1_T_T0_SA_.exit ]
+  %self.addr.0 = phi ptr [ %self, %if.end ], [ %cond.i.i.i.i.i, %_ZSt20uninitialized_copy_nIPN6hermes2vm17GCHermesValueBaseINS1_11HermesValueEEEjSt16reverse_iteratorIPNS1_17PinnedHermesValueEEET1_T_T0_SA_.exit ]
   %argStorage_.i = getelementptr inbounds nuw i8, ptr %self.addr.0, i64 28
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %argStorage_.i, align 4
   %conv.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i to i64
@@ -3327,13 +3328,16 @@ for.body.i.i.i.i.i:                               ; preds = %if.end17, %for.body
 _ZSt20uninitialized_copy_nIPN6hermes2vm17GCHermesValueBaseINS1_11HermesValueEEEjSt16reverse_iteratorIPNS1_17PinnedHermesValueEEET1_T_T0_SA_.exit: ; preds = %for.body.i.i.i.i.i, %if.end17
   %target_.i = getelementptr inbounds nuw i8, ptr %self.addr.0, i64 24
   %agg.tmp.sroa.0.0.copyload.i.i.i57 = load i32, ptr %target_.i, align 4
+  %cmp.i.not.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i57, 0
   %conv.i.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i57 to i64
   %add.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i, %4
   %10 = inttoptr i64 %add.i.i.i.i.i.i to ptr
+  %cond.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i, ptr null, ptr %10
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i32, ptr %10, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i.i, -16777216
-  %cmp.i.i.i.i.i.i.i.i.not = icmp eq i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i, 1140850688
-  br i1 %cmp.i.i.i.i.i.i.i.i.not, label %for.cond, label %for.end, !llvm.loop !38
+  %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i, 1140850688
+  %tobool.not = or i1 %cmp.i.not.i.i.i.i.i, %cmp.i.i.i.i.i.i.i.i
+  br i1 %tobool.not, label %for.end, label %for.cond, !llvm.loop !38
 
 for.end:                                          ; preds = %_ZSt20uninitialized_copy_nIPN6hermes2vm17GCHermesValueBaseINS1_11HermesValueEEEjSt16reverse_iteratorIPNS1_17PinnedHermesValueEEET1_T_T0_SA_.exit
   %target_.i.le = getelementptr inbounds nuw i8, ptr %self.addr.0, i64 24

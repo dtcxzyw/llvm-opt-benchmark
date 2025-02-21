@@ -6084,13 +6084,12 @@ define internal fastcc void @test_binary_get_impl(ptr noundef readonly captures(
   %6 = alloca %union.anon.12, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #21
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 269352960, ptr %5, align 4, !tbaa !9
   %7 = icmp ne i8 %1, 29
   %8 = icmp ne i8 %1, 35
   %or.cond.not = and i1 %7, %8
   %spec.store.select = select i1 %or.cond.not, i64 0, i64 4
-  %. = select i1 %or.cond.not, ptr null, ptr %5
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
   %10 = or disjoint i64 %spec.store.select, 24
   %11 = add i64 %9, %10
@@ -6127,7 +6126,7 @@ define internal fastcc void @test_binary_get_impl(ptr noundef readonly captures(
 
 25:                                               ; preds = %14, %14
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull readonly align 4 %., i64 range(i64 0, 5) %spec.store.select, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull readonly align 4 %5, i64 range(i64 0, 5) %spec.store.select, i1 false)
   br label %ext_command.exit
 
 ext_command.exit:                                 ; preds = %14, %25
@@ -6320,7 +6319,7 @@ safe_recv_packet.exit41:                          ; preds = %safe_send.exit37, %
   ]
 
 114:                                              ; preds = %109, %109
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %102, ptr nonnull readonly align 4 %., i64 range(i64 0, 5) %spec.store.select, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %102, ptr nonnull readonly align 4 %5, i64 range(i64 0, 5) %spec.store.select, i1 false)
   br label %ext_command.exit45
 
 ext_command.exit45:                               ; preds = %109, %114
@@ -6399,7 +6398,7 @@ safe_recv_packet.exit55:                          ; preds = %139, %141
   br i1 %exitcond66.not, label %149, label %139, !llvm.loop !81
 
 149:                                              ; preds = %safe_recv_packet.exit55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #21
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #21
   ret void
@@ -6414,7 +6413,7 @@ define internal fastcc void @test_binary_getq_impl(ptr noundef readonly captures
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #21
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #21
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 269352960, ptr %6, align 4, !tbaa !9
   %7 = icmp ne i8 %1, 30
   %8 = icmp ne i8 %1, 36
@@ -6453,7 +6452,6 @@ storage_command.exit:                             ; preds = %2
   store i32 0, ptr %23, align 4, !tbaa !6
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull readonly align 1 %0, i64 %9, i1 false)
-  %. = select i1 %or.cond.not, ptr null, ptr %6
   %25 = or disjoint i64 %spec.store.select, 24
   %26 = or disjoint i64 %spec.store.select, 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -6478,7 +6476,7 @@ storage_command.exit:                             ; preds = %2
 
 36:                                               ; preds = %storage_command.exit, %storage_command.exit
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %37, ptr nonnull readonly align 4 %., i64 range(i64 0, 5) %spec.store.select, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %37, ptr nonnull readonly align 4 %6, i64 range(i64 0, 5) %spec.store.select, i1 false)
   br label %ext_command.exit
 
 ext_command.exit:                                 ; preds = %storage_command.exit, %36
@@ -6514,7 +6512,7 @@ ext_command.exit:                                 ; preds = %storage_command.exi
 
 48:                                               ; preds = %44, %44
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %49, ptr nonnull readonly align 4 %., i64 range(i64 0, 5) %spec.store.select, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %49, ptr nonnull readonly align 4 %6, i64 range(i64 0, 5) %spec.store.select, i1 false)
   br label %ext_command.exit27
 
 ext_command.exit27:                               ; preds = %44, %48
@@ -6604,7 +6602,7 @@ safe_recv_packet.exit:                            ; preds = %safe_send.exit, %70
 
 safe_recv_packet.exit32:                          ; preds = %safe_recv_packet.exit, %82
   call fastcc void @validate_response_header(ptr noundef %5, i8 noundef zeroext %1, i16 noundef zeroext 0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #21
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #21
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #21

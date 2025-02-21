@@ -873,23 +873,21 @@ define linkonce_odr void @_ZNSt19_Sp_counted_deleterIPN5folly16HHWheelTimerBaseI
 define linkonce_odr void @_ZNSt19_Sp_counted_deleterIPN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEENS0_18DelayedDestruction10DestructorESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !157
-  %4 = icmp eq ptr %3, null
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 200
-  %spec.select = select i1 %4, ptr null, ptr %5
-  %6 = load ptr, ptr %spec.select, align 8, !tbaa !112
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %8 = load ptr, ptr %7, align 8
-  invoke void %8(ptr noundef nonnull align 8 dereferenceable(13) %spec.select)
-          to label %_ZNK5folly18DelayedDestruction10DestructorclEPS0_.exit unwind label %9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 200
+  %5 = load ptr, ptr %4, align 8, !tbaa !112
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %7 = load ptr, ptr %6, align 8
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(13) %4)
+          to label %_ZNK5folly18DelayedDestruction10DestructorclEPS0_.exit unwind label %8
 
 _ZNK5folly18DelayedDestruction10DestructorclEPS0_.exit: ; preds = %1
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+8:                                                ; preds = %1
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #28
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #28
   unreachable
 }
 

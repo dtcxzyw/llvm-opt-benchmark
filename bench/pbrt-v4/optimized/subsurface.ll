@@ -5659,12 +5659,9 @@ if.end:                                           ; preds = %entry
   %add.i18.i.i = fadd float %mul.i14.i.i, %mul4.i17.i.i
   %add7.i20.i.i = fadd float %mul6.i19.i.i, %add.i18.i.i
   %6 = load i64, ptr %this, align 8
-  %shr.i.mask.i.i = and i64 %6, -144115188075855872
-  %cmp.i.i = icmp eq i64 %shr.i.mask.i.i, 1441151880758558720
   %and.i.i = and i64 %6, 144115188075855871
   %7 = inttoptr i64 %and.i.i to ptr
-  %retval.0.i = select i1 %cmp.i.i, ptr %7, ptr null
-  %call10 = tail call { <2 x float>, <2 x float> } @_ZNK4pbrt21NormalizedFresnelBxDF1fENS_7Vector3IfEES2_NS_13TransportModeE(ptr noundef nonnull align 4 dereferenceable(4) %retval.0.i, <2 x float> %retval.sroa.0.4.vec.insert.i.i37, float %add7.i20.i.i35, <2 x float> %retval.sroa.0.4.vec.insert.i.i, float %add7.i20.i.i, i32 noundef %mode)
+  %call10 = tail call { <2 x float>, <2 x float> } @_ZNK4pbrt21NormalizedFresnelBxDF1fENS_7Vector3IfEES2_NS_13TransportModeE(ptr noundef nonnull align 4 dereferenceable(4) %7, <2 x float> %retval.sroa.0.4.vec.insert.i.i37, float %add7.i20.i.i35, <2 x float> %retval.sroa.0.4.vec.insert.i.i, float %add7.i20.i.i, i32 noundef %mode)
   %8 = extractvalue { <2 x float>, <2 x float> } %call10, 0
   %9 = extractvalue { <2 x float>, <2 x float> } %call10, 1
   br label %return

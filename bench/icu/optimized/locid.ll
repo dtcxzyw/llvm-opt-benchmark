@@ -7465,8 +7465,7 @@ lor.lhs.false:                                    ; preds = %if.end
 
 cond.end.thread:                                  ; preds = %lor.lhs.false
   %2 = load ptr, ptr %this, align 8
-  %spec.select216 = select i1 %checkLanguage, ptr %2, ptr @.str.190
-  %cond24217 = select i1 %checkRegion, ptr %1, ptr null
+  %spec.select217 = select i1 %checkLanguage, ptr %2, ptr @.str.190
   br label %for.body.lr.ph
 
 land.lhs.true6:                                   ; preds = %lor.lhs.false
@@ -7478,18 +7477,17 @@ land.lhs.true6:                                   ; preds = %lor.lhs.false
 cond.end:                                         ; preds = %land.lhs.true6
   %4 = load ptr, ptr %this, align 8
   %spec.select = select i1 %checkLanguage, ptr %4, ptr @.str.190
-  %cond24 = select i1 %checkRegion, ptr %1, ptr null
-  %cmp25194 = icmp sgt i32 %3, 0
-  br i1 %cmp25194, label %for.body.lr.ph, label %return
+  %cmp25195 = icmp sgt i32 %3, 0
+  br i1 %cmp25195, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %cond.end.thread, %cond.end
-  %cond24221 = phi ptr [ %cond24217, %cond.end.thread ], [ %cond24, %cond.end ]
-  %spec.select220 = phi ptr [ %spec.select216, %cond.end.thread ], [ %spec.select, %cond.end ]
+  %spec.select220 = phi ptr [ %spec.select217, %cond.end.thread ], [ %spec.select, %cond.end ]
   %cond219 = phi i32 [ 1, %cond.end.thread ], [ %3, %cond.end ]
   %variants28 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %len.i = getelementptr inbounds nuw i8, ptr %typeKey, i64 56
   %5 = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 8
-  %tobool.not.i.i = icmp eq ptr %cond24221, null
+  %tobool.not.i.i174 = icmp ne ptr %1, null
+  %tobool.not.i.i.not = select i1 %checkRegion, i1 %tobool.not.i.i174, i1 false
   %6 = getelementptr inbounds nuw i8, ptr %agg.tmp4.i, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %agg.tmp9.i, i64 8
   %data = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -7497,16 +7495,16 @@ for.body.lr.ph:                                   ; preds = %cond.end.thread, %c
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %searchVariant.0196 = phi ptr [ null, %for.body.lr.ph ], [ %searchVariant.2, %for.inc ]
-  %variant_index.0195 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %searchVariant.0197 = phi ptr [ null, %for.body.lr.ph ], [ %searchVariant.2, %for.inc ]
+  %variant_index.0196 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   br i1 %checkVariants, label %if.then27, label %if.end30
 
 if.then27:                                        ; preds = %for.body
-  %call29 = call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %variants28, i32 noundef %variant_index.0195)
+  %call29 = call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %variants28, i32 noundef %variant_index.0196)
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then27, %for.body
-  %searchVariant.1 = phi ptr [ %call29, %if.then27 ], [ %searchVariant.0196, %for.body ]
+  %searchVariant.1 = phi ptr [ %call29, %if.then27 ], [ %searchVariant.0197, %for.body ]
   %cmp31.not = icmp eq ptr %searchVariant.1, null
   br i1 %cmp31.not, label %if.end36, label %land.lhs.true32
 
@@ -7538,10 +7536,10 @@ if.end36:                                         ; preds = %land.lhs.true32, %i
           to label %call3.i.i.noexc unwind label %lpad.loopexit
 
 call3.i.i.noexc:                                  ; preds = %.noexc
-  br i1 %tobool.not.i.i, label %if.end.i, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i
+  br i1 %tobool.not.i.i.not, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i, label %if.end.i
 
 _ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i: ; preds = %call3.i.i.noexc
-  %12 = load i8, ptr %cond24221, align 1
+  %12 = load i8, ptr %1, align 1
   %cmp.i.not.i = icmp eq i8 %12, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
@@ -7550,7 +7548,7 @@ if.then.i:                                        ; preds = %_ZN6icu_7512_GLOBAL
           to label %call3.i.noexc unwind label %lpad.loopexit
 
 call3.i.noexc:                                    ; preds = %if.then.i
-  invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp4.i, ptr noundef nonnull %cond24221)
+  invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp4.i, ptr noundef nonnull %1)
           to label %.noexc23 unwind label %lpad.loopexit
 
 .noexc23:                                         ; preds = %call3.i.noexc
@@ -7592,17 +7590,17 @@ invoke.cont:                                      ; preds = %_ZN6icu_7512_GLOBAL
   br i1 %cmp.i28, label %if.end41, label %cleanup.thread
 
 lpad.loopexit:                                    ; preds = %if.end36, %.noexc, %if.then.i, %call3.i.noexc, %.noexc23, %if.then7.i, %call8.i.noexc, %.noexc26, %if.end41, %_ZN6icu_7512LocalPointerINS_10CharStringEEC2EPS1_R10UErrorCode.exit.i, %land.lhs.true.i
-  %lpad.loopexit176 = landingpad { ptr, i32 }
+  %lpad.loopexit177 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp:                           ; preds = %if.then91, %if.else
-  %lpad.loopexit.split-lp177 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp178 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad.body.i
-  %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body.i, %lpad.body.i ], [ %lpad.loopexit176, %lpad.loopexit ], [ %lpad.loopexit.split-lp177, %lpad.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body.i, %lpad.body.i ], [ %lpad.loopexit177, %lpad.loopexit ], [ %lpad.loopexit.split-lp178, %lpad.loopexit.split-lp ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %typeKey) #21
   resume { ptr, i32 } %eh.lpad-body
 
@@ -7772,16 +7770,16 @@ if.end58.i:                                       ; preds = %if.else53.i, %if.th
   %start.1.i = phi ptr [ %call17.i, %if.end40.thread10.i ], [ %endOfField.0.i, %if.then51.i ], [ %endOfField.0.i, %if.else53.i ], [ %start.0.i, %if.end40.i ]
   %len.2.i = phi i64 [ %call34.i, %if.end40.thread10.i ], [ %call52.i, %if.then51.i ], [ %sub.ptr.sub56.i, %if.else53.i ], [ %len.1.i, %if.end40.i ]
   %cmp59.i = icmp ugt i64 %len.2.i, 3
-  %spec.select174 = select i1 %cmp59.i, ptr %start.1.i, ptr null
-  %spec.select175 = select i1 %cmp59.i, ptr %endOfField.1.i, ptr %start.1.i
+  %spec.select175 = select i1 %cmp59.i, ptr %start.1.i, ptr null
+  %spec.select176 = select i1 %cmp59.i, ptr %endOfField.1.i, ptr %start.1.i
   br label %land.lhs.true52
 
 land.lhs.true52:                                  ; preds = %if.end58.i, %call24.i.noexc, %if.then26.i, %if.then44.i, %if.end.i31, %if.end40.thread10.i
   %replacedLanguage.0.ph = phi ptr [ %28, %if.end40.thread10.i ], [ %call.i30, %if.end.i31 ], [ %28, %if.then44.i ], [ %28, %if.then26.i ], [ %28, %call24.i.noexc ], [ %28, %if.end58.i ]
   %replacedScript.4.ph = phi ptr [ %incdec.ptr.i, %if.end40.thread10.i ], [ null, %if.end.i31 ], [ %replacedScript.0, %if.then44.i ], [ %incdec.ptr.i, %if.then26.i ], [ null, %call24.i.noexc ], [ %replacedScript.1, %if.end58.i ]
   %replacedRegion.3.ph = phi ptr [ %call17.i, %if.end40.thread10.i ], [ null, %if.end.i31 ], [ %start.0.i, %if.then44.i ], [ null, %if.then26.i ], [ null, %call24.i.noexc ], [ %replacedRegion.0, %if.end58.i ]
-  %replacedVariant.1.ph = phi ptr [ null, %if.end40.thread10.i ], [ null, %if.end.i31 ], [ null, %if.then44.i ], [ null, %if.then26.i ], [ %incdec.ptr.i, %call24.i.noexc ], [ %spec.select174, %if.end58.i ]
-  %replacedExtensions.0.ph = phi ptr [ null, %if.end40.thread10.i ], [ null, %if.end.i31 ], [ null, %if.then44.i ], [ null, %if.then26.i ], [ %call17.i, %call24.i.noexc ], [ %spec.select175, %if.end58.i ]
+  %replacedVariant.1.ph = phi ptr [ null, %if.end40.thread10.i ], [ null, %if.end.i31 ], [ null, %if.then44.i ], [ null, %if.then26.i ], [ %incdec.ptr.i, %call24.i.noexc ], [ %spec.select175, %if.end58.i ]
+  %replacedExtensions.0.ph = phi ptr [ null, %if.end40.thread10.i ], [ null, %if.end.i31 ], [ null, %if.then44.i ], [ null, %if.then26.i ], [ %call17.i, %call24.i.noexc ], [ %spec.select176, %if.end58.i ]
   %call53 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %replacedLanguage.0.ph, ptr noundef nonnull dereferenceable(4) @.str.190) #24
   %cmp54 = icmp eq i32 %call53, 0
   %cond59.in.sroa.speculate.load.land.lhs.true52 = load ptr, ptr %this, align 8
@@ -7817,7 +7815,7 @@ _ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread.i47: ; preds = 
   %replacedVariant.1120134153 = phi ptr [ null, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit.thread ], [ %replacedVariant.1.ph, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit ]
   %cond59.in.sroa.speculated138151 = phi ptr [ null, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit.thread ], [ %spec.select173, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit ]
   %40 = phi ptr [ %33, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit.thread ], [ %32, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit ]
-  %cond84.i = select i1 %tobool.not.i.i, ptr %38, ptr null
+  %cond84.i = select i1 %tobool.not.i.i.not, ptr null, ptr %38
   br label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit48
 
 _ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i41: ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit
@@ -7826,7 +7824,7 @@ _ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i41: ; preds = %_ZN6ic
   %cmp.i.not.i43 = icmp eq i8 %.fr.i42, 0
   %cmp.i44 = icmp eq ptr %37, null
   %cond.i45 = select i1 %cmp.i44, ptr %replacedRegion.3.ph, ptr %37
-  %cond8.i = select i1 %tobool.not.i.i, ptr %37, ptr null
+  %cond8.i = select i1 %tobool.not.i.i.not, ptr null, ptr %37
   %spec.select.i46 = select i1 %cmp.i.not.i43, ptr %cond8.i, ptr %cond.i45
   br label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit48
 
@@ -7932,11 +7930,11 @@ _ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit: ; preds = %if.then89
   br i1 %cmp.i95.not, label %if.else, label %if.then91
 
 if.then91:                                        ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit
-  invoke void @_ZN6icu_757UVector12setElementAtEPvi(ptr noundef nonnull align 8 dereferenceable(40) %variants28, ptr noundef nonnull %47, i32 noundef %variant_index.0195)
+  invoke void @_ZN6icu_757UVector12setElementAtEPvi(ptr noundef nonnull align 8 dereferenceable(40) %variants28, ptr noundef nonnull %47, i32 noundef %variant_index.0196)
           to label %cleanup.thread unwind label %lpad.loopexit.split-lp
 
 if.else:                                          ; preds = %if.then89, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit
-  invoke void @_ZN6icu_757UVector15removeElementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %variants28, i32 noundef %variant_index.0195)
+  invoke void @_ZN6icu_757UVector15removeElementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %variants28, i32 noundef %variant_index.0196)
           to label %cleanup.thread unwind label %lpad.loopexit.split-lp
 
 cleanup.thread:                                   ; preds = %invoke.cont, %if.then91, %if.else, %if.end84
@@ -7945,7 +7943,7 @@ cleanup.thread:                                   ; preds = %invoke.cont, %if.th
 
 for.inc:                                          ; preds = %invoke.cont45, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit94
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %typeKey) #21
-  %inc = add nuw nsw i32 %variant_index.0195, 1
+  %inc = add nuw nsw i32 %variant_index.0196, 1
   %exitcond.not = icmp eq i32 %inc, %cond219
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !23
 

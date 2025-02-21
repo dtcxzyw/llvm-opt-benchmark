@@ -937,108 +937,118 @@ define range(i32 -1, 1) i32 @bufferevent_enable_locking_(ptr noundef %0, ptr nou
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %10 = load ptr, ptr %9, align 8
   %.not12.i = icmp eq ptr %10, null
-  br i1 %.not12.i, label %.thread46, label %11
+  br i1 %.not12.i, label %bufferevent_get_underlying.exit.thread, label %12
 
-11:                                               ; preds = %6
-  %12 = call i32 %10(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull %3) #7
-  %.fr = freeze i32 %12
-  %13 = icmp slt i32 %.fr, 0
+bufferevent_get_underlying.exit.thread:           ; preds = %6
+  %11 = load ptr, ptr %3, align 8
+  br label %.thread46
+
+12:                                               ; preds = %6
+  %13 = call i32 %10(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull %3) #7
+  %.fr = freeze i32 %13
+  %14 = icmp slt i32 %.fr, 0
   %.pre = load ptr, ptr %4, align 8
   %.not13.i = icmp eq ptr %.pre, null
-  br i1 %.not13.i, label %bufferevent_get_underlying.exit, label %14
+  br i1 %.not13.i, label %bufferevent_get_underlying.exit, label %15
 
-14:                                               ; preds = %11
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
-  %16 = call i32 %15(i32 noundef 0, ptr noundef nonnull %.pre) #7
-  br i1 %13, label %.thread46, label %18
+15:                                               ; preds = %12
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
+  %17 = call i32 %16(i32 noundef 0, ptr noundef nonnull %.pre) #7
+  %18 = load ptr, ptr %3, align 8
+  br i1 %14, label %.thread46, label %22
 
-bufferevent_get_underlying.exit:                  ; preds = %11
-  br i1 %13, label %.thread46, label %18
-
-.thread46:                                        ; preds = %bufferevent_get_underlying.exit, %14, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
-  %17 = icmp eq ptr %1, null
-  br i1 %17, label %.thread, label %39
-
-18:                                               ; preds = %14, %bufferevent_get_underlying.exit
+bufferevent_get_underlying.exit:                  ; preds = %12
   %19 = load ptr, ptr %3, align 8
+  br i1 %14, label %.thread46, label %22
+
+.thread46:                                        ; preds = %bufferevent_get_underlying.exit, %bufferevent_get_underlying.exit.thread, %15
+  %20 = phi ptr [ %11, %bufferevent_get_underlying.exit.thread ], [ %19, %bufferevent_get_underlying.exit ], [ %18, %15 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
-  %20 = icmp eq ptr %1, null
-  %21 = icmp ne ptr %19, null
-  %or.cond = select i1 %20, i1 %21, i1 false
-  br i1 %or.cond, label %22, label %29
+  %21 = icmp eq ptr %1, null
+  br i1 %21, label %.thread, label %44
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 448
-  %24 = load ptr, ptr %23, align 8
-  %.not32 = icmp eq ptr %24, null
-  br i1 %.not32, label %.thread, label %25
+22:                                               ; preds = %15, %bufferevent_get_underlying.exit
+  %23 = phi ptr [ %19, %bufferevent_get_underlying.exit ], [ %18, %15 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  %24 = icmp eq ptr %1, null
+  %25 = icmp ne ptr %23, null
+  %or.cond = select i1 %24, i1 %25, i1 false
+  br i1 %or.cond, label %26, label %33
 
-25:                                               ; preds = %22
-  store ptr %24, ptr %4, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %27 = load i8, ptr %26, align 8
-  %28 = and i8 %27, -2
-  store i8 %28, ptr %26, align 8
-  br label %45
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 448
+  %28 = load ptr, ptr %27, align 8
+  %.not32 = icmp eq ptr %28, null
+  br i1 %.not32, label %.thread, label %29
 
-29:                                               ; preds = %18
-  br i1 %20, label %.thread, label %39
+29:                                               ; preds = %26
+  store ptr %28, ptr %4, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %31 = load i8, ptr %30, align 8
+  %32 = and i8 %31, -2
+  store i8 %32, ptr %30, align 8
+  br label %51
 
-.thread:                                          ; preds = %.thread46, %22, %29
-  %30 = phi i1 [ %21, %22 ], [ %21, %29 ], [ false, %.thread46 ]
-  %31 = phi ptr [ %19, %22 ], [ %19, %29 ], [ null, %.thread46 ]
-  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 8), align 8
-  %.not34 = icmp eq ptr %32, null
-  br i1 %.not34, label %.thread37, label %33
+33:                                               ; preds = %22
+  br i1 %24, label %.thread, label %44
 
-33:                                               ; preds = %.thread
-  %34 = call ptr %32(i32 noundef 1) #7
-  %.not35 = icmp eq ptr %34, null
-  br i1 %.not35, label %.thread37, label %35
+.thread:                                          ; preds = %.thread46, %26, %33
+  %34 = phi i1 [ %25, %26 ], [ %25, %33 ], [ false, %.thread46 ]
+  %35 = phi ptr [ %23, %26 ], [ %23, %33 ], [ null, %.thread46 ]
+  %36 = phi ptr [ %23, %26 ], [ %23, %33 ], [ %20, %.thread46 ]
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 8), align 8
+  %.not34 = icmp eq ptr %37, null
+  br i1 %.not34, label %.thread37, label %38
 
-35:                                               ; preds = %33
-  store ptr %34, ptr %4, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %37 = load i8, ptr %36, align 8
-  %38 = or i8 %37, 1
-  store i8 %38, ptr %36, align 8
-  br label %45
+38:                                               ; preds = %.thread
+  %39 = call ptr %37(i32 noundef 1) #7
+  %.not35 = icmp eq ptr %39, null
+  br i1 %.not35, label %.thread37, label %40
 
-39:                                               ; preds = %.thread46, %29
-  %40 = phi ptr [ null, %.thread46 ], [ %19, %29 ]
-  %41 = phi i1 [ false, %.thread46 ], [ %21, %29 ]
+40:                                               ; preds = %38
+  store ptr %39, ptr %4, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %42 = load i8, ptr %41, align 8
+  %43 = or i8 %42, 1
+  store i8 %43, ptr %41, align 8
+  br label %51
+
+44:                                               ; preds = %.thread46, %33
+  %45 = phi ptr [ %20, %.thread46 ], [ %23, %33 ]
+  %46 = phi ptr [ null, %.thread46 ], [ %23, %33 ]
+  %47 = phi i1 [ false, %.thread46 ], [ %25, %33 ]
   store ptr %1, ptr %4, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %43 = load i8, ptr %42, align 8
-  %44 = and i8 %43, -2
-  store i8 %44, ptr %42, align 8
-  br label %45
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %49 = load i8, ptr %48, align 8
+  %50 = and i8 %49, -2
+  store i8 %50, ptr %48, align 8
+  br label %51
 
-45:                                               ; preds = %35, %39, %25
-  %46 = phi i1 [ %21, %25 ], [ %41, %39 ], [ %30, %35 ]
-  %47 = phi ptr [ %19, %25 ], [ %40, %39 ], [ %31, %35 ]
-  %.026 = phi ptr [ %24, %25 ], [ %1, %39 ], [ %34, %35 ]
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %49 = load ptr, ptr %48, align 8
-  %50 = call i32 @evbuffer_enable_locking(ptr noundef %49, ptr noundef nonnull %.026) #7
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %52 = load ptr, ptr %51, align 8
-  %53 = call i32 @evbuffer_enable_locking(ptr noundef %52, ptr noundef nonnull %.026) #7
-  br i1 %46, label %54, label %.thread37
-
-54:                                               ; preds = %45
-  %55 = getelementptr inbounds nuw i8, ptr %47, i64 448
+51:                                               ; preds = %40, %44, %29
+  %52 = phi i1 [ %25, %29 ], [ %47, %44 ], [ %34, %40 ]
+  %53 = phi ptr [ %23, %29 ], [ %46, %44 ], [ %35, %40 ]
+  %54 = phi ptr [ %23, %29 ], [ %45, %44 ], [ %36, %40 ]
+  %.026 = phi ptr [ %28, %29 ], [ %1, %44 ], [ %39, %40 ]
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %56 = load ptr, ptr %55, align 8
-  %.not36 = icmp eq ptr %56, null
-  br i1 %.not36, label %57, label %.thread37
+  %57 = call i32 @evbuffer_enable_locking(ptr noundef %56, ptr noundef nonnull %.026) #7
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %59 = load ptr, ptr %58, align 8
+  %60 = call i32 @evbuffer_enable_locking(ptr noundef %59, ptr noundef nonnull %.026) #7
+  br i1 %52, label %61, label %.thread37
 
-57:                                               ; preds = %54
-  %58 = call i32 @bufferevent_enable_locking_(ptr noundef nonnull %47, ptr noundef nonnull %.026)
+61:                                               ; preds = %51
+  %62 = getelementptr inbounds nuw i8, ptr %53, i64 448
+  %63 = load ptr, ptr %62, align 8
+  %.not36 = icmp eq ptr %63, null
+  br i1 %.not36, label %64, label %.thread37
+
+64:                                               ; preds = %61
+  %65 = call i32 @bufferevent_enable_locking_(ptr noundef nonnull %54, ptr noundef nonnull %.026)
   br label %.thread37
 
-.thread37:                                        ; preds = %.thread, %45, %54, %57, %33, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %33 ], [ 0, %57 ], [ 0, %54 ], [ 0, %45 ], [ -1, %.thread ]
+.thread37:                                        ; preds = %.thread, %51, %61, %64, %38, %2
+  %.0 = phi i32 [ -1, %2 ], [ -1, %38 ], [ 0, %64 ], [ 0, %61 ], [ 0, %51 ], [ -1, %.thread ]
   ret i32 %.0
 }
 
@@ -2514,7 +2524,7 @@ bufferevent_get_underlying.exit:                  ; preds = %20, %22
   br label %bufferevent_decref.exit
 
 bufferevent_decref.exit:                          ; preds = %66, %69
-  %72 = call range(i32 0, 2) i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %26)
+  %72 = call range(i32 0, 2) i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %25)
   br label %73
 
 73:                                               ; preds = %bufferevent_decref.exit, %60
