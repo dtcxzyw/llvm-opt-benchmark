@@ -31685,17 +31685,17 @@ switch.lookup:
   %switch.downshift = lshr i24 7367530, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8
   %4 = load i8, ptr %2, align 8
-  %switch.tableidx18 = add nsw i8 %4, -94
-  %switch.cast19 = zext i8 %switch.tableidx18 to i24
-  %switch.shiftamt20 = shl nuw nsw i24 %switch.cast19, 3
-  %switch.downshift21 = lshr i24 7367530, %switch.shiftamt20
-  %switch.masked22 = trunc i24 %switch.downshift21 to i8
-  %.not = icmp eq i8 %switch.masked, %switch.masked22
-  br i1 %.not, label %5, label %15
+  %switch.tableidx21 = add nsw i8 %4, -94
+  %switch.cast22 = zext i8 %switch.tableidx21 to i24
+  %switch.shiftamt23 = shl nuw nsw i24 %switch.cast22, 3
+  %switch.downshift24 = lshr i24 7367530, %switch.shiftamt23
+  %switch.masked25 = trunc i24 %switch.downshift24 to i8
+  %.not = icmp eq i8 %switch.masked, %switch.masked25
+  br i1 %.not, label %5, label %27
 
 5:                                                ; preds = %switch.lookup
   %switch = icmp eq i8 %3, 96
-  br i1 %switch, label %6, label %10
+  br i1 %switch, label %6, label %16
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -31703,15 +31703,15 @@ switch.lookup:
   %9 = tail call noundef zeroext i1 @_ZZN8WasmEdge3AST11TypeMatcher14isRecTypeEqualEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEEjS8_jjENKUlRKNS0_12FunctionTypeESB_E_clESB_SB_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %8)
   br label %15
 
-10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %14 = tail call noundef zeroext i1 @_ZZN8WasmEdge3AST11TypeMatcher14isRecTypeEqualEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEEjS8_jjENKUlRKSt6vectorINS0_9FieldTypeESaISA_EESE_E_clESE_SE_(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br label %15
+16:                                               ; preds = %5
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %20 = tail call noundef zeroext i1 @_ZZN8WasmEdge3AST11TypeMatcher14isRecTypeEqualEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEEjS8_jjENKUlRKSt6vectorINS0_9FieldTypeESaISA_EESE_E_clESE_SE_(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  br label %27
 
-15:                                               ; preds = %switch.lookup, %10, %6
-  %.0 = phi i1 [ %14, %10 ], [ %9, %6 ], [ false, %switch.lookup ]
+27:                                               ; preds = %switch.lookup, %16, %6
+  %.0 = phi i1 [ %20, %16 ], [ %9, %6 ], [ false, %switch.lookup ]
   ret i1 %.0
 }
 

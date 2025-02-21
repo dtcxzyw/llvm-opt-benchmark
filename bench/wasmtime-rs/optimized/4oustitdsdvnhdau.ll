@@ -116,7 +116,7 @@ define nonnull align 8 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_wit
           to label %13 unwind label %11
 
 9:                                                ; preds = %13, %2
-  %10 = phi i1 [ %14, %13 ], [ true, %2 ]
+  %. = phi i1 [ %14, %13 ], [ true, %2 ]
   call void @llvm.assume(i1 %10)
   ret ptr %0
 
@@ -150,7 +150,7 @@ define nonnull align 8 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_wit
   br label %11
 
 11:                                               ; preds = %5, %2
-  %12 = phi i1 [ %10, %5 ], [ true, %2 ]
+  %12 = phi i1 [ %., %5 ], [ true, %2 ]
   tail call void @llvm.assume(i1 %12)
   ret ptr %0
 }
@@ -172,7 +172,7 @@ define nonnull align 2 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_wit
   br label %11
 
 11:                                               ; preds = %5, %2
-  %12 = phi i1 [ %10, %5 ], [ true, %2 ]
+  %12 = phi i1 [ %., %5 ], [ true, %2 ]
   tail call void @llvm.assume(i1 %12)
   ret ptr %0
 }
@@ -194,7 +194,7 @@ define nonnull align 2 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_wit
   br label %11
 
 11:                                               ; preds = %5, %2
-  %12 = phi i1 [ %10, %5 ], [ true, %2 ]
+  %12 = phi i1 [ %., %5 ], [ true, %2 ]
   tail call void @llvm.assume(i1 %12)
   ret ptr %0
 }

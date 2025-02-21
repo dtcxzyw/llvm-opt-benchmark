@@ -875,19 +875,19 @@ define linkonce_odr void @_ZNSt19_Sp_counted_deleterIPN5folly16HHWheelTimerBaseI
   %3 = load ptr, ptr %2, align 8, !tbaa !157
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %5 = load ptr, ptr %4, align 8, !tbaa !112
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %7 = load ptr, ptr %6, align 8
+  %spec.select = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %6 = load ptr, ptr %spec.select, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(13) %4)
           to label %_ZNK5folly18DelayedDestruction10DestructorclEPS0_.exit unwind label %8
 
 _ZNK5folly18DelayedDestruction10DestructorclEPS0_.exit: ; preds = %1
   ret void
 
-8:                                                ; preds = %1
-  %9 = landingpad { ptr, i32 }
+9:                                                ; preds = %1
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #28
+  %11 = extractvalue { ptr, i32 } %10, 0
+  tail call void @__clang_call_terminate(ptr %11) #28
   unreachable
 }
 

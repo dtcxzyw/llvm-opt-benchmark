@@ -5661,7 +5661,7 @@ if.end:                                           ; preds = %entry
   %6 = load i64, ptr %this, align 8
   %and.i.i = and i64 %6, 144115188075855871
   %7 = inttoptr i64 %and.i.i to ptr
-  %call10 = tail call { <2 x float>, <2 x float> } @_ZNK4pbrt21NormalizedFresnelBxDF1fENS_7Vector3IfEES2_NS_13TransportModeE(ptr noundef nonnull align 4 dereferenceable(4) %7, <2 x float> %retval.sroa.0.4.vec.insert.i.i37, float %add7.i20.i.i35, <2 x float> %retval.sroa.0.4.vec.insert.i.i, float %add7.i20.i.i, i32 noundef %mode)
+  %retval.0.i = tail call { <2 x float>, <2 x float> } @_ZNK4pbrt21NormalizedFresnelBxDF1fENS_7Vector3IfEES2_NS_13TransportModeE(ptr noundef nonnull align 4 dereferenceable(4) %7, <2 x float> %retval.sroa.0.4.vec.insert.i.i37, float %add7.i20.i.i35, <2 x float> %retval.sroa.0.4.vec.insert.i.i, float %add7.i20.i.i, i32 noundef %mode)
   %8 = extractvalue { <2 x float>, <2 x float> } %call10, 0
   %9 = extractvalue { <2 x float>, <2 x float> } %call10, 1
   br label %return

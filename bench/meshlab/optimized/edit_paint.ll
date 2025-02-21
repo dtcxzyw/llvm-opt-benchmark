@@ -16115,66 +16115,66 @@ define void @_ZN15EditPaintPlugin6updateEv(ptr noundef nonnull readonly align 8 
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %.not1 = icmp eq ptr %7, null
-  br i1 %.not1, label %46, label %8
+  br i1 %.not1, label %48, label %8
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %10 = tail call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %9)
   %.not3 = icmp eq ptr %10, null
   %.pre16 = load ptr, ptr %4, align 8
-  br i1 %.not3, label %46, label %11
+  br i1 %.not3, label %48, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %.pre16, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = tail call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %14)
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 240
-  %20 = load ptr, ptr %19, align 8
+  %spec.select.i5 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %spec.select.i5, i64 56
+  %17 = load ptr, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 240
+  %19 = load ptr, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %3)
   %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit, label %21
+  br i1 %.not.i, label %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit, label %22
 
-21:                                               ; preds = %11
+22:                                               ; preds = %11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %3, i8 0, i64 7, i1 false)
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 1, ptr %22, align 1
-  %23 = getelementptr inbounds nuw i8, ptr %15, i64 1224
-  %24 = load i32, ptr %23, align 8
-  call void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %20, i32 noundef %24, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(7) %3)
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  store i8 1, ptr %23, align 1
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 1224
+  %25 = load i32, ptr %24, align 8
+  call void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %20, i32 noundef %25, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(7) %3)
   %.pre = load ptr, ptr %4, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 56
   %.pre9 = load ptr, ptr %.phi.trans.insert, align 8
   br label %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit
 
-_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit: ; preds = %11, %21
-  %25 = phi ptr [ %18, %11 ], [ %.pre9, %21 ]
+_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit: ; preds = %11, %22
+  %26 = phi ptr [ %18, %11 ], [ %.pre9, %22 ]
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %3)
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
-  %27 = call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %26)
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
+  %28 = call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %26)
+  %spec.select.i6 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %spec.select.i6, i64 56
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 240
   %32 = load ptr, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %2)
   %.not.i7 = icmp eq ptr %32, null
-  br i1 %.not.i7, label %_ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataContext.exit, label %33
+  br i1 %.not.i7, label %_ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataContext.exit, label %35
 
-33:                                               ; preds = %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  store i32 0, ptr %34, align 1
+35:                                               ; preds = %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 3
+  store i32 0, ptr %36, align 1
   store i8 1, ptr %2, align 1
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 1, ptr %35, align 1
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i8 1, ptr %36, align 1
-  %37 = getelementptr inbounds nuw i8, ptr %27, i64 1224
-  %38 = load i32, ptr %37, align 8
-  call void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %32, i32 noundef %38, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(7) %2)
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  store i8 1, ptr %37, align 1
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  store i8 1, ptr %38, align 1
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 1224
+  %40 = load i32, ptr %39, align 8
+  call void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %32, i32 noundef %40, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(7) %2)
   %.pre10 = load ptr, ptr %4, align 8
   %.phi.trans.insert11 = getelementptr inbounds nuw i8, ptr %.pre10, i64 56
   %.pre12 = load ptr, ptr %.phi.trans.insert11, align 8
@@ -16182,21 +16182,21 @@ _ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext
   %.pre14 = load ptr, ptr %.phi.trans.insert13, align 8
   br label %_ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataContext.exit
 
-_ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataContext.exit: ; preds = %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit, %33
-  %39 = phi ptr [ null, %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit ], [ %.pre14, %33 ]
-  %40 = phi ptr [ %30, %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit ], [ %.pre12, %33 ]
+_ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataContext.exit: ; preds = %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit, %35
+  %41 = phi ptr [ null, %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit ], [ %.pre14, %35 ]
+  %42 = phi ptr [ %30, %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit ], [ %.pre12, %35 ]
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %2)
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
-  %42 = call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %41)
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 1224
-  %44 = load i32, ptr %43, align 8
-  %45 = call noundef zeroext i1 @_ZN26MLSceneGLSharedDataContext13manageBuffersEi(ptr noundef nonnull align 8 dereferenceable(168) %39, i32 noundef %44)
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
+  %44 = call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %43)
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1224
+  %46 = load i32, ptr %45, align 8
+  %47 = call noundef zeroext i1 @_ZN26MLSceneGLSharedDataContext13manageBuffersEi(ptr noundef nonnull align 8 dereferenceable(168) %41, i32 noundef %46)
   %.pre15 = load ptr, ptr %4, align 8
-  br label %46
+  br label %48
 
-46:                                               ; preds = %_ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataContext.exit, %8, %1
-  %47 = phi ptr [ %.pre15, %_ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataContext.exit ], [ %.pre16, %8 ], [ %5, %1 ]
-  call void @_ZN6GLArea24updateAllSiblingsGLAreasEv(ptr noundef nonnull align 8 dereferenceable(1676) %47)
+48:                                               ; preds = %_ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataContext.exit, %8, %1
+  %49 = phi ptr [ %.pre15, %_ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataContext.exit ], [ %.pre16, %8 ], [ %5, %1 ]
+  call void @_ZN6GLArea24updateAllSiblingsGLAreasEv(ptr noundef nonnull align 8 dereferenceable(1676) %49)
   ret void
 }
 

@@ -1889,8 +1889,8 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$5merge17h6b98e2f1
   %43 = icmp eq ptr %.sroa.0.0.i15, null
   br i1 %43, label %.thread, label %.thread25
 
-44:                                               ; preds = %112, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$11find_merged17hcac140a7a7ec195cE.exit", %3, %117, %115, %94, %.thread25, %51
-  %.sroa.0.0 = phi i32 [ %54, %51 ], [ %73, %.thread25 ], [ %1, %117 ], [ %1, %115 ], [ %111, %94 ], [ %1, %3 ], [ %23, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$11find_merged17hcac140a7a7ec195cE.exit" ], [ %2, %112 ]
+44:                                               ; preds = %114, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$11find_merged17hcac140a7a7ec195cE.exit", %3, %119, %117, %94, %.thread25, %51
+  %.sroa.0.0 = phi i32 [ %54, %51 ], [ %73, %.thread25 ], [ %1, %119 ], [ %1, %117 ], [ %113, %94 ], [ %1, %3 ], [ %23, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$11find_merged17hcac140a7a7ec195cE.exit" ], [ %2, %114 ]
   ret i32 %.sroa.0.0
 
 45:                                               ; preds = %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit18"
@@ -1983,48 +1983,48 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$5merge17h6b98e2f1
   %or.cond = select i1 %.not13, i1 true, i1 %.not14
   br i1 %or.cond, label %94, label %112
 
-94:                                               ; preds = %90
+93:                                               ; preds = %90
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
-  %95 = load i64, ptr %27, align 8
-  %96 = call i32 @_ZN13logos_codegen5graph6NodeId3new17h1ea5a5ec269458a5E(i64 %95)
+  %97 = load i64, ptr %27, align 8
+  %98 = call i32 @_ZN13logos_codegen5graph6NodeId3new17h1ea5a5ec269458a5E(i64 %97)
   store i64 -9223372036854775804, ptr %4, align 8
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1988d81c682d63aE"(ptr nonnull align 8 %0, ptr nonnull align 8 %4)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
-  store i32 %96, ptr %8, align 4
-  %97 = call i32 @_ZN13logos_codegen5graph10ReservedId3get17ha4d04382d0018ec6E(ptr nonnull align 4 %8)
-  %98 = call { i32, i32 } @_ZN13logos_codegen5graph5Merge3new17ha8bd8de38fc08360E(i32 %1, i32 %2)
-  %99 = extractvalue { i32, i32 } %98, 0
-  %100 = extractvalue { i32, i32 } %98, 1
-  %101 = call i32 @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h9e59a4620324f518E"(ptr nonnull align 8 %20, i32 %99, i32 %100, i32 %97)
-  %102 = call { i32, i32 } @_ZN13logos_codegen5graph5Merge3new17ha8bd8de38fc08360E(i32 %1, i32 %97)
-  %103 = extractvalue { i32, i32 } %102, 0
-  %104 = extractvalue { i32, i32 } %102, 1
-  %105 = call i32 @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h9e59a4620324f518E"(ptr nonnull align 8 %20, i32 %103, i32 %104, i32 %97)
-  %106 = call { i32, i32 } @_ZN13logos_codegen5graph5Merge3new17ha8bd8de38fc08360E(i32 %2, i32 %97)
-  %107 = extractvalue { i32, i32 } %106, 0
-  %108 = extractvalue { i32, i32 } %106, 1
-  %109 = call i32 @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h9e59a4620324f518E"(ptr nonnull align 8 %20, i32 %107, i32 %108, i32 %97)
-  %110 = load i32, ptr %8, align 4
-  %111 = call fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$15merge_unchecked17hced68f017f069d4eE"(ptr nonnull align 8 %0, i32 %1, i32 %2, i32 %110)
+  store i32 %98, ptr %8, align 4
+  %99 = call i32 @_ZN13logos_codegen5graph10ReservedId3get17ha4d04382d0018ec6E(ptr nonnull align 4 %8)
+  %100 = call { i32, i32 } @_ZN13logos_codegen5graph5Merge3new17ha8bd8de38fc08360E(i32 %1, i32 %2)
+  %101 = extractvalue { i32, i32 } %100, 0
+  %102 = extractvalue { i32, i32 } %100, 1
+  %103 = call i32 @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h9e59a4620324f518E"(ptr nonnull align 8 %20, i32 %101, i32 %102, i32 %99)
+  %104 = call { i32, i32 } @_ZN13logos_codegen5graph5Merge3new17ha8bd8de38fc08360E(i32 %1, i32 %99)
+  %105 = extractvalue { i32, i32 } %104, 0
+  %106 = extractvalue { i32, i32 } %104, 1
+  %107 = call i32 @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h9e59a4620324f518E"(ptr nonnull align 8 %20, i32 %105, i32 %106, i32 %99)
+  %108 = call { i32, i32 } @_ZN13logos_codegen5graph5Merge3new17ha8bd8de38fc08360E(i32 %2, i32 %99)
+  %109 = extractvalue { i32, i32 } %108, 0
+  %110 = extractvalue { i32, i32 } %108, 1
+  %111 = call i32 @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h9e59a4620324f518E"(ptr nonnull align 8 %20, i32 %109, i32 %110, i32 %99)
+  %112 = load i32, ptr %8, align 4
+  %113 = call fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$15merge_unchecked17hced68f017f069d4eE"(ptr nonnull align 8 %0, i32 %1, i32 %2, i32 %112)
   br label %44
 
-112:                                              ; preds = %90
-  %113 = call i8 @"_ZN80_$LT$logos_codegen..leaf..Leaf$u20$as$u20$logos_codegen..graph..Disambiguate$GT$3cmp17hf7332b0b5d8bbf93E"(ptr nonnull align 8 %.sroa.0.0.i15, ptr nonnull align 8 %38)
-  switch i8 %113, label %114 [
+114:                                              ; preds = %90
+  %115 = call i8 @"_ZN80_$LT$logos_codegen..leaf..Leaf$u20$as$u20$logos_codegen..graph..Disambiguate$GT$3cmp17hf7332b0b5d8bbf93E"(ptr nonnull align 8 %.sroa.0.0.i15, ptr nonnull align 8 %38)
+  switch i8 %115, label %116 [
     i8 -1, label %44
-    i8 0, label %115
-    i8 1, label %117
+    i8 0, label %117
+    i8 1, label %119
   ]
 
-114:                                              ; preds = %112
+116:                                              ; preds = %114
   unreachable
 
-115:                                              ; preds = %112
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha5017cb94ec14b75E"(ptr nonnull align 8 %116, i32 %1, i32 %2)
+117:                                              ; preds = %114
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha5017cb94ec14b75E"(ptr nonnull align 8 %118, i32 %1, i32 %2)
   br label %44
 
-117:                                              ; preds = %112
+119:                                              ; preds = %114
   br label %44
 }
 

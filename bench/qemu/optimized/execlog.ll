@@ -241,27 +241,27 @@ define internal void @vcpu_init(i64 %0, i32 noundef %1) #0 {
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %20 = load i32, ptr %19, align 8
   %.not12.i = icmp eq i32 %20, 0
-  br i1 %.not12.i, label %.loopexit.thread.i, label %.lr.ph33.i
+  br i1 %.not12.i, label %.loopexit.thread.i, label %.lr.ph32.i
 
-.lr.ph33.i:                                       ; preds = %18
+.lr.ph32.i:                                       ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %22 = load i32, ptr %21, align 8
-  %.not35.i = icmp eq i32 %22, 0
-  br i1 %.not35.i, label %.loopexit.thread.i, label %.lr.ph33.split.i
+  %.not34.i = icmp eq i32 %22, 0
+  br i1 %.not34.i, label %.loopexit.thread.i, label %.lr.ph32.split.i
 
-.lr.ph33.split.i:                                 ; preds = %.lr.ph33.i, %._crit_edge.i
-  %23 = phi i32 [ %31, %._crit_edge.i ], [ %20, %.lr.ph33.i ]
-  %24 = phi ptr [ %32, %._crit_edge.i ], [ %17, %.lr.ph33.i ]
-  %.032.i = phi i32 [ %33, %._crit_edge.i ], [ 0, %.lr.ph33.i ]
+.lr.ph32.split.i:                                 ; preds = %.lr.ph32.i, %._crit_edge.i
+  %23 = phi i32 [ %31, %._crit_edge.i ], [ %20, %.lr.ph32.i ]
+  %24 = phi ptr [ %32, %._crit_edge.i ], [ %17, %.lr.ph32.i ]
+  %.031.i = phi i32 [ %33, %._crit_edge.i ], [ 0, %.lr.ph32.i ]
   %25 = load ptr, ptr %16, align 8
-  %26 = sext i32 %.032.i to i64
+  %26 = sext i32 %.031.i to i64
   %27 = getelementptr inbounds %struct.qemu_plugin_reg_descriptor, ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %29 = load i32, ptr %28, align 8
-  %.not36.i = icmp eq i32 %29, 0
-  br i1 %.not36.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not35.i = icmp eq i32 %29, 0
+  br i1 %.not35.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph33.split.i
+.lr.ph.i:                                         ; preds = %.lr.ph32.split.i
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   br label %35
 
@@ -269,18 +269,18 @@ define internal void @vcpu_init(i64 %0, i32 noundef %1) #0 {
   %.pre.i = load i32, ptr %19, align 8
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph33.split.i
-  %31 = phi i32 [ %.pre.i, %._crit_edge.loopexit.i ], [ %23, %.lr.ph33.split.i ]
-  %32 = phi ptr [ %75, %._crit_edge.loopexit.i ], [ %24, %.lr.ph33.split.i ]
-  %33 = add nuw i32 %.032.i, 1
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph32.split.i
+  %31 = phi i32 [ %.pre.i, %._crit_edge.loopexit.i ], [ %23, %.lr.ph32.split.i ]
+  %32 = phi ptr [ %75, %._crit_edge.loopexit.i ], [ %24, %.lr.ph32.split.i ]
+  %33 = add nuw i32 %.031.i, 1
   %34 = icmp ult i32 %33, %31
-  br i1 %34, label %.lr.ph33.split.i, label %.loopexit.thread.i, !llvm.loop !7
+  br i1 %34, label %.lr.ph32.split.i, label %.loopexit.thread.i, !llvm.loop !7
 
 35:                                               ; preds = %glib_autoptr_cleanup_GPatternSpec.exit.i, %.lr.ph.i
   %36 = phi ptr [ %24, %.lr.ph.i ], [ %75, %glib_autoptr_cleanup_GPatternSpec.exit.i ]
-  %.01131.i = phi i32 [ 0, %.lr.ph.i ], [ %74, %glib_autoptr_cleanup_GPatternSpec.exit.i ]
+  %.01130.i = phi i32 [ 0, %.lr.ph.i ], [ %74, %glib_autoptr_cleanup_GPatternSpec.exit.i ]
   %37 = load ptr, ptr %36, align 8
-  %38 = sext i32 %.01131.i to i64
+  %38 = sext i32 %.01130.i to i64
   %39 = getelementptr inbounds ptr, ptr %37, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr @g_pattern_spec_new(ptr noundef %40) #7
@@ -354,33 +354,33 @@ init_vcpu_register.exit.i:                        ; preds = %48
   br label %glib_autoptr_cleanup_GPatternSpec.exit.i
 
 glib_autoptr_cleanup_GPatternSpec.exit.i:         ; preds = %73, %72
-  %74 = add nuw i32 %.01131.i, 1
+  %74 = add nuw i32 %.01130.i, 1
   %75 = load ptr, ptr @rmatches, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load i32, ptr %76, align 8
   %78 = icmp ult i32 %74, %77
   br i1 %78, label %35, label %._crit_edge.loopexit.i, !llvm.loop !10
 
-.loopexit.thread.i:                               ; preds = %._crit_edge.i, %.lr.ph33.i, %18
+.loopexit.thread.i:                               ; preds = %._crit_edge.i, %.lr.ph32.i, %18
   %79 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %80 = load i32, ptr %79, align 8
-  %.not1338.i.not = icmp eq i32 %80, 0
+  %.not1337.i = icmp eq i32 %80, 0
   tail call void @g_array_unref(ptr noundef nonnull %16) #7
-  br i1 %.not1338.i.not, label %84, label %registers_init.exit
+  br i1 %.not1337.i, label %84, label %registers_init.exit
 
 .loopexit.i:                                      ; preds = %9
   %81 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %82 = load i32, ptr %81, align 8
-  %.not13.i.not = icmp eq i32 %82, 0
+  %.not13.i = icmp eq i32 %82, 0
   %.not.i.i20.i = icmp eq ptr %16, null
   br i1 %.not.i.i20.i, label %glib_autoptr_cleanup_GArray.exit.i, label %83
 
 83:                                               ; preds = %.loopexit.i
   tail call void @g_array_unref(ptr noundef nonnull %16) #7
-  br i1 %.not13.i.not, label %84, label %registers_init.exit
+  br i1 %.not13.i, label %84, label %registers_init.exit
 
 glib_autoptr_cleanup_GArray.exit.i:               ; preds = %.loopexit.i
-  br i1 %.not13.i.not, label %84, label %registers_init.exit
+  br i1 %.not13.i, label %84, label %registers_init.exit
 
 84:                                               ; preds = %.loopexit.thread.i, %83, %glib_autoptr_cleanup_GArray.exit.i
   tail call void @g_ptr_array_unref(ptr noundef nonnull %15) #7

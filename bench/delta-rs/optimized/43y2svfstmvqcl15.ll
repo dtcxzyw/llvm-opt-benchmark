@@ -46029,7 +46029,7 @@ define internal fastcc void @_ZN4core4iter8adapters7flatten17and_then_or_clear17
   %17 = load ptr, ptr %16, align 8, !alias.scope !7623, !noalias !7624, !nonnull !5, !align !111, !noundef !5
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %19 = load ptr, ptr %18, align 8, !alias.scope !7623, !noalias !7624, !nonnull !5, !align !111, !noundef !5
-  %20 = atomicrmw add ptr %4, i64 1 monotonic, align 8, !noalias !7626
+  %.val.i.i.i = atomicrmw add ptr %4, i64 1 monotonic, align 8, !noalias !7626
   %21 = icmp slt i64 %20, 0
   br i1 %21, label %22, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he62948af9ea8ce8eE.exit.i.i.i"
 

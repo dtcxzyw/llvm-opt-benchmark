@@ -86122,12 +86122,12 @@ define internal fastcc range(i32 -1, 1) i32 @JS_CopyDataProperties(ptr noundef %
 
 .preheader:                                       ; preds = %38
   %40 = load i32, ptr %12, align 4, !tbaa !67
-  %.not102 = icmp eq i32 %40, 0
+  %.not101 = icmp eq i32 %40, 0
   %.pre = load ptr, ptr %11, align 8, !tbaa !370
-  br i1 %.not102, label %._crit_edge, label %.lr.ph
+  br i1 %.not101, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %.not5988 = icmp eq ptr %21, null
+  %.not59 = icmp eq ptr %21, null
   %.not59 = select i1 %20, i1 true, i1 %.not5988
   %.not61 = icmp samesign ult i32 %.050, 16
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -86248,8 +86248,8 @@ js_free_desc.exit:                                ; preds = %JS_FreeValue.exit6.
   %107 = extractvalue { i64, i64 } %106, 0
   %108 = extractvalue { i64, i64 } %106, 1
   %109 = and i64 %108, 4294967295
-  %.not90 = icmp eq i64 %109, 6
-  br i1 %.not90, label %.lr.ph.i72.preheader, label %110
+  %.not89 = icmp eq i64 %109, 6
+  br i1 %.not89, label %.lr.ph.i72.preheader, label %110
 
 110:                                              ; preds = %103
   %111 = load i32, ptr %104, align 4, !tbaa !374
@@ -86524,12 +86524,12 @@ JS_FreeAtom.exit.i75:                             ; preds = %JS_FreeAtomStruct.e
   br i1 %exitcond.not.i77, label %js_free_prop_enum.exit.sink.split, label %.lr.ph.i72, !llvm.loop !376
 
 js_free_prop_enum.exit.sink.split:                ; preds = %JS_FreeAtom.exit.i75, %._crit_edge.i
-  %.sink119.in = phi ptr [ %191, %._crit_edge.i ], [ %43, %JS_FreeAtom.exit.i75 ]
+  %.sink118.in = phi ptr [ %191, %._crit_edge.i ], [ %43, %JS_FreeAtom.exit.i75 ]
   %.0.ph = phi i32 [ 0, %._crit_edge.i ], [ -1, %JS_FreeAtom.exit.i75 ]
-  %.sink119 = load ptr, ptr %.sink119.in, align 8, !tbaa !36
-  %253 = getelementptr inbounds nuw i8, ptr %.sink119, i64 8
+  %.sink118 = load ptr, ptr %.sink118.in, align 8, !tbaa !36
+  %253 = getelementptr inbounds nuw i8, ptr %.sink118, i64 8
   %254 = load ptr, ptr %253, align 8, !tbaa !33
-  %255 = getelementptr inbounds nuw i8, ptr %.sink119, i64 32
+  %255 = getelementptr inbounds nuw i8, ptr %.sink118, i64 32
   call void %254(ptr noundef nonnull %255, ptr noundef nonnull %.pre) #41
   br label %js_free_prop_enum.exit
 

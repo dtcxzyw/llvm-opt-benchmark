@@ -4973,7 +4973,7 @@ define linkonce_odr dso_local void @_ZN14ReorderVisitor12processBlockEP7AstNode(
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %93, label %5
+  br i1 %.not, label %97, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -5048,7 +5048,7 @@ _ZlsRSoPK7AstNode.exit:                           ; preds = %34
 40:                                               ; preds = %34, %_ZlsRSoPK7AstNode.exit, %32, %29
   %41 = landingpad { ptr, i32 }
           cleanup
-  br label %94
+  br label %98
 
 .lr.ph.i:                                         ; preds = %39, %26
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -5118,7 +5118,7 @@ _ZN23SplitReorderBaseVisitor9scanBlockEP7AstNode.exit: ; preds = %_ZN23SplitReor
 73:                                               ; preds = %70, %68, %66, %63
   %74 = landingpad { ptr, i32 }
           cleanup
-  br label %94
+  br label %98
 
 75:                                               ; preds = %_ZN23SplitReorderBaseVisitor9scanBlockEP7AstNode.exit
   call void @_ZN14ReorderVisitor17cleanupBlockGraphEP7AstNode(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull %1)
@@ -5139,30 +5139,30 @@ _ZN23SplitReorderBaseVisitor9scanBlockEP7AstNode.exit: ; preds = %_ZN23SplitReor
   br label %83
 
 83:                                               ; preds = %.lr.ph, %83
-  %.02439 = phi ptr [ %.1, %.lr.ph ], [ %88, %83 ]
+  %.02439 = phi ptr [ %.1, %.lr.ph ], [ %89, %83 ]
   %84 = getelementptr inbounds nuw i8, ptr %.02439, i64 128
   %85 = load i64, ptr %84, align 8
   %86 = inttoptr i64 %85 to ptr
   call void @_ZN13V3GraphVertex12unlinkDeleteEP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %86, ptr noundef nonnull %82)
-  %87 = getelementptr inbounds nuw i8, ptr %.02439, i64 8
-  %88 = load ptr, ptr %87, align 8
-  %.not30 = icmp eq ptr %88, null
+  %88 = getelementptr inbounds nuw i8, ptr %.02439, i64 8
+  %89 = load ptr, ptr %88, align 8
+  %90 = icmp eq ptr %88, null
   br i1 %.not30, label %.loopexit, label %83, !llvm.loop !26
 
 .loopexit:                                        ; preds = %83, %60, %72, %22
   %.0 = phi ptr [ %1, %72 ], [ %1, %60 ], [ %1, %22 ], [ %.1, %83 ]
-  %89 = getelementptr inbounds nuw i8, ptr %.0, i64 128
-  %90 = select i1 %9, i64 %11, i64 0
-  store i64 %90, ptr %89, align 8
-  %91 = load i32, ptr @_ZN12VNUser3InUse12s_userCntGblE, align 4
-  %92 = getelementptr inbounds nuw i8, ptr %.0, i64 136
-  store i32 %91, ptr %92, align 8
-  br label %93
+  %93 = getelementptr inbounds nuw i8, ptr %.0, i64 128
+  %94 = select i1 %9, i64 %11, i64 0
+  store i64 %94, ptr %93, align 8
+  %95 = load i32, ptr @_ZN12VNUser3InUse12s_userCntGblE, align 4
+  %96 = getelementptr inbounds nuw i8, ptr %.0, i64 136
+  store i32 %95, ptr %96, align 8
+  br label %97
 
-93:                                               ; preds = %2, %.loopexit
+97:                                               ; preds = %2, %.loopexit
   ret void
 
-94:                                               ; preds = %73, %40
+98:                                               ; preds = %73, %40
   %.sink = phi ptr [ %4, %73 ], [ %3, %40 ]
   %.pn = phi { ptr, i32 } [ %74, %73 ], [ %41, %40 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #20

@@ -3017,23 +3017,23 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS
   %second.i394.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i393.i, i64 8
   %334 = load ptr, ptr %second.i394.i, align 8
   %sub.ptr.i.i403.i = getelementptr inbounds i8, ptr %334, i64 -16
-  %335 = load i32, ptr %Size.i.i.i.i.i.i, align 8
-  %cmp174.not703.i = icmp eq i32 %335, 0
+  %336 = load i32, ptr %Size.i.i.i.i.i.i, align 8
+  %337 = icmp eq i32 %335, 0
   br i1 %cmp174.not703.i, label %for.inc181.i, label %for.body175.preheader.i
 
 for.body175.preheader.i:                          ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit402.i
-  %336 = zext i32 %335 to i64
+  %338 = zext i32 %335 to i64
   br label %for.body175.i
 
 for.body175.i:                                    ; preds = %for.body175.i, %for.body175.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body175.preheader.i ], [ %indvars.iv.next.i, %for.body175.i ]
-  %337 = load ptr, ptr %translatedOperands.i, align 8
-  %arrayidx.i217.i = getelementptr inbounds nuw ptr, ptr %337, i64 %indvars.iv.i
-  %338 = load ptr, ptr %arrayidx.i217.i, align 8
-  %339 = trunc nuw i64 %indvars.iv.i to i32
-  call void @_ZN6hermes11Instruction10setOperandEPNS_5ValueEj(ptr noundef nonnull align 8 dereferenceable(132) %sub.ptr.i.i403.i, ptr noundef %338, i32 noundef %339) #11
+  %339 = load ptr, ptr %translatedOperands.i, align 8
+  %arrayidx.i217.i = getelementptr inbounds nuw ptr, ptr %339, i64 %indvars.iv.i
+  %340 = load ptr, ptr %arrayidx.i217.i, align 8
+  %341 = trunc nuw i64 %indvars.iv.i to i32
+  call void @_ZN6hermes11Instruction10setOperandEPNS_5ValueEj(ptr noundef nonnull align 8 dereferenceable(132) %sub.ptr.i.i403.i, ptr noundef %340, i32 noundef %341) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp174.not.i = icmp eq i64 %indvars.iv.next.i, %336
+  %cmp174.not.i = icmp eq i64 %indvars.iv.next.i, %338
   br i1 %cmp174.not.i, label %for.inc181.i, label %for.body175.i, !llvm.loop !9
 
 for.inc181.i:                                     ; preds = %for.body175.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit402.i
@@ -3053,35 +3053,35 @@ cond.false187.i:                                  ; preds = %for.end183.i
 
 cond.end190.i:                                    ; preds = %cond.false187.i, %for.end183.i
   %cond191.i = phi ptr [ %call188.i, %cond.false187.i ], [ %returnValue.0.lcssa.i, %for.end183.i ]
-  %340 = load ptr, ptr %order.i, align 8
-  %cmp.i.i.i407.i = icmp eq ptr %340, %add.ptr.i.i.i.i406.i
+  %342 = load ptr, ptr %order.i, align 8
+  %cmp.i.i.i407.i = icmp eq ptr %342, %add.ptr.i.i.i.i406.i
   br i1 %cmp.i.i.i407.i, label %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj4EED2Ev.exit.i, label %if.then.i.i.i49
 
 if.then.i.i.i49:                                  ; preds = %cond.end190.i
-  call void @free(ptr noundef %340) #11
+  call void @free(ptr noundef %342) #11
   br label %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj4EED2Ev.exit.i
 
 _ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj4EED2Ev.exit.i: ; preds = %if.then.i.i.i49, %cond.end190.i
-  %341 = load ptr, ptr %phis.i, align 8
-  %cmp.i.i.i409.i = icmp eq ptr %341, %add.ptr.i.i.i.i.i81.i
+  %343 = load ptr, ptr %phis.i, align 8
+  %cmp.i.i.i409.i = icmp eq ptr %343, %add.ptr.i.i.i.i.i81.i
   br i1 %cmp.i.i.i409.i, label %_ZN4llvh11SmallVectorIPN6hermes7PhiInstELj4EED2Ev.exit.i, label %if.then.i.i410.i
 
 if.then.i.i410.i:                                 ; preds = %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj4EED2Ev.exit.i
-  call void @free(ptr noundef %341) #11
+  call void @free(ptr noundef %343) #11
   br label %_ZN4llvh11SmallVectorIPN6hermes7PhiInstELj4EED2Ev.exit.i
 
 _ZN4llvh11SmallVectorIPN6hermes7PhiInstELj4EED2Ev.exit.i: ; preds = %if.then.i.i410.i, %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj4EED2Ev.exit.i
-  %342 = load ptr, ptr %translatedOperands.i, align 8
-  %cmp.i.i.i412.i = icmp eq ptr %342, %add.ptr.i.i.i.i.i.i28
+  %344 = load ptr, ptr %translatedOperands.i, align 8
+  %cmp.i.i.i412.i = icmp eq ptr %344, %add.ptr.i.i.i.i.i.i28
   br i1 %cmp.i.i.i412.i, label %_ZN6hermesL14inlineFunctionERNS_9IRBuilderEPNS_8FunctionEPNS_8CallInstEPNS_10BasicBlockE.exit, label %if.then.i.i413.i
 
 if.then.i.i413.i:                                 ; preds = %_ZN4llvh11SmallVectorIPN6hermes7PhiInstELj4EED2Ev.exit.i
-  call void @free(ptr noundef %342) #11
+  call void @free(ptr noundef %344) #11
   br label %_ZN6hermesL14inlineFunctionERNS_9IRBuilderEPNS_8FunctionEPNS_8CallInstEPNS_10BasicBlockE.exit
 
 _ZN6hermesL14inlineFunctionERNS_9IRBuilderEPNS_8FunctionEPNS_8CallInstEPNS_10BasicBlockE.exit: ; preds = %_ZN4llvh11SmallVectorIPN6hermes7PhiInstELj4EED2Ev.exit.i, %if.then.i.i413.i
-  %343 = load ptr, ptr %operandMap.i, align 8
-  call void @_ZdlPv(ptr noundef %343) #11
+  %345 = load ptr, ptr %operandMap.i, align 8
+  call void @_ZdlPv(ptr noundef %345) #11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %operandMap.i)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %translatedOperands.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %phis.i)
