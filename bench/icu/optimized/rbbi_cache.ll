@@ -1945,8 +1945,8 @@ for.end.i:                                        ; preds = %for.cond.i
   unreachable
 
 if.then6:                                         ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit35.i, %if.then23.i
-  %.sink = phi i32 [ %12, %if.then23.i ], [ %cond.i30.i, %_ZNK6icu_759UVector3210elementAtiEi.exit35.i ]
-  %cmp29.i = icmp eq i32 %.sink, %5
+  %cond.i19.i.sink = phi i32 [ %12, %if.then23.i ], [ %cond.i30.i, %_ZNK6icu_759UVector3210elementAtiEi.exit35.i ]
+  %cmp29.i = icmp eq i32 %cond.i19.i.sink, %5
   %cond.in.v.i = select i1 %cmp29.i, i64 52, i64 56
   %positionStatusIdx.3.ph.in = getelementptr inbounds nuw i8, ptr %4, i64 %cond.in.v.i
   %positionStatusIdx.3.ph = load i32, ptr %positionStatusIdx.3.ph.in, align 4
@@ -1967,7 +1967,7 @@ if.then.i28:                                      ; preds = %if.then6
 _ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit: ; preds = %if.then6, %if.then.i28
   %idxprom.i = zext nneg i32 %and.i.i to i64
   %arrayidx.i = getelementptr inbounds nuw [128 x i32], ptr %fBoundaries, i64 0, i64 %idxprom.i
-  store i32 %.sink, ptr %arrayidx.i, align 4
+  store i32 %cond.i19.i.sink, ptr %arrayidx.i, align 4
   %conv.i26 = trunc i32 %positionStatusIdx.3.ph to i16
   %fStatuses.i = getelementptr inbounds nuw i8, ptr %this, i64 544
   %arrayidx12.i = getelementptr inbounds nuw [128 x i16], ptr %fStatuses.i, i64 0, i64 %idxprom.i
@@ -1976,7 +1976,7 @@ _ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePosit
   %fBufIdx16.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 %and.i.i, ptr %fBufIdx16.i, align 4
   %fTextIdx.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store i32 %.sink, ptr %fTextIdx.i, align 8
+  store i32 %cond.i19.i.sink, ptr %fTextIdx.i, align 8
   br label %return
 
 do.body:                                          ; preds = %do.body.preheader, %do.cond

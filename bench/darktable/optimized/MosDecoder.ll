@@ -2473,13 +2473,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %32 = load ptr, ptr %3, align 8, !nonnull !57
   %33 = zext nneg i32 %.promoted to i64
   %34 = zext nneg i32 %25 to i64
-  br label %_ZNK8rawspeed6Buffer10getSubViewEjj.exit.i.i.i
+  br label %35
 
-_ZNK8rawspeed6Buffer10getSubViewEjj.exit.i.i.i:   ; preds = %.lr.ph, %_ZN8rawspeed10ByteStream9skipBytesEj.exit40
+35:                                               ; preds = %.lr.ph, %_ZN8rawspeed10ByteStream9skipBytesEj.exit40
   %indvars.iv = phi i64 [ %33, %.lr.ph ], [ %indvars.iv.next, %_ZN8rawspeed10ByteStream9skipBytesEj.exit40 ]
-  %35 = add nuw nsw i64 %indvars.iv, 16
-  %36 = icmp samesign ule i64 %35, %34
-  call void @llvm.assume(i1 %36)
+  %36 = add nuw nsw i64 %indvars.iv, 16
+  %.not.i.i.i = icmp samesign ule i64 %36, %34
+  call void @llvm.assume(i1 %.not.i.i.i)
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -2502,7 +2502,7 @@ _ZNK8rawspeed6Buffer10getSubViewEjj.exit.i.i.i:   ; preds = %.lr.ph, %_ZN8rawspe
 
 45:                                               ; preds = %43
   %46 = trunc nuw nsw i64 %indvars.iv to i32
-  %47 = trunc nuw i64 %35 to i32
+  %47 = trunc nuw i64 %36 to i32
   store i32 %47, ptr %26, align 8, !tbaa !60
   %narrow = add nuw i32 %46, 44
   %.not.i.i = icmp ugt i32 %narrow, %25
@@ -2820,7 +2820,7 @@ _ZN8rawspeed10ByteStream9skipBytesEj.exit40:      ; preds = %.loopexit
   %168 = trunc i64 %indvars.iv.next to i32
   %169 = sub i32 %25, %168
   %170 = icmp ugt i32 %169, 52
-  br i1 %170, label %_ZNK8rawspeed6Buffer10getSubViewEjj.exit.i.i.i, label %.loopexit47, !llvm.loop !77
+  br i1 %170, label %35, label %.loopexit47, !llvm.loop !77
 
 .loopexit47:                                      ; preds = %_ZN8rawspeed10ByteStream9skipBytesEj.exit40, %21, %_ZN8rawspeed10ByteStream9skipBytesEj.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #28

@@ -144,7 +144,7 @@ _ZN8rawspeed8RawImageD2Ev.exit:                   ; preds = %14, %11, %4
 31:                                               ; preds = %44, %34, %29
   %32 = landingpad { ptr, i32 }
           cleanup
-  br label %117
+  br label %150
 
 33:                                               ; preds = %26
   switch i32 %3, label %34 [
@@ -193,12 +193,12 @@ _ZN8rawspeed8RawImageD2Ev.exit:                   ; preds = %14, %11, %4
 
 53:                                               ; preds = %45
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #12
-          to label %.noexc39 unwind label %64
+          to label %65 unwind label %64
 
-.noexc39:                                         ; preds = %53
+65:                                               ; preds = %53
   unreachable
 
-54:                                               ; preds = %45
+66:                                               ; preds = %45
   %55 = load ptr, ptr %2, align 8, !tbaa !18, !nonnull !95, !noundef !95
   %56 = icmp sgt i32 %50, -1
   tail call void @llvm.assume(i1 %56)
@@ -219,129 +219,129 @@ _ZN8rawspeed8RawImageD2Ev.exit:                   ; preds = %14, %11, %4
 63:                                               ; preds = %62
   unreachable
 
-64:                                               ; preds = %53
-  %65 = landingpad { ptr, i32 }
+67:                                               ; preds = %53
+  %68 = landingpad { ptr, i32 }
           cleanup
-  br label %117
+  br label %150
 
-66:                                               ; preds = %62
-  %67 = landingpad { ptr, i32 }
+69:                                               ; preds = %62
+  %70 = landingpad { ptr, i32 }
           cleanup
-  br label %117
+  br label %150
 
-68:                                               ; preds = %54
+71:                                               ; preds = %66
   %69 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  %.sroa.0.0..sroa.0.0..i.i.i99 = load i32, ptr %69, align 1
-  %70 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i99, 16
+  %.not.i.i.i96 = load i32, ptr %69, align 1
+  %70 = lshr i32 %.not.i.i.i96, 16
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %70, ptr %71, align 4, !tbaa !104
   %72 = and i32 %.sroa.0.0..sroa.0.0..i.i.i99, 65535
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %72, ptr %73, align 8, !tbaa !105
   %74 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %.sroa.0.0..sroa.0.0..i.i.i123 = load i32, ptr %74, align 1
-  %75 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i123, 8
-  %76 = and i32 %75, 15
-  %77 = icmp samesign ugt i32 %76, 7
-  br i1 %77, label %78, label %82
+  %.sroa.0.i.i.i92.0..sroa.0.0..sroa.0.0..i.i.i99323 = lshr i32 %.sroa.0.0..sroa.0.0..i.i.i123, 8
+  %76 = and i32 %.sroa.0.i.i.i92.0..sroa.0.0..sroa.0.0..i.i.i99323, 15
+  %.sroa.0.i.i.i92.0..sroa.0.0..sroa.0.0..i.i.i99323 = icmp samesign ugt i32 %76, 7
+  br i1 %77, label %78, label %106
 
-78:                                               ; preds = %68
+78:; preds = %68
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed21SamsungV2DecompressorC2ERKNS_8RawImageENS_10ByteStreamEj, i32 noundef %76) #12
           to label %79 unwind label %80
 
-79:                                               ; preds = %78
+79:; preds = %78
   unreachable
 
-80:                                               ; preds = %103, %95, %78
-  %81 = landingpad { ptr, i32 }
+104:                                              ; preds = %136, %95, %78
+  %105 = landingpad { ptr, i32 }
           cleanup
-  br label %117
+  br label %150
 
-82:                                               ; preds = %68
-  %83 = trunc nuw nsw i32 %76 to i8
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i8 %83, ptr %84, align 4, !tbaa !106
+106:                                              ; preds = %68
+  %107 = trunc nuw nsw i32 %76 to i8
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i8 %107, ptr %108, align 4, !tbaa !106
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 12
-  %.sroa.0.0..sroa.0.0..i.i.i171 = load i32, ptr %85, align 1
-  %86 = trunc i32 %.sroa.0.0..sroa.0.0..i.i.i171 to i16
+  %.not.i.i.i168 = load i32, ptr %85, align 1
+  %86 = trunc i32 %.not.i.i.i168 to i16
   %87 = and i16 %86, 16383
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 30
   store i16 %87, ptr %88, align 2, !tbaa !107
-  %89 = icmp ult i32 %.sroa.0.0..sroa.0.0..i.i.i99, 65536
+  %89 = icmp ult i32 %.not.i.i.i96, 65536
   br i1 %89, label %95, label %90
 
-90:                                               ; preds = %82
-  %91 = icmp eq i32 %72, 0
-  %92 = and i32 %.sroa.0.0..sroa.0.0..i.i.i99, 983040
-  %.not28 = icmp ne i32 %92, 0
-  %or.cond.not321 = or i1 %91, %.not28
-  %93 = icmp ugt i32 %.sroa.0.0..sroa.0.0..i.i.i99, 425787391
-  %or.cond36 = or i1 %93, %or.cond.not321
-  %94 = icmp samesign ugt i32 %72, 4336
-  %or.cond37 = or i1 %94, %or.cond36
-  br i1 %or.cond37, label %95, label %97
+90:; preds = %106
+  %.sroa.speculated26.i.i.i.i172 = icmp eq i32 %72, 0
+  %112 = and i32 %.sroa.0.0..sroa.0.0..i.i.i99, 983040
+  %.sroa.speculated.i.i.i.i173 = icmp ne i32 %112, 0
+  %113 = or i1 %.sroa.speculated26.i.i.i.i172, %.not28
+  %114 = icmp ugt i32 %.not.i.i.i96, 425787391
+  %or.cond36 = or i1 %114, %113
+  %115 = icmp samesign ugt i32 %72, 4336
+  %116 = or i1 %94, %or.cond36
+  br i1 %116, label %95, label %97
 
-95:                                               ; preds = %90, %82
+95:; preds = %90, %82
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.4, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed21SamsungV2DecompressorC2ERKNS_8RawImageENS_10ByteStreamEj, i32 noundef %70, i32 noundef %72) #12
           to label %96 unwind label %80
 
-96:                                               ; preds = %95
+96:; preds = %95
   unreachable
 
-97:                                               ; preds = %90
-  %98 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %99 = load i32, ptr %98, align 8, !tbaa !108
-  %.not29 = icmp eq i32 %70, %99
-  br i1 %.not29, label %100, label %103
+130:                                              ; preds = %90
+  %131 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %132 = load i32, ptr %131, align 8, !tbaa !108
+  %.not29 = icmp eq i32 %70, %132
+  br i1 %.not29, label %133, label %136
 
-100:                                              ; preds = %97
-  %101 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  %102 = load i32, ptr %101, align 4, !tbaa !109
-  %.not30 = icmp eq i32 %72, %102
-  br i1 %.not30, label %105, label %103
+133:                                              ; preds = %130
+  %134 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  %135 = load i32, ptr %134, align 4, !tbaa !109
+  %.not30 = icmp eq i32 %72, %135
+  br i1 %.not30, label %138, label %136
 
-103:                                              ; preds = %100, %97
+136:                                              ; preds = %133, %130
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.5, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed21SamsungV2DecompressorC2ERKNS_8RawImageENS_10ByteStreamEj) #12
-          to label %104 unwind label %80
+          to label %137 unwind label %104
 
-104:                                              ; preds = %103
+137:                                              ; preds = %136
   unreachable
 
-105:                                              ; preds = %100
-  %106 = add nsw i32 %50, -16
-  %107 = zext i32 %106 to i64
-  %108 = add nuw nsw i64 %107, 16
-  %.not.i.i212 = icmp samesign ugt i64 %108, %43
-  br i1 %.not.i.i212, label %109, label %110
+138:                                              ; preds = %133
+  %139 = add nsw i32 %50, -16
+  %140 = zext i32 %139 to i64
+  %141 = add nuw nsw i64 %140, 16
+  %.not.i.i212 = icmp samesign ugt i64 %141, %43
+  br i1 %.not.i.i212, label %142, label %143
 
-109:                                              ; preds = %105
+142:                                              ; preds = %138
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #12
-          to label %.noexc213 unwind label %115
+          to label %.noexc213 unwind label %148
 
-.noexc213:                                        ; preds = %109
+.noexc213:                                        ; preds = %142
   unreachable
 
-110:                                              ; preds = %105
-  %111 = icmp samesign ugt i32 %50, 15
-  tail call void @llvm.assume(i1 %111)
-  %112 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %113 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %114 = load i16, ptr %113, align 4, !tbaa !22, !noalias !110
-  %.sroa.4.8.insert.ext.i = zext i16 %114 to i64
+143:                                              ; preds = %138
+  %144 = icmp samesign ugt i32 %50, 15
+  tail call void @llvm.assume(i1 %144)
+  %145 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %147 = load i16, ptr %146, align 4, !tbaa !22, !noalias !110
+  %.sroa.4.8.insert.ext.i = zext i16 %147 to i64
   %.sroa.4.8.insert.shift.i = shl nuw nsw i64 %.sroa.4.8.insert.ext.i, 32
-  %.sroa.2.8.insert.insert.i = or disjoint i64 %.sroa.4.8.insert.shift.i, %107
-  store ptr %112, ptr %17, align 8
+  %.sroa.2.8.insert.insert.i = or disjoint i64 %.sroa.4.8.insert.shift.i, %140
+  store ptr %145, ptr %17, align 8
   store i64 %.sroa.2.8.insert.insert.i, ptr %18, align 8
   store i32 0, ptr %20, align 8
   ret void
 
-115:                                              ; preds = %109
-  %116 = landingpad { ptr, i32 }
+148:                                              ; preds = %142
+  %149 = landingpad { ptr, i32 }
           cleanup
-  br label %117
+  br label %150
 
-117:                                              ; preds = %64, %66, %115, %80, %31
-  %.pn34 = phi { ptr, i32 } [ %32, %31 ], [ %67, %66 ], [ %65, %64 ], [ %81, %80 ], [ %116, %115 ]
+150:                                              ; preds = %67, %69, %148, %104, %31
+  %.pn34 = phi { ptr, i32 } [ %32, %31 ], [ %70, %69 ], [ %68, %67 ], [ %105, %104 ], [ %149, %148 ]
   tail call void @_ZN8rawspeed27AbstractSamsungDecompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
   resume { ptr, i32 } %.pn34
 }
