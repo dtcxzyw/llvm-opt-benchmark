@@ -40,6 +40,7 @@
   "callsite-splitting.NumCallSiteSplit": 8466,
   "capture-tracking.NumCapturedBefore": 14203936,
   "capture-tracking.NumNotCapturedBefore": 16277108,
+  "cgscc.LargestCGSCC": 105741,
   "constmerge.NumIdenticalMerged": 11909,
   "constraint-elimination.NumCondsRemoved": 2202404,
   "correlated-value-propagation.NumAShrsConverted": 4035,
