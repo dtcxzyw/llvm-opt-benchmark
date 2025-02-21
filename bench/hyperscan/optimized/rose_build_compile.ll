@@ -6834,7 +6834,6 @@ call5.i.i.i.i4.i.i.noexc.i.i.i:                   ; preds = %for.inc.preheader.i
   br label %invoke.cont45.i.i.i
 
 invoke.cont45.i.i.i:                              ; preds = %call5.i.i.i.i4.i.i.noexc.i.i.i, %if.end8.i.i.i
-  %cmp14.not.lcssa320.i.i.i = phi i1 [ %cmp14.not.i.i.i, %call5.i.i.i.i4.i.i.noexc.i.i.i ], [ true, %if.end8.i.i.i ]
   %reach.sroa.0.0.i.i.i = phi ptr [ %call5.i.i.i.i4.i.i214.i.i.i, %call5.i.i.i.i4.i.i.noexc.i.i.i ], [ null, %if.end8.i.i.i ]
   %alpha_remap.i.i.i = getelementptr inbounds nuw i8, ptr %314, i64 46
   br label %for.inc60.i.i.i
@@ -7387,7 +7386,7 @@ if.then.i.i.i251.i.i.i:                           ; preds = %ehcleanup135.i.i.i
   br label %ehcleanup161.i.i.i
 
 cleanup160.i.i.i:                                 ; preds = %invoke.cont27.i.i.i, %lor.lhs.false.i.i.i.i, %if.end25.i.i.i, %if.then.i.i.i.i.i277.i, %for.cond.cleanup70.i.i.i
-  %cmp14.not291.i.i.i = phi i1 [ %cmp14.not.lcssa320.i.i.i, %if.then.i.i.i.i.i277.i ], [ %cmp14.not.lcssa320.i.i.i, %for.cond.cleanup70.i.i.i ], [ %cmp14.not294.i.i.i, %if.end25.i.i.i ], [ %cmp14.not294.i.i.i, %lor.lhs.false.i.i.i.i ], [ %cmp14.not294.i.i.i, %invoke.cont27.i.i.i ]
+  %cmp14.not291.i.i.i = phi i1 [ true, %if.then.i.i.i.i.i277.i ], [ true, %for.cond.cleanup70.i.i.i ], [ %cmp14.not294.i.i.i, %if.end25.i.i.i ], [ %cmp14.not294.i.i.i, %lor.lhs.false.i.i.i.i ], [ %cmp14.not294.i.i.i, %invoke.cont27.i.i.i ]
   %407 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i270.i, align 8
   invoke void @_ZNSt8_Rb_treeIN3ue28flat_setIjSt4lessIjESaIjEEESt4pairIKS5_St6vectorIjS4_EESt10_Select1stISA_ES2_IS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %lits.i.i.i, ptr noundef %407)
           to label %invoke.cont96.i unwind label %terminate.lpad.i.i.i.i.i

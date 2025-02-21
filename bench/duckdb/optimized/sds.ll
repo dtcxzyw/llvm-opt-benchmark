@@ -3194,64 +3194,61 @@ _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %8, %11, %15, %19, %
 
 35:                                               ; preds = %27
   %.not45 = icmp samesign ult i64 %.036, %.0.i
-  %36 = add nsw i64 %.0.i, -1
-  %37 = icmp samesign ugt i64 %.0, %36
-  %38 = sub nsw i64 %.0.i, %.0
-  %39 = select i1 %37, i64 0, i64 %38
-  %.035 = select i1 %.not45, i64 %34, i64 %39
-  %40 = icmp ne i64 %.0, 0
-  %41 = icmp ne i64 %.035, 0
-  %or.cond = select i1 %40, i1 %41, i1 false
-  br i1 %or.cond, label %42, label %.thread
+  %36 = sub nsw i64 %.0.i, %.0
+  %.035 = select i1 %.not45, i64 %34, i64 %36
+  %37 = icmp ne i64 %.0, 0
+  %38 = icmp ne i64 %.035, 0
+  %or.cond = select i1 %37, i1 %38, i1 false
+  br i1 %or.cond, label %39, label %.thread
 
-42:                                               ; preds = %35
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 %.0
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 1 %43, i64 %.035, i1 false)
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 %.0
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 1 %40, i64 %.035, i1 false)
   br label %.thread
 
-.thread:                                          ; preds = %27, %42, %35
-  %.03550 = phi i64 [ %.035, %42 ], [ %.035, %35 ], [ 0, %27 ]
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 %.03550
-  store i8 0, ptr %44, align 1, !tbaa !20
-  %45 = and i8 %5, 7
-  switch i8 %45, label %_ZN10duckdb_hllL9sdssetlenEPcm.exit [
-    i8 0, label %46
-    i8 1, label %48
-    i8 2, label %51
-    i8 3, label %54
-    i8 4, label %57
+.thread:                                          ; preds = %27, %39, %35
+  %.03550 = phi i64 [ %.035, %39 ], [ %.035, %35 ], [ 0, %27 ]
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 %.03550
+  store i8 0, ptr %41, align 1, !tbaa !20
+  %42 = and i8 %5, 7
+  switch i8 %42, label %_ZN10duckdb_hllL9sdssetlenEPcm.exit [
+    i8 0, label %43
+    i8 1, label %45
+    i8 2, label %48
+    i8 3, label %51
+    i8 4, label %54
   ]
 
-46:                                               ; preds = %.thread
+43:                                               ; preds = %.thread
   %.tr.i = trunc i64 %.03550 to i8
-  %47 = shl i8 %.tr.i, 3
-  store i8 %47, ptr %4, align 1, !tbaa !20
+  %44 = shl i8 %.tr.i, 3
+  store i8 %44, ptr %4, align 1, !tbaa !20
+  br label %_ZN10duckdb_hllL9sdssetlenEPcm.exit
+
+45:                                               ; preds = %.thread
+  %46 = trunc i64 %.03550 to i8
+  %47 = getelementptr inbounds i8, ptr %0, i64 -4
+  store i8 %46, ptr %47, align 1, !tbaa !3
   br label %_ZN10duckdb_hllL9sdssetlenEPcm.exit
 
 48:                                               ; preds = %.thread
-  %49 = trunc i64 %.03550 to i8
-  %50 = getelementptr inbounds i8, ptr %0, i64 -4
-  store i8 %49, ptr %50, align 1, !tbaa !3
+  %49 = trunc i64 %.03550 to i16
+  %50 = getelementptr inbounds i8, ptr %0, i64 -6
+  store i16 %49, ptr %50, align 1, !tbaa !8
   br label %_ZN10duckdb_hllL9sdssetlenEPcm.exit
 
 51:                                               ; preds = %.thread
-  %52 = trunc i64 %.03550 to i16
-  %53 = getelementptr inbounds i8, ptr %0, i64 -6
-  store i16 %52, ptr %53, align 1, !tbaa !8
+  %52 = trunc i64 %.03550 to i32
+  %53 = getelementptr inbounds i8, ptr %0, i64 -10
+  store i32 %52, ptr %53, align 1, !tbaa !12
   br label %_ZN10duckdb_hllL9sdssetlenEPcm.exit
 
 54:                                               ; preds = %.thread
-  %55 = trunc i64 %.03550 to i32
-  %56 = getelementptr inbounds i8, ptr %0, i64 -10
-  store i32 %55, ptr %56, align 1, !tbaa !12
+  %55 = getelementptr inbounds i8, ptr %0, i64 -18
+  store i64 %.03550, ptr %55, align 1, !tbaa !16
   br label %_ZN10duckdb_hllL9sdssetlenEPcm.exit
 
-57:                                               ; preds = %.thread
-  %58 = getelementptr inbounds i8, ptr %0, i64 -18
-  store i64 %.03550, ptr %58, align 1, !tbaa !16
-  br label %_ZN10duckdb_hllL9sdssetlenEPcm.exit
-
-_ZN10duckdb_hllL9sdssetlenEPcm.exit:              ; preds = %3, %57, %54, %51, %48, %46, %.thread, %_ZN10duckdb_hllL6sdslenEPc.exit
+_ZN10duckdb_hllL9sdssetlenEPcm.exit:              ; preds = %3, %54, %51, %48, %45, %43, %.thread, %_ZN10duckdb_hllL6sdslenEPc.exit
   ret void
 }
 
