@@ -31685,49 +31685,33 @@ switch.lookup:
   %switch.downshift = lshr i24 7367530, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8
   %4 = load i8, ptr %2, align 8
-  %switch.tableidx21 = add nsw i8 %4, -94
-  %switch.cast22 = zext i8 %switch.tableidx21 to i24
-  %switch.shiftamt23 = shl nuw nsw i24 %switch.cast22, 3
-  %switch.downshift24 = lshr i24 7367530, %switch.shiftamt23
-  %switch.masked25 = trunc i24 %switch.downshift24 to i8
-  %.not = icmp eq i8 %switch.masked, %switch.masked25
-  br i1 %.not, label %5, label %27
+  %switch.tableidx18 = add nsw i8 %4, -94
+  %switch.cast19 = zext i8 %switch.tableidx18 to i24
+  %switch.shiftamt20 = shl nuw nsw i24 %switch.cast19, 3
+  %switch.downshift21 = lshr i24 7367530, %switch.shiftamt20
+  %switch.masked22 = trunc i24 %switch.downshift21 to i8
+  %.not = icmp eq i8 %switch.masked, %switch.masked22
+  br i1 %.not, label %5, label %15
 
 5:                                                ; preds = %switch.lookup
   %switch = icmp eq i8 %3, 96
-  br i1 %switch, label %6, label %16
+  br i1 %switch, label %6, label %10
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %9 = load i8, ptr %8, align 8
-  %10 = icmp eq i8 %9, 1
-  %spec.select.i.i.i = select i1 %10, ptr %7, ptr null
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %13 = load i8, ptr %12, align 8
-  %14 = icmp eq i8 %13, 1
-  %spec.select.i.i.i13 = select i1 %14, ptr %11, ptr null
-  %15 = tail call noundef zeroext i1 @_ZZN8WasmEdge3AST11TypeMatcher14isRecTypeEqualEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEEjS8_jjENKUlRKNS0_12FunctionTypeESB_E_clESB_SB_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i.i13)
-  br label %27
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %9 = tail call noundef zeroext i1 @_ZZN8WasmEdge3AST11TypeMatcher14isRecTypeEqualEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEEjS8_jjENKUlRKNS0_12FunctionTypeESB_E_clESB_SB_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %8)
+  br label %15
 
-16:                                               ; preds = %5
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %20 = load i8, ptr %19, align 8
-  %21 = icmp eq i8 %20, 0
-  %spec.select.i.i.i14 = select i1 %21, ptr %18, ptr null
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %24 = load i8, ptr %23, align 8
-  %25 = icmp eq i8 %24, 0
-  %spec.select.i.i.i15 = select i1 %25, ptr %22, ptr null
-  %26 = tail call noundef zeroext i1 @_ZZN8WasmEdge3AST11TypeMatcher14isRecTypeEqualEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEEjS8_jjENKUlRKSt6vectorINS0_9FieldTypeESaISA_EESE_E_clESE_SE_(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(24) %spec.select.i.i.i14, ptr noundef nonnull align 8 dereferenceable(24) %spec.select.i.i.i15)
-  br label %27
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %14 = tail call noundef zeroext i1 @_ZZN8WasmEdge3AST11TypeMatcher14isRecTypeEqualEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEEjS8_jjENKUlRKSt6vectorINS0_9FieldTypeESaISA_EESE_E_clESE_SE_(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  br label %15
 
-27:                                               ; preds = %switch.lookup, %16, %6
-  %.0 = phi i1 [ %26, %16 ], [ %15, %6 ], [ false, %switch.lookup ]
+15:                                               ; preds = %switch.lookup, %10, %6
+  %.0 = phi i1 [ %14, %10 ], [ %9, %6 ], [ false, %switch.lookup ]
   ret i1 %.0
 }
 

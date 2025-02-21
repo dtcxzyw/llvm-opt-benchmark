@@ -8898,11 +8898,11 @@ sema_analyse_expr.exit153:                        ; preds = %sema_analyse_expr_l
   br i1 %566, label %567, label %.thread161
 
 567:                                              ; preds = %565
-  %568 = tail call zeroext i1 @sema_analyse_expr(ptr noundef %.tr.ph, ptr noundef nonnull %543)
+  %568 = tail call zeroext i1 @sema_analyse_expr(ptr noundef %.tr.ph, ptr noundef nonnull %542)
   br i1 %568, label %569, label %sema_expr_analyse_slice.exit
 
 569:                                              ; preds = %567
-  %570 = tail call zeroext i1 @cast_to_index(ptr noundef %.tr.ph, ptr noundef %538) #12
+  %570 = tail call zeroext i1 @cast_to_index(ptr noundef %.tr.ph, ptr noundef nonnull %538) #12
   br i1 %570, label %572, label %sema_expr_analyse_slice.exit
 
 .thread161:                                       ; preds = %565
@@ -8910,11 +8910,11 @@ sema_analyse_expr.exit153:                        ; preds = %sema_analyse_expr_l
   br i1 %571, label %.critedge.i130, label %sema_expr_analyse_slice.exit
 
 572:                                              ; preds = %569
-  %573 = tail call zeroext i1 @cast_to_index(ptr noundef %.tr.ph, ptr noundef nonnull %543) #12
+  %573 = tail call zeroext i1 @cast_to_index(ptr noundef %.tr.ph, ptr noundef nonnull %542) #12
   br i1 %573, label %574, label %sema_expr_analyse_slice.exit
 
 574:                                              ; preds = %572
-  %575 = load ptr, ptr %543, align 8
+  %575 = load ptr, ptr %542, align 8
   %576 = load ptr, ptr %538, align 8
   %.not130.i = icmp eq ptr %575, %576
   br i1 %.not130.i, label %.critedge.i130, label %577
@@ -8934,7 +8934,7 @@ sema_analyse_expr.exit153:                        ; preds = %sema_analyse_expr_l
   br i1 %582, label %583, label %sema_expr_analyse_slice.exit
 
 583:                                              ; preds = %581
-  %584 = tail call zeroext i1 @cast_implicit(ptr noundef %.tr.ph, ptr noundef nonnull %543, ptr noundef nonnull %578) #12
+  %584 = tail call zeroext i1 @cast_implicit(ptr noundef %.tr.ph, ptr noundef nonnull %542, ptr noundef nonnull %578) #12
   br i1 %584, label %.critedge.i130, label %sema_expr_analyse_slice.exit
 
 .critedge.i130:                                   ; preds = %.thread161, %583, %574
@@ -9002,11 +9002,11 @@ sema_analyse_expr.exit153:                        ; preds = %sema_analyse_expr_l
   br i1 %.not132.i, label %614, label %612
 
 612:                                              ; preds = %611
-  %613 = call fastcc zeroext i1 @sema_slice_len_is_in_range(ptr noundef nonnull %545, ptr noundef %543, i1 noundef zeroext %588, ptr noundef %5)
+  %613 = call fastcc zeroext i1 @sema_slice_len_is_in_range(ptr noundef nonnull %545, ptr noundef %542, i1 noundef zeroext %588, ptr noundef %5)
   br i1 %613, label %616, label %sema_expr_analyse_slice.exit
 
 614:                                              ; preds = %611
-  %615 = call fastcc zeroext i1 @sema_slice_index_is_in_range(ptr noundef nonnull %545, ptr noundef nonnull %543, i1 noundef zeroext true, i1 noundef zeroext %588, ptr noundef %5)
+  %615 = call fastcc zeroext i1 @sema_slice_index_is_in_range(ptr noundef nonnull %545, ptr noundef nonnull %542, i1 noundef zeroext true, i1 noundef zeroext %588, ptr noundef %5)
   br i1 %615, label %616, label %sema_expr_analyse_slice.exit
 
 616:                                              ; preds = %614, %612, %610

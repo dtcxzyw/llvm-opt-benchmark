@@ -930,11 +930,9 @@ invoke.cont15:                                    ; preds = %catch
 invoke.cont9:                                     ; preds = %entry, %if.then
   %m_error_code.i = getelementptr inbounds nuw i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
-  %cmp.i = icmp eq ptr %d, null
   %m_descrs.i = getelementptr inbounds nuw i8, ptr %d, i64 24
-  %spec.select.i = select i1 %cmp.i, ptr null, ptr %m_descrs.i
   %m_params = getelementptr inbounds nuw i8, ptr %p, i64 24
-  invoke void @_ZN10params_ref8validateERK12param_descrs(ptr noundef nonnull align 8 dereferenceable(8) %m_params, ptr noundef nonnull align 8 dereferenceable(8) %spec.select.i)
+  invoke void @_ZN10params_ref8validateERK12param_descrs(ptr noundef nonnull align 8 dereferenceable(8) %m_params, ptr noundef nonnull align 8 dereferenceable(8) %m_descrs.i)
           to label %invoke.cont11 unwind label %lpad1
 
 invoke.cont11:                                    ; preds = %invoke.cont9
@@ -1191,11 +1189,9 @@ invoke.cont21:                                    ; preds = %catch
 invoke.cont9:                                     ; preds = %if.then, %entry
   %m_error_code.i = getelementptr inbounds nuw i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
-  %cmp.i = icmp eq ptr %p, null
   %m_descrs.i = getelementptr inbounds nuw i8, ptr %p, i64 24
-  %spec.select.i = select i1 %cmp.i, ptr null, ptr %m_descrs.i
   store ptr %n, ptr %ref.tmp, align 8
-  %call12 = invoke noundef i32 @_ZNK12param_descrs8get_kindERK6symbol(ptr noundef nonnull align 8 dereferenceable(8) %spec.select.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
+  %call12 = invoke noundef i32 @_ZNK12param_descrs8get_kindERK6symbol(ptr noundef nonnull align 8 dereferenceable(8) %m_descrs.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont11 unwind label %lpad1
 
 invoke.cont11:                                    ; preds = %invoke.cont9
@@ -1305,10 +1301,8 @@ invoke.cont14:                                    ; preds = %catch
 invoke.cont7:                                     ; preds = %entry, %if.then
   %m_error_code.i = getelementptr inbounds nuw i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
-  %cmp.i = icmp eq ptr %p, null
   %m_descrs.i = getelementptr inbounds nuw i8, ptr %p, i64 24
-  %spec.select.i = select i1 %cmp.i, ptr null, ptr %m_descrs.i
-  %call10 = invoke noundef i32 @_ZNK12param_descrs4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %spec.select.i)
+  %call10 = invoke noundef i32 @_ZNK12param_descrs4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %m_descrs.i)
           to label %invoke.cont9 unwind label %lpad1
 
 invoke.cont9:                                     ; preds = %invoke.cont7
@@ -1396,10 +1390,8 @@ invoke.cont33:                                    ; preds = %catch
 invoke.cont7:                                     ; preds = %entry, %if.then
   %m_error_code.i = getelementptr inbounds nuw i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
-  %cmp.i = icmp eq ptr %p, null
   %m_descrs.i = getelementptr inbounds nuw i8, ptr %p, i64 24
-  %spec.select.i = select i1 %cmp.i, ptr null, ptr %m_descrs.i
-  %call10 = invoke noundef i32 @_ZNK12param_descrs4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %spec.select.i)
+  %call10 = invoke noundef i32 @_ZNK12param_descrs4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %m_descrs.i)
           to label %invoke.cont9 unwind label %lpad1
 
 invoke.cont9:                                     ; preds = %invoke.cont7
@@ -1415,7 +1407,7 @@ invoke.cont14:                                    ; preds = %if.then11
   br label %cleanup
 
 invoke.cont19:                                    ; preds = %invoke.cont9
-  %call22 = invoke ptr @_ZNK12param_descrs14get_param_nameEj(ptr noundef nonnull align 8 dereferenceable(8) %spec.select.i, i32 noundef %i)
+  %call22 = invoke ptr @_ZNK12param_descrs14get_param_nameEj(ptr noundef nonnull align 8 dereferenceable(8) %m_descrs.i, i32 noundef %i)
           to label %cleanup unwind label %lpad1
 
 cleanup:                                          ; preds = %invoke.cont19, %invoke.cont14
@@ -1506,11 +1498,9 @@ invoke.cont30:                                    ; preds = %catch
 invoke.cont9:                                     ; preds = %if.then, %entry
   %m_error_code.i = getelementptr inbounds nuw i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
-  %cmp.i = icmp eq ptr %p, null
   %m_descrs.i = getelementptr inbounds nuw i8, ptr %p, i64 24
-  %spec.select.i = select i1 %cmp.i, ptr null, ptr %m_descrs.i
   store ptr %s, ptr %ref.tmp, align 8
-  %call12 = invoke noundef ptr @_ZNK12param_descrs9get_descrERK6symbol(ptr noundef nonnull align 8 dereferenceable(8) %spec.select.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
+  %call12 = invoke noundef ptr @_ZNK12param_descrs9get_descrERK6symbol(ptr noundef nonnull align 8 dereferenceable(8) %m_descrs.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont11 unwind label %lpad1
 
 invoke.cont11:                                    ; preds = %invoke.cont9
@@ -1598,10 +1588,8 @@ invoke.cont7:                                     ; preds = %if.end
           to label %invoke.cont11 unwind label %lpad8.loopexit.split-lp
 
 invoke.cont11:                                    ; preds = %invoke.cont7
-  %cmp.i = icmp eq ptr %p, null
   %m_descrs.i = getelementptr inbounds nuw i8, ptr %p, i64 24
-  %spec.select.i = select i1 %cmp.i, ptr null, ptr %m_descrs.i
-  %call14 = invoke noundef i32 @_ZNK12param_descrs4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %spec.select.i)
+  %call14 = invoke noundef i32 @_ZNK12param_descrs4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %m_descrs.i)
           to label %for.cond.preheader unwind label %lpad8.loopexit.split-lp
 
 for.cond.preheader:                               ; preds = %invoke.cont11
@@ -1630,7 +1618,7 @@ lpad8.loopexit.split-lp:                          ; preds = %invoke.cont7, %invo
   br label %ehcleanup
 
 invoke.cont20:                                    ; preds = %for.body, %if.then16
-  %call23 = invoke ptr @_ZNK12param_descrs14get_param_nameEj(ptr noundef nonnull align 8 dereferenceable(8) %spec.select.i, i32 noundef %i.028)
+  %call23 = invoke ptr @_ZNK12param_descrs14get_param_nameEj(ptr noundef nonnull align 8 dereferenceable(8) %m_descrs.i, i32 noundef %i.028)
           to label %invoke.cont22 unwind label %lpad8.loopexit
 
 invoke.cont22:                                    ; preds = %invoke.cont20

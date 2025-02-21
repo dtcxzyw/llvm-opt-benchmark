@@ -643,7 +643,6 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %5 = load i64, ptr %1, align 8, !range !22, !alias.scope !23, !noalias !24, !noundef !11
   %6 = icmp eq i64 %5, 3
-  %.0.i.i.i = select i1 %6, ptr null, ptr %1
   br i1 %6, label %56, label %7
 
 7:                                                ; preds = %2
@@ -732,7 +731,7 @@ common.resume.i.i:                                ; preds = %"_ZN4core3ptr148dro
 
 38:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17h783abadd2a9c20deE.exit.sink.split.i8.i.i.i.i.i.i.i.i", %29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !26
-  %39 = call { i64, ptr } @"_ZN98_$LT$syntax..ast..traits..AttrDocCommentIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0eed81a9b19f4689E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.0.i.i.i), !noalias !24
+  %39 = call { i64, ptr } @"_ZN98_$LT$syntax..ast..traits..AttrDocCommentIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0eed81a9b19f4689E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1), !noalias !24
   %40 = extractvalue { i64, ptr } %39, 0
   %.not.i.i.i.i.i.i.i = icmp eq i64 %40, 2
   br i1 %.not.i.i.i.i.i.i.i, label %.loopexit.i.i.i, label %11
@@ -826,7 +825,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h42e6c120739f50b8E.exit.i.i: ; 
   br i1 %69, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h26483d754877a0a9E.exit.i", label %70
 
 70:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h95fe459e0a2b5a55E.exit.i.i.i.i.i.i"
-  %.val9.i.i.i.i.i.i = load i64, ptr %..i.i.i.i, align 8, !range !22, !alias.scope !79, !noalias !24, !noundef !11
+  %.val9.i.i.i.i.i.i = load i64, ptr %57, align 8, !range !22, !alias.scope !79, !noalias !24, !noundef !11
   %.val10.i.i.i.i.i.i = load ptr, ptr %65, align 8, !alias.scope !79, !noalias !24
   switch i64 %.val9.i.i.i.i.i.i, label %default.unreachable [
     i64 3, label %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h63bb319e137b31cdE.exit.i.i.i.i.i.i"
@@ -869,7 +868,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h42e6c120739f50b8E.exit.i.i: ; 
 "_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h63bb319e137b31cdE.exit.i.i.i.i.i.i": ; preds = %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8320b619ea489b84E.llvm.15963164601899926706.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i", %77, %71, %70, %70
   store i64 %66, ptr %57, align 8, !alias.scope !79, !noalias !24
   store ptr %68, ptr %65, align 8, !alias.scope !79, !noalias !24
-  %84 = call fastcc { i64, ptr } @_ZN4core4iter8adapters7flatten17and_then_or_clear17h39caf0aabba9bfb4E(ptr noalias noundef nonnull align 8 dereferenceable(48) %..i.i.i.i), !noalias !24
+  %84 = call fastcc { i64, ptr } @_ZN4core4iter8adapters7flatten17and_then_or_clear17h39caf0aabba9bfb4E(ptr noalias noundef nonnull align 8 dereferenceable(48) %57), !noalias !24
   %85 = extractvalue { i64, ptr } %84, 0
   %.not.i.i.i.i.i.i = icmp eq i64 %85, 2
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$either..Either$LT$syntax..ast..generated..nodes..Attr$C$syntax..ast..generated..tokens..Comment$GT$$GT$$GT$17hcc294edfaeb01e6cE.exit.i.i.i.i.i.i", label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h26483d754877a0a9E.exit.thread17.i"
@@ -5142,7 +5141,6 @@ define internal fastcc { i64, ptr } @_ZN4core4iter8adapters7flatten17and_then_or
   %3 = alloca { i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !22, !noundef !11
   %5 = icmp eq i64 %4, 3
-  %.0 = select i1 %5, ptr null, ptr %0
   br i1 %5, label %53, label %6
 
 6:                                                ; preds = %1
@@ -5231,7 +5229,7 @@ common.resume:                                    ; preds = %21, %"_ZN4core3ptr5
 
 37:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17h783abadd2a9c20deE.exit.sink.split.i8.i.i.i.i.i", %28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1577
-  %38 = call { i64, ptr } @"_ZN98_$LT$syntax..ast..traits..AttrDocCommentIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0eed81a9b19f4689E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.0)
+  %38 = call { i64, ptr } @"_ZN98_$LT$syntax..ast..traits..AttrDocCommentIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0eed81a9b19f4689E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
   %39 = extractvalue { i64, ptr } %38, 0
   %.not.i.i.i.i = icmp eq i64 %39, 2
   br i1 %.not.i.i.i.i, label %.loopexit, label %10

@@ -4928,7 +4928,6 @@ common.resume:                                    ; preds = %.noexc, %71, %185, 
   store i64 %171, ptr %.sroa.0.sroa.8.0..sroa_idx, align 8, !alias.scope !810
   %172 = icmp eq ptr %168, null
   %173 = getelementptr inbounds i8, ptr %168, i64 -80
-  %.sroa.0.0.i = select i1 %172, ptr null, ptr %173
   br i1 %172, label %.thread, label %196
 
 .thread:                                          ; preds = %169, %._crit_edge, %91
@@ -5895,7 +5894,7 @@ default.unreachable.i.i.i:                        ; preds = %.noexc82
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %39)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %38)
-  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %38, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.0.i)
+  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %38, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %173)
           to label %467 unwind label %465
 
 453:                                              ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h6c3c3b8c43db4bb8E.exit119.thread"
@@ -7543,33 +7542,33 @@ define internal fastcc void @_ZN6uu_ptx17format_roff_field17hb7a4cc03cba5a584E(p
 
 .lr.ph.split.split.i.i.i:                         ; preds = %26, %.lr.ph.i.i.i
   %8 = phi i64 [ %23, %26 ], [ %.lcssa192226.i, %.lr.ph.i.i.i ]
-  %.sroa.7.049.i.i.i = sub nuw i64 %2, %8
-  %.sroa.0.050.i.i.i = getelementptr inbounds i8, ptr %1, i64 %8
-  %9 = icmp ult i64 %.sroa.7.049.i.i.i, 16
+  %.sroa.7.047.i.i.i = sub nuw i64 %2, %8
+  %.sroa.0.048.i.i.i = getelementptr inbounds i8, ptr %1, i64 %8
+  %9 = icmp ult i64 %.sroa.7.047.i.i.i, 16
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %.lr.ph.split.split.i.i.i
-  %11 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef 34, ptr noalias noundef nonnull readonly align 1 %.sroa.0.050.i.i.i, i64 noundef %.sroa.7.049.i.i.i)
+  %11 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef 34, ptr noalias noundef nonnull readonly align 1 %.sroa.0.048.i.i.i, i64 noundef %.sroa.7.047.i.i.i)
           to label %.noexc14.i unwind label %.loopexit.i, !noalias !1289
 
 12:                                               ; preds = %.lr.ph.split.split.i.i.i
-  %.not.i.i.i.i = icmp eq i64 %.sroa.7.049.i.i.i, 0
+  %.not.i.i.i.i = icmp eq i64 %.sroa.7.047.i.i.i, 0
   br i1 %.not.i.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %12, %16
   %.05.i.i.i.i = phi i64 [ %17, %16 ], [ 0, %12 ]
-  %13 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.050.i.i.i, i64 0, i64 %.05.i.i.i.i
+  %13 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.048.i.i.i, i64 0, i64 %.05.i.i.i.i
   %14 = load i8, ptr %13, align 1, !alias.scope !1290, !noalias !1293, !noundef !5
   %15 = icmp eq i8 %14, 34
   br i1 %15, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i, label %16
 
 16:                                               ; preds = %.lr.ph.i.i.i.i
   %17 = add nuw nsw i64 %.05.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i64 %17, %.sroa.7.049.i.i.i
+  %exitcond.not.i.i.i.i = icmp eq i64 %17, %.sroa.7.047.i.i.i
   br i1 %exitcond.not.i.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i: ; preds = %16, %.lr.ph.i.i.i.i, %12
-  %.0.lcssa.i.i.i.i = phi i64 [ 0, %12 ], [ %.05.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.sroa.7.049.i.i.i, %16 ]
+  %.0.lcssa.i.i.i.i = phi i64 [ 0, %12 ], [ %.05.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.sroa.7.047.i.i.i, %16 ]
   %.sroa.0.0.i24.i.i.i = phi i64 [ 0, %12 ], [ 1, %.lr.ph.i.i.i.i ], [ 0, %16 ]
   %18 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i24.i.i.i, 0
   %19 = insertvalue { i64, i64 } %18, i64 %.0.lcssa.i.i.i.i, 1

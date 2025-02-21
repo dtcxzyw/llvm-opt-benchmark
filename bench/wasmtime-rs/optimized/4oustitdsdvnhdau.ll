@@ -101,7 +101,7 @@ define void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h760c5bd178dd46aaE"
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define nonnull align 8 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h7a514ffb45ea36e2E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h7a514ffb45ea36e2E"(ptr returned align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [2 x i64], i64, [6 x i64] }, align 8
   %4 = alloca { [2 x i64], i64, [6 x i64] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -116,10 +116,9 @@ define nonnull align 8 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_wit
           to label %13 unwind label %11
 
 9:                                                ; preds = %13, %2
-  %. = phi ptr [ %15, %13 ], [ %0, %2 ]
-  %10 = icmp ne ptr %., null
+  %10 = phi i1 [ %14, %13 ], [ true, %2 ]
   call void @llvm.assume(i1 %10)
-  ret ptr %.
+  ret ptr %0
 
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
@@ -130,16 +129,15 @@ define nonnull align 8 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_wit
 13:                                               ; preds = %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
   %.pre = load i64, ptr %5, align 8, !range !7
-  %14 = icmp eq i64 %.pre, 6
-  %15 = select i1 %14, ptr null, ptr %0
+  %14 = icmp ne i64 %.pre, 6
   br label %9
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define nonnull align 8 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h886a0d55f47bd255E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define nonnull align 8 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h886a0d55f47bd255E"(ptr returned align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !8, !noundef !3
   %4 = icmp eq i64 %3, 2
-  br i1 %4, label %5, label %12
+  br i1 %4, label %5, label %11
 
 5:                                                ; preds = %2
   %6 = tail call { i64, i64 } @"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek28_$u7b$$u7b$closure$u7d$$u7d$17h65c9c09b741781dfE"(ptr align 8 %1)
@@ -148,22 +146,20 @@ define nonnull align 8 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_wit
   store i64 %7, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %8, ptr %9, align 8
-  %10 = icmp eq i64 %7, 2
-  %11 = select i1 %10, ptr null, ptr %0
-  br label %12
+  %10 = icmp ne i64 %7, 2
+  br label %11
 
-12:                                               ; preds = %5, %2
-  %. = phi ptr [ %11, %5 ], [ %0, %2 ]
-  %13 = icmp ne ptr %., null
-  tail call void @llvm.assume(i1 %13)
-  ret ptr %.
+11:                                               ; preds = %5, %2
+  %12 = phi i1 [ %10, %5 ], [ true, %2 ]
+  tail call void @llvm.assume(i1 %12)
+  ret ptr %0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define nonnull align 2 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5c1c1949e166583E"(ptr align 2 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define nonnull align 2 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he5c1c1949e166583E"(ptr returned align 2 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %0, align 2, !range !9, !noundef !3
   %4 = icmp eq i16 %3, 2
-  br i1 %4, label %5, label %12
+  br i1 %4, label %5, label %11
 
 5:                                                ; preds = %2
   %6 = tail call { i16, i16 } @"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek28_$u7b$$u7b$closure$u7d$$u7d$17hbbc1db69f73a8843E"(ptr align 8 %1)
@@ -172,22 +168,20 @@ define nonnull align 2 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_wit
   store i16 %7, ptr %0, align 2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %8, ptr %9, align 2
-  %10 = icmp eq i16 %7, 2
-  %11 = select i1 %10, ptr null, ptr %0
-  br label %12
+  %10 = icmp ne i16 %7, 2
+  br label %11
 
-12:                                               ; preds = %5, %2
-  %. = phi ptr [ %11, %5 ], [ %0, %2 ]
-  %13 = icmp ne ptr %., null
-  tail call void @llvm.assume(i1 %13)
-  ret ptr %.
+11:                                               ; preds = %5, %2
+  %12 = phi i1 [ %10, %5 ], [ true, %2 ]
+  tail call void @llvm.assume(i1 %12)
+  ret ptr %0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define nonnull align 2 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hfcb39d7d7dff5a3fE"(ptr align 2 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define nonnull align 2 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hfcb39d7d7dff5a3fE"(ptr returned align 2 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %0, align 2, !range !9, !noundef !3
   %4 = icmp eq i16 %3, 2
-  br i1 %4, label %5, label %12
+  br i1 %4, label %5, label %11
 
 5:                                                ; preds = %2
   %6 = tail call { i16, i16 } @"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek28_$u7b$$u7b$closure$u7d$$u7d$17hda580348e08d2514E"(ptr align 8 %1)
@@ -196,15 +190,13 @@ define nonnull align 2 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_wit
   store i16 %7, ptr %0, align 2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %8, ptr %9, align 2
-  %10 = icmp eq i16 %7, 2
-  %11 = select i1 %10, ptr null, ptr %0
-  br label %12
+  %10 = icmp ne i16 %7, 2
+  br label %11
 
-12:                                               ; preds = %5, %2
-  %. = phi ptr [ %11, %5 ], [ %0, %2 ]
-  %13 = icmp ne ptr %., null
-  tail call void @llvm.assume(i1 %13)
-  ret ptr %.
+11:                                               ; preds = %5, %2
+  %12 = phi i1 [ %10, %5 ], [ true, %2 ]
+  tail call void @llvm.assume(i1 %12)
+  ret ptr %0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

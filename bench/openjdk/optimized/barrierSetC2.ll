@@ -1320,28 +1320,25 @@ _ZNK8C2Access16needs_cpu_membarEv.exit:           ; preds = %55, %54, %51
   br i1 %69, label %70, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread
 
 70:                                               ; preds = %62
-  %71 = load i32, ptr %59, align 8
-  %72 = icmp eq i32 %71, 21
-  %..i13 = select i1 %72, ptr %43, ptr null
-  %73 = load ptr, ptr %..i13, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 232
-  %75 = load ptr, ptr %74, align 8
-  %76 = call noundef ptr %75(ptr noundef nonnull align 8 dereferenceable(80) %..i13) #14
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
-  %78 = load i32, ptr %77, align 8
-  %79 = and i32 %78, -2
-  %80 = load i64, ptr %2, align 8
-  %81 = sext i32 %79 to i64
-  %82 = icmp slt i64 %80, %81
-  br i1 %82, label %83, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread
+  %71 = load ptr, ptr %43, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 232
+  %73 = load ptr, ptr %72, align 8
+  %74 = call noundef ptr %73(ptr noundef nonnull align 8 dereferenceable(80) %43) #14
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
+  %76 = load i32, ptr %75, align 8
+  %77 = and i32 %76, -2
+  %78 = load i64, ptr %2, align 8
+  %79 = sext i32 %77 to i64
+  %80 = icmp slt i64 %78, %79
+  br i1 %80, label %81, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread
 
-83:                                               ; preds = %70
-  %84 = load i64, ptr %3, align 8
-  %85 = xor i64 %84, 51539607552
-  store i64 %85, ptr %3, align 8
+81:                                               ; preds = %70
+  %82 = load i64, ptr %3, align 8
+  %83 = xor i64 %82, 51539607552
+  store i64 %83, ptr %3, align 8
   br label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread
 
-_ZNK8C2Access16needs_cpu_membarEv.exit.thread:    ; preds = %55, %53, %38, %16, %_ZNK8C2Access16needs_cpu_membarEv.exit, %70, %83, %62
+_ZNK8C2Access16needs_cpu_membarEv.exit.thread:    ; preds = %55, %53, %38, %16, %_ZNK8C2Access16needs_cpu_membarEv.exit, %70, %81, %62
   ret void
 }
 

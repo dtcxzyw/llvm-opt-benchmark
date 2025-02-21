@@ -180,7 +180,6 @@ define internal fastcc { i64, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
   %4 = load i64, ptr %0, align 8, !range !72, !alias.scope !73, !noalias !74, !noundef !15
   %5 = icmp eq i64 %4, 3
-  %.0.i.i.i.i = select i1 %5, ptr null, ptr %0
   br i1 %5, label %55, label %6
 
 6:                                                ; preds = %1
@@ -269,7 +268,7 @@ common.resume.i.i.i:                              ; preds = %"_ZN4core3ptr148dro
 
 37:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17hd807769e99ba4c56E.exit.sink.split.i8.i.i.i.i.i.i.i.i.i", %28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !77
-  %38 = call { i64, ptr } @"_ZN98_$LT$syntax..ast..traits..AttrDocCommentIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0eed81a9b19f4689E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.0.i.i.i.i), !noalias !74
+  %38 = call { i64, ptr } @"_ZN98_$LT$syntax..ast..traits..AttrDocCommentIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0eed81a9b19f4689E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0), !noalias !74
   %39 = extractvalue { i64, ptr } %38, 0
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %39, 2
   br i1 %.not.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i, label %10
@@ -363,7 +362,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h47d8e1296ff1f34fE.exit.i.i.i: 
   br i1 %68, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d77986a31f8fd4eE.exit.i.i", label %69
 
 69:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h7ee6886b61a64814E.exit.i.i.i.i.i.i.i"
-  %.val9.i.i.i.i.i.i.i = load i64, ptr %..i.i.i.i.i, align 8, !range !72, !alias.scope !130, !noalias !74, !noundef !15
+  %.val9.i.i.i.i.i.i.i = load i64, ptr %56, align 8, !range !72, !alias.scope !130, !noalias !74, !noundef !15
   %.val10.i.i.i.i.i.i.i = load ptr, ptr %64, align 8, !alias.scope !130, !noalias !74
   switch i64 %.val9.i.i.i.i.i.i.i, label %default.unreachable [
     i64 3, label %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h1be251b9fc0a4132E.exit.i.i.i.i.i.i.i"
@@ -406,7 +405,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h47d8e1296ff1f34fE.exit.i.i.i: 
 "_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h1be251b9fc0a4132E.exit.i.i.i.i.i.i.i": ; preds = %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h2c85c64c9eac156dE.llvm.18266587286026290509.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i", %76, %70, %69, %69
   store i64 %65, ptr %56, align 8, !alias.scope !130, !noalias !74
   store ptr %67, ptr %64, align 8, !alias.scope !130, !noalias !74
-  %83 = call fastcc { i64, ptr } @_ZN4core4iter8adapters7flatten17and_then_or_clear17h29696ed02cb62cf7E(ptr noalias noundef nonnull align 8 dereferenceable(48) %..i.i.i.i.i), !noalias !74
+  %83 = call fastcc { i64, ptr } @_ZN4core4iter8adapters7flatten17and_then_or_clear17h29696ed02cb62cf7E(ptr noalias noundef nonnull align 8 dereferenceable(48) %56), !noalias !74
   %84 = extractvalue { i64, ptr } %83, 0
   %.not.i.i.i.i.i.i.i = icmp eq i64 %84, 2
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$either..Either$LT$syntax..ast..generated..nodes..Attr$C$syntax..ast..generated..tokens..Comment$GT$$GT$$GT$17h5ebb22e763672b9aE.exit.i.i.i.i.i.i.i", label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d77986a31f8fd4eE.exit.thread17.i.i"
@@ -14380,7 +14379,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17haebb9ba4992078a0E.exit.threa
   br label %14
 
 14:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h4f9c8cc50f344b10E.exit.i.i.i.i.i.i.i.i", %13
-  %15 = tail call { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h8972dbe7c4ead9e8E.llvm.12542172245242916373(ptr noalias noundef nonnull align 8 dereferenceable(8) %.0.i.i.i), !noalias !5200
+  %15 = tail call { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h8972dbe7c4ead9e8E.llvm.12542172245242916373(ptr noalias noundef nonnull align 8 dereferenceable(8) %5), !noalias !5200
   %16 = extractvalue { i64, ptr } %15, 0
   %17 = extractvalue { i64, ptr } %15, 1
   %18 = icmp eq i64 %16, 3
@@ -22846,7 +22845,6 @@ define internal fastcc { i64, ptr } @_ZN4core4iter8adapters7flatten17and_then_or
   %3 = alloca { i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !72, !noundef !15
   %5 = icmp eq i64 %4, 3
-  %.0 = select i1 %5, ptr null, ptr %0
   br i1 %5, label %53, label %6
 
 6:                                                ; preds = %1
@@ -22935,7 +22933,7 @@ common.resume:                                    ; preds = %21, %"_ZN4core3ptr5
 
 37:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17hd807769e99ba4c56E.exit.sink.split.i8.i.i.i.i.i", %28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !7529
-  %38 = call { i64, ptr } @"_ZN98_$LT$syntax..ast..traits..AttrDocCommentIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0eed81a9b19f4689E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.0)
+  %38 = call { i64, ptr } @"_ZN98_$LT$syntax..ast..traits..AttrDocCommentIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0eed81a9b19f4689E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
   %39 = extractvalue { i64, ptr } %38, 0
   %.not.i.i.i.i = icmp eq i64 %39, 2
   br i1 %.not.i.i.i.i, label %.loopexit, label %10

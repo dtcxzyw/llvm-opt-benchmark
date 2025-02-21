@@ -67801,7 +67801,6 @@ define void @_ZN14deltalake_core12data_catalog5unity19UnityCatalogBuilder8from_e
   %trunc18 = trunc nuw i64 %133 to i1
   %134 = load ptr, ptr %56, align 8, !nonnull !4, !align !418
   %135 = load i64, ptr %57, align 8
-  %.sroa.014.0 = select i1 %trunc18, ptr null, ptr %134
   %.sroa.416.0 = select i1 %trunc18, i64 undef, i64 %135
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22)
   %or.cond = select i1 %trunc, i1 true, i1 %trunc18
@@ -68015,7 +68014,7 @@ default.unreachable.i:                            ; preds = %172
   %202 = extractvalue { i64, ptr } %175, 1
   %203 = icmp ne ptr %202, null
   call void @llvm.assume(i1 %203)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %202, ptr nonnull readonly align 1 %.sroa.014.0, i64 %.sroa.416.0, i1 false), !noalias !14304
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %202, ptr nonnull readonly align 1 %134, i64 %.sroa.416.0, i1 false), !noalias !14304
   call void @llvm.experimental.noalias.scope.decl(metadata !14309)
   %204 = load i64, ptr %92, align 8, !range !266, !alias.scope !14312, !noalias !14296, !noundef !4
   %205 = icmp eq i64 %204, -9223372036854775808
@@ -68064,7 +68063,7 @@ default.unreachable.i:                            ; preds = %172
   %217 = extractvalue { i64, ptr } %177, 1
   %218 = icmp ne ptr %217, null
   call void @llvm.assume(i1 %218)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %217, ptr nonnull readonly align 1 %.sroa.014.0, i64 %.sroa.416.0, i1 false), !noalias !14322
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %217, ptr nonnull readonly align 1 %134, i64 %.sroa.416.0, i1 false), !noalias !14322
   call void @llvm.experimental.noalias.scope.decl(metadata !14327)
   %219 = load i64, ptr %92, align 8, !range !266, !alias.scope !14330, !noalias !14296, !noundef !4
   %220 = icmp eq i64 %219, -9223372036854775808
@@ -68113,7 +68112,7 @@ default.unreachable.i:                            ; preds = %172
   %232 = extractvalue { i64, ptr } %179, 1
   %233 = icmp ne ptr %232, null
   call void @llvm.assume(i1 %233)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %232, ptr nonnull readonly align 1 %.sroa.014.0, i64 %.sroa.416.0, i1 false), !noalias !14340
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %232, ptr nonnull readonly align 1 %134, i64 %.sroa.416.0, i1 false), !noalias !14340
   call void @llvm.experimental.noalias.scope.decl(metadata !14345)
   %234 = load i64, ptr %87, align 8, !range !266, !alias.scope !14348, !noalias !14296, !noundef !4
   %235 = icmp eq i64 %234, -9223372036854775808
@@ -68162,7 +68161,7 @@ default.unreachable.i:                            ; preds = %172
   %247 = extractvalue { i64, ptr } %181, 1
   %248 = icmp ne ptr %247, null
   call void @llvm.assume(i1 %248)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %247, ptr nonnull readonly align 1 %.sroa.014.0, i64 %.sroa.416.0, i1 false), !noalias !14358
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %247, ptr nonnull readonly align 1 %134, i64 %.sroa.416.0, i1 false), !noalias !14358
   call void @llvm.experimental.noalias.scope.decl(metadata !14363)
   %249 = load i64, ptr %87, align 8, !range !266, !alias.scope !14366, !noalias !14296, !noundef !4
   %250 = icmp eq i64 %249, -9223372036854775808
@@ -68211,7 +68210,7 @@ default.unreachable.i:                            ; preds = %172
   %262 = extractvalue { i64, ptr } %183, 1
   %263 = icmp ne ptr %262, null
   call void @llvm.assume(i1 %263)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %262, ptr nonnull readonly align 1 %.sroa.014.0, i64 %.sroa.416.0, i1 false), !noalias !14376
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %262, ptr nonnull readonly align 1 %134, i64 %.sroa.416.0, i1 false), !noalias !14376
   call void @llvm.experimental.noalias.scope.decl(metadata !14381)
   %264 = load i64, ptr %84, align 8, !range !266, !alias.scope !14384, !noalias !14296, !noundef !4
   %265 = icmp eq i64 %264, -9223372036854775808
@@ -68260,7 +68259,7 @@ default.unreachable.i:                            ; preds = %172
   %277 = extractvalue { i64, ptr } %185, 1
   %278 = icmp ne ptr %277, null
   call void @llvm.assume(i1 %278)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %277, ptr nonnull readonly align 1 %.sroa.014.0, i64 %.sroa.416.0, i1 false), !noalias !14394
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %277, ptr nonnull readonly align 1 %134, i64 %.sroa.416.0, i1 false), !noalias !14394
   call void @llvm.experimental.noalias.scope.decl(metadata !14399)
   %279 = load i64, ptr %81, align 8, !range !266, !alias.scope !14402, !noalias !14296, !noundef !4
   %280 = icmp eq i64 %279, -9223372036854775808
@@ -68309,7 +68308,7 @@ default.unreachable.i:                            ; preds = %172
   %292 = extractvalue { i64, ptr } %187, 1
   %293 = icmp ne ptr %292, null
   call void @llvm.assume(i1 %293)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %292, ptr nonnull readonly align 1 %.sroa.014.0, i64 %.sroa.416.0, i1 false), !noalias !14412
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %292, ptr nonnull readonly align 1 %134, i64 %.sroa.416.0, i1 false), !noalias !14412
   call void @llvm.experimental.noalias.scope.decl(metadata !14417)
   %294 = load i64, ptr %78, align 8, !range !266, !alias.scope !14420, !noalias !14296, !noundef !4
   %295 = icmp eq i64 %294, -9223372036854775808
@@ -68358,7 +68357,7 @@ default.unreachable.i:                            ; preds = %172
   %307 = extractvalue { i64, ptr } %189, 1
   %308 = icmp ne ptr %307, null
   call void @llvm.assume(i1 %308)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %307, ptr nonnull readonly align 1 %.sroa.014.0, i64 %.sroa.416.0, i1 false), !noalias !14430
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %307, ptr nonnull readonly align 1 %134, i64 %.sroa.416.0, i1 false), !noalias !14430
   call void @llvm.experimental.noalias.scope.decl(metadata !14435)
   %309 = load i64, ptr %75, align 8, !range !266, !alias.scope !14438, !noalias !14296, !noundef !4
   %310 = icmp eq i64 %309, -9223372036854775808
@@ -68407,7 +68406,7 @@ default.unreachable.i:                            ; preds = %172
   %322 = extractvalue { i64, ptr } %191, 1
   %323 = icmp ne ptr %322, null
   call void @llvm.assume(i1 %323)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %322, ptr nonnull readonly align 1 %.sroa.014.0, i64 %.sroa.416.0, i1 false), !noalias !14448
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %322, ptr nonnull readonly align 1 %134, i64 %.sroa.416.0, i1 false), !noalias !14448
   call void @llvm.experimental.noalias.scope.decl(metadata !14453)
   %324 = load i64, ptr %72, align 8, !range !266, !alias.scope !14456, !noalias !14296, !noundef !4
   %325 = icmp eq i64 %324, -9223372036854775808
@@ -68456,7 +68455,7 @@ default.unreachable.i:                            ; preds = %172
   %337 = extractvalue { i64, ptr } %193, 1
   %338 = icmp ne ptr %337, null
   call void @llvm.assume(i1 %338)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %337, ptr nonnull readonly align 1 %.sroa.014.0, i64 %.sroa.416.0, i1 false), !noalias !14466
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %337, ptr nonnull readonly align 1 %134, i64 %.sroa.416.0, i1 false), !noalias !14466
   call void @llvm.experimental.noalias.scope.decl(metadata !14471)
   %339 = load i64, ptr %69, align 8, !range !266, !alias.scope !14474, !noalias !14296, !noundef !4
   %340 = icmp eq i64 %339, -9223372036854775808
@@ -68505,7 +68504,7 @@ default.unreachable.i:                            ; preds = %172
   %352 = extractvalue { i64, ptr } %195, 1
   %353 = icmp ne ptr %352, null
   call void @llvm.assume(i1 %353)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %352, ptr nonnull readonly align 1 %.sroa.014.0, i64 %.sroa.416.0, i1 false), !noalias !14484
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %352, ptr nonnull readonly align 1 %134, i64 %.sroa.416.0, i1 false), !noalias !14484
   call void @llvm.experimental.noalias.scope.decl(metadata !14489)
   %354 = load i64, ptr %66, align 8, !range !266, !alias.scope !14492, !noalias !14296, !noundef !4
   %355 = icmp eq i64 %354, -9223372036854775808
@@ -68554,7 +68553,7 @@ default.unreachable.i:                            ; preds = %172
   %367 = extractvalue { i64, ptr } %197, 1
   %368 = icmp ne ptr %367, null
   call void @llvm.assume(i1 %368)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %367, ptr nonnull readonly align 1 %.sroa.014.0, i64 %.sroa.416.0, i1 false), !noalias !14502
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %367, ptr nonnull readonly align 1 %134, i64 %.sroa.416.0, i1 false), !noalias !14502
   call void @llvm.experimental.noalias.scope.decl(metadata !14507)
   %369 = load i64, ptr %63, align 8, !range !266, !alias.scope !14510, !noalias !14296, !noundef !4
   %370 = icmp eq i64 %369, -9223372036854775808
@@ -68603,7 +68602,7 @@ default.unreachable.i:                            ; preds = %172
   %382 = extractvalue { i64, ptr } %199, 1
   %383 = icmp ne ptr %382, null
   call void @llvm.assume(i1 %383)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %382, ptr nonnull readonly align 1 %.sroa.014.0, i64 %.sroa.416.0, i1 false), !noalias !14520
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %382, ptr nonnull readonly align 1 %134, i64 %.sroa.416.0, i1 false), !noalias !14520
   store i64 %381, ptr %17, align 8, !alias.scope !14521, !noalias !14522
   store ptr %382, ptr %.sroa.42.0..sroa_idx.i.i74.i, align 8, !alias.scope !14521, !noalias !14522
   store i64 %.sroa.416.0, ptr %.sroa.5.0..sroa_idx.i.i75.i, align 8, !alias.scope !14521, !noalias !14522

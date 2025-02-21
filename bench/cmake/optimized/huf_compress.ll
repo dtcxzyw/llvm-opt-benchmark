@@ -430,10 +430,11 @@ define dso_local range(i64 -66, 13) i64 @HUF_buildCTable_wksp(ptr noundef captur
 
 18:                                               ; preds = %16
   %19 = icmp eq i32 %3, 0
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4096) %13, i8 0, i64 4096, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4096
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(768) %20, i8 0, i64 768, i1 false)
   %21 = add nuw nsw i32 %2, 1
   %wide.trip.count.i = zext nneg i32 %21 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4864) %.0.i, i8 0, i64 4864, i1 false)
   br label %22
 
 22:                                               ; preds = %22, %18
@@ -3071,9 +3072,9 @@ HUF_validateCTable.exit.thread.thread:            ; preds = %HUF_validateCTable.
 .thread212:                                       ; preds = %HUF_validateCTable.exit.thread.thread, %66, %HUF_validateCTable.exit.thread
   %87 = load i32, ptr %13, align 4, !tbaa !12
   %88 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1024
-  %89 = call i32 @HUF_optimalTableLog(i32 noundef %spec.store.select, i64 noundef %3, i32 noundef %87, ptr noundef nonnull %56, i64 noundef 4864, ptr noundef nonnull %88, ptr noundef nonnull %.0.i, i32 noundef %11)
+  %89 = call i32 @HUF_optimalTableLog(i32 noundef %spec.store.select, i64 noundef %3, i32 noundef %87, ptr noundef nonnull %56, i64 noundef 4864, ptr noundef nonnull %88, ptr noundef nonnull %19, i32 noundef %11)
   %90 = load i32, ptr %13, align 4, !tbaa !12
-  %91 = call i64 @HUF_buildCTable_wksp(ptr noundef nonnull %88, ptr noundef nonnull %.0.i, i32 noundef %90, i32 noundef %89, ptr noundef nonnull %56, i64 noundef 4864)
+  %91 = call i64 @HUF_buildCTable_wksp(ptr noundef nonnull %88, ptr noundef nonnull %19, i32 noundef %90, i32 noundef %89, ptr noundef nonnull %56, i64 noundef 4864)
   %92 = icmp ult i64 %91, -119
   br i1 %92, label %93, label %.thread
 

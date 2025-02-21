@@ -6221,14 +6221,10 @@ entry:
   %minCompNoMaybeCP = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i16, ptr %minCompNoMaybeCP, align 2
   %cmp = icmp eq ptr %limit, null
-  br i1 %cmp, label %if.then, label %if.end14
+  br i1 %cmp, label %while.cond.i, label %if.end14
 
-if.then:                                          ; preds = %entry
-  %tobool.not = icmp ne i8 %doCompose, 0
-  br label %while.cond.i
-
-while.cond.i:                                     ; preds = %while.cond.i, %if.then
-  %src.addr.0.i = phi ptr [ %src, %if.then ], [ %incdec.ptr.i, %while.cond.i ]
+while.cond.i:                                     ; preds = %entry, %while.cond.i
+  %src.addr.0.i = phi ptr [ %incdec.ptr.i, %while.cond.i ], [ %src, %entry ]
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %src.addr.0.i, i64 2
   %1 = load i16, ptr %src.addr.0.i, align 2
   %cmp.i = icmp ugt i16 %0, %1
@@ -6237,6 +6233,7 @@ while.cond.i:                                     ; preds = %while.cond.i, %if.t
   br i1 %2, label %while.cond.i, label %while.end.i, !llvm.loop !16
 
 while.end.i:                                      ; preds = %while.cond.i
+  %tobool.not = icmp ne i8 %doCompose, 0
   %cmp5.i = icmp ne ptr %src.addr.0.i, %src
   %or.cond.i = and i1 %tobool.not, %cmp5.i
   br i1 %or.cond.i, label %if.then7.i, label %_ZNK6icu_7515Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit

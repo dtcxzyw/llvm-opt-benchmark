@@ -33376,14 +33376,14 @@ if.then65:                                        ; preds = %if.end62
   br i1 %cmp1, label %cond.true68, label %invoke.cont74
 
 cond.true68:                                      ; preds = %if.then65
-  %call71 = invoke noundef float @_ZNK4pbrt6Vertex3PDFERKNS_10IntegratorEPKS0_RS4_(ptr noundef nonnull align 8 dereferenceable(332) %arrayidx, ptr noundef nonnull align 8 dereferenceable(64) %integrator, ptr noundef %cond17, ptr noundef nonnull align 8 dereferenceable(332) %cond9)
+  %call71 = invoke noundef float @_ZNK4pbrt6Vertex3PDFERKNS_10IntegratorEPKS0_RS4_(ptr noundef nonnull align 8 dereferenceable(332) %arrayidx, ptr noundef nonnull align 8 dereferenceable(64) %integrator, ptr noundef %cond17, ptr noundef nonnull align 8 dereferenceable(332) %arrayidx6)
           to label %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit unwind label %ehcleanup224.thread
 
 invoke.cont74:                                    ; preds = %if.then65
   %6 = load i64, ptr %lightSampler, align 8
   store i64 %6, ptr %agg.tmp73, align 8
   %infiniteLights = getelementptr inbounds nuw i8, ptr %integrator, i64 40
-  %call76 = invoke noundef float @_ZN4pbrt6Vertex14PDFLightOriginERKSt6vectorINS_5LightESaIS2_EERKS0_NS_12LightSamplerE(ptr noundef nonnull align 8 dereferenceable(332) %cond9, ptr noundef nonnull align 8 dereferenceable(24) %infiniteLights, ptr noundef nonnull align 8 dereferenceable(332) %cond25, ptr noundef nonnull %agg.tmp73)
+  %call76 = invoke noundef float @_ZN4pbrt6Vertex14PDFLightOriginERKSt6vectorINS_5LightESaIS2_EERKS0_NS_12LightSamplerE(ptr noundef nonnull align 8 dereferenceable(332) %arrayidx6, ptr noundef nonnull align 8 dereferenceable(24) %infiniteLights, ptr noundef nonnull align 8 dereferenceable(332) %arrayidx22, ptr noundef nonnull %agg.tmp73)
           to label %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit unwind label %ehcleanup224.thread
 
 _ZN4pbrt16ScopedAssignmentIfED2Ev.exit:           ; preds = %cond.true68, %invoke.cont74
@@ -33408,11 +33408,11 @@ if.then86:                                        ; preds = %if.end83
   br i1 %cmp1, label %cond.true90, label %cond.false94
 
 cond.true90:                                      ; preds = %if.then86
-  %call93 = invoke noundef float @_ZNK4pbrt6Vertex3PDFERKNS_10IntegratorEPKS0_RS4_(ptr noundef nonnull align 8 dereferenceable(332) %cond9, ptr noundef nonnull align 8 dereferenceable(64) %integrator, ptr noundef %arrayidx, ptr noundef nonnull align 8 dereferenceable(332) %cond25)
+  %call93 = invoke noundef float @_ZNK4pbrt6Vertex3PDFERKNS_10IntegratorEPKS0_RS4_(ptr noundef nonnull align 8 dereferenceable(332) %arrayidx6, ptr noundef nonnull align 8 dereferenceable(64) %integrator, ptr noundef %arrayidx, ptr noundef nonnull align 8 dereferenceable(332) %arrayidx22)
           to label %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit193 unwind label %ehcleanup223.thread
 
 cond.false94:                                     ; preds = %if.then86
-  %call96 = invoke noundef float @_ZNK4pbrt6Vertex8PDFLightERKNS_10IntegratorERKS0_(ptr noundef nonnull align 8 dereferenceable(332) %cond9, ptr noundef nonnull align 8 dereferenceable(64) %integrator, ptr noundef nonnull align 8 dereferenceable(332) %cond25)
+  %call96 = invoke noundef float @_ZNK4pbrt6Vertex8PDFLightERKNS_10IntegratorERKS0_(ptr noundef nonnull align 8 dereferenceable(332) %arrayidx6, ptr noundef nonnull align 8 dereferenceable(64) %integrator, ptr noundef nonnull align 8 dereferenceable(332) %arrayidx22)
           to label %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit193 unwind label %ehcleanup223.thread
 
 _ZN4pbrt16ScopedAssignmentIfED2Ev.exit193:        ; preds = %cond.true90, %cond.false94
@@ -33432,7 +33432,7 @@ if.end103:                                        ; preds = %_ZN4pbrt16ScopedAss
   br i1 %tobool54.not, label %if.end116, label %if.then106
 
 if.then106:                                       ; preds = %if.end103
-  %call111 = invoke noundef float @_ZNK4pbrt6Vertex3PDFERKNS_10IntegratorEPKS0_RS4_(ptr noundef nonnull align 8 dereferenceable(332) %cond9, ptr noundef nonnull align 8 dereferenceable(64) %integrator, ptr noundef %cond25, ptr noundef nonnull align 8 dereferenceable(332) %cond)
+  %call111 = invoke noundef float @_ZNK4pbrt6Vertex3PDFERKNS_10IntegratorEPKS0_RS4_(ptr noundef nonnull align 8 dereferenceable(332) %arrayidx6, ptr noundef nonnull align 8 dereferenceable(64) %integrator, ptr noundef %cond25, ptr noundef nonnull align 8 dereferenceable(332) %arrayidx)
           to label %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit202 unwind label %ehcleanup222.thread
 
 _ZN4pbrt16ScopedAssignmentIfED2Ev.exit202:        ; preds = %if.then106
@@ -33453,7 +33453,7 @@ if.end116:                                        ; preds = %_ZN4pbrt16ScopedAss
   br i1 %tobool118.not, label %invoke.cont142, label %if.then119
 
 if.then119:                                       ; preds = %if.end116
-  %call124 = invoke noundef float @_ZNK4pbrt6Vertex3PDFERKNS_10IntegratorEPKS0_RS4_(ptr noundef nonnull align 8 dereferenceable(332) %cond, ptr noundef nonnull align 8 dereferenceable(64) %integrator, ptr noundef %cond9, ptr noundef nonnull align 8 dereferenceable(332) %cond17)
+  %call124 = invoke noundef float @_ZNK4pbrt6Vertex3PDFERKNS_10IntegratorEPKS0_RS4_(ptr noundef nonnull align 8 dereferenceable(332) %arrayidx, ptr noundef nonnull align 8 dereferenceable(64) %integrator, ptr noundef %cond9, ptr noundef nonnull align 8 dereferenceable(332) %arrayidx14)
           to label %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit211 unwind label %ehcleanup222
 
 _ZN4pbrt16ScopedAssignmentIfED2Ev.exit211:        ; preds = %if.then119

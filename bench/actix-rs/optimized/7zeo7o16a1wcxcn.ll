@@ -1041,7 +1041,6 @@ _ZN11actix_files5named9NamedFile4etag17ha3bbef69975ebe76E.exit: ; preds = %.noex
   %.sroa.04.0 = phi i64 [ undef, %_ZN11actix_files5named9NamedFile4etag17ha3bbef69975ebe76E.exit ], [ %160, %.noexc187 ], [ undef, %154 ]
   %163 = load i64, ptr %110, align 8, !range !19, !noundef !5
   %164 = icmp eq i64 %163, -9223372036854775808
-  %. = select i1 %164, ptr null, ptr %110
   call void @llvm.experimental.noalias.scope.decl(metadata !148)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %59), !noalias !151
   call void @llvm.experimental.noalias.scope.decl(metadata !153)
@@ -1151,7 +1150,7 @@ _ZN10actix_http12http_message11HttpMessage10get_header17h1fd6e1d02da0dcb5E.exit.
   br label %182
 
 196:                                              ; preds = %193
-  %197 = invoke noundef zeroext i1 @_ZN9actix_web4http6header6entity9EntityTag9strong_eq17ha9455c29e1bd0816E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.0.0.i189, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) dereferenceable_or_null(32) %.)
+  %197 = invoke noundef zeroext i1 @_ZN9actix_web4http6header6entity9EntityTag9strong_eq17ha9455c29e1bd0816E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.0.0.i189, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) dereferenceable_or_null(32) %110)
           to label %198 unwind label %185
 
 198:                                              ; preds = %196
@@ -1206,7 +1205,6 @@ _ZN10actix_http12http_message11HttpMessage10get_header17h1fd6e1d02da0dcb5E.exit.
   %.0121 = phi i1 [ true, %208 ], [ %.2123, %276 ], [ false, %250 ]
   %212 = load i64, ptr %110, align 8, !range !19, !noundef !5
   %213 = icmp eq i64 %212, -9223372036854775808
-  %.180 = select i1 %213, ptr null, ptr %110
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %55), !noalias !197
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %53), !noalias !197
   %214 = load ptr, ptr %166, align 8, !noalias !201, !nonnull !5, !noundef !5
@@ -1307,7 +1305,7 @@ _ZN10actix_http12http_message11HttpMessage10get_header17h9356a48683cc36f6E.exit.
   br i1 %240, label %229, label %241
 
 241:                                              ; preds = %239
-  %242 = invoke noundef zeroext i1 @_ZN9actix_web4http6header6entity9EntityTag7weak_eq17hc3912bf7eede4fdfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.0.0.i198, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) dereferenceable_or_null(32) %.180)
+  %242 = invoke noundef zeroext i1 @_ZN9actix_web4http6header6entity9EntityTag7weak_eq17hc3912bf7eede4fdfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.0.0.i198, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) dereferenceable_or_null(32) %110)
           to label %243 unwind label %231
 
 243:                                              ; preds = %241

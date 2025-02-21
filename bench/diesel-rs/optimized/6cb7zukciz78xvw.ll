@@ -868,48 +868,45 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %.not.i.i.i, label %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h63dadab27f339413E.llvm.15565454694699926178.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h563987331b6289d7E.exit.i.i.i", %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha058c56977deebd9E.exit.i.i.i"
-  %.val19.i.i.i = phi i64 [ %35, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha058c56977deebd9E.exit.i.i.i" ], [ %.sroa.54.0.copyload, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h563987331b6289d7E.exit.i.i.i" ]
-  %.sroa.01.023.i.i.i = phi i64 [ %33, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha058c56977deebd9E.exit.i.i.i" ], [ 0, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h563987331b6289d7E.exit.i.i.i" ]
+  %.val19.i.i.i = phi i64 [ %33, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha058c56977deebd9E.exit.i.i.i" ], [ %.sroa.54.0.copyload, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h563987331b6289d7E.exit.i.i.i" ]
+  %.sroa.01.023.i.i.i = phi i64 [ %31, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha058c56977deebd9E.exit.i.i.i" ], [ 0, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h563987331b6289d7E.exit.i.i.i" ]
   %22 = phi ptr [ %spec.select, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha058c56977deebd9E.exit.i.i.i" ], [ %.sroa.0.0.copyload, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h563987331b6289d7E.exit.i.i.i" ]
-  %23 = phi ptr [ %32, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha058c56977deebd9E.exit.i.i.i" ], [ %.sroa.61.0.copyload, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h563987331b6289d7E.exit.i.i.i" ]
-  %24 = icmp eq ptr %22, %.sroa.5.0.copyload
-  %spec.select6 = select i1 %24, ptr null, ptr %22
-  %25 = icmp ne ptr %spec.select6, null
-  tail call void @llvm.assume(i1 %25)
-  %26 = icmp eq ptr %23, null
-  %27 = icmp eq ptr %23, %.sroa.8.0.copyload
-  %28 = select i1 %26, i1 true, i1 %27
-  br i1 %28, label %.lr.ph.i.i.i.cont, label %.lr.ph.i.i.i.else
+  %23 = phi ptr [ %30, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha058c56977deebd9E.exit.i.i.i" ], [ %.sroa.61.0.copyload, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h563987331b6289d7E.exit.i.i.i" ]
+  %24 = icmp eq ptr %23, null
+  %25 = icmp eq ptr %23, %.sroa.8.0.copyload
+  %26 = select i1 %24, i1 true, i1 %25
+  br i1 %26, label %.lr.ph.i.i.i.cont, label %.lr.ph.i.i.i.else
 
 .lr.ph.i.i.i.else:                                ; preds = %.lr.ph.i.i.i
   %.else.val = load i8, ptr %23, align 1, !noalias !283
   br label %.lr.ph.i.i.i.cont
 
 .lr.ph.i.i.i.cont:                                ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.i.else
-  %29 = phi i8 [ %.sroa.10.0.copyload, %.lr.ph.i.i.i ], [ %.else.val, %.lr.ph.i.i.i.else ]
-  %30 = icmp ne i8 %29, 21
-  tail call void @llvm.assume(i1 %30)
+  %27 = phi i8 [ %.sroa.10.0.copyload, %.lr.ph.i.i.i ], [ %.else.val, %.lr.ph.i.i.i.else ]
+  %28 = icmp ne i8 %27, 21
+  tail call void @llvm.assume(i1 %28)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.0.i.i.i.i), !noalias !284
-  invoke void @_ZN6diesel5mysql10connection4bind8BindData10for_output17h32203300903517ceE(ptr noalias noundef nonnull sret({ ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }) align 8 captures(none) dereferenceable(40) %.sroa.0.i.i.i.i, i8 noundef %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %spec.select6)
+  invoke void @_ZN6diesel5mysql10connection4bind8BindData10for_output17h32203300903517ceE(ptr noalias noundef nonnull sret({ ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }) align 8 captures(none) dereferenceable(40) %.sroa.0.i.i.i.i, i8 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %22)
           to label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha058c56977deebd9E.exit.i.i.i" unwind label %19, !noalias !288
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha058c56977deebd9E.exit.i.i.i": ; preds = %.lr.ph.i.i.i.cont
-  %31 = getelementptr inbounds nuw i8, ptr %23, i64 1
-  %32 = select i1 %28, ptr null, ptr %31
-  %spec.select.idx = select i1 %24, i64 0, i64 128
+  %.not = icmp eq ptr %22, %.sroa.5.0.copyload
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
+  %30 = select i1 %26, ptr null, ptr %29
+  %spec.select.idx = select i1 %.not, i64 0, i64 128
   %spec.select = getelementptr inbounds nuw i8, ptr %22, i64 %spec.select.idx
-  %33 = add nuw nsw i64 %.sroa.01.023.i.i.i, 1
-  %34 = getelementptr inbounds { ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }, ptr %.sroa.85.0.copyload, i64 %.val19.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.i.i.i.i, i64 40, i1 false), !noalias !289
-  %35 = add i64 %.val19.i.i.i, 1
+  %31 = add nuw nsw i64 %.sroa.01.023.i.i.i, 1
+  %32 = getelementptr inbounds { ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }, ptr %.sroa.85.0.copyload, i64 %.val19.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.i.i.i.i, i64 40, i1 false), !noalias !289
+  %33 = add i64 %.val19.i.i.i, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.0.i.i.i.i), !noalias !284
-  %exitcond.not.i.i.i = icmp eq i64 %33, %.0.sroa.speculated.i23.i.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %31, %.0.sroa.speculated.i23.i.i.i.i
   br i1 %exitcond.not.i.i.i, label %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h63dadab27f339413E.llvm.15565454694699926178.exit", label %.lr.ph.i.i.i
 
 "_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h63dadab27f339413E.llvm.15565454694699926178.exit": ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha058c56977deebd9E.exit.i.i.i", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h563987331b6289d7E.exit.i.i.i"
-  %.val17.i.i.i = phi i64 [ %.sroa.54.0.copyload, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h563987331b6289d7E.exit.i.i.i" ], [ %35, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha058c56977deebd9E.exit.i.i.i" ]
-  %36 = icmp ne ptr %.sroa.03.0.copyload, null
-  tail call void @llvm.assume(i1 %36)
+  %.val17.i.i.i = phi i64 [ %.sroa.54.0.copyload, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h563987331b6289d7E.exit.i.i.i" ], [ %33, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha058c56977deebd9E.exit.i.i.i" ]
+  %34 = icmp ne ptr %.sroa.03.0.copyload, null
+  tail call void @llvm.assume(i1 %34)
   store i64 %.val17.i.i.i, ptr %.sroa.03.0.copyload, align 8, !noalias !294
   ret void
 }

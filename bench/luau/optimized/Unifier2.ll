@@ -2514,83 +2514,60 @@ _ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %273
   br i1 %.not.i.i156300316328350354358360, label %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit175.thread, label %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit175
 
 _ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit.thread: ; preds = %273
-  br i1 %.not.i.i156300316328350354358360, label %_ZN4Luau4get2INS_12NegationTypeES1_PKNS_4TypeEEENS_7TryPairIPKT_PKT0_EET1_SD_.exit, label %.thread267
+  br i1 %.not.i.i156300316328350354358360, label %.critedge2, label %.thread267
 
 .thread267:                                       ; preds = %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit.thread
   %277 = load i32, ptr %68, align 8
   %278 = icmp eq i32 %277, 10
   %279 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  br i1 %278, label %292, label %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread
+  br i1 %278, label %290, label %.critedge2
 
 _ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit175.thread: ; preds = %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit
-  br i1 %275, label %288, label %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread297
-
-_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread297: ; preds = %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit175.thread
-  %280 = icmp eq i32 %274, 18
-  %281 = select i1 %280, ptr %276, ptr null
-  br label %_ZN4Luau4get2INS_12NegationTypeES1_PKNS_4TypeEEENS_7TryPairIPKT_PKT0_EET1_SD_.exit
+  br i1 %275, label %286, label %.critedge2
 
 _ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit175: ; preds = %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit
-  %282 = load i32, ptr %68, align 8
-  %283 = icmp eq i32 %282, 10
-  %284 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %or.cond25 = and i1 %275, %283
-  br i1 %or.cond25, label %285, label %287
+  %280 = load i32, ptr %68, align 8
+  %281 = icmp eq i32 %280, 10
+  %282 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %or.cond25 = and i1 %275, %281
+  br i1 %or.cond25, label %283, label %285
+
+283:                                              ; preds = %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit175
+  %284 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_13MetatableTypeES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %276, ptr noundef nonnull %282)
+  br label %.critedge2
 
 285:                                              ; preds = %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit175
-  %286 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_13MetatableTypeES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %276, ptr noundef nonnull %284)
+  br i1 %275, label %286, label %289
+
+286:                                              ; preds = %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit175.thread, %285
+  %287 = load ptr, ptr %276, align 8
+  %288 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %287, ptr noundef %68)
   br label %.critedge2
 
-287:                                              ; preds = %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit175
-  br i1 %275, label %288, label %291
+289:                                              ; preds = %285
+  br i1 %281, label %290, label %_ZN4Luau4get2INS_12NegationTypeES1_PKNS_4TypeEEENS_7TryPairIPKT_PKT0_EET1_SD_.exit
 
-288:                                              ; preds = %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit175.thread, %287
-  %289 = load ptr, ptr %276, align 8
-  %290 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %289, ptr noundef %68)
+290:                                              ; preds = %.thread267, %289
+  %291 = phi ptr [ %279, %.thread267 ], [ %282, %289 ]
+  %292 = load ptr, ptr %291, align 8
+  %293 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %67, ptr noundef %292)
   br label %.critedge2
 
-291:                                              ; preds = %287
-  br i1 %283, label %292, label %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i
+_ZN4Luau4get2INS_12NegationTypeES1_PKNS_4TypeEEENS_7TryPairIPKT_PKT0_EET1_SD_.exit: ; preds = %289
+  %294 = icmp eq i32 %274, 18
+  %295 = icmp eq i32 %280, 18
+  %or.cond28 = select i1 %295, i1 %294, i1 false
+  br i1 %or.cond28, label %296, label %.critedge2
 
-292:                                              ; preds = %.thread267, %291
-  %293 = phi ptr [ %279, %.thread267 ], [ %284, %291 ]
-  %294 = load ptr, ptr %293, align 8
-  %295 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %67, ptr noundef %294)
+296:                                              ; preds = %_ZN4Luau4get2INS_12NegationTypeES1_PKNS_4TypeEEENS_7TryPairIPKT_PKT0_EET1_SD_.exit
+  %297 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %298 = load ptr, ptr %276, align 8
+  %299 = load ptr, ptr %297, align 8
+  %300 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %298, ptr noundef %299)
   br label %.critedge2
 
-_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %291
-  %296 = icmp eq i32 %274, 18
-  %297 = select i1 %296, ptr %276, ptr null
-  br label %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread
-
-_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread: ; preds = %.thread267, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i
-  %298 = phi i32 [ %282, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i ], [ %277, %.thread267 ]
-  %299 = phi ptr [ %297, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i ], [ null, %.thread267 ]
-  %300 = icmp eq i32 %298, 18
-  %301 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %302 = select i1 %300, ptr %301, ptr null
-  br label %_ZN4Luau4get2INS_12NegationTypeES1_PKNS_4TypeEEENS_7TryPairIPKT_PKT0_EET1_SD_.exit
-
-_ZN4Luau4get2INS_12NegationTypeES1_PKNS_4TypeEEENS_7TryPairIPKT_PKT0_EET1_SD_.exit: ; preds = %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit.thread, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread297, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread
-  %303 = phi ptr [ %299, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread ], [ %281, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread297 ], [ null, %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit.thread ]
-  %304 = phi ptr [ %302, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread ], [ null, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread297 ], [ null, %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit.thread ]
-  %.not.i177 = icmp eq ptr %303, null
-  %.not11.i = icmp eq ptr %304, null
-  %..i = select i1 %.not11.i, ptr null, ptr %303
-  %.8.i = select i1 %.not.i177, ptr null, ptr %304
-  %305 = icmp ne ptr %..i, null
-  %306 = icmp ne ptr %.8.i, null
-  %or.cond28 = select i1 %305, i1 %306, i1 false
-  br i1 %or.cond28, label %307, label %.critedge2
-
-307:                                              ; preds = %_ZN4Luau4get2INS_12NegationTypeES1_PKNS_4TypeEEENS_7TryPairIPKT_PKT0_EET1_SD_.exit
-  %308 = load ptr, ptr %..i, align 8
-  %309 = load ptr, ptr %.8.i, align 8
-  %310 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %308, ptr noundef %309)
-  br label %.critedge2
-
-.critedge2:                                       ; preds = %96, %.thread240, %133, %_ZN4Luau4get2INS_12NegationTypeES1_PKNS_4TypeEEENS_7TryPairIPKT_PKT0_EET1_SD_.exit, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit167, %128, %126, %.loopexit, %307, %292, %288, %285, %271, %268, %264, %260, %257, %214, %199, %193, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit163.thread, %.thread263, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit160.thread273, %178, %167
-  %.0 = phi i1 [ %168, %167 ], [ %179, %178 ], [ %184, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit160.thread273 ], [ %186, %.thread263 ], [ %189, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit163.thread ], [ %195, %193 ], [ %213, %199 ], [ %228, %214 ], [ %258, %257 ], [ %261, %260 ], [ true, %264 ], [ true, %268 ], [ %272, %271 ], [ %286, %285 ], [ %290, %288 ], [ %295, %292 ], [ %310, %307 ], [ true, %.loopexit ], [ true, %126 ], [ true, %128 ], [ true, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit167 ], [ true, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit ], [ true, %_ZN4Luau4get2INS_12NegationTypeES1_PKNS_4TypeEEENS_7TryPairIPKT_PKT0_EET1_SD_.exit ], [ true, %133 ], [ true, %.thread240 ], [ true, %96 ]
+.critedge2:                                       ; preds = %96, %.thread267, %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit175.thread, %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit.thread, %.thread240, %133, %_ZN4Luau4get2INS_12NegationTypeES1_PKNS_4TypeEEENS_7TryPairIPKT_PKT0_EET1_SD_.exit, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit167, %128, %126, %.loopexit, %296, %290, %286, %283, %271, %268, %264, %260, %257, %214, %199, %193, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit163.thread, %.thread263, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit160.thread273, %178, %167
+  %.0 = phi i1 [ %168, %167 ], [ %179, %178 ], [ %184, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit160.thread273 ], [ %186, %.thread263 ], [ %189, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit163.thread ], [ %195, %193 ], [ %213, %199 ], [ %228, %214 ], [ %258, %257 ], [ %261, %260 ], [ true, %264 ], [ true, %268 ], [ %272, %271 ], [ %284, %283 ], [ %288, %286 ], [ %293, %290 ], [ %300, %296 ], [ true, %.loopexit ], [ true, %126 ], [ true, %128 ], [ true, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit167 ], [ true, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit ], [ true, %_ZN4Luau4get2INS_12NegationTypeES1_PKNS_4TypeEEENS_7TryPairIPKT_PKT0_EET1_SD_.exit ], [ true, %133 ], [ true, %.thread240 ], [ true, %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit.thread ], [ true, %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit175.thread ], [ true, %.thread267 ], [ true, %96 ]
   ret i1 %.0
 }
 

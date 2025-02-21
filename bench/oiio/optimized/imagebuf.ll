@@ -47861,13 +47861,9 @@ _ZNK18OpenImageIO_v2_6_012ImageBufImpl10pixelindexEiiib.exit: ; preds = %lor.lhs
   %mul25.i = mul nsw i32 %add.i, %7
   %add26.i = add nuw nsw i32 %mul25.i, %sub.i
   %call.i.i = tail call noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_012ImageBufImpl15validate_pixelsENS_6DoLockE(ptr noundef nonnull align 8 dereferenceable(664) %3, i8 1)
-  %deep.i.i = getelementptr inbounds nuw i8, ptr %3, i64 176
-  %10 = load i8, ptr %deep.i.i, align 8
-  %tobool.i.i = trunc i8 %10 to i1
   %m_deepdata.i.i = getelementptr inbounds nuw i8, ptr %3, i64 488
-  %cond.i.i = select i1 %tobool.i.i, ptr %m_deepdata.i.i, ptr null
   %conv = zext nneg i32 %add26.i to i64
-  %call9 = tail call noundef i32 @_ZNK18OpenImageIO_v2_6_08DeepData7samplesEl(ptr noundef nonnull align 8 dereferenceable(20) %cond.i.i, i64 noundef %conv)
+  %call9 = tail call noundef i32 @_ZNK18OpenImageIO_v2_6_08DeepData7samplesEl(ptr noundef nonnull align 8 dereferenceable(20) %m_deepdata.i.i, i64 noundef %conv)
   br label %return
 
 return:                                           ; preds = %if.end, %lor.lhs.false.i, %lor.lhs.false13.i, %_ZNK18OpenImageIO_v2_6_012ImageBufImpl10pixelindexEiiib.exit, %entry
@@ -47947,25 +47943,17 @@ lor.lhs.false10:                                  ; preds = %_ZNK18OpenImageIO_v
 
 if.end13:                                         ; preds = %lor.lhs.false10
   %call.i.i8 = tail call noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_012ImageBufImpl15validate_pixelsENS_6DoLockE(ptr noundef nonnull align 8 dereferenceable(664) %4, i8 1)
-  %deep.i.i = getelementptr inbounds nuw i8, ptr %4, i64 176
-  %13 = load i8, ptr %deep.i.i, align 8
-  %tobool.i.i = trunc i8 %13 to i1
   %m_deepdata.i.i = getelementptr inbounds nuw i8, ptr %4, i64 488
-  %cond.i.i = select i1 %tobool.i.i, ptr %m_deepdata.i.i, ptr null
   %conv = zext nneg i32 %retval.0.i to i64
-  %call15 = tail call noundef i32 @_ZNK18OpenImageIO_v2_6_08DeepData7samplesEl(ptr noundef nonnull align 8 dereferenceable(20) %cond.i.i, i64 noundef %conv)
+  %call15 = tail call noundef i32 @_ZNK18OpenImageIO_v2_6_08DeepData7samplesEl(ptr noundef nonnull align 8 dereferenceable(20) %m_deepdata.i.i, i64 noundef %conv)
   %cmp16 = icmp slt i32 %s, %call15
   br i1 %cmp16, label %cond.true, label %return
 
 cond.true:                                        ; preds = %if.end13
-  %14 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
-  %call.i.i10 = tail call noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_012ImageBufImpl15validate_pixelsENS_6DoLockE(ptr noundef nonnull align 8 dereferenceable(664) %14, i8 1)
-  %deep.i.i11 = getelementptr inbounds nuw i8, ptr %14, i64 176
-  %15 = load i8, ptr %deep.i.i11, align 8
-  %tobool.i.i12 = trunc i8 %15 to i1
-  %m_deepdata.i.i13 = getelementptr inbounds nuw i8, ptr %14, i64 488
-  %cond.i.i14 = select i1 %tobool.i.i12, ptr %m_deepdata.i.i13, ptr null
-  %call19 = tail call noundef ptr @_ZNK18OpenImageIO_v2_6_08DeepData8data_ptrElii(ptr noundef nonnull align 8 dereferenceable(20) %cond.i.i14, i64 noundef %conv, i32 noundef %c, i32 noundef %s)
+  %13 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
+  %call.i.i10 = tail call noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_012ImageBufImpl15validate_pixelsENS_6DoLockE(ptr noundef nonnull align 8 dereferenceable(664) %13, i8 1)
+  %m_deepdata.i.i13 = getelementptr inbounds nuw i8, ptr %13, i64 488
+  %call19 = tail call noundef ptr @_ZNK18OpenImageIO_v2_6_08DeepData8data_ptrElii(ptr noundef nonnull align 8 dereferenceable(20) %m_deepdata.i.i13, i64 noundef %conv, i32 noundef %c, i32 noundef %s)
   br label %return
 
 return:                                           ; preds = %cond.true, %if.end13, %_ZNK18OpenImageIO_v2_6_012ImageBufImpl10pixelindexEiiib.exit, %lor.lhs.false10, %entry
@@ -48336,13 +48324,9 @@ if.end:                                           ; preds = %lor.lhs.false
   %m_deepdata = getelementptr inbounds nuw i8, ptr %6, i64 488
   %conv = sext i32 %add26.i.i to i64
   %call.i.i = tail call noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_012ImageBufImpl15validate_pixelsENS_6DoLockE(ptr noundef nonnull align 8 dereferenceable(664) %10, i8 1)
-  %deep.i.i = getelementptr inbounds nuw i8, ptr %10, i64 176
-  %14 = load i8, ptr %deep.i.i, align 8
-  %tobool.i.i = trunc i8 %14 to i1
   %m_deepdata.i.i = getelementptr inbounds nuw i8, ptr %10, i64 488
-  %cond.i.i = select i1 %tobool.i.i, ptr %m_deepdata.i.i, ptr null
   %conv18 = sext i32 %add26.i.i24 to i64
-  %call19 = tail call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08DeepData15copy_deep_pixelElRKS0_l(ptr noundef nonnull align 8 dereferenceable(20) %m_deepdata, i64 noundef %conv, ptr noundef nonnull align 8 dereferenceable(20) %cond.i.i, i64 noundef %conv18)
+  %call19 = tail call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08DeepData15copy_deep_pixelElRKS0_l(ptr noundef nonnull align 8 dereferenceable(20) %m_deepdata, i64 noundef %conv, ptr noundef nonnull align 8 dereferenceable(20) %m_deepdata.i.i, i64 noundef %conv18)
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end

@@ -30264,11 +30264,10 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make18generic_param_list17h756
   %20 = load i64, ptr %17, align 8, !range !25, !alias.scope !9090, !noalias !9084, !noundef !4
   %trunc.i.i.i = trunc nuw i64 %20 to i1
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.0.i.i.i = select i1 %trunc.i.i.i, ptr %21, ptr null
   br i1 %trunc.i.i.i, label %.preheader.i.i.i, label %51
 
 .preheader.i.i.i:                                 ; preds = %1, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17hadf26947141250fbE.exit.i.i.i.i.i.i.i.i"
-  %22 = invoke { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h118db53183861e4aE.llvm.18082005449963326646(ptr noalias noundef nonnull align 8 dereferenceable(8) %.0.i.i.i)
+  %22 = invoke { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h118db53183861e4aE.llvm.18082005449963326646(ptr noalias noundef nonnull align 8 dereferenceable(8) %21)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %.preheader.i.i.i
@@ -30347,11 +30346,10 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make18generic_param_list17h756
   %53 = load i64, ptr %52, align 8, !range !25, !alias.scope !9132, !noalias !9084, !noundef !4
   %trunc.i.i.i.i = trunc nuw i64 %53 to i1
   %54 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %.0.i.i.i.i = select i1 %trunc.i.i.i.i, ptr %54, ptr null
   br i1 %trunc.i.i.i.i, label %.preheader.i.i.i.i, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd68959e69cb25e02E.exit.thread.i"
 
 .preheader.i.i.i.i:                               ; preds = %51, %.preheader.i.i.i.i.backedge
-  %55 = invoke { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h118db53183861e4aE.llvm.18082005449963326646(ptr noalias noundef nonnull align 8 dereferenceable(8) %.0.i.i.i.i)
+  %55 = invoke { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h118db53183861e4aE.llvm.18082005449963326646(ptr noalias noundef nonnull align 8 dereferenceable(8) %54)
           to label %.noexc9 unwind label %.loopexit
 
 .noexc9:                                          ; preds = %.preheader.i.i.i.i
@@ -30838,11 +30836,10 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make18generic_param_list17hd34
   %20 = load i64, ptr %17, align 8, !range !25, !alias.scope !9301, !noalias !9295, !noundef !4
   %trunc.i.i.i = trunc nuw i64 %20 to i1
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.0.i.i.i = select i1 %trunc.i.i.i, ptr %21, ptr null
   br i1 %trunc.i.i.i, label %.preheader.i.i.i, label %51
 
 .preheader.i.i.i:                                 ; preds = %1, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17hadf26947141250fbE.exit.i.i.i.i.i.i.i.i"
-  %22 = invoke { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h118db53183861e4aE.llvm.18082005449963326646(ptr noalias noundef nonnull align 8 dereferenceable(8) %.0.i.i.i)
+  %22 = invoke { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h118db53183861e4aE.llvm.18082005449963326646(ptr noalias noundef nonnull align 8 dereferenceable(8) %21)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %.preheader.i.i.i
@@ -30920,7 +30917,6 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make18generic_param_list17hd34
   %52 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %53 = load ptr, ptr %52, align 8, !alias.scope !9343, !noalias !9295, !noundef !4
   %54 = icmp eq ptr %53, null
-  %.0.i.i.i.i = select i1 %54, ptr null, ptr %52
   br i1 %54, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd34ab079c63e7f18E.exit.thread.i", label %55
 
 55:                                               ; preds = %51
@@ -30966,7 +30962,7 @@ default.unreachable.i.i.i.i.i.i.i.i.i.i.i:        ; preds = %.noexc9
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd34ab079c63e7f18E.exit.i": ; preds = %.noexc9, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd34ab079c63e7f18E.exit.i.loopexit"
   %.ph.i.i.i.i.i = phi i64 [ 1, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd34ab079c63e7f18E.exit.i.loopexit" ], [ 0, %.noexc9 ]
-  %66 = invoke { i64, ptr } @"_ZN11ide_assists5utils24generate_impl_text_inner28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0aa08bc79e37624eE.llvm.17197147422070727095"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.0.i.i.i.i, i64 noundef %.ph.i.i.i.i.i, ptr noundef %59)
+  %66 = invoke { i64, ptr } @"_ZN11ide_assists5utils24generate_impl_text_inner28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0aa08bc79e37624eE.llvm.17197147422070727095"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52, i64 noundef %.ph.i.i.i.i.i, ptr noundef %59)
           to label %.noexc11 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc11:                                         ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd34ab079c63e7f18E.exit.i"
@@ -31587,11 +31583,10 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make18generic_param_list17hff5
   %20 = load i64, ptr %17, align 8, !range !25, !alias.scope !9559, !noalias !9553, !noundef !4
   %trunc.i.i.i = trunc nuw i64 %20 to i1
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.0.i.i.i = select i1 %trunc.i.i.i, ptr %21, ptr null
   br i1 %trunc.i.i.i, label %.preheader.i.i.i, label %51
 
 .preheader.i.i.i:                                 ; preds = %1, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17hadf26947141250fbE.exit.i.i.i.i.i.i.i.i"
-  %22 = invoke { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h118db53183861e4aE.llvm.18082005449963326646(ptr noalias noundef nonnull align 8 dereferenceable(8) %.0.i.i.i)
+  %22 = invoke { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h118db53183861e4aE.llvm.18082005449963326646(ptr noalias noundef nonnull align 8 dereferenceable(8) %21)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %.preheader.i.i.i
@@ -31669,7 +31664,6 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make18generic_param_list17hff5
   %52 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %53 = load ptr, ptr %52, align 8, !alias.scope !9601, !noalias !9553, !noundef !4
   %54 = icmp eq ptr %53, null
-  %.0.i.i.i.i = select i1 %54, ptr null, ptr %52
   br i1 %54, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h92b2d10a1882ddf5E.exit.thread.i", label %55
 
 55:                                               ; preds = %51
@@ -31715,7 +31709,7 @@ default.unreachable.i.i.i.i.i.i.i.i.i.i.i:        ; preds = %.noexc9
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h92b2d10a1882ddf5E.exit.i": ; preds = %.noexc9, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h92b2d10a1882ddf5E.exit.i.loopexit"
   %.ph.i.i.i.i.i = phi i64 [ 1, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h92b2d10a1882ddf5E.exit.i.loopexit" ], [ 0, %.noexc9 ]
-  %66 = invoke { i64, ptr } @"_ZN11ide_assists5utils19generate_impl_inner28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h439e6aa8800f61a3E.llvm.17197147422070727095"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.0.i.i.i.i, i64 noundef %.ph.i.i.i.i.i, ptr noundef %59)
+  %66 = invoke { i64, ptr } @"_ZN11ide_assists5utils19generate_impl_inner28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h439e6aa8800f61a3E.llvm.17197147422070727095"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52, i64 noundef %.ph.i.i.i.i.i, ptr noundef %59)
           to label %.noexc11 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc11:                                         ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h92b2d10a1882ddf5E.exit.i"

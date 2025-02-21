@@ -11172,7 +11172,6 @@ _ZN4http6header5value11HeaderValue8from_str17h65e04d006e83ee0aE.exit.i: ; preds 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %2066
   %2069 = load ptr, ptr %2067, align 8, !alias.scope !1291, !noalias !1172, !noundef !7
   %2070 = icmp eq ptr %2069, null
-  %.08.i.i.i = select i1 %2070, ptr null, ptr %2067
   br i1 %2070, label %2080, label %2071
 
 2071:                                             ; preds = %.backedge.i
@@ -11180,7 +11179,7 @@ _ZN4http6header5value11HeaderValue8from_str17h65e04d006e83ee0aE.exit.i: ; preds 
   br label %2072
 
 2072:                                             ; preds = %.noexc136.i, %2071
-  %2073 = invoke { ptr, ptr } @"_ZN88_$LT$actix_http..header..map..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2be41437fadd738aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %.08.i.i.i)
+  %2073 = invoke { ptr, ptr } @"_ZN88_$LT$actix_http..header..map..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2be41437fadd738aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %2067)
           to label %.noexc135.i unwind label %.loopexit.i, !noalias !1176
 
 .noexc135.i:                                      ; preds = %2072

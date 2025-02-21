@@ -1809,7 +1809,6 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
   %488 = getelementptr inbounds [0 x { i64, [211 x i64] }], ptr %.val383, i64 0, i64 %485
   %489 = load i64, ptr %488, align 8, !range !136, !noundef !14
   %490 = icmp eq i64 %489, -9223372036854775808
-  %.376 = select i1 %490, ptr null, ptr %488
   br i1 %388, label %491, label %.invoke2449, !prof !29
 
 491:                                              ; preds = %487
@@ -1955,7 +1954,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %566
   %.0147262.i = phi i8 [ %.1.i, %566 ], [ %phi.call.i, %.lr.ph.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21), !noalias !253
-  invoke void @_ZN12jpeg_decoder7huffman14HuffmanDecoder14decode_fast_ac17ha1d8016056690302E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef nonnull align 8 dereferenceable(16) %58, ptr noalias noundef nonnull align 8 dereferenceable(16) %277, ptr noalias noundef nonnull readonly align 8 dereferenceable(1696) dereferenceable_or_null(1696) %.376)
+  invoke void @_ZN12jpeg_decoder7huffman14HuffmanDecoder14decode_fast_ac17ha1d8016056690302E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef nonnull align 8 dereferenceable(16) %58, ptr noalias noundef nonnull align 8 dereferenceable(16) %277, ptr noalias noundef nonnull readonly align 8 dereferenceable(1696) dereferenceable_or_null(1696) %488)
           to label %.noexc513 unwind label %.loopexit.split-lp893.loopexit
 
 .noexc513:                                        ; preds = %.lr.ph.split.i
@@ -2000,7 +1999,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
 
 550:                                              ; preds = %543
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20), !noalias !253
-  invoke void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h0a6048139c410f8aE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %20, ptr noalias noundef nonnull align 8 dereferenceable(16) %58, ptr noalias noundef nonnull align 8 dereferenceable(16) %277, ptr noalias noundef nonnull readonly align 8 dereferenceable(1696) dereferenceable_or_null(1696) %.376)
+  invoke void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h0a6048139c410f8aE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %20, ptr noalias noundef nonnull align 8 dereferenceable(16) %58, ptr noalias noundef nonnull align 8 dereferenceable(16) %277, ptr noalias noundef nonnull readonly align 8 dereferenceable(1696) dereferenceable_or_null(1696) %488)
           to label %.noexc514 unwind label %.loopexit.split-lp893.loopexit
 
 .noexc514:                                        ; preds = %550
@@ -2220,7 +2219,6 @@ _ZN12jpeg_decoder7decoder12decode_block17h34354babc26b43d2E.exit.thread: ; preds
   %640 = getelementptr inbounds [0 x { i64, [211 x i64] }], ptr %.val385, i64 0, i64 %637
   %641 = load i64, ptr %640, align 8, !range !136, !noundef !14
   %642 = icmp eq i64 %641, -9223372036854775808
-  %.377 = select i1 %642, ptr null, ptr %640
   call void @llvm.experimental.noalias.scope.decl(metadata !290)
   call void @llvm.experimental.noalias.scope.decl(metadata !293)
   br i1 %95, label %643, label %650
@@ -2316,7 +2314,7 @@ _ZN12jpeg_decoder7decoder12decode_block17h34354babc26b43d2E.exit.thread: ; preds
   %.13 = phi i16 [ %.14, %731 ], [ 0, %.lr.ph.i526 ]
   %.0120211.i = phi i8 [ %732, %731 ], [ %94, %.lr.ph.i526 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15), !noalias !307
-  invoke void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h0a6048139c410f8aE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull align 8 dereferenceable(16) %58, ptr noalias noundef nonnull align 8 dereferenceable(16) %277, ptr noalias noundef nonnull readonly align 8 dereferenceable(1696) dereferenceable_or_null(1696) %.377)
+  invoke void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h0a6048139c410f8aE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull align 8 dereferenceable(16) %58, ptr noalias noundef nonnull align 8 dereferenceable(16) %277, ptr noalias noundef nonnull readonly align 8 dereferenceable(1696) dereferenceable_or_null(1696) %640)
           to label %.noexc534 unwind label %.loopexit.split-lp893.loopexit.split-lp.loopexit
 
 .noexc534:                                        ; preds = %.lr.ph.split.i527
@@ -4354,7 +4352,6 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
   %488 = getelementptr inbounds [0 x { i64, [211 x i64] }], ptr %.val383, i64 0, i64 %485
   %489 = load i64, ptr %488, align 8, !range !136, !noundef !14
   %490 = icmp eq i64 %489, -9223372036854775808
-  %.376 = select i1 %490, ptr null, ptr %488
   br i1 %388, label %491, label %.invoke2447, !prof !29
 
 491:                                              ; preds = %487
@@ -4500,7 +4497,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %566
   %.0147262.i = phi i8 [ %.1.i, %566 ], [ %phi.call.i, %.lr.ph.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21), !noalias !493
-  invoke void @_ZN12jpeg_decoder7huffman14HuffmanDecoder14decode_fast_ac17h1874ebc6a5a02a0eE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef nonnull align 8 dereferenceable(16) %58, ptr noalias noundef nonnull align 8 dereferenceable(48) %277, ptr noalias noundef nonnull readonly align 8 dereferenceable(1696) dereferenceable_or_null(1696) %.376)
+  invoke void @_ZN12jpeg_decoder7huffman14HuffmanDecoder14decode_fast_ac17h1874ebc6a5a02a0eE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef nonnull align 8 dereferenceable(16) %58, ptr noalias noundef nonnull align 8 dereferenceable(48) %277, ptr noalias noundef nonnull readonly align 8 dereferenceable(1696) dereferenceable_or_null(1696) %488)
           to label %.noexc511 unwind label %.loopexit.split-lp891.loopexit
 
 .noexc511:                                        ; preds = %.lr.ph.split.i
@@ -4545,7 +4542,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
 
 550:                                              ; preds = %543
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20), !noalias !493
-  invoke void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h78c3b4fa3ae3f119E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %20, ptr noalias noundef nonnull align 8 dereferenceable(16) %58, ptr noalias noundef nonnull align 8 dereferenceable(48) %277, ptr noalias noundef nonnull readonly align 8 dereferenceable(1696) dereferenceable_or_null(1696) %.376)
+  invoke void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h78c3b4fa3ae3f119E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %20, ptr noalias noundef nonnull align 8 dereferenceable(16) %58, ptr noalias noundef nonnull align 8 dereferenceable(48) %277, ptr noalias noundef nonnull readonly align 8 dereferenceable(1696) dereferenceable_or_null(1696) %488)
           to label %.noexc512 unwind label %.loopexit.split-lp891.loopexit
 
 .noexc512:                                        ; preds = %550
@@ -4765,7 +4762,6 @@ _ZN12jpeg_decoder7decoder12decode_block17h64c72aeb45474cfaE.exit.thread: ; preds
   %640 = getelementptr inbounds [0 x { i64, [211 x i64] }], ptr %.val385, i64 0, i64 %637
   %641 = load i64, ptr %640, align 8, !range !136, !noundef !14
   %642 = icmp eq i64 %641, -9223372036854775808
-  %.377 = select i1 %642, ptr null, ptr %640
   call void @llvm.experimental.noalias.scope.decl(metadata !530)
   call void @llvm.experimental.noalias.scope.decl(metadata !533)
   br i1 %95, label %643, label %650
@@ -4861,7 +4857,7 @@ _ZN12jpeg_decoder7decoder12decode_block17h64c72aeb45474cfaE.exit.thread: ; preds
   %.13 = phi i16 [ %.14, %731 ], [ 0, %.lr.ph.i524 ]
   %.0120211.i = phi i8 [ %732, %731 ], [ %94, %.lr.ph.i524 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15), !noalias !547
-  invoke void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h78c3b4fa3ae3f119E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull align 8 dereferenceable(16) %58, ptr noalias noundef nonnull align 8 dereferenceable(48) %277, ptr noalias noundef nonnull readonly align 8 dereferenceable(1696) dereferenceable_or_null(1696) %.377)
+  invoke void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h78c3b4fa3ae3f119E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull align 8 dereferenceable(16) %58, ptr noalias noundef nonnull align 8 dereferenceable(48) %277, ptr noalias noundef nonnull readonly align 8 dereferenceable(1696) dereferenceable_or_null(1696) %640)
           to label %.noexc532 unwind label %.loopexit.split-lp891.loopexit.split-lp.loopexit
 
 .noexc532:                                        ; preds = %.lr.ph.split.i525
@@ -6896,7 +6892,6 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
   %488 = getelementptr inbounds [0 x { i64, [211 x i64] }], ptr %.val383, i64 0, i64 %485
   %489 = load i64, ptr %488, align 8, !range !136, !noundef !14
   %490 = icmp eq i64 %489, -9223372036854775808
-  %.376 = select i1 %490, ptr null, ptr %488
   br i1 %388, label %491, label %.invoke2447, !prof !29
 
 491:                                              ; preds = %487
@@ -7042,7 +7037,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %566
   %.0147262.i = phi i8 [ %.1.i, %566 ], [ %phi.call.i, %.lr.ph.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21), !noalias !731
-  invoke void @_ZN12jpeg_decoder7huffman14HuffmanDecoder14decode_fast_ac17h7a529e3741f9c637E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef nonnull align 8 dereferenceable(16) %58, ptr noalias noundef nonnull align 8 dereferenceable(24) %277, ptr noalias noundef nonnull readonly align 8 dereferenceable(1696) dereferenceable_or_null(1696) %.376)
+  invoke void @_ZN12jpeg_decoder7huffman14HuffmanDecoder14decode_fast_ac17h7a529e3741f9c637E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef nonnull align 8 dereferenceable(16) %58, ptr noalias noundef nonnull align 8 dereferenceable(24) %277, ptr noalias noundef nonnull readonly align 8 dereferenceable(1696) dereferenceable_or_null(1696) %488)
           to label %.noexc511 unwind label %.loopexit.split-lp891.loopexit
 
 .noexc511:                                        ; preds = %.lr.ph.split.i
@@ -7087,7 +7082,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
 
 550:                                              ; preds = %543
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20), !noalias !731
-  invoke void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h1d62562d7e2ca6aaE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %20, ptr noalias noundef nonnull align 8 dereferenceable(16) %58, ptr noalias noundef nonnull align 8 dereferenceable(24) %277, ptr noalias noundef nonnull readonly align 8 dereferenceable(1696) dereferenceable_or_null(1696) %.376)
+  invoke void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h1d62562d7e2ca6aaE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %20, ptr noalias noundef nonnull align 8 dereferenceable(16) %58, ptr noalias noundef nonnull align 8 dereferenceable(24) %277, ptr noalias noundef nonnull readonly align 8 dereferenceable(1696) dereferenceable_or_null(1696) %488)
           to label %.noexc512 unwind label %.loopexit.split-lp891.loopexit
 
 .noexc512:                                        ; preds = %550
@@ -7307,7 +7302,6 @@ _ZN12jpeg_decoder7decoder12decode_block17h3f49e6a20d32686aE.exit.thread: ; preds
   %640 = getelementptr inbounds [0 x { i64, [211 x i64] }], ptr %.val385, i64 0, i64 %637
   %641 = load i64, ptr %640, align 8, !range !136, !noundef !14
   %642 = icmp eq i64 %641, -9223372036854775808
-  %.377 = select i1 %642, ptr null, ptr %640
   call void @llvm.experimental.noalias.scope.decl(metadata !768)
   call void @llvm.experimental.noalias.scope.decl(metadata !771)
   br i1 %95, label %643, label %650
@@ -7403,7 +7397,7 @@ _ZN12jpeg_decoder7decoder12decode_block17h3f49e6a20d32686aE.exit.thread: ; preds
   %.13 = phi i16 [ %.14, %731 ], [ 0, %.lr.ph.i524 ]
   %.0120211.i = phi i8 [ %732, %731 ], [ %94, %.lr.ph.i524 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15), !noalias !785
-  invoke void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h1d62562d7e2ca6aaE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull align 8 dereferenceable(16) %58, ptr noalias noundef nonnull align 8 dereferenceable(24) %277, ptr noalias noundef nonnull readonly align 8 dereferenceable(1696) dereferenceable_or_null(1696) %.377)
+  invoke void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h1d62562d7e2ca6aaE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull align 8 dereferenceable(16) %58, ptr noalias noundef nonnull align 8 dereferenceable(24) %277, ptr noalias noundef nonnull readonly align 8 dereferenceable(1696) dereferenceable_or_null(1696) %640)
           to label %.noexc532 unwind label %.loopexit.split-lp891.loopexit.split-lp.loopexit
 
 .noexc532:                                        ; preds = %.lr.ph.split.i525

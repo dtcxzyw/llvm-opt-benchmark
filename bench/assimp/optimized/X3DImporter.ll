@@ -7539,7 +7539,7 @@ _ZN4pugi4impl19get_buffer_encodingENS_12xml_encodingEPKvm.exit: ; preds = %18, %
   br i1 %.not.i, label %_ZN4pugi4impl12auto_deleterIvED2Ev.exit, label %28
 
 28:                                               ; preds = %27
-  invoke void %24(ptr noundef nonnull %23)
+  invoke void %24(ptr noundef nonnull %3)
           to label %_ZN4pugi4impl12auto_deleterIvED2Ev.exit unwind label %29
 
 29:                                               ; preds = %28
@@ -7601,7 +7601,7 @@ _ZN4pugi4impl12auto_deleterIvED2Ev.exit:          ; preds = %27, %28
   br i1 %.not.i29, label %_ZN4pugi4impl12auto_deleterIvED2Ev.exit30, label %48
 
 48:                                               ; preds = %45
-  invoke void %24(ptr noundef nonnull %23)
+  invoke void %24(ptr noundef nonnull %3)
           to label %_ZN4pugi4impl12auto_deleterIvED2Ev.exit30 unwind label %49
 
 49:                                               ; preds = %48

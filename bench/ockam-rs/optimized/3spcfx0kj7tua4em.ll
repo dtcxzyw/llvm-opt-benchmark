@@ -10619,10 +10619,10 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17h65ab4a5
   br i1 %.not12, label %45, label %43
 
 43:                                               ; preds = %42
-  %.sroa.6.0...i24.sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.sroa.0.0.copyload, ptr %0, align 8
-  %.sroa.432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.432.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0...i24.sroa_idx, i64 16, i1 false)
+  %.sroa.433.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.433.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, i64 16, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @_ZN4core4sync6atomic12atomic_store17h3781e4002461d244E.llvm.1425447921696267910(ptr noundef nonnull %44, i8 noundef 0, i8 noundef 4), !noalias !2192
   br label %41
@@ -10732,10 +10732,10 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17hf9c9572
   br i1 %.not12, label %45, label %43
 
 43:                                               ; preds = %42
-  %.sroa.6.0...i24.sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.sroa.0.0.copyload, ptr %0, align 8
-  %.sroa.432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.432.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0...i24.sroa_idx, i64 16, i1 false)
+  %.sroa.433.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.433.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, i64 16, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @_ZN4core4sync6atomic12atomic_store17h3781e4002461d244E.llvm.1425447921696267910(ptr noundef nonnull %44, i8 noundef 0, i8 noundef 4), !noalias !2207
   br label %41
@@ -10760,7 +10760,7 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17h9cb404a
 
 8:                                                ; preds = %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  br label %26
+  br label %25
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -10777,75 +10777,74 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17h9cb404a
 
 14:                                               ; preds = %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  br label %26
+  br label %25
 
 15:                                               ; preds = %12
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.83730b5ea31bccde5040e79d43e60e34.13, i64 noundef 32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.83730b5ea31bccde5040e79d43e60e34.15) #33
-          to label %16 unwind label %30
+          to label %16 unwind label %29
 
 16:                                               ; preds = %15
   unreachable
 
 17:                                               ; preds = %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  tail call void @_ZN4core4sync6atomic12atomic_store17h3781e4002461d244E.llvm.1425447921696267910(ptr noundef nonnull %18, i8 noundef 0, i8 noundef 4)
-  %19 = load atomic i8, ptr %5 seq_cst, align 8
-  %20 = icmp eq i8 %19, 0
-  br i1 %20, label %21, label %22
+  tail call void @_ZN4core4sync6atomic12atomic_store17h3781e4002461d244E.llvm.1425447921696267910(ptr noundef nonnull %10, i8 noundef 0, i8 noundef 4)
+  %18 = load atomic i8, ptr %5 seq_cst, align 8
+  %19 = icmp eq i8 %18, 0
+  br i1 %19, label %20, label %21
 
-21:                                               ; preds = %22, %"_ZN4core3ptr158drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..result..Result$LT$$LP$$RP$$C$opentelemetry..trace..TraceError$GT$$GT$$GT$$GT$17h4b31f9847f4c0636E.exit25", %17
+20:                                               ; preds = %21, %"_ZN4core3ptr158drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..result..Result$LT$$LP$$RP$$C$opentelemetry..trace..TraceError$GT$$GT$$GT$$GT$17h4b31f9847f4c0636E.exit25", %17
   store i64 4, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %26
+  br label %25
 
-22:                                               ; preds = %17
-  %23 = atomicrmw xchg ptr %10, i8 1 seq_cst, align 1
-  %.not56 = icmp eq i8 %23, 0
-  br i1 %.not56, label %24, label %21
+21:                                               ; preds = %17
+  %22 = atomicrmw xchg ptr %10, i8 1 seq_cst, align 1
+  %.not56 = icmp eq i8 %22, 0
+  br i1 %.not56, label %23, label %20
 
-24:                                               ; preds = %22
+23:                                               ; preds = %21
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   store i64 4, ptr %1, align 8
   %.not11 = icmp eq i64 %.sroa.0.0.copyload, 4
   br i1 %.not11, label %"_ZN4core3ptr158drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..result..Result$LT$$LP$$RP$$C$opentelemetry..trace..TraceError$GT$$GT$$GT$$GT$17h4b31f9847f4c0636E.exit25", label %"_ZN4core3ptr158drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..result..Result$LT$$LP$$RP$$C$opentelemetry..trace..TraceError$GT$$GT$$GT$$GT$17h4b31f9847f4c0636E.exit21"
 
-"_ZN4core3ptr158drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..result..Result$LT$$LP$$RP$$C$opentelemetry..trace..TraceError$GT$$GT$$GT$$GT$17h4b31f9847f4c0636E.exit21": ; preds = %24
-  %.sroa.6.0...i19.sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+"_ZN4core3ptr158drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..result..Result$LT$$LP$$RP$$C$opentelemetry..trace..TraceError$GT$$GT$$GT$$GT$17h4b31f9847f4c0636E.exit21": ; preds = %23
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.sroa.0.0.copyload, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0...i19.sroa_idx, i64 16, i1 false)
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  tail call void @_ZN4core4sync6atomic12atomic_store17h3781e4002461d244E.llvm.1425447921696267910(ptr noundef nonnull %25, i8 noundef 0, i8 noundef 4)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, i64 16, i1 false)
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  tail call void @_ZN4core4sync6atomic12atomic_store17h3781e4002461d244E.llvm.1425447921696267910(ptr noundef nonnull %24, i8 noundef 0, i8 noundef 4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %26
+  br label %25
 
-26:                                               ; preds = %14, %21, %"_ZN4core3ptr158drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..result..Result$LT$$LP$$RP$$C$opentelemetry..trace..TraceError$GT$$GT$$GT$$GT$17h4b31f9847f4c0636E.exit21", %8
+25:                                               ; preds = %14, %20, %"_ZN4core3ptr158drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..result..Result$LT$$LP$$RP$$C$opentelemetry..trace..TraceError$GT$$GT$$GT$$GT$17h4b31f9847f4c0636E.exit21", %8
   ret void
 
-"_ZN4core3ptr158drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..result..Result$LT$$LP$$RP$$C$opentelemetry..trace..TraceError$GT$$GT$$GT$$GT$17h4b31f9847f4c0636E.exit25": ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  tail call void @_ZN4core4sync6atomic12atomic_store17h3781e4002461d244E.llvm.1425447921696267910(ptr noundef nonnull %27, i8 noundef 0, i8 noundef 4)
-  br label %21
+"_ZN4core3ptr158drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..result..Result$LT$$LP$$RP$$C$opentelemetry..trace..TraceError$GT$$GT$$GT$$GT$17h4b31f9847f4c0636E.exit25": ; preds = %23
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  tail call void @_ZN4core4sync6atomic12atomic_store17h3781e4002461d244E.llvm.1425447921696267910(ptr noundef nonnull %26, i8 noundef 0, i8 noundef 4)
+  br label %20
 
-28:                                               ; preds = %.thread52, %30
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %.thread52, %29
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #35
   unreachable
 
-30:                                               ; preds = %15
+29:                                               ; preds = %15
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr158drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..result..Result$LT$$LP$$RP$$C$opentelemetry..trace..TraceError$GT$$GT$$GT$$GT$17h4b31f9847f4c0636E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #34
-          to label %.thread52 unwind label %28
+          to label %.thread52 unwind label %27
 
-31:                                               ; preds = %.thread52
+30:                                               ; preds = %.thread52
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
-.thread52:                                        ; preds = %30
+.thread52:                                        ; preds = %29
   invoke fastcc void @"_ZN4core3ptr92drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$opentelemetry..trace..TraceError$GT$$GT$17hf64b3f9f4421aba7E"(ptr noalias noundef align 8 dereferenceable(24) %2) #34
-          to label %31 unwind label %28
+          to label %30 unwind label %27
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -11932,10 +11931,10 @@ define internal fastcc void @"_ZN15futures_channel7oneshot15Sender$LT$T$GT$4send
   br i1 %.not11.i, label %"_ZN4core3ptr155drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..result..Result$LT$$LP$$RP$$C$opentelemetry..logs..LogError$GT$$GT$$GT$$GT$17hbb5c7dc65b2222e9E.exit27.i", label %"_ZN4core3ptr155drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..result..Result$LT$$LP$$RP$$C$opentelemetry..logs..LogError$GT$$GT$$GT$$GT$17hbb5c7dc65b2222e9E.exit21.i"
 
 "_ZN4core3ptr155drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..result..Result$LT$$LP$$RP$$C$opentelemetry..logs..LogError$GT$$GT$$GT$$GT$17hbb5c7dc65b2222e9E.exit21.i": ; preds = %24
-  %.sroa.6.0...i19.sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %.sroa.0.0.copyload.i, ptr %0, align 8, !alias.scope !2320, !noalias !2323
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0...i19.sroa_idx.i, i64 16, i1 false), !noalias !2323
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i, i64 16, i1 false), !noalias !2323
   invoke void @_ZN4core4sync6atomic12atomic_store17h3781e4002461d244E.llvm.1425447921696267910(ptr noundef nonnull %12, i8 noundef 0, i8 noundef 4)
           to label %.noexc1 unwind label %28
 

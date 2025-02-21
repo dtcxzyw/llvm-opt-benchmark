@@ -24051,32 +24051,30 @@ if.end26.i:                                       ; preds = %invoke.cont16.i, %i
   %11 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, null
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %spec.select.i = select i1 %14, ptr null, ptr %add.ptr.i
   %file_.i.i = getelementptr inbounds nuw i8, ptr %descriptor, i64 16
-  %15 = load ptr, ptr %file_.i.i, align 8
-  %name_.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %16 = load ptr, ptr %name_.i.i, align 8
-  %call32.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #31
-  %17 = extractvalue { i64, ptr } %call32.i, 0
-  %18 = extractvalue { i64, ptr } %call32.i, 1
+  %14 = load ptr, ptr %file_.i.i, align 8
+  %name_.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %15 = load ptr, ptr %name_.i.i, align 8
+  %call32.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #31
+  %16 = extractvalue { i64, ptr } %call32.i, 0
+  %17 = extractvalue { i64, ptr } %call32.i, 1
   %all_names_.i.i = getelementptr inbounds nuw i8, ptr %descriptor, i64 8
-  %19 = load ptr, ptr %all_names_.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %18 = load ptr, ptr %all_names_.i.i, align 8
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 32
   %call36.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i) #31
-  %20 = extractvalue { i64, ptr } %call36.i, 0
-  %21 = extractvalue { i64, ptr } %call36.i, 1
+  %19 = extractvalue { i64, ptr } %call36.i, 0
+  %20 = extractvalue { i64, ptr } %call36.i, 1
   %call38.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %error.i) #31
-  %22 = extractvalue { i64, ptr } %call38.i, 0
-  store i64 %22, ptr %agg.tmp37.i, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %agg.tmp37.i, i64 8
-  %24 = extractvalue { i64, ptr } %call38.i, 1
-  store ptr %24, ptr %23, align 8
-  %vtable.i = load ptr, ptr %spec.select.i, align 8
+  %21 = extractvalue { i64, ptr } %call38.i, 0
+  store i64 %21, ptr %agg.tmp37.i, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %agg.tmp37.i, i64 8
+  %23 = extractvalue { i64, ptr } %call38.i, 1
+  store ptr %23, ptr %22, align 8
+  %vtable.i = load ptr, ptr %add.ptr.i, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
-  %25 = load ptr, ptr %vfn.i, align 8
-  invoke void %25(ptr noundef nonnull align 8 dereferenceable(8) %spec.select.i, i64 %17, ptr %18, i64 %20, ptr %21, ptr noundef null, i32 noundef 1, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp37.i)
+  %24 = load ptr, ptr %vfn.i, align 8
+  invoke void %24(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, i64 %16, ptr %17, i64 %19, ptr %20, ptr noundef null, i32 noundef 1, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp37.i)
           to label %invoke.cont39.i unwind label %lpad.i
 
 invoke.cont39.i:                                  ; preds = %if.end26.i

@@ -3603,7 +3603,7 @@ Aig_ManObj.exit:                                  ; preds = %73, %76
   br i1 %exitcond.not, label %85, label %69, !llvm.loop !165
 
 85:                                               ; preds = %83
-  %86 = load i32, ptr %.0.i, align 4, !tbaa !28
+  %86 = load i32, ptr %67, align 4, !tbaa !28
   %87 = and i32 %86, 65535
   br label %128
 
