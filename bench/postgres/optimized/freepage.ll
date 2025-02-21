@@ -2812,7 +2812,7 @@ define internal fastcc void @FreePageBtreeSearch(ptr noundef %0, i64 noundef %1,
 
 15:                                               ; preds = %3
   store ptr null, ptr %2, align 8
-  br label %69
+  br label %67
 
 .lr.ph:                                           ; preds = %.preheader, %33
   %storemerge5058 = phi i32 [ %spec.select59, %33 ], [ 1, %.preheader ]
@@ -2867,65 +2867,65 @@ FreePageBtreeSearchInternal.exit:                 ; preds = %19, %21
   %40 = load i64, ptr %39, align 8
   %41 = icmp eq i64 %40, 0
   %gep = getelementptr i8, ptr %invariant.gep, i64 %40
-  %42 = select i1 %41, ptr null, ptr %gep
-  %43 = load i32, ptr %gep, align 8
+  %41 = select i1 %41, ptr null, ptr %gep
+  %42 = load i32, ptr %gep, align 8
   %44 = icmp eq i32 %43, 430584521
   br i1 %44, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %33
-  %45 = add i32 %spec.select59, 1
+  %43 = add i32 %spec.select59, 1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %46 = phi i32 [ 2, %.preheader ], [ %45, %._crit_edge.loopexit ]
+  %44 = phi i32 [ 2, %.preheader ], [ %43, %._crit_edge.loopexit ]
   %.0.lcssa = phi ptr [ %12, %.preheader ], [ %42, %._crit_edge.loopexit ]
-  %47 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 8
-  %48 = load i64, ptr %47, align 8
-  %49 = icmp ugt i64 %48, 253
-  %spec.select60 = select i1 %49, i32 %46, i32 0
+  %45 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 8
+  %46 = load i64, ptr %45, align 8
+  %47 = icmp ugt i64 %46, 253
+  %spec.select60 = select i1 %47, i32 %44, i32 0
   store i32 %spec.select60, ptr %8, align 4
-  %50 = load i64, ptr %47, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 24
-  br label %52
+  %48 = load i64, ptr %45, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 24
+  br label %50
 
-52:                                               ; preds = %54, %._crit_edge
-  %.020.i51 = phi i64 [ %50, %._crit_edge ], [ %.222.i55, %54 ]
-  %.017.i52 = phi i64 [ 0, %._crit_edge ], [ %.219.i56, %54 ]
-  %53 = icmp ult i64 %.017.i52, %.020.i51
-  br i1 %53, label %54, label %FreePageBtreeSearchLeaf.exit
+50:                                               ; preds = %52, %._crit_edge
+  %.020.i51 = phi i64 [ %48, %._crit_edge ], [ %.222.i55, %52 ]
+  %.017.i52 = phi i64 [ 0, %._crit_edge ], [ %.219.i56, %52 ]
+  %51 = icmp ult i64 %.017.i52, %.020.i51
+  br i1 %51, label %52, label %FreePageBtreeSearchLeaf.exit
 
-54:                                               ; preds = %52
-  %55 = add i64 %.017.i52, %.020.i51
-  %56 = lshr i64 %55, 1
-  %57 = getelementptr inbounds nuw [254 x %struct.FreePageBtreeLeafKey], ptr %51, i64 0, i64 %56
-  %58 = load i64, ptr %57, align 8
-  %.not.i54 = icmp eq i64 %1, %58
-  %59 = icmp ult i64 %1, %58
-  %60 = add nuw i64 %56, 1
-  %.222.i55 = select i1 %59, i64 %56, i64 %.020.i51
-  %.219.i56 = select i1 %59, i64 %.017.i52, i64 %60
-  br i1 %.not.i54, label %FreePageBtreeSearchLeaf.exit, label %52, !llvm.loop !15
+52:                                               ; preds = %50
+  %53 = add i64 %.017.i52, %.020.i51
+  %54 = lshr i64 %53, 1
+  %55 = getelementptr inbounds nuw [254 x %struct.FreePageBtreeLeafKey], ptr %49, i64 0, i64 %54
+  %56 = load i64, ptr %55, align 8
+  %.not.i54 = icmp eq i64 %1, %56
+  %57 = icmp ult i64 %1, %56
+  %58 = add nuw i64 %54, 1
+  %.222.i55 = select i1 %57, i64 %54, i64 %.020.i51
+  %.219.i56 = select i1 %57, i64 %.017.i52, i64 %58
+  br i1 %.not.i54, label %FreePageBtreeSearchLeaf.exit, label %50, !llvm.loop !15
 
-FreePageBtreeSearchLeaf.exit:                     ; preds = %52, %54
-  %.2.i53 = phi i64 [ %56, %54 ], [ %.017.i52, %52 ]
+FreePageBtreeSearchLeaf.exit:                     ; preds = %50, %52
+  %.2.i53 = phi i64 [ %54, %52 ], [ %.017.i52, %50 ]
   store ptr %.0.lcssa, ptr %2, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %.2.i53, ptr %61, align 8
-  %62 = load i64, ptr %47, align 8
-  %63 = icmp ult i64 %.2.i53, %62
-  br i1 %63, label %64, label %69
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %.2.i53, ptr %59, align 8
+  %60 = load i64, ptr %45, align 8
+  %61 = icmp ult i64 %.2.i53, %60
+  br i1 %61, label %62, label %67
 
-64:                                               ; preds = %FreePageBtreeSearchLeaf.exit
-  %65 = getelementptr inbounds nuw [254 x %struct.FreePageBtreeLeafKey], ptr %51, i64 0, i64 %.2.i53
-  %66 = load i64, ptr %65, align 8
-  %67 = icmp eq i64 %1, %66
-  %68 = zext i1 %67 to i8
-  br label %69
+62:                                               ; preds = %FreePageBtreeSearchLeaf.exit
+  %63 = getelementptr inbounds nuw [254 x %struct.FreePageBtreeLeafKey], ptr %49, i64 0, i64 %.2.i53
+  %64 = load i64, ptr %63, align 8
+  %65 = icmp eq i64 %1, %64
+  %66 = zext i1 %65 to i8
+  br label %67
 
-69:                                               ; preds = %FreePageBtreeSearchLeaf.exit, %64, %15
-  %.sink = phi i8 [ 0, %15 ], [ 0, %FreePageBtreeSearchLeaf.exit ], [ %68, %64 ]
-  %70 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i8 %.sink, ptr %70, align 8
+67:                                               ; preds = %FreePageBtreeSearchLeaf.exit, %62, %15
+  %.sink = phi i8 [ 0, %15 ], [ 0, %FreePageBtreeSearchLeaf.exit ], [ %66, %62 ]
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i8 %.sink, ptr %68, align 8
   ret void
 }
 
@@ -3629,7 +3629,7 @@ attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #3 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

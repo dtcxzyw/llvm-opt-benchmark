@@ -41807,7 +41807,7 @@ entry:
   %sub.ptr.i = getelementptr inbounds i8, ptr %1, i64 -16
   %3 = load atomic i64, ptr @"_ZZZN4node2fs10FileHandle10DoShutdownEPNS_12ShutdownWrapEENK3$_0clEP7uv_fs_sE28trace_event_unique_atomic683.0" seq_cst, align 8
   %4 = inttoptr i64 %3 to ptr
-  %tobool.not.i = icmp eq i64 %3, 0
+  %5 = icmp eq i64 %3, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
@@ -41818,25 +41818,25 @@ if.then.i:                                        ; preds = %entry
 if.end.i.i:                                       ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %call.i.i, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
-  %5 = load ptr, ptr %vfn.i.i, align 8
+  %6 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i, ptr noundef nonnull @.str.34) #30
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit.i
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit.i: ; preds = %if.end.i.i, %if.then.i
   %retval.0.i.i = phi ptr [ %call2.i.i, %if.end.i.i ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then.i ]
-  %6 = ptrtoint ptr %retval.0.i.i to i64
-  store atomic i64 %6, ptr @"_ZZZN4node2fs10FileHandle10DoShutdownEPNS_12ShutdownWrapEENK3$_0clEP7uv_fs_sE28trace_event_unique_atomic683.0" seq_cst, align 8
+  %7 = ptrtoint ptr %retval.0.i.i to i64
+  store atomic i64 %7, ptr @"_ZZZN4node2fs10FileHandle10DoShutdownEPNS_12ShutdownWrapEENK3$_0clEP7uv_fs_sE28trace_event_unique_atomic683.0" seq_cst, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit.i, %entry
   %trace_event_unique_category_group_enabled683.0.i = phi ptr [ %4, %entry ], [ %retval.0.i.i, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit.i ]
-  %7 = load i8, ptr %trace_event_unique_category_group_enabled683.0.i, align 1
-  %8 = and i8 %7, 5
-  %tobool4.not.i = icmp eq i8 %8, 0
+  %8 = load i8, ptr %trace_event_unique_category_group_enabled683.0.i, align 1
+  %9 = and i8 %8, 5
+  %tobool4.not.i = icmp eq i8 %9, 0
   br i1 %tobool4.not.i, label %do.end.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end.i
-  %9 = ptrtoint ptr %sub.ptr.i to i64
+  %10 = ptrtoint ptr %sub.ptr.i to i64
   %10 = select i1 %2, i64 0, i64 %9
   %fs_type.i = getelementptr inbounds nuw i8, ptr %req, i64 64
   %11 = load i32, ptr %fs_type.i, align 8
@@ -41916,34 +41916,34 @@ do.end.i:                                         ; preds = %_ZN4node7tracingL13
   %fd_.i.i = getelementptr inbounds nuw i8, ptr %18, i64 64
   store i32 -1, ptr %fd_.i.i, align 8
   %reading_.i.i = getelementptr inbounds nuw i8, ptr %18, i64 70
-  %19 = load i8, ptr %reading_.i.i, align 2
-  %tobool.i.i = trunc i8 %19 to i1
+  %21 = load i8, ptr %reading_.i.i, align 2
+  %tobool.i.i = trunc i8 %21 to i1
   %persistent_handle_.i.i.i = getelementptr inbounds i8, ptr %18, i64 -48
-  %20 = load ptr, ptr %persistent_handle_.i.i.i, align 8
-  %cmp.i.i.i = icmp ne ptr %20, null
+  %22 = load ptr, ptr %persistent_handle_.i.i.i, align 8
+  %cmp.i.i.i = icmp ne ptr %22, null
   %or.cond.not.i.i = select i1 %tobool.i.i, i1 %cmp.i.i.i, i1 false
   br i1 %or.cond.not.i.i, label %if.then.i.i, label %"_ZZN4node2fs10FileHandle10DoShutdownEPNS_12ShutdownWrapEENK3$_0clEP7uv_fs_s.exit"
 
 if.then.i.i:                                      ; preds = %do.end.i
   %call3.i.i = call { ptr, i64 } @uv_buf_init(ptr noundef null, i32 noundef 0) #30
-  %21 = extractvalue { ptr, i64 } %call3.i.i, 0
-  store ptr %21, ptr %ref.tmp.i.i, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  %23 = extractvalue { ptr, i64 } %call3.i.i, 1
-  store i64 %23, ptr %22, align 8
+  %23 = extractvalue { ptr, i64 } %call3.i.i, 0
+  store ptr %23, ptr %ref.tmp.i.i, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
+  %25 = extractvalue { ptr, i64 } %call3.i.i, 1
+  store i64 %25, ptr %24, align 8
   %listener_.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %24 = load ptr, ptr %listener_.i.i.i, align 8
-  %vtable.i.i17.i = load ptr, ptr %24, align 8
+  %26 = load ptr, ptr %listener_.i.i.i, align 8
+  %vtable.i.i17.i = load ptr, ptr %26, align 8
   %vfn.i.i18.i = getelementptr inbounds nuw i8, ptr %vtable.i.i17.i, i64 24
-  %25 = load ptr, ptr %vfn.i.i18.i, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(24) %24, i64 noundef -4095, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i) #30
+  %27 = load ptr, ptr %vfn.i.i18.i, align 8
+  call void %25(ptr noundef nonnull align 8 dereferenceable(24) %26, i64 noundef -4095, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i) #30
   br label %"_ZZN4node2fs10FileHandle10DoShutdownEPNS_12ShutdownWrapEENK3$_0clEP7uv_fs_s.exit"
 
 "_ZZN4node2fs10FileHandle10DoShutdownEPNS_12ShutdownWrapEENK3$_0clEP7uv_fs_s.exit": ; preds = %do.end.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   %result18.i = getelementptr inbounds nuw i8, ptr %req, i64 88
-  %26 = load i64, ptr %result18.i, align 8
-  %conv19.i = trunc i64 %26 to i32
+  %28 = load i64, ptr %result18.i, align 8
+  %conv19.i = trunc i64 %28 to i32
   call void @uv_fs_req_cleanup(ptr noundef %req) #30
   call void @_ZN4node9StreamReq4DoneEiPKc(ptr noundef nonnull align 8 dereferenceable(16) %sub.ptr.i, i32 noundef %conv19.i, ptr noundef null) #30
   ret void

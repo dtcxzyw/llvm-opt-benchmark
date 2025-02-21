@@ -2866,8 +2866,8 @@ while.cond:                                       ; preds = %while.cond, %entry
   %cond.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i, ptr null, ptr %2
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i32, ptr %2, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i.i, -16777216
-  %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i, 1140850688
-  %tobool.not = or i1 %cmp.i.not.i.i.i.i.i, %cmp.i.i.i.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i.i.not = icmp ne i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i, 1140850688
+  %tobool.not = or i1 %cmp.i.not.i.i.i.i.i, %cmp.i.i.i.i.i.i.i.i.not
   br i1 %tobool.not, label %while.end, label %while.cond, !llvm.loop !17
 
 while.end:                                        ; preds = %while.cond
@@ -3335,8 +3335,8 @@ _ZSt20uninitialized_copy_nIPN6hermes2vm17GCHermesValueBaseINS1_11HermesValueEEEj
   %cond.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i, ptr null, ptr %10
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i32, ptr %10, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i.i, -16777216
-  %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i, 1140850688
-  %tobool.not = or i1 %cmp.i.not.i.i.i.i.i, %cmp.i.i.i.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i.i.not = icmp ne i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i, 1140850688
+  %tobool.not = or i1 %cmp.i.not.i.i.i.i.i, %cmp.i.i.i.i.i.i.i.i.not
   br i1 %tobool.not, label %for.end, label %for.cond, !llvm.loop !38
 
 for.end:                                          ; preds = %_ZSt20uninitialized_copy_nIPN6hermes2vm17GCHermesValueBaseINS1_11HermesValueEEEjSt16reverse_iteratorIPNS1_17PinnedHermesValueEEET1_T_T0_SA_.exit

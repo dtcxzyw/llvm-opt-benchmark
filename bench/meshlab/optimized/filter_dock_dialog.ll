@@ -775,7 +775,7 @@ _ZN7QStringD2Ev.exit52:                           ; preds = %95, %_ZN9QtPrivate8
   store ptr %spec.select.i, ptr %63, align 8
   %135 = load ptr, ptr %132, align 8
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 48
-  %137 = invoke noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %136)
+  %spec.select.i57 = invoke noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %136)
           to label %138 unwind label %122
 
 138:                                              ; preds = %131

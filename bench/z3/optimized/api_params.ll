@@ -1302,7 +1302,7 @@ invoke.cont7:                                     ; preds = %entry, %if.then
   %m_error_code.i = getelementptr inbounds nuw i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   %m_descrs.i = getelementptr inbounds nuw i8, ptr %p, i64 24
-  %call10 = invoke noundef i32 @_ZNK12param_descrs4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %m_descrs.i)
+  %spec.select.i = invoke noundef i32 @_ZNK12param_descrs4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %m_descrs.i)
           to label %invoke.cont9 unwind label %lpad1
 
 invoke.cont9:                                     ; preds = %invoke.cont7
@@ -1391,7 +1391,7 @@ invoke.cont7:                                     ; preds = %entry, %if.then
   %m_error_code.i = getelementptr inbounds nuw i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
   %m_descrs.i = getelementptr inbounds nuw i8, ptr %p, i64 24
-  %call10 = invoke noundef i32 @_ZNK12param_descrs4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %m_descrs.i)
+  %spec.select.i = invoke noundef i32 @_ZNK12param_descrs4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %m_descrs.i)
           to label %invoke.cont9 unwind label %lpad1
 
 invoke.cont9:                                     ; preds = %invoke.cont7
@@ -1589,7 +1589,7 @@ invoke.cont7:                                     ; preds = %if.end
 
 invoke.cont11:                                    ; preds = %invoke.cont7
   %m_descrs.i = getelementptr inbounds nuw i8, ptr %p, i64 24
-  %call14 = invoke noundef i32 @_ZNK12param_descrs4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %m_descrs.i)
+  %spec.select.i = invoke noundef i32 @_ZNK12param_descrs4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %m_descrs.i)
           to label %for.cond.preheader unwind label %lpad8.loopexit.split-lp
 
 for.cond.preheader:                               ; preds = %invoke.cont11

@@ -1192,7 +1192,7 @@ for.body.lr.ph:                                   ; preds = %envoy_config_cluste
   %_M_engaged.i.i = getelementptr inbounds nuw i8, ptr %extension, i64 104
   %value = getelementptr inbounds nuw i8, ptr %extension, i64 16
   %_M_index.i.i.i = getelementptr inbounds nuw i8, ptr %extension, i64 72
-  %agg.tmp82.sroa.2.0.type84.sroa_idx = getelementptr inbounds nuw i8, ptr %extension, i64 8
+  %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %extension, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 8
   %second.i = getelementptr inbounds nuw i8, ptr %ref.tmp94, i64 32
   %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp94, i64 80
@@ -1203,7 +1203,7 @@ for.body.lr.ph:                                   ; preds = %envoy_config_cluste
   %_M_right.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp92, i64 32
   %_M_node_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp92, i64 40
   %_M_index.i.i.i.i.i.i.i.i.i.i55 = getelementptr inbounds nuw i8, ptr %ref.tmp89, i64 48
-  %_M_end_of_storage.i106 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %_M_index.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %_M_finish.i120 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1488,7 +1488,7 @@ lpad57.body:                                      ; preds = %lpad.i.body.thread,
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp48) #19
   br label %ehcleanup174
 
-land.lhs.true:                                    ; preds = %if.end31
+if.end73:                                         ; preds = %if.end31
   %44 = load atomic i64, ptr @_ZN9grpc_core17CoreConfiguration7config_E acquire, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %44 to ptr
   %cmp.not.i = icmp eq i64 %44, 0
@@ -1745,13 +1745,13 @@ lpad101:                                          ; preds = %if.then87
   br label %ehcleanup152
 
 lpad120.body:                                     ; preds = %lpad.i58.body.thread, %if.then.i.i.i60
-  %eh.lpad-body124192 = phi { ptr, i32 } [ %68, %lpad.i58.body.thread ], [ %65, %if.then.i.i.i60 ]
+  %eh.lpad-body124194 = phi { ptr, i32 } [ %68, %lpad.i58.body.thread ], [ %65, %if.then.i.i.i60 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp89) #19
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp92) #19
   br label %ehcleanup137
 
 ehcleanup137:                                     ; preds = %lpad4.i, %lpad120.body
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body124192, %lpad120.body ], [ %60, %lpad4.i ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body124194, %lpad120.body ], [ %60, %lpad4.i ]
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp94) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp97) #19
   br label %ehcleanup152

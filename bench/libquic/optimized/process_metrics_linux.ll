@@ -1646,7 +1646,7 @@ define noundef i32 @_ZNK4base14ProcessMetrics14GetOpenFdCountEv(ptr noundef nonn
 
 .outer:                                           ; preds = %.tail15, %.preheader
   %.ph = phi i64 [ %32, %.tail15 ], [ 0, %.preheader ]
-  %.ph27 = phi i64 [ %33, %.tail15 ], [ 0, %.preheader ]
+  %.ph31 = phi i64 [ %33, %.tail15 ], [ 0, %.preheader ]
   %.07.ph = phi i32 [ %spec.select, %.tail15 ], [ 0, %.preheader ]
   br label %18
 
@@ -1655,18 +1655,18 @@ define noundef i32 @_ZNK4base14ProcessMetrics14GetOpenFdCountEv(ptr noundef nonn
           cleanup
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #25
-  br label %55
+  br label %52
 
 16:                                               ; preds = %6
   %17 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 536, ptr nonnull %4) #25
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
-  br label %55
+  br label %52
 
 18:                                               ; preds = %.outer, %.tail
   %19 = phi i64 [ %32, %.tail ], [ %.ph, %.outer ]
-  %20 = phi i64 [ %33, %.tail ], [ %.ph27, %.outer ]
+  %20 = phi i64 [ %33, %.tail ], [ %.ph31, %.outer ]
   %.not.i = icmp eq i64 %20, 0
   br i1 %.not.i, label %._crit_edge.i, label %21
 
@@ -1708,22 +1708,22 @@ sub_0:                                            ; preds = %._crit_edge.i, %30
   br i1 %.not21, label %.tail, label %.tail15
 
 .tail:                                            ; preds = %sub_0
-  %35 = getelementptr inbounds nuw i8, ptr %gep20, i64 1
-  %36 = load i8, ptr %35, align 1
-  %37 = icmp eq i8 %36, 0
-  br i1 %37, label %18, label %sub_117, !llvm.loop !59
+  %.not.i12 = getelementptr inbounds nuw i8, ptr %gep20, i64 1
+  %gep20.sroa.gep = load i8, ptr %35, align 1
+  %.0.i13.sroa.sel = icmp eq i8 %gep20.sroa.gep, 0
+  br i1 %.0.i13.sroa.sel, label %18, label %sub_117, !llvm.loop !59
 
 sub_117:                                          ; preds = %.tail
-  %38 = getelementptr inbounds nuw i8, ptr %gep20, i64 1
-  %39 = load i8, ptr %38, align 1
-  %.not23 = icmp eq i8 %39, 46
+  %gep20.sroa.gep24 = getelementptr inbounds nuw i8, ptr %gep20, i64 1
+  %.0.i13.sroa.sel25 = load i8, ptr %gep20.sroa.gep24, align 1
+  %37 = icmp eq i8 %.0.i13.sroa.sel25, 46
   br i1 %.not23, label %sub_2, label %.tail15
 
 sub_2:                                            ; preds = %sub_117
-  %40 = getelementptr inbounds nuw i8, ptr %gep20, i64 2
-  %41 = load i8, ptr %40, align 1
-  %42 = icmp ne i8 %41, 0
-  %43 = zext i1 %42 to i32
+  %gep20.sroa.gep26 = getelementptr inbounds nuw i8, ptr %gep20, i64 2
+  %.0.i13.sroa.sel27 = load i8, ptr %gep20.sroa.gep26, align 1
+  %38 = icmp ne i8 %.0.i13.sroa.sel27, 0
+  %39 = zext i1 %38 to i32
   br label %.tail15
 
 .tail15:                                          ; preds = %sub_0, %sub_117, %sub_2
@@ -1733,44 +1733,44 @@ sub_2:                                            ; preds = %sub_117
 
 _ZN4base14DirReaderLinux4NextEv.exit:             ; preds = %26, %26
   %.pre = load i32, ptr %4, align 8, !tbaa !52
-  %44 = icmp sgt i32 %.pre, -1
-  br i1 %44, label %45, label %_ZN4base14DirReaderLinuxD2Ev.exit
+  %41 = icmp sgt i32 %.pre, -1
+  br i1 %41, label %42, label %_ZN4base14DirReaderLinuxD2Ev.exit
 
-45:                                               ; preds = %_ZN4base14DirReaderLinux4NextEv.exit
-  %46 = invoke i32 @close(i32 noundef %.pre)
-          to label %47 unwind label %52
+42:                                               ; preds = %_ZN4base14DirReaderLinux4NextEv.exit
+  %43 = invoke i32 @close(i32 noundef %.pre)
+          to label %44 unwind label %49
 
-47:                                               ; preds = %45
-  switch i32 %46, label %.thread7.i [
-    i32 -1, label %48
+44:                                               ; preds = %42
+  switch i32 %43, label %.thread7.i [
+    i32 -1, label %45
     i32 0, label %_ZN4base14DirReaderLinuxD2Ev.exit
   ]
 
-48:                                               ; preds = %47
-  %49 = tail call ptr @__errno_location() #26
-  %50 = load i32, ptr %49, align 4, !tbaa !43
-  %51 = icmp eq i32 %50, 4
-  br i1 %51, label %_ZN4base14DirReaderLinuxD2Ev.exit, label %.thread7.i
+45:                                               ; preds = %44
+  %46 = tail call ptr @__errno_location() #26
+  %47 = load i32, ptr %46, align 4, !tbaa !43
+  %48 = icmp eq i32 %47, 4
+  br i1 %48, label %_ZN4base14DirReaderLinuxD2Ev.exit, label %.thread7.i
 
-.thread7.i:                                       ; preds = %48, %47
+.thread7.i:                                       ; preds = %45, %44
   invoke void @_ZN7logging6RawLogEiPKc(i32 noundef 2, ptr noundef nonnull @.str.59)
-          to label %_ZN4base14DirReaderLinuxD2Ev.exit unwind label %52
+          to label %_ZN4base14DirReaderLinuxD2Ev.exit unwind label %49
 
-52:                                               ; preds = %.thread7.i, %45
-  %53 = landingpad { ptr, i32 }
+49:                                               ; preds = %.thread7.i, %42
+  %50 = landingpad { ptr, i32 }
           catch ptr null
-  %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #27
+  %51 = extractvalue { ptr, i32 } %50, 0
+  call void @__clang_call_terminate(ptr %51) #27
   unreachable
 
-_ZN4base14DirReaderLinuxD2Ev.exit:                ; preds = %9, %_ZN4base14DirReaderLinux4NextEv.exit, %47, %48, %.thread7.i
-  %.026 = phi i32 [ %.07.ph, %_ZN4base14DirReaderLinux4NextEv.exit ], [ %.07.ph, %47 ], [ %.07.ph, %48 ], [ %.07.ph, %.thread7.i ], [ -1, %9 ]
+_ZN4base14DirReaderLinuxD2Ev.exit:                ; preds = %9, %_ZN4base14DirReaderLinux4NextEv.exit, %44, %45, %.thread7.i
+  %.030 = phi i32 [ %.07.ph, %_ZN4base14DirReaderLinux4NextEv.exit ], [ %.07.ph, %44 ], [ %.07.ph, %45 ], [ %.07.ph, %.thread7.i ], [ -1, %9 ]
   call void @llvm.lifetime.end.p0(i64 536, ptr nonnull %4) #25
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #25
-  ret i32 %.026
+  ret i32 %.030
 
-55:                                               ; preds = %16, %14
+52:                                               ; preds = %16, %14
   %.pn = phi { ptr, i32 } [ %17, %16 ], [ %15, %14 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #25
   resume { ptr, i32 } %.pn
