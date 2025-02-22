@@ -2617,74 +2617,65 @@ define hidden void @"_ZN9once_cell4sync17OnceCell$LT$T$GT$10try_insert17h59e13ea
   store ptr %2, ptr %4, align 8
   %5 = load atomic i64, ptr %1 acquire, align 8, !noalias !383
   %.not.i = icmp eq i64 %5, 2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %.not.i, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h681c59ac07acbadbE.llvm.3875224068774112026.exit", label %7
+  br i1 %.not.i, label %15, label %6
 
-7:                                                ; preds = %3
+6:                                                ; preds = %3
   invoke fastcc void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hd4d1333478b41a43E"(ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %4)
-          to label %.noexc unwind label %10
+          to label %15 unwind label %7
 
-.noexc:                                           ; preds = %7
-  %8 = load ptr, ptr %6, align 8, !noalias !383, !noundef !4
-  %9 = icmp ne ptr %8, null
-  call void @llvm.assume(i1 %9)
-  br label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h681c59ac07acbadbE.llvm.3875224068774112026.exit"
-
-10:                                               ; preds = %7
-  %11 = landingpad { ptr, i32 }
+7:                                                ; preds = %6
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !386)
-  %12 = load ptr, ptr %4, align 8, !alias.scope !386, !noundef !4
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$rustls..crypto..CryptoProvider$GT$$GT$$GT$17hde312a87ea6198c1E.llvm.3875224068774112026.exit", label %14
+  %9 = load ptr, ptr %4, align 8, !alias.scope !386, !noundef !4
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$rustls..crypto..CryptoProvider$GT$$GT$$GT$17hde312a87ea6198c1E.llvm.3875224068774112026.exit", label %11
 
-14:                                               ; preds = %10
-  %15 = atomicrmw sub ptr %12, i64 1 release, align 8, !noalias !389
-  %16 = icmp eq i64 %15, 1
-  br i1 %16, label %17, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$rustls..crypto..CryptoProvider$GT$$GT$$GT$17hde312a87ea6198c1E.llvm.3875224068774112026.exit"
+11:                                               ; preds = %7
+  %12 = atomicrmw sub ptr %9, i64 1 release, align 8, !noalias !389
+  %13 = icmp eq i64 %12, 1
+  br i1 %13, label %14, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$rustls..crypto..CryptoProvider$GT$$GT$$GT$17hde312a87ea6198c1E.llvm.3875224068774112026.exit"
 
-17:                                               ; preds = %14
+14:                                               ; preds = %11
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h8bb6ad44e9bbd694E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
-          to label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$rustls..crypto..CryptoProvider$GT$$GT$$GT$17hde312a87ea6198c1E.llvm.3875224068774112026.exit" unwind label %21
+          to label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$rustls..crypto..CryptoProvider$GT$$GT$$GT$17hde312a87ea6198c1E.llvm.3875224068774112026.exit" unwind label %20
 
-"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h681c59ac07acbadbE.llvm.3875224068774112026.exit": ; preds = %.noexc, %3
-  %18 = load ptr, ptr %4, align 8, !noundef !4
-  %19 = icmp eq ptr %18, null
-  %spec.select = select i1 %19, ptr %6, ptr %18
-  %spec.select7 = select i1 %19, ptr null, ptr %6
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %spec.select, ptr %20, align 8
+15:                                               ; preds = %3, %6
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %17 = load ptr, ptr %4, align 8, !noundef !4
+  %18 = icmp eq ptr %17, null
+  %spec.select = select i1 %18, ptr %16, ptr %17
+  %spec.select7 = select i1 %18, ptr null, ptr %16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %spec.select, ptr %19, align 8
   store ptr %spec.select7, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 
-21:                                               ; preds = %17
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %14
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #39
   unreachable
 
-"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$rustls..crypto..CryptoProvider$GT$$GT$$GT$17hde312a87ea6198c1E.llvm.3875224068774112026.exit": ; preds = %14, %10, %17
-  resume { ptr, i32 } %11
+"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$rustls..crypto..CryptoProvider$GT$$GT$$GT$17hde312a87ea6198c1E.llvm.3875224068774112026.exit": ; preds = %11, %7, %14
+  resume { ptr, i32 } %8
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h681c59ac07acbadbE.llvm.3875224068774112026"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load atomic i64, ptr %0 acquire, align 8
   %.not = icmp eq i64 %3, 2
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not, label %8, label %5
+  br i1 %.not, label %5, label %4
 
-5:                                                ; preds = %2
+4:                                                ; preds = %2
   tail call fastcc void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hd4d1333478b41a43E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(8) %1)
-  %6 = load ptr, ptr %4, align 8, !noundef !4
-  %7 = icmp ne ptr %6, null
-  tail call void @llvm.assume(i1 %7)
-  br label %8
+  br label %5
 
-8:                                                ; preds = %2, %5
-  ret ptr %4
+5:                                                ; preds = %2, %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -2703,50 +2694,43 @@ define hidden noundef ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$3set17hfccae3fd
   store ptr %1, ptr %3, align 8, !noalias !394
   %4 = load atomic i64, ptr %0 acquire, align 8, !noalias !397
   %.not.i.i = icmp eq i64 %4, 2
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not.i.i, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$10try_insert17h59e13eae664ee598E.llvm.3875224068774112026.exit", label %6
+  br i1 %.not.i.i, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$10try_insert17h59e13eae664ee598E.llvm.3875224068774112026.exit", label %5
 
-6:                                                ; preds = %2
+5:                                                ; preds = %2
   invoke fastcc void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hd4d1333478b41a43E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(8) %3)
-          to label %.noexc.i unwind label %9, !noalias !394
+          to label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$10try_insert17h59e13eae664ee598E.llvm.3875224068774112026.exit" unwind label %6, !noalias !394
 
-.noexc.i:                                         ; preds = %6
-  %7 = load ptr, ptr %5, align 8, !noalias !397, !noundef !4
-  %8 = icmp ne ptr %7, null
-  call void @llvm.assume(i1 %8)
-  br label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$10try_insert17h59e13eae664ee598E.llvm.3875224068774112026.exit"
-
-9:                                                ; preds = %6
-  %10 = landingpad { ptr, i32 }
+6:                                                ; preds = %5
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !400)
-  %11 = load ptr, ptr %3, align 8, !alias.scope !400, !noalias !394, !noundef !4
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$rustls..crypto..CryptoProvider$GT$$GT$$GT$17hde312a87ea6198c1E.llvm.3875224068774112026.exit.i", label %13
+  %8 = load ptr, ptr %3, align 8, !alias.scope !400, !noalias !394, !noundef !4
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$rustls..crypto..CryptoProvider$GT$$GT$$GT$17hde312a87ea6198c1E.llvm.3875224068774112026.exit.i", label %10
 
-13:                                               ; preds = %9
-  %14 = atomicrmw sub ptr %11, i64 1 release, align 8, !noalias !403
-  %15 = icmp eq i64 %14, 1
-  br i1 %15, label %16, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$rustls..crypto..CryptoProvider$GT$$GT$$GT$17hde312a87ea6198c1E.llvm.3875224068774112026.exit.i"
+10:                                               ; preds = %6
+  %11 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !403
+  %12 = icmp eq i64 %11, 1
+  br i1 %12, label %13, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$rustls..crypto..CryptoProvider$GT$$GT$$GT$17hde312a87ea6198c1E.llvm.3875224068774112026.exit.i"
 
-16:                                               ; preds = %13
+13:                                               ; preds = %10
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h8bb6ad44e9bbd694E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
-          to label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$rustls..crypto..CryptoProvider$GT$$GT$$GT$17hde312a87ea6198c1E.llvm.3875224068774112026.exit.i" unwind label %17, !noalias !394
+          to label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$rustls..crypto..CryptoProvider$GT$$GT$$GT$17hde312a87ea6198c1E.llvm.3875224068774112026.exit.i" unwind label %14, !noalias !394
 
-17:                                               ; preds = %16
-  %18 = landingpad { ptr, i32 }
+14:                                               ; preds = %13
+  %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #39, !noalias !394
   unreachable
 
-"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$rustls..crypto..CryptoProvider$GT$$GT$$GT$17hde312a87ea6198c1E.llvm.3875224068774112026.exit.i": ; preds = %16, %13, %9
-  resume { ptr, i32 } %10
+"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$rustls..crypto..CryptoProvider$GT$$GT$$GT$17hde312a87ea6198c1E.llvm.3875224068774112026.exit.i": ; preds = %13, %10, %6
+  resume { ptr, i32 } %7
 
-"_ZN9once_cell4sync17OnceCell$LT$T$GT$10try_insert17h59e13eae664ee598E.llvm.3875224068774112026.exit": ; preds = %2, %.noexc.i
-  %19 = load ptr, ptr %3, align 8, !noalias !394, !noundef !4
+"_ZN9once_cell4sync17OnceCell$LT$T$GT$10try_insert17h59e13eae664ee598E.llvm.3875224068774112026.exit": ; preds = %2, %5
+  %16 = load ptr, ptr %3, align 8, !noalias !394, !noundef !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !394
-  ret ptr %19
+  ret ptr %16
 }
 
 ; Function Attrs: nonlazybind uwtable

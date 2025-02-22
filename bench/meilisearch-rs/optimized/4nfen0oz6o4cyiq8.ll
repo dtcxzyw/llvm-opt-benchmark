@@ -3799,7 +3799,7 @@ _ZN16meilisearch_auth11SearchRules22get_index_search_rules17hf15b2ea07c636db5E.e
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN72_$LT$meilisearch_auth..SearchRules$u20$as$u20$core..default..Default$GT$7default17had3b148728cf879eE"(ptr dead_on_unwind noalias noundef writable writeonly sret([56 x i8]) align 8 captures(none) dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [0 x i8], align 1
-  %3 = alloca [32 x i8], align 8
+  %3 = alloca [48 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [48 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
@@ -3824,17 +3824,15 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE.exit.i: ; 
   %12 = load i64, ptr %11, align 8, !noalias !766, !noundef !27
   %13 = add i64 %10, 1
   store i64 %13, ptr %.sroa.0.0.i.i2.i, align 8, !noalias !766
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !770)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2), !noalias !770
-  call void @_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h8197a2a427695187E.llvm.13625133489657380139(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef 24, i64 noundef 16, i64 noundef 1, i1 noundef zeroext true)
-  %14 = load ptr, ptr %3, align 8, !noundef !27
-  %15 = icmp ne ptr %14, null
-  call void @llvm.assume(i1 %15)
+  call void @_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h8197a2a427695187E.llvm.13625133489657380139(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef 24, i64 noundef 16, i64 noundef 1, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !770
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 %10, ptr %.sroa.44.0..sroa_idx, align 8
-  %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i64 %12, ptr %.sroa.55.0..sroa_idx, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i64 %10, ptr %14, align 8, !alias.scope !770
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store i64 %12, ptr %15, align 8, !alias.scope !770
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   invoke void @_ZN17meilisearch_types17index_uid_pattern15IndexUidPattern3all17h5296ae4b80d30165E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4)
           to label %18 unwind label %16

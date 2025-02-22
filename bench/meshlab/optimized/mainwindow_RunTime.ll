@@ -29786,7 +29786,7 @@ _ZNK10MainWindow3GLAEv.exit.thread:               ; preds = %1, %_ZNK10MainWindo
   br i1 %.not.i11, label %_ZNK10MainWindow3GLAEv.exit13, label %_ZNK10MainWindow3GLAEv.exit13.thread
 
 _ZNK10MainWindow3GLAEv.exit13:                    ; preds = %8
-  %12 = load ptr, ptr inttoptr (i64 1464 to ptr), align 8, !nonnull !61, !noundef !61
+  %12 = load ptr, ptr inttoptr (i64 1464 to ptr), align 8
   %13 = icmp eq ptr %10, %12
   br i1 %13, label %_ZNK10MainWindow3GLAEv.exit19, label %_ZN10MainWindow15suspendEditModeEv.exit
 

@@ -5862,26 +5862,18 @@ define hidden void @_ZN5tokio7runtime7context14with_scheduler17h3a2d10752ae054c9
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
   %6 = call noundef zeroext i1 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hd2ef4415b30f137dE.llvm.9340333246167201960"(ptr noalias noundef readonly align 8 dereferenceable(8) @anon.832e62666b6255bc19293ed26de40573.48.llvm.9340333246167201960, ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
-  br i1 %6, label %7, label %10
+  %7 = load ptr, ptr %4, align 8, !align !188
+  %8 = icmp eq ptr %7, null
+  %or.cond = select i1 %6, i1 %8, i1 false
+  br i1 %or.cond, label %10, label %9
 
-7:                                                ; preds = %3
-  %8 = load ptr, ptr %4, align 8, !align !188, !noundef !55
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %11, label %12
-
-10:                                               ; preds = %3, %12
+9:                                                ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   ret void
 
-11:                                               ; preds = %7
+10:                                               ; preds = %3
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.832e62666b6255bc19293ed26de40573.54.llvm.9340333246167201960, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.832e62666b6255bc19293ed26de40573.56.llvm.9340333246167201960) #29
   unreachable
-
-12:                                               ; preds = %7
-  %13 = load ptr, ptr %5, align 8
-  %14 = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %14)
-  br label %10
 }
 
 ; Function Attrs: nonlazybind uwtable
