@@ -12926,12 +12926,12 @@ define hidden void @"_ZN12tracing_core10dispatcher11get_default28_$u7b$$u7b$clos
   store i64 %.sink.i, ptr %5, align 8, !noalias !1719
   call void @_ZN7tracing4span4Span9make_with17h29fd9de96c4b4d68E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %22, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @_ZN12tracing_core10dispatcher4NONE17h6b5d9c3936420fc4E), !noalias !1713
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !1719
-  br label %51
+  br label %52
 
 30:                                               ; preds = %19
   %31 = landingpad { ptr, i32 }
           cleanup
-  br label %52
+  br label %53
 
 32:                                               ; preds = %17, %12
   %.sroa.0.0.i.i.i = phi ptr [ %_ZN12tracing_core10dispatcher15GLOBAL_DISPATCH17h907dd1ce038285c5E._ZN12tracing_core10dispatcher4NONE17h6b5d9c3936420fc4E.i.i.i, %17 ], [ %14, %12 ]
@@ -12967,7 +12967,7 @@ define hidden void @"_ZN12tracing_core10dispatcher11get_default28_$u7b$$u7b$clos
   %46 = load i64, ptr %2, align 8, !noalias !1727, !noundef !16
   %47 = add i64 %46, -1
   store i64 %47, ptr %2, align 8, !noalias !1727
-  br label %52
+  br label %53
 
 48:                                               ; preds = %41
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !1726
@@ -12977,10 +12977,10 @@ define hidden void @"_ZN12tracing_core10dispatcher11get_default28_$u7b$$u7b$clos
   store i8 1, ptr %6, align 8
   br label %51
 
-51:                                               ; preds = %48, %"_ZN7tracing4span4Span8child_of28_$u7b$$u7b$closure$u7d$$u7d$17h2ae9435987d57a6aE.llvm.6955530683240799244.exit"
+52:                                               ; preds = %48, %"_ZN7tracing4span4Span8child_of28_$u7b$$u7b$closure$u7d$$u7d$17h2ae9435987d57a6aE.llvm.6955530683240799244.exit"
   ret void
 
-52:                                               ; preds = %30, %44
+53:                                               ; preds = %30, %44
   %.pn = phi { ptr, i32 } [ %31, %30 ], [ %45, %44 ]
   store i8 1, ptr %6, align 8
   resume { ptr, i32 } %.pn

@@ -754,54 +754,54 @@ define internal fastcc range(i32 0, 3) i32 @ctl_lookup(ptr noundef %0, ptr nound
 
 .preheader105:                                    ; preds = %9
   %15 = load i64, ptr %5, align 8, !tbaa !3
-  %.not127 = icmp eq i64 %15, 0
-  br i1 %.not127, label %.loopexit106, label %.lr.ph126
+  %.not133 = icmp eq i64 %15, 0
+  br i1 %.not133, label %.loopexit106, label %.lr.ph132
 
-.lr.ph126:                                        ; preds = %.preheader105, %57
-  %.065125 = phi ptr [ %54, %57 ], [ %2, %.preheader105 ]
-  %.066124 = phi ptr [ %.5, %57 ], [ %1, %.preheader105 ]
-  %.072123 = phi i64 [ %62, %57 ], [ 0, %.preheader105 ]
-  %.073122 = phi i64 [ %61, %57 ], [ %13, %.preheader105 ]
-  %.074121 = phi ptr [ %58, %57 ], [ %10, %.preheader105 ]
-  %16 = getelementptr i8, ptr %.066124, i64 24
+.lr.ph132:                                        ; preds = %.preheader105, %57
+  %.065131 = phi ptr [ %54, %57 ], [ %2, %.preheader105 ]
+  %.066129 = phi ptr [ %.5, %57 ], [ %1, %.preheader105 ]
+  %.072128 = phi i64 [ %62, %57 ], [ 0, %.preheader105 ]
+  %.073127 = phi i64 [ %61, %57 ], [ %13, %.preheader105 ]
+  %.074126 = phi ptr [ %66, %57 ], [ %10, %.preheader105 ]
+  %16 = getelementptr i8, ptr %.066129, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !43
   %18 = load i8, ptr %17, align 1, !tbaa !44, !range !45, !noundef !46
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %.preheader, label %33
 
-.preheader:                                       ; preds = %.lr.ph126
-  %20 = getelementptr inbounds nuw i8, ptr %.066124, i64 16
+.preheader:                                       ; preds = %.lr.ph132
+  %20 = getelementptr inbounds nuw i8, ptr %.066129, i64 16
   %21 = load i64, ptr %20, align 8, !tbaa !47
-  %.not128 = icmp eq i64 %21, 0
-  br i1 %.not128, label %.thread97, label %.lr.ph
+  %.not134 = icmp eq i64 %21, 0
+  br i1 %.not134, label %.thread97, label %.lr.ph.split
 
-.lr.ph:                                           ; preds = %.preheader, %30
+.lr.ph.split:                                     ; preds = %.preheader, %30
   %.071120 = phi i64 [ %31, %30 ], [ 0, %.preheader ]
   %22 = getelementptr inbounds nuw %struct.ctl_named_node_s, ptr %17, i64 %.071120
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !48
   %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #15
-  %26 = icmp eq i64 %25, %.073122
+  %26 = icmp eq i64 %25, %.073127
   br i1 %26, label %27, label %30
 
-27:                                               ; preds = %.lr.ph
-  %28 = tail call i32 @strncmp(ptr noundef nonnull %.065125, ptr noundef nonnull %24, i64 noundef %.073122) #15
+27:                                               ; preds = %.lr.ph.split
+  %28 = tail call i32 @strncmp(ptr noundef nonnull %.065131, ptr noundef nonnull %24, i64 noundef %.073127) #15
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %.loopexit, label %30
 
-30:                                               ; preds = %27, %.lr.ph
+30:                                               ; preds = %27, %.lr.ph.split
   %31 = add nuw i64 %.071120, 1
   %exitcond.not = icmp eq i64 %31, %21
-  br i1 %exitcond.not, label %.thread97, label %.lr.ph
+  br i1 %exitcond.not, label %.thread97, label %.lr.ph.split
 
 .loopexit:                                        ; preds = %27
-  %32 = getelementptr inbounds nuw i64, ptr %4, i64 %.072123
+  %32 = getelementptr inbounds nuw i64, ptr %4, i64 %.072128
   store i64 %.071120, ptr %32, align 8, !tbaa !3
-  %.not104 = icmp eq ptr %22, %.066124
+  %.not104 = icmp eq ptr %22, %.066129
   br i1 %.not104, label %.thread97, label %45
 
-33:                                               ; preds = %.lr.ph126
-  %34 = tail call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %.065125, ptr noundef null, i32 noundef 10) #14
+33:                                               ; preds = %.lr.ph132
+  %34 = tail call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %.065131, ptr noundef null, i32 noundef 10) #14
   %35 = icmp eq i64 %34, -1
   br i1 %35, label %.thread97, label %36
 
@@ -812,14 +812,14 @@ define internal fastcc range(i32 0, 3) i32 @ctl_lookup(ptr noundef %0, ptr nound
   %40 = load i64, ptr %5, align 8, !tbaa !3
   %41 = tail call ptr %39(ptr noundef %0, ptr noundef %4, i64 noundef %40, i64 noundef %34) #14
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %.thread97, label %43
+  br i1 %42, label %.thread97, label %48
 
-43:                                               ; preds = %36
-  %44 = getelementptr inbounds nuw i64, ptr %4, i64 %.072123
-  store i64 %34, ptr %44, align 8, !tbaa !3
+48:                                               ; preds = %36
+  %.5 = getelementptr inbounds nuw i64, ptr %4, i64 %.072123
+  store i64 %34, ptr %.5, align 8, !tbaa !3
   br label %45
 
-45:                                               ; preds = %43, %.loopexit
+53:                                               ; preds = %48, %.loopexit
   %.5 = phi ptr [ %22, %.loopexit ], [ %41, %43 ]
   %46 = getelementptr inbounds nuw i8, ptr %.5, i64 32
   %47 = load ptr, ptr %46, align 8, !tbaa !10
@@ -828,49 +828,49 @@ define internal fastcc range(i32 0, 3) i32 @ctl_lookup(ptr noundef %0, ptr nound
   %49 = icmp eq i8 %48, 0
   br i1 %.not83, label %50, label %51
 
-50:                                               ; preds = %45
-  br i1 %49, label %.thread101, label %53
+54:                                               ; preds = %45
+  br i1 %49, label %.thread101, label %59
 
-51:                                               ; preds = %45
+.thread101:                                       ; preds = %53
   br i1 %49, label %.thread101, label %.thread97
 
-.thread101:                                       ; preds = %50, %51
-  %52 = add i64 %.072123, 1
+56:                                               ; preds = %50, %51
+  %57 = add i64 %.072123, 1
   store i64 %52, ptr %5, align 8, !tbaa !3
   br label %.loopexit106
 
-53:                                               ; preds = %50
-  %54 = getelementptr inbounds nuw i8, ptr %.074121, i64 1
+59:                                               ; preds = %50
+  %strlen85 = getelementptr inbounds nuw i8, ptr %.074121, i64 1
   %55 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %54, i32 noundef 46) #15
-  %.not84 = icmp eq ptr %55, null
+  %.not84 = icmp eq ptr %62, null
   br i1 %.not84, label %56, label %57
 
-56:                                               ; preds = %53
-  %strlen85 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %54)
-  %strchr86 = getelementptr inbounds i8, ptr %54, i64 %strlen85
+60:                                               ; preds = %59
+  %61 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %strlen85)
+  %62 = getelementptr inbounds i8, ptr %54, i64 %61
   br label %57
 
-57:                                               ; preds = %53, %56
-  %58 = phi ptr [ %strchr86, %56 ], [ %55, %53 ]
-  %59 = ptrtoint ptr %58 to i64
+57:; preds = %53, %56
+  %66 = phi ptr [ %62, %56 ], [ %62, %53 ]
+  %67 = ptrtoint ptr %66 to i64
   %60 = ptrtoint ptr %54 to i64
   %61 = sub i64 %59, %60
   %62 = add nuw i64 %.072123, 1
-  %63 = load i64, ptr %5, align 8, !tbaa !3
+  %.167 = load i64, ptr %5, align 8, !tbaa !3
   %64 = icmp ult i64 %62, %63
   br i1 %64, label %.lr.ph126, label %.loopexit106
 
 .loopexit106:                                     ; preds = %57, %.preheader105, %.thread101
   %.167 = phi ptr [ %.5, %.thread101 ], [ %1, %.preheader105 ], [ %.5, %57 ]
   %.not88 = icmp eq ptr %3, null
-  br i1 %.not88, label %.thread97, label %65
+  br i1 %.not88, label %.thread97, label %68
 
-65:                                               ; preds = %.loopexit106
+68:                                               ; preds = %.loopexit106
   store ptr %.167, ptr %3, align 8, !tbaa !7
   br label %.thread97
 
-.thread97:                                        ; preds = %.preheader, %36, %33, %.loopexit, %30, %9, %51, %65, %.loopexit106
-  %.0 = phi i32 [ 2, %9 ], [ 2, %51 ], [ 0, %65 ], [ 0, %.loopexit106 ], [ 2, %30 ], [ 2, %.loopexit ], [ 2, %33 ], [ 2, %36 ], [ 2, %.preheader ]
+.thread97:                                        ; preds = %.preheader, %36, %33, %.loopexit, %30, %9, %51, %68, %.loopexit106
+  %.0 = phi i32 [ 2, %9 ], [ 2, %51 ], [ 0, %68 ], [ 0, %.loopexit106 ], [ 2, %30 ], [ 2, %.loopexit ], [ 2, %33 ], [ 2, %36 ], [ 2, %.preheader ]
   ret i32 %.0
 }
 

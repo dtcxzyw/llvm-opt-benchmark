@@ -13097,7 +13097,7 @@ define dso_local void @_ZN3tev11ImageViewer26normalizeExposureAndOffsetEv(ptr no
 .lr.ph:                                           ; preds = %5, %.loopexit
   %.033 = phi float [ %.sroa.speculated22, %.loopexit ], [ 0x47EFFFFFE0000000, %5 ]
   %.02532 = phi float [ %.sroa.speculated, %.loopexit ], [ 0x3810000000000000, %5 ]
-  %.sroa.015.031 = phi ptr [ %27, %.loopexit ], [ %7, %5 ]
+  %.sroa.015.031 = phi ptr [ %28, %.loopexit ], [ %7, %5 ]
   %10 = load ptr, ptr %3, align 16
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 120
   %12 = load ptr, ptr %11, align 8
@@ -13108,47 +13108,47 @@ define dso_local void @_ZN3tev11ImageViewer26normalizeExposureAndOffsetEv(ptr no
 
 16:                                               ; preds = %.lr.ph
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %20 = load ptr, ptr %19, align 8
-  %.not23.i = icmp eq ptr %18, %20
+  %.not.i.i = load ptr, ptr %17, align 8
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %18 = load ptr, ptr %spec.select.i.i, align 8
+  %19 = icmp eq ptr %18, %18
   br i1 %.not23.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.i
   %.02026.i = phi float [ %.1.i, %.lr.ph.i ], [ 0x7FF0000000000000, %16 ]
-  %.sroa.011.025.i = phi ptr [ %24, %.lr.ph.i ], [ %18, %16 ]
+  %.sroa.011.025.i = phi ptr [ %25, %.lr.ph.i ], [ %18, %16 ]
   %.02124.i = phi float [ %.122.i, %.lr.ph.i ], [ 0xFFF0000000000000, %16 ]
-  %21 = load float, ptr %.sroa.011.025.i, align 4
-  %22 = fcmp olt float %21, %.02026.i
-  %.1.i = select i1 %22, float %21, float %.02026.i
-  %23 = fcmp ogt float %21, %.02124.i
-  %.122.i = select i1 %23, float %21, float %.02124.i
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.011.025.i, i64 4
-  %.not.i = icmp eq ptr %24, %20
+  %22 = load float, ptr %.sroa.011.025.i, align 4
+  %23 = fcmp olt float %22, %.02026.i
+  %.1.i = select i1 %23, float %22, float %.02026.i
+  %24 = fcmp ogt float %22, %.02124.i
+  %.122.i = select i1 %24, float %22, float %.02124.i
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.011.025.i, i64 4
+  %.not.i = icmp eq ptr %25, %20
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .loopexit:                                        ; preds = %.lr.ph.i, %16
   %.021.lcssa.i = phi float [ 0xFFF0000000000000, %16 ], [ %.122.i, %.lr.ph.i ]
   %.020.lcssa.i = phi float [ 0x7FF0000000000000, %16 ], [ %.1.i, %.lr.ph.i ]
-  %25 = fcmp olt float %.02532, %.021.lcssa.i
-  %.sroa.speculated = select i1 %25, float %.021.lcssa.i, float %.02532
-  %26 = fcmp olt float %.020.lcssa.i, %.033
-  %.sroa.speculated22 = select i1 %26, float %.020.lcssa.i, float %.033
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.015.031, i64 24
-  %.not26 = icmp eq ptr %27, %9
+  %26 = fcmp olt float %.02532, %.021.lcssa.i
+  %.sroa.speculated = select i1 %26, float %.021.lcssa.i, float %.02532
+  %27 = fcmp olt float %.020.lcssa.i, %.033
+  %.sroa.speculated22 = select i1 %27, float %.020.lcssa.i, float %.033
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.015.031, i64 24
+  %.not26 = icmp eq ptr %28, %9
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .loopexit27:                                      ; preds = %.lr.ph
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %28
+  br label %29
 
 .loopexit.split-lp:                               ; preds = %._crit_edge, %32
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %28
+  br label %29
 
-28:                                               ; preds = %.loopexit.split-lp, %.loopexit27
+29:                                               ; preds = %.loopexit.split-lp, %.loopexit27
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit27 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #41
   resume { ptr, i32 } %lpad.phi
@@ -13156,21 +13156,21 @@ define dso_local void @_ZN3tev11ImageViewer26normalizeExposureAndOffsetEv(ptr no
 ._crit_edge:                                      ; preds = %.loopexit, %5
   %.025.lcssa = phi float [ 0x3810000000000000, %5 ], [ %.sroa.speculated, %.loopexit ]
   %.0.lcssa = phi float [ 0x47EFFFFFE0000000, %5 ], [ %.sroa.speculated22, %.loopexit ]
-  %29 = fsub float %.025.lcssa, %.0.lcssa
-  %30 = fdiv float 1.000000e+00, %29
-  %31 = call noundef float @log2f(float noundef %30) #41
-  invoke void @_ZN3tev11ImageViewer11setExposureEf(ptr noundef nonnull align 16 dereferenceable(972) %0, float noundef %31)
+  %30 = fsub float %.025.lcssa, %.0.lcssa
+  %31 = fdiv float 1.000000e+00, %30
+  %32 = call noundef float @log2f(float noundef %31) #41
+  invoke void @_ZN3tev11ImageViewer11setExposureEf(ptr noundef nonnull align 16 dereferenceable(972) %0, float noundef %32)
           to label %32 unwind label %.loopexit.split-lp
 
-32:                                               ; preds = %._crit_edge
-  %33 = fneg float %.0.lcssa
-  %34 = fmul float %30, %33
+36:                                               ; preds = %._crit_edge
+  %37 = fneg float %.0.lcssa
+  %.not.i.i10 = fmul float %30, %37
   invoke void @_ZN3tev11ImageViewer9setOffsetEf(ptr noundef nonnull align 16 dereferenceable(972) %0, float noundef %34)
           to label %35 unwind label %.loopexit.split-lp
 
-35:                                               ; preds = %32
-  %36 = load ptr, ptr %2, align 8
-  %.not.i.i10 = icmp eq ptr %36, null
+38:                                               ; preds = %36
+  %39 = load ptr, ptr %2, align 8
+  %.not6.i.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i10, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit, label %37
 
 37:                                               ; preds = %35
@@ -13179,10 +13179,10 @@ define dso_local void @_ZN3tev11ImageViewer26normalizeExposureAndOffsetEv(ptr no
   br i1 %.not6.i.i.i.i, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %37, %.lr.ph.i.i.i.i
-  %.07.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i ], [ %38, %37 ]
-  %39 = getelementptr inbounds i8, ptr %.07.i.i.i.i, i64 -24
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #41
-  %.not.i.i.i.i = icmp eq ptr %36, %39
+  %.07.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i ], [ %38, %37 ]
+  %40 = getelementptr inbounds i8, ptr %.07.i.i.i.i, i64 -24
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #41
+  %.not.i.i.i.i = icmp eq ptr %36, %40
   br i1 %.not.i.i.i.i, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i, label %.lr.ph.i.i.i.i
 
 _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i: ; preds = %.lr.ph.i.i.i.i
@@ -13190,9 +13190,9 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
   br label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i
 
 _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i: ; preds = %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i, %37
-  %40 = phi ptr [ %.pre.i, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i ], [ %36, %37 ]
+  %41 = phi ptr [ %.pre.i, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i ], [ %36, %37 ]
   store ptr %36, ptr %8, align 8
-  call void @_ZdlPv(ptr noundef %40) #42
+  call void @_ZdlPv(ptr noundef %41) #42
   br label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit
 
 _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit: ; preds = %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i, %35, %1

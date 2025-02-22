@@ -161,7 +161,7 @@ define dso_local noundef float @_Z22resolveSingleCollisionP11btRigidBodyP17btCol
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 428
   %61 = load float, ptr %60, align 4, !tbaa !22
   %62 = fadd float %54, %61
-  %.not81 = icmp eq ptr %1, null
+  %.not = icmp eq ptr %1, null
   %.not = or i1 %.not81, %.not.i
   br i1 %.not, label %88, label %63
 
@@ -327,51 +327,51 @@ define dso_local noundef float @_Z22resolveSingleCollisionP11btRigidBodyP17btCol
   %210 = fadd float %206, %209
   br label %211
 
-211:                                              ; preds = %88, %162
-  %212 = phi float [ %210, %162 ], [ 0.000000e+00, %88 ]
-  %213 = fadd float %161, %212
-  %214 = fdiv float 1.000000e+00, %213
-  %215 = fmul float %107, %214
-  %216 = fmul float %110, %214
-  %217 = fadd float %215, %216
+211:; preds = %88, %162
+  %214 = phi float [ %210, %162 ], [ 0.000000e+00, %88 ]
+  %215 = fadd float %161, %212
+  %216 = fdiv float 1.000000e+00, %213
+  %217 = fmul float %107, %216
+  %218 = fmul float %110, %214
+  %219 = fadd float %215, %218
   %218 = fcmp olt float %217, 0.000000e+00
   %219 = select i1 %218, float 0.000000e+00, float %217
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #14
-  %220 = fmul float %92, %219
-  %221 = fmul float %94, %219
-  %222 = fmul float %98, %219
-  %.sroa.0.0.vec.insert.i53 = insertelement <2 x float> poison, float %220, i64 0
-  %.sroa.0.4.vec.insert.i54 = insertelement <2 x float> %.sroa.0.0.vec.insert.i53, float %221, i64 1
-  %.sroa.3.12.vec.insert.i55 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %222, i64 0
+  %229 = fmul float %92, %219
+  %230 = fmul float %94, %219
+  %231 = fmul float %98, %219
+  %.sroa.0.0.vec.insert.i53 = insertelement <2 x float> poison, float %229, i64 0
+  %.sroa.0.4.vec.insert.i54 = insertelement <2 x float> %.sroa.0.0.vec.insert.i53, float %230, i64 1
+  %.sroa.3.12.vec.insert.i55 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %231, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i54, ptr %9, align 8
-  %223 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store <2 x float> %.sroa.3.12.vec.insert.i55, ptr %223, align 8
+  %232 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store <2 x float> %.sroa.3.12.vec.insert.i55, ptr %232, align 8
   call void @_ZN11btRigidBody12applyImpulseERK9btVector3S2_(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #14
-  br i1 %.not, label %235, label %224
+  br i1 %.not, label %244, label %233
 
-224:                                              ; preds = %211
+233:                                              ; preds = %211
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #14
-  %225 = load float, ptr %3, align 4, !tbaa !22
-  %226 = fneg float %225
-  %227 = load float, ptr %93, align 4, !tbaa !22
-  %228 = fneg float %227
-  %229 = load float, ptr %97, align 4, !tbaa !22
-  %230 = fneg float %229
-  %231 = fmul float %219, %226
-  %232 = fmul float %219, %228
-  %233 = fmul float %219, %230
-  %.sroa.0.0.vec.insert.i63 = insertelement <2 x float> poison, float %231, i64 0
-  %.sroa.0.4.vec.insert.i64 = insertelement <2 x float> %.sroa.0.0.vec.insert.i63, float %232, i64 1
-  %.sroa.3.12.vec.insert.i65 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %233, i64 0
+  %234 = load float, ptr %3, align 4, !tbaa !22
+  %235 = fneg float %234
+  %236 = load float, ptr %93, align 4, !tbaa !22
+  %237 = fneg float %236
+  %238 = load float, ptr %97, align 4, !tbaa !22
+  %239 = fneg float %238
+  %240 = fmul float %219, %235
+  %241 = fmul float %219, %237
+  %242 = fmul float %219, %239
+  %.sroa.0.0.vec.insert.i63 = insertelement <2 x float> poison, float %240, i64 0
+  %.sroa.0.4.vec.insert.i64 = insertelement <2 x float> %.sroa.0.0.vec.insert.i63, float %241, i64 1
+  %.sroa.3.12.vec.insert.i65 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %242, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i64, ptr %10, align 8
-  %234 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store <2 x float> %.sroa.3.12.vec.insert.i65, ptr %234, align 8
+  %243 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store <2 x float> %.sroa.3.12.vec.insert.i65, ptr %243, align 8
   call void @_ZN11btRigidBody12applyImpulseERK9btVector3S2_(ptr noundef nonnull align 8 dereferenceable(744) %1, ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #14
-  br label %235
+  br label %244
 
-235:                                              ; preds = %224, %211
+244:                                              ; preds = %233, %211
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
   ret float %219

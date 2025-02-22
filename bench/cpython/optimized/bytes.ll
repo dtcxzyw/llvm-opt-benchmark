@@ -53,21 +53,21 @@ declare i32 @PyModule_AddFunctions(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define internal ptr @bytes_check(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %1, i64 8
-  %spec.store.select.val = load ptr, ptr %3, align 8, !tbaa !3
-  %4 = tail call i64 @PyType_GetFlags(ptr noundef %spec.store.select.val) #4
-  %5 = lshr i64 %4, 27
-  %6 = and i64 %5, 1
-  %7 = tail call ptr @PyLong_FromLong(i64 noundef %6) #4
-  ret ptr %7
+  %spec.store.select = load ptr, ptr %3, align 8, !tbaa !3
+  %4 = tail call i64 @PyType_GetFlags(ptr noundef %spec.store.select) #4
+  %spec.store.select.val = lshr i64 %4, 27
+  %5 = and i64 %spec.store.select.val, 1
+  %6 = tail call ptr @PyLong_FromLong(i64 noundef %5) #4
+  ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @bytes_checkexact(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %1, i64 8
-  %spec.store.select.val = load ptr, ptr %3, align 8, !tbaa !3
-  %4 = icmp eq ptr %spec.store.select.val, @PyBytes_Type
-  %5 = zext i1 %4 to i64
-  %6 = tail call ptr @PyLong_FromLong(i64 noundef %5) #4
+  %spec.store.select = load ptr, ptr %3, align 8, !tbaa !3
+  %4 = icmp eq ptr %spec.store.select, @PyBytes_Type
+  %spec.store.select.val = zext i1 %4 to i64
+  %5 = tail call ptr @PyLong_FromLong(i64 noundef %spec.store.select.val) #4
   ret ptr %6
 }
 

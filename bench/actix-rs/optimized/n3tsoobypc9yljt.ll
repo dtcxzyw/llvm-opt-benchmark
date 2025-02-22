@@ -1863,7 +1863,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   %6 = load ptr, ptr %1, align 8, !nonnull !7, !align !301
   %.promoted = load i64, ptr %5, align 8
   %.not13 = icmp ult i64 %.promoted, %4
-  br i1 %.not13, label %.lr.ph, label %18
+  br i1 %.not13, label %.lr.ph, label %19
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 25
@@ -1871,57 +1871,57 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   %9 = icmp eq i8 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i8, ptr %10, align 8
-  br i1 %9, label %19, label %.lr.ph.split
+  br i1 %9, label %21, label %.lr.ph.split.preheader
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
+.lr.ph.split.preheader:                           ; preds = %.lr.ph, %.backedge
   %12 = phi i64 [ %14, %.backedge ], [ %.promoted, %.lr.ph ]
   %13 = getelementptr inbounds { { ptr, i64 }, i8, [7 x i8] }, ptr %6, i64 %12
   %14 = add nuw i64 %12, 1
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %16 = load i64, ptr %15, align 8, !noundef !7
-  %17 = icmp eq i64 %16, 0
+  %.015 = load i64, ptr %15, align 8, !noundef !7
+  %13 = icmp eq i64 %.015, 0
   br i1 %17, label %.backedge, label %20
 
 ._crit_edge:                                      ; preds = %.backedge
   store i64 %4, ptr %5, align 8
-  br label %18
+  br label %19
 
-18:                                               ; preds = %._crit_edge, %2
+19:                                               ; preds = %._crit_edge, %2
   store ptr null, ptr %0, align 8
-  br label %30
+  br label %32
 
-.backedge:                                        ; preds = %.lr.ph.split, %20
-  %exitcond.not = icmp eq i64 %14, %4
+.backedge:                                        ; preds = %.lr.ph.split, %22
+  %.not = icmp eq i64 %14, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
-19:                                               ; preds = %.lr.ph
+21:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
-  br label %30
+  br label %32
 
-20:                                               ; preds = %.lr.ph.split
-  %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %22 = load i8, ptr %21, align 8, !alias.scope !506, !noundef !7
-  %23 = and i8 %11, %22
-  %24 = icmp ne i8 %23, %22
-  %25 = and i8 %22, %8
-  %.not4 = icmp eq i8 %25, 0
-  %or.cond = or i1 %.not4, %24
-  br i1 %or.cond, label %.backedge, label %26
+22:                                               ; preds = %.lr.ph.split
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %24 = load i8, ptr %23, align 8, !alias.scope !506, !noundef !7
+  %25 = and i8 %11, %24
+  %26 = icmp ne i8 %25, %24
+  %27 = and i8 %24, %8
+  %.not4 = icmp eq i8 %27, 0
+  %or.cond = or i1 %.not4, %26
+  br i1 %or.cond, label %.backedge, label %28
 
-26:                                               ; preds = %20
+28:                                               ; preds = %22
   store i64 %14, ptr %5, align 8
-  %27 = xor i8 %22, -1
-  %28 = and i8 %8, %27
-  store i8 %28, ptr %7, align 1, !alias.scope !509
-  %29 = load ptr, ptr %13, align 8, !nonnull !7, !align !512, !noundef !7
-  store ptr %29, ptr %0, align 8
+  %29 = xor i8 %24, -1
+  %30 = and i8 %8, %29
+  store i8 %30, ptr %7, align 1, !alias.scope !509
+  %31 = load ptr, ptr %13, align 8, !nonnull !7, !align !512, !noundef !7
+  store ptr %31, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %16, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %22, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %30
+  store i8 %24, ptr %.sroa.5.0..sroa_idx, align 8
+  br label %32
 
-30:                                               ; preds = %19, %26, %18
+32:                                               ; preds = %21, %28, %19
   ret void
 }
 

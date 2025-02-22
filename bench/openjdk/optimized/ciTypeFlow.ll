@@ -9890,20 +9890,20 @@ define hidden noundef i32 @_ZN10ciTypeFlow4Loop14profiled_countEv(ptr noundef no
   br i1 %75, label %.sink.split.sink.split, label %.sink.split
 
 .sink.split.sink.split:                           ; preds = %73, %64, %56
-  %.sink40 = phi ptr [ %62, %56 ], [ %71, %64 ], [ %71, %73 ]
-  %.sink34 = phi i64 [ 24, %56 ], [ 24, %64 ], [ 56, %73 ]
+  %.sink41 = phi ptr [ %62, %56 ], [ %71, %64 ], [ %71, %73 ]
+  %.sink35 = phi i64 [ 24, %56 ], [ 24, %64 ], [ 56, %73 ]
   %.sink29 = phi i64 [ 8, %56 ], [ 8, %64 ], [ 24, %73 ]
-  %76 = getelementptr inbounds nuw i8, ptr %.sink40, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %.sink41, i64 56
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = load ptr, ptr %30, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 %.sink34
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 %.sink35
   %84 = load ptr, ptr %83, align 8
   %85 = call noundef zeroext i1 %84(ptr noundef nonnull align 8 dereferenceable(16) %30) #14
-  %86 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %..i = getelementptr inbounds nuw i8, ptr %30, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 %.sink29
   %89 = load i64, ptr %88, align 8

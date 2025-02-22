@@ -4416,7 +4416,7 @@ if.then363:                                       ; preds = %if.end359
   br label %for.inc378
 
 if.end365:                                        ; preds = %if.end359
-  %field368 = getelementptr inbounds nuw i8, ptr %__begin3346.sroa.0.01187, i64 8
+  %cmp.i.i.i825 = getelementptr inbounds nuw i8, ptr %__begin3346.sroa.0.01187, i64 8
   %482 = load ptr, ptr %field368, align 8
   %vtable369 = load ptr, ptr %option_provider, align 8
   %483 = load ptr, ptr %vtable369, align 8

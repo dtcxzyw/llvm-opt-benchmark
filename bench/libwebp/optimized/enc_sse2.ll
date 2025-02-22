@@ -887,21 +887,21 @@ HorizontalPred_SSE2.exit88.thread:                ; preds = %184
 
 .preheader.i84:                                   ; preds = %VerticalPred_SSE2.exit78, %.preheader.i84
   %indvars.iv.i.i.i85 = phi i64 [ %indvars.iv.next.i.i.i86, %.preheader.i84 ], [ 0, %VerticalPred_SSE2.exit78 ]
-  %193 = shl nuw nsw i64 %indvars.iv.i.i.i85, 5
-  %194 = getelementptr inbounds nuw i8, ptr %182, i64 %193
-  store i64 -9114861777597660799, ptr %194, align 1, !tbaa !14, !alias.scope !234, !noalias !237
+  %192 = shl nuw nsw i64 %indvars.iv.i.i.i85, 5
+  %193 = getelementptr inbounds nuw i8, ptr %182, i64 %192
+  store i64 -9114861777597660799, ptr %193, align 1, !tbaa !14, !alias.scope !234, !noalias !237
   %indvars.iv.next.i.i.i86 = add nuw nsw i64 %indvars.iv.i.i.i85, 1
   %exitcond.not.i.i.i87 = icmp eq i64 %indvars.iv.next.i.i.i86, 8
   br i1 %exitcond.not.i.i.i87, label %HorizontalPred_SSE2.exit88, label %.preheader.i84, !llvm.loop !127
 
 HorizontalPred_SSE2.exit88:                       ; preds = %.preheader.i84
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   tail call void @llvm.experimental.noalias.scope.decl(metadata !246)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !249)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !251)
   br i1 %.not.i, label %.preheader.i103, label %226
 
-196:                                              ; preds = %HorizontalPred_SSE2.exit88.thread
+195:                                              ; preds = %HorizontalPred_SSE2.exit88.thread
   tail call void @llvm.experimental.noalias.scope.decl(metadata !253)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !256)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !258)
@@ -960,27 +960,27 @@ HorizontalPred_SSE2.exit88:                       ; preds = %.preheader.i84
   tail call void @llvm.experimental.noalias.scope.decl(metadata !280)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !283)
   %.val.i.i99 = load i64, ptr %117, align 1, !tbaa !14, !alias.scope !285, !noalias !286
-  br label %227
+  br label %228
 
-227:                                              ; preds = %227, %226
-  %indvars.iv.i.i21.i100 = phi i64 [ 0, %226 ], [ %indvars.iv.next.i.i22.i101, %227 ]
-  %228 = shl nuw nsw i64 %indvars.iv.i.i21.i100, 5
-  %229 = getelementptr inbounds nuw i8, ptr %195, i64 %228
-  store i64 %.val.i.i99, ptr %229, align 1, !tbaa !14, !alias.scope !287, !noalias !290
+228:                                              ; preds = %228, %226
+  %indvars.iv.i.i21.i100 = phi i64 [ 0, %226 ], [ %indvars.iv.next.i.i22.i101, %228 ]
+  %229 = shl nuw nsw i64 %indvars.iv.i.i21.i100, 5
+  %230 = getelementptr inbounds nuw i8, ptr %194, i64 %229
+  store i64 %.val.i.i99, ptr %230, align 1, !tbaa !14, !alias.scope !287, !noalias !290
   %indvars.iv.next.i.i22.i101 = add nuw nsw i64 %indvars.iv.i.i21.i100, 1
   %exitcond.not.i.i23.i102 = icmp eq i64 %indvars.iv.next.i.i22.i101, 8
-  br i1 %exitcond.not.i.i23.i102, label %TrueMotion_SSE2.exit107, label %227, !llvm.loop !144
+  br i1 %exitcond.not.i.i23.i102, label %TrueMotion_SSE2.exit107, label %228, !llvm.loop !144
 
 .preheader.i103:                                  ; preds = %HorizontalPred_SSE2.exit88, %.preheader.i103
   %indvars.iv.i.i32.i104 = phi i64 [ %indvars.iv.next.i.i33.i105, %.preheader.i103 ], [ 0, %HorizontalPred_SSE2.exit88 ]
-  %230 = shl nuw nsw i64 %indvars.iv.i.i32.i104, 5
-  %231 = getelementptr inbounds nuw i8, ptr %195, i64 %230
-  store i64 -9114861777597660799, ptr %231, align 1, !tbaa !14, !alias.scope !246, !noalias !291
+  %231 = shl nuw nsw i64 %indvars.iv.i.i32.i104, 5
+  %232 = getelementptr inbounds nuw i8, ptr %194, i64 %231
+  store i64 -9114861777597660799, ptr %232, align 1, !tbaa !14, !alias.scope !246, !noalias !291
   %indvars.iv.next.i.i33.i105 = add nuw nsw i64 %indvars.iv.i.i32.i104, 1
   %exitcond.not.i.i34.i106 = icmp eq i64 %indvars.iv.next.i.i33.i105, 8
   br i1 %exitcond.not.i.i34.i106, label %TrueMotion_SSE2.exit107, label %.preheader.i103, !llvm.loop !127
 
-TrueMotion_SSE2.exit107:                          ; preds = %205, %218, %227, %.preheader.i103
+TrueMotion_SSE2.exit107:                          ; preds = %205, %218, %228, %.preheader.i103
   ret void
 }
 
@@ -3089,7 +3089,7 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -2286,15 +2286,15 @@ define internal ptr @acpi_fwnode_get_named_child_node(ptr noundef %0, ptr nounde
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %2, %20
-  %5 = phi ptr [ %21, %20 ], [ %3, %2 ]
+.preheader:                                       ; preds = %2, %23
+  %5 = phi ptr [ %24, %23 ], [ %3, %2 ]
   %6 = icmp ugt ptr %5, inttoptr (i64 -4096 to ptr)
-  br i1 %6, label %16, label %7
+  br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, @acpi_data_fwnode_ops
+  %.fr = icmp eq ptr %9, @acpi_data_fwnode_ops
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %7
@@ -2302,22 +2302,22 @@ define internal ptr @acpi_fwnode_get_named_child_node(ptr noundef %0, ptr nounde
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @strcmp(ptr noundef %13, ptr noundef %1) #15
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.loopexit, label %20
+  br i1 %15, label %.loopexit, label %23
 
-16:                                               ; preds = %7, %.preheader
-  %17 = getelementptr i8, ptr %5, i64 104
-  %18 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef %1, i64 noundef 4) #15
-  %19 = icmp eq i32 %18, 0
+.thread:                                          ; preds = %7, %.preheader
+  %19 = getelementptr i8, ptr %5, i64 104
+  %20 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef %1, i64 noundef 4) #15
+  %21 = icmp eq i32 %20, 0
   br i1 %19, label %.loopexit, label %20
 
-20:                                               ; preds = %16, %11
-  %21 = tail call ptr @fwnode_get_next_child_node(ptr noundef %0, ptr noundef nonnull %5) #15
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %.loopexit, label %.preheader, !llvm.loop !31
+23:                                               ; preds = %.thread, %11
+  %24 = tail call ptr @fwnode_get_next_child_node(ptr noundef %0, ptr noundef nonnull %5) #15
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %.loopexit, label %.preheader, !llvm.loop !31
 
-.loopexit:                                        ; preds = %20, %16, %11, %2
-  %23 = phi ptr [ null, %2 ], [ null, %20 ], [ %5, %16 ], [ %5, %11 ]
-  ret ptr %23
+.loopexit:                                        ; preds = %23, %.thread, %11, %2
+  %26 = phi ptr [ null, %2 ], [ null, %23 ], [ %5, %.thread ], [ %5, %11 ]
+  ret ptr %26
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -992,14 +992,14 @@ define internal noundef i64 @new_id_store(ptr noundef %0, ptr noundef readonly c
   store volatile ptr %66, ptr %79, align 8
   call void @_raw_spin_unlock(ptr noundef nonnull %76) #14
   %81 = call i32 @driver_attach(ptr noundef nonnull %0) #14
-  %.fr = freeze i32 %81
-  %82 = icmp eq i32 %.fr, 0
+  %82 = freeze i32 %81
+  %.fr = icmp eq i32 %82, 0
   %83 = sext i32 %.fr to i64
-  %spec.select = select i1 %82, i64 %2, i64 %83
+  %84 = select i1 %.fr, i64 %2, i64 %83
   br label %.thread
 
 .thread:                                          ; preds = %50, %68, %.thread4, %20, %24, %3
-  %84 = phi i64 [ -17, %24 ], [ -22, %3 ], [ -12, %20 ], [ -12, %.thread4 ], [ %spec.select, %68 ], [ -22, %50 ]
+  %85 = phi i64 [ -17, %24 ], [ -22, %3 ], [ -12, %20 ], [ -12, %.thread4 ], [ %spec.select, %68 ], [ -22, %50 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
@@ -1007,7 +1007,7 @@ define internal noundef i64 @new_id_store(ptr noundef %0, ptr noundef readonly c
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
-  ret i64 %84
+  ret i64 %85
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid

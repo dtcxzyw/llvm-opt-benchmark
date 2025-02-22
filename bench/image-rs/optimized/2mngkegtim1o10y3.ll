@@ -36461,26 +36461,26 @@ define void @"_ZN5image7buffer_75ImageBuffer$LT$image..color..Luma$LT$u8$GT$$C$a
   %46 = and i64 %45, 2305843009213693951
   %not. = xor i1 %4, true
   %.not136197 = icmp eq i64 %46, 0
-  br i1 %.not136197, label %.loopexit.i.i.i.i.i.i, label %.split47.us.i.i.i.i.lr.ph
+  br i1 %.not136197, label %.loopexit.i.i.i.i.i.i, label %.split48.us.i.i.i.i.lr.ph
 
-.split47.us.i.i.i.i.lr.ph:                        ; preds = %.noexc7
+.split48.us.i.i.i.i.lr.ph:                        ; preds = %.noexc7
   %spec.select.i.i.i = call i64 @llvm.usub.sat.i64(i64 %44, i64 range(i64 0, 5) 4)
   %47 = lshr i64 %spec.select.i.i.i, 2
   %48 = and i64 %spec.select.i.i.i, 3
   %.not.i.i.i = icmp ne i64 %48, 0
   %49 = zext i1 %.not.i.i.i to i64
   %.0.i.i.i = add nuw nsw i64 %47, %49
-  br label %.split47.us.i.i.i.i
+  br label %.split48.us.i.i.i.i
 
-.split47.us.i.i.i.i:                              ; preds = %.split47.us.i.i.i.i.lr.ph, %.noexc10
-  %.sroa.80.0200 = phi i64 [ %.0.i.i.i, %.split47.us.i.i.i.i.lr.ph ], [ %53, %.noexc10 ]
-  %.sroa.77.0199 = phi i64 [ 4, %.split47.us.i.i.i.i.lr.ph ], [ %52, %.noexc10 ]
-  %.sroa.66.0198 = phi i64 [ %46, %.split47.us.i.i.i.i.lr.ph ], [ %50, %.noexc10 ]
+.split48.us.i.i.i.i:                              ; preds = %.split48.us.i.i.i.i.lr.ph, %.noexc10
+  %.sroa.80.0200 = phi i64 [ %.0.i.i.i, %.split48.us.i.i.i.i.lr.ph ], [ %53, %.noexc10 ]
+  %.sroa.77.0199 = phi i64 [ 4, %.split48.us.i.i.i.i.lr.ph ], [ %52, %.noexc10 ]
+  %.sroa.66.0198 = phi i64 [ %46, %.split48.us.i.i.i.i.lr.ph ], [ %50, %.noexc10 ]
   %50 = add i64 %.sroa.66.0198, -1
   %.not.i.i.i15 = icmp eq i64 %.sroa.80.0200, 0
   br i1 %.not.i.i.i15, label %.loopexit.i.i.i.i.i.i, label %51
 
-51:                                               ; preds = %.split47.us.i.i.i.i
+51:                                               ; preds = %.split48.us.i.i.i.i
   %52 = add i64 %.sroa.77.0199, 4
   %53 = add nsw i64 %.sroa.80.0200, -1
   %54 = icmp ult i64 %50, %44
@@ -36537,7 +36537,7 @@ define void @"_ZN5image7buffer_75ImageBuffer$LT$image..color..Luma$LT$u8$GT$$C$a
   %77 = getelementptr inbounds nuw i8, ptr %67, i64 3
   store i8 %.0.i, ptr %77, align 1, !alias.scope !4914, !noalias !4919
   %.not136 = icmp eq i64 %50, 0
-  br i1 %.not136, label %.loopexit.i.i.i.i.i.i, label %.split47.us.i.i.i.i
+  br i1 %.not136, label %.loopexit.i.i.i.i.i.i, label %.split48.us.i.i.i.i
 
 .invoke:                                          ; preds = %51, %.noexc9
   %78 = phi i64 [ %65, %.noexc9 ], [ %50, %51 ]
@@ -36555,7 +36555,7 @@ define void @"_ZN5image7buffer_75ImageBuffer$LT$image..color..Luma$LT$u8$GT$$C$a
   invoke void @"_ZN4core3ptr112drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgba$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17ha4891b45020b4ea0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #50
           to label %.thread73 unwind label %83
 
-.loopexit.i.i.i.i.i.i:                            ; preds = %.noexc10, %.split47.us.i.i.i.i, %.noexc7
+.loopexit.i.i.i.i.i.i:                            ; preds = %.noexc10, %.split48.us.i.i.i.i, %.noexc7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)

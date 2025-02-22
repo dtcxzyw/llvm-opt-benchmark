@@ -3230,7 +3230,7 @@ define internal fastcc noundef ptr @getRedisConfig(ptr noundef %0, i32 noundef %
   %4 = alloca ptr, align 8
   %5 = tail call noalias dereferenceable_or_null(16) ptr @zcalloc(i64 noundef 16) #26
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %60, label %6
+  br i1 %.not, label %58, label %6
 
 6:                                                ; preds = %3
   %7 = tail call fastcc ptr @getRedisContext(ptr noundef %0, i32 noundef %1, ptr noundef %2)
@@ -3251,21 +3251,21 @@ define internal fastcc noundef ptr @getRedisConfig(ptr noundef %0, i32 noundef %
   br label %14
 
 14:                                               ; preds = %36, %10
-  %.04463 = phi i1 [ false, %10 ], [ true, %36 ]
-  %.04662 = phi ptr [ null, %10 ], [ %20, %36 ]
+  %.04472 = phi i1 [ false, %10 ], [ true, %36 ]
+  %.04671 = phi ptr [ null, %10 ], [ %20, %36 ]
   %15 = call i32 @redisGetReply(ptr noundef nonnull %7, ptr noundef nonnull %4) #20
-  %.not53 = icmp eq ptr %.04662, null
+  %.not53 = icmp eq ptr %.04671, null
   br i1 %.not53, label %17, label %16
 
 16:                                               ; preds = %14
-  call void @freeReplyObject(ptr noundef nonnull %.04662) #20
+  call void @freeReplyObject(ptr noundef nonnull %.04671) #20
   br label %17
 
 17:                                               ; preds = %16, %14
-  %18 = icmp eq i32 %15, 0
+  %.fr = icmp eq i32 %15, 0
   %19 = load ptr, ptr %4, align 8
   %20 = select i1 %18, ptr %19, ptr null
-  %21 = icmp ne ptr %19, null
+  %or.cond = icmp ne ptr %19, null
   %or.cond = select i1 %18, i1 %21, i1 false
   br i1 %or.cond, label %22, label %38
 
@@ -3292,26 +3292,26 @@ define internal fastcc noundef ptr @getRedisConfig(ptr noundef %0, i32 noundef %
   %35 = call ptr @hi_sdsnew(ptr noundef nonnull %spec.store.select) #20
   br i1 %.04463, label %37, label %36
 
-36:                                               ; preds = %28
+21:                                               ; preds = %28
   store ptr %35, ptr %5, align 8, !tbaa !102
   br label %14, !llvm.loop !129
 
-37:                                               ; preds = %28
+36:                                               ; preds = %28
   store ptr %35, ptr %13, align 8, !tbaa !104
   call void @freeReplyObject(ptr noundef nonnull %19) #20
   call void @redisFree(ptr noundef nonnull %7) #20
-  br label %59
+  br label %57
 
-38:                                               ; preds = %17, %22, %24
-  %.not56 = icmp eq ptr %20, null
-  br i1 %.not56, label %.critedge, label %39
+46:                                               ; preds = %17, %22, %24
+  %47 = icmp eq ptr %20, null
+  br i1 %47, label %.critedge, label %39
 
-39:                                               ; preds = %38
+48:                                               ; preds = %38
   %40 = load i32, ptr %19, align 8, !tbaa !82
   %41 = icmp eq i32 %40, 6
   br i1 %41, label %42, label %.critedge
 
-42:                                               ; preds = %39
+50:                                               ; preds = %48
   %43 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %44 = load ptr, ptr %43, align 8, !tbaa !86
   %45 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(7) @.str.152, i64 noundef 6) #21
@@ -3338,37 +3338,37 @@ define internal fastcc noundef ptr @getRedisConfig(ptr noundef %0, i32 noundef %
   call void @exit(i32 noundef 1) #24
   unreachable
 
-.critedge:                                        ; preds = %38, %39, %42
+.critedge:                                        ; preds = %38, %48, %50
   call void @freeReplyObject(ptr noundef %20) #20
   call void @redisFree(ptr noundef nonnull %7) #20
-  %54 = load ptr, ptr %5, align 8, !tbaa !102
-  %.not.i = icmp eq ptr %54, null
-  br i1 %.not.i, label %56, label %55
+  %52 = load ptr, ptr %5, align 8, !tbaa !102
+  %.not.i = icmp eq ptr %52, null
+  br i1 %.not.i, label %54, label %53
 
-55:                                               ; preds = %.critedge
-  call void @hi_sdsfree(ptr noundef nonnull %54) #20
-  br label %56
+53:                                               ; preds = %.critedge
+  call void @hi_sdsfree(ptr noundef nonnull %52) #20
+  br label %54
 
-56:                                               ; preds = %55, %.critedge
-  %57 = load ptr, ptr %13, align 8, !tbaa !104
-  %.not6.i = icmp eq ptr %57, null
-  br i1 %.not6.i, label %freeRedisConfig.exit, label %58
+54:                                               ; preds = %53, %.critedge
+  %55 = load ptr, ptr %13, align 8, !tbaa !104
+  %.not6.i = icmp eq ptr %55, null
+  br i1 %.not6.i, label %freeRedisConfig.exit, label %56
 
-58:                                               ; preds = %56
-  call void @hi_sdsfree(ptr noundef nonnull %57) #20
+56:                                               ; preds = %54
+  call void @hi_sdsfree(ptr noundef nonnull %55) #20
   br label %freeRedisConfig.exit
 
-freeRedisConfig.exit:                             ; preds = %56, %58
+freeRedisConfig.exit:                             ; preds = %54, %56
   call void @zfree(ptr noundef nonnull %5) #20
-  br label %59
+  br label %57
 
-59:                                               ; preds = %freeRedisConfig.exit, %37
-  %.1 = phi ptr [ null, %freeRedisConfig.exit ], [ %5, %37 ]
+57:                                               ; preds = %freeRedisConfig.exit, %36
+  %.1 = phi ptr [ null, %freeRedisConfig.exit ], [ %5, %36 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
-  br label %60
+  br label %58
 
-60:                                               ; preds = %3, %59
-  %.0 = phi ptr [ %.1, %59 ], [ null, %3 ]
+58:                                               ; preds = %3, %57
+  %.0 = phi ptr [ %.1, %57 ], [ null, %3 ]
   ret ptr %.0
 }
 

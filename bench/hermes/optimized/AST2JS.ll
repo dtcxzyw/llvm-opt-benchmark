@@ -4077,8 +4077,8 @@ entry:
   %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 16
   %0 = load i32, ptr %kind_.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ne i32 %0, 19
-  %tobool.not.not4 = icmp eq ptr %node, null
-  %tobool.not.not = or i1 %cmp.i.i.i.i.i.i.i, %tobool.not.not4
+  %spec.select.i = icmp eq ptr %node, null
+  %tobool.not.not = or i1 %cmp.i.i.i.i.i.i.i, %spec.select.i
   br i1 %tobool.not.not, label %lor.lhs.false, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry

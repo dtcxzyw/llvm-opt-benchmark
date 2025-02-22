@@ -39116,7 +39116,7 @@ GC_reclaim_small_nonempty_block.exit:             ; preds = %54
 define internal fastcc void @GC_print_all_smashed_proc() unnamed_addr #2 {
   %1 = load i32, ptr @GC_n_smashed, align 4, !tbaa !3
   %2 = icmp eq i32 %1, 0
-  br i1 %2, label %59, label %3
+  br i1 %2, label %64, label %3
 
 3:                                                ; preds = %0
   tail call void (ptr, ...) @GC_err_printf(ptr noundef nonnull @.str.188, i32 noundef %1)
@@ -39211,16 +39211,16 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   tail call fastcc void @GC_print_smashed_obj(ptr noundef nonnull @.str.10, ptr noundef nonnull %55, ptr noundef %6)
   store ptr null, ptr %5, align 8, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %56 = load i32, ptr @GC_n_smashed, align 4, !tbaa !3
-  %57 = zext i32 %56 to i64
-  %58 = icmp samesign ult i64 %indvars.iv.next, %57
-  br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !506
+  %61 = load i32, ptr @GC_n_smashed, align 4, !tbaa !3
+  %62 = zext i32 %61 to i64
+  %63 = icmp samesign ult i64 %indvars.iv.next, %62
+  br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !506
 
 ._crit_edge:                                      ; preds = %GC_find_starting_hblk.exit.i, %3
   store i32 0, ptr @GC_n_smashed, align 4, !tbaa !3
-  br label %59
+  br label %64
 
-59:                                               ; preds = %0, %._crit_edge
+64:                                               ; preds = %0, %._crit_edge
   ret void
 }
 

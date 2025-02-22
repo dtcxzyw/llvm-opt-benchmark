@@ -14298,7 +14298,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i: ; pre
   %25 = ptrtoint ptr %20 to i64
   %26 = and i64 %25, 7
   %27 = icmp ne i64 %26, 0
-  %or.cond.i36 = or i1 %24, %27
+  %spec.select.i.i = or i1 %24, %27
   br i1 %or.cond.i36, label %91, label %28
 
 28:                                               ; preds = %_ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i
@@ -14504,7 +14504,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i: ; pre
   %25 = ptrtoint ptr %20 to i64
   %26 = and i64 %25, 3
   %27 = icmp ne i64 %26, 0
-  %or.cond.i36 = or i1 %24, %27
+  %spec.select.i.i = or i1 %24, %27
   br i1 %or.cond.i36, label %92, label %28
 
 28:                                               ; preds = %_ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i
@@ -14683,7 +14683,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i.i: ; p
   %9 = ptrtoint ptr %5 to i64
   %10 = and i64 %9, 3
   %11 = icmp ne i64 %10, 0
-  %or.cond.i = or i1 %8, %11
+  %spec.select.i.i.i = or i1 %8, %11
   br i1 %or.cond.i, label %26, label %12
 
 12:                                               ; preds = %_ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i.i
@@ -14707,7 +14707,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i: ; pre
   %23 = ptrtoint ptr %19 to i64
   %24 = and i64 %23, 3
   %25 = icmp ne i64 %24, 0
-  %or.cond = or i1 %22, %25
+  %spec.select.i.i = or i1 %22, %25
   br i1 %or.cond, label %_ZN6object4read8read_ref7ReadRef7read_at17h240d7c2851599917E.exit.thread, label %28
 
 26:                                               ; preds = %_ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i.i, %3, %12

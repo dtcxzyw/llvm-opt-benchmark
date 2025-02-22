@@ -507,7 +507,7 @@ define noundef zeroext i1 @_ZN4dmlc14RecordIOReader10NextRecordEPNSt7__cxx1112ba
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i8, ptr %7, align 8, !tbaa !23, !range !26, !noundef !27
   %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %110, label %10
+  br i1 %9, label %113, label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -582,11 +582,11 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit1:       ; preds = %.noexc, %_ZN4dmlc15
   %38 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %39 unwind label %112
+          to label %39 unwind label %115
 
 39:                                               ; preds = %37
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #10
-  br label %108
+  br label %111
 
 40:                                               ; preds = %36, %15
   %41 = load i32, ptr %3, align 4, !tbaa !4
@@ -641,11 +641,11 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit4:       ; preds = %.noexc3, %_ZN4dmlc1
   %59 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %60 unwind label %112
+          to label %60 unwind label %115
 
 60:                                               ; preds = %58
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #10
-  br label %108
+  br label %111
 
 61:                                               ; preds = %57, %40
   %62 = load i32, ptr %13, align 4, !tbaa !4
@@ -724,11 +724,11 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit7:       ; preds = %.noexc6, %_ZN4dmlc1
   %99 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %100 unwind label %112
+          to label %100 unwind label %115
 
 100:                                              ; preds = %98
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #10
-  br label %108
+  br label %111
 
 101:                                              ; preds = %97, %70, %61
   %102 = zext nneg i32 %64 to i64
@@ -748,25 +748,25 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit7:       ; preds = %.noexc6, %_ZN4dmlc1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
   br label %15
 
-108:                                              ; preds = %100, %60, %39
-  %109 = phi { ptr, i32 } [ %99, %100 ], [ %59, %60 ], [ %38, %39 ]
+111:                                              ; preds = %100, %60, %39
+  %112 = phi { ptr, i32 } [ %99, %100 ], [ %59, %60 ], [ %38, %39 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
-  resume { ptr, i32 } %109
+  resume { ptr, i32 } %112
 
 .sink.split:                                      ; preds = %101, %101, %21
   %.ph = phi i1 [ false, %21 ], [ true, %101 ], [ true, %101 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
-  br label %110
+  br label %113
 
-110:                                              ; preds = %.sink.split, %2
-  %111 = phi i1 [ false, %2 ], [ %.ph, %.sink.split ]
-  ret i1 %111
+113:                                              ; preds = %.sink.split, %2
+  %114 = phi i1 [ false, %2 ], [ %.ph, %.sink.split ]
+  ret i1 %114
 
-112:                                              ; preds = %98, %58, %37
-  %113 = landingpad { ptr, i32 }
+115:                                              ; preds = %98, %58, %37
+  %116 = landingpad { ptr, i32 }
           catch ptr null
-  %114 = extractvalue { ptr, i32 } %113, 0
-  call void @__clang_call_terminate(ptr %114) #25
+  %117 = extractvalue { ptr, i32 } %116, 0
+  call void @__clang_call_terminate(ptr %117) #25
   unreachable
 }
 
@@ -1204,7 +1204,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit1:       ; preds = %.noexc, %_ZN4dmlc15
   %31 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %32 unwind label %173
+          to label %32 unwind label %176
 
 32:                                               ; preds = %30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
@@ -1287,7 +1287,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit4:       ; preds = %.noexc3, %_ZN4dmlc1
   %65 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %66 unwind label %173
+          to label %66 unwind label %176
 
 66:                                               ; preds = %64
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #10
@@ -1346,7 +1346,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit7:       ; preds = %.noexc6, %_ZN4dmlc1
   %86 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %87 unwind label %173
+          to label %87 unwind label %176
 
 87:                                               ; preds = %85
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #10
@@ -1410,7 +1410,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit10:      ; preds = %.noexc9, %_ZN4dmlc1
   %110 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %111 unwind label %173
+          to label %111 unwind label %176
 
 111:                                              ; preds = %109
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #10
@@ -1466,7 +1466,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit13:      ; preds = %.noexc12, %_ZN4dmlc
   %130 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %131 unwind label %173
+          to label %131 unwind label %176
 
 131:                                              ; preds = %129
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #10
@@ -1505,7 +1505,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit13:      ; preds = %.noexc12, %_ZN4dmlc
   store ptr %155, ptr %8, align 8, !tbaa !30
   %156 = and i32 %134, -536870912
   %157 = icmp eq i32 %156, 1610612736
-  br i1 %157, label %162, label %158
+  br i1 %157, label %165, label %158
 
 158:                                              ; preds = %148
   %159 = add i64 %149, 4
@@ -1515,12 +1515,12 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit13:      ; preds = %.noexc12, %_ZN4dmlc
   store i32 -824761590, ptr %161, align 1
   br label %90
 
-162:                                              ; preds = %148
-  %163 = load i64, ptr %89, align 8, !tbaa !22
-  %164 = icmp eq i64 %163, 0
-  %165 = load ptr, ptr %0, align 8
-  %166 = select i1 %164, ptr null, ptr %165
-  store ptr %166, ptr %1, align 8, !tbaa !35
+165:                                              ; preds = %148
+  %166 = load i64, ptr %89, align 8, !tbaa !22
+  %167 = icmp eq i64 %166, 0
+  %168 = load ptr, ptr %0, align 8
+  %169 = select i1 %167, ptr null, ptr %168
+  store ptr %169, ptr %1, align 8, !tbaa !35
   br label %169
 
 167:                                              ; preds = %131, %111, %87, %66, %32
@@ -1533,14 +1533,14 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit13:      ; preds = %.noexc12, %_ZN4dmlc
   store i64 %170, ptr %171, align 8, !tbaa !37
   br label %172
 
-172:                                              ; preds = %169, %2
+170:                                              ; preds = %169, %2
   ret i1 %12
 
-173:                                              ; preds = %129, %109, %85, %64, %30
-  %174 = landingpad { ptr, i32 }
+176:                                              ; preds = %129, %109, %85, %64, %30
+  %177 = landingpad { ptr, i32 }
           catch ptr null
-  %175 = extractvalue { ptr, i32 } %174, 0
-  call void @__clang_call_terminate(ptr %175) #25
+  %178 = extractvalue { ptr, i32 } %177, 0
+  call void @__clang_call_terminate(ptr %178) #25
   unreachable
 }
 

@@ -8963,7 +8963,7 @@ define dso_local noundef signext i8 @_ZNK4absl4CordixEm(ptr noundef nonnull read
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %1
+  %spec.select.i = getelementptr inbounds nuw i8, ptr %10, i64 %1
   %12 = load i8, ptr %11, align 1, !tbaa !13
   br label %42
 

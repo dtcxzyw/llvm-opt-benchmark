@@ -55,61 +55,61 @@ declare i32 @PyModule_AddFunctions(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define internal ptr @list_get_size(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %1, i64 8
-  %.val.i = load ptr, ptr %3, align 8, !tbaa !3
-  %4 = getelementptr i8, ptr %.val.i, i64 168
-  %.val3.i = load i64, ptr %4, align 8, !tbaa !9
-  %5 = and i64 %.val3.i, 33554432
-  %.not.i = icmp eq i64 %5, 0
-  br i1 %.not.i, label %6, label %7
+  %spec.store.select = load ptr, ptr %3, align 8, !tbaa !3
+  %4 = getelementptr i8, ptr %spec.store.select, i64 168
+  %.val.i = load i64, ptr %4, align 8, !tbaa !9
+  %5 = and i64 %.val.i, 33554432
+  %.val3.i = icmp eq i64 %5, 0
+  br i1 %.val3.i, label %6, label %7
 
-6:                                                ; preds = %2
+7:                                                ; preds = %2
   tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 31, ptr noundef nonnull @__PRETTY_FUNCTION__.PyList_GET_SIZE) #6
   unreachable
 
-7:                                                ; preds = %2
+8:                                                ; preds = %2
   %.not.i.i = icmp eq ptr %.val.i, @PyLong_Type
-  br i1 %.not.i.i, label %8, label %9
+  br i1 %.not.i.i, label %9, label %10
 
-8:                                                ; preds = %7
+9:                                                ; preds = %8
   tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 282, ptr noundef nonnull @__PRETTY_FUNCTION__.Py_SIZE) #6
   unreachable
 
-9:                                                ; preds = %7
+10:                                               ; preds = %8
   %.not3.i.i = icmp eq ptr %.val.i, @PyBool_Type
-  br i1 %.not3.i.i, label %10, label %PyList_GET_SIZE.exit
+  br i1 %.not3.i.i, label %11, label %PyList_GET_SIZE.exit
 
-10:                                               ; preds = %9
+11:                                               ; preds = %10
   tail call void @__assert_fail(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.13, i32 noundef 283, ptr noundef nonnull @__PRETTY_FUNCTION__.Py_SIZE) #6
   unreachable
 
-PyList_GET_SIZE.exit:                             ; preds = %9
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %12 = load i64, ptr %11, align 8, !tbaa !20
-  %13 = icmp eq i64 %12, -1
-  %14 = tail call ptr @PyErr_Occurred() #5
-  %.not5 = icmp eq ptr %14, null
-  br i1 %13, label %15, label %17
+PyList_GET_SIZE.exit:                             ; preds = %10
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %13 = load i64, ptr %12, align 8, !tbaa !20
+  %14 = icmp eq i64 %13, -1
+  %15 = tail call ptr @PyErr_Occurred() #5
+  %.not5 = icmp eq ptr %15, null
+  br i1 %14, label %16, label %18
 
-15:                                               ; preds = %PyList_GET_SIZE.exit
-  br i1 %.not5, label %16, label %21
+16:                                               ; preds = %PyList_GET_SIZE.exit
+  br i1 %.not5, label %17, label %22
 
-16:                                               ; preds = %15
+17:                                               ; preds = %16
   tail call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 9, ptr noundef nonnull @__PRETTY_FUNCTION__.list_get_size) #6
   unreachable
 
-17:                                               ; preds = %PyList_GET_SIZE.exit
-  br i1 %.not5, label %19, label %18
+18:                                               ; preds = %PyList_GET_SIZE.exit
+  br i1 %.not5, label %110, label %19
 
-18:                                               ; preds = %17
+19:                                               ; preds = %18
   tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 9, ptr noundef nonnull @__PRETTY_FUNCTION__.list_get_size) #6
   unreachable
 
-19:                                               ; preds = %17
-  %20 = tail call ptr @PyLong_FromSsize_t(i64 noundef %12) #5
-  br label %21
+110:                                               ; preds = %18
+  %21 = tail call ptr @PyLong_FromSsize_t(i64 noundef %13) #5
+  br label %22
 
-21:                                               ; preds = %15, %19
-  %.0 = phi ptr [ %20, %19 ], [ null, %15 ]
+22:                                               ; preds = %16, %110
+  %.0 = phi ptr [ %21, %110 ], [ null, %16 ]
   ret ptr %.0
 }
 

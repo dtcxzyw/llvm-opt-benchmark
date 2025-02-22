@@ -1009,7 +1009,7 @@ define noundef i64 @_ZNK5folly12TimeoutQueue14nextExpirationEv(ptr noundef nonnu
   %11 = load i64, ptr %10, align 8, !tbaa !29
   br label %12
 
-12:                                               ; preds = %1, %5
+12:; preds = %1, %5
   %13 = phi i64 [ %11, %5 ], [ 9223372036854775807, %1 ]
   ret i64 %13
 }
@@ -2306,12 +2306,12 @@ _ZN5boost11multi_index6detail18ordered_index_implINS0_6memberIN5folly12TimeoutQu
 .loopexit74:                                      ; preds = %_ZN5boost14operators_implppERNS_11multi_index6detail19bidir_node_iteratorINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseIN5folly12TimeoutQueue5EventESaIS9_EEEEEEEi.exit.i, %.noexc42
   %lpad.loopexit76 = landingpad { ptr, i32 }
           cleanup
-  br label %291
+  br label %294
 
 .loopexit.split-lp75:                             ; preds = %.loopexit79
   %lpad.loopexit.split-lp77 = landingpad { ptr, i32 }
           cleanup
-  br label %291
+  br label %294
 
 .lr.ph:                                           ; preds = %_ZN5boost11multi_index6detail18ordered_index_implINS0_6memberIN5folly12TimeoutQueue5EventElXadL_ZNS6_10expirationEEEEESt4lessIlENS1_9nth_layerILi2ES6_NS0_10indexed_byINS0_14ordered_uniqueINS3_IS6_lXadL_ZNS6_2idEEEEEN4mpl_2naESF_EENS0_18ordered_non_uniqueIS7_SF_SF_EESF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_EESaIS6_EEENS_3mpl7vector0ISF_EENS1_22ordered_non_unique_tagENS1_19null_augment_policyEE5eraseENS1_19bidir_node_iteratorINS1_18ordered_index_nodeISQ_NS1_15index_node_baseIS6_SK_EEEEEESX_.exit, %251
   %.sroa.061.090 = phi ptr [ %252, %251 ], [ %87, %_ZN5boost11multi_index6detail18ordered_index_implINS0_6memberIN5folly12TimeoutQueue5EventElXadL_ZNS6_10expirationEEEEESt4lessIlENS1_9nth_layerILi2ES6_NS0_10indexed_byINS0_14ordered_uniqueINS3_IS6_lXadL_ZNS6_2idEEEEEN4mpl_2naESF_EENS0_18ordered_non_uniqueIS7_SF_SF_EESF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_EESaIS6_EEENS_3mpl7vector0ISF_EENS1_22ordered_non_unique_tagENS1_19null_augment_policyEE5eraseENS1_19bidir_node_iteratorINS1_18ordered_index_nodeISQ_NS1_15index_node_baseIS6_SK_EEEEEESX_.exit ]
@@ -2687,14 +2687,14 @@ _ZN5folly12TimeoutQueue5EventD2Ev.exit:           ; preds = %.noexc33.thread111,
 .body:                                            ; preds = %246, %243, %107, %104
   %.pn = phi { ptr, i32 } [ %105, %107 ], [ %105, %104 ], [ %244, %243 ], [ %244, %246 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #14
-  br label %291
+  br label %294
 
 251:                                              ; preds = %_ZN5folly12TimeoutQueue5EventD2Ev.exit, %.lr.ph
   %252 = getelementptr inbounds nuw i8, ptr %.sroa.061.090, i64 56
   %.not = icmp eq ptr %252, %88
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge96:                                    ; preds = %269, %_ZN5boost11multi_index6detail18ordered_index_implINS0_6memberIN5folly12TimeoutQueue5EventElXadL_ZNS6_10expirationEEEEESt4lessIlENS1_9nth_layerILi2ES6_NS0_10indexed_byINS0_14ordered_uniqueINS3_IS6_lXadL_ZNS6_2idEEEEEN4mpl_2naESF_EENS0_18ordered_non_uniqueIS7_SF_SF_EESF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_EESaIS6_EEENS_3mpl7vector0ISF_EENS1_22ordered_non_unique_tagENS1_19null_augment_policyEE5eraseENS1_19bidir_node_iteratorINS1_18ordered_index_nodeISQ_NS1_15index_node_baseIS6_SK_EEEEEESX_.exit, %._crit_edge
+._crit_edge96:                                    ; preds = %272, %_ZN5boost11multi_index6detail18ordered_index_implINS0_6memberIN5folly12TimeoutQueue5EventElXadL_ZNS6_10expirationEEEEESt4lessIlENS1_9nth_layerILi2ES6_NS0_10indexed_byINS0_14ordered_uniqueINS3_IS6_lXadL_ZNS6_2idEEEEEN4mpl_2naESF_EENS0_18ordered_non_uniqueIS7_SF_SF_EESF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_EESaIS6_EEENS_3mpl7vector0ISF_EENS1_22ordered_non_unique_tagENS1_19null_augment_policyEE5eraseENS1_19bidir_node_iteratorINS1_18ordered_index_nodeISQ_NS1_15index_node_baseIS6_SK_EEEEEESX_.exit, %._crit_edge
   %253 = load i64, ptr %13, align 8, !tbaa !36
   %254 = icmp eq i64 %253, 0
   br i1 %254, label %_ZNK5folly12TimeoutQueue14nextExpirationEv.exit, label %255
@@ -2707,78 +2707,78 @@ _ZN5folly12TimeoutQueue5EventD2Ev.exit:           ; preds = %.noexc33.thread111,
   %260 = load i64, ptr %259, align 8, !tbaa !29
   br label %_ZNK5folly12TimeoutQueue14nextExpirationEv.exit
 
-.lr.ph95:                                         ; preds = %._crit_edge, %269
-  %.sroa.057.093 = phi ptr [ %270, %269 ], [ %.pre103, %._crit_edge ]
-  %261 = load i64, ptr %.sroa.057.093, align 8, !tbaa !25
+.lr.ph95:                                         ; preds = %._crit_edge, %272
+  %.sroa.057.093 = phi ptr [ %273, %272 ], [ %.pre103, %._crit_edge ]
+  %264 = load i64, ptr %.sroa.057.093, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  store i64 %261, ptr %8, align 8, !tbaa !37
+  store i64 %264, ptr %8, align 8, !tbaa !37
   store i64 %1, ptr %9, align 8, !tbaa !37
-  %262 = getelementptr inbounds nuw i8, ptr %.sroa.057.093, i64 40
-  %263 = load ptr, ptr %262, align 8, !tbaa !32
-  %.not.i.i39 = icmp eq ptr %263, null
-  br i1 %.not.i.i39, label %264, label %265
+  %265 = getelementptr inbounds nuw i8, ptr %.sroa.057.093, i64 40
+  %266 = load ptr, ptr %265, align 8, !tbaa !32
+  %.not.i.i39 = icmp eq ptr %266, null
+  br i1 %.not.i.i39, label %267, label %268
 
-264:                                              ; preds = %.lr.ph95
+267:                                              ; preds = %.lr.ph95
   invoke void @_ZSt25__throw_bad_function_callv() #18
           to label %.noexc40 unwind label %.loopexit.split-lp
 
-.noexc40:                                         ; preds = %264
+.noexc40:                                         ; preds = %267
   unreachable
 
-265:                                              ; preds = %.lr.ph95
-  %266 = getelementptr inbounds nuw i8, ptr %.sroa.057.093, i64 24
-  %267 = getelementptr inbounds nuw i8, ptr %.sroa.057.093, i64 48
-  %268 = load ptr, ptr %267, align 8, !tbaa !31
-  invoke void %268(ptr noundef nonnull align 8 dereferenceable(32) %266, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %269 unwind label %.loopexit
+268:                                              ; preds = %.lr.ph95
+  %269 = getelementptr inbounds nuw i8, ptr %.sroa.057.093, i64 24
+  %270 = getelementptr inbounds nuw i8, ptr %.sroa.057.093, i64 48
+  %271 = load ptr, ptr %270, align 8, !tbaa !31
+  invoke void %268(ptr noundef nonnull align 8 dereferenceable(32) %269, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %272 unwind label %.loopexit
 
-269:                                              ; preds = %265
+272:                                              ; preds = %268
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %270 = getelementptr inbounds nuw i8, ptr %.sroa.057.093, i64 56
-  %.not72 = icmp eq ptr %270, %.pre104
+  %273 = getelementptr inbounds nuw i8, ptr %.sroa.057.093, i64 56
+  %.not72 = icmp eq ptr %273, %.pre104
   br i1 %.not72, label %._crit_edge96, label %.lr.ph95
 
-.loopexit:                                        ; preds = %265
+.loopexit:                                        ; preds = %268
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %291
+  br label %294
 
-.loopexit.split-lp:                               ; preds = %264
+.loopexit.split-lp:                               ; preds = %267
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %291
+  br label %294
 
 _ZNK5folly12TimeoutQueue14nextExpirationEv.exit:  ; preds = %255, %._crit_edge96
-  %271 = phi i64 [ %260, %255 ], [ 9223372036854775807, %._crit_edge96 ]
-  %272 = load ptr, ptr %10, align 8, !tbaa !94
-  %273 = load ptr, ptr %14, align 8, !tbaa !96
-  %.not4.i.i.i.i = icmp eq ptr %272, %273
+  %274 = phi i64 [ %260, %255 ], [ 9223372036854775807, %._crit_edge96 ]
+  %275 = load ptr, ptr %10, align 8, !tbaa !94
+  %276 = load ptr, ptr %14, align 8, !tbaa !96
+  %.not4.i.i.i.i = icmp eq ptr %275, %276
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5folly12TimeoutQueue5EventES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK5folly12TimeoutQueue14nextExpirationEv.exit, %_ZSt8_DestroyIN5folly12TimeoutQueue5EventEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %282, %_ZSt8_DestroyIN5folly12TimeoutQueue5EventEEvPT_.exit.i.i.i.i ], [ %272, %_ZNK5folly12TimeoutQueue14nextExpirationEv.exit ]
-  %274 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 40
-  %275 = load ptr, ptr %274, align 8, !tbaa !32
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %275, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN5folly12TimeoutQueue5EventEEvPT_.exit.i.i.i.i, label %276
+  %.05.i.i.i.i = phi ptr [ %285, %_ZSt8_DestroyIN5folly12TimeoutQueue5EventEEvPT_.exit.i.i.i.i ], [ %275, %_ZNK5folly12TimeoutQueue14nextExpirationEv.exit ]
+  %277 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 40
+  %278 = load ptr, ptr %277, align 8, !tbaa !32
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %278, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN5folly12TimeoutQueue5EventEEvPT_.exit.i.i.i.i, label %279
 
-276:                                              ; preds = %.lr.ph.i.i.i.i
-  %277 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
-  %278 = invoke noundef zeroext i1 %275(ptr noundef nonnull align 8 dereferenceable(32) %277, ptr noundef nonnull align 8 dereferenceable(32) %277, i32 noundef 3)
-          to label %_ZSt8_DestroyIN5folly12TimeoutQueue5EventEEvPT_.exit.i.i.i.i unwind label %279
+279:                                              ; preds = %.lr.ph.i.i.i.i
+  %280 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
+  %281 = invoke noundef zeroext i1 %275(ptr noundef nonnull align 8 dereferenceable(32) %280, ptr noundef nonnull align 8 dereferenceable(32) %280, i32 noundef 3)
+          to label %_ZSt8_DestroyIN5folly12TimeoutQueue5EventEEvPT_.exit.i.i.i.i unwind label %282
 
-279:                                              ; preds = %276
-  %280 = landingpad { ptr, i32 }
+282:                                              ; preds = %279
+  %283 = landingpad { ptr, i32 }
           catch ptr null
-  %281 = extractvalue { ptr, i32 } %280, 0
-  call void @__clang_call_terminate(ptr %281) #15
+  %284 = extractvalue { ptr, i32 } %283, 0
+  call void @__clang_call_terminate(ptr %284) #15
   unreachable
 
-_ZSt8_DestroyIN5folly12TimeoutQueue5EventEEvPT_.exit.i.i.i.i: ; preds = %276, %.lr.ph.i.i.i.i
-  %282 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 56
-  %.not.i.i.i.i = icmp eq ptr %282, %273
+_ZSt8_DestroyIN5folly12TimeoutQueue5EventEEvPT_.exit.i.i.i.i: ; preds = %279, %.lr.ph.i.i.i.i
+  %285 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 56
+  %.not.i.i.i.i = icmp eq ptr %285, %276
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN5folly12TimeoutQueue5EventES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !97
 
 _ZSt8_DestroyIPN5folly12TimeoutQueue5EventES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN5folly12TimeoutQueue5EventEEvPT_.exit.i.i.i.i
@@ -2786,28 +2786,28 @@ _ZSt8_DestroyIPN5folly12TimeoutQueue5EventES2_EvT_S4_RSaIT0_E.exitthread-pre-spl
   br label %_ZSt8_DestroyIPN5folly12TimeoutQueue5EventES2_EvT_S4_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN5folly12TimeoutQueue5EventES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5folly12TimeoutQueue5EventES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %_ZNK5folly12TimeoutQueue14nextExpirationEv.exit
-  %283 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5folly12TimeoutQueue5EventES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %272, %_ZNK5folly12TimeoutQueue14nextExpirationEv.exit ]
-  %.not.i.i.i = icmp eq ptr %283, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5folly12TimeoutQueue5EventESaIS2_EED2Ev.exit, label %284
+  %286 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5folly12TimeoutQueue5EventES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %275, %_ZNK5folly12TimeoutQueue14nextExpirationEv.exit ]
+  %.not.i.i.i = icmp eq ptr %286, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5folly12TimeoutQueue5EventESaIS2_EED2Ev.exit, label %287
 
-284:                                              ; preds = %_ZSt8_DestroyIPN5folly12TimeoutQueue5EventES2_EvT_S4_RSaIT0_E.exit.i
-  %285 = load ptr, ptr %20, align 8, !tbaa !98
-  %286 = ptrtoint ptr %285 to i64
-  %287 = ptrtoint ptr %283 to i64
-  %288 = sub i64 %286, %287
-  call void @_ZdlPvm(ptr noundef nonnull %283, i64 noundef %288) #17
+287:                                              ; preds = %_ZSt8_DestroyIPN5folly12TimeoutQueue5EventES2_EvT_S4_RSaIT0_E.exit.i
+  %288 = load ptr, ptr %20, align 8, !tbaa !98
+  %289 = ptrtoint ptr %288 to i64
+  %290 = ptrtoint ptr %286 to i64
+  %291 = sub i64 %289, %290
+  call void @_ZdlPvm(ptr noundef nonnull %286, i64 noundef %291) #17
   br label %_ZNSt6vectorIN5folly12TimeoutQueue5EventESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN5folly12TimeoutQueue5EventESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5folly12TimeoutQueue5EventES2_EvT_S4_RSaIT0_E.exit.i, %284
+_ZNSt6vectorIN5folly12TimeoutQueue5EventESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5folly12TimeoutQueue5EventES2_EvT_S4_RSaIT0_E.exit.i, %287
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #14
-  %289 = icmp sgt i64 %271, %1
-  %.not30 = select i1 %2, i1 true, i1 %289
-  br i1 %.not30, label %290, label %21, !llvm.loop !99
+  %292 = icmp sgt i64 %274, %1
+  %.not30 = select i1 %2, i1 true, i1 %292
+  br i1 %.not30, label %293, label %21, !llvm.loop !99
 
-290:                                              ; preds = %_ZNSt6vectorIN5folly12TimeoutQueue5EventESaIS2_EED2Ev.exit
-  ret i64 %271
+293:                                              ; preds = %_ZNSt6vectorIN5folly12TimeoutQueue5EventESaIS2_EED2Ev.exit
+  ret i64 %274
 
-291:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit74, %.loopexit.split-lp75, %.body
+294:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit74, %.loopexit.split-lp75, %.body
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.loopexit76, %.loopexit74 ], [ %lpad.loopexit.split-lp77, %.loopexit.split-lp75 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorIN5folly12TimeoutQueue5EventESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #14

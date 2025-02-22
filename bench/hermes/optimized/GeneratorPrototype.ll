@@ -103,7 +103,7 @@ if.end.i:                                         ; preds = %_ZN6hermes2vm6Handl
   %conv.i.i.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i to i64
   %add.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i, %6
   %7 = inttoptr i64 %add.i.i.i.i.i.i.i to ptr
-  %state_.i.i = getelementptr inbounds nuw i8, ptr %7, i64 36
+  %cond.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 36
   %8 = load i32, ptr %state_.i.i, align 4
   %cmp.i = icmp eq i32 %8, 2
   br i1 %cmp.i, label %if.then12.i, label %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit
@@ -324,7 +324,7 @@ if.end.i:                                         ; preds = %_ZN6hermes2vm6Handl
   %conv.i.i.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i to i64
   %add.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i, %5
   %6 = inttoptr i64 %add.i.i.i.i.i.i.i to ptr
-  %state_.i.i = getelementptr inbounds nuw i8, ptr %6, i64 36
+  %cond.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 36
   %7 = load i32, ptr %state_.i.i, align 4
   %cmp.i = icmp eq i32 %7, 2
   br i1 %cmp.i, label %if.then12.i, label %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit
